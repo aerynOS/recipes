@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 391784
+  rss: https://gitlab.steamos.cloud/holo/dmemcg-booster/-/tags?format=atom
+security:
+  cpe: ~
