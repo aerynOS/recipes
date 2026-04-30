@@ -15,9 +15,9 @@
 			],
 			"files": [
 				"/usr/bin/dmemcg-booster",
-				"/usr/lib/systemd/system-preset/60-dmemcg-booster.preset",
+				"/usr/lib/systemd/system-preset/98-dmemcg-booster-system.preset",
 				"/usr/lib/systemd/system/dmemcg-booster-system.service",
-				"/usr/lib/systemd/user-preset/60-dmemcg-booster.preset",
+				"/usr/lib/systemd/user-preset/98-dmemcg-booster-user.preset",
 				"/usr/lib/systemd/user/dmemcg-booster-user.service"
 			],
 			"name": "dmemcg-booster",

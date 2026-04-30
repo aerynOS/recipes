@@ -24,5 +24,5 @@ install     : |
     # Set up systemd services
     %install_file dmemcg-booster-system.service -t %(installroot)/%(libdir)/systemd/system
     %install_file dmemcg-booster-user.service -t %(installroot)/%(libdir)/systemd/user
-    %install_file %(pkgdir)/60-dmemcg-booster-system.preset %(installroot)%(libdir)/systemd/system-preset/60-%(name).preset
-    %install_file %(pkgdir)/60-dmemcg-booster-user.preset %(installroot)%(libdir)/systemd/user-preset/60-%(name).preset
+    %install_file %(pkgdir)/*system*.preset -t %(installroot)/%(libdir)/systemd/system-preset/
+    %install_file %(pkgdir)/*user*.preset -t %(installroot)/%(libdir)/systemd/user-preset/
