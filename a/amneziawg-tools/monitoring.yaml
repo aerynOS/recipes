@@ -1,0 +1,5 @@
+releases:
+  id: 390942
+  rss: https://github.com/amnezia-vpn/amneziawg-tools/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-06-11)

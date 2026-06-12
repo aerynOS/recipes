@@ -1,0 +1,30 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"amneziawg-tools": {
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/awg",
+				"/usr/bin/awg-quick",
+				"/usr/lib/systemd/system/awg-quick.target",
+				"/usr/lib/systemd/system/awg-quick@.service",
+				"/usr/share/bash-completion/completions/awg",
+				"/usr/share/bash-completion/completions/awg-quick",
+				"/usr/share/man/man8/awg-quick.8",
+				"/usr/share/man/man8/awg.8"
+			],
+			"name": "amneziawg-tools",
+			"provides": [
+				"binary(awg)",
+				"binary(awg-quick)"
+			]
+		}
+	},
+	"source-name": "amneziawg-tools",
+	"source-release": "1",
+	"source-version": "3.1.20260812"
+}
