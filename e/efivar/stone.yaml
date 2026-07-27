@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : efivar
+version     : "39"
+release     : 1
+homepage    : https://github.com/rhboot/efivar
+upstreams   :
+    - https://github.com/rhboot/efivar/archive/refs/tags/39.tar.gz : c9edd15f2eeeea63232f3e669a48e992c7be9aff57ee22672ac31f5eca1609a6
+summary     : Tools and libraries to work with EFI variables
+description : |
+    Tools and libraries to work with EFI variables
+license     : 
+    - LGPL-2.1-or-later
+    - GPL-3.0-or-later
+environment : |
+    export CC=${CC}
+    export COMPILER=${CC}
+    export ENABLE_DOCS=0
+build       : |
+    %make
+install     : |
+    %make_install libdir=%(libdir)
