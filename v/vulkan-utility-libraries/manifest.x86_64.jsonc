@@ -1,0 +1,37 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"vulkan-utility-libraries": {
+			"build-depends": [
+				"cmake(VulkanHeaders)"
+			],
+			"files": [
+				"/usr/include/vulkan/layer/vk_layer_settings.h",
+				"/usr/include/vulkan/layer/vk_layer_settings.hpp",
+				"/usr/include/vulkan/utility/vk_concurrent_unordered_map.hpp",
+				"/usr/include/vulkan/utility/vk_dispatch_table.h",
+				"/usr/include/vulkan/utility/vk_format_utils.h",
+				"/usr/include/vulkan/utility/vk_safe_struct.hpp",
+				"/usr/include/vulkan/utility/vk_safe_struct_utils.hpp",
+				"/usr/include/vulkan/utility/vk_small_containers.hpp",
+				"/usr/include/vulkan/utility/vk_sparse_range_map.hpp",
+				"/usr/include/vulkan/utility/vk_struct_helper.hpp",
+				"/usr/include/vulkan/vk_enum_string_helper.h",
+				"/usr/lib/cmake/VulkanUtilityLibraries/VulkanUtilityLibraries-targets-release.cmake",
+				"/usr/lib/cmake/VulkanUtilityLibraries/VulkanUtilityLibraries-targets.cmake",
+				"/usr/lib/cmake/VulkanUtilityLibraries/VulkanUtilityLibrariesConfig.cmake",
+				"/usr/lib/cmake/VulkanUtilityLibraries/VulkanUtilityLibrariesConfigVersion.cmake",
+				"/usr/lib/libVulkanLayerSettings.a",
+				"/usr/lib/libVulkanSafeStruct.a"
+			],
+			"name": "vulkan-utility-libraries",
+			"provides": [
+				"cmake(VulkanUtilityLibraries)"
+			]
+		}
+	},
+	"source-name": "vulkan-utility-libraries",
+	"source-release": "1",
+	"source-version": "1.4.357.0"
+}
