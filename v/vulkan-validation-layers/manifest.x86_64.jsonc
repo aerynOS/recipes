@@ -1,0 +1,38 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"vulkan-validation-layers": {
+			"build-depends": [
+				"binary(python3)",
+				"cmake(SPIRV-Headers)",
+				"cmake(SPIRV-Tools-opt)",
+				"cmake(VulkanHeaders)",
+				"cmake(VulkanUtilityLibraries)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(x11)",
+				"pkgconfig(xcb)",
+				"pkgconfig(xrandr)"
+			],
+			"depends": [
+				"soname(libSPIRV-Tools-opt.so(x86_64))",
+				"soname(libSPIRV-Tools.so(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libVkLayer_khronos_validation.so",
+				"/usr/share/vulkan/explicit_layer.d/VkLayer_khronos_validation.json"
+			],
+			"name": "vulkan-validation-layers",
+			"provides": [
+				"soname(libVkLayer_khronos_validation.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "vulkan-validation-layers",
+	"source-release": "1",
+	"source-version": "1.4.357.0"
+}
