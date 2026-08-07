@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : system-config-printer
+version     : "1.5.18"
+release     : 1
+homepage    : https://github.com/OpenPrinting/system-config-printer
+upstreams   :
+    - https://github.com/OpenPrinting/system-config-printer/archive/refs/tags/v1.5.18.tar.gz : 6acdc0b3f144f0d7f71a361c3653b5ccc1ee5760b5eb5b2470c363bc5daed210
+summary     : Graphical user interface for CUPS administration
+description : |
+    It uses IPP to configure a CUPS server. Additionally it provides dBUS interface for several operations which aren't directly available in cupsd, and automatic USB printer installation daemon for non-IPP-over-USB printers.
+    The alternatives for the graphical configuration tool are CUPS Web interface, desktop control-center or lpadmin command line tool if you need to install printer manually which may not be needed in recent cases.
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(desktop-file-install)
+    - binary(xmlto)
+    - pkgconfig(cups)
+    - python(setuptools)
+    - docbook
+rundeps     :
+    - python(dbus-python)
+    - python(pycairo)
+    - python(pycups)
+    - python(pygobject)
+    - sysbinary(cups-browsed)
+    - cups-client
+    - cups-filters
+    - cups-pk-helper
+    # - gutenprint
+    # - python3-smbc
+    # - python3-firewall
+environment : |
+    %export_docbook_catalogs
+setup       : |
+    # ftbfs gettext 0.26 - autotoreconf fails (https://github.com/OpenPrinting/system-config-printer/issues/416)
+    %patch %(pkgdir)/ftbfs-gettext-external.patch
+
+    # error: required file './ChangeLog' not found
+    touch ChangeLog
+
+    autoupdate configure.ac
+
+    %reconfigure \
+            --sysconfdir=%(datadir)
+build       : |
+    %make
+install     : |
+    %make_install
