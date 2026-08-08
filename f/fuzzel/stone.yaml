@@ -3,24 +3,26 @@
 
 name        : fuzzel
 version     : "1.14.1"
-release     : 1
-homepage    : https://codeberg.org/dnkl/fuzzel/releases/download/1.14.1
+release     : 2
+homepage    : https://codeberg.org/dnkl/fuzzel
 upstreams   :
     - https://codeberg.org/dnkl/fuzzel/releases/download/1.14.1/fuzzel-1.14.1.tar.gz : a3af48d00d5cb7cb5526ab86bd632c62dbea5901693fdd746a2e7bb5bd64cf04
 summary     : App launcher and fuzzy finder for Wayland, inspired by rofi and dmenu.
 description : |
     Fuzzel is a Wayland-native application launcher and fuzzy finder, inspired by rofi and dmenu.
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - pkgconfig(fcft)
+    - pkgconfig(librsvg-2.0)
     - pkgconfig(scdoc)
     - pkgconfig(tllist)
     - pkgconfig(wayland-client)
     - pkgconfig(wayland-protocols)
     - pkgconfig(xkbcommon)
 setup       : |
-    %meson
+    %meson \
+        -Dsvg-backend=librsvg \
+        --sysconfdir=%(datadir)
 build       : |
     %meson_build
 install     : |
