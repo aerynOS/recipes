@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : jay
+version     : "1.14.0"
+release     : 1
+homepage    : https://github.com/mahkoh/jay
+upstreams   :
+    - https://github.com/mahkoh/jay/archive/refs/tags/v1.14.0.tar.gz : 5064d1ec0016b27953918dcf4a67baa8d9864e36086c06c9f65cc1353fa91bd8
+summary     : A Wayland Compositor
+description : |
+    Jay is a Wayland compositor for Linux with an i3-like tiling layout, Vulkan and OpenGL rendering, multi-GPU support, screen sharing, and more.
+license     : GPL-3.0-only
+networking  : true
+tuning      :
+    - lto: full
+builddeps   :
+    - pkgconfig(cairo)
+    - pkgconfig(fontconfig)
+    - pkgconfig(gbm)
+    - pkgconfig(libinput)
+    - pkgconfig(libudev)
+    - pkgconfig(pango)
+rundeps     :
+    - binary(Xwayland)
+    - binary(gnome-keyring)
+    - alacritty
+    - bemenu
+    - sqlite
+    - xdg-desktop-portal-gtk
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+
+    %install_file etc/jay.portal %(installroot)%(datadir)/xdg-desktop-portal/portals/jay.portal
+    %install_file etc/jay-portals.conf %(installroot)%(datadir)/xdg-desktop-portal/jay-portals.conf
+    %install_file etc/jay.desktop %(installroot)%(datadir)/wayland-sessions/jay.desktop
+
+    %install_dir %(installroot){%(zshcompletionsdir),%(bashcompletionsdir),%(fishcompletionsdir)}
+
+    for shell in bash fish zsh; do
+        %(installroot)%(bindir)/jay generate-completion "${shell}" > "${shell}-completions"
+    done
+
+    %install_file bash-completions %(installroot)%(bashcompletionsdir)/jay
+    %install_file zsh-completions  %(installroot)%(zshcompletionsdir)/_jay
+    %install_file fish-completions %(installroot)%(fishcompletionsdir)/jay.fish
+
+    # TODO: When we support setting capabilities make sure to add CAP_SYS_NICE to the jay binary
