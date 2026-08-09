@@ -132,6 +132,7 @@
 				"/usr/lib/heroic/resources/app.asar.unpacked/build/icon.icns",
 				"/usr/lib/heroic/resources/app.asar.unpacked/build/icon.png",
 				"/usr/lib/heroic/resources/app.asar.unpacked/build/mac-icon.icns",
+				"/usr/lib/heroic/resources/app.asar.unpacked/build/preload/webviewPreload.js",
 				"/usr/lib/heroic/resources/app.asar.unpacked/build/win_icon.ico",
 				"/usr/lib/heroic/snapshot_blob.bin",
 				"/usr/lib/heroic/v8_context_snapshot.bin",
@@ -151,6 +152,6 @@
 		}
 	},
 	"source-name": "heroic-games-launcher",
-	"source-release": "1",
-	"source-version": "2.22.0"
+	"source-release": "2",
+	"source-version": "2.22.1"
 }

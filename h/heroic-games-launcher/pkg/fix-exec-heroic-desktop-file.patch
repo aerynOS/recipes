@@ -1,5 +1,7 @@
---- a/flatpak/com.heroicgameslauncher.hgl.desktop	2026-04-30 08:49:37.698540546 +0200
-+++ b/flatpak/com.heroicgameslauncher.hgl.desktop	2026-04-30 08:54:28.314802989 +0200
+diff --git a/flatpak/com.heroicgameslauncher.hgl.desktop b/flatpak/com.heroicgameslauncher.hgl.desktop
+index 63840084..6d78fdcd 100644
+--- a/flatpak/com.heroicgameslauncher.hgl.desktop
++++ b/flatpak/com.heroicgameslauncher.hgl.desktop
 @@ -1,6 +1,6 @@
  [Desktop Entry]
  Name=Heroic Games Launcher
