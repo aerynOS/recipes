@@ -2687,6 +2687,8 @@
 				"/usr/include/wine/windows/filter.h",
 				"/usr/include/wine/windows/filter.idl",
 				"/usr/include/wine/windows/fltdefs.h",
+				"/usr/include/wine/windows/fltuser.h",
+				"/usr/include/wine/windows/fltuserstructures.h",
 				"/usr/include/wine/windows/fontsub.h",
 				"/usr/include/wine/windows/fusion.h",
 				"/usr/include/wine/windows/fusion.idl",
@@ -4146,6 +4148,6 @@
 		}
 	},
 	"source-name": "wine",
-	"source-release": "35",
-	"source-version": "11.14"
+	"source-release": "36",
+	"source-version": "11.15"
 }
