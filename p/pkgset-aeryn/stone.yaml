@@ -3,7 +3,7 @@
 
 name        : pkgset-aeryn
 version     : "2026.07" # I guess let's just match the OS version for now
-release     : 25
+release     : 26
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : pkgset virtual packages
@@ -111,6 +111,7 @@ packages    :
             - networkmanager-bluetooth
             - networkmanager-wifi
             - networkmanager-wwan
+            - networkmanager-openvpn
 
             # Used by many graphical daemons
             - polkit

@@ -42,6 +42,7 @@
 				"mesa-vulkan-drivers",
 				"networkmanager",
 				"networkmanager-bluetooth",
+				"networkmanager-openvpn",
 				"networkmanager-wifi",
 				"networkmanager-wwan",
 				"pipewire",
@@ -93,6 +94,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn",
-	"source-release": "25",
+	"source-release": "26",
 	"source-version": "2026.07"
 }
