@@ -26,6 +26,7 @@
 				"gnome-backgrounds",
 				"gnome-desktop-defaults",
 				"gst-thumbnailers",
+				"networkmanager-openvpn-gnome",
 				"pkgset-aeryn-base-desktop",
 				"sysbinary(gdm)"
 			],
@@ -59,6 +60,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn-gnome",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "2025.10"
 }
