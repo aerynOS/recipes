@@ -3,7 +3,7 @@
 
 name        : nautilus
 version     : "50.2.2"
-release     : 23
+release     : 24
 homepage    : https://apps.gnome.org/Nautilus/
 upstreams   :
     - https://download.gnome.org/sources/nautilus/50/nautilus-50.2.2.tar.xz : e1e285efddf42ed30dda5b29f7f8d242dab4bc1409a9054863b367bad4b34d5a
@@ -40,6 +40,9 @@ builddeps   :
 rundeps     :
     - glycin-thumbnailer # Needed for image thumbnails
     - gvfs-fuse
+    - gvfs-mtp
+    - gvfs-nfs
+    - gvfs-smb
     - localsearch
 setup       : |
     %patch %(pkgdir)/default-terminal.patch
