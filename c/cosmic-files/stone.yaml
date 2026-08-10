@@ -3,7 +3,7 @@
 
 name        : cosmic-files
 version     : "1.5.0"
-release     : 53
+release     : 54
 homepage    : https://github.com/pop-os/cosmic-files
 upstreams   :
     - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.5.0.tar.gz :  da8567bcd0a15ca6522a8800ec800701f8e994ef5da52513b3afdf95370e3bf1
@@ -23,6 +23,7 @@ builddeps   :
 rundeps     :
     # Used for file services
     - gvfs-fuse
+    - gvfs-mtp
     - gvfs-nfs
     - gvfs-smb
 networking  : true
