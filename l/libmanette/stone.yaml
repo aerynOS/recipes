@@ -3,10 +3,10 @@
 
 name        : libmanette
 version     : "0.2.13"
-release     : 1
+release     : 2
 upstreams   :
     - https://download.gnome.org/sources/libmanette/0.2/libmanette-0.2.13.tar.xz : 287cc2fde0de092919366af757d85e7b3a0248eb1b395344726e97955a77d8ae
-homepage    : hthttps://gnome.pages.gitlab.gnome.org/libmanette
+homepage    : https://gnome.pages.gitlab.gnome.org/libmanette
 license     : LGPL-2.1-or-later
 summary     : Simple GObject game controller library
 description : |

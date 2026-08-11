@@ -16,6 +16,7 @@
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"soname(libevdev.so.2(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libgio-2.0.so.0(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
@@ -52,6 +53,7 @@
 				"pkgconfig(hidapi-hidraw)",
 				"pkgconfig(libevdev)",
 				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libmanette-0.2.so.0(x86_64))"
@@ -79,6 +81,6 @@
 		}
 	},
 	"source-name": "libmanette",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.2.13"
 }
