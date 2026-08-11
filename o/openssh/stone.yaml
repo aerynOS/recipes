@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openssh
-version     : "10.4p1"
-release     : 23
+version     : "10.5p1"
+release     : 24
 summary     : OpenSSH (OpenBSD Secure Shell)
 license     :
     - BSD-2-Clause
@@ -14,7 +14,7 @@ homepage    : https://www.openssh.com/
 description : |
     OpenSSH is a free version of secure shell tools developed by the OpenBSD project to help facilitate secure connections and communications.
 upstreams   :
-    - https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.4p1.tar.gz: ef6026dd2aea8d56059638d5d3262902c892ceba9f88395835e0d06d3fb63238
+    - https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.5p1.tar.gz: d44d28a839ea9daf969cc69150fde59910b2b39361dad81a3bd6cbd19218db11
 builddeps   :
     - binary(groff)
     - pkgconfig(krb5-gssapi)

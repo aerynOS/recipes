@@ -132,6 +132,6 @@
 		}
 	},
 	"source-name": "openssh",
-	"source-release": "23",
-	"source-version": "10.4p1"
+	"source-release": "24",
+	"source-version": "10.5p1"
 }
