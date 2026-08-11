@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : linux-firmware
-version     : "20260622"
-release     : 41
+version     : "20260810"
+release     : 42
 homepage    : https://kernel.org
 upstreams   :
-    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : b2722d241309a1872446c1d00c2e812bad055f89
+    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : 2135b2f7714a3a514c989b9728f51f36144cab6f
 summary     : Firmware to allow devices to function correctly
 description : |
     Firmware to allow devices to function correctly
@@ -39,6 +39,11 @@ install     : |
         unzstd --rm $file
     done
 
+    # unzstd README files
+    for file in %(installroot)%(libdir)/firmware/*/README*.zst ; do
+        unzstd --rm $file
+    done
+
     # Meta linux-firmware
     %install_dir %(installroot)%(docdir)/%(name)
     echo "This file will disappear when virtual packages are introduced" > %(installroot)%(docdir)/%(name)/README
@@ -54,6 +59,7 @@ packages    :
         paths:
             - /usr/lib/firmware/amd-ucode
             - /usr/lib/firmware/amd/amd_sev*
+            - /usr/lib/firmware/amd/READ*
             - /usr/lib/firmware/amdtee
 
     - "%(name)-amd-graphics":
@@ -286,6 +292,7 @@ packages    :
             - /usr/lib/firmware/8*0x*.bin*
             - /usr/lib/firmware/8E8*.bin*
             - /usr/lib/firmware/8EF*.bin*
+            - /usr/lib/firmware/9*0x*.bin*
             - /usr/lib/firmware/INT8866RCA2*
             - /usr/lib/firmware/tas*.bin*
             - /usr/lib/firmware/TAS*.bin*
@@ -365,6 +372,7 @@ packages    :
             - /usr/lib/firmware/matrox/
             - /usr/lib/firmware/meson/
             - /usr/lib/firmware/microchip/
+            - /usr/lib/firmware/morsemicro/
             - /usr/lib/firmware/moxa/
             - /usr/lib/firmware/mwlwifi/
             - /usr/lib/firmware/nxp/
