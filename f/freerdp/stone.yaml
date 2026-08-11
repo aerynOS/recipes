@@ -4,7 +4,7 @@
 name        : freerdp
 version     : "3.30.0"
 release     : 34
-homepage    : www.freerdp.com
+homepage    : https://www.freerdp.com/
 upstreams   :
     # TODO: Switch back to source archive
     - https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.30.0.tar.gz : 21b3f72bd688fcd1dbbef37b7129bfc9701906705572fce2a5a80b1e85ecc0ee
