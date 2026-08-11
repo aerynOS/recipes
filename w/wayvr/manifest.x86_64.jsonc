@@ -9,6 +9,7 @@
 				"pkgconfig(alsa)",
 				"pkgconfig(dav1d)",
 				"pkgconfig(dbus-1)",
+				"pkgconfig(libinput)",
 				"pkgconfig(libpipewire-0.3)",
 				"pkgconfig(libspa-0.2)",
 				"pkgconfig(openssl)",
@@ -34,10 +35,12 @@
 				"soname(libdav1d.so.7(x86_64))",
 				"soname(libdbus-1.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libinput.so.10(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libopenxr_loader.so.1(x86_64))",
 				"soname(libpipewire-0.3.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
+				"soname(libudev.so.1(x86_64))",
 				"soname(libvulkan.so.1(x86_64))",
 				"soname(libxcb.so.1(x86_64))",
 				"soname(libxkbcommon-x11.so.0(x86_64))",
@@ -58,6 +61,6 @@
 		}
 	},
 	"source-name": "wayvr",
-	"source-release": "2",
-	"source-version": "26.7.1"
+	"source-release": "3",
+	"source-version": "26.8.0"
 }

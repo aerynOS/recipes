@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wayvr
-version     : "26.7.1"
-release     : 2
+version     : "26.8.0"
+release     : 3
 homepage    : https://wayvr.org/
 upstreams   :
-    - https://github.com/wayvr-org/wayvr/archive/refs/tags/v26.7.1.tar.gz : f0bd28664ae06f76c29c985726885caf94164e5e503dd3dfb14d74cb046339d6
+    - https://github.com/wayvr-org/wayvr/archive/refs/tags/v26.8.0.tar.gz : 8db6d52b8be462b132d05c119b526094bef9fbe4b8b605dec44e5979f41256ef
 summary     : A lightweight OpenXR/OpenVR overlay for Wayland and X11 desktops
 description : |
     Your way to enjoy VR on Linux. Run apps inside VR & access your Wayland/X11 screens from Monado/WiVRn/SteamVR.
@@ -17,6 +17,7 @@ builddeps   :
     - pkgconfig(alsa)
     - pkgconfig(dav1d)
     - pkgconfig(dbus-1)
+    - pkgconfig(libinput)
     - pkgconfig(libpipewire-0.3)
     - pkgconfig(libspa-0.2)
     - pkgconfig(openssl)
