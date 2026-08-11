@@ -3,3 +3,5 @@
 # Use kmscon instead of getty
 disable getty@.service
 enable kmsconvt@.service
+# ensure we have a fallback getty ootb for when kmscon is not the right tool for the job
+enable getty@tty6.service
