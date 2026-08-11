@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 2016
+  rss: ~ # use update-mozc.py instead
+security:
+  cpe: ~ # No CPE found, last checked (2026-04-24)
