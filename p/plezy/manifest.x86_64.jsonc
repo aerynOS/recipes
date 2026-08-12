@@ -16,6 +16,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libEGL.so.1(x86_64))",
 				"soname(libatk-1.0.so.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libcairo.so.2(x86_64))",
@@ -36,6 +37,8 @@
 				"soname(libpangocairo-1.0.so.0(x86_64))",
 				"soname(libpthread.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))",
+				"soname(libwayland-egl.so.1(x86_64))",
 				"soname(libz.so.1(x86_64))",
 				"soname(openjdk-25/lib/server/libjvm.so(x86_64))"
 			],
@@ -46,9 +49,11 @@
 				"/usr/lib/plezy/data/flutter_assets/NOTICES.Z",
 				"/usr/lib/plezy/data/flutter_assets/NativeAssetsManifest.json",
 				"/usr/lib/plezy/data/flutter_assets/assets/anilist_mark.svg",
+				"/usr/lib/plezy/data/flutter_assets/assets/emby_icon.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/go-noto-current-regular.ttf",
 				"/usr/lib/plezy/data/flutter_assets/assets/jellyfin_icon.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/mal_mark.svg",
+				"/usr/lib/plezy/data/flutter_assets/assets/mdblist_mark.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/player_icons/celluloid.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/player_icons/iina.png",
 				"/usr/lib/plezy/data/flutter_assets/assets/player_icons/infuse.png",
@@ -127,6 +132,6 @@
 		}
 	},
 	"source-name": "plezy",
-	"source-release": "4",
-	"source-version": "2.12.1"
+	"source-release": "5",
+	"source-version": "2.13.0"
 }
