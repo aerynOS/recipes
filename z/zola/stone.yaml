@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zola
-version     : "0.23.2"
-release     : 3
+version     : "0.23.3"
+release     : 4
 homepage    : https://www.getzola.org/
 upstreams   :
-    - https://github.com/getzola/zola/archive/refs/tags/v0.23.2.tar.gz : f46f911079913845e76f3c446eb99d3b27546a3c302a1c411c6995fef498eaff
+    - https://github.com/getzola/zola/archive/refs/tags/v0.23.3.tar.gz : 2028bb1608b9625f78634c75b62654583fa3214fadac7e5f448a6b59b68912ec
 summary     : An opinionated static site generator
 description : |
     Zola is a fast, opinionated static site generator written in Rust.
