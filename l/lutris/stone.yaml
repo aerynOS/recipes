@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : lutris
+version     : "0.5.22+git.0747076"
+release     : 1
+homepage    : https://lutris.net/
+upstreams   :
+    - git|https://github.com/lutris/lutris.git : 07470764e709c1abcda8164e680815d9a2239b3c # 0747076
+summary     : Lutris desktop client
+description : |
+    Lutris is an open source gaming platform. Lutris helps you install and play video games from all eras and from most gaming systems. By leveraging and combining existing emulators, engine re-implementations and compatibility layers, it gives you a central interface to launch all your games.
+license     : GPL-3.0-only
+builddeps   :
+    - binary(gettext)
+rundeps     :
+    - binary(7z)
+    - binary(cabextract)
+    - binary(curl)
+    - binary(fuser)
+    - binary(python3)
+    - binary(unzip)
+    - python(certifi)
+    - python(dbus-python)
+    - python(distro)
+    - python(evdev)
+    - python(lxml)
+    - python(pillow)
+    - python(pycairo)
+    - python(pygobject)
+    - python(pyyaml)
+    - python(requests)
+    - python(urllib3)
+    - hicolor-icon-theme
+    - soname(libGL.so.1(386))
+    - soname(libgdk_pixbuf-2.0.so.0(x86_64))
+    - soname(libgirepository-1.0.so.1(x86_64))
+    - soname(libglib-2.0.so.0(x86_64))
+    - soname(libgnome-desktop-3.so.20(x86_64))
+    - soname(libgtk-3.so.0(x86_64))
+    - soname(libpango-1.0.so.0(x86_64))
+    - soname(libvulkan.so.1(386))
+    - soname(libwebkit2gtk-4.1.so.0(x86_64))
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
