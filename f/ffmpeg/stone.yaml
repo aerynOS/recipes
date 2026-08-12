@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ffmpeg
-version     : "9.0"
-release     : 37
+version     : "9.0.1"
+release     : 38
 homepage    : https://ffmpeg.org/releases
 upstreams   :
-    - https://ffmpeg.org/releases/ffmpeg-9.0.tar.xz:
-        hash: 7f607a00dd0d28a729d5a4811205812eef01cf6ef6155025febb6f36a9062d52
+    - https://ffmpeg.org/releases/ffmpeg-9.0.1.tar.xz:
+        hash: cf38e0e28c7e5605942c4a77755349b0145804a397af37eb1fb4c77cb237f635
         unpackdir: current
 
     # Don't delete this section, just comment it out if it's not needed. The build recipe accounts for it possibly not existing
