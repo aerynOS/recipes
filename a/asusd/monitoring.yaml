@@ -3,6 +3,6 @@
 
 releases:
   id: 376375
-  rss: https://gitlab.com/asus-linux/asusctl/-/tags
+  rss: https://github.com/OpenGamingCollective/asusctl/releases.atom
 security:
   cpe: ~

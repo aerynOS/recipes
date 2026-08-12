@@ -4,6 +4,7 @@
 	"packages": {
 		"asusd": {
 			"build-depends": [
+				"pkgconfig(fontconfig)",
 				"pkgconfig(gbm)",
 				"pkgconfig(libinput)",
 				"pkgconfig(libseat)",
@@ -15,19 +16,22 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libfontconfig.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libudev.so.1(x86_64))",
 				"soname(libusb-1.0.so.0(x86_64))"
 			],
 			"files": [
+				"/usr/bin/asus-shutdown",
 				"/usr/bin/asusctl",
 				"/usr/bin/asusd",
 				"/usr/bin/asusd-user",
 				"/usr/bin/rog-control-center",
+				"/usr/lib/systemd/system/asus-shutdown.service",
 				"/usr/lib/systemd/system/asusd.service",
 				"/usr/lib/udev/rules.d/99-asusd.rules",
-				"/usr/share/applications/rog-control-center.desktop",
+				"/usr/share/applications/org.opengamingcollective.rog-control-center.desktop",
 				"/usr/share/asusctl/LICENSE",
 				"/usr/share/asusd/anime/asus/festive/Cupid.gif",
 				"/usr/share/asusd/anime/asus/festive/Firework.gif",
@@ -93,15 +97,19 @@
 				"/usr/share/icons/hicolor/scalable/status/gpu-nvidia.svg",
 				"/usr/share/icons/hicolor/scalable/status/gpu-vfio.svg",
 				"/usr/share/icons/hicolor/scalable/status/notification-reboot.svg",
+				"/usr/share/metainfo/org.opengamingcollective.rog-control-center.metainfo.xml",
 				"/usr/share/rog-gui/layouts/fa506i_US.ron",
 				"/usr/share/rog-gui/layouts/fa507_US.ron",
+				"/usr/share/rog-gui/layouts/fa608_US.ron",
 				"/usr/share/rog-gui/layouts/fx505d_US.ron",
 				"/usr/share/rog-gui/layouts/g512_US.ron",
 				"/usr/share/rog-gui/layouts/g513i-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/g513i_US.ron",
 				"/usr/share/rog-gui/layouts/g533q-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/g533q_US.ron",
+				"/usr/share/rog-gui/layouts/g614pr-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/g634j-per-key_US.ron",
+				"/usr/share/rog-gui/layouts/g635l-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/g733pz-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/g814ji-per-key_US.ron",
 				"/usr/share/rog-gui/layouts/ga401q_US.ron",
@@ -111,6 +119,7 @@
 			],
 			"name": "asusd",
 			"provides": [
+				"binary(asus-shutdown)",
 				"binary(asusctl)",
 				"binary(asusd)",
 				"binary(asusd-user)",
@@ -119,6 +128,6 @@
 		}
 	},
 	"source-name": "asusd",
-	"source-release": "4",
-	"source-version": "6.1.16"
+	"source-release": "5",
+	"source-version": "6.3.11"
 }

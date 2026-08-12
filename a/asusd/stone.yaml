@@ -2,26 +2,28 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : asusd
-version     : "6.1.16"
-release     : 4
+version     : "6.3.11"
+release     : 5
 summary     : Control ASUS laptop features easily
 license     : MPL-2.0
 homepage    : https://asus-linux.org/
 upstreams   :
-    - https://gitlab.com/asus-linux/asusctl/-/archive/6.1.16/asusctl-6.1.16.tar.gz : e42e97efd4de62ec90e0f36dd2572528391ecc1cef806a33aec1e875d507fa21
+    - https://github.com/OpenGamingCollective/asusctl/archive/refs/tags/6.3.11.tar.gz : 0f14e41122f7f1fedd054b5006c9ac2f59bdf002a27fcde482b691461b821d61
 description : |
     Control ASUS platform features such as LEDs, AniMe, fans and more.
 builddeps   :
     - pkgconfig(gbm)
     - pkgconfig(libinput) # following required by slint
     - pkgconfig(libseat)
+    - pkgconfig(fontconfig)
     - pkgconfig(libudev) # required for device handling
     - pkgconfig(libusb-1.0)
     - pkgconfig(xkbcommon)
 networking  : true
 setup       : |
+    cp %(pkgdir)/Cargo.lock .
     %cargo_fetch
 build       : |
     %cargo_build
 install     : |
-    %make_install TARGET="%(target_triple)/release"
+    %make_install -j1 TARGET="%(target_triple)/release"
