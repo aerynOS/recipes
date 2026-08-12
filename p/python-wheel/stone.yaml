@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-wheel
-version     : "0.47.0"
-release     : 10
+version     : "0.48.0"
+release     : 11
 homepage    : https://github.com/pypa/wheel
 upstreams   :
-    - https://pypi.debian.net/wheel/wheel-0.47.0.tar.gz:
-        hash: cc72bd1009ba0cf63922e28f94d9d83b920aa2bb28f798a31d0691b02fa3c9b3
+    - https://pypi.debian.net/wheel/wheel-0.48.0.tar.gz:
+        hash: 94800765601e9171bf5d58d066e640662842bcedcbab982b2c90787a2c987322
         rename: wheel.tar.gz
 
     # Comment out if not bootstrapping

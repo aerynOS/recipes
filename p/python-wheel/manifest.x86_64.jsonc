@@ -12,11 +12,11 @@
 			],
 			"files": [
 				"/usr/bin/wheel",
-				"/usr/lib/python3.14/site-packages/wheel-0.47.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/wheel-0.47.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/wheel-0.47.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/wheel-0.47.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/wheel-0.47.0.dist-info/licenses/LICENSE.txt",
+				"/usr/lib/python3.14/site-packages/wheel-0.48.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/wheel-0.48.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/wheel-0.48.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/wheel-0.48.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/wheel-0.48.0.dist-info/licenses/LICENSE.txt",
 				"/usr/lib/python3.14/site-packages/wheel/__init__.py",
 				"/usr/lib/python3.14/site-packages/wheel/__main__.py",
 				"/usr/lib/python3.14/site-packages/wheel/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -71,6 +71,6 @@
 		}
 	},
 	"source-name": "python-wheel",
-	"source-release": "10",
-	"source-version": "0.47.0"
+	"source-release": "11",
+	"source-version": "0.48.0"
 }
