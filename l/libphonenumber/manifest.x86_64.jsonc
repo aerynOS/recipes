@@ -16,7 +16,7 @@
 				"soname(libabsl_raw_hash_set.so.2605.0.0(x86_64))",
 				"soname(libabsl_strings.so.2605.0.0(x86_64))",
 				"soname(libabsl_synchronization.so.2605.0.0(x86_64))",
-				"soname(libboost_thread.so.1.91.0(x86_64))",
+				"soname(libboost_thread.so.1.92.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libicui18n.so.78(x86_64))",
@@ -99,6 +99,6 @@
 		}
 	},
 	"source-name": "libphonenumber",
-	"source-release": "12",
+	"source-release": "13",
 	"source-version": "9.0.36"
 }
