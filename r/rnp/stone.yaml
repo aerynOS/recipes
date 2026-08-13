@@ -3,7 +3,7 @@
 
 name        : rnp
 version     : "0.18.1"
-release     : 9
+release     : 10
 homepage    : https://github.com/rnpgp/rnp
 upstreams   :
     - https://github.com/rnpgp/rnp/releases/download/v0.18.1/rnp-v0.18.1.tar.gz : 423c8e32e1e591462f759adf8441b1c44bca96d9f5daff13b82e81a79f18ecfd

@@ -12,7 +12,7 @@
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(libbotan-3.so.12(x86_64))",
+				"soname(libbotan-3.so.13(x86_64))",
 				"soname(libbz2.so.1.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -64,6 +64,6 @@
 		}
 	},
 	"source-name": "rnp",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "0.18.1"
 }
