@@ -24,7 +24,6 @@
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libKChart6.so.3(x86_64))",
 				"soname(libKF6ColorScheme.so.6(x86_64))",
 				"soname(libKF6ConfigCore.so.6(x86_64))",
@@ -38,9 +37,9 @@
 				"soname(libQt6Gui.so.6(x86_64))",
 				"soname(libQt6Svg.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
-				"soname(libboost_filesystem.so.1.91.0(x86_64))",
-				"soname(libboost_iostreams.so.1.91.0(x86_64))",
-				"soname(libboost_program_options.so.1.91.0(x86_64))",
+				"soname(libboost_filesystem.so.1.92.0(x86_64))",
+				"soname(libboost_iostreams.so.1.92.0(x86_64))",
+				"soname(libboost_program_options.so.1.92.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libdw.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -133,6 +132,6 @@
 		}
 	},
 	"source-name": "heaptrack",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "1.5.0"
 }
