@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : crun
-version     : "1.29"
-release     : 5
+version     : "1.29.1"
+release     : 6
 homepage    : https://github.com/containers/crun
 upstreams   :
-    - https://github.com/containers/crun/releases/download/1.29/crun-1.29.tar.zst : d4846ce8407cd78ea322bc7daa8a75f7cbd2648a22eca4e388b84b87510b8352
+    - https://github.com/containers/crun/releases/download/1.29.1/crun-1.29.1.tar.zst : 0fc095f629b6bba010b0cfa8b25ca1f769455e8891e06eb62c829ddc92ea2cad
 summary     : A fast and low-memory footprint OCI Container Runtime fully written in C
 description : |
     A fast and lightweight fully featured OCI runtime and C library for running containers
