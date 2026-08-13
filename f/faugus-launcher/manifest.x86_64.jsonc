@@ -36,6 +36,7 @@
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/runner.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/shortcut.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/steam_setup.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/faugus/__pycache__/tray_only.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/tray_sni.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/utils.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/backup.py",
@@ -53,6 +54,7 @@
 				"/usr/lib/python3.14/site-packages/faugus/runner.py",
 				"/usr/lib/python3.14/site-packages/faugus/shortcut.py",
 				"/usr/lib/python3.14/site-packages/faugus/steam_setup.py",
+				"/usr/lib/python3.14/site-packages/faugus/tray_only.py",
 				"/usr/lib/python3.14/site-packages/faugus/tray_sni.py",
 				"/usr/lib/python3.14/site-packages/faugus/utils.py",
 				"/usr/share/applications/io.github.Faugus.faugus-launcher.desktop",
@@ -70,6 +72,7 @@
 				"/usr/share/icons/hicolor/scalable/apps/io.github.Faugus.faugus-launcher.svg",
 				"/usr/share/licenses/faugus-launcher/LICENSE",
 				"/usr/share/locale/ar/LC_MESSAGES/faugus-launcher.mo",
+				"/usr/share/locale/cs/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/de/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/es/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/fa/LC_MESSAGES/faugus-launcher.mo",
@@ -82,10 +85,12 @@
 				"/usr/share/locale/ne/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/faugus-launcher.mo",
+				"/usr/share/locale/ps/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ro/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/sr/LC_MESSAGES/faugus-launcher.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/faugus-launcher.mo",
@@ -98,6 +103,6 @@
 		}
 	},
 	"source-name": "faugus-launcher",
-	"source-release": "15",
-	"source-version": "2.0.6"
+	"source-release": "16",
+	"source-version": "2.1.0"
 }
