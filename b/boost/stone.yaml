@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : boost
-version     : "1.91.0"
-release     : 11
+version     : "1.92.0"
+release     : 12
 homepage    : https://boost.org
 upstreams   :
-    - https://archives.boost.io/release/1.91.0/source/boost_1_91_0.tar.gz: 5734305f40a76c30f951c9abd409a45a2a19fb546efe4162119250bbe4d3a463
+    - https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.gz: c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce
 summary     : Boost provides free peer-reviewed portable C++ source libraries.
 description : |
     The Boost organization and wider Boost community supports research and education into the best possible uses of C++ and libraries developed for it, particularly, but not exclusively those contained in the Boost Library.
