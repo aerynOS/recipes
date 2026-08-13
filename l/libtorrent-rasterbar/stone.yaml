@@ -2,22 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libtorrent-rasterbar
-version     : "2.1.0"
-release     : 9
-upstreams   :
-    - https://github.com/arvidn/libtorrent/releases/download/v2.1.0/libtorrent-rasterbar-2.1.0.tar.gz : ceed657606b8df453ec5e775326e3c759a2779e1202fa04abe42ed262e7bf0b6
+version     : "2.1.1"
+release     : 10
 homepage    : https://libtorrent.org/
-license     : BSD-2-Clause
+upstreams   :
+    - https://github.com/arvidn/libtorrent/releases/download/v2.1.1/libtorrent-rasterbar-2.1.1.tar.gz : 0f163516ecef2e3331500266751de3098835a3c3ae0c2290448046c632bc0e93
 summary     : libtorrent is a C++ implementation of the BitTorrent protocol
 description : |
     libtorrent is a C++ implementation of the BitTorrent protocol.
+license     : BSD-2-Clause
 builddeps   :
     - cmake(Boost)
     - pkgconfig(openssl)
     - pkgconfig(python3)
     - python(setuptools)
-tuning      :
-    - fortify: lvl2 # https://github.com/arvidn/libtorrent/issues/7519
 setup       : |
     %cmake \
         -Dpython-bindings=ON \
@@ -38,3 +36,5 @@ packages    :
         description: Python bindings for %(name)
         paths:
             - /usr/lib/python*/site-packages
+tuning      :
+    - fortify: lvl2 # https://github.com/arvidn/libtorrent/issues/7519

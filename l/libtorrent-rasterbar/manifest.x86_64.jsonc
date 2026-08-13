@@ -18,7 +18,7 @@
 			],
 			"files": [
 				"/usr/lib/libtorrent-rasterbar.so.2.1",
-				"/usr/lib/libtorrent-rasterbar.so.2.1.0"
+				"/usr/lib/libtorrent-rasterbar.so.2.1.1"
 			],
 			"name": "libtorrent-rasterbar",
 			"provides": [
@@ -300,6 +300,7 @@
 				"/usr/include/libtorrent/portmap.hpp",
 				"/usr/include/libtorrent/posix_disk_io.hpp",
 				"/usr/include/libtorrent/pread_disk_io.hpp",
+				"/usr/include/libtorrent/random.hpp",
 				"/usr/include/libtorrent/read_resume_data.hpp",
 				"/usr/include/libtorrent/session.hpp",
 				"/usr/include/libtorrent/session_handle.hpp",
@@ -351,7 +352,7 @@
 				"python(setuptools)"
 			],
 			"depends": [
-				"soname(libboost_python314.so.1.91.0(x86_64))",
+				"soname(libboost_python314.so.1.92.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libcrypto.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -373,6 +374,6 @@
 		}
 	},
 	"source-name": "libtorrent-rasterbar",
-	"source-release": "9",
-	"source-version": "2.1.0"
+	"source-release": "10",
+	"source-version": "2.1.1"
 }
