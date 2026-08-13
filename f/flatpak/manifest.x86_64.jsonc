@@ -46,6 +46,7 @@
 				"binary(fusermount3)",
 				"binary(xdg-dbus-proxy)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"polkit",
 				"soname(libXau.so.6(x86_64))",
 				"soname(libappstream.so.5(x86_64))",
 				"soname(libarchive.so.13(x86_64))",
@@ -367,6 +368,6 @@
 		}
 	},
 	"source-name": "flatpak",
-	"source-release": "22",
+	"source-release": "23",
 	"source-version": "1.18.1"
 }
