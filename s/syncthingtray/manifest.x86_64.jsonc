@@ -31,7 +31,7 @@
 				"soname(libQt6WebEngineCore.so.6(x86_64))",
 				"soname(libQt6WebEngineWidgets.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
-				"soname(libboost_filesystem.so.1.91.0(x86_64))",
+				"soname(libboost_filesystem.so.1.92.0(x86_64))",
 				"soname(libc++utilities.so.5(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -42,12 +42,12 @@
 			"files": [
 				"/usr/bin/syncthingctl",
 				"/usr/bin/syncthingtray",
-				"/usr/lib/libsyncthingconnector.so.2.1.3",
-				"/usr/lib/libsyncthingconnector.so.38",
-				"/usr/lib/libsyncthingmodel.so.2.1.3",
-				"/usr/lib/libsyncthingmodel.so.38",
-				"/usr/lib/libsyncthingwidgets.so.2.1.3",
-				"/usr/lib/libsyncthingwidgets.so.38",
+				"/usr/lib/libsyncthingconnector.so.2.1.4",
+				"/usr/lib/libsyncthingconnector.so.39",
+				"/usr/lib/libsyncthingmodel.so.2.1.4",
+				"/usr/lib/libsyncthingmodel.so.39",
+				"/usr/lib/libsyncthingwidgets.so.2.1.4",
+				"/usr/lib/libsyncthingwidgets.so.39",
 				"/usr/share/applications/syncthingtray.desktop",
 				"/usr/share/bash-completion/completions/syncthingctl",
 				"/usr/share/bash-completion/completions/syncthingtray",
@@ -58,9 +58,9 @@
 			"provides": [
 				"binary(syncthingctl)",
 				"binary(syncthingtray)",
-				"soname(libsyncthingconnector.so.38(x86_64))",
-				"soname(libsyncthingmodel.so.38(x86_64))",
-				"soname(libsyncthingwidgets.so.38(x86_64))"
+				"soname(libsyncthingconnector.so.39(x86_64))",
+				"soname(libsyncthingmodel.so.39(x86_64))",
+				"soname(libsyncthingwidgets.so.39(x86_64))"
 			]
 		},
 		"syncthingtray-devel": {
@@ -224,9 +224,9 @@
 				"soname(libqtquickforkawesome-qt6.so.1(x86_64))",
 				"soname(libqtutilities-qt6.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
-				"soname(libsyncthingconnector.so.38(x86_64))",
-				"soname(libsyncthingmodel.so.38(x86_64))",
-				"soname(libsyncthingwidgets.so.38(x86_64))"
+				"soname(libsyncthingconnector.so.39(x86_64))",
+				"soname(libsyncthingmodel.so.39(x86_64))",
+				"soname(libsyncthingwidgets.so.39(x86_64))"
 			],
 			"files": [
 				"/usr/lib/qt6/plugins/kf6/kfileitemaction/libsyncthingfileitemaction.so",
@@ -239,6 +239,7 @@
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/DevicesPage.qml",
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/DirectoriesPage.qml",
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/DownloadsPage.qml",
+				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/FilterTextField.qml",
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/FullRepresentation.qml",
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/IconLabel.qml",
 				"/usr/share/plasma/plasmoids/martchus.syncthingplasmoid/contents/ui/RecentChangesPage.qml",
@@ -262,6 +263,6 @@
 		}
 	},
 	"source-name": "syncthingtray",
-	"source-release": "19",
-	"source-version": "2.1.3"
+	"source-release": "20",
+	"source-version": "2.1.4"
 }
