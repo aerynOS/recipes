@@ -3,10 +3,10 @@
 
 name        : mkvtoolnix
 version     : "100.0"
-release     : 1
+release     : 2
 homepage    : https://codeberg.org/mbunkus/mkvtoolnix
 upstreams   :
-    - https://codeberg.org/mbunkus/mkvtoolnix/archive/release-100.0.tar.gz : 189a0f92aca523099aa0b532b3850f12d06544882b75ee8c89c33350b42309df
+    - https://codeberg.org/mbunkus/mkvtoolnix/archive/release-100.0.tar.gz : f5f840fc382c2054dac3e171e42c75c4e3709ca43f04ea6c09b581b60c31cca0
 summary     : MKV Toolkit for Linux
 description : |
     With these tools one can get information about (mkvinfo) Matroska files, extract tracks/data from (mkvextract) Matroska files and create (mkvmerge) Matroska files from other media files. Matroska is a new multimedia file format aiming to become THE new container format for the future.

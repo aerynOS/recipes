@@ -30,7 +30,7 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libFLAC.so.14(x86_64))",
 				"soname(libQt6Core.so.6(x86_64))",
-				"soname(libboost_filesystem.so.1.91.0(x86_64))",
+				"soname(libboost_filesystem.so.1.92.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libdvdread.so.8(x86_64))",
 				"soname(libebml.so.5(x86_64))",
@@ -129,7 +129,7 @@
 				"soname(libQt6Multimedia.so.6(x86_64))",
 				"soname(libQt6Network.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
-				"soname(libboost_filesystem.so.1.91.0(x86_64))",
+				"soname(libboost_filesystem.so.1.92.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libcmark.so.0.31.2(x86_64))",
 				"soname(libdvdread.so.8(x86_64))",
@@ -165,6 +165,6 @@
 		}
 	},
 	"source-name": "mkvtoolnix",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "100.0"
 }
