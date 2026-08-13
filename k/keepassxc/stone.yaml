@@ -3,7 +3,7 @@
 
 name        : keepassxc
 version     : "2.7.12"
-release     : 9
+release     : 10
 homepage    : https://keepassxc.org/
 upstreams   :
     - https://github.com/keepassxreboot/keepassxc/archive/refs/tags/2.7.12.tar.gz : 8a6812a6e24484af77a75bdc9cf36aaa4c5f6852c2ea664180fe6a5c0dbada6e

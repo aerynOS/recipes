@@ -33,7 +33,7 @@
 				"soname(libX11.so.6(x86_64))",
 				"soname(libXtst.so.6(x86_64))",
 				"soname(libargon2.so.1(x86_64))",
-				"soname(libbotan-3.so.12(x86_64))",
+				"soname(libbotan-3.so.13(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
@@ -126,6 +126,6 @@
 		}
 	},
 	"source-name": "keepassxc",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "2.7.12"
 }
