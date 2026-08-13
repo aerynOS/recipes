@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : waydroid
-version     : "1.6.2"
-release     : 7
+version     : "1.6.3"
+release     : 8
 homepage    : https://waydro.id/
 upstreams   :
-    - https://github.com/waydroid/waydroid/archive/1.6.2/waydroid-1.6.2.tar.gz : 4b963aceb9de2884020e98b26e40147b3f26a0444606633adc45b63752f57dca
+    - https://github.com/waydroid/waydroid/archive/1.6.3/waydroid-1.6.3.tar.gz : f138a287eb8b0be7be7f7060971446490138bc2c8315665c8aa9c2c85576d8a5
 license     : Apache-2.0
 summary     : Run Android apps on GNU/Linux
 description : |
