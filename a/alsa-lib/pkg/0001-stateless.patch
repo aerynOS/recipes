@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: urayde <urayde@ganyu.ru>
+Date: Fri, 14 Aug 2026 21:38:34 +0300
+Subject: [PATCH] Stateless
+
+---
+ src/conf/alsa.conf | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/conf/alsa.conf b/src/conf/alsa.conf
+index e65bf2c..a42e568 100644
+--- a/src/conf/alsa.conf
++++ b/src/conf/alsa.conf
+@@ -8,6 +8,7 @@
+ 	{
+ 		func load
+ 		files [
++			"/usr/share/defaults/alsa/conf.d"
+ 			"/var/lib/alsa/conf.d"
+ 			"/usr/etc/alsa/conf.d"
+ 			"/etc/alsa/conf.d"
+-- 
+2.55.0
+

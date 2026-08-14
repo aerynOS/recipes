@@ -3,7 +3,7 @@
 
 name        : alsa-lib
 version     : "1.2.16.1"
-release     : 19
+release     : 20
 homepage    : https://www.alsa-project.org/wiki/Main_Page
 upstreams   :
     - https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.16.1.tar.bz2 : f740db7f488255944ffd4428416ee3390a96742856916433df468c281436480e
@@ -15,6 +15,7 @@ license     :
 builddeps   :
     - binary(ar)
 setup       : |
+    %patch %(pkgdir)/0001-stateless.patch
     %configure \
         --disable-old-symbols \
         --disable-static \
