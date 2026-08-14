@@ -14,7 +14,7 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libhyprutils.so.0.14.0",
+				"/usr/lib/libhyprutils.so.0.14.1",
 				"/usr/lib/libhyprutils.so.13"
 			],
 			"name": "hyprutils",
@@ -53,7 +53,9 @@
 				"/usr/include/hyprutils/misc/HyprAssert.hpp",
 				"/usr/include/hyprutils/os/File.hpp",
 				"/usr/include/hyprutils/os/FileDescriptor.hpp",
+				"/usr/include/hyprutils/os/ProcLock.hpp",
 				"/usr/include/hyprutils/os/Process.hpp",
+				"/usr/include/hyprutils/os/Semaphore.hpp",
 				"/usr/include/hyprutils/path/Path.hpp",
 				"/usr/include/hyprutils/signal/Listener.hpp",
 				"/usr/include/hyprutils/signal/Signal.hpp",
@@ -73,6 +75,6 @@
 		}
 	},
 	"source-name": "hyprutils",
-	"source-release": "4",
-	"source-version": "0.14.0"
+	"source-release": "5",
+	"source-version": "0.14.1"
 }

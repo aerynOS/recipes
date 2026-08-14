@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprutils
-version     : "0.14.0"
-release     : 4
-upstreams   :
-    - https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.14.0.tar.gz : b4af2177ede4ca3e1bb0ffff10348f82d776b911dd1e64fe693edd8ec9488101
+version     : "0.14.1"
+release     : 5
 homepage    : https://github.com/hyprwm/hyprutils
-license     : BSD-3-Clause
+upstreams   :
+    - https://github.com/hyprwm/hyprutils/archive/refs/tags/v0.14.1.tar.gz : e8cfb093d8124de1e63d3635b7d749758d0919c2e1b3ce44462ef7ab003060c4
 summary     : Small C++ library for the Hypr* ecosystem.
 description : |
     Hyprutils is a small C++ library for utilities used across the Hypr* ecosystem.
+license     : BSD-3-Clause
 builddeps   :
     - pkgconfig(pixman-1)
 setup       : |
