@@ -501,8 +501,8 @@
 				"/usr/share/alsa-card-profile/mixer/profile-sets/texas-instruments-pcm2902.conf",
 				"/usr/share/alsa-card-profile/mixer/profile-sets/usb-gaming-headset-gamefirst.conf",
 				"/usr/share/alsa-card-profile/mixer/profile-sets/usb-gaming-headset.conf",
-				"/usr/share/alsa/alsa.conf.d/50-pipewire.conf",
-				"/usr/share/alsa/alsa.conf.d/99-pipewire-default.conf",
+				"/usr/share/defaults/alsa/conf.d/50-pipewire.conf",
+				"/usr/share/defaults/alsa/conf.d/99-pipewire-default.conf",
 				"/usr/share/defaults/security/limits.d/25-pw-rlimits.conf",
 				"/usr/share/locale/af/LC_MESSAGES/pipewire.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/pipewire.mo",
@@ -1176,6 +1176,6 @@
 		}
 	},
 	"source-name": "pipewire",
-	"source-release": "37",
+	"source-release": "38",
 	"source-version": "1.6.8"
 }

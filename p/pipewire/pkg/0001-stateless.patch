@@ -1,0 +1,22 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: urayde <urayde@ganyu.ru>
+Date: Fri, 14 Aug 2026 21:38:35 +0300
+Subject: [PATCH] Stateless
+
+---
+ pipewire-alsa/conf/meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pipewire-alsa/conf/meson.build b/pipewire-alsa/conf/meson.build
+index a7336b1..2d02b85 100644
+--- a/pipewire-alsa/conf/meson.build
++++ b/pipewire-alsa/conf/meson.build
+@@ -1,4 +1,4 @@
+-alsaconfdir = pipewire_datadir / 'alsa' / 'alsa.conf.d'
++alsaconfdir = pipewire_datadir / 'defaults' / 'alsa' / 'conf.d'
+
+ install_data(['50-pipewire.conf', '99-pipewire-default.conf'],
+    install_dir: alsaconfdir,
+--
+2.55.0
+

@@ -3,7 +3,7 @@
 
 name        : pipewire
 version     : "1.6.8"
-release     : 37
+release     : 38
 homepage    : https://pipewire.org/
 upstreams   :
    - https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.8/pipewire-1.6.8.tar.gz : 8181172a1d95131f6af8bbc0b98f90b2a33349b042b84c3ce57dd5d11348cc58
@@ -61,6 +61,7 @@ builddeps   :
     # libapparmor
     # libselinux
 setup       : |
+    %patch %(pkgdir)/0001-stateless.patch
     # `jack` means integration with a separate JACK server, not the built-in JACK server (`pipewire-jack`)
     %meson \
         -Dbluez5=enabled \
