@@ -10069,6 +10069,7 @@
 				"/usr/lib/golang/test/fixedbugs/issue79186.go",
 				"/usr/lib/golang/test/fixedbugs/issue7921.go",
 				"/usr/lib/golang/test/fixedbugs/issue7944.go",
+				"/usr/lib/golang/test/fixedbugs/issue79874.go",
 				"/usr/lib/golang/test/fixedbugs/issue7995.go",
 				"/usr/lib/golang/test/fixedbugs/issue7995b.dir/x1.go",
 				"/usr/lib/golang/test/fixedbugs/issue7995b.dir/x2.go",
@@ -10078,8 +10079,11 @@
 				"/usr/lib/golang/test/fixedbugs/issue7998.go",
 				"/usr/lib/golang/test/fixedbugs/issue80004.go",
 				"/usr/lib/golang/test/fixedbugs/issue8004.go",
+				"/usr/lib/golang/test/fixedbugs/issue80097.go",
 				"/usr/lib/golang/test/fixedbugs/issue8011.go",
+				"/usr/lib/golang/test/fixedbugs/issue80127.go",
 				"/usr/lib/golang/test/fixedbugs/issue8017.go",
+				"/usr/lib/golang/test/fixedbugs/issue80188.go",
 				"/usr/lib/golang/test/fixedbugs/issue8028.go",
 				"/usr/lib/golang/test/fixedbugs/issue8036.go",
 				"/usr/lib/golang/test/fixedbugs/issue8039.go",
@@ -10087,6 +10091,10 @@
 				"/usr/lib/golang/test/fixedbugs/issue8047.go",
 				"/usr/lib/golang/test/fixedbugs/issue8047b.go",
 				"/usr/lib/golang/test/fixedbugs/issue8048.go",
+				"/usr/lib/golang/test/fixedbugs/issue80517_1.go",
+				"/usr/lib/golang/test/fixedbugs/issue80517_2.go",
+				"/usr/lib/golang/test/fixedbugs/issue80517_3.go",
+				"/usr/lib/golang/test/fixedbugs/issue80577.go",
 				"/usr/lib/golang/test/fixedbugs/issue8060.dir/a.go",
 				"/usr/lib/golang/test/fixedbugs/issue8060.dir/b.go",
 				"/usr/lib/golang/test/fixedbugs/issue8060.go",
@@ -10984,6 +10992,6 @@
 		}
 	},
 	"source-name": "golang",
-	"source-release": "35",
-	"source-version": "1.26.5"
+	"source-release": "36",
+	"source-version": "1.26.6"
 }
