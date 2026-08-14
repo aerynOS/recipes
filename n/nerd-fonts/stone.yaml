@@ -2,30 +2,30 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nerd-fonts
-version     : "3.4.0"
-release     : 4
+version     : "3.5.0"
+release     : 5
 homepage    : https://github.com/ryanoasis/nerd-fonts
 upstreams   :
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.tar.xz:
-        hash: 7f8c090da3b0eaa7108646bf34cbbb6ed13d5358a72460522108b06c7ecd716a
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/NerdFontsSymbolsOnly.tar.xz:
+        hash: b7ef2283462b435f1fe91d729dc412d5dbe34269dd2c7f4e1d803e4105c8d883
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.tar.xz:
-        hash: 804b3d311665a059140466fe142cc76cf14ef0695b7c4d3a174f7f8fba46b6e3
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/CascadiaCode.tar.xz:
+        hash: f30f67f203f9da78df857ebe558321bdfd8fc313662c72fd9e9fef9d4f4c96e7
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/FiraCode.tar.xz:
-        hash: d83fb093e0e05a531cd6f19886a6ceb884a4fa5ea3b53cf099fc1f30c5b3e47d
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/FiraCode.tar.xz:
+        hash: 32226dc81bb30ea421cdc49ba2134b93c2b43096992c829504a3004d2537420d
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/IBMPlexMono.tar.xz:
-        hash: 95e6ecaa5dfb9a96f27a6b6edc7be396fb6df30bc311a6f7e15cad56a30051c2
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/IBMPlexMono.tar.xz:
+        hash: cdc1184dcab10037790148c99b0e7906c68aa89a1245560567ae16001a0c5b20
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/RobotoMono.tar.xz:
-        hash: 4bc63bf0105c664e466e62cb2fd1c143b310877de93dc35b3b5d48e0e4cb6702
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/RobotoMono.tar.xz:
+        hash: 8cae18d31d25293099d8429de177fc1f1ccaae7a694836304990b4dd20fc27ab
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Terminus.tar.xz:
-        hash: e857b18a99701528f873275b6012792caf6e30c34c512ee92cda51520140054f
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/Terminus.tar.xz:
+        hash: 7d9478d61b65f9c91aabf8349b5fe17693f464b0845fcc571fbb1312e711f5ae
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/ZedMono.tar.xz:
-        hash: 7dfff6bb0e45143c33703c3fdf3ff77b00f3617fef29671c7ff6af166dcf31a0
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/ZedMono.tar.xz:
+        hash: 766faa962afb588e49063d130cb67925fc4f6288fe84925a2b470179650e4718
         unpack: false
 summary     : Nerd fonts
 description : |
