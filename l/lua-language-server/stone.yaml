@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : lua-language-server
+version     : "3.19.1"
+release     : 1
+homepage    : https://luals.github.io/
+upstreams   :
+    - https://github.com/LuaLS/lua-language-server/releases/download/3.19.1/lua-language-server-3.19.1-submodules.zip:
+        hash: 9796297d5f6932c68cb75b3fa008d9194b54d08c11afe831c9664847cbc63d63
+        stripdirs: 0
+summary     : A language server that offers Lua language support - programmed in Lua
+description : |
+    The Lua language server provides various language features for Lua to make development easier and faster.
+    With nearly a million installs in Visual Studio Code, it is the most popular extension for Lua language support.
+builddeps   :
+    - binary(ninja)
+    - libstdc++-static
+license     : MIT
+build       : |
+    %patch %(pkgdir)/use-clang.patch
+    pushd 3rd/luamake
+    ./compile/build.sh notest
+    popd
+    ./3rd/luamake/luamake rebuild --cc "${CC}" --ar "${AR}" --notest
+install     : |
+    %install_dir %(installroot)%(libdir)/lua-language-server
+    cp -a meta locale script bin main.lua debugger.lua changelog.md %(installroot)%(libdir)/lua-language-server
+    %install_exe %(pkgdir)/wrapper.sh %(installroot)%(bindir)/lua-language-server
+check       : |
+    # rebuild cleans the dir
+    ./3rd/luamake/luamake build --cc "${CC}" --ar "${AR}"

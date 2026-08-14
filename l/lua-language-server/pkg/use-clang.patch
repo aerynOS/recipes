@@ -1,0 +1,15 @@
+diff --git a/3rd/luamake/compile/ninja/linux.ninja b/3rd/luamake/compile/ninja/linux.ninja
+index b6a8d67..a6dabbd 100644
+--- a/3rd/luamake/compile/ninja/linux.ninja
++++ b/3rd/luamake/compile/ninja/linux.ninja
+@@ -2,8 +2,8 @@ ninja_required_version = 1.7
+ builddir = build/linux
+ bin = $builddir/bin
+ obj = $builddir/obj
+-cc = gcc
+-ar = ar
++cc = $${CC}
++ar = $${AR}
+ luamake = luamake
+ rule c_source_lua
+   command = $cc -MMD -MT $out -MF $out.d -std=c11 -O2 -Wall $
