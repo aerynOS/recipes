@@ -9,7 +9,6 @@
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libncursesw.so.6(x86_64))"
 			],
@@ -31,7 +30,7 @@
 				"/usr/bin/w",
 				"/usr/bin/watch",
 				"/usr/lib/libproc2.so.1",
-				"/usr/lib/libproc2.so.1.0.1",
+				"/usr/lib/libproc2.so.1.0.2",
 				"/usr/sbin/sysctl",
 				"/usr/share/doc/procps-ng/FAQ",
 				"/usr/share/doc/procps-ng/bugs.md",
@@ -79,6 +78,7 @@
 				"/usr/share/man/man1/pgrep.1",
 				"/usr/share/man/man1/pidof.1",
 				"/usr/share/man/man1/pidwait.1",
+				"/usr/share/man/man1/pkill.1",
 				"/usr/share/man/man1/pmap.1",
 				"/usr/share/man/man1/ps.1",
 				"/usr/share/man/man1/pwdx.1",
@@ -230,6 +230,6 @@
 		}
 	},
 	"source-name": "procps",
-	"source-release": "8",
-	"source-version": "4.0.6"
+	"source-release": "9",
+	"source-version": "4.0.7"
 }
