@@ -28,7 +28,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Parts.so.6",
-				"/usr/lib/libKF6Parts.so.6.28.0",
+				"/usr/lib/libKF6Parts.so.6.29.0",
 				"/usr/share/locale/af/LC_MESSAGES/kparts6.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kparts6.mo",
 				"/usr/share/locale/as/LC_MESSAGES/kparts6.mo",
@@ -204,6 +204,6 @@
 		}
 	},
 	"source-name": "kf6-kparts",
-	"source-release": "20",
-	"source-version": "6.28.0"
+	"source-release": "21",
+	"source-version": "6.29.0"
 }
