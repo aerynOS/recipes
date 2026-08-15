@@ -44,9 +44,9 @@
 				"/usr/lib/kf6/baloo_file",
 				"/usr/lib/kf6/baloo_file_extractor",
 				"/usr/lib/libKF6Baloo.so.6",
-				"/usr/lib/libKF6Baloo.so.6.28.0",
+				"/usr/lib/libKF6Baloo.so.6.29.0",
 				"/usr/lib/libKF6BalooEngine.so.6",
-				"/usr/lib/libKF6BalooEngine.so.6.28.0",
+				"/usr/lib/libKF6BalooEngine.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/kded/baloosearchmodule.so",
 				"/usr/lib/qt6/plugins/kf6/kio/baloosearch.so",
 				"/usr/lib/qt6/plugins/kf6/kio/tags.so",
@@ -60,6 +60,7 @@
 				"/usr/lib/qt6/qml/org/kde/baloo/libbalooplugin.so",
 				"/usr/lib/qt6/qml/org/kde/baloo/qmldir",
 				"/usr/lib/systemd/user/kde-baloo.service",
+				"/usr/share/config.kcfg/baloosettings.kcfg",
 				"/usr/share/dbus-1/interfaces/org.kde.BalooWatcherApplication.xml",
 				"/usr/share/dbus-1/interfaces/org.kde.baloo.file.indexer.xml",
 				"/usr/share/dbus-1/interfaces/org.kde.baloo.fileindexer.xml",
@@ -283,6 +284,8 @@
 				"/usr/share/locale/hi/LC_MESSAGES/kio6_baloosearch.mo",
 				"/usr/share/locale/hi/LC_MESSAGES/kio6_tags.mo",
 				"/usr/share/locale/hi/LC_MESSAGES/kio6_timeline.mo",
+				"/usr/share/locale/hr/LC_MESSAGES/kio6_baloosearch.mo",
+				"/usr/share/locale/hr/LC_MESSAGES/kio6_timeline.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/baloo_file6.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/baloo_file_extractor6.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/balooctl6.mo",
@@ -685,6 +688,6 @@
 		}
 	},
 	"source-name": "kf6-baloo",
-	"source-release": "27",
-	"source-version": "6.28.0"
+	"source-release": "28",
+	"source-version": "6.29.0"
 }
