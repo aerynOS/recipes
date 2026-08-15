@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-bluez-qt
-version     : "6.28.0"
-release     : 22
+version     : "6.29.0"
+release     : 23
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.28/bluez-qt-6.28.0.tar.xz : ae4410142170e84df104ef9723c7307de1d5ab68b2874c4ccdb0af99e00ae806
+    - https://download.kde.org/stable/frameworks/6.29/bluez-qt-6.29.0.tar.xz : 15e2ae85d0e3e205cd17c3c5f079d2263abc4a341fbf223b2561510f69382a2b
 homepage    : https://community.kde.org/Frameworks
 license     : LGPL-2.1-only
 summary     : Qt wrapper for BlueZ 5 DBus API
