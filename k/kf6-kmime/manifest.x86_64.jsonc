@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Mime.so.6",
-				"/usr/lib/libKF6Mime.so.6.28.0",
+				"/usr/lib/libKF6Mime.so.6.29.0",
 				"/usr/share/locale/ar/LC_MESSAGES/libkmime6_qt.qm",
 				"/usr/share/locale/ast/LC_MESSAGES/libkmime6_qt.qm",
 				"/usr/share/locale/be/LC_MESSAGES/libkmime6_qt.qm",
@@ -138,6 +138,6 @@
 		}
 	},
 	"source-name": "kf6-kmime",
-	"source-release": "2",
-	"source-version": "6.28.0"
+	"source-release": "3",
+	"source-version": "6.29.0"
 }
