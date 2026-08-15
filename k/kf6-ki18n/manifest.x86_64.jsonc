@@ -19,11 +19,11 @@
 			],
 			"files": [
 				"/usr/lib/libKF6I18n.so.6",
-				"/usr/lib/libKF6I18n.so.6.28.0",
+				"/usr/lib/libKF6I18n.so.6.29.0",
 				"/usr/lib/libKF6I18nLocaleData.so.6",
-				"/usr/lib/libKF6I18nLocaleData.so.6.28.0",
+				"/usr/lib/libKF6I18nLocaleData.so.6.29.0",
 				"/usr/lib/libKF6I18nQml.so.6",
-				"/usr/lib/libKF6I18nQml.so.6.28.0",
+				"/usr/lib/libKF6I18nQml.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/ktranscript.so",
 				"/usr/lib/qt6/qml/org/kde/i18n/localeData/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/i18n/localeData/ki18nlocaledataqmlplugin.qmltypes",
@@ -103,6 +103,7 @@
 				"/usr/share/locale/ml/LC_MESSAGES/ki18n6.mo",
 				"/usr/share/locale/mr/LC_MESSAGES/ki18n6.mo",
 				"/usr/share/locale/ms/LC_MESSAGES/ki18n6.mo",
+				"/usr/share/locale/nan_TW@latin/LC_MESSAGES/ki18n6.mo",
 				"/usr/share/locale/nb/LC_MESSAGES/ki18n6.mo",
 				"/usr/share/locale/nb/LC_SCRIPTS/ki18n6/ki18n6.js",
 				"/usr/share/locale/nds/LC_MESSAGES/ki18n6.mo",
@@ -231,6 +232,6 @@
 		}
 	},
 	"source-name": "kf6-ki18n",
-	"source-release": "27",
-	"source-version": "6.28.0"
+	"source-release": "28",
+	"source-version": "6.29.0"
 }
