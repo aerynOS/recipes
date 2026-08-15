@@ -4,7 +4,9 @@
 	"packages": {
 		"yazi": {
 			"build-depends": [
-				"binary(make)"
+				"binary(make)",
+				"pkgconfig(jemalloc)",
+				"pkgconfig(oniguruma)"
 			],
 			"depends": [
 				"binary(chafa)",
@@ -20,7 +22,8 @@
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libm.so.6(x86_64))"
+				"soname(libm.so.6(x86_64))",
+				"soname(libonig.so.5(x86_64))"
 			],
 			"files": [
 				"/usr/bin/ya",
@@ -42,6 +45,6 @@
 		}
 	},
 	"source-name": "yazi",
-	"source-release": "4",
-	"source-version": "26.5.6"
+	"source-release": "5",
+	"source-version": "26.8.15"
 }
