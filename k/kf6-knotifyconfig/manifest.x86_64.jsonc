@@ -25,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6NotifyConfig.so.6",
-				"/usr/lib/libKF6NotifyConfig.so.6.28.0",
+				"/usr/lib/libKF6NotifyConfig.so.6.29.0",
 				"/usr/share/locale/af/LC_MESSAGES/knotifyconfig6.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/knotifyconfig6.mo",
 				"/usr/share/locale/as/LC_MESSAGES/knotifyconfig6.mo",
@@ -165,6 +165,6 @@
 		}
 	},
 	"source-name": "kf6-knotifyconfig",
-	"source-release": "19",
-	"source-version": "6.28.0"
+	"source-release": "20",
+	"source-version": "6.29.0"
 }
