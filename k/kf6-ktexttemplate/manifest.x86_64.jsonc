@@ -16,11 +16,12 @@
 			],
 			"files": [
 				"/usr/lib/libKF6TextTemplate.so.6",
-				"/usr/lib/libKF6TextTemplate.so.6.28.0",
+				"/usr/lib/libKF6TextTemplate.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaultfilters.so",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaulttags.so",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_i18ntags.so",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_loadertags.so",
+				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_scriptabletags.so",
 				"/usr/share/qlogging-categories6/ktexttemplate.categories"
 			],
 			"name": "kf6-ktexttemplate",
@@ -29,7 +30,8 @@
 				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaultfilters.so(x86_64))",
 				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaulttags.so(x86_64))",
 				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_i18ntags.so(x86_64))",
-				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_loadertags.so(x86_64))"
+				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_loadertags.so(x86_64))",
+				"soname(qt6/plugins/kf6/ktexttemplate/ktexttemplate_scriptabletags.so(x86_64))"
 			]
 		},
 		"kf6-ktexttemplate-devel": {
@@ -104,6 +106,6 @@
 		}
 	},
 	"source-name": "kf6-ktexttemplate",
-	"source-release": "14",
-	"source-version": "6.28.0"
+	"source-release": "15",
+	"source-version": "6.29.0"
 }
