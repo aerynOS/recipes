@@ -15,7 +15,6 @@
 			"depends": [
 				"soname(libKF6Codecs.so.6(x86_64))",
 				"soname(libKF6ConfigCore.so.6(x86_64))",
-				"soname(libKF6CoreAddons.so.6(x86_64))",
 				"soname(libKF6I18n.so.6(x86_64))",
 				"soname(libKF6I18nLocaleData.so.6(x86_64))",
 				"soname(libQt6Core.so.6(x86_64))",
@@ -26,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Contacts.so.6",
-				"/usr/lib/libKF6Contacts.so.6.28.0",
+				"/usr/lib/libKF6Contacts.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/contacts/kcontactsqml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/contacts/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/contacts/libkcontactsqml.so",
@@ -201,6 +200,6 @@
 		}
 	},
 	"source-name": "kf6-kcontacts",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
