@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Holidays.so.6",
-				"/usr/lib/libKF6Holidays.so.6.28.0",
+				"/usr/lib/libKF6Holidays.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/kholidays/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/kholidays/kholidaysdeclarativeplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/kholidays/libkholidaysdeclarativeplugin.so",
@@ -121,6 +121,7 @@
 			],
 			"files": [
 				"/usr/include/KF6/KHolidays/KHolidays/AstroSeasons",
+				"/usr/include/KF6/KHolidays/KHolidays/HebrewConverter",
 				"/usr/include/KF6/KHolidays/KHolidays/Holiday",
 				"/usr/include/KF6/KHolidays/KHolidays/HolidayCategories",
 				"/usr/include/KF6/KHolidays/KHolidays/HolidayRegion",
@@ -129,6 +130,7 @@
 				"/usr/include/KF6/KHolidays/KHolidays/SunRiseSet",
 				"/usr/include/KF6/KHolidays/KHolidays/Zodiac",
 				"/usr/include/KF6/KHolidays/kholidays/astroseasons.h",
+				"/usr/include/KF6/KHolidays/kholidays/hebrewconverter.h",
 				"/usr/include/KF6/KHolidays/kholidays/holiday.h",
 				"/usr/include/KF6/KHolidays/kholidays/holidaycategories.h",
 				"/usr/include/KF6/KHolidays/kholidays/holidayregion.h",
@@ -151,6 +153,6 @@
 		}
 	},
 	"source-name": "kf6-kholidays",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
