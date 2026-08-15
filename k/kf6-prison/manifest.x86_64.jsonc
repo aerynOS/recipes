@@ -27,9 +27,9 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Prison.so.6",
-				"/usr/lib/libKF6Prison.so.6.28.0",
+				"/usr/lib/libKF6Prison.so.6.29.0",
 				"/usr/lib/libKF6PrisonScanner.so.6",
-				"/usr/lib/libKF6PrisonScanner.so.6.28.0",
+				"/usr/lib/libKF6PrisonScanner.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/prison/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/prison/libprisonquickplugin.so",
 				"/usr/lib/qt6/qml/org/kde/prison/prisonquickplugin.qmltypes",
@@ -94,6 +94,6 @@
 		}
 	},
 	"source-name": "kf6-prison",
-	"source-release": "24",
-	"source-version": "6.28.0"
+	"source-release": "25",
+	"source-version": "6.29.0"
 }
