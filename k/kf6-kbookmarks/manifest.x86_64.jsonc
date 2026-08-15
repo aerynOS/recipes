@@ -23,9 +23,9 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Bookmarks.so.6",
-				"/usr/lib/libKF6Bookmarks.so.6.28.0",
+				"/usr/lib/libKF6Bookmarks.so.6.29.0",
 				"/usr/lib/libKF6BookmarksWidgets.so.6",
-				"/usr/lib/libKF6BookmarksWidgets.so.6.28.0",
+				"/usr/lib/libKF6BookmarksWidgets.so.6.29.0",
 				"/usr/share/locale/af/LC_MESSAGES/kbookmarks6_qt.qm",
 				"/usr/share/locale/ar/LC_MESSAGES/kbookmarks6_qt.qm",
 				"/usr/share/locale/ast/LC_MESSAGES/kbookmarks6_qt.qm",
@@ -171,6 +171,6 @@
 		}
 	},
 	"source-name": "kf6-kbookmarks",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
