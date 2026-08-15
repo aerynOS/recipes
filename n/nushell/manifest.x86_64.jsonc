@@ -21,8 +21,6 @@
 				"soname(libgit2.so.1.9(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libsqlite3.so.0(x86_64))",
-				"soname(libssh2.so.1(x86_64))",
-				"soname(libssl.so.3(x86_64))",
 				"soname(libzstd.so.1(x86_64))"
 			],
 			"files": [
@@ -45,6 +43,6 @@
 		}
 	},
 	"source-name": "nushell",
-	"source-release": "11",
-	"source-version": "0.114.1"
+	"source-release": "12",
+	"source-version": "0.115.0"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nushell
-version     : "0.114.1"
-release     : 11
+version     : "0.115.0"
+release     : 12
 homepage    : https://www.nushell.sh/
 upstreams   :
-    - https://github.com/nushell/nushell/archive/refs/tags/0.114.1.tar.gz : 48ef2fb6bb3ec2b1dcff87a792aeebdfab10b29f3119a62291075b17e4ad25d5
+    - https://github.com/nushell/nushell/archive/refs/tags/0.115.0.tar.gz : 09859dde0207804abdd6f574c5b2f0946041555418bb6d3c44d4b9f86c7efd78
 summary     : A new type of shell
 description : |
     Nu is a new type of shell, that combines the traditional Unix tools with modern languages.
@@ -28,9 +28,6 @@ environment : |
     export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
     export ZSTD_SYS_USE_PKG_CONFIG=1
 setup       : |
-    # https://github.com/nushell/nushell/issues/18578
-    %patch %(pkgdir)/0001-Bump-ethnum-to-1.5.3-for-Rust-1.97.patch
-
     %cargo_fetch
 build       : |
     %cargo_build \
