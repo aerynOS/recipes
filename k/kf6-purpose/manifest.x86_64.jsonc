@@ -48,9 +48,9 @@
 			"files": [
 				"/usr/lib/kf6/purposeprocess",
 				"/usr/lib/libKF6Purpose.so.6",
-				"/usr/lib/libKF6Purpose.so.6.28.0",
+				"/usr/lib/libKF6Purpose.so.6.29.0",
 				"/usr/lib/libKF6PurposeWidgets.so.6",
-				"/usr/lib/libKF6PurposeWidgets.so.6.28.0",
+				"/usr/lib/libKF6PurposeWidgets.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/kfileitemaction/sharefileitemaction.so",
 				"/usr/lib/qt6/plugins/kf6/purpose/barcodeplugin.so",
 				"/usr/lib/qt6/plugins/kf6/purpose/bluetoothplugin.so",
@@ -886,6 +886,6 @@
 		}
 	},
 	"source-name": "kf6-purpose",
-	"source-release": "23",
-	"source-version": "6.28.0"
+	"source-release": "24",
+	"source-version": "6.29.0"
 }
