@@ -32,7 +32,7 @@
 			"files": [
 				"/usr/bin/solid-hardware6",
 				"/usr/lib/libKF6Solid.so.6",
-				"/usr/lib/libKF6Solid.so.6.28.0",
+				"/usr/lib/libKF6Solid.so.6.29.0",
 				"/usr/share/locale/ar/LC_MESSAGES/solid6_qt.qm",
 				"/usr/share/locale/ast/LC_MESSAGES/solid6_qt.qm",
 				"/usr/share/locale/az/LC_MESSAGES/solid6_qt.qm",
@@ -171,6 +171,6 @@
 		}
 	},
 	"source-name": "kf6-solid",
-	"source-release": "29",
-	"source-version": "6.28.0"
+	"source-release": "30",
+	"source-version": "6.29.0"
 }
