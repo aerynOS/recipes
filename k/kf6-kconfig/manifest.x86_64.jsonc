@@ -26,11 +26,11 @@
 				"/usr/lib/kf6/kconf_update",
 				"/usr/lib/kf6/kconfig_compiler_kf6",
 				"/usr/lib/libKF6ConfigCore.so.6",
-				"/usr/lib/libKF6ConfigCore.so.6.28.0",
+				"/usr/lib/libKF6ConfigCore.so.6.29.0",
 				"/usr/lib/libKF6ConfigGui.so.6",
-				"/usr/lib/libKF6ConfigGui.so.6.28.0",
+				"/usr/lib/libKF6ConfigGui.so.6.29.0",
 				"/usr/lib/libKF6ConfigQml.so.6",
-				"/usr/lib/libKF6ConfigQml.so.6.28.0",
+				"/usr/lib/libKF6ConfigQml.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/config/KF6ConfigQml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/config/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/config/libKF6ConfigQmlplugin.so",
@@ -221,6 +221,6 @@
 		}
 	},
 	"source-name": "kf6-kconfig",
-	"source-release": "28",
-	"source-version": "6.28.0"
+	"source-release": "29",
+	"source-version": "6.29.0"
 }
