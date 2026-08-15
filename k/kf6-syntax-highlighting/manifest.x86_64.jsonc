@@ -24,7 +24,7 @@
 			"files": [
 				"/usr/bin/ksyntaxhighlighter6",
 				"/usr/lib/libKF6SyntaxHighlighting.so.6",
-				"/usr/lib/libKF6SyntaxHighlighting.so.6.28.0",
+				"/usr/lib/libKF6SyntaxHighlighting.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/syntaxhighlighting/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/syntaxhighlighting/kquicksyntaxhighlightingplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/syntaxhighlighting/libkquicksyntaxhighlightingplugin.so",
@@ -173,6 +173,6 @@
 		}
 	},
 	"source-name": "kf6-syntax-highlighting",
-	"source-release": "27",
-	"source-version": "6.28.0"
+	"source-release": "28",
+	"source-version": "6.29.0"
 }
