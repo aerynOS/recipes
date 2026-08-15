@@ -10,11 +10,13 @@
 			"depends": [
 				"soname(libQt6Core.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/lib/libKF6Codecs.so.6",
-				"/usr/lib/libKF6Codecs.so.6.28.0",
+				"/usr/lib/libKF6Codecs.so.6.29.0",
 				"/usr/share/locale/af/LC_MESSAGES/kcodecs6_qt.qm",
 				"/usr/share/locale/ar/LC_MESSAGES/kcodecs6_qt.qm",
 				"/usr/share/locale/as/LC_MESSAGES/kcodecs6_qt.qm",
@@ -157,6 +159,6 @@
 		}
 	},
 	"source-name": "kf6-kcodecs",
-	"source-release": "20",
-	"source-version": "6.28.0"
+	"source-release": "21",
+	"source-version": "6.29.0"
 }
