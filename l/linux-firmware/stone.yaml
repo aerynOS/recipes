@@ -3,7 +3,7 @@
 
 name        : linux-firmware
 version     : "20260810"
-release     : 42
+release     : 43
 homepage    : https://kernel.org
 upstreams   :
     - git|https://gitlab.com/kernel-firmware/linux-firmware.git : 2135b2f7714a3a514c989b9728f51f36144cab6f
@@ -20,12 +20,25 @@ builddeps   :
     - binary(unzstd)
     - binary(which)
 setup       : |
+    _backports=(
+        # amdgpu crashes
+        # https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/work_items/50
+        9305ccd3e07e6c5c2a34f84fb4a056fc47840ad3
+    )
     _reverts=(
     )
+    for c in "${_backports[@]}"; do
+        echo Backporting $(git log --oneline -1 "${c}")
+        git cherry-pick -n "${c}"
+    done
     for c in "${_reverts[@]}"; do
         echo Reverting $(git log --oneline -1 "${c}")
         git revert -n "${c}"
     done
+    # amdgpu decoding glitches
+    # https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/work_items/49
+    git checkout 20260622 amdgpu/*vcn*
+    git diff --staged --stat
 install     : |
     make install-zst FIRMWAREDIR=/usr/lib/firmware DESTDIR=%(installroot)
 
