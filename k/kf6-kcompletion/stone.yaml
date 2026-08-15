@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kcompletion
-version     : "6.28.0"
-release     : 20
+version     : "6.29.0"
+release     : 21
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.28/kcompletion-6.28.0.tar.xz : 8aa9cbc36139adfa8e3b2c744cc94714afe154d21cef8a3a2d5f4d311be7cc3c
+    - https://download.kde.org/stable/frameworks/6.29/kcompletion-6.29.0.tar.xz : b039608f79f445a6ccc383ce57bd240699e334613814374006c8a01dc6bc1250
 homepage    : https://community.kde.org/Frameworks
 license     :
     - BSD-3-Clause
