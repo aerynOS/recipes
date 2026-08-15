@@ -23,7 +23,7 @@
 			"files": [
 				"/usr/lib/kf6/kauth/kauth-policy-gen",
 				"/usr/lib/libKF6AuthCore.so.6",
-				"/usr/lib/libKF6AuthCore.so.6.28.0",
+				"/usr/lib/libKF6AuthCore.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/kauth/backend/kauth_backend_plugin.so",
 				"/usr/lib/qt6/plugins/kf6/kauth/helper/kauth_helper_plugin.so",
 				"/usr/share/dbus-1/system.d/org.kde.kf6auth.conf",
@@ -178,6 +178,6 @@
 		}
 	},
 	"source-name": "kf6-kauth",
-	"source-release": "19",
-	"source-version": "6.28.0"
+	"source-release": "20",
+	"source-version": "6.29.0"
 }
