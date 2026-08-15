@@ -25,6 +25,7 @@
 				"pinentry",
 				"soname(libKF6ColorScheme.so.6(x86_64))",
 				"soname(libKF6ConfigCore.so.6(x86_64))",
+				"soname(libKF6ConfigGui.so.6(x86_64))",
 				"soname(libKF6CoreAddons.so.6(x86_64))",
 				"soname(libKF6Crash.so.6(x86_64))",
 				"soname(libKF6DBusAddons.so.6(x86_64))",
@@ -53,6 +54,7 @@
 				"/usr/bin/kwallet-query",
 				"/usr/bin/kwalletd6",
 				"/usr/share/applications/org.kde.ksecretd.desktop",
+				"/usr/share/config.kcfg/kwalletsettings.kcfg",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.KWallet.xml",
 				"/usr/share/dbus-1/services/org.freedesktop.impl.portal.desktop.kwallet.service",
 				"/usr/share/dbus-1/services/org.kde.kwalletd5.service",
@@ -265,6 +267,7 @@
 			],
 			"depends": [
 				"soname(libKF6ConfigCore.so.6(x86_64))",
+				"soname(libKF6ConfigGui.so.6(x86_64))",
 				"soname(libKF6I18n.so.6(x86_64))",
 				"soname(libKF6Notifications.so.6(x86_64))",
 				"soname(libKF6WidgetsAddons.so.6(x86_64))",
@@ -277,9 +280,9 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Wallet.so.6",
-				"/usr/lib/libKF6Wallet.so.6.28.0",
+				"/usr/lib/libKF6Wallet.so.6.29.0",
 				"/usr/lib/libKF6WalletBackend.so.6",
-				"/usr/lib/libKF6WalletBackend.so.6.28.0"
+				"/usr/lib/libKF6WalletBackend.so.6.29.0"
 			],
 			"name": "kf6-kwallet-libs",
 			"provides": [
@@ -289,6 +292,6 @@
 		}
 	},
 	"source-name": "kf6-kwallet",
-	"source-release": "23",
-	"source-version": "6.28.0"
+	"source-release": "24",
+	"source-version": "6.29.0"
 }
