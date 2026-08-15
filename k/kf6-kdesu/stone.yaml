@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kdesu
-version     : "6.28.0"
-release     : 14
+version     : "6.29.0"
+release     : 15
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.28/kdesu-6.28.0.tar.xz : 9af5746db7e25e2aac69c19a9cc9758fc7e7b4cbbcf2b6b6a6c93bd7c642e80f
+    - https://download.kde.org/stable/frameworks/6.29/kdesu-6.29.0.tar.xz : 9c128248f6259ed8f6be8ab9fd670ab10efa9ab6b500429b98f7df25d169c312
 homepage    : https://community.kde.org/Frameworks
 license     :
     - GPL-2.0-only
