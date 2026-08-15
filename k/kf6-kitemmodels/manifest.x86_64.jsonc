@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6ItemModels.so.6",
-				"/usr/lib/libKF6ItemModels.so.6.28.0",
+				"/usr/lib/libKF6ItemModels.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/kitemmodels/itemmodelsplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/kitemmodels/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/kitemmodels/libitemmodelsplugin.so",
@@ -75,6 +75,6 @@
 		}
 	},
 	"source-name": "kf6-kitemmodels",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
