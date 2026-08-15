@@ -79,13 +79,13 @@
 				"/usr/lib/kf6/kioexec",
 				"/usr/lib/kf6/kioworker",
 				"/usr/lib/libKF6KIOCore.so.6",
-				"/usr/lib/libKF6KIOCore.so.6.28.0",
+				"/usr/lib/libKF6KIOCore.so.6.29.0",
 				"/usr/lib/libKF6KIOFileWidgets.so.6",
-				"/usr/lib/libKF6KIOFileWidgets.so.6.28.0",
+				"/usr/lib/libKF6KIOFileWidgets.so.6.29.0",
 				"/usr/lib/libKF6KIOGui.so.6",
-				"/usr/lib/libKF6KIOGui.so.6.28.0",
+				"/usr/lib/libKF6KIOGui.so.6.29.0",
 				"/usr/lib/libKF6KIOWidgets.so.6",
-				"/usr/lib/libKF6KIOWidgets.so.6.28.0",
+				"/usr/lib/libKF6KIOWidgets.so.6.29.0",
 				"/usr/lib/libkuriikwsfiltereng_private.so",
 				"/usr/lib/qt6/plugins/kf6/kded/remotenotifier.so",
 				"/usr/lib/qt6/plugins/kf6/kio/kio_file.so",
@@ -993,6 +993,6 @@
 		}
 	},
 	"source-name": "kf6-kio",
-	"source-release": "32",
-	"source-version": "6.28.0"
+	"source-release": "33",
+	"source-version": "6.29.0"
 }
