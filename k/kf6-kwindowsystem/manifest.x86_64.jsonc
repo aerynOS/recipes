@@ -32,7 +32,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6WindowSystem.so.6",
-				"/usr/lib/libKF6WindowSystem.so.6.28.0",
+				"/usr/lib/libKF6WindowSystem.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemKWaylandPlugin.so",
 				"/usr/lib/qt6/plugins/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so",
 				"/usr/lib/qt6/qml/org/kde/kwindowsystem/KWindowSystem.qmltypes",
@@ -100,6 +100,7 @@
 				"/usr/share/locale/ml/LC_MESSAGES/kwindowsystem6_qt.qm",
 				"/usr/share/locale/mr/LC_MESSAGES/kwindowsystem6_qt.qm",
 				"/usr/share/locale/ms/LC_MESSAGES/kwindowsystem6_qt.qm",
+				"/usr/share/locale/nan_TW@latin/LC_MESSAGES/kwindowsystem6_qt.qm",
 				"/usr/share/locale/nb/LC_MESSAGES/kwindowsystem6_qt.qm",
 				"/usr/share/locale/nds/LC_MESSAGES/kwindowsystem6_qt.qm",
 				"/usr/share/locale/ne/LC_MESSAGES/kwindowsystem6_qt.qm",
@@ -222,6 +223,6 @@
 		}
 	},
 	"source-name": "kf6-kwindowsystem",
-	"source-release": "26",
-	"source-version": "6.28.0"
+	"source-release": "27",
+	"source-version": "6.29.0"
 }
