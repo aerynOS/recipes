@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-sonnet
-version     : "6.28.0"
-release     : 26
+version     : "6.29.0"
+release     : 27
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.28/sonnet-6.28.0.tar.xz : 66c6b439950bec7f67b730e6e49d6d30cba21dad115e4a47c4fe46014cc19c3b
+    - https://download.kde.org/stable/frameworks/6.29/sonnet-6.29.0.tar.xz : 45501e804f242a93779402f87dbb422981699b91b5ecde97c67fd11f4f19e2ad
 homepage    : https://community.kde.org/Frameworks
 license     :
     - BSD-3-Clause
