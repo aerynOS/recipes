@@ -44,9 +44,9 @@
 			"files": [
 				"/usr/bin/knewstuff-dialog6",
 				"/usr/lib/libKF6NewStuffCore.so.6",
-				"/usr/lib/libKF6NewStuffCore.so.6.28.0",
+				"/usr/lib/libKF6NewStuffCore.so.6.29.0",
 				"/usr/lib/libKF6NewStuffWidgets.so.6",
-				"/usr/lib/libKF6NewStuffWidgets.so.6.28.0",
+				"/usr/lib/libKF6NewStuffWidgets.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/newstuff/Action.qml",
 				"/usr/lib/qt6/qml/org/kde/newstuff/Button.qml",
 				"/usr/lib/qt6/qml/org/kde/newstuff/Dialog.qml",
@@ -281,6 +281,6 @@
 		}
 	},
 	"source-name": "kf6-knewstuff",
-	"source-release": "28",
-	"source-version": "6.28.0"
+	"source-release": "29",
+	"source-version": "6.29.0"
 }
