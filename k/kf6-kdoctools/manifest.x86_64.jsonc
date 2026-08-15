@@ -28,7 +28,7 @@
 				"/usr/bin/checkXML6",
 				"/usr/bin/meinproc6",
 				"/usr/lib/libKF6DocTools.so.6",
-				"/usr/lib/libKF6DocTools.so.6.28.0",
+				"/usr/lib/libKF6DocTools.so.6.29.0",
 				"/usr/share/doc/HTML/af/kdoctools6-common/kde-localised.css",
 				"/usr/share/doc/HTML/ar/kdoctools6-common/kde-localised.css",
 				"/usr/share/doc/HTML/ca/kdoctools6-common/kde-localised.css",
@@ -1241,6 +1241,6 @@
 		}
 	},
 	"source-name": "kf6-kdoctools",
-	"source-release": "22",
-	"source-version": "6.28.0"
+	"source-release": "23",
+	"source-version": "6.29.0"
 }
