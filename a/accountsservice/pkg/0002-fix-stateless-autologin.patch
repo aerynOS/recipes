@@ -1,0 +1,49 @@
+From 25ec7e9d2af5a9e018727b380e97bb1684f09fc2 Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Fri, 17 May 2019 15:26:46 -0500
+Subject: [PATCH] fix stateless autologin
+
+This patch creates GDM configuration file and directory if missing
+(e.g: stateless; clean /etc).
+
+Signed-off-by: Simental Magana, Marcos <marcos.simental.magana@intel.com>
+Modified-by: Philip Mueller <philm@manjaro.org>
+---
+ src/daemon.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/src/daemon.c b/src/daemon.c
+index 9ec153a..240c305 100644
+--- a/src/daemon.c
++++ b/src/daemon.c
+@@ -2393,10 +2393,27 @@ save_autologin_gdm (Daemon      *daemon,
+ {
+         g_autoptr (GKeyFile) keyfile = NULL;
+         g_autofree gchar *data = NULL;
++        g_autofree gchar *gdm_path = NULL;
+         gboolean result;
+         g_autoptr (GError) local_error = NULL;
+ 
+         keyfile = g_key_file_new ();
++        /*
++         * if PATH_GDM_CUSTOM does not exists (e.g: stateless os)
++         * simply create the path and the file so we can write to it
++         * with no trouble.
++         */
++        gdm_path = g_path_get_dirname (PATH_GDM_CUSTOM);
++        if (!g_file_test (PATH_GDM_CUSTOM, G_FILE_TEST_EXISTS)){
++            gint fd;
++            if (g_mkdir_with_parents (gdm_path, 0755)){
++                return FALSE;
++            }
++            if ((fd = g_creat (PATH_GDM_CUSTOM, 0644)) == -1){
++                return FALSE;
++            }
++            g_close (fd, error);
++        }
+         if (!g_key_file_load_from_file (keyfile,
+                                         PATH_GDM_CUSTOM,
+                                         G_KEY_FILE_KEEP_COMMENTS,
+-- 
+2.21.0
+
