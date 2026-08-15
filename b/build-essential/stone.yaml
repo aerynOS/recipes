@@ -1,17 +1,18 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : build-essential
 version     : "0"
-release     : 9
-summary     : Essential build tools for AerynOS
+release     : 10
+summary     : Essential build tools for aerynOS
 license     : MPL-2.0
 homepage    : https://github.com/AerynOS
 description : |
-    This package provides the essential build tools for AerynOS.
+    This package provides the essential build tools for aerynOS.
 rundeps     :
     - binary(bc)
     - binary(bison)
+    - binary(boulder)
     - binary(bunzip2)
     # - binary(cc)
     - binary(clang)
@@ -19,9 +20,12 @@ rundeps     :
     - binary(cpio)
     - binary(diff)
     - binary(ent)
+    - binary(fj)
     - binary(flex)
     - binary(g++)
     - binary(gcc)
+    - binary(gh)
+    - binary(git)
     - binary(just)
     # - binary(ld)
     - binary(ld.bfd)

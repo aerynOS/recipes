@@ -6,15 +6,19 @@
 			"depends": [
 				"binary(bc)",
 				"binary(bison)",
+				"binary(boulder)",
 				"binary(bunzip2)",
 				"binary(clang)",
 				"binary(clang++)",
 				"binary(cpio)",
 				"binary(diff)",
 				"binary(ent)",
+				"binary(fj)",
 				"binary(flex)",
 				"binary(g++)",
 				"binary(gcc)",
+				"binary(gh)",
+				"binary(git)",
 				"binary(just)",
 				"binary(ld.bfd)",
 				"binary(ld.lld)",
@@ -43,6 +47,6 @@
 		}
 	},
 	"source-name": "build-essential",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "0"
 }
