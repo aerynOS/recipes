@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-breeze-icons
-version     : "6.28.0"
-release     : 21
+version     : "6.29.0"
+release     : 22
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.28/breeze-icons-6.28.0.tar.xz : 45de8138ead0f3ff24de886fbe61d588ecd7f66dde6f8cf6f2906279254d094d
+    - https://download.kde.org/stable/frameworks/6.29/breeze-icons-6.29.0.tar.xz : 2948a313ffe35895b846dde5a93302a1fcd587ad8dfb860b8757629209586fe4
 homepage    : https://community.kde.org/Frameworks
 license     : LGPL-3.0-or-later
 summary     : Breeze icon theme
