@@ -20,9 +20,9 @@
 			],
 			"files": [
 				"/usr/lib/libQuickCharts.so.1",
-				"/usr/lib/libQuickCharts.so.6.28.0",
+				"/usr/lib/libQuickCharts.so.6.29.0",
 				"/usr/lib/libQuickChartsControls.so.1",
-				"/usr/lib/libQuickChartsControls.so.6.28.0",
+				"/usr/lib/libQuickChartsControls.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/quickcharts/QuickCharts.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/quickcharts/controls/KirigamiTheme.qml",
 				"/usr/lib/qt6/qml/org/kde/quickcharts/controls/Legend.qml",
@@ -72,6 +72,6 @@
 		}
 	},
 	"source-name": "kf6-kquickcharts",
-	"source-release": "22",
-	"source-version": "6.28.0"
+	"source-release": "23",
+	"source-version": "6.29.0"
 }
