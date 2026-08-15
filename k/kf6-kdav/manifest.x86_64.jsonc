@@ -12,16 +12,16 @@
 			"depends": [
 				"soname(libKF6CoreAddons.so.6(x86_64))",
 				"soname(libKF6I18n.so.6(x86_64))",
-				"soname(libKF6KIOCore.so.6(x86_64))",
 				"soname(libQt6Core.so.6(x86_64))",
 				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Network.so.6(x86_64))",
 				"soname(libQt6Xml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/lib/libKF6DAV.so.6",
-				"/usr/lib/libKF6DAV.so.6.28.0",
+				"/usr/lib/libKF6DAV.so.6.29.0",
 				"/usr/share/locale/ar/LC_MESSAGES/libkdav6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libkdav6.mo",
 				"/usr/share/locale/az/LC_MESSAGES/libkdav6.mo",
@@ -108,6 +108,8 @@
 				"/usr/include/KF6/KDAV/KDAV/DavJobBase",
 				"/usr/include/KF6/KDAV/KDAV/DavPrincipalHomesetsFetchJob",
 				"/usr/include/KF6/KDAV/KDAV/DavPrincipalSearchJob",
+				"/usr/include/KF6/KDAV/KDAV/DavPushSupport",
+				"/usr/include/KF6/KDAV/KDAV/DavSslUiProxy",
 				"/usr/include/KF6/KDAV/KDAV/DavUrl",
 				"/usr/include/KF6/KDAV/KDAV/Enums",
 				"/usr/include/KF6/KDAV/KDAV/EtagCache",
@@ -129,6 +131,8 @@
 				"/usr/include/KF6/KDAV/kdav/davjobbase.h",
 				"/usr/include/KF6/KDAV/kdav/davprincipalhomesetsfetchjob.h",
 				"/usr/include/KF6/KDAV/kdav/davprincipalsearchjob.h",
+				"/usr/include/KF6/KDAV/kdav/davpushsupport.h",
+				"/usr/include/KF6/KDAV/kdav/davssluiproxy.h",
 				"/usr/include/KF6/KDAV/kdav/davurl.h",
 				"/usr/include/KF6/KDAV/kdav/enums.h",
 				"/usr/include/KF6/KDAV/kdav/etagcache.h",
@@ -148,6 +152,6 @@
 		}
 	},
 	"source-name": "kf6-kdav",
-	"source-release": "14",
-	"source-version": "6.28.0"
+	"source-release": "15",
+	"source-version": "6.29.0"
 }
