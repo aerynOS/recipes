@@ -17,7 +17,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6GlobalAccel.so.6",
-				"/usr/lib/libKF6GlobalAccel.so.6.28.0",
+				"/usr/lib/libKF6GlobalAccel.so.6.29.0",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.KGlobalAccel.xml",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.kglobalaccel.Component.xml",
 				"/usr/share/locale/af/LC_MESSAGES/kglobalaccel6_qt.qm",
@@ -158,6 +158,6 @@
 		}
 	},
 	"source-name": "kf6-kglobalaccel",
-	"source-release": "26",
-	"source-version": "6.28.0"
+	"source-release": "27",
+	"source-version": "6.29.0"
 }
