@@ -23,7 +23,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6JobWidgets.so.6",
-				"/usr/lib/libKF6JobWidgets.so.6.28.0",
+				"/usr/lib/libKF6JobWidgets.so.6.29.0",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.JobView.xml",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.JobViewServer.xml",
 				"/usr/share/dbus-1/interfaces/kf6_org.kde.JobViewV2.xml",
@@ -181,6 +181,6 @@
 		}
 	},
 	"source-name": "kf6-kjobwidgets",
-	"source-release": "26",
-	"source-version": "6.28.0"
+	"source-release": "27",
+	"source-version": "6.29.0"
 }
