@@ -3,7 +3,7 @@
 
 name        : v4l2loopback-module
 version     : "0.15.4"
-release     : 30
+release     : 31
 homepage    : https://github.com/umlaeute/v4l2loopback
 upstreams   :
     - https://github.com/umlaeute/v4l2loopback/archive/refs/tags/v0.15.4.tar.gz:
