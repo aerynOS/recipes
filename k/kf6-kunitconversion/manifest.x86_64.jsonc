@@ -17,7 +17,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6UnitConversion.so.6",
-				"/usr/lib/libKF6UnitConversion.so.6.28.0",
+				"/usr/lib/libKF6UnitConversion.so.6.29.0",
 				"/usr/share/locale/ar/LC_MESSAGES/kunitconversion6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kunitconversion6.mo",
 				"/usr/share/locale/az/LC_MESSAGES/kunitconversion6.mo",
@@ -122,6 +122,6 @@
 		}
 	},
 	"source-name": "kf6-kunitconversion",
-	"source-release": "15",
-	"source-version": "6.28.0"
+	"source-release": "16",
+	"source-version": "6.29.0"
 }
