@@ -20,7 +20,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6NetworkManagerQt.so.6",
-				"/usr/lib/libKF6NetworkManagerQt.so.6.28.0",
+				"/usr/lib/libKF6NetworkManagerQt.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/networkmanager/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/networkmanager/libnetworkmanagerqtqml.so",
 				"/usr/lib/qt6/qml/org/kde/networkmanager/networkmanagerqtqml.qmltypes",
@@ -204,6 +204,6 @@
 		}
 	},
 	"source-name": "kf6-networkmanager-qt",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
