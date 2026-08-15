@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6CalendarCore.so.6",
-				"/usr/lib/libKF6CalendarCore.so.6.28.0",
+				"/usr/lib/libKF6CalendarCore.so.6.29.0",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kcalendarcoreqml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/libkcalendarcoreqml.so",
@@ -73,6 +73,7 @@
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/IncidenceBase",
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/Journal",
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/MemoryCalendar",
+				"/usr/include/KF6/KCalendarCore/KCalendarCore/MimeData",
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/OccurrenceIterator",
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/Period",
 				"/usr/include/KF6/KCalendarCore/KCalendarCore/Person",
@@ -108,6 +109,7 @@
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/journal.h",
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/kcalendarcore_export.h",
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/memorycalendar.h",
+				"/usr/include/KF6/KCalendarCore/kcalendarcore/mimedata.h",
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/occurrenceiterator.h",
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/period.h",
 				"/usr/include/KF6/KCalendarCore/kcalendarcore/person.h",
@@ -135,6 +137,6 @@
 		}
 	},
 	"source-name": "kf6-kcalendarcore",
-	"source-release": "21",
-	"source-version": "6.28.0"
+	"source-release": "22",
+	"source-version": "6.29.0"
 }
