@@ -30,7 +30,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6IdleTime.so.6",
-				"/usr/lib/libKF6IdleTime.so.6.28.0",
+				"/usr/lib/libKF6IdleTime.so.6.29.0",
 				"/usr/lib/qt6/plugins/kf6/org.kde.kidletime.platforms/KF6IdleTimeWaylandPlugin.so",
 				"/usr/lib/qt6/plugins/kf6/org.kde.kidletime.platforms/KF6IdleTimeXcbPlugin0.so",
 				"/usr/lib/qt6/plugins/kf6/org.kde.kidletime.platforms/KF6IdleTimeXcbPlugin1.so",
@@ -78,6 +78,6 @@
 		}
 	},
 	"source-name": "kf6-kidletime",
-	"source-release": "22",
-	"source-version": "6.28.0"
+	"source-release": "23",
+	"source-version": "6.29.0"
 }
