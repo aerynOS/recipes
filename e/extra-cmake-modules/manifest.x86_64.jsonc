@@ -183,6 +183,7 @@
 				"/usr/share/doc/ECM/html/_sources/find-module/FindInotify.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindIsoCodes.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindKF5.rst.txt",
+				"/usr/share/doc/ECM/html/_sources/find-module/FindKF6.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindLibExiv2.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindLibGit2.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindLibMount.rst.txt",
@@ -290,6 +291,7 @@
 				"/usr/share/doc/ECM/html/find-module/FindInotify.html",
 				"/usr/share/doc/ECM/html/find-module/FindIsoCodes.html",
 				"/usr/share/doc/ECM/html/find-module/FindKF5.html",
+				"/usr/share/doc/ECM/html/find-module/FindKF6.html",
 				"/usr/share/doc/ECM/html/find-module/FindLibExiv2.html",
 				"/usr/share/doc/ECM/html/find-module/FindLibGit2.html",
 				"/usr/share/doc/ECM/html/find-module/FindLibMount.html",
@@ -376,6 +378,6 @@
 		}
 	},
 	"source-name": "extra-cmake-modules",
-	"source-release": "24",
-	"source-version": "6.28.0"
+	"source-release": "25",
+	"source-version": "6.29.0"
 }
