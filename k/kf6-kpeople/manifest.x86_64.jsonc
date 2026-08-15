@@ -31,11 +31,11 @@
 			],
 			"files": [
 				"/usr/lib/libKF6People.so.6",
-				"/usr/lib/libKF6People.so.6.28.0",
+				"/usr/lib/libKF6People.so.6.29.0",
 				"/usr/lib/libKF6PeopleBackend.so.6",
-				"/usr/lib/libKF6PeopleBackend.so.6.28.0",
+				"/usr/lib/libKF6PeopleBackend.so.6.29.0",
 				"/usr/lib/libKF6PeopleWidgets.so.6",
-				"/usr/lib/libKF6PeopleWidgets.so.6.28.0",
+				"/usr/lib/libKF6PeopleWidgets.so.6.29.0",
 				"/usr/lib/qt6/plugins/kpeople/datasource/KPeopleVCard.so",
 				"/usr/lib/qt6/qml/org/kde/people/KF6PeopleDeclarative.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/people/kde-qmlmodule.version",
@@ -179,6 +179,6 @@
 		}
 	},
 	"source-name": "kf6-kpeople",
-	"source-release": "19",
-	"source-version": "6.28.0"
+	"source-release": "20",
+	"source-version": "6.29.0"
 }
