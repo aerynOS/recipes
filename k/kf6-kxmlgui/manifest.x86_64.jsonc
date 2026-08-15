@@ -38,7 +38,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6XmlGui.so.6",
-				"/usr/lib/libKF6XmlGui.so.6.28.0",
+				"/usr/lib/libKF6XmlGui.so.6.29.0",
 				"/usr/share/locale/af/LC_MESSAGES/kxmlgui6.mo",
 				"/usr/share/locale/am/LC_MESSAGES/kxmlgui6.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kxmlgui6.mo",
@@ -239,6 +239,6 @@
 		}
 	},
 	"source-name": "kf6-kxmlgui",
-	"source-release": "26",
-	"source-version": "6.28.0"
+	"source-release": "27",
+	"source-version": "6.29.0"
 }
