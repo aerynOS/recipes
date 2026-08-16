@@ -3,7 +3,7 @@
 
 name        : webkitgtk
 version     : "2.52.5"
-release     : 15
+release     : 16
 upstreams   :
     - https://webkitgtk.org/releases/webkitgtk-2.52.5.tar.xz : 8a531a9abd2215936e8a8a914c077b586c0228b31d652f205286a8ec90f3364b
 homepage    : https://webkitgtk.org
@@ -82,6 +82,10 @@ builddeps   :
     - hyphen-devel
     # TODO:
     # - flite ?
+tuning      :
+    # icf + thin LTO causes new Set() to act as a Map in JSC JIT
+    # Can either make icf false or LTO can be set to full/false
+    - lto: full
 setup       : |
     function cmake_webkitgtk() {
         %cmake \
