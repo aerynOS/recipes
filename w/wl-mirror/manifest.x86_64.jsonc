@@ -1,0 +1,46 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"wl-mirror": {
+			"build-depends": [
+				"pkgconfig(egl)",
+				"pkgconfig(gbm)",
+				"pkgconfig(glesv2)",
+				"pkgconfig(libdecor-0)",
+				"pkgconfig(libdrm)",
+				"pkgconfig(scdoc)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-egl)",
+				"pkgconfig(wayland-scanner)",
+				"wayland-protocols",
+				"wlr-protocols"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libEGL.so.1(x86_64))",
+				"soname(libGLESv2.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libdecor-0.so.0(x86_64))",
+				"soname(libdrm.so.2(x86_64))",
+				"soname(libgbm.so.1(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))",
+				"soname(libwayland-egl.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/wl-mirror",
+				"/usr/bin/wl-present",
+				"/usr/share/man/man1/wl-mirror.1",
+				"/usr/share/man/man1/wl-present.1"
+			],
+			"name": "wl-mirror",
+			"provides": [
+				"binary(wl-mirror)",
+				"binary(wl-present)"
+			]
+		}
+	},
+	"source-name": "wl-mirror",
+	"source-release": "1",
+	"source-version": "0.18.5"
+}

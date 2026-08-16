@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wl-mirror
+version     : "0.18.5"
+release     : 1
+homepage    : https://github.com/Ferdi265/wl-mirror
+upstreams   :
+    - https://github.com/Ferdi265/wl-mirror/releases/download/v0.18.5/wl-mirror-0.18.5.tar.gz : 2b3e70374a229cdf49b421c75ce8974f1f666ba8c6a546b0cf88f550f118ba60
+summary     : A simple Wayland output mirror client
+description : |
+    wl-mirror attempts to provide a solution to sway's lack of output mirroring by mirroring an output onto a client surface.
+license     : GPL-3.0-or-later
+builddeps   :
+    - pkgconfig(egl)
+    - pkgconfig(gbm)
+    - pkgconfig(glesv2)
+    - pkgconfig(libdecor-0)
+    - pkgconfig(libdrm)
+    - pkgconfig(scdoc)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-egl)
+    - pkgconfig(wayland-scanner)
+    - wayland-protocols
+    - wlr-protocols
+setup       : |
+    %cmake \
+        -DFORCE_SYSTEM_WL_PROTOCOLS:BOOL=ON \
+        -DFORCE_SYSTEM_WLR_PROTOCOLS:BOOL=ON \
+        -DWITH_GBM:BOOL=ON \
+        -DWITH_LIBDECOR:BOOL=ON \
+        -DINSTALL_DOCUMENTATION:BOOL=ON \
+        -DINSTALL_EXAMPLE_SCRIPTS:BOOL=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

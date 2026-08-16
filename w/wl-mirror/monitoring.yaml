@@ -1,0 +1,5 @@
+releases:
+  id: 243384
+  rss: https://github.com/Ferdi265/wl-mirror/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-08-16)
