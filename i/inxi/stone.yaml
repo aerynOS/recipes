@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : inxi
-version     : "3.3.40-1"
-release     : 9
+version     : "3.3.41-1"
+release     : 10
 homepage    : https://smxi.org/docs/inxi.htm
 upstreams   :
-    - https://codeberg.org/smxi/inxi/archive/3.3.40-1.tar.gz : b3f307f06c3b969bd65151d39729b97a767af42fddd3d9bab971135c0e7cd873
+    - https://codeberg.org/smxi/inxi/archive/3.3.41-1.tar.gz : e08d92550a0f10890e722cc7db1e6d6cbde7e9fb47e61a8c6cec51f54a0b63d8
 summary     : System information tool via command line
 description : |
     %(name) is a full featured CLI system information tool.
