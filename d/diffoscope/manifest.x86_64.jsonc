@@ -12,12 +12,12 @@
 			],
 			"files": [
 				"/usr/bin/diffoscope",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/licenses/COPYING",
-				"/usr/lib/python3.14/site-packages/diffoscope-324.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/licenses/COPYING",
+				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/diffoscope/__init__.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/__pycache__/__init__.cpython-314.pyc",
@@ -412,6 +412,6 @@
 		}
 	},
 	"source-name": "diffoscope",
-	"source-release": "8",
-	"source-version": "324"
+	"source-release": "9",
+	"source-version": "328"
 }
