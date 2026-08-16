@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wlr-protocols
+version     : "20260309+git.bf4fc79"
+release     : 1
+homepage    : https://gitlab.freedesktop.org/wlroots/wlr-protocols
+upstreams   :
+    - https://gitlab.freedesktop.org/wlroots/wlr-protocols/-/archive/bf4fc79abc359eea5a0edec0ac6d4a2b2955f82a/wlr-protocols-bf4fc79abc359eea5a0edec0ac6d4a2b2955f82a.tar.bz2 : 06e35daf4db5270db9d21b9f6559c500c54554f1f6ebafd88c583d713c972c8b
+summary     : Wayland protocols designed for use in wlroots (and other compositors)
+description : Wayland protocols designed for use in wlroots (and other compositors)
+license     : MIT
+builddeps   :
+    - binary(wayland-scanner)
+build       : |
+    %make
+install     : |
+    %make_install
