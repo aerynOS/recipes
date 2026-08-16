@@ -4,6 +4,7 @@
 	"packages": {
 		"font-cantarell": {
 			"build-depends": [
+				"binary(bsdtar-static)",
 				"binary(msgfmt)"
 			],
 			"files": [
@@ -14,6 +15,6 @@
 		}
 	},
 	"source-name": "font-cantarell",
-	"source-release": "2",
-	"source-version": "0.303.1"
+	"source-release": "3",
+	"source-version": "0.311"
 }
