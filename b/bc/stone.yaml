@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bc
-version     : "1.08.1"
-release     : 7
+version     : "1.08.2"
+release     : 8
 homepage    : https://ftp.gnu.org/gnu/bc
 upstreams   :
-    - https://ftp.gnu.org/gnu/bc/bc-1.08.1.tar.gz : b71457ffeb210d7ea61825ff72b3e49dc8f2c1a04102bbe23591d783d1bfe996
+    - https://ftp.gnu.org/gnu/bc/bc-1.08.2.tar.gz : ae470fec429775653e042015edc928d07c8c3b2fc59765172a330d3d87785f86
 summary     : An arbitrary precision calculator language
 description : |
     An arbitrary precision calculator language
