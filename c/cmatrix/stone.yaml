@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : cmatrix
+version     : "2.0"
+release     : 1
+homepage    : https://www.cmatrix.org/
+upstreams   :
+    - https://github.com/abishekvashok/cmatrix/archive/refs/tags/v2.0.tar.gz : ad93ba39acd383696ab6a9ebbed1259ecf2d3cf9f49d6b97038c66f80749e99a
+summary     : A screensaver for people who live in the terminal
+description : |
+    CMatrix is based on the screensaver from The Matrix website.
+    It shows text flying in and out in a terminal like as seen in "The Matrix" movie.
+    It can scroll lines all at the same rate or asynchronously and at a user-defined speed.
+license     : GPL-3.0-or-later
+builddeps   :
+   - pkgconfig(ncurses)
+setup       : |
+    %cmake \
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
