@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fzf
-version     : "0.74.2"
-release     : 9
+version     : "0.74.3"
+release     : 10
 homepage    : https://github.com/junegunn/fzf
 upstreams   :
-    - https://github.com/junegunn/fzf/archive/refs/tags/v0.74.2.tar.gz : 3ce36bd4fb0cde458a7f93c11ef534408d92c3bf19e6acc90e112f3e9e2acc60
+    - https://github.com/junegunn/fzf/archive/refs/tags/v0.74.3.tar.gz : 5b142217c3068647a7d8faa9c678cffada100b5f11a48609aa79c94ce04b28ef
 summary     : A command-line fuzzy finder
 description : |
     It's an interactive filter program for any kind of list; files, command history, processes, hostnames, bookmarks, git commits, etc. It implements a "fuzzy" matching algorithm, so you can quickly type in patterns with omitted characters and still get the results you want.
