@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : htop
-version     : "3.5.2"
-release     : 11
+version     : "3.5.3"
+release     : 12
 homepage    : https://htop.dev/
 upstreams   :
-    - https://github.com/htop-dev/htop/releases/download/3.5.2/htop-3.5.2.tar.xz : 225128e697c4a8c8a878fd0078c965ff8bd5fb24913bfc8473b8edbd50f843f8
+    - https://github.com/htop-dev/htop/releases/download/3.5.3/htop-3.5.3.tar.xz : a8b164386494cb85bb255a415a3f5f80afe7a0c4491da5d113b3a0f951087e65
 summary     : Interactive process viewer
 description : |
     htop is an interactive process viewer that can show detailed information
