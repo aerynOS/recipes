@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wl-clip-persist
+version     : "0.5.0"
+release     : 1
+homepage    : https://github.com/Linus789/wl-clip-persist
+upstreams   :
+    - https://github.com/Linus789/wl-clip-persist/archive/refs/tags/v0.5.0.tar.gz : fdd2506e6556dda943a164d891fe498985838fdd0e94c54e595a8f1cd8c49b66
+summary     : Keep Wayland clipboard even after programs close
+description : |
+    Keep Wayland clipboard even after programs close.
+license     : MIT
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+
+    %install_file README.md %(installroot)%(datadir)/doc/%(name)/README.md
+    %install_file LICENSE %(installroot)%(datadir)/licenses/%(name)/LICENSE
+check       : |
+    %cargo_test

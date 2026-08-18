@@ -1,0 +1,27 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"wl-clip-persist": {
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/wl-clip-persist",
+				"/usr/share/doc/wl-clip-persist/README.md",
+				"/usr/share/licenses/wl-clip-persist/LICENSE"
+			],
+			"name": "wl-clip-persist",
+			"provides": [
+				"binary(wl-clip-persist)"
+			]
+		}
+	},
+	"source-name": "wl-clip-persist",
+	"source-release": "1",
+	"source-version": "0.5.0"
+}
