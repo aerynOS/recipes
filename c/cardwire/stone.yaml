@@ -2,37 +2,44 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cardwire
-version     : "0.11.1"
-release     : 3
+version     : "0.12.1"
+release     : 4
 summary     : A GPU Manager for linux that uses eBPF LSM hooks to block GPUs
 license     : GPL-3.0-only
 homepage    : https://github.com/OpenGamingCollective/cardwire
 upstreams   :
-    - https://github.com/OpenGamingCollective/cardwire/archive/refs/tags/v0.11.1.tar.gz :  46177bfa427bcb277c29718ee0eb421dcdb31dba33697019741ad56c4c1d7ba8
+    - https://github.com/OpenGamingCollective/cardwire/archive/refs/tags/v0.12.1.tar.gz :  eba92c952f002767abead1391d9d2d229e3637a756ac4786759a0012b7e96649
 description : |
     A GPU Manager for linux that uses eBPF LSM hooks to block GPUs 
 builddeps   :
+    - binary(bpf-linker)
     - pkgconfig(dbus-1)
     - pkgconfig(libbpf)
     - pkgconfig(libudev)
+    - pkgconfig(sqlite3)
+    - pkgconfig(xcb)
+    - rust-bpf
+    - rust-devel # Needs Rust source
 rundeps     :
     - binary(upower)
     - hwdata
     - systemd
 networking  : true
 environment : |
-    export RUSTUP_TOOLCHAIN=stable
+    export RUSTC_BOOTSTRAP=1
+    export RUSTFLAGS="-C target-feature="
+    export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
+    export CARGO_TARGET_BPFEL_UNKNOWN_NONE_LINKER="bpf-linker"
 setup       : |
     %cargo_fetch
 build       : |
     %cargo_build
 install     : |
-    %install_exe target/x86_64-unknown-linux-gnu/release/cardwire "%(installroot)%(bindir)/cardwire"
-    %install_exe target/x86_64-unknown-linux-gnu/release/cardwired "%(installroot)%(bindir)/cardwired"
-    %install_exe target/x86_64-unknown-linux-gnu/release/cardwire-gui "%(installroot)%(bindir)/cardwire-gui"
+    %cargo_install cardwire cardwired cardwire-gui
     %install_file assets/cardwired.service "%(installroot)%(libdir)/systemd/system/cardwired.service"
-    %install_file assets/com.github.opengamingcollective.cardwire.conf "%(installroot)%(datadir)/dbus-1/system.d/com.github.opengamingcollective.cardwire.conf"
+    %install_file assets/org.opengamingcollective.cardwire.conf "%(installroot)%(datadir)/dbus-1/system.d/org.opengamingcollective.cardwire.conf"
     %install_file assets/cardwire-gui.desktop "%(installroot)%(datadir)/applications/cardwire-gui.desktop"
+    %install_file assets/org.opengamingcollective.cardwire.metainfo.xml "%(installroot)%(datadir)/metainfo/org.opengamingcollective.cardwire.metainfo.xml"
     for icon in assets/icons/*.svg; do
         %install_file "$icon" "%(installroot)%(datadir)/icons/hicolor/scalable/apps/$(basename "$icon")"
     done

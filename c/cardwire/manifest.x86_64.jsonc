@@ -4,9 +4,14 @@
 	"packages": {
 		"cardwire": {
 			"build-depends": [
+				"binary(bpf-linker)",
 				"pkgconfig(dbus-1)",
 				"pkgconfig(libbpf)",
-				"pkgconfig(libudev)"
+				"pkgconfig(libudev)",
+				"pkgconfig(sqlite3)",
+				"pkgconfig(xcb)",
+				"rust-bpf",
+				"rust-devel"
 			],
 			"depends": [
 				"binary(upower)",
@@ -16,6 +21,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
+				"soname(libsqlite3.so.0(x86_64))",
 				"soname(libudev.so.1(x86_64))",
 				"systemd"
 			],
@@ -25,13 +31,14 @@
 				"/usr/bin/cardwired",
 				"/usr/lib/systemd/system/cardwired.service",
 				"/usr/share/applications/cardwire-gui.desktop",
-				"/usr/share/dbus-1/system.d/com.github.opengamingcollective.cardwire.conf",
-				"/usr/share/icons/hicolor/scalable/apps/com.github.opengamingcollective.cardwire.tray-hybrid.svg",
-				"/usr/share/icons/hicolor/scalable/apps/com.github.opengamingcollective.cardwire.tray-integrated.svg",
-				"/usr/share/icons/hicolor/scalable/apps/com.github.opengamingcollective.cardwire.tray-manual.svg",
-				"/usr/share/icons/hicolor/scalable/apps/com.github.opengamingcollective.cardwire.tray-smart.svg",
-				"/usr/share/icons/hicolor/scalable/apps/com.github.opengamingcollective.cardwire.tray.svg",
-				"/usr/share/licenses/cardwire/LICENSE"
+				"/usr/share/dbus-1/system.d/org.opengamingcollective.cardwire.conf",
+				"/usr/share/icons/hicolor/scalable/apps/org.opengamingcollective.cardwire.tray-hybrid.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.opengamingcollective.cardwire.tray-integrated.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.opengamingcollective.cardwire.tray-manual.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.opengamingcollective.cardwire.tray-smart.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.opengamingcollective.cardwire.tray.svg",
+				"/usr/share/licenses/cardwire/LICENSE",
+				"/usr/share/metainfo/org.opengamingcollective.cardwire.metainfo.xml"
 			],
 			"name": "cardwire",
 			"provides": [
@@ -42,6 +49,6 @@
 		}
 	},
 	"source-name": "cardwire",
-	"source-release": "3",
-	"source-version": "0.11.1"
+	"source-release": "4",
+	"source-version": "0.12.1"
 }
