@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plezy
-version     : "2.13.0"
-release     : 5
+version     : "2.15.0"
+release     : 6
 homepage    : https://github.com/edde746/plezy
 upstreams   :
-    - https://github.com/edde746/plezy/archive/refs/tags/2.13.0.tar.gz:
-        hash: 008e2cd9d3b1efba26d8a88c5a8592f92c54cddc4c17dd9782d643870277f9d7
+    - https://github.com/edde746/plezy/archive/refs/tags/2.15.0.tar.gz:
+        hash: bca8fb9bc2c0e0046ce2e648c814f612d75b1e3e5161c73983d91120e7c3d656
         unpackdir: plezy
-    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.44.8-stable.tar.xz:
-        hash: 672089e001571a9fbb209a495c583580c0c6c73ef98999264ba07fa93ace332d
+    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.0-stable.tar.xz:
+        hash: 26cd99d3d94b1367e6b50535a18aeef0282c10a535bbe3ec493534dcdab75296
         unpackdir: plezy/flutter
 summary     : Modern cross-platform Plex & Jellyfin client built with Flutter
 description : |

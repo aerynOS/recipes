@@ -51,6 +51,7 @@
 				"/usr/lib/plezy/data/flutter_assets/assets/anilist_mark.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/emby_icon.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/go-noto-current-regular.ttf",
+				"/usr/lib/plezy/data/flutter_assets/assets/go-noto-kurrent-hangul.ttf",
 				"/usr/lib/plezy/data/flutter_assets/assets/jellyfin_icon.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/mal_mark.svg",
 				"/usr/lib/plezy/data/flutter_assets/assets/mdblist_mark.svg",
@@ -132,6 +133,6 @@
 		}
 	},
 	"source-name": "plezy",
-	"source-release": "5",
-	"source-version": "2.13.0"
+	"source-release": "6",
+	"source-version": "2.15.0"
 }
