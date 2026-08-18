@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : signal-desktop
-version     : "8.21.0"
-release     : 23
+version     : "8.23.0"
+release     : 24
 homepage    : https://signal.org
 upstreams   :
-    - https://github.com/signalapp/Signal-Desktop/archive/refs/tags/v8.21.0.tar.gz : c50fa7885dc395c871aae1b522e3a39984bf0b4da53201adfac81e5ffae42d14
+    - https://github.com/signalapp/Signal-Desktop/archive/refs/tags/v8.23.0.tar.gz : d9d23c8629ab5c46981fcff763b7c42329bca470e142e204e0fd3a4f0d5f146f
 summary     : A private messenger for Windows, macOS, and Linux
 description : |
     Signal Desktop links with Signal on Android or iOS and lets you message from your Windows, macOS, and Linux computers.
