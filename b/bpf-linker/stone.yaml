@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : bpf-linker
+version     : "0.11.0"
+release     : 1
+upstreams   :
+    - https://github.com/aya-rs/bpf-linker/archive/refs/tags/v0.11.0.tar.gz: e32948056bd2604cdcc7fb384155feaf52f05512e02f4e8a7368af48e22f30f2
+homepage    : https://github.com/aya-rs/bpf-linker
+license     :
+    - Apache-2.0
+    - MIT
+summary     : Simple BPF static linker
+description : |
+    BPF static linker
+builddeps   :
+    - binary(llvm-config)
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+    %install_file README.md "%(installroot)%(datadir)/doc/bpf-linker/README.md"

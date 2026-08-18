@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 391850
+  rss: https://github.com/aya-rs/bpf-linker/releases.atom
+security:
+  # No known CPE. Last checked 2026-08-18
+  cpe: ~

@@ -1,0 +1,29 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"bpf-linker": {
+			"build-depends": [
+				"binary(llvm-config)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libLLVM.so.23.1(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/bpf-linker",
+				"/usr/share/doc/bpf-linker/README.md"
+			],
+			"name": "bpf-linker",
+			"provides": [
+				"binary(bpf-linker)"
+			]
+		}
+	},
+	"source-name": "bpf-linker",
+	"source-release": "1",
+	"source-version": "0.11.0"
+}
