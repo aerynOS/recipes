@@ -4,8 +4,6 @@
 	"packages": {
 		"lua-language-server": {
 			"build-depends": [
-				"binary(as)",
-				"binary(g++)",
 				"binary(ninja)",
 				"libstdc++-static"
 			],
