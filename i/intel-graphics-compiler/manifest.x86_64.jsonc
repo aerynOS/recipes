@@ -36,11 +36,11 @@
 				"/usr/bin/iga64",
 				"/usr/lib/igc2/NOTICES.txt",
 				"/usr/lib/libiga64.so.2",
-				"/usr/lib/libiga64.so.2.38.0+0",
+				"/usr/lib/libiga64.so.2.40.0+0",
 				"/usr/lib/libigc.so.2",
-				"/usr/lib/libigc.so.2.38.0+0",
+				"/usr/lib/libigc.so.2.40.0+0",
 				"/usr/lib/libigdfcl.so.2",
-				"/usr/lib/libigdfcl.so.2.38.0+0",
+				"/usr/lib/libigdfcl.so.2.40.0+0",
 				"/usr/lib/libopencl-clang.so.17"
 			],
 			"name": "intel-graphics-compiler",
@@ -130,6 +130,7 @@
 				"/usr/include/igc/ocl_igc_interface/code_type.h",
 				"/usr/include/igc/ocl_igc_interface/extensions/CMakeLists.txt",
 				"/usr/include/igc/ocl_igc_interface/extensions/SPIRVExtensions.td",
+				"/usr/include/igc/ocl_igc_interface/extensions/SPIRVExtensionsSupport.cpp",
 				"/usr/include/igc/ocl_igc_interface/extensions/SPIRVExtensionsSupport.h",
 				"/usr/include/igc/ocl_igc_interface/extensions/SPIRVExtensions_Common.td",
 				"/usr/include/igc/ocl_igc_interface/fcl_ocl_device_ctx.h",
@@ -197,6 +198,6 @@
 		}
 	},
 	"source-name": "intel-graphics-compiler",
-	"source-release": "7",
-	"source-version": "2.38.2"
+	"source-release": "8",
+	"source-version": "2.40.13"
 }
