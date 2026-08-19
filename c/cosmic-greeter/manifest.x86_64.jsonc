@@ -7,6 +7,7 @@
 				"binary(just)",
 				"clang-devel",
 				"os-artwork",
+				"pkgconfig(dav1d)",
 				"pkgconfig(dbus-1)",
 				"pkgconfig(libinput)",
 				"pkgconfig(libseat)",
@@ -21,6 +22,7 @@
 				"linux-pam",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libdav1d.so.7(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libpam.so.0(x86_64))",
@@ -50,6 +52,6 @@
 		}
 	},
 	"source-name": "cosmic-greeter",
-	"source-release": "58",
-	"source-version": "1.5.0"
+	"source-release": "59",
+	"source-version": "1.6.0"
 }
