@@ -666,6 +666,7 @@
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-out/wardleyDiagram-YWT4CUSO-A7TZPALT.js",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-out/xychartDiagram-2RQKCTM6-QOAA6ZSJ.js",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-src/editor.ts",
+				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-src/linkPresentationProvider.ts",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-src/markdownEditor.css",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-src/syntaxHighlighter.ts",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/markdown-editor-src/tsconfig.json",
@@ -1433,7 +1434,6 @@
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/lxc-exec",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/mxc-diagnostic-console.exe",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/winhttp-proxy-shim.exe",
-				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/wslcsdk.dll",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/wxc-exec.exe",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/wxc-host-prep.exe",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/x64/wxc-test-proxy.exe",
@@ -2265,6 +2265,10 @@
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-cool-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-cool-stable-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-cool-stable-96.spritesheet.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-dizzy-insiders-128.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-dizzy-insiders-128.spritesheet.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-dizzy-stable-128.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-dizzy-stable-128.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-falling-insiders-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-falling-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-falling-stable-96.png",
@@ -2297,8 +2301,6 @@
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-respawn-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-respawn-stable-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-respawn-stable-96.spritesheet.png",
-				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-revive-sign-insiders-96.png",
-				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-revive-sign-stable-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-search-insiders-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-search-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-search-stable-96.png",
@@ -2331,6 +2333,8 @@
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-waking-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-waking-stable-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-waking-stable-96.spritesheet.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-wall-impact-insiders-96.png",
+				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-wall-impact-stable-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-worry-insiders-96.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-worry-insiders-96.spritesheet.png",
 				"/usr/lib/vscode/resources/app/out/vs/workbench/contrib/chat/browser/widget/media/chatPet/buddy-worry-stable-96.png",
@@ -2442,6 +2446,6 @@
 		}
 	},
 	"source-name": "vscode-bin",
-	"source-release": "35",
-	"source-version": "1.133.0"
+	"source-release": "36",
+	"source-version": "1.134.0"
 }
