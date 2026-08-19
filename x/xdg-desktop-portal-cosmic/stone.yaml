@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : xdg-desktop-portal-cosmic
-version     : "1.5.0"
-release     : 49
+version     : "1.6.0"
+release     : 50
 summary     : Cosmic Desktop - XDG Portal Support
 license     : GPL-3.0
 homepage    : https://github.com/pop-os/xdg-desktop-portal-cosmic
 upstreams   :
-    - https://github.com/pop-os/xdg-desktop-portal-cosmic/archive/refs/tags/epoch-1.5.0.tar.gz : 3ac591232cbbbe47e5fc6264dde6f223bfe3d6711045fd3a1fc99a1c9453da81
+    - https://github.com/pop-os/xdg-desktop-portal-cosmic/archive/refs/tags/epoch-1.6.0.tar.gz : f126d3c7ebb70f9ea266e755d545ca3f96259134129433f32f38a2612832b8d8
 description : |
     Cosmic Desktop - XDG Portal Support
 builddeps   :
