@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-filelock
-version     : "3.30.0"
-release     : 8
+version     : "3.32.3"
+release     : 9
 homepage    : https://github.com/tox-dev/filelock
 upstreams   :
-    - https://pypi.debian.net/filelock/filelock-3.30.0.tar.gz : 1774e682dbe443bd60f9609162fc596e2c80dc84ffc2957068953406d0520090
+    - https://pypi.debian.net/filelock/filelock-3.32.3.tar.gz : 0ffa185a3540854c95caa7fa76b76cb219d907415e2c5dc9af25fd970563487f
 summary     : A platform independent file lock
 description : |
     A platform independent file lock
