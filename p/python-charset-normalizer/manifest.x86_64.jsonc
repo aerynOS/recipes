@@ -14,12 +14,12 @@
 			],
 			"files": [
 				"/usr/bin/normalizer",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/charset_normalizer-3.4.9.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/charset_normalizer-3.5.1.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/charset_normalizer/__init__.py",
 				"/usr/lib/python3.14/site-packages/charset_normalizer/__main__.py",
 				"/usr/lib/python3.14/site-packages/charset_normalizer/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -66,6 +66,6 @@
 		}
 	},
 	"source-name": "python-charset-normalizer",
-	"source-release": "6",
-	"source-version": "3.4.9"
+	"source-release": "7",
+	"source-version": "3.5.1"
 }
