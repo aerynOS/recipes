@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dust
-version     : "1.2.4"
-release     : 1
+version     : "1.2.5"
+release     : 2
 homepage    : https://github.com/bootandy/dust
 upstreams   :
-    - https://github.com/bootandy/dust/archive/refs/tags/v1.2.4.tar.gz : 2f6768534bd01727234e67f1dd3754c9547aa18c715f6ee52094e881ebac50e3
+    - https://github.com/bootandy/dust/archive/refs/tags/v1.2.5.tar.gz : 4445e61f1341ea567e9e49367f275a1f4b026a60526e60048265f7af4a4943fd
 summary     : A more intuitive version of du in rust
 description : |
     du + rust = dust. Like du but more intuitive.
