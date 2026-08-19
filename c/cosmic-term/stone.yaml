@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-term
-version     : "1.5.0"
-release     : 50
+version     : "1.6.0"
+release     : 51
 homepage    : https://github.com/pop-os/cosmic-term
 upstreams   :
-    - https://github.com/pop-os/cosmic-term/archive/refs/tags/epoch-1.5.0.tar.gz : ea942a519c33c6bc13dddfdd8c5addfc4307742c1f892fa67807646fc6db42bc
+    - https://github.com/pop-os/cosmic-term/archive/refs/tags/epoch-1.6.0.tar.gz : 1f67186d1e058563ee61bb17b40764e69d0e40661a69b526fef957a4d0ad3f7e
 summary     : Cosmic Desktop Terminal Application
 description : |
     Cosmic desktop Terminal Application
