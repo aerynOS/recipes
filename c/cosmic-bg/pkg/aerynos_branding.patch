@@ -1,8 +1,8 @@
 diff --git a/config/src/lib.rs b/config/src/lib.rs
-index a82e84c..4b394a9 100644
+index 36c297d..08f25f2 100644
 --- a/config/src/lib.rs
 +++ b/config/src/lib.rs
-@@ -139,7 +139,7 @@ impl Entry {
+@@ -141,7 +141,7 @@ impl Entry {
          Self {
              output: String::from("all"),
              source: Source::Path(PathBuf::from(
@@ -12,19 +12,14 @@ index a82e84c..4b394a9 100644
              filter_by_theme: true,
              rotation_frequency: 3600,
 diff --git a/data/v1/all b/data/v1/all
-index d6f0b06..f22b28f 100644
+index 7a5376a..a7e6b0f 100644
 --- a/data/v1/all
 +++ b/data/v1/all
-@@ -1,9 +1,9 @@
+@@ -1,6 +1,6 @@
  (
      output: "all",
 -    source: Path("/usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg"),
 +    source: Path("/usr/share/backgrounds/aerynos/DreamyBrno.jpg"),
-     filter_by_theme: true,
+     filter_by_theme: #true,
      rotation_frequency: 3600,
      filter_method: Lanczos,
-     scaling_mode: Zoom,
-     sampling_method: Alphanumeric,
--)
-\ No newline at end of file
-+)

@@ -19,8 +19,7 @@
 			],
 			"files": [
 				"/usr/bin/cosmic-bg",
-				"/usr/share/cosmic/com.system76.CosmicBackground/v1/all",
-				"/usr/share/cosmic/com.system76.CosmicBackground/v1/backgrounds"
+				"/usr/share/cosmic/com.system76.CosmicBackground/v1/all"
 			],
 			"name": "cosmic-bg",
 			"provides": [
@@ -29,6 +28,6 @@
 		}
 	},
 	"source-name": "cosmic-bg",
-	"source-release": "48",
-	"source-version": "1.5.0"
+	"source-release": "49",
+	"source-version": "1.6.0"
 }
