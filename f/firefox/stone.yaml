@@ -3,7 +3,7 @@
 
 name        : firefox
 version     : "154.0"
-release     : 78
+release     : 79
 homepage    : https://www.mozilla.org/
 upstreams   :
     - https://releases.mozilla.org/pub/firefox/releases/154.0/source/firefox-154.0.source.tar.xz:
@@ -45,7 +45,7 @@ builddeps   :
     - pkgconfig(xkbcommon)
 rundeps     :
     - firefox-langpacks
-    - soname(libavcodec.so.62(x86_64)) # dlopened, check dom/media/platforms/ffmpeg/FFmpegRuntimeLinker.cpp for latest supported
+    - soname(libavcodec.so.63(x86_64)) # dlopened, check dom/media/platforms/ffmpeg/FFmpegLibWrapper.h for latest supported
     - xdg-desktop-portal
 networking  : true # PGO
 environment : |
