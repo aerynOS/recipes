@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-store
-version     : "1.5.0"
-release     : 46
+version     : "1.6.0"
+release     : 47
 summary     : Cosmic Desktop Store
 license     : GPL-3.0
 homepage    : https://github.com/pop-os/cosmic-store
 upstreams   :
-    - https://github.com/pop-os/cosmic-store/archive/refs/tags/epoch-1.5.0.tar.gz : 5a1ed7f9e241b498592437f1d4bc125d39a6c743de15629148a2d27f4402610c
+    - https://github.com/pop-os/cosmic-store/archive/refs/tags/epoch-1.6.0.tar.gz : 97def2ebe58cd56fee826cf911057b122d671615441afdaa7f129c569558108d
 description : |
     Cosmic Desktop Store
 builddeps   :
