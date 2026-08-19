@@ -8,14 +8,13 @@
 				"python(hatchling)"
 			],
 			"depends": [
-				"python(filelock)",
-				"python(platformdirs)"
+				"python(filelock)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/python_discovery-1.4.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.4.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.4.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.4.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.5.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.5.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.5.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.5.2.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/python_discovery/__init__.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.pyc",
@@ -29,6 +28,8 @@
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_discovery.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_info.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_info.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_info_collect.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_info_collect.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_spec.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_spec.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_specifier.cpython-314.opt-1.pyc",
@@ -38,6 +39,7 @@
 				"/usr/lib/python3.14/site-packages/python_discovery/_compat.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_discovery.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_py_info.py",
+				"/usr/lib/python3.14/site-packages/python_discovery/_py_info_collect.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_py_spec.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_specifier.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__init__.py",
@@ -58,6 +60,6 @@
 		}
 	},
 	"source-name": "python-discovery",
-	"source-release": "6",
-	"source-version": "1.4.4"
+	"source-release": "7",
+	"source-version": "1.5.2"
 }
