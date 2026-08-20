@@ -5,10 +5,8 @@
 set -e
 set -x
 
-REPO="pop-os"
-
 # The version of the cosmic desktop
-VERSION="1.0.0-alpha.7"
+VERSION="1.4.0"
 
 # Find all `stone.yaml` files that contain pop-os in the upstreams section
 # and update the upstream to the latest commit
@@ -34,14 +32,14 @@ for recipe in $(find . -name "stone.yaml"); do
       continue
     fi
 
-    # Get the latest commit from the github API
-    latest_commit=$(gh api repos/$REPO/$package_name/commits --jq '.[0].sha')
-
     # change to working directory
     pushd $(dirname $recipe)
 
     # Update the recipe
-    boulder recipe update --ver $VERSION --upstream "git|$latest_commit" --overwrite stone.yaml
+    # I HEAVILY recommend commenting it out after all the recipes related to COSMIC get updated, just so you don't bump the package twice.
+    boulder recipe update --ver $VERSION stone.yaml
+    just build
+    just mv-local
 
     popd
   fi
