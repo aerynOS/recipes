@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : uthash
+version     : "2.4.0"
+release     : 1
+homepage    : https://github.com/troydhanson/uthash
+upstreams   :
+    - https://github.com/troydhanson/uthash/archive/refs/tags/v2.4.0.tar.gz : 387ba027946d7c64e9aa19cc53b2edcd714f8f9dca9fa8e3aaef17e0e8e3d736
+summary     : C macros for hash tables and more
+description : |
+    C macros for hash tables and more
+license     : 
+    - BSD-1-Clause
+setup       : |
+build       : |
+install     : |
+    %install_dir %(installroot)%(includedir)
+    for f in src/*.h; do
+        %install_file $f %(installroot)%(includedir)/
+    done
+
+    %install_dir %(installroot)%(datadir)/licenses/%(name)
+    %install_file LICENSE %(installroot)%(datadir)/licenses/%(name)/
+packages:
+    - "%(name)":
+        paths:
+            - /usr/include
+            - /usr/share/licenses
+
