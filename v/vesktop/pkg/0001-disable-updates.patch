@@ -1,0 +1,29 @@
+--- a/package.json	2026-07-20 12:18:16.183730350 -0300
++++ b/package.json	2026-07-20 12:18:34.862043742 -0300
+@@ -195,9 +195,6 @@
+                 }
+             ]
+         },
+-        "publish": {
+-            "provider": "github"
+-        },
+         "rpm": {
+             "fpm": [
+                 "--rpm-rpmbuild-define=_build_id_links none"
+--- a/src/main/updater.ts	2026-07-20 12:18:18.433713220 -0300
++++ b/src/main/updater.ts	2026-07-20 12:19:07.605494030 -0300
+@@ -34,12 +34,11 @@
+ autoUpdater.autoInstallOnAppQuit = false;
+ autoUpdater.fullChangelog = true;
+ 
+-const isOutdated = autoUpdater.checkForUpdates().then(res => Boolean(res?.isUpdateAvailable));
++const isOutdated = Promise.resolve(false);
+ 
+ handle(IpcEvents.UPDATER_IS_OUTDATED, () => isOutdated);
+ handle(IpcEvents.UPDATER_OPEN, async () => {
+-    const res = await autoUpdater.checkForUpdates();
+-    if (res?.isUpdateAvailable && res.updateInfo) openUpdater(res.updateInfo);
++	return;
+ });
+ 
+ function openUpdater(update: UpdateInfo) {
