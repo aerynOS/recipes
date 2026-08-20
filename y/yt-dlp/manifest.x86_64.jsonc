@@ -15,11 +15,11 @@
 			],
 			"files": [
 				"/usr/bin/yt-dlp",
-				"/usr/lib/python3.14/site-packages/yt_dlp-2026.7.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/yt_dlp-2026.7.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/yt_dlp-2026.7.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/yt_dlp-2026.7.4.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/yt_dlp-2026.7.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/yt_dlp-2026.8.19.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/yt_dlp-2026.8.19.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/yt_dlp-2026.8.19.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/yt_dlp-2026.8.19.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/yt_dlp-2026.8.19.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/yt_dlp/YoutubeDL.py",
 				"/usr/lib/python3.14/site-packages/yt_dlp/__init__.py",
 				"/usr/lib/python3.14/site-packages/yt_dlp/__main__.py",
@@ -3167,6 +3167,6 @@
 		}
 	},
 	"source-name": "yt-dlp",
-	"source-release": "3",
-	"source-version": "2026.07.04"
+	"source-release": "4",
+	"source-version": "2026.08.19"
 }

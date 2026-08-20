@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yt-dlp
-version     : "2026.07.04"
-release     : 3
+version     : "2026.08.19"
+release     : 4
 homepage    : https://github.com/yt-dlp/yt-dlp
 upstreams   :
-    - https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2026.07.04.tar.gz : 7fb7ca0509dd8f21263246d3d749a346e049fa9d3cfdef072e05c7bbd88d6fc0
+    - https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2026.08.19.tar.gz : a0779c45179a846986a852bce31bddbe9259b594574f75c0ec146d0567058f7e
 summary     : yt-dlp is a feature-rich command-line audio/video downloader with support for thousands of sites
 description : |
     yt-dlp is a feature-rich command-line audio/video downloader with support for thousands of sites. The project is a fork of youtube-dl based on the now inactive youtube-dlc.
