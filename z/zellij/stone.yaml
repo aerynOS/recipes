@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zellij
-version     : "0.44.3"
-release     : 7
+version     : "0.45.0"
+release     : 8
 license     : MIT
 homepage    : https://zellij.dev/
 upstreams   :
-    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.44.3.tar.gz : 33ae61fc802b59462fed49b424893596d3aa819646bdce53d5602f714c1264fe
+    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.45.0.tar.gz : fba81ade9d3fd93869338553dce394a889e6f28e0e91f98896eb77533bab599b
 summary     : A terminal workspace with batteries included
 description : |
     Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen) but includes many built-in features that would allow users to extend it and create their own personalized environment.
@@ -15,9 +15,7 @@ networking  : true
 tuning      :
     - lto : thin
 builddeps   :
-    - binary(cargo)
     - pkgconfig(openssl)
-    - mandown
 setup       : |
     %cargo_fetch
 build       : |
@@ -26,8 +24,6 @@ build       : |
     %(cargo_target_dir)/zellij setup --generate-completion bash > zellij.bash
     %(cargo_target_dir)/zellij setup --generate-completion fish > zellij.fish
     %(cargo_target_dir)/zellij setup --generate-completion zsh > zellij.zsh
-
-    mandown docs/MANPAGE.md > assets/zellij.1
 install     : |
     %cargo_install
 
@@ -36,8 +32,6 @@ install     : |
     %install_file zellij.bash %(installroot)%(bashcompletionsdir)/zellij
     %install_file zellij.fish %(installroot)%(fishcompletionsdir)/zellij.fish
     %install_file zellij.zsh %(installroot)%(zshcompletionsdir)/_zellij
-
-    %install_file assets/zellij.1 %(installroot)%(mandir)/man1/zellij.1
 
     %install_file assets/zellij.desktop -t %(installroot)%(datadir)/applications/
 
