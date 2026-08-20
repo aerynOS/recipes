@@ -3,7 +3,7 @@
 
 name        : llvm
 version     : "22.1.8"
-release     : 59
+release     : 60
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception
@@ -18,11 +18,6 @@ builddeps   :
     - binary(python3)
     - binary(sed)
     - binary(swig)
-    - pkgconfig32(libffi)
-    - pkgconfig32(libxcrypt)
-    - pkgconfig32(libxml-2.0)
-    - pkgconfig32(libzstd)
-    - pkgconfig32(zlib)
     - pkgconfig(hwloc)
     # - pkgconfig(level-zero) # TODO: Check in a future LLVM release if this is supported properly
     - pkgconfig(libedit)
@@ -30,6 +25,11 @@ builddeps   :
     - pkgconfig(mimalloc)
     - pkgconfig(ncurses)
     - pkgconfig(python3)
+    - pkgconfig32(libffi)
+    - pkgconfig32(libxcrypt)
+    - pkgconfig32(libxml-2.0)
+    - pkgconfig32(libzstd)
+    - pkgconfig32(zlib)
     - python(myst-parser)
     - python(sphinx)
     - binutils-devel
@@ -74,6 +74,10 @@ environment : |
         EXTRA_LLVM_FLAGS="-DLLVM_CCACHE_BUILD=ON"
     fi
 
+    # BOLT: -update-debug-sections doesn't yet support SHF_COMPRESSED
+    #       https://github.com/llvm/llvm-project/pull/215835
+    export LDFLAGS="${LDFLAGS} -Wl,--compress-debug-sections=none"
+
     _MAJOR_VERSION=$(echo %(version) | cut -d. -f1)
 
     function apply_llvm_patches() {
@@ -86,6 +90,7 @@ environment : |
         %patch %(pkgdir)/patches/build/0001-openmp-Don-t-install-static-libarcher.patch
         %patch %(pkgdir)/patches/build/0001-polly-Create-targets-for-headers-cmake.patch
         %patch %(pkgdir)/patches/build/0001-offload-Fix-build-failure-with-icf-all.patch
+        %patch %(pkgdir)/patches/build/0001-Emit-relocations-for-BOLT.patch
 
         # Runtime config changes. These often duplicate settings set by our CFLAGS/LDFLAGS and are intended as sane
         # defaults when a build either doesn't respect our flags or when a user is building a project outside of
@@ -109,6 +114,13 @@ environment : |
         %patch %(pkgdir)/patches/upstream/0002-X86-vectorizeExtractedCast-don-t-assume-vector-sourc.patch
         # Fixes rust 1.97 miscompilation
         %patch %(pkgdir)/patches/upstream/208683.patch
+        # Fix rustc bpf support + prereq
+        %patch %(pkgdir)/patches/upstream/0001-bpf-Support-aggregate-returns-190894.patch
+        %patch %(pkgdir)/patches/upstream/0002-Fixes-for-compile-rust-code-192134.patch
+        # BOLT issues
+        %patch %(pkgdir)/patches/upstream/0001-BOLT-X86-Add-missing-MOV8-instruction-cases-in-X86MC.patch
+        %patch %(pkgdir)/patches/upstream/bolt-fix-relr-addends-for-non-zero-image.patch
+        %patch %(pkgdir)/patches/build/0001-BOLT-Ensure-runtime-is-built-with-uncompressed-debug.patch
     }
 
     # 2025-03-25: Add LIBCXX_TYPEINFO_COMPARISON_IMPLEMENTATION=2 for https://bugs.kde.org/show_bug.cgi?id=479679
@@ -418,28 +430,29 @@ profiles    :
             rm -fv %(installroot)%(mandir)/man1/lit* \
                    %(installroot)%(mandir)/man1/lldb-tblgen*
 
-            # TODO: Restore the bolt'd build
+            export PATH="%(installroot)/usr/bin:${PATH}"
+            export LD_LIBRARY_PATH="%(installroot)/%(libdir)"
 
-            # export PATH="%(installroot)/usr/bin:${PATH}"
-            # export LD_LIBRARY_PATH="%(installroot)/%(libdir):${LD_LIBRARY_PATH}"
+            export BOLTED_BINS="/usr/lib/libclang-cpp.so.22.1 /usr/lib/libLLVM.so.22.1"
 
-            # for i in /usr/bin/clang-${major_version} /usr/lib/liblldELF.so.18.1 /usr/lib/liblldCommon.so.18.1 /usr/lib/LLVMPolly.so /usr/lib/libPollyISL.so /usr/lib/libclang-cpp.so.18.1 /usr/lib/libclang.so.%(version) /usr/lib/libLLVM.so.18.1 /usr/lib/libLTO.so.18.1; do
-            #   bolt_instr %(installroot)/$i
-            # done
+            for i in ${BOLTED_BINS}; do
+              %bolt_instr %(installroot)/$i
+            done
 
-            # cmake -G Ninja ${llvmopts} -B bolt-clang -S runtimes \
-            #   -DCMAKE_C_COMPILER="%(installroot)/usr/bin/clang" \
-            #   -DCMAKE_CXX_COMPILER="%(installroot)/usr/bin/clang++" \
-            #   -DLLVM_ENABLE_RUNTIMES='libcxx;libcxxabi;libunwind' \
-            #   -DLLVM_USE_LINKER="%(installroot)/usr/bin/ld.lld" \
-            #   -DLLVM_ENABLE_LTO=Full
+            cmake -G Ninja -B bolt-clang -S runtimes \
+              -DCMAKE_C_COMPILER="%(installroot)/usr/bin/clang" \
+              -DCMAKE_CXX_COMPILER="%(installroot)/usr/bin/clang++" \
+              -DLLVM_ENABLE_RUNTIMES='libcxx;libcxxabi;libunwind' \
+              -DLLVM_USE_LINKER="%(installroot)/usr/bin/ld.lld" \
+              -DLLVM_ENABLE_LTO=Full
+            ninja -C bolt-clang
 
-            # cmake_build -C bolt-clang
-
-            # for i in /usr/bin/clang-${major_version} /usr/lib/liblldELF.so.18.1 /usr/lib/liblldCommon.so.18.1 /usr/lib/LLVMPolly.so /usr/lib/libPollyISL.so /usr/lib/libclang-cpp.so.18.1 /usr/lib/libclang.so.%(version) /usr/lib/libLLVM.so.18.1 /usr/lib/libLTO.so.18.1; do
-            #   bolt_merge %(installroot)/$i
-            #   bolt_opt %(installroot)/$i
-            # done
+            for i in ${BOLTED_BINS}; do
+              %bolt_merge %(installroot)/$i
+              %bolt_opt %(installroot)/$i
+              # Clean-up
+              rm -v %(installroot)/$i.{bolt,orig}
+            done
 
             ### LLVM (begin)
             %install_dir %(installroot)/%(libdir)/bfd-plugins

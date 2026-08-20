@@ -1,0 +1,160 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: 4ast <alexei.starovoitov@gmail.com>
+Date: Tue, 14 Apr 2026 15:54:05 -0700
+Subject: [PATCH 2/2] Fixes for compile rust code (#192134)
+
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+Co-authored-by: Alexei Starovoitov <ast@kernel.org>
+---
+ llvm/lib/Target/BPF/BPFISelLowering.cpp       |  3 +-
+ llvm/lib/Target/BPF/BTFDebug.cpp              |  8 ++++
+ .../CodeGen/BPF/BTF/array-no-dimension.ll     | 32 ++++++++++++++++
+ llvm/test/CodeGen/BPF/BTF/char-utf.ll         | 38 +++++++++++++++++++
+ llvm/test/CodeGen/BPF/warn-call.ll            |  5 +--
+ 5 files changed, 82 insertions(+), 4 deletions(-)
+ create mode 100644 llvm/test/CodeGen/BPF/BTF/array-no-dimension.ll
+ create mode 100644 llvm/test/CodeGen/BPF/BTF/char-utf.ll
+
+diff --git a/llvm/lib/Target/BPF/BPFISelLowering.cpp b/llvm/lib/Target/BPF/BPFISelLowering.cpp
+index 87183daa5674..2a479949a4b2 100644
+--- a/llvm/lib/Target/BPF/BPFISelLowering.cpp
++++ b/llvm/lib/Target/BPF/BPFISelLowering.cpp
+@@ -573,7 +573,8 @@ SDValue BPFTargetLowering::LowerCall(TargetLowering::CallLoweringInfo &CLI,
+     Callee = DAG.getTargetExternalSymbol(E->getSymbol(), PtrVT, 0);
+     StringRef Sym = E->getSymbol();
+     if (Sym != BPF_TRAP && Sym != "__multi3" && Sym != "__divti3" &&
+-        Sym != "__modti3" && Sym != "__udivti3" && Sym != "__umodti3")
++        Sym != "__modti3" && Sym != "__udivti3" && Sym != "__umodti3" &&
++        Sym != "memcpy" && Sym != "memset" && Sym != "memmove")
+       fail(
+           CLI.DL, DAG,
+           Twine("A call to built-in function '" + Sym + "' is not supported."));
+diff --git a/llvm/lib/Target/BPF/BTFDebug.cpp b/llvm/lib/Target/BPF/BTFDebug.cpp
+index fb90a2ca5b38..c152bd34c67b 100644
+--- a/llvm/lib/Target/BPF/BTFDebug.cpp
++++ b/llvm/lib/Target/BPF/BTFDebug.cpp
+@@ -168,6 +168,7 @@ BTFTypeInt::BTFTypeInt(uint32_t Encoding, uint32_t SizeInBits,
+     break;
+   case dwarf::DW_ATE_unsigned:
+   case dwarf::DW_ATE_unsigned_char:
++  case dwarf::DW_ATE_UTF:
+     BTFEncoding = 0;
+     break;
+   default:
+@@ -605,6 +606,7 @@ void BTFDebug::visitBasicType(const DIBasicType *BTy, uint32_t &TypeId) {
+   case dwarf::DW_ATE_signed_char:
+   case dwarf::DW_ATE_unsigned:
+   case dwarf::DW_ATE_unsigned_char:
++  case dwarf::DW_ATE_UTF:
+     // Create a BTF type instance for this DIBasicType and put it into
+     // DIToIdMap for cross-type reference check.
+     TypeEntry = std::make_unique<BTFTypeInt>(
+@@ -794,6 +796,12 @@ void BTFDebug::visitArrayType(const DICompositeType *CTy, uint32_t &TypeId) {
+ 
+   // Visit array dimensions.
+   DINodeArray Elements = CTy->getElements();
++  if (Elements.size() == 0) {
++    // Rust and other languages may emit array types with no dimensions.
++    // Treat as a zero-length array so the type is still registered.
++    auto TypeEntry = std::make_unique<BTFTypeArray>(ElemTypeId, 0);
++    ElemTypeId = addType(std::move(TypeEntry), CTy);
++  }
+   for (int I = Elements.size() - 1; I >= 0; --I) {
+     if (auto *Element = dyn_cast_or_null<DINode>(Elements[I]))
+       if (Element->getTag() == dwarf::DW_TAG_subrange_type) {
+diff --git a/llvm/test/CodeGen/BPF/BTF/array-no-dimension.ll b/llvm/test/CodeGen/BPF/BTF/array-no-dimension.ll
+new file mode 100644
+index 000000000000..992cab8ff269
+--- /dev/null
++++ b/llvm/test/CodeGen/BPF/BTF/array-no-dimension.ll
+@@ -0,0 +1,32 @@
++; RUN: llc -mtriple=bpfel -filetype=asm -o - %s | FileCheck -check-prefixes=CHECK %s
++;
++; Rust and other languages may emit array types with no DISubrange dimensions.
++; Verify BTFDebug does not crash and emits a zero-length array.
++
++target datalayout = "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128"
++
++define fastcc i1 @test() !dbg !4 {
++  ret i1 false
++}
++
++; CHECK:             .section        .BTF,"",@progbits
++; CHECK:             BTF_KIND_ARRAY
++; CHECK:             .long   0{{$}}
++
++!llvm.dbg.cu = !{!0}
++!llvm.module.flags = !{!3}
++
++!0 = distinct !DICompileUnit(language: DW_LANG_Rust, file: !1, producer: "rustc", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, enums: !2, splitDebugInlining: false, nameTableKind: None)
++!1 = !DIFile(filename: "test.rs", directory: "/tmp")
++!2 = !{}
++!3 = !{i32 2, !"Debug Info Version", i32 3}
++!4 = distinct !DISubprogram(name: "test", scope: !1, file: !1, line: 1, type: !5, scopeLine: 1, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !2)
++!5 = !DISubroutineType(types: !6)
++!6 = !{!7}
++!7 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !8, size: 64)
++!8 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "S", file: !1, size: 128, align: 64, elements: !9)
++!9 = !{!10}
++!10 = !DIDerivedType(tag: DW_TAG_member, name: "field", scope: !8, file: !1, baseType: !11, size: 64, align: 64)
++!11 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !12, size: 64)
++!12 = !DICompositeType(tag: DW_TAG_array_type, baseType: !13, size: 384, align: 64, elements: !2)
++!13 = !DIBasicType(name: "usize", size: 64, encoding: DW_ATE_unsigned)
+diff --git a/llvm/test/CodeGen/BPF/BTF/char-utf.ll b/llvm/test/CodeGen/BPF/BTF/char-utf.ll
+new file mode 100644
+index 000000000000..a71682cd0e8b
+--- /dev/null
++++ b/llvm/test/CodeGen/BPF/BTF/char-utf.ll
+@@ -0,0 +1,38 @@
++; RUN: llc -mtriple=bpfel -filetype=asm -o - %s | FileCheck -check-prefixes=CHECK %s
++; RUN: llc -mtriple=bpfeb -filetype=asm -o - %s | FileCheck -check-prefixes=CHECK %s
++
++; Rust's char type uses DW_ATE_UTF encoding. Verify BTF treats it as an
++; unsigned integer (BTF_KIND_INT with encoding 0).
++
++; Source (Rust):
++;   struct Option { val: char }
++
++define void @test(i32 %0) !dbg !4 {
++  ret void
++}
++
++; CHECK:             .section        .BTF,"",@progbits
++
++; The "char" type should appear as BTF_KIND_INT with encoding=0 (unsigned),
++; size=4.
++; CHECK:             .long   [[CHAR:[0-9]+]]         # BTF_KIND_INT(id = {{[0-9]+}})
++; CHECK-NEXT:        .long   16777216                # 0x1000000
++; CHECK-NEXT:        .long   4
++; CHECK-NEXT:        .long   32                      # 0x20
++
++!llvm.dbg.cu = !{!0}
++!llvm.module.flags = !{!3}
++
++!0 = distinct !DICompileUnit(language: DW_LANG_Rust, file: !1, producer: "rustc", isOptimized: true, runtimeVersion: 0, emissionKind: FullDebug, enums: !2, splitDebugInlining: false)
++!1 = !DIFile(filename: "test.rs", directory: "/tmp")
++!2 = !{}
++!3 = !{i32 2, !"Debug Info Version", i32 3}
++!4 = distinct !DISubprogram(name: "test", scope: null, file: !1, line: 1, type: !5, scopeLine: 1, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition | DISPFlagOptimized, unit: !0, retainedNodes: !7)
++!5 = !DISubroutineType(types: !6)
++!6 = !{null}
++!7 = !{!8}
++!8 = !DILocalVariable(name: "c", arg: 1, scope: !4, file: !1, line: 1, type: !9)
++!9 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "Option", file: !1, size: 32, align: 32, elements: !10)
++!10 = !{!11}
++!11 = !DIDerivedType(tag: DW_TAG_member, name: "val", scope: !9, file: !1, baseType: !12, size: 32, align: 32)
++!12 = !DIBasicType(name: "char", size: 32, encoding: DW_ATE_UTF)
+diff --git a/llvm/test/CodeGen/BPF/warn-call.ll b/llvm/test/CodeGen/BPF/warn-call.ll
+index d0b1da5e6426..396943579e7c 100644
+--- a/llvm/test/CodeGen/BPF/warn-call.ll
++++ b/llvm/test/CodeGen/BPF/warn-call.ll
+@@ -1,7 +1,6 @@
+-; RUN: not llc -mtriple=bpfel < %s 2>&1 >/dev/null | FileCheck %s
++; RUN: llc -mtriple=bpfel < %s 2>&1 | FileCheck %s
+ 
+-; CHECK: error: warn_call.c
+-; CHECK: built-in function 'memcpy'
++; CHECK: call memcpy
+ define ptr @warn(ptr returned, ptr, i64) local_unnamed_addr #0 !dbg !6 {
+   tail call void @llvm.dbg.value(metadata ptr %0, i64 0, metadata !14, metadata !17), !dbg !18
+   tail call void @llvm.dbg.value(metadata ptr %1, i64 0, metadata !15, metadata !17), !dbg !19

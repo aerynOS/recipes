@@ -1,0 +1,363 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: 4ast <alexei.starovoitov@gmail.com>
+Date: Wed, 8 Apr 2026 09:22:03 -0700
+Subject: [PATCH 1/2] bpf: Support aggregate returns (#190894)
+
+i128 and 16 byte structs are now returned in R0:R2 which matches x86
+that returns { i64, i32 } in RAX:RDX.
+Both skip one register in between (RCX / R1).
+
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+Co-authored-by: Alexei Starovoitov <ast@kernel.org>
+---
+ llvm/lib/Target/BPF/BPFCallingConv.td    |  6 +--
+ llvm/lib/Target/BPF/BPFISelLowering.cpp  | 54 +++++++++++++-----------
+ llvm/lib/Target/BPF/BPFISelLowering.h    |  6 +++
+ llvm/test/CodeGen/BPF/atomic-oversize.ll |  2 -
+ llvm/test/CodeGen/BPF/i128_return.ll     | 44 +++++++++++++++++++
+ llvm/test/CodeGen/BPF/sret.ll            | 43 +++++++++++++++++++
+ llvm/test/CodeGen/BPF/struct_ret1.ll     | 22 +++++++---
+ llvm/test/CodeGen/BPF/struct_ret2.ll     | 11 +++--
+ 8 files changed, 151 insertions(+), 37 deletions(-)
+ create mode 100644 llvm/test/CodeGen/BPF/i128_return.ll
+ create mode 100644 llvm/test/CodeGen/BPF/sret.ll
+
+diff --git a/llvm/lib/Target/BPF/BPFCallingConv.td b/llvm/lib/Target/BPF/BPFCallingConv.td
+index a557211437e9..afe2d168fc46 100644
+--- a/llvm/lib/Target/BPF/BPFCallingConv.td
++++ b/llvm/lib/Target/BPF/BPFCallingConv.td
+@@ -11,7 +11,7 @@
+ //===----------------------------------------------------------------------===//
+ 
+ // BPF 64-bit C return-value convention.
+-def RetCC_BPF64 : CallingConv<[CCIfType<[i64], CCAssignToReg<[R0]>>]>;
++def RetCC_BPF64 : CallingConv<[CCIfType<[i64], CCAssignToReg<[R0, R2]>>]>;
+ 
+ // BPF 64-bit C Calling convention.
+ def CC_BPF64 : CallingConv<[
+@@ -27,8 +27,8 @@ def CC_BPF64 : CallingConv<[
+ 
+ // Return-value convention when -mattr=+alu32 enabled
+ def RetCC_BPF32 : CallingConv<[
+-  CCIfType<[i32], CCAssignToRegWithShadow<[W0], [R0]>>,
+-  CCIfType<[i64], CCAssignToRegWithShadow<[R0], [W0]>>
++  CCIfType<[i32], CCAssignToRegWithShadow<[W0, W2], [R0, R2]>>,
++  CCIfType<[i64], CCAssignToRegWithShadow<[R0, R2], [W0, W2]>>
+ ]>;
+ 
+ // Calling convention when -mattr=+alu32 enabled
+diff --git a/llvm/lib/Target/BPF/BPFISelLowering.cpp b/llvm/lib/Target/BPF/BPFISelLowering.cpp
+index faf3af0918d5..87183daa5674 100644
+--- a/llvm/lib/Target/BPF/BPFISelLowering.cpp
++++ b/llvm/lib/Target/BPF/BPFISelLowering.cpp
+@@ -128,9 +128,9 @@ BPFTargetLowering::BPFTargetLowering(const TargetMachine &TM,
+     setOperationAction(ISD::SMUL_LOHI, VT, Expand);
+     setOperationAction(ISD::ROTR, VT, Expand);
+     setOperationAction(ISD::ROTL, VT, Expand);
+-    setOperationAction(ISD::SHL_PARTS, VT, Expand);
+-    setOperationAction(ISD::SRL_PARTS, VT, Expand);
+-    setOperationAction(ISD::SRA_PARTS, VT, Expand);
++    setOperationAction(ISD::SHL_PARTS, VT, Custom);
++    setOperationAction(ISD::SRL_PARTS, VT, Custom);
++    setOperationAction(ISD::SRA_PARTS, VT, Custom);
+     setOperationAction(ISD::CTPOP, VT, Expand);
+     setOperationAction(ISD::CTTZ, VT, Expand);
+     setOperationAction(ISD::CTLZ, VT, Expand);
+@@ -365,6 +365,10 @@ SDValue BPFTargetLowering::LowerOperation(SDValue Op, SelectionDAG &DAG) const {
+   case ISD::SDIV:
+   case ISD::SREM:
+     return LowerSDIVSREM(Op, DAG);
++  case ISD::SHL_PARTS:
++  case ISD::SRL_PARTS:
++  case ISD::SRA_PARTS:
++    return LowerShiftParts(Op, DAG);
+   case ISD::DYNAMIC_STACKALLOC:
+     return LowerDYNAMIC_STACKALLOC(Op, DAG);
+   case ISD::ATOMIC_LOAD:
+@@ -452,9 +456,6 @@ SDValue BPFTargetLowering::LowerFormalArguments(
+     fail(DL, DAG, "stack arguments are not supported");
+   if (IsVarArg)
+     fail(DL, DAG, "variadic functions are not supported");
+-  if (MF.getFunction().hasStructRetAttr())
+-    fail(DL, DAG, "aggregate returns are not supported");
+-
+   return Chain;
+ }
+ 
+@@ -569,12 +570,13 @@ SDValue BPFTargetLowering::LowerCall(TargetLowering::CallLoweringInfo &CLI,
+     Callee = DAG.getTargetGlobalAddress(G->getGlobal(), CLI.DL, PtrVT,
+                                         G->getOffset(), 0);
+   } else if (ExternalSymbolSDNode *E = dyn_cast<ExternalSymbolSDNode>(Callee)) {
+-    if (StringRef(E->getSymbol()) != BPF_TRAP) {
+-      Callee = DAG.getTargetExternalSymbol(E->getSymbol(), PtrVT, 0);
+-      fail(CLI.DL, DAG,
+-           Twine("A call to built-in function '" + StringRef(E->getSymbol()) +
+-                 "' is not supported."));
+-    }
++    Callee = DAG.getTargetExternalSymbol(E->getSymbol(), PtrVT, 0);
++    StringRef Sym = E->getSymbol();
++    if (Sym != BPF_TRAP && Sym != "__multi3" && Sym != "__divti3" &&
++        Sym != "__modti3" && Sym != "__udivti3" && Sym != "__umodti3")
++      fail(
++          CLI.DL, DAG,
++          Twine("A call to built-in function '" + Sym + "' is not supported."));
+   }
+ 
+   // Returns a chain & a flag for retval copy to use.
+@@ -637,11 +639,6 @@ BPFTargetLowering::LowerReturn(SDValue Chain, CallingConv::ID CallConv,
+   // CCState - Info about the registers and stack slot.
+   CCState CCInfo(CallConv, IsVarArg, MF, RVLocs, *DAG.getContext());
+ 
+-  if (MF.getFunction().getReturnType()->isAggregateType()) {
+-    fail(DL, DAG, "aggregate returns are not supported");
+-    return DAG.getNode(Opc, DL, MVT::Other, Chain);
+-  }
+-
+   // Analize return values.
+   CCInfo.AnalyzeReturn(Outs, getHasAlu32() ? RetCC_BPF32 : RetCC_BPF64);
+ 
+@@ -681,13 +678,6 @@ SDValue BPFTargetLowering::LowerCallResult(
+   SmallVector<CCValAssign, 16> RVLocs;
+   CCState CCInfo(CallConv, IsVarArg, MF, RVLocs, *DAG.getContext());
+ 
+-  if (Ins.size() > 1) {
+-    fail(DL, DAG, "only small returns supported");
+-    for (auto &In : Ins)
+-      InVals.push_back(DAG.getConstant(0, DL, In.VT));
+-    return DAG.getCopyFromReg(Chain, DL, 1, Ins[0].VT, InGlue).getValue(1);
+-  }
+-
+   CCInfo.AnalyzeCallResult(Ins, getHasAlu32() ? RetCC_BPF32 : RetCC_BPF64);
+ 
+   // Copy all of the result registers out of their specified physreg.
+@@ -722,6 +712,13 @@ SDValue BPFTargetLowering::LowerSDIVSREM(SDValue Op, SelectionDAG &DAG) const {
+   return DAG.getUNDEF(Op->getValueType(0));
+ }
+ 
++SDValue BPFTargetLowering::LowerShiftParts(SDValue Op,
++                                           SelectionDAG &DAG) const {
++  SDValue Lo, Hi;
++  expandShiftParts(Op.getNode(), Lo, Hi, DAG);
++  return DAG.getMergeValues({Lo, Hi}, SDLoc(Op));
++}
++
+ SDValue BPFTargetLowering::LowerDYNAMIC_STACKALLOC(SDValue Op,
+                                                    SelectionDAG &DAG) const {
+   SDLoc DL(Op);
+@@ -1213,3 +1210,12 @@ bool BPFTargetLowering::isLegalAddressingMode(const DataLayout &DL,
+ 
+   return true;
+ }
++
++bool BPFTargetLowering::CanLowerReturn(
++    CallingConv::ID CallConv, MachineFunction &MF, bool IsVarArg,
++    const SmallVectorImpl<ISD::OutputArg> &Outs, LLVMContext &Context,
++    const Type *RetTy) const {
++  SmallVector<CCValAssign, 16> RVLocs;
++  CCState CCInfo(CallConv, IsVarArg, MF, RVLocs, Context);
++  return CCInfo.CheckReturn(Outs, getHasAlu32() ? RetCC_BPF32 : RetCC_BPF64);
++}
+diff --git a/llvm/lib/Target/BPF/BPFISelLowering.h b/llvm/lib/Target/BPF/BPFISelLowering.h
+index df1e2d8114ae..ea229400925d 100644
+--- a/llvm/lib/Target/BPF/BPFISelLowering.h
++++ b/llvm/lib/Target/BPF/BPFISelLowering.h
+@@ -69,6 +69,7 @@ private:
+   bool AllowsMisalignedMemAccess;
+ 
+   SDValue LowerSDIVSREM(SDValue Op, SelectionDAG &DAG) const;
++  SDValue LowerShiftParts(SDValue Op, SelectionDAG &DAG) const;
+   SDValue LowerDYNAMIC_STACKALLOC(SDValue Op, SelectionDAG &DAG) const;
+   SDValue LowerBR_CC(SDValue Op, SelectionDAG &DAG) const;
+   SDValue LowerSELECT_CC(SDValue Op, SelectionDAG &DAG) const;
+@@ -164,6 +165,11 @@ private:
+   MachineBasicBlock *
+   EmitInstrWithCustomInserterLDimm64(MachineInstr &MI,
+                                      MachineBasicBlock *BB) const;
++
++  bool CanLowerReturn(CallingConv::ID CallConv, MachineFunction &MF,
++                      bool IsVarArg,
++                      const SmallVectorImpl<ISD::OutputArg> &Outs,
++                      LLVMContext &Context, const Type *RetTy) const override;
+ };
+ }
+ 
+diff --git a/llvm/test/CodeGen/BPF/atomic-oversize.ll b/llvm/test/CodeGen/BPF/atomic-oversize.ll
+index 187f0964d4fb..6dc49398f091 100644
+--- a/llvm/test/CodeGen/BPF/atomic-oversize.ll
++++ b/llvm/test/CodeGen/BPF/atomic-oversize.ll
+@@ -1,6 +1,4 @@
+ ; RUN: llc -mtriple=bpf < %s | FileCheck %s
+-; XFAIL: *
+-; Doesn't currently build, with error 'only small returns supported'.
+ 
+ define void @test(ptr %a) nounwind {
+ ; CHECK-LABEL: test:
+diff --git a/llvm/test/CodeGen/BPF/i128_return.ll b/llvm/test/CodeGen/BPF/i128_return.ll
+new file mode 100644
+index 000000000000..b5cbcbed2c6c
+--- /dev/null
++++ b/llvm/test/CodeGen/BPF/i128_return.ll
+@@ -0,0 +1,44 @@
++; NOTE: Assertions have been autogenerated by utils/update_llc_test_checks.py UTC_ARGS: --version 6
++; RUN: llc -march=bpfel < %s | FileCheck %s
++; This test used to fail with "unable to allocate function return #1"
++
++
++define i64 @bar(i64 %a, i64 %b) {
++; CHECK-LABEL: bar:
++; CHECK:       # %bb.0: # %entry
++; CHECK-NEXT:    call foo
++; CHECK-NEXT:    r2 += r0
++; CHECK-NEXT:    r0 = r2
++; CHECK-NEXT:    exit
++entry:
++    %c = call i128 @foo(i64 %a, i64 %b)
++    %d = lshr i128 %c, 64
++    %e = trunc i128 %d to i64
++    %f = trunc i128 %c to i64
++    %g = add i64 %e, %f
++    ret i64 %g
++}
++
++
++define i128 @foo(i64 %a, i64 %b) {
++; CHECK-LABEL: foo:
++; CHECK:       # %bb.0: # %entry
++; CHECK-NEXT:    r0 = r1
++; CHECK-NEXT:    r0 += r2
++; CHECK-NEXT:    w3 = 1
++; CHECK-NEXT:    if r0 < r1 goto .LBB1_2
++; CHECK-NEXT:  # %bb.1: # %entry
++; CHECK-NEXT:    w3 = 0
++; CHECK-NEXT:  .LBB1_2: # %entry
++; CHECK-NEXT:    r2 s>>= 63
++; CHECK-NEXT:    r1 s>>= 63
++; CHECK-NEXT:    r1 += r2
++; CHECK-NEXT:    r1 += r3
++; CHECK-NEXT:    r2 = r1
++; CHECK-NEXT:    exit
++entry:
++    %a1 = sext i64 %a to i128
++    %b1 = sext i64 %b to i128
++    %c = add i128 %a1, %b1
++    ret i128 %c
++}
+diff --git a/llvm/test/CodeGen/BPF/sret.ll b/llvm/test/CodeGen/BPF/sret.ll
+new file mode 100644
+index 000000000000..1d90243a04ff
+--- /dev/null
++++ b/llvm/test/CodeGen/BPF/sret.ll
+@@ -0,0 +1,43 @@
++; NOTE: Assertions have been autogenerated by utils/update_llc_test_checks.py UTC_ARGS: --version 6
++; RUN: llc -march=bpfel -mcpu=v4 < %s | FileCheck %s
++
++define void @ret_s16(ptr sret([16 x i8]) %result) {
++; CHECK-LABEL: ret_s16:
++; CHECK:       # %bb.0:
++; CHECK-NEXT:    *(u64 *)(r1 + 8) = 2
++; CHECK-NEXT:    *(u64 *)(r1 + 0) = 1
++; CHECK-NEXT:    exit
++  store i64 1, ptr %result
++  %p2 = getelementptr i8, ptr %result, i64 8
++  store i64 2, ptr %p2
++  ret void
++}
++
++define void @ret_s24(ptr sret([24 x i8]) %result) {
++; CHECK-LABEL: ret_s24:
++; CHECK:       # %bb.0:
++; CHECK-NEXT:    *(u64 *)(r1 + 16) = 3
++; CHECK-NEXT:    *(u64 *)(r1 + 8) = 2
++; CHECK-NEXT:    *(u64 *)(r1 + 0) = 1
++; CHECK-NEXT:    exit
++  store i64 1, ptr %result
++  %p2 = getelementptr i8, ptr %result, i64 8
++  store i64 2, ptr %p2
++  %p3 = getelementptr i8, ptr %result, i64 16
++  store i64 3, ptr %p3
++  ret void
++}
++
++define i64 @caller() {
++; CHECK-LABEL: caller:
++; CHECK:       # %bb.0:
++; CHECK-NEXT:    r1 = r10
++; CHECK-NEXT:    r1 += -16
++; CHECK-NEXT:    call ret_s16
++; CHECK-NEXT:    r0 = *(u64 *)(r10 - 16)
++; CHECK-NEXT:    exit
++  %s = alloca [16 x i8], align 8
++  call void @ret_s16(ptr sret([16 x i8]) %s)
++  %v = load i64, ptr %s
++  ret i64 %v
++}
+diff --git a/llvm/test/CodeGen/BPF/struct_ret1.ll b/llvm/test/CodeGen/BPF/struct_ret1.ll
+index 40d17ec514c4..0c99b591b9e5 100644
+--- a/llvm/test/CodeGen/BPF/struct_ret1.ll
++++ b/llvm/test/CodeGen/BPF/struct_ret1.ll
+@@ -1,6 +1,5 @@
+-; RUN: not llc -mtriple=bpf < %s 2> %t1
+-; RUN: FileCheck %s < %t1
+-; CHECK: error: <unknown>:0:0: in function bar { i64, i32 } (i32, i32, i32, i32, i32): aggregate returns are not supported
++; NOTE: Assertions have been autogenerated by utils/update_llc_test_checks.py UTC_ARGS: --version 6
++; RUN: llc -mtriple=bpf < %s | FileCheck %s
+ 
+ %struct.S = type { i32, i32, i32 }
+ 
+@@ -8,6 +7,15 @@
+ 
+ ; Function Attrs: nounwind readonly uwtable
+ define { i64, i32 } @bar(i32 %a, i32 %b, i32 %c, i32 %d, i32 %e) #0 {
++; CHECK-LABEL: bar:
++; CHECK:       # %bb.0: # %entry
++; CHECK-NEXT:    r1 = s ll
++; CHECK-NEXT:    w2 = *(u32 *)(r1 + 0)
++; CHECK-NEXT:    w0 = *(u32 *)(r1 + 4)
++; CHECK-NEXT:    r0 <<= 32
++; CHECK-NEXT:    r0 |= r2
++; CHECK-NEXT:    w2 = *(u32 *)(r1 + 8)
++; CHECK-NEXT:    exit
+ entry:
+   %retval.sroa.0.0.copyload = load i64, ptr @s, align 4
+   %retval.sroa.2.0.copyload = load i32, ptr getelementptr inbounds (%struct.S, ptr @s, i64 0, i32 2), align 4
+@@ -16,12 +24,16 @@ entry:
+   ret { i64, i32 } %.fca.1.insert
+ }
+ 
+-; CHECK: error: <unknown>:0:0: in function baz void (ptr): aggregate returns are not supported
+-
+ %struct.B = type { [100 x i64] }
+ 
+ ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
+ define dso_local void @baz(ptr noalias nocapture sret(%struct.B) align 8 %agg.result) local_unnamed_addr #0 {
++; CHECK-LABEL: baz:
++; CHECK:       .Lbaz$local:
++; CHECK-NEXT:    .type .Lbaz$local,@function
++; CHECK-NEXT:    .cfi_startproc
++; CHECK-NEXT:  # %bb.0: # %entry
++; CHECK-NEXT:    exit
+ entry:
+   ret void
+ }
+diff --git a/llvm/test/CodeGen/BPF/struct_ret2.ll b/llvm/test/CodeGen/BPF/struct_ret2.ll
+index 170d55cc29df..2ed690760432 100644
+--- a/llvm/test/CodeGen/BPF/struct_ret2.ll
++++ b/llvm/test/CodeGen/BPF/struct_ret2.ll
+@@ -1,9 +1,14 @@
+-; RUN: not llc -mtriple=bpf < %s 2> %t1
+-; RUN: FileCheck %s < %t1
+-; CHECK: only small returns
++; NOTE: Assertions have been autogenerated by utils/update_llc_test_checks.py UTC_ARGS: --version 6
++; RUN: llc -mtriple=bpf < %s | FileCheck %s
+ 
+ ; Function Attrs: nounwind uwtable
+ define { i64, i32 } @foo(i32 %a, i32 %b, i32 %c) #0 {
++; CHECK-LABEL: foo:
++; CHECK:       # %bb.0: # %entry
++; CHECK-NEXT:    w4 = 1
++; CHECK-NEXT:    w5 = 2
++; CHECK-NEXT:    call bar
++; CHECK-NEXT:    exit
+ entry:
+   %call = tail call { i64, i32 } @bar(i32 %a, i32 %b, i32 %c, i32 1, i32 2) #3
+   ret { i64, i32 } %call
