@@ -284,15 +284,15 @@
 			],
 			"files": [
 				"/usr/lib/libIex-3_4.so.33",
-				"/usr/lib/libIex-3_4.so.33.3.4.14",
+				"/usr/lib/libIex-3_4.so.33.3.4.15",
 				"/usr/lib/libIlmThread-3_4.so.33",
-				"/usr/lib/libIlmThread-3_4.so.33.3.4.14",
+				"/usr/lib/libIlmThread-3_4.so.33.3.4.15",
 				"/usr/lib/libOpenEXR-3_4.so.33",
-				"/usr/lib/libOpenEXR-3_4.so.33.3.4.14",
+				"/usr/lib/libOpenEXR-3_4.so.33.3.4.15",
 				"/usr/lib/libOpenEXRCore-3_4.so.33",
-				"/usr/lib/libOpenEXRCore-3_4.so.33.3.4.14",
+				"/usr/lib/libOpenEXRCore-3_4.so.33.3.4.15",
 				"/usr/lib/libOpenEXRUtil-3_4.so.33",
-				"/usr/lib/libOpenEXRUtil-3_4.so.33.3.4.14"
+				"/usr/lib/libOpenEXRUtil-3_4.so.33.3.4.15"
 			],
 			"name": "openexr-libs",
 			"provides": [
@@ -305,6 +305,6 @@
 		}
 	},
 	"source-name": "openexr",
-	"source-release": "21",
-	"source-version": "3.4.14"
+	"source-release": "22",
+	"source-version": "3.4.15"
 }
