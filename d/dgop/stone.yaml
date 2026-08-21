@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : dgop
+version     : "0.2.3"
+release     : 1
+homepage    : https://github.com/AvengeMedia/dgop
+upstreams   :
+    - https://github.com/AvengeMedia/dgop/archive/refs/tags/v0.2.3.zip : 2307a2e7ed6180c59b01bf258aaf8fbe1e8d6376cb1c5dc3608e5ff66b28c4ad
+summary     : System monitoring tool with CLI & REST API built in Go
+description : |
+    dgop is a stateless system and process monitoring tool that provides a top-like tui,
+    CLI, and REST API. It allows sampling numerous metrics related to the system.
+license     : MIT
+networking  : true
+setup       : |
+    %go_mod
+build       : |
+    export GOFLAGS+=" -ldflags=-X=main.Version=v%(version)"
+    go build ./cmd/dgop
+
+    ./dgop completion bash > dgop.bash
+    ./dgop completion fish > dgop.fish
+    ./dgop completion zsh > _dgop
+install     : |
+    %install_bin dgop
+    %install_file dgop.bash %(installroot)%(bashcompletionsdir)/dgop
+    %install_file dgop.fish %(installroot)%(fishcompletionsdir)/dgop.fish
+    %install_file _dgop %(installroot)%(zshcompletionsdir)/_dgop
+    %install_file LICENSE %(installroot)%(datadir)/licenses/dgop/LICENSE
