@@ -1423,6 +1423,8 @@
 				"/usr/lib/clang/22/include/yvals_core.h",
 				"/usr/lib/clang/22/include/zos_wrappers/builtins.h",
 				"/usr/lib/libclang-cpp.so.22.1",
+				"/usr/lib/libclang-cpp.so.22.1.bolt",
+				"/usr/lib/libclang-cpp.so.22.1.orig",
 				"/usr/lib/libclang.so.22.1",
 				"/usr/lib/libclang.so.22.1.8"
 			],
@@ -8194,6 +8196,8 @@
 				"/usr/lib/LLVMgold.so",
 				"/usr/lib/bfd-plugins/LLVMgold.so",
 				"/usr/lib/libLLVM.so.22.1",
+				"/usr/lib/libLLVM.so.22.1.bolt",
+				"/usr/lib/libLLVM.so.22.1.orig",
 				"/usr/lib/libLTO.so.22.1",
 				"/usr/lib/libRemarks.so.22.1"
 			],
@@ -10634,6 +10638,6 @@
 		}
 	},
 	"source-name": "llvm",
-	"source-release": "59",
+	"source-release": "60",
 	"source-version": "22.1.8"
 }
