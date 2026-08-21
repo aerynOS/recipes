@@ -64,11 +64,11 @@
 				"/usr/lib/python3.14/site-packages/pdm/backend/structures.py",
 				"/usr/lib/python3.14/site-packages/pdm/backend/utils.py",
 				"/usr/lib/python3.14/site-packages/pdm/backend/wheel.py",
-				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.8.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.8.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.8.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.8.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.8.dist-info/licenses/LICENSE"
+				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.9.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.9.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.9.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.9.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/pdm_backend-2.4.9.dist-info/licenses/LICENSE"
 			],
 			"name": "python-pdm-backend",
 			"provides": [
@@ -77,6 +77,6 @@
 		}
 	},
 	"source-name": "python-pdm-backend",
-	"source-release": "4",
-	"source-version": "2.4.8"
+	"source-release": "5",
+	"source-version": "2.4.9"
 }

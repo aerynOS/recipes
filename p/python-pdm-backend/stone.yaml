@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pdm-backend
-version     : "2.4.8"
-release     : 4
+version     : "2.4.9"
+release     : 5
 homepage    : https://github.com/pdm-project/pdm-backend
 upstreams   :
-    - https://pypi.debian.net/pdm-backend/pdm_backend-2.4.8.tar.gz : d8ef85d2c4306ee67195412d701fae9983e84ec6574598e26798ae26b7b3c7e0
+    - https://pypi.debian.net/pdm-backend/pdm_backend-2.4.9.tar.gz : c41a852ccbf4b567b033db9b2ae78660d7a4ea49307719959ab88a01f0aabb2e
 summary     : The build backend used by PDM
 description : |
     The build backend used by PDM
@@ -20,10 +20,10 @@ checkdeps   :
     - python(pytest)
     - python(setuptools)
 rundeps     :
-    - python-libs
     - python(packaging)
     - python(pyproject-metadata)
     - python(tomli-w)
+    - python-libs
 setup       : |
     %patch %(pkgdir)/devendor.patch
     rm -rfv src/pdm/backend/_vendor
@@ -35,7 +35,7 @@ check       : |
     site_packages=$(python -c "import site; print(site.getsitepackages()[0])")
     # install to temporary location, as importlib is used
     python -m installer --destdir=test_dir dist/*.whl
-    export PYTHONPATH="$PWD/test_dir/$site_packages:$PYTHONPATH"
+    export PYTHONPATH="$PWD/test_dir/$site_packages${PYTHONPATH:+:$PYTHONPATH}"
 
     # set default git config for test
     export GIT_CONFIG_GLOBAL="$HOME/.gitconfig"
