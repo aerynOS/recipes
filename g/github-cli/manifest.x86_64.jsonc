@@ -4,7 +4,6 @@
 	"packages": {
 		"github-cli": {
 			"build-depends": [
-				"binary(go)",
 				"binary(ssh)"
 			],
 			"depends": [
@@ -255,6 +254,6 @@
 		}
 	},
 	"source-name": "github-cli",
-	"source-release": "15",
-	"source-version": "2.97.0"
+	"source-release": "16",
+	"source-version": "2.98.0"
 }
