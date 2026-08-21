@@ -2,36 +2,70 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gamescope-plus
-version     : "3.15.13.plus1"
-release     : 7
-homepage    : https://github.com/ChimeraOS/gamescope
+version     : "3.16.22.plus1"
+release     : 8
+homepage    : https://github.com/OpenGamingCollective/gamescope
 upstreams   :
-    - git|https://github.com/ChimeraOS/gamescope.git : bfdccf935a35bde65ebcbb345315b46e9ac5337b
-    - git|https://github.com/misyltoad/GamescopeShaders.git : 359e480c548fc3a38a612da2de314980c8329983
+    - git|https://github.com/OpenGamingCollective/gamescope.git : 402bfb81bc25943cac9061eb022fe229c5414f5e
+    - git|https://github.com/misyltoad/GamescopeShaders.git : 64d7a0570e15dc5c9aeef084278b9eb4cc1abb25
 summary     : SteamOS session compositing window manager with added patches
 description : |
     In an embedded session usecase, gamescope does the same thing as steamcompmgr, but with less extra copies and latency. Added with patches by ChimeraOS team.
 license     :
     - BSD-2-Clause
     - GPL-3.0-only
+networking  : true
+builddeps   :
+    - binary(glslangValidator)
+    - pkgconfig(egl)
+    - pkgconfig(gbm)
+    - pkgconfig(glesv2)
+    - pkgconfig(hwdata)
+    - pkgconfig(jsoncpp)
+    - pkgconfig(lcms2)
+    - pkgconfig(libcap)
+    - pkgconfig(libdecor-0)
+    - pkgconfig(libdisplay-info)
+    - pkgconfig(libdrm)
+    - pkgconfig(libeis-1.0)
+    - pkgconfig(libinput)
+    - pkgconfig(libpipewire-0.3)
+    - pkgconfig(libseat)
+    - pkgconfig(libudev)
+    - pkgconfig(luajit)
+    - pkgconfig(pixman-1)
+    - pkgconfig(sdl2)
+    - pkgconfig(vulkan)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(x11)
+    - pkgconfig(xcb-errors)
+    - pkgconfig(xcb-ewmh)
+    - pkgconfig(xcomposite)
+    - pkgconfig(xcursor)
+    - pkgconfig(xdamage)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(xmu)
+    - pkgconfig(xres)
+    - pkgconfig(xtst)
+    - pkgconfig(xwayland)
+    - pkgconfig(xxf86vm)
+    # TODO: Use system glm
+rundeps     :
+    - binary(Xwayland)
+setup       : |
+    %meson \
+        --wrap-mode=default \
+        -Dforce_fallback_for="libliftoff,stb,vkroots,wlroots"
+build       : |
+    %meson_build
 install     : |
-    %install_dir %(installroot)/%(docdir)/replace/%(name){,-devel,-dbginfo}
-    for i in %(name) %(name)-devel %(name)-dbginfo; do
-        echo "sdl2-compat" > %(installroot)/%(docdir)/replace/${i}/TRANSITION
-    done
+    %install_dir %(installroot)/usr/share/gamescope/reshade
+    cp -rv %(workdir)/../GamescopeShaders.git/* %(installroot)/usr/share/gamescope/reshade/
+    %meson_install --skip-subprojects
+
+    # TODO: Add capabilities
 packages    :
     - "%(name)":
         paths:
-            - /usr/share/doc/replace/%(name)
-        rundeps:
-            - gamescope
-    - "%(name)-devel":
-        paths:
-            - /usr/share/doc/replace/%(name)-devel
-        rundeps:
-            - gamescope-devel
-    - "%(name)-dbginfo":
-        paths:
-            - /usr/share/doc/replace/%(name)-dbginfo
-        rundeps:
-            - gamescope-dbginfo
+            - /usr/lib/*.so
