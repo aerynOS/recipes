@@ -2,44 +2,44 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nerd-fonts
-version     : "3.5.0"
-release     : 5
+version     : "3.5.1"
+release     : 6
 homepage    : https://github.com/ryanoasis/nerd-fonts
 upstreams   :
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/NerdFontsSymbolsOnly.tar.xz:
-        hash: b7ef2283462b435f1fe91d729dc412d5dbe34269dd2c7f4e1d803e4105c8d883
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/NerdFontsSymbolsOnly.tar.xz:
+        hash: 01172f37db8543edb102e5cb5c64101c9f4686630804d49b419aa07b23a69996
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/CascadiaCode.tar.xz:
-        hash: f30f67f203f9da78df857ebe558321bdfd8fc313662c72fd9e9fef9d4f4c96e7
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/CascadiaCode.tar.xz:
+        hash: ae598e9401e2846aa3ee364513715de0490b844a4b54f0768991f45f23aa8369
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/FiraCode.tar.xz:
-        hash: 32226dc81bb30ea421cdc49ba2134b93c2b43096992c829504a3004d2537420d
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/FiraCode.tar.xz:
+        hash: 68e3bd6164864b8b514605bc34e3a87ac401c8c48682fcce6478c70263340207
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/IBMPlexMono.tar.xz:
-        hash: cdc1184dcab10037790148c99b0e7906c68aa89a1245560567ae16001a0c5b20
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/IBMPlexMono.tar.xz:
+        hash: 3d226683be9fc35f98683837568497f300307bc9b7aefc1617a368f190ef963a
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/RobotoMono.tar.xz:
-        hash: 8cae18d31d25293099d8429de177fc1f1ccaae7a694836304990b4dd20fc27ab
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/RobotoMono.tar.xz:
+        hash: 61f53438b240a00c87c92dc2c372db0bbb264473b36a8144ea62babf787f8383
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/Terminus.tar.xz:
-        hash: 7d9478d61b65f9c91aabf8349b5fe17693f464b0845fcc571fbb1312e711f5ae
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/Terminus.tar.xz:
+        hash: 80c6431f5789a72dc7464ecce3ee820cdc0f0123585befada87b13876d2fda90
         unpack: false
-    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/ZedMono.tar.xz:
-        hash: 766faa962afb588e49063d130cb67925fc4f6288fe84925a2b470179650e4718
+    - https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/ZedMono.tar.xz:
+        hash: 0411af0883248778335d34bbad8e400466b638d5d896e15c2eb37cd9d4518321
         unpack: false
 summary     : Nerd fonts
 description : |
     Nerd fonts
 license     : MIT
 install     : |
-    %install_dir %(installroot)%(datadir)/fonts/truetype %(installroot)/usr/share/fontconfig/conf.avail
+    %install_dir %(installroot)%(datadir)/{fonts/truetype,fontconfig/conf.avail}
 
     for i in %(sourcedir)/*; do
         bsdtar-static --no-same-owner -xf ${i} --strip-components=0 -C %(installroot)%(datadir)/fonts/truetype
     done
 
     # Fontconfig config files
-    mv %(installroot)%(datadir)/fonts/truetype/*.conf %(installroot)/usr/share/fontconfig/conf.avail/
+    mv %(installroot)%(datadir)/fonts/truetype/*.conf %(installroot)%(datadir)/fontconfig/conf.avail/
 
     # Cleanup
     rm -fv %(installroot)%(datadir)/fonts/truetype/LICENSE \
