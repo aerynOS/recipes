@@ -3,12 +3,10 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"dankmaterialshell": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"accountsservice",
 				"binary(quickshell)",
+				"dgop",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))"
 			],
@@ -892,6 +890,6 @@
 		}
 	},
 	"source-name": "dankmaterialshell",
-	"source-release": "14",
+	"source-release": "15",
 	"source-version": "1.5.3"
 }

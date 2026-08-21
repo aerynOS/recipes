@@ -3,23 +3,18 @@
 
 name        : dankmaterialshell
 version     : "1.5.3"
-release     : 14
+release     : 15
 homepage    : https://danklinux.com/
 upstreams   :
     - https://github.com/AvengeMedia/DankMaterialShell/archive/refs/tags/v1.5.3.tar.gz : 2d665870f7019700fb38d59d043202e298e1aad1d3f1cb96360a75acbd3be9ca
 summary     : Desktop shell for wayland compositor
 description : |
     DankMaterialShell (dms) is a Wayland desktop shell built with Quickshell and Go. It serves a purpose similar to GNOME Shell or KDE Plasma, providing a unified interface for launching applications, managing windows, managing hardware interfaces, notifications, and much more.
-license     :
-    - JSON
-    - MIT
-    - X11-distribute-modifications-variant
-    - Xnet
-builddeps   :
-    - binary(go)
+license     : MIT
 rundeps     :
     - binary(quickshell)
     - accountsservice # User integration
+    - dgop # Process information widgets
 networking  : true
 setup       : |
     cd core
