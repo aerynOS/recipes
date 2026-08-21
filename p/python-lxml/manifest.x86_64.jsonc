@@ -17,12 +17,12 @@
 				"soname(libxslt.so.1(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/licenses/LICENSE.txt",
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/licenses/LICENSES.txt",
-				"/usr/lib/python3.14/site-packages/lxml-6.1.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/licenses/LICENSE.txt",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/licenses/LICENSES.txt",
+				"/usr/lib/python3.14/site-packages/lxml-6.1.2.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/lxml/ElementInclude.py",
 				"/usr/lib/python3.14/site-packages/lxml/__init__.py",
 				"/usr/lib/python3.14/site-packages/lxml/__pycache__/ElementInclude.cpython-314.opt-1.pyc",
@@ -179,6 +179,6 @@
 		}
 	},
 	"source-name": "python-lxml",
-	"source-release": "10",
-	"source-version": "6.1.1"
+	"source-release": "11",
+	"source-version": "6.1.2"
 }
