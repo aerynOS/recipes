@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-packaging
-version     : "26.2"
-release     : 11
+version     : "26.3"
+release     : 12
 homepage    : https://packaging.pypa.io
 upstreams   :
-    - https://pypi.debian.net/packaging/packaging-26.2.tar.gz:
-        hash: ff452ff5a3e828ce110190feff1178bb1f2ea2281fa2075aadb987c2fb221661
+    - https://pypi.debian.net/packaging/packaging-26.3.tar.gz:
+        hash: 94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79
         rename: packaging.tar.gz
 
     # Comment out if not bootstrapping
