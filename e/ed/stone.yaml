@@ -2,18 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ed
-version     : "1.22.5"
-release     : 9
+version     : "1.22.6"
+release     : 10
 homepage    : https://www.gnu.org/software/ed/
 upstreams   :
-    - https://ftp.gnu.org/gnu/ed/ed-1.22.5.tar.lz : 56e107ddc2f29dad6690376c15bf9751509e1ee3b8241710e44edbe5c3a158cc
+    - https://ftp.gnu.org/gnu/ed/ed-1.22.6.tar.lz : 3f33b22135219c39c3c695f7b7171c2567d3e2a17c798c0a90607320cbb268f2
 summary     : A POSIX-compliant line-oriented text editor
 description : |
     GNU ed is a line-oriented text editor. It is used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts. A restricted version of ed, red,
     can only edit files in the current directory and cannot execute shell commands. Ed is the "standard" text editor in the sense that it is the original editor for Unix, and thus widely
     available.
-license     :
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 builddeps   :
     - binary(lzip)
 setup       : |
