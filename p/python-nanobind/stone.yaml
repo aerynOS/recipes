@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-nanobind
-version     : "2.13.0"
-release     : 1
+version     : "2.15.0"
+release     : 2
 homepage    : https://nanobind.readthedocs.org
 upstreams   :
-    - https://pypi.debian.net/nanobind/nanobind-2.13.0.tar.gz : c7b04d6a6a4cd57985571e605539399b51331ae455d7fce576a5e2fcb89b1dcf
+    - https://pypi.debian.net/nanobind/nanobind-2.15.0.tar.gz : 3eace37a3b8cdadd531fcc6145263985b29821467161d34ff722b0644cf445b5
 summary     : Tiny and efficient C++/Python bindings
 description : |
     Tiny and efficient C++/Python bindings
