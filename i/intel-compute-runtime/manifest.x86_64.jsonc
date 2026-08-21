@@ -29,7 +29,7 @@
 				"/usr/bin/ocloc",
 				"/usr/lib/intel-opencl/libigdrcl.so",
 				"/usr/lib/libze_intel_gpu.so.1",
-				"/usr/lib/libze_intel_gpu.so.1.15.39122",
+				"/usr/lib/libze_intel_gpu.so.1.17.39395",
 				"/usr/share/OpenCL/vendors/intel.icd"
 			],
 			"name": "intel-compute-runtime",
@@ -84,6 +84,6 @@
 		}
 	},
 	"source-name": "intel-compute-runtime",
-	"source-release": "7",
-	"source-version": "26.27.39122.12"
+	"source-release": "8",
+	"source-version": "26.31.39395.13"
 }

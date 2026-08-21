@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : intel-compute-runtime
-version     : "26.27.39122.12"
-release     : 7
+version     : "26.31.39395.13"
+release     : 8
 homepage    : https://github.com/intel/compute-runtime
 upstreams   :
-    - https://github.com/intel/compute-runtime/archive/refs/tags/26.27.39122.12.tar.gz : 86fda9ec6deb933846adaa582b9cfe9e42d4dbba19dded6fdbc7da99746f8df4
+    - https://github.com/intel/compute-runtime/archive/refs/tags/26.31.39395.13.tar.gz : c5dbcf3e4b88d64060cc85a368777fe24ea0b135463772d451e819ac48a4da14
 summary     :  Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver
 description : |
     The Intel(R) Graphics Compute Runtime for oneAPI Level Zero and OpenCL(TM) Driver is an open source project providing compute API support (Level Zero, OpenCL) for Intel graphics hardware architectures (HD Graphics, Xe).
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - cmake(igsc)
     - pkgconfig(igc-opencl)
