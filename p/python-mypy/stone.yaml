@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-mypy
-version     : "2.3.0"
-release     : 6
+version     : "2.3.1"
+release     : 7
 homepage    : https://www.mypy-lang.org/
 upstreams   :
-    - https://pypi.debian.net/mypy/mypy-2.3.0.tar.gz : 465965d41cd9a2726694e983e8ce7113259327bec798115d1e1dfa2a52fb666e
+    - https://pypi.debian.net/mypy/mypy-2.3.1.tar.gz : 47c1b1207258513a9d93495f69c8be9de73916186f0e52703e8c461b7a623419
 summary     : Optional static typing for Python 3 (PEP484)
 description : |
     Mypy is an optional static type checker for Python that aims to combine the benefits of dynamic (or "duck") typing and static typing. Mypy combines the expressive power and convenience of Python with a powerful type system and compile-time type checking. Mypy type checks standard Python programs; run them using any Python VM with basically no runtime overhead.
