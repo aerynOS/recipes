@@ -4,15 +4,13 @@
 	"packages": {
 		"nnn": {
 			"build-depends": [
-				"pkgconfig(ncursesw)",
-				"pkgconfig(readline)"
+				"pkgconfig(ncursesw)"
 			],
 			"depends": [
 				"binary(tar)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libncursesw.so.6(x86_64))",
-				"soname(libreadline.so.8(x86_64))"
+				"soname(libncursesw.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/bin/nnn",
@@ -25,6 +23,6 @@
 		}
 	},
 	"source-name": "nnn",
-	"source-release": "5",
-	"source-version": "5.2"
+	"source-release": "6",
+	"source-version": "5.3"
 }

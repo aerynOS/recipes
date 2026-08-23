@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nnn
-version     : "5.2"
-release     : 5
+version     : "5.3"
+release     : 6
 homepage    : https://github.com/jarun/nnn
 upstreams   :
-    - https://github.com/jarun/nnn/archive/refs/tags/v5.2.tar.gz : f166eda5093ac8dcf8cbbc6224123a32c53cf37b82c5c1cb48e2e23352754030
+    - https://github.com/jarun/nnn/archive/refs/tags/v5.3.tar.gz : 79ee69f3ced7c0778d207df76b4d4d680636975ccda002eeb19d0917fcba3d36
 summary     : The unorthodox terminal file manager
 description : |
      Full-featured terminal file manager. It's tiny, nearly 0-config and incredibly fast.
@@ -14,7 +14,6 @@ description : |
 license     : BSD-2-Clause
 builddeps   :
    - pkgconfig(ncursesw)
-   - pkgconfig(readline)
 rundeps     :
    - binary(tar)
 build       : |
