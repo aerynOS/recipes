@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-shtab
-version     : "1.8.1"
-release     : 6
+version     : "1.11.0"
+release     : 7
 homepage    : https://github.com/iterative/shtab
 upstreams   :
-    - https://pypi.debian.net/shtab/shtab-1.8.1.tar.gz : 3edaf857ba164a0d7bb64e958eab8d6756d5aee3949c7f36a7e779bf1ce3b897
+    - https://pypi.debian.net/shtab/shtab-1.11.0.tar.gz : 57df8a646484b3f00517a42934b173554f827976a77b605ceb6a1a0e649e9266
 summary     : Automagic shell tab completion for Python CLI applications
 description : |
     Automagic shell tab completion for Python CLI applications

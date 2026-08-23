@@ -8,14 +8,14 @@
 			],
 			"files": [
 				"/usr/bin/shtab",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/licenses/LICENCE",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/scm_file_list.json",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/scm_version.json",
-				"/usr/lib/python3.14/site-packages/shtab-1.8.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/licenses/LICENCE",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/scm_file_list.json",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/scm_version.json",
+				"/usr/lib/python3.14/site-packages/shtab-1.11.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/shtab/__init__.py",
 				"/usr/lib/python3.14/site-packages/shtab/__main__.py",
 				"/usr/lib/python3.14/site-packages/shtab/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -35,6 +35,6 @@
 		}
 	},
 	"source-name": "python-shtab",
-	"source-release": "6",
-	"source-version": "1.8.1"
+	"source-release": "7",
+	"source-version": "1.11.0"
 }
