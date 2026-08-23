@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+releases:
+  id: 390463
+  rss: https://git.sr.ht/~delthas/senpai/refs/rss.xml
+security:
+  cpe:

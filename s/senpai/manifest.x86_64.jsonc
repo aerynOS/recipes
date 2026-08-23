@@ -1,0 +1,31 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"senpai": {
+			"build-depends": [
+				"binary(scdoc)",
+				"binary(which)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/senpai",
+				"/usr/share/applications/senpai.desktop",
+				"/usr/share/icons/hicolor/48x48/apps/senpai.png",
+				"/usr/share/icons/hicolor/scalable/apps/senpai.svg",
+				"/usr/share/man/man1/senpai.1",
+				"/usr/share/man/man5/senpai.5"
+			],
+			"name": "senpai",
+			"provides": [
+				"binary(senpai)"
+			]
+		}
+	},
+	"source-name": "senpai",
+	"source-release": "1",
+	"source-version": "0.5.0"
+}

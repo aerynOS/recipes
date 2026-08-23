@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : senpai
+version     : "0.5.0"
+release     : 1
+homepage    : https://git.sr.ht/~delthas/senpai
+upstreams   :
+    - https://git.sr.ht/~delthas/senpai/archive/v0.5.0.tar.gz : 1793259dca5321f1365cae9d24316d5d4cd01df648d895eaa03eacb49f433db8
+summary     : A modern terminal IRC client.
+description : |
+    senpai is a logless IRC client for the terminal. It works best with bouncers.
+license     : ISC
+builddeps   :
+    - binary(scdoc)
+    - binary(which)
+networking  : true
+setup       : |
+    %go_mod
+build       : |
+    %make
+install     : |
+    %make_install PREFIX=%(prefix)
