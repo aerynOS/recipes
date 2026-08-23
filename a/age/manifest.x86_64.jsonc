@@ -1,0 +1,33 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"age": {
+			"depends": [
+				"interpreter(/lib64/ld-linux-x86-64.so.2(x86_64))",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/age",
+				"/usr/bin/age-inspect",
+				"/usr/bin/age-keygen",
+				"/usr/bin/age-plugin-batchpass",
+				"/usr/share/man/man1/age-inspect.1",
+				"/usr/share/man/man1/age-keygen.1",
+				"/usr/share/man/man1/age-plugin-batchpass.1",
+				"/usr/share/man/man1/age.1"
+			],
+			"name": "age",
+			"provides": [
+				"binary(age)",
+				"binary(age-inspect)",
+				"binary(age-keygen)",
+				"binary(age-plugin-batchpass)"
+			]
+		}
+	},
+	"source-name": "age",
+	"source-release": "1",
+	"source-version": "1.3.1"
+}
