@@ -12,12 +12,12 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.66.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.68.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__init__.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.pyc",
@@ -606,6 +606,6 @@
 		}
 	},
 	"source-name": "python-sentry-sdk",
-	"source-release": "9",
-	"source-version": "2.66.0"
+	"source-release": "10",
+	"source-version": "2.68.0"
 }
