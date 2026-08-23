@@ -43,6 +43,6 @@
 		}
 	},
 	"source-name": "nushell",
-	"source-release": "12",
-	"source-version": "0.115.0"
+	"source-release": "13",
+	"source-version": "0.115.1"
 }
