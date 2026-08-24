@@ -2,21 +2,24 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : utf8cpp
-version     : "4.1.1"
-release     : 3
+version     : "4.2.0"
+release     : 4
 homepage    : https://github.com/nemtrif/utfcpp
 upstreams   :
-    - https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.1.1.tar.gz : 1ca68016f0abc24172998e39ce0d8f8e2b7a26f7579a0ff85d4e1b9a7aea56f8
+    - https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.0.tar.gz : 54a8e96ea835a7359e8e53d03e30e9833d51350cc4615ff53f8449ef19ee46ab
 summary     : UTF-8 with C++ in a Portable Way
 description : |
     UTF-8 with C++ in a Portable Way
 license     : BSL-1.0
 setup       : |
-    %cmake 
+    %cmake \
+        -DUTF8CPP_ENABLE_TESTS=ON
 build       : |
     %cmake_build
 install     : |
     %cmake_install
+check       : |
+    %cmake_test
 packages    :
     - "%(name)":
         paths:
