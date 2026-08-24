@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : sd
+version     : "1.1.0"
+release     : 1
+homepage    : https://github.com/chmln/sd
+upstreams   :
+    - https://github.com/chmln/sd/archive/refs/tags/v1.1.0.tar.gz : defdce484f8c92f265e1282490572575028967c2c55d356111d1e49a3ea9a88e
+summary     : sd is an intuitive find & replace CLI.
+description : |
+    sd uses regex syntax that you already know from JavaScript and Python. Forget about dealing with quirks of sed or awk - get productive immediately.
+    Non-regex find & replace. No more backslashes or remembering which characters are special and need to be escaped.
+    Find & replace expressions are split up, which makes them easy to read and write. No more messing with unclosed and escaped slashes.
+license     : 
+    - MIT
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+check       : |
+    # TODO: Remove the skip if we understand why binaries run in boulder can edit read-only files.
+    %cargo_test -- --skip "correctly_fails_on_unreadable_file" --skip "reports_errors_on_atomic_file_swap_creation_failure"
