@@ -27,6 +27,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -45,6 +47,7 @@
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libQt6Xml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libdbus-1.so.3(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
@@ -74,6 +77,7 @@
 				"/usr/lib/python3.14/site-packages/PyQt6/__init__.py",
 				"/usr/lib/python3.14/site-packages/PyQt6/py.typed",
 				"/usr/lib/python3.14/site-packages/PyQt6/sip.pyi",
+				"/usr/lib/python3.14/site-packages/dbus/mainloop/pyqt6.abi3.so",
 				"/usr/lib/python3.14/site-packages/pyqt6-6.11.0.dist-info/INSTALLER",
 				"/usr/lib/python3.14/site-packages/pyqt6-6.11.0.dist-info/METADATA",
 				"/usr/lib/python3.14/site-packages/pyqt6-6.11.0.dist-info/RECORD",
@@ -92,7 +96,8 @@
 				"soname(python3.14/site-packages/PyQt6/QtSql.abi3.so(x86_64))",
 				"soname(python3.14/site-packages/PyQt6/QtTest.abi3.so(x86_64))",
 				"soname(python3.14/site-packages/PyQt6/QtWidgets.abi3.so(x86_64))",
-				"soname(python3.14/site-packages/PyQt6/QtXml.abi3.so(x86_64))"
+				"soname(python3.14/site-packages/PyQt6/QtXml.abi3.so(x86_64))",
+				"soname(python3.14/site-packages/dbus/mainloop/pyqt6.abi3.so(x86_64))"
 			]
 		},
 		"python-pyqt6-connectivity": {
@@ -120,6 +125,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -168,6 +175,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -227,6 +236,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1077,6 +1088,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1131,6 +1144,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1180,6 +1195,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1224,6 +1241,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1269,6 +1288,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1313,6 +1334,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1357,6 +1380,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1401,6 +1426,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1451,6 +1478,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1505,6 +1534,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1549,6 +1580,8 @@
 				"cmake(Qt6TextToSpeech)",
 				"cmake(Qt6WebChannel)",
 				"cmake(Qt6WebSockets)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(dbus-python)",
 				"pkgconfig(python3)",
 				"python(pyqt-builder)"
 			],
@@ -1571,6 +1604,6 @@
 		}
 	},
 	"source-name": "python-pyqt6",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "6.11.0"
 }
