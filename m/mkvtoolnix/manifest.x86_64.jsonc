@@ -151,7 +151,7 @@
 				"/usr/share/icons/hicolor/scalable/apps/mkvpropedit.svg",
 				"/usr/share/icons/hicolor/scalable/apps/mkvtoolnix-gui.svg",
 				"/usr/share/man/man1/mkvtoolnix-gui.1",
-				"/usr/share/metainfo/org.bunkus.mkvtoolnix-gui.appdata.xml",
+				"/usr/share/metainfo/org.bunkus.mkvtoolnix-gui.metainfo.xml",
 				"/usr/share/mime/packages/org.bunkus.mkvtoolnix-gui.xml",
 				"/usr/share/mkvtoolnix/qt_resources.rcc",
 				"/usr/share/mkvtoolnix/sounds/finished-1.webm",
@@ -165,6 +165,6 @@
 		}
 	},
 	"source-name": "mkvtoolnix",
-	"source-release": "2",
-	"source-version": "100.0"
+	"source-release": "3",
+	"source-version": "101.0"
 }
