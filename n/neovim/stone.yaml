@@ -2,23 +2,23 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : neovim
-version     : "0.12.4"
-release     : 3
+version     : "0.12.5"
+release     : 4
 homepage    : https://neovim.io/
 upstreams   :
-    - https://github.com/neovim/neovim/archive/refs/tags/v0.12.4.tar.gz : 2727da95d2b8b809bc7c71e085452e47dfe1d8aa7cfaa15c68004e23f6f0a6dd
+    - https://github.com/neovim/neovim/archive/refs/tags/v0.12.5.tar.gz : a810c95332317bd0017e1ca07e376a8472c79075cbed00fa3737d190a8a0a45a
 summary     : Vim-fork focused on extensibility and usability
 description : |
     Neovim is a project that seeks to aggressively refactor Vim.
 license     : Apache-2.0
 builddeps   :
     - binary(make)
+    - pkgconfig(libluv)
+    - pkgconfig(libutf8proc)
+    - pkgconfig(libuv)
     - pkgconfig(luajit)
-    - pkgconfig(libuv) 
-    - pkgconfig(libluv) 
     - pkgconfig(tree-sitter)
     - pkgconfig(unibilium)
-    - pkgconfig(libutf8proc)
     - lua51-lpeg
 rundeps     :
     - lua51-lpeg
