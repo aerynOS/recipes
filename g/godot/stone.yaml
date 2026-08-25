@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : godot
-version     : "4.7.1"
-release     : 15
+version     : "4.7.2"
+release     : 16
 homepage    : https://godotengine.org
 upstreams   :
-    - https://github.com/godotengine/godot/archive/refs/tags/4.7.1-stable.tar.gz: eb2378d76964b25d5ecb61e16c934b59ae4f605c42cdb1a2a49eb7bf6d33dcf0
+    - https://github.com/godotengine/godot/archive/refs/tags/4.7.2-stable.tar.gz: e954996374cbd1cb5d72e0e3781cc537408e6ce73b010b12c6c2f308a820690a
 summary     : Godot Engine – Multi-platform 2D and 3D game engine
 description : |
     Godot Engine is a feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface.
