@@ -2,19 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : emacs
-version     : "30.2"
-release     : 2
+version     : "31.1"
+release     : 3
 homepage    : https://www.gnu.org/software/emacs
 upstreams   :
     # GNU mirror
-    - https://www.artfiles.org/gnu.org/emacs/emacs-30.2.tar.gz:
-        hash: 1d79a4ba4d6596f302a7146843fe59cf5caec798190bcc07c907e7ba244b076d
+    - https://www.artfiles.org/gnu.org/emacs/emacs-31.1.tar.gz:
+        hash: 3cad7fd1466c0e24867df8d2609da3ac75abc90d7c4c0175e410e9be46d4092a
         unpackdir: emacs # For some reason the default emacs-30.2.tar.gz path breaks the build
 summary     : An extensible, customizable, free/libre text editor — and more.
 description : |
     At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.
-license     :
-    - GPL-3.0-or-later
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(ld)
     - binary(makeinfo)
@@ -38,7 +37,6 @@ builddeps   :
     - pkgconfig(libpng)
     - pkgconfig(librsvg-2.0)
     - pkgconfig(libtiff-4)
-    - pkgconfig(tree-sitter)
     - pkgconfig(libwebp)
     - pkgconfig(libxml-2.0)
     - pkgconfig(ncurses)
@@ -46,6 +44,7 @@ builddeps   :
     - pkgconfig(smartcols)
     - pkgconfig(sqlite3)
     - pkgconfig(systemd)
+    - pkgconfig(tree-sitter)
     - pkgconfig(xfixes)
     - pkgconfig(xpm)
     - pkgconfig(zlib)
@@ -55,10 +54,6 @@ builddeps   :
     # libselinux
 toolchain   : gnu # Required for libgccjit
 setup       : |
-    %patch %(pkgdir)/upstream-01.patch
-    %patch %(pkgdir)/upstream-02.patch
-    %patch %(pkgdir)/upstream-03.patch
-
     # find lisp -type f -name "*.elc" -delete -print
 
     # reconfigure for webp patch
