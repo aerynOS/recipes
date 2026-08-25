@@ -4,7 +4,6 @@
 	"packages": {
 		"helix": {
 			"build-depends": [
-				"binary(cargo)",
 				"binary(git)"
 			],
 			"depends": [
@@ -1502,6 +1501,6 @@
 		}
 	},
 	"source-name": "helix",
-	"source-release": "8",
-	"source-version": "25.07.01"
+	"source-release": "9",
+	"source-version": "25.07.1"
 }
