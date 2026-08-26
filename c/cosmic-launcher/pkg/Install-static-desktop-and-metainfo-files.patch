@@ -1,0 +1,23 @@
+diff -Npur cosmic-launcher-epoch-1.7.0.orig/justfile cosmic-launcher-epoch-1.7.0/justfile
+--- cosmic-launcher-epoch-1.7.0.orig/justfile
++++ cosmic-launcher-epoch-1.7.0/justfile
+@@ -14,7 +14,7 @@ base-dir := absolute_path(clean(rootdir
+ cargo-target-dir := env('CARGO_TARGET_DIR', 'target')
+ bin-src := if debug == '1' { 'debug' / name } else { cargo-target-dir / 'release' / name }
+ bin-dst := base-dir / 'bin' / name
+-appdata-dst := base-dir / 'share' / 'appdata' / appdata
++appdata-dst := base-dir / 'share' / 'metainfo' / appdata
+ desktop-dst := base-dir / 'share' / 'applications' / desktop
+ icon-dst := base-dir / 'share' / 'icons' / 'hicolor' / 'scalable' / 'apps' / appid + '.svg'
+ 
+@@ -66,8 +66,8 @@ tokio-console: (build-release '--feature
+ # Installs files
+ install:
+     install -Dm0755 {{bin-src}} {{bin-dst}}
+-    install -Dm0644 {{ 'target' / 'xdgen' / desktop }} {{desktop-dst}}
+-    install -Dm0644 {{ 'target' / 'xdgen' / appdata }} {{appdata-dst}}
++    install -Dm0644 {{ 'data' / desktop }} {{desktop-dst}}
++    install -Dm0644 {{ 'data' / appdata }} {{appdata-dst}}
+     install -Dm0644 {{ 'data' / 'icons' / appid + '.svg' }} {{icon-dst}}
+ 
+ # Uninstalls installed files

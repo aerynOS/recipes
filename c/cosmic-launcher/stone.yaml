@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-launcher
-version     : "1.6.0"
-release     : 49
-summary     : Cosmic Desktop Launcher
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 50
 homepage    : https://github.com/pop-os/cosmic-launcher
 upstreams   :
-    - https://github.com/pop-os/cosmic-launcher/archive/refs/tags/epoch-1.6.0.tar.gz : 46783943d8b8255f3717a1a0577f304e919b745e67d180a0c68edad6a960ba6b
+    - https://github.com/pop-os/cosmic-launcher/archive/refs/tags/epoch-1.7.0.tar.gz : 0c3cebad711559b4e6bdf889f6efab69734bc068c9c6ea191f7ca6d6704dcce7
+summary     : Cosmic Desktop Launcher
 description : |
     Cosmic Desktop Launcher
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(xkbcommon)
@@ -18,6 +18,9 @@ rundeps     :
     - binary(pop-launcher)
 networking  : true
 setup       : |
+    # Install shipped desktop/metainfo from data/, and use share/metainfo
+    %patch %(pkgdir)/Install-static-desktop-and-metainfo-files.patch
+
     %cargo_fetch
 build       : |
     %cargo_build
