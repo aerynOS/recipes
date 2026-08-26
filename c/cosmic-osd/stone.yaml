@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-osd
-version     : "1.6.0"
-release     : 48
-summary     : Cosmic Desktop OSD
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 49
 homepage    : https://github.com/pop-os/cosmic-osd
 upstreams   :
-    - https://github.com/pop-os/cosmic-osd/archive/refs/tags/epoch-1.6.0.tar.gz : ab368013757018d1c129456e607194e45299061533f331fd8e542dba75888ee7
+    - https://github.com/pop-os/cosmic-osd/archive/refs/tags/epoch-1.7.0.tar.gz : 200ca382ec3980110e56adf4ecfcd155134b3cc8082b8e6ea29200166bc78b3f
+summary     : Cosmic Desktop OSD
 description : |
     Cosmic Desktop OSD
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(libinput)
