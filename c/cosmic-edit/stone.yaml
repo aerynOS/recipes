@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-edit
-version     : "1.6.0"
-release     : 52
+version     : "1.7.0"
+release     : 53
 homepage    : https://github.com/pop-os/cosmic-edit
 upstreams   :
-    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.6.0.tar.gz :  bc64ead5c0893db7cd67594ef5d9ba2a85b1dee23aed5c625428d8ec1d13381f
+    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.7.0.tar.gz : 8a4c43ad5c07ba50e3a82827426a1da5aca1ff1b8af1451aca1bfb80df301bef
 summary     : Cosmic Desktop Text Editor
 description : |
     Cosmic desktop Text Editor
-license     :
-    - GPL-3.0
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(glib-2.0)
