@@ -44,9 +44,9 @@
 				"/usr/bin/gram",
 				"/usr/lib/gram/gram-editor",
 				"/usr/share/applications/app.liten.Gram.desktop",
-				"/usr/share/hicolor/scalable/apps/gram.svg",
 				"/usr/share/icons/hicolor/512x512/apps/gram.png",
-				"/usr/share/icons/hicolor/512x512@2/apps/gram.png"
+				"/usr/share/icons/hicolor/512x512@2/apps/gram.png",
+				"/usr/share/icons/hicolor/scalable/apps/gram.svg"
 			],
 			"name": "gram",
 			"provides": [
@@ -55,6 +55,6 @@
 		}
 	},
 	"source-name": "gram",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "3.3.0"
 }

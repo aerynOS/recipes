@@ -3,7 +3,7 @@
 
 name        : gram
 version     : "3.3.0"
-release     : 7
+release     : 8
 homepage    : https://gram-editor.com/
 upstreams   :
     - https://codeberg.org/GramEditor/gram/archive/3.3.0.tar.gz : eda5c167ed2c29ebd03310b236a06f3f29fd0007be3c58bd341992e52f765629
@@ -77,6 +77,6 @@ install     : |
     # icon
     %install_file crates/gram/resources/app-icon.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/gram.png
     %install_file crates/gram/resources/app-icon@2x.png %(installroot)%(datadir)/icons/hicolor/512x512@2/apps/gram.png
-    %install_file crates/gram/resources/app.liten.Gram.svg %(installroot)%(datadir)/hicolor/scalable/apps/gram.svg
+    %install_file crates/gram/resources/app.liten.Gram.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/gram.svg
 # check       : |
 #     %cargo_test
