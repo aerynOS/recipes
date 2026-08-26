@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-notifications
-version     : "1.6.0"
-release     : 48
-summary     : Cosmic Desktop Notifications
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 49
 homepage    : https://github.com/pop-os/cosmic-notifications
 upstreams   :
-    - https://github.com/pop-os/cosmic-notifications/archive/refs/tags/epoch-1.6.0.tar.gz : e676d05efe90ea9f5ee239698115e8fc2482095f73c5442db334e6428b8b1b5e
+    - https://github.com/pop-os/cosmic-notifications/archive/refs/tags/epoch-1.7.0.tar.gz : 31c2c91430426ab847e32d880d3d6752089d3adc94eedf713a9b476d5a523e3a
+summary     : Cosmic Desktop Notifications
 description : |
     Cosmic Desktop Notifications
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - binary(which)
