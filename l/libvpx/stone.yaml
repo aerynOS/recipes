@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libvpx
-version     : "1.16.0"
-release     : 8
+version     : "1.17.0"
+release     : 9
 homepage    : https://www.webmproject.org/code/
 upstreams   :
-    - https://github.com/webmproject/libvpx/archive/refs/tags/v1.16.0.tar.gz:
-        hash: 7a479a3c66b9f5d5542a4c6a1b7d3768a983b1e5c14c60a9396edc9b649e015c
+    - https://github.com/webmproject/libvpx/archive/refs/tags/v1.17.0.tar.gz:
+        hash: 1020f184046187baa2985dbde38e0691f49c44088bca7a1842b0236c6081dc0a
         unpackdir: current
 
     # - https://github.com/webmproject/libvpx/archive/refs/tags/v1.15.2.tar.gz:
@@ -19,10 +19,10 @@ description : |
 license     : BSD-3-Clause
 builddeps   :
     - binary(curl)
+    - binary(eu-strip)
     - binary(nasm)
     - binary(perl)
     - binary(readelf)
-    - binary(eu-strip)
 tuning      :
     - lto
     - optimize: speed
