@@ -3,15 +3,14 @@
 
 name        : slurp
 version     : "1.5.0"
-release     : 1
+release     : 2
 homepage    : https://github.com/emersion/slurp
 upstreams   :
     - https://github.com/emersion/slurp/releases/download/v1.5.0/slurp-1.5.0.tar.gz : eeb282b2adc8db5614b852596340b69da6f3954cf6cfbdc4392da509c934208a
 summary     : Select a region in a Wayland compositor and print it to the standard output.
 description : |
     Select a region in a Wayland compositor and print it to the standard output.
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - binary(scdoc)
     - pkgconfig(cairo)
