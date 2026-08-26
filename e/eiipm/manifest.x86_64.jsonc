@@ -12,6 +12,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libcrypto.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
 				"soname(libssl.so.3(x86_64))"
 			],
 			"files": [
@@ -24,6 +25,6 @@
 		}
 	},
 	"source-name": "eiipm",
-	"source-release": "1",
-	"source-version": "0.4.0"
+	"source-release": "2",
+	"source-version": "1.0.0"
 }

@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : eiipm
-version     : "0.4.0"
-release     : 1
-homepage    : https://github.com/Ewwii-sh/eiipm
+version     : "1.0.0"
+release     : 2
+homepage    : https://ewwii-sh.github.io/eiipm/
 upstreams   :
-    - git|https://github.com/Ewwii-sh/eiipm.git : 80519b999b868e0332f495fc972a7c43f8e2cbcc
+    - https://github.com/Ewwii-sh/eiipm/archive/refs/tags/v1.0.0.tar.gz : b3b14255d140995528ee5bdc67b5146f72d79837a7bdbca86256fe227345d04d
 summary     :  Package manager of ewwii
 description : |
     Eiipm is the package manager of Ewwii
-license     :
-    - Apache-2.0
+license     : Apache-2.0
 builddeps   :
     - pkgconfig(openssl)
 networking  : true
 setup       : |
+    %patch %(pkgdir)/Fix-Cargo.lock.patch
     %cargo_fetch
 build       : |
     %cargo_build
