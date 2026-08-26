@@ -22,6 +22,6 @@
 		}
 	},
 	"source-name": "pandoc",
-	"source-release": "1",
-	"source-version": "3.8.3"
+	"source-release": "2",
+	"source-version": "3.10.2"
 }
