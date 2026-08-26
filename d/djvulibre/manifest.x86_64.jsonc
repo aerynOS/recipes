@@ -4,6 +4,7 @@
 	"packages": {
 		"djvulibre": {
 			"build-depends": [
+				"binary(gzip)",
 				"binary(rsvg-convert)",
 				"pkgconfig(libjpeg)",
 				"pkgconfig(libtiff-4)"
@@ -112,6 +113,7 @@
 		},
 		"djvulibre-devel": {
 			"build-depends": [
+				"binary(gzip)",
 				"binary(rsvg-convert)",
 				"pkgconfig(libjpeg)",
 				"pkgconfig(libtiff-4)"
@@ -132,12 +134,12 @@
 		},
 		"djvulibre-libs": {
 			"build-depends": [
+				"binary(gzip)",
 				"binary(rsvg-convert)",
 				"pkgconfig(libjpeg)",
 				"pkgconfig(libtiff-4)"
 			],
 			"depends": [
-				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
@@ -146,7 +148,7 @@
 			],
 			"files": [
 				"/usr/lib/libdjvulibre.so.21",
-				"/usr/lib/libdjvulibre.so.21.8.0"
+				"/usr/lib/libdjvulibre.so.21.9.0"
 			],
 			"name": "djvulibre-libs",
 			"provides": [
@@ -155,6 +157,6 @@
 		}
 	},
 	"source-name": "djvulibre",
-	"source-release": "2",
-	"source-version": "3.5.29"
+	"source-release": "3",
+	"source-version": "3.5.30.1"
 }
