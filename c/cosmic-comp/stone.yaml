@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-comp
-version     : "1.6.0"
-release     : 55
-summary     : Cosmic Desktop Compositor
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 56
 homepage    : https://github.com/pop-os/cosmic-comp
 upstreams   :
-    - https://github.com/pop-os/cosmic-comp/archive/refs/tags/epoch-1.6.0.tar.gz :  c3cc440fd5e0f2b3eda42d28a956a7c19616391c52c1c27efd1a002c131d15cc
+    - https://github.com/pop-os/cosmic-comp/archive/refs/tags/epoch-1.7.0.tar.gz : 8c1525759a0c5bcf565e2b8e67e6ef8e9d010f326b30cde5fc903d79aaa743c5
+summary     : Cosmic Desktop Compositor
 description : |
     Cosmic Desktop Compositor
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(gbm)
