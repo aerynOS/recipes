@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-applets
-version     : "1.6.0"
-release     : 53
-summary     : Cosmic Panel Applets
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 54
 homepage    : https://github.com/pop-os/cosmic-applets
+summary     : Cosmic Panel Applets
 upstreams   :
-    - https://github.com/pop-os/cosmic-applets/archive/refs/tags/epoch-1.6.0.tar.gz : ec62d99dc499373bce7970cceb08de0f2a8392d969b7d4384722816524a54083
+    - https://github.com/pop-os/cosmic-applets/archive/refs/tags/epoch-1.7.0.tar.gz : aba4783fe8cc31a3a1a1af642fffe593f69ff5d5e3bbb05994c21f04c7660676
 description : |
     Cosmic Panel Applets
+license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(dbus-1)
