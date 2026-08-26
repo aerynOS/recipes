@@ -18,6 +18,7 @@
 				"pkgconfig(libdrm)",
 				"pkgconfig(libelf)",
 				"pkgconfig(libssl)",
+				"pkgconfig(libzstd)",
 				"pkgconfig(protobuf)",
 				"pkgconfig(sqlite3)",
 				"pkgconfig(vulkan)",
@@ -31,7 +32,6 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libfreetype.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libsqlite3.so.0(x86_64))",
@@ -44,7 +44,9 @@
 				"/usr/bin/gram",
 				"/usr/lib/gram/gram-editor",
 				"/usr/share/applications/app.liten.Gram.desktop",
-				"/usr/share/icons/gram.png"
+				"/usr/share/hicolor/scalable/apps/gram.svg",
+				"/usr/share/icons/hicolor/512x512/apps/gram.png",
+				"/usr/share/icons/hicolor/512x512@2/apps/gram.png"
 			],
 			"name": "gram",
 			"provides": [
@@ -53,6 +55,6 @@
 		}
 	},
 	"source-name": "gram",
-	"source-release": "6",
-	"source-version": "3.2.0"
+	"source-release": "7",
+	"source-version": "3.3.0"
 }

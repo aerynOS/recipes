@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gram
-version     : "3.2.0"
-release     : 6
+version     : "3.3.0"
+release     : 7
 homepage    : https://gram-editor.com/
 upstreams   :
-    - https://codeberg.org/GramEditor/gram/archive/3.2.0.tar.gz : ff455814b3ba5909a1ae359bd5716874bd072495fdaa55fafbc025ed060f1989
+    - https://codeberg.org/GramEditor/gram/archive/3.3.0.tar.gz : eda5c167ed2c29ebd03310b236a06f3f29fd0007be3c58bd341992e52f765629
 summary     : A code editor for humanoid apes and grumpy toads
 description : |
     Gram is a powerful and modern source code editor.
@@ -32,6 +32,7 @@ builddeps   :
     - pkgconfig(libdrm)
     - pkgconfig(libelf)
     - pkgconfig(libssl)
+    - pkgconfig(libzstd)
     - pkgconfig(protobuf)
     - pkgconfig(sqlite3)
     - pkgconfig(vulkan)
@@ -44,19 +45,22 @@ rundeps     :
     - binary(unzip)
 environment : |
     export RUSTFLAGS="$RUSTFLAGS -Clink-arg=-fuse-ld=mold"
+    # enable LTO here instead
+    export CARGO_PROFILE_RELEASE_LTO="thin"
     export GRAM_UPDATE_EXPLANATION="Package updates are provided via moss"
     export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
-    export LIBSSH2_SYS_USE_PKG_CONFIG=1
     export OPENSSL_NO_VENDOR=true
+    export RUST_FONTCONFIG_DLOPEN=1
     export ZSTD_SYS_USE_PKG_CONFIG=1
 setup       : |
     %cargo_fetch
 build       : |
+    export GRAM_NO_BUNDLED_UNINSTALL="Use moss to uninstall"
+    export RELEASE_VERSION="%(version)"
     RUST_BACKTRACE=1 %cargo_build -p gram -p cli
 install     : |
-    %install_dir %(installroot)%(libexecdir)
-    %install_exe target/*/release/gram %(installroot)%(libexecdir)/gram-editor
-    %install_exe target/*/release/cli %(installroot)%(bindir)/gram
+    %install_exe %(cargo_target_dir)/cli %(installroot)%(bindir)/gram
+    %install_exe %(cargo_target_dir)/gram %(installroot)%(libexecdir)/gram-editor
 
     # stolen from zed's bundle-linux script
     export DO_STARTUP_NOTIFY="true"
@@ -71,6 +75,8 @@ install     : |
     envsubst < "crates/gram/resources/gram.desktop.in" > "%(installroot)%(datadir)/applications/app.liten.Gram.desktop"
 
     # icon
-    %install_file crates/gram/resources/app-icon.png %(installroot)%(datadir)/icons/gram.png
+    %install_file crates/gram/resources/app-icon.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/gram.png
+    %install_file crates/gram/resources/app-icon@2x.png %(installroot)%(datadir)/icons/hicolor/512x512@2/apps/gram.png
+    %install_file crates/gram/resources/app.liten.Gram.svg %(installroot)%(datadir)/hicolor/scalable/apps/gram.svg
 # check       : |
 #     %cargo_test
