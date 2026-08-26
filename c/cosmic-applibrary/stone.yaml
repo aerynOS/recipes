@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-applibrary
-version     : "1.6.0"
-release     : 49
-summary     : Cosmic Desktop App Launcher
-license     : GPL-3.0
+version     : "1.7.0"
+release     : 50
 homepage    : https://github.com/pop-os/cosmic-applibrary
-upstreams   :
-    - https://github.com/pop-os/cosmic-applibrary/archive/refs/tags/epoch-1.6.0.tar.gz : bfe47b518b1b20e89b71c6470f1601d03998fce035cdb9388d7289dc670a4d44
+summary     : Cosmic Desktop App Launcher
 description : |
     Cosmic Desktop App Launcher
+license     : GPL-3.0
+upstreams   :
+    - https://github.com/pop-os/cosmic-applibrary/archive/refs/tags/epoch-1.7.0.tar.gz : 76208ee5ce43f42d8760ca7dc5b2014ed14a8cdd12ca6abb7aedc6cd74913fdd
 builddeps   :
     - binary(just)
     - pkgconfig(dbus-1)
@@ -18,6 +18,9 @@ builddeps   :
     - pkgconfig(xkbcommon)
 networking  : true
 setup       : |
+    # Install shipped desktop/metainfo from data/, and use share/metainfo
+    %patch %(pkgdir)/Install-static-desktop-and-metainfo-files.patch
+
     %cargo_fetch
 build       : |
     %cargo_build

@@ -1,0 +1,23 @@
+diff -Npur cosmic-app-library-epoch-1.7.0.orig/justfile cosmic-app-library-epoch-1.7.0/justfile
+--- cosmic-app-library-epoch-1.7.0.orig/justfile	2026-08-25 20:24:25.063967645 -0400
++++ cosmic-app-library-epoch-1.7.0/justfile	2026-08-25 20:24:37.119555761 -0400
+@@ -15,7 +15,7 @@ bin-src := cargo-target-dir / 'release'
+ bin-dst := base-dir / 'bin' / name
+ 
+ appdata := appid + '.metainfo.xml'
+-appdata-dst := base-dir / 'share' / 'appdata' / appdata
++appdata-dst := base-dir / 'share' / 'metainfo' / appdata
+ 
+ desktop := appid + '.desktop'
+ desktop-dst := base-dir / 'share' / 'applications' / desktop
+@@ -53,8 +53,8 @@ check-json: (check '--message-format=jso
+ # Installs files
+ install:
+     install -Dm0755 {{bin-src}} {{bin-dst}}
+-    install -Dm0644 {{ 'target' / 'xdgen' / desktop }} {{desktop-dst}}
+-    install -Dm0644 {{ 'target' / 'xdgen' / appdata }} {{appdata-dst}}
++    install -Dm0644 {{ 'data' / desktop }} {{desktop-dst}}
++    install -Dm0644 {{ 'data' / appdata }} {{appdata-dst}}
+     install -Dm0644 {{ 'data' / 'icons' / icon }} {{icon-dst}}
+ 
+ # Uninstalls installed files
