@@ -4,11 +4,11 @@
 name        : cosmic-desktop
 version     : "1.1"
 release     : 17
-summary     : Cosmic Desktop Metapackage
-license     : GPL-3.0
 homepage    : https://system76.com/cosmic
+summary     : Cosmic Desktop Metapackage
 description : |
     Cosmic Desktop Metapackage
+license     : GPL-3.0
 rundeps     :
     - binary(cosmic-app-library)
     - binary(cosmic-bg)
