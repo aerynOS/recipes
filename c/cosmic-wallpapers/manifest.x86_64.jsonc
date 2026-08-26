@@ -5,6 +5,10 @@
 		"cosmic-wallpapers": {
 			"files": [
 				"/usr/share/backgrounds/cosmic/A_stormy_stellar_nursery_esa_379309.jpg",
+				"/usr/share/backgrounds/cosmic/COSMIC-Pattern-Dark.png",
+				"/usr/share/backgrounds/cosmic/COSMIC-Pattern-Light.png",
+				"/usr/share/backgrounds/cosmic/COSMIC-logo-Dark.png",
+				"/usr/share/backgrounds/cosmic/COSMIC-logo-White.png",
 				"/usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg",
 				"/usr/share/backgrounds/cosmic/otherworldly_earth_nasa_ISS064-E-29444.jpg",
 				"/usr/share/backgrounds/cosmic/phytoplankton_bloom_nasa_oli2_20240121.jpg",
@@ -16,6 +20,6 @@
 		}
 	},
 	"source-name": "cosmic-wallpapers",
-	"source-release": "41",
-	"source-version": "1.6.0"
+	"source-release": "42",
+	"source-version": "1.7.0"
 }
