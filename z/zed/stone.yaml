@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zed
-version     : "1.16.1"
-release     : 56
+version     : "1.17.2"
+release     : 57
 homepage    : https://zed.dev/
 upstreams   :
-    - https://github.com/zed-industries/zed/archive/refs/tags/v1.16.1.tar.gz : dcdf914cb89ede19cd9dd5fe6c20f8d1da10091e2d566d07a3e43c0ddd8ae777
+    - https://github.com/zed-industries/zed/archive/refs/tags/v1.17.2.tar.gz : f82457bfb0cfaca0626fce636950dacc0b145e271baea7c39fd50bdd166a84f1
 summary     : High performance, graphical code editor
 description : |
     Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
@@ -44,6 +44,8 @@ tuning      :
     - lto: false
 environment : |
     export RUSTFLAGS="$RUSTFLAGS -Clink-arg=-fuse-ld=mold"
+    # enable LTO here instead
+    export CARGO_PROFILE_RELEASE_LTO=thin
     export ZED_UPDATE_EXPLANATION="Package updates are provided via moss"
     export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
     export OPENSSL_NO_VENDOR=true
@@ -53,9 +55,8 @@ setup       : |
 build       : |
     RUST_BACKTRACE=1 %cargo_build -p zed -p cli
 install     : |
-    %install_dir %(installroot)%(libexecdir)
-    %install_exe target/*/release/zed %(installroot)%(libexecdir)/zed-editor
-    %install_exe target/*/release/cli %(installroot)%(bindir)/zed
+    %install_exe %(cargo_target_dir)/zed %(installroot)%(libexecdir)/zed-editor
+    %install_exe %(cargo_target_dir)/cli %(installroot)%(bindir)/zed
 
     # stolen from zed's bundle-linux script
     export DO_STARTUP_NOTIFY="true"
@@ -63,11 +64,22 @@ install     : |
     export APP_ICON="zed"
     export APP_ARGS="%%U"
     export APP_NAME="Zed"
+    export APP_ID="dev.zed.Zed"
+    export BRANDING_LIGHT="#99c1f1"
+    export BRANDING_DARK="#1a5fb4"
 
     # desktop file.
-    %install_dir %(installroot)%(datadir)/applications
+    %install_dir %(installroot)%(datadir)/{applications,metainfo}
     envsubst < "crates/zed/resources/zed.desktop.in" > "%(installroot)%(datadir)/applications/dev.zed.Zed.desktop"
+    envsubst < "crates/zed/resources/flatpak/zed.metainfo.xml.in" > %(installroot)%(datadir)/metainfo/zed.metainfo.xml
+    sed -i '/@release_info@/d' %(installroot)%(datadir)/metainfo/zed.metainfo.xml
 
     # icons
     %install_file crates/zed/resources/app-icon.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/zed.png
     %install_file crates/zed/resources/app-icon@2x.png %(installroot)%(datadir)/icons/hicolor/1024x1024/apps/zed.png
+
+    # completions
+    export ZED_ALLOW_ROOT=true
+    %(installroot)%(bindir)/zed --completions bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/%(name)
+    %(installroot)%(bindir)/zed --completions fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/%(name).fish
+    %(installroot)%(bindir)/zed --completions zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_%(name)

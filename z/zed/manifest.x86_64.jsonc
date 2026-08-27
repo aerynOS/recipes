@@ -50,8 +50,12 @@
 				"/usr/bin/zed",
 				"/usr/lib/zed/zed-editor",
 				"/usr/share/applications/dev.zed.Zed.desktop",
+				"/usr/share/bash-completion/completions/zed",
+				"/usr/share/fish/vendor_completions.d/zed.fish",
 				"/usr/share/icons/hicolor/1024x1024/apps/zed.png",
-				"/usr/share/icons/hicolor/512x512/apps/zed.png"
+				"/usr/share/icons/hicolor/512x512/apps/zed.png",
+				"/usr/share/metainfo/zed.metainfo.xml",
+				"/usr/share/zsh/site-functions/_zed"
 			],
 			"name": "zed",
 			"provides": [
@@ -60,6 +64,6 @@
 		}
 	},
 	"source-name": "zed",
-	"source-release": "56",
-	"source-version": "1.16.1"
+	"source-release": "57",
+	"source-version": "1.17.2"
 }
