@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : satty
+version     : "0.22.0"
+release     : 1
+homepage    : https://github.com/Satty-org/Satty
+upstreams   :
+    - https://github.com/Satty-org/Satty/archive/refs/tags/v0.22.0.tar.gz : eee18b5f9eabf164da69c7e6e916c98afb78dd296d83e28bb96d9f9636a5fe36
+summary     : Satty is a screenshot annotation tool inspired by Swappy and Flameshot.
+description : Satty is a screenshot annotation tool inspired by Swappy and Flameshot.
+license     : MPL-2.0
+networking  : true
+builddeps   :
+    - pkgconfig(epoxy)
+    - pkgconfig(fontconfig)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gtk4-layer-shell-0)
+    - pkgconfig(libadwaita-1)
+    - glib2-devel
+rundeps     :
+    - epoxy
+checkdeps   :
+    - binary(man)
+    # dbus-1 is required in order to retrieve the manpage
+    - pkgconfig(dbus-1)
+setup       : |
+    %cargo_fetch 
+build       : |
+    # We need all features to get the completions
+    %cargo_build --all-features
+install     : |
+    %cargo_install
+    
+    # Install the completions
+    %install_file completions/_satty %(installroot)%(zshcompletionsdir)/_satty
+    %install_file completions/satty.bash %(installroot)%(bashcompletionsdir)/satty
+    %install_file completions/satty.fish %(installroot)%(fishcompletionsdir)/satty.fish
+    %install_file completions/satty.elv %(installroot)%(elvishcompletionsdir)/satty.elv
+    # aerynOS doesn't support nushell yet
+    # %install_file completions/satty.nu %(installroot)%(completionsdir)/satty.nu
+
+    # Install the desktop file and icon
+    %install_file satty.desktop %(installroot)%(datadir)/applications/satty.desktop
+    %install_file assets/satty.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/satty.svg
+    
+    # Install the doc
+    cargo run --release -- --man > satty.1
+    %install_file satty.1 -t %(installroot)%(mandir)/man1
+    %install_file README.md %(installroot)%(docdir)/satty/README.md
+    %install_dir assets %(installroot)/%(docdir)/satty/assets
+check       : |
+    %cargo_test
+    man -M %(installroot)%(mandir) satty > /dev/null
