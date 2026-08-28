@@ -3,7 +3,7 @@
 
 name        : bzip2
 version     : "1.0.8"
-release     : 8
+release     : 9
 summary     : Common and high-quality data compressor
 license     : bzip2-1.0.6
 homepage    : https://www.sourceware.org/bzip2
@@ -60,6 +60,7 @@ install     : |
 
     %install_file  -t %(installroot)/%(libdir) libbz2.so*
     ln -sf libbz2.so.%(version) %(installroot)/%(libdir)/libbz2.so
+    ln -sf libbz2.so.%(version) %(installroot)/%(libdir)/libbz2.so.1
     ln -sf libbz2.so.%(version) %(installroot)/%(libdir)/libbz2.so.1.0
     %install_file bzlib.h -t %(installroot)/%(includedir)
     %install_file bzip2.pc -t %(installroot)/%(libdir)/pkgconfig/

@@ -52,6 +52,7 @@
 				"soname(libc.so.6(386))"
 			],
 			"files": [
+				"/usr/lib32/libbz2.so.1",
 				"/usr/lib32/libbz2.so.1.0",
 				"/usr/lib32/libbz2.so.1.0.8"
 			],
@@ -93,6 +94,7 @@
 				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
+				"/usr/lib/libbz2.so.1",
 				"/usr/lib/libbz2.so.1.0",
 				"/usr/lib/libbz2.so.1.0.8"
 			],
@@ -103,6 +105,6 @@
 		}
 	},
 	"source-name": "bzip2",
-	"source-release": "8",
+	"source-release": "9",
 	"source-version": "1.0.8"
 }
