@@ -3,7 +3,7 @@
 
 name        : genfstab
 version     : "31"
-release     : 2
+release     : 3
 homepage    : https://gitlab.archlinux.org/archlinux/arch-install-scripts/
 upstreams   :
     - https://gitlab.archlinux.org/archlinux/arch-install-scripts/-/archive/v31/arch-install-scripts-v31.tar.gz : ef22eae93b5cc78c7e7982acc160428cced9f96cb95090aeb77d55bc844a988e
@@ -12,11 +12,11 @@ description : |
     genfstab(8) is a Bash script that is used to automatically detect all
     mounts under a given mountpoint, its output can then be redirected into
     a file, usually /etc/fstab. 
-license     : 
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 builddeps   :
     - binary(asciidoctor)
     - binary(m4)
+checkdeps   :
     - binary(man)
     # dbus-1 is required in order to retrieve the manpage
     - pkgconfig(dbus-1)
