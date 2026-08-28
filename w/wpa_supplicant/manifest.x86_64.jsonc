@@ -64,6 +64,6 @@
 		}
 	},
 	"source-name": "wpa_supplicant",
-	"source-release": "1",
-	"source-version": "2.11"
+	"source-release": "2",
+	"source-version": "2.12"
 }

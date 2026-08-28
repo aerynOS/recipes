@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wpa_supplicant
-version     : "2.11"
-release     : 1
+version     : "2.12"
+release     : 2
 homepage    : https://w1.fi/wpa_supplicant
 upstreams   :
-    - https://w1.fi/releases/wpa_supplicant-2.11.tar.gz : 912ea06f74e30a8e36fbb68064d6cdff218d8d591db0fc5d75dee6c81ac7fc0a
+    - https://w1.fi/releases/wpa_supplicant-2.12.tar.gz : 08e23937e16d0155e55cab2b51f51fbe10d80a1aa91c4e15442645059b737ef6
 summary     : A utility providing key negotiation for WPA wireless networks
 description : |
     A utility providing key negotiation for WPA wireless networks
-license     :
-    - BSD-3-Clause
+license     : BSD-3-Clause
 builddeps   :
     - pkgconfig(dbus-1)
     - pkgconfig(libnl-3.0)
@@ -35,12 +34,6 @@ setup       : |
     %patch %(pkgdir)/0005-Add-IgnoreOnIsolate-yes-to-keep-wpa-supplicant-runni.patch
     # More unit improvements from Debian
     %patch %(pkgdir)/0006-Add-reload-support-to-the-systemd-unit-files.patch
-    # https://lists.infradead.org/pipermail/hostap/2022-January/040178.html
-    %patch %(pkgdir)/0007-nl80211-add-extra-ies-only-if-allowed-by-driver.patch
-    # https://w1.fi/cgit/hostap/commit/?id=c330b5820eefa8e703dbce7278c2a62d9c69166a
-    %patch %(pkgdir)/0008-Send-CTRL-EVENT-SIGNAL-CHANGE-message-to-control-interfaces-only.patch
-    # nullptr crash fix
-    %patch %(pkgdir)/0009-nl80211-NULL-pointer-check-for-link-before-use.patch
     %install_file %(pkgdir)/wpa_supplicant_config wpa_supplicant/.config
 build       : |
     cd wpa_supplicant
