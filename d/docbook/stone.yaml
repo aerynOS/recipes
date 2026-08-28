@@ -4,32 +4,32 @@
 ## TODO: Once Moss has renaming support we should probably rename this to docbook-dtd or docbook-xml
 name        : docbook
 version     : "4.5"
-release     : 8
+release     : 9
 homepage    : https://docbook.org
 upstreams   :
-    - https://docbook.org/xml/4.5/docbook-xml-4.5.zip:
+    - https://archive.docbook.org/xml/4.5/docbook-xml-4.5.zip:
         hash: 4e4e037a2b83c98c6c94818390d4bdd3f6e10f6ec62dd79188594e26190dc7b4
         unpack: false
         rename: "4.5.zip"
-    - https://docbook.org/xml/4.3/docbook-xml-4.3.zip:
+    - https://archive.docbook.org/xml/4.3/docbook-xml-4.3.zip:
         hash: 23068a94ea6fd484b004c5a73ec36a66aa47ea8f0d6b62cc1695931f5c143464
         unpack: false
         rename: "4.3.zip"
-    - https://docbook.org/xml/4.2/docbook-xml-4.2.zip:
+    - https://archive.docbook.org/xml/4.2/docbook-xml-4.2.zip:
         hash: acc4601e4f97a196076b7e64b368d9248b07c7abf26b34a02cca40eeebe60fa2
         unpack: false
         rename: "4.2.zip"
-    - https://docbook.org/xml/4.1.2/docbkx412.zip:
+    - https://archive.docbook.org/xml/4.1.2/docbkx412.zip:
         hash: 30f0644064e0ea71751438251940b1431f46acada814a062870f486c772e7772
         unpack: false
         rename: "4.1.2.zip"
 summary     : Markup schema, suitable for writing technical books and documentation
 description : |
     %(name) is a schema (available in several languages including RELAX NG, W3C XML Schemas, and XML DTDs) maintained by the DocBook Technical Committee of OASIS. It is particularly well suited to books and papers about computer hardware and software (though it is by no means limited to these applications).
-license     : Copyright
+license     : DocBook-XML
 builddeps   :
-    - binary(xmlcatalog)
     - binary(unzip)
+    - binary(xmlcatalog)
 rundeps     :
     - binary(xmlcatalog)
 install     : |
