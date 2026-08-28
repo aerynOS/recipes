@@ -4,6 +4,8 @@
 	"packages": {
 		"libatasmart": {
 			"build-depends": [
+				"binary(bison)",
+				"binary(flex)",
 				"pkgconfig(libudev)",
 				"pkgconfig(vapigen)"
 			],
@@ -29,6 +31,8 @@
 		},
 		"libatasmart-devel": {
 			"build-depends": [
+				"binary(bison)",
+				"binary(flex)",
 				"pkgconfig(libudev)",
 				"pkgconfig(vapigen)"
 			],
@@ -47,6 +51,6 @@
 		}
 	},
 	"source-name": "libatasmart",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "0.19"
 }
