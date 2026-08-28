@@ -11,7 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 
 #### Checklist
 
-- [ ] This PR links back to an existing issue (link: #[issue number])
+- [ ] This PR links back to an existing issue (Resolves: #[issue number])
 - [ ] I have read and conformed to both the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md), and the [Contributing Guidelines](https://aerynos.dev/packaging/). I also confirm that this is my own work or properly attributed and that there are no obvious security or stability concerns or any regressions observed in this testing.
 - [ ] No sensitive credentials, API keys, or secrets are included in this PR
 - [ ] This change could gainfully be highlighted in the Stream Update notes once merged
