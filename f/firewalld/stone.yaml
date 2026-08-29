@@ -1,0 +1,78 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : firewalld
+version     : "2.5.1"
+release     : 1
+homepage    : https://firewalld.org/
+upstreams   :
+    - https://github.com/firewalld/firewalld/releases/download/v2.5.1/firewalld-2.5.1.tar.bz2 : 50fd01cf0b696a1cb7ca722e972d6173b0c5aa6ab13892b00842ae52172b081e
+summary     : Firewall daemon with D-Bus interface
+description : |
+    firewallD provides a dynamically managed firewall with support for network or firewall zones to define the trust level of network connections or interfaces. It has support for IPv4, IPv6 firewall settings and for ethernet bridges and a separation of runtime and permanent configuration options. It also provides an interface for services or applications to add iptables and nftables rules directly.
+license     : GPL-2.0-or-later
+builddeps   :
+    - pkgconfig(glib-2.0)
+    - sysbinary(iptables)
+    - gettext-devel
+    - intltool-devel
+rundeps     :
+    - python(dbus-python)
+    - python(pygobject)
+    - sysbinary(iptables)
+    - python-capng
+    - python-nftables
+setup       : |
+    %patch %(pkgdir)/stateless.patch
+    %patch %(pkgdir)/fix_gettext_macros_path.patch
+    %patch %(pkgdir)/fix_gettext_domain.patch
+
+    %autogen \
+        --disable-schemas-compile \
+        --disable-sysconfig \
+        --disable-docs
+build       : |
+    %make
+install     : |
+    %make_install
+
+    # We don't need these
+    rm -rf %(installroot)/etc
+
+    # tmpfiles
+    %install_dir %(installroot)%(tmpfilesdir)
+    %install_file %(pkgdir)/firewalld.tmpfiles %(installroot)/%(tmpfilesdir)/firewalld.conf
+
+    # docs
+    %install_file doc/man/man1/*.1 -t %(installroot)%(mandir)/man1/
+    %install_file doc/man/man5/*.5 -t %(installroot)%(mandir)/man5/
+packages    :
+    - "%(name)-applet":
+        summary: Firewall Qt panel applet
+        description: The firewall Qt panel applet provides a status information of firewalld and also the firewalld settings.
+        rundeps:
+            - "firewalld"
+            - "firewalld-config"
+            - "pkgconfig(libnotify)"
+            - "python-pyqt6"
+        paths:
+          - /usr/bin/firewall-applet
+          - /usr/share/defaults/firewall/applet.conf
+          - /usr/share/icons/hicolor/*/apps/*applet*.*
+          - /usr/share/icons/hicolor/scalable/apps/*applet*.*
+          - /usr/share/man/man1/firewall-applet.1
+          - /usr/share/xdg/autostart/firewall-applet.desktop
+    - "%(name)-config":
+        summary: Application to configure FirewallD
+        description: Graphical user interface for FirewallD configuration.
+        rundeps:
+            - "firewalld"
+        paths:
+          - /usr/bin/firewall-config
+          - /usr/share/firewalld/firewall-config.glade
+          - /usr/share/firewalld/gtk3_chooserbutton.py*
+          - /usr/share/firewalld/gtk3_niceexpander.py*
+          - /usr/share/applications/firewall-config.desktop
+          - /usr/share/metainfo/org.firewalld.firewall-config.metainfo.xml
+          - /usr/share/icons/hicolor/*/apps/firewall-config*.*
+          - /usr/share/man/man1/firewall-config*.1*
