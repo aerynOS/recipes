@@ -81,9 +81,9 @@
 				"/usr/share/noctalia/assets/emoji.json",
 				"/usr/share/noctalia/assets/firefox_theme/css/userChrome.css",
 				"/usr/share/noctalia/assets/firefox_theme/css/userContent.css",
+				"/usr/share/noctalia/assets/fonts/noctalia-tabler.ttf",
 				"/usr/share/noctalia/assets/fonts/tabler-icons-license.txt",
 				"/usr/share/noctalia/assets/fonts/tabler.json",
-				"/usr/share/noctalia/assets/fonts/tabler.ttf",
 				"/usr/share/noctalia/assets/noctalia-wallpaper.png",
 				"/usr/share/noctalia/assets/noctalia.svg",
 				"/usr/share/noctalia/assets/sounds/notification.wav",
@@ -182,6 +182,6 @@
 		}
 	},
 	"source-name": "noctalia",
-	"source-release": "4",
-	"source-version": "5.0.0-beta.9"
+	"source-release": "5",
+	"source-version": "5.0.0-beta.10"
 }
