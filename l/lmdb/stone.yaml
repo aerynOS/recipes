@@ -2,18 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lmdb
-version     : "0.9.35"
-release     : 14
+version     : "1.0.1"
+release     : 15
 homepage    : https://www.symas.com/lmdb
 upstreams   :
-    - https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.35/openldap-LMDB_0.9.35.tar.gz : 0d090c6a7c85a4f31a2ab0d734554c21097f24752393a190b0e51996b08f48c4
+    - https://git.openldap.org/openldap/openldap/-/archive/LMDB_1.0.1/openldap-LMDB_1.0.1.tar.gz : 63a3cdcca69f4fd403b61fd5c5a51a119f1549d7b375b33f624e64df2933d336
 summary     : Symas Lightning Memory-Mapped Database
 description : |
     Symas Lightning Memory-Mapped Database
-license     :
-    - OLDAP-2.8
-setup       : |
-    %patch %(pkgdir)/lmdb-make.patch
+license     : OLDAP-2.8
 build       : |
     %make -C libraries/liblmdb XCFLAGS="${CFLAGS}" CC=clang AR=llvm-ar
 install     : |
@@ -24,9 +21,7 @@ install     : |
     sed -e 's|@PKGVER@|%(version)|g' -i ./lmdb.pc
     %install_file ./lmdb.pc %(installroot)%(libdir)/pkgconfig/lmdb.pc
 check       : |
-    cd libraries/liblmdb
-    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:."
-    %make XCFLAGS="${CFLAGS}" CC=clang AR=llvm-ar test
+    %make -C libraries/liblmdb XCFLAGS="${CFLAGS}" CC=clang AR=llvm-ar test
 tuning      :
     - lto
     - optimize: speed

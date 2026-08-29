@@ -5,15 +5,16 @@
 		"lmdb": {
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(libc.so.6(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))"
+				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/bin/mdb_copy",
+				"/usr/bin/mdb_drop",
 				"/usr/bin/mdb_dump",
 				"/usr/bin/mdb_load",
 				"/usr/bin/mdb_stat",
 				"/usr/share/man/man1/mdb_copy.1",
+				"/usr/share/man/man1/mdb_drop.1",
 				"/usr/share/man/man1/mdb_dump.1",
 				"/usr/share/man/man1/mdb_load.1",
 				"/usr/share/man/man1/mdb_stat.1"
@@ -21,6 +22,7 @@
 			"name": "lmdb",
 			"provides": [
 				"binary(mdb_copy)",
+				"binary(mdb_drop)",
 				"binary(mdb_dump)",
 				"binary(mdb_load)",
 				"binary(mdb_stat)"
@@ -32,6 +34,7 @@
 			],
 			"files": [
 				"/usr/include/lmdb.h",
+				"/usr/lib/liblmdb.a",
 				"/usr/lib/liblmdb.so",
 				"/usr/lib/pkgconfig/lmdb.pc"
 			],
@@ -45,15 +48,16 @@
 				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/liblmdb.so.0.0.0"
+				"/usr/lib/liblmdb.so.1",
+				"/usr/lib/liblmdb.so.1.0"
 			],
 			"name": "lmdb-libs",
 			"provides": [
-				"soname(liblmdb.so.0.0.0(x86_64))"
+				"soname(liblmdb.so.1(x86_64))"
 			]
 		}
 	},
 	"source-name": "lmdb",
-	"source-release": "14",
-	"source-version": "0.9.35"
+	"source-release": "15",
+	"source-version": "1.0.1"
 }
