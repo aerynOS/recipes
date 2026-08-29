@@ -34,7 +34,6 @@
 				"soname(libQt6Gui.so.6(x86_64))",
 				"soname(libQt6Qml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -688,6 +687,6 @@
 		}
 	},
 	"source-name": "kf6-baloo",
-	"source-release": "29",
+	"source-release": "30",
 	"source-version": "6.29.0"
 }
