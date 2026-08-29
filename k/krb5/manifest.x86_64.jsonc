@@ -13,7 +13,6 @@
 				"pkgconfig(ldap)",
 				"pkgconfig(libkeyutils)",
 				"pkgconfig(libsasl2)",
-				"pkgconfig(lmdb)",
 				"pkgconfig(openssl)",
 				"pkgconfig(readline)",
 				"pkgconfig(ss)"
@@ -33,7 +32,6 @@
 				"soname(libkrb5support.so.0(x86_64))",
 				"soname(liblber.so.2(x86_64))",
 				"soname(libldap.so.2(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))",
 				"soname(libresolv.so.2(x86_64))",
 				"soname(libss.so.2(x86_64))",
 				"soname(libverto.so.0(x86_64))"
@@ -56,7 +54,6 @@
 				"/usr/lib/krb5/plugins/authdata",
 				"/usr/lib/krb5/plugins/kdb/db2.so",
 				"/usr/lib/krb5/plugins/kdb/kldap.so",
-				"/usr/lib/krb5/plugins/kdb/klmdb.so",
 				"/usr/lib/krb5/plugins/libkrb5",
 				"/usr/lib/krb5/plugins/preauth/otp.so",
 				"/usr/lib/krb5/plugins/preauth/pkinit.so",
@@ -129,7 +126,6 @@
 				"binary(uuclient)",
 				"soname(krb5/plugins/kdb/db2.so.0(x86_64))",
 				"soname(krb5/plugins/kdb/kldap.so.0(x86_64))",
-				"soname(krb5/plugins/kdb/klmdb.so.0(x86_64))",
 				"soname(krb5/plugins/preauth/otp.so.0(x86_64))",
 				"soname(krb5/plugins/preauth/pkinit.so.0(x86_64))",
 				"soname(krb5/plugins/preauth/test.so.0(x86_64))",
@@ -162,7 +158,6 @@
 				"pkgconfig(ldap)",
 				"pkgconfig(libkeyutils)",
 				"pkgconfig(libsasl2)",
-				"pkgconfig(lmdb)",
 				"pkgconfig(openssl)",
 				"pkgconfig(readline)",
 				"pkgconfig(ss)"
@@ -267,7 +262,6 @@
 				"pkgconfig(ldap)",
 				"pkgconfig(libkeyutils)",
 				"pkgconfig(libsasl2)",
-				"pkgconfig(lmdb)",
 				"pkgconfig(openssl)",
 				"pkgconfig(readline)",
 				"pkgconfig(ss)"
@@ -326,6 +320,6 @@
 		}
 	},
 	"source-name": "krb5",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "1.22.2"
 }

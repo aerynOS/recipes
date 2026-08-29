@@ -3,7 +3,7 @@
 
 name        : krb5
 version     : "1.22.2"
-release     : 7
+release     : 8
 homepage    : https://web.mit.edu/kerberos/
 upstreams   :
     - https://web.mit.edu/kerberos/dist/krb5/1.22/krb5-1.22.2.tar.gz : 3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13
@@ -19,10 +19,9 @@ builddeps   :
     - binary(yacc)
     - pkgconfig(cmocka)
     - pkgconfig(com_err)
+    - pkgconfig(ldap)
     - pkgconfig(libkeyutils)
     - pkgconfig(libsasl2)
-    - pkgconfig(lmdb)
-    - pkgconfig(ldap)
     - pkgconfig(openssl)
     - pkgconfig(readline)
     - pkgconfig(ss)
