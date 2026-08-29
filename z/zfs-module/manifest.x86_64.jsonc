@@ -16,8 +16,8 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.2.1-30.gaming/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/7.2.1-30.gaming/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/7.2.2-31.gaming/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/7.2.2-31.gaming/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-gaming"
 		},
@@ -35,8 +35,8 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/6.18.47-29.lts/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/6.18.47-29.lts/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/6.18.48-30.lts/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/6.18.48-30.lts/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-lts"
 		},
@@ -54,13 +54,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.1.11-53.stable/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/7.1.11-53.stable/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/7.1.12-54.stable/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/7.1.12-54.stable/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-stable"
 		}
 	},
 	"source-name": "zfs-module",
-	"source-release": "24",
+	"source-release": "25",
 	"source-version": "2.4.4"
 }

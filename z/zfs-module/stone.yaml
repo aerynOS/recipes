@@ -3,7 +3,7 @@
 
 name        : zfs-module
 version     : "2.4.4"
-release     : 24
+release     : 25
 upstreams   :
     - https://github.com/openzfs/zfs/releases/download/zfs-2.4.4/zfs-2.4.4.tar.gz : 2a3c70d55a37cc71618a95a60e81ad66530201eb118d37741dc92efcf848c8b1
 homepage    : https://openzfs.github.io/openzfs-docs/
