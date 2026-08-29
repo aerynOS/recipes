@@ -3,14 +3,14 @@
 
 name        : libunwind-nongnu
 version     : "1.8.3"
-release     : 4
+release     : 5
+homepage    : https://www.nongnu.org/libunwind
 upstreams   :
     - https://github.com/libunwind/libunwind/releases/download/v1.8.3/libunwind-1.8.3.tar.gz : be30d910e67f58d82e753231f1357f326a1a088acf126b21ff77e60aab19b90b
-homepage    : https://www.nongnu.org/libunwind
-license     : MIT
 summary     : Open-source implementation of the libunwind API
 description : |
     Open-source implementation of the libunwind API
+license     : MIT
 builddeps   :
     - binary(bison)
     - binary(flex)
@@ -18,6 +18,8 @@ builddeps   :
     - pkgconfig(zlib)
     # latex2man for docs
 setup       : |
+    # from https://github.com/libunwind/libunwind/commit/b67d508a93bf1ba231c18dce3894cfee25c16e0d
+    %patch %(pkgdir)/ftbfs-b67d508.patch
     %patch %(pkgdir)/rename-libunwind-nongnu.patch
 
     %reconfigure \

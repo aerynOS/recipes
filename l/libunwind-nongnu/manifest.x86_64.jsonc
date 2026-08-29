@@ -10,7 +10,6 @@
 				"pkgconfig(zlib)"
 			],
 			"depends": [
-				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(liblzma.so.5(x86_64))"
 			],
@@ -140,6 +139,6 @@
 		}
 	},
 	"source-name": "libunwind-nongnu",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "1.8.3"
 }
