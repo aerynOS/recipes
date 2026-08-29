@@ -3,10 +3,10 @@
 
 name        : ly
 version     : "1.4.1"
-release     : 4
-homepage    : https://github.com/fairyglade/ly
+release     : 5
+homepage    : https://codeberg.org/fairyglade/ly
 upstreams   :
-    - https://codeberg.org/fairyglade/ly/archive/v1.4.1.tar.gz : 16fe5f07cc7a23930880b14d905883644cdc4b574d1c146629f6b98ee8fbbab9
+    - https://codeberg.org/fairyglade/ly/archive/v1.4.1.tar.gz : 4d1c10422e6c5b8d5a795150e4c364c82404f900c1a04318b83fe8d81fade58b
 summary     : TUI display manager
 description : |
     Ly is a lightweight TUI display manager for Linux.
