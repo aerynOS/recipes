@@ -7,8 +7,8 @@
 				"binary(ld.bfd)",
 				"binary(python)",
 				"binary(which)",
-				"lmdb-devel",
 				"pkgconfig(cmocka)",
+				"pkgconfig(lmdb)",
 				"pkgconfig(popt)",
 				"pkgconfig(talloc)",
 				"pkgconfig(tdb)",
@@ -16,7 +16,6 @@
 			],
 			"depends": [
 				"soname(libc.so.6(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))",
 				"soname(libpopt.so.0(x86_64))",
 				"soname(libtalloc.so.2(x86_64))",
 				"soname(libtdb.so.1(x86_64))",
@@ -64,8 +63,8 @@
 				"binary(ld.bfd)",
 				"binary(python)",
 				"binary(which)",
-				"lmdb-devel",
 				"pkgconfig(cmocka)",
+				"pkgconfig(lmdb)",
 				"pkgconfig(popt)",
 				"pkgconfig(talloc)",
 				"pkgconfig(tdb)",
@@ -92,6 +91,6 @@
 		}
 	},
 	"source-name": "ldb",
-	"source-release": "5",
+	"source-release": "6",
 	"source-version": "2.9.2"
 }

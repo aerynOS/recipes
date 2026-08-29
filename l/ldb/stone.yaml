@@ -3,7 +3,7 @@
 
 name        : ldb
 version     : "2.9.2"
-release     : 5
+release     : 6
 homepage    : https://ldb.samba.org
 upstreams   :
     - https://www.samba.org/ftp/ldb/ldb-2.9.2.tar.gz : d155884002c79dbb1c3d8642f8b1013f2e520b3aeefd6e96412adec5b8d6cbc0
@@ -17,11 +17,11 @@ builddeps   :
     - binary(python)
     - binary(which)
     - pkgconfig(cmocka)
+    - pkgconfig(lmdb)
     - pkgconfig(popt)
     - pkgconfig(talloc)
     - pkgconfig(tdb)
     - pkgconfig(tevent)
-    - lmdb-devel
 environment : |
     # ld.bfd is required here, but we can still build with clang.
     export LDFLAGS="${LDFLAGS} -fuse-ld=bfd"
