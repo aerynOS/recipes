@@ -1,0 +1,11 @@
+--- a/pyproject.toml	2026-05-27 19:11:51.828929000 +0200
++++ b/pyproject.toml	2026-08-29 22:09:33.035348112 +0200
+@@ -3,7 +3,7 @@
+ # Use flit as a build backend (https://flit.pypa.io/)
+ # Build with (https://build.pypa.io/)
+ [build-system]
+-requires = ["flit_core>=3.11,<4"]
++requires = ["flit_core>=3.11,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ # Project metadata

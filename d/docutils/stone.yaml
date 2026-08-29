@@ -3,7 +3,7 @@
 
 name        : docutils
 version     : "0.23"
-release     : 7
+release     : 8
 homepage    : https://www.docutils.org/
 upstreams   :
     - https://pypi.debian.net/docutils/docutils-0.23.tar.gz : 746f5060322511280a1e50eb76846ed6bf2342984b2ac04dc42caa1a8d78799e
@@ -19,6 +19,8 @@ builddeps   :
     - python(flit-core)
 rundeps     :
     - binary(python3)
+setup       : |
+    %patch %(pkgdir)/flint_core-4.patch
 build       : |
     %pyproject_build
 install     : |
