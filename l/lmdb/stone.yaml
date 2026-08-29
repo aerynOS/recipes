@@ -3,7 +3,7 @@
 
 name        : lmdb
 version     : "0.9.35"
-release     : 14
+release     : 15
 homepage    : https://www.symas.com/lmdb
 upstreams   :
     - https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.35/openldap-LMDB_0.9.35.tar.gz : 0d090c6a7c85a4f31a2ab0d734554c21097f24752393a190b0e51996b08f48c4
@@ -25,7 +25,7 @@ install     : |
     %install_file ./lmdb.pc %(installroot)%(libdir)/pkgconfig/lmdb.pc
 check       : |
     cd libraries/liblmdb
-    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:."
+    export LD_LIBRARY_PATH="."
     %make XCFLAGS="${CFLAGS}" CC=clang AR=llvm-ar test
 tuning      :
     - lto
