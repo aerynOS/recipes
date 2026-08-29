@@ -3,21 +3,21 @@
 
 name        : docbook5-xml
 version     : "5.1"
-release     : 1
+release     : 2
 homepage    : https://docbook.org/schemas/5x
 upstreams   :
-    - https://docbook.org/xml/5.0/docbook-5.0.zip:
+    - https://archive.docbook.org/xml/5.0/docbook-5.0.zip:
         hash: 3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e
         unpack: false
         rename: 5.0.zip
-    - https://docbook.org/xml/5.1/docbook-v5.1-os.zip:
+    - https://archive.docbook.org/xml/5.1/docbook-v5.1-os.zip:
         hash: b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f
         unpack: false
         rename: 5.1.zip
 summary     : Docbook 5.x version of the XML schema
 description : |
     A complete rewrite of the well-known DocBook 4 XML schema (DTD, Relax NG, W3C schema) for Docbook 5.X
-license     : Copyright
+license     : DocBook-XML
 builddeps   :
     - binary(bsdtar-static)
     - binary(xmlcatalog)
