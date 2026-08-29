@@ -21,9 +21,9 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.2.1-30.gaming/65-bcachefs-module-shared-1.39.2-42.initrd",
-				"/usr/lib/kernel/7.2.1-30.gaming/70-bcachefs-module-1.39.2-42.initrd",
-				"/usr/lib/modules/7.2.1-30.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.2.2-31.gaming/65-bcachefs-module-shared-1.39.2-43.initrd",
+				"/usr/lib/kernel/7.2.2-31.gaming/70-bcachefs-module-1.39.2-43.initrd",
+				"/usr/lib/modules/7.2.2-31.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-gaming"
 		},
@@ -46,9 +46,9 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/6.18.47-29.lts/65-bcachefs-module-shared-1.39.2-42.initrd",
-				"/usr/lib/kernel/6.18.47-29.lts/70-bcachefs-module-1.39.2-42.initrd",
-				"/usr/lib/modules/6.18.47-29.lts/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/6.18.48-30.lts/65-bcachefs-module-shared-1.39.2-43.initrd",
+				"/usr/lib/kernel/6.18.48-30.lts/70-bcachefs-module-1.39.2-43.initrd",
+				"/usr/lib/modules/6.18.48-30.lts/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-lts"
 		},
@@ -66,7 +66,7 @@
 				"sysbinary(bcachefs)"
 			],
 			"files": [
-				"/usr/lib/kernel/initrd.d/65-bcachefs-module-shared-1.39.2-42.initrd"
+				"/usr/lib/kernel/initrd.d/65-bcachefs-module-shared-1.39.2-43.initrd"
 			],
 			"name": "bcachefs-module-shared"
 		},
@@ -89,14 +89,14 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.1.11-53.stable/65-bcachefs-module-shared-1.39.2-42.initrd",
-				"/usr/lib/kernel/7.1.11-53.stable/70-bcachefs-module-1.39.2-42.initrd",
-				"/usr/lib/modules/7.1.11-53.stable/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.1.12-54.stable/65-bcachefs-module-shared-1.39.2-43.initrd",
+				"/usr/lib/kernel/7.1.12-54.stable/70-bcachefs-module-1.39.2-43.initrd",
+				"/usr/lib/modules/7.1.12-54.stable/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-stable"
 		}
 	},
 	"source-name": "bcachefs-module",
-	"source-release": "42",
+	"source-release": "43",
 	"source-version": "1.39.2"
 }
