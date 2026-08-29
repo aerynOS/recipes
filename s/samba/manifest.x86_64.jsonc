@@ -62,7 +62,6 @@
 				"soname(libkrb5.so.3(x86_64))",
 				"soname(liblber.so.2(x86_64))",
 				"soname(libldap.so.2(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))",
 				"soname(libpam.so.0(x86_64))",
 				"soname(libpopt.so.0(x86_64))",
 				"soname(libreadline.so.8(x86_64))",
@@ -859,6 +858,6 @@
 		}
 	},
 	"source-name": "samba",
-	"source-release": "20",
+	"source-release": "21",
 	"source-version": "4.22.11"
 }
