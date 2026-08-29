@@ -3,25 +3,25 @@
 
 name        : foot
 version     : "1.27.0"
-release     : 5
+release     : 6
 homepage    : https://codeberg.org/dnkl/foot
 upstreams   :
-    - https://codeberg.org/dnkl/foot/archive/1.27.0.tar.gz : 4e6131cc859ec6a36569f1978cf3617cc3836a681d13d228ded1b4885dab7770
+    - https://codeberg.org/dnkl/foot/archive/1.27.0.tar.gz : f5917cad2d7b723b99873e53d78fd10ea202923d189aed5086591fc53b70b7e3
 summary     : The fast, lightweight and minimalistic Wayland terminal emulator.
 description : |
     The fast, lightweight and minimalistic Wayland terminal emulator.
 license     : MIT
 builddeps   :
-    - binary(tic)
     - binary(scdoc)
+    - binary(tic)
     - pkgconfig(fcft)
     - pkgconfig(fontconfig)
     - pkgconfig(freetype2)
     - pkgconfig(libutf8proc)
     - pkgconfig(ncurses)
     - pkgconfig(pixman-1)
-    - pkgconfig(tllist)
     - pkgconfig(systemd)
+    - pkgconfig(tllist)
     - pkgconfig(wayland-client)
     - pkgconfig(wayland-cursor)
     - pkgconfig(wayland-protocols)
