@@ -4,7 +4,6 @@
 	"packages": {
 		"bind-utils": {
 			"build-depends": [
-				"lmdb-devel",
 				"pkgconfig(json-c)",
 				"pkgconfig(libcap)",
 				"pkgconfig(libidn2)",
@@ -23,7 +22,6 @@
 				"soname(libcrypto.so.3(x86_64))",
 				"soname(libidn2.so.0(x86_64))",
 				"soname(libjson-c.so.5(x86_64))",
-				"soname(liblmdb.so.0.0.0(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmaxminddb.so.0(x86_64))",
 				"soname(libnghttp2.so.14(x86_64))",
@@ -74,6 +72,6 @@
 		}
 	},
 	"source-name": "bind-utils",
-	"source-release": "24",
+	"source-release": "25",
 	"source-version": "9.20.27"
 }

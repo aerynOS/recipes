@@ -3,7 +3,7 @@
 
 name        : bind-utils
 version     : "9.20.27"
-release     : 24
+release     : 25
 homepage    : https://www.isc.org/bind/
 upstreams   :
     - https://downloads.isc.org/isc/bind9/9.20.27/bind-9.20.27.tar.xz : 145ab7a50b33a06d9d488b5e668c887e754f42acf8954e2b5dc7e238b080e4a0
@@ -28,7 +28,6 @@ builddeps   :
     - pkgconfig(openssl)
     - pkgconfig(readline)
     - pkgconfig(zlib)
-    - lmdb-devel
 setup       : |
     # Autoconf fix for using clang
     export CC_FOR_BUILD="$CC"
