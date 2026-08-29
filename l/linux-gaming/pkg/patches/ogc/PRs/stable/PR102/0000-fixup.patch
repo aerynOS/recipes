@@ -1,51 +1,64 @@
+From 16b6676c788f49f4df8e5f8e0776c60e27ab9117 Mon Sep 17 00:00:00 2001
+From: fewtarius <fewtarius@steamfork.org>
+Date: Thu, 27 Aug 2026 16:47:03 +0900
+Subject: [PATCH] fix: alc269: add pin fixup for AyaNeo AIR 1S internal speaker
+
+The ALC269VB codec's internal speaker pin isn't configured
+correctly on the AyaNeo AIR 1S out of the box, so no audio
+plays even once the aw87xxx amplifier driver (added in this
+same PR) is working. Add a pin fixup matching the AIR 1S's
+PCI SSID that sets pin 0x1a to 0x90170110, restoring internal
+speaker output.
+
+Ported from hhd-dev/patchwork, where this same fix has
+already been carried and verified across several AyaNeo
+devices.
+
+Co-developed-by: linh1987
+Signed-off-by: Hijae Song <hijae@naver.com>
+---
+ sound/hda/codecs/realtek/alc269.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
 diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
-index cae327e1d9..390bf19966 100644
+index 48a2e7f2ebb15..429ea815496ac 100644
 --- a/sound/hda/codecs/realtek/alc269.c
 +++ b/sound/hda/codecs/realtek/alc269.c
-@@ -3998,6 +3998,7 @@
+@@ -3932,6 +3932,7 @@ enum {
  	ALC269VB_FIXUP_ASUS_ZENBOOK,
  	ALC269VB_FIXUP_ASUS_ZENBOOK_UX31A,
  	ALC269VB_FIXUP_ASUS_MIC_NO_PRESENCE,
-+	ALC269_FIXUP_AYANEO_AIR_1S,
++	ALC269VB_FIXUP_AYANEO_SPKR_PIN_FIX,
  	ALC269_FIXUP_LIMIT_INT_MIC_BOOST_MUTE_LED,
  	ALC269VB_FIXUP_ORDISSIMO_EVE2,
  	ALC283_FIXUP_CHROME_BOOK,
-@@ -4299,6 +4300,19 @@
- 	ALC285_LENOVO_DAC_RENAME,
- };
- 
-+static void alc269_fixup_ayaneo_air_1s(struct hda_codec *codec,
-+				       const struct hda_fixup *fix, int action)
-+{
-+	if (action != HDA_FIXUP_ACT_PRE_PROBE)
-+		return;
-+
-+	if (!dmi_match(DMI_SYS_VENDOR, "AYANEO") ||
-+	    !dmi_match(DMI_PRODUCT_NAME, "AIR 1S"))
-+		return;
-+
-+	snd_hda_codec_set_pincfg(codec, 0x1a, 0x90170110);
-+}
-+
- /* A special fixup for Lenovo C940 and Yoga Duet 7;
-  * both have the very same PCI SSID, and we need to apply different fixups
-  * depending on the codec ID
-@@ -4530,6 +4544,10 @@
- 			{ }
- 		},
+@@ -4734,6 +4735,13 @@ static const struct hda_fixup alc269_fixups[] = {
+ 		.chained = true,
+ 		.chain_id = ALC269_FIXUP_HEADSET_MIC
  	},
-+	[ALC269_FIXUP_AYANEO_AIR_1S] = {
-+		.type = HDA_FIXUP_FUNC,
-+		.v.func = alc269_fixup_ayaneo_air_1s,
++	[ALC269VB_FIXUP_AYANEO_SPKR_PIN_FIX] = {
++		.type = HDA_FIXUP_PINS,
++		.v.pins = (const struct hda_pintbl[]) {
++			{ 0x1a, 0x90170110 },
++			{ }
++		},
 +	},
- 	[ALC269_FIXUP_AMIC] = {
- 		.type = HDA_FIXUP_PINS,
- 		.v.pins = (const struct hda_pintbl[]) {
-@@ -8213,6 +8231,7 @@
- 	SND_PCI_QUIRK(0x1f4c, 0xb020, "Minisforum AI X1 Pro",
- 		      ALC245_FIXUP_MINISFORUM_JACK_DETECT),
+ 	[ALC269_FIXUP_LIMIT_INT_MIC_BOOST_MUTE_LED] = {
+ 		.type = HDA_FIXUP_FUNC,
+ 		.v.func = alc269_fixup_limit_int_mic_boost,
+@@ -8068,6 +8076,7 @@ static const struct hda_quirk alc269_fixup_tbl[] = {
+ 	SND_PCI_QUIRK(0x1ee7, 0x2078, "HONOR BRB-X M1010", ALC2XX_FIXUP_HEADSET_MIC),
+ 	SND_PCI_QUIRK(0x1ee7, 0x2081, "HONOR MRB-XXX M1020", ALC256_FIXUP_HONOR_MRB_XXX_M1020_AUDIO),
  	SND_PCI_QUIRK(0x1f4c, 0xe001, "Minisforum V3 (SE)", ALC245_FIXUP_BASS_HP_DAC),
-+	SND_PCI_QUIRK(0x1f66, 0x0103, "AYANEO AIR 1S", ALC269_FIXUP_AYANEO_AIR_1S),
++	SND_PCI_QUIRK(0x1f66, 0x0103, "AYANEO AIR 1S", ALC269VB_FIXUP_AYANEO_SPKR_PIN_FIX),
  	SND_PCI_QUIRK(0x1f66, 0x0105, "Ayaneo Portable Game Player", ALC287_FIXUP_CS35L41_I2C_2),
  	SND_PCI_QUIRK(0x2014, 0x800a, "Positivo ARN50", ALC269_FIXUP_LIMIT_INT_MIC_BOOST),
  	SND_PCI_QUIRK(0x2039, 0x0001, "Inspur S14-G1", ALC295_FIXUP_CHROME_BOOK),
+@@ -8213,6 +8222,7 @@ static const struct hda_model_fixup alc269_fixup_models[] = {
+ 	{.id = ALC269VB_FIXUP_ASUS_ZENBOOK, .name = "asus-zenbook"},
+ 	{.id = ALC269VB_FIXUP_ASUS_ZENBOOK_UX31A, .name = "asus-zenbook-ux31a"},
+ 	{.id = ALC269VB_FIXUP_ORDISSIMO_EVE2, .name = "ordissimo"},
++	{.id = ALC269VB_FIXUP_AYANEO_SPKR_PIN_FIX, .name = "ayaneo-speaker-pin-fix"},
+ 	{.id = ALC282_FIXUP_ASUS_TX300, .name = "asus-tx300"},
+ 	{.id = ALC283_FIXUP_INT_MIC, .name = "alc283-int-mic"},
+ 	{.id = ALC290_FIXUP_MONO_SPEAKERS_HSJACK, .name = "mono-speakers"},

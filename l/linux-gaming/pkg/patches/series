@@ -158,6 +158,10 @@ ogc/0148-FROM-ML-drm-amd-display-Force-FreeSync-range-minimum.patch
 # https://github.com/OpenGamingCollective/linux/pull/102
 ogc/PRs/stable/PR102/102.patch
 ogc/PRs/stable/PR102/0000-fixup.patch
+# https://github.com/OpenGamingCollective/linux/pull/105
+ogc/PRs/stable/PR105/105.patch
+# https://github.com/OpenGamingCollective/linux/pull/106
+ogc/PRs/stable/PR106/106.patch
 # https://github.com/OpenGamingCollective/linux-unstable/pull/6
 # https://github.com/Lawstorant/linux/tree/hdmi-7.2
 # https://gitlab.freedesktop.org/drm/amd/-/work_items/5649

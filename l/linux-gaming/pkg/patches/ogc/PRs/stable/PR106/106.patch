@@ -1,0 +1,75 @@
+From 64b7bb8e40ac03307e913ae3b0a006ec32ec4662 Mon Sep 17 00:00:00 2001
+From: Ahmed Yaseen <yaseen@ghoul.dev>
+Date: Fri, 28 Aug 2026 16:07:51 +0000
+Subject: [PATCH] [FROM-ML] platform/x86: asus-wmi: validate custom fan curves
+ on enable
+
+Custom fan curves reach firmware unchecked, so a curve whose temperature
+or PWM decreases from one point to the next is accepted. The firmware
+does not respect such a curve: a first point of 100% followed by 50%
+leaves every point running at 100%. The kernel keeps reporting the
+points that were written, so sysfs stops describing what the fans are
+actually doing.
+
+Reject the curve when it is enabled. Validate on enable rather than on
+write because fan curves are written one point at a time and are
+inconsistent mid-write.
+
+Fixes: 0f0ac158d28f ("platform/x86: asus-wmi: Add support for custom fan curves")
+Reported-by: Nir Yehoshua <nir@ciphersecuritylabs.com>
+Link: https://patch.msgid.link/20260828160743.31957-1-yaseen@ghoul.dev
+Signed-off-by: Ahmed Yaseen <yaseen@ghoul.dev>
+---
+ drivers/platform/x86/asus-wmi.c | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/drivers/platform/x86/asus-wmi.c b/drivers/platform/x86/asus-wmi.c
+index 0adb5cebf5233..fd5fbdb0cd8b8 100644
+--- a/drivers/platform/x86/asus-wmi.c
++++ b/drivers/platform/x86/asus-wmi.c
+@@ -3714,6 +3714,33 @@ static int fan_curve_write(struct asus_wmi *asus,
+ 					 arg1, arg2, arg3, arg4, &ret);
+ }
+ 
++/*
++ * A fan curve is a set of points the firmware interpolates between, so it
++ * only makes sense if neither temperature nor PWM ever decreases along it.
++ */
++static int fan_curve_validate(struct device *dev, struct fan_curve_data *data)
++{
++	u8 *percents = data->percents;
++	u8 *temps = data->temps;
++	int i;
++
++	for (i = 1; i < FAN_CURVE_POINTS; i++) {
++		if (temps[i] < temps[i - 1]) {
++			dev_warn(dev, "fan curve: temperature decreases at point %d (%u < %u)\n",
++				 i, temps[i], temps[i - 1]);
++			return -EINVAL;
++		}
++
++		if (percents[i] < percents[i - 1]) {
++			dev_warn(dev, "fan curve: pwm decreases at point %d (%u < %u)\n",
++				 i, percents[i], percents[i - 1]);
++			return -EINVAL;
++		}
++	}
++
++	return 0;
++}
++
+ static ssize_t fan_curve_store(struct device *dev,
+ 			       struct device_attribute *attr, const char *buf,
+ 			       size_t count)
+@@ -3798,6 +3825,11 @@ static ssize_t fan_curve_enable_store(struct device *dev,
+ 	}
+ 
+ 	if (data->enabled) {
++		err = fan_curve_validate(dev, data);
++		if (err) {
++			data->enabled = false;
++			return err;
++		}
+ 		err = fan_curve_write(asus, data);
+ 		if (err)
+ 			return err;

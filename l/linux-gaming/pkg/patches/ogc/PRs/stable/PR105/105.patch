@@ -1,0 +1,218 @@
+From 4569917622078e89b1f7f967cf1180ddbf58b3f3 Mon Sep 17 00:00:00 2001
+From: Ahmed Yaseen <yaseen@ghoul.dev>
+Date: Fri, 28 Aug 2026 11:12:49 +0000
+Subject: [PATCH 1/2] [FROM-ML] platform/x86: asus-armoury: fix sysfs_notify()
+ of grouped attributes
+
+The store handlers call sysfs_notify(kobj, NULL, attr->attr.name), but
+kobj is the "attributes" directory and the name is always
+"current_value". Named groups get no kobject of their own, so the
+lookup finds nothing and the notify quietly does nothing: a poll() on
+<attribute>/current_value never wakes up.
+
+Pass the group name down so the notify resolves
+attributes/<group>/current_value. armoury_attr_uint_store() takes a new
+fsname argument, threaded through __WMI_STORE_INT() and
+__ROG_TUNABLE_RW(); the hand-written stores pass their own group names.
+
+Fixes: f99eb098090e ("platform/x86: asus-armoury: move existing tunings to asus-armoury module")
+Link: https://patch.msgid.link/20260828111232.74443-2-yaseen@ghoul.dev
+Signed-off-by: Ahmed Yaseen <yaseen@ghoul.dev>
+---
+ drivers/platform/x86/asus-armoury.c | 15 ++++++++-------
+ drivers/platform/x86/asus-armoury.h | 16 +++++++++-------
+ 2 files changed, 17 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/platform/x86/asus-armoury.c b/drivers/platform/x86/asus-armoury.c
+index f2a880eb0cdf5..974274e3c5c25 100644
+--- a/drivers/platform/x86/asus-armoury.c
++++ b/drivers/platform/x86/asus-armoury.c
+@@ -294,7 +294,7 @@ static int armoury_attr_enum_list(char *buf, size_t enum_values)
+ 
+ ssize_t armoury_attr_uint_store(struct kobject *kobj, struct kobj_attribute *attr,
+ 				const char *buf, size_t count, u32 min, u32 max,
+-				u32 *store_value, u32 wmi_dev)
++				u32 *store_value, u32 wmi_dev, const char *fsname)
+ {
+ 	u32 value;
+ 	int err;
+@@ -312,7 +312,7 @@ ssize_t armoury_attr_uint_store(struct kobject *kobj, struct kobj_attribute *att
+ 
+ 	if (store_value != NULL)
+ 		*store_value = value;
+-	sysfs_notify(kobj, NULL, attr->attr.name);
++	sysfs_notify(kobj, fsname, attr->attr.name);
+ 
+ 	if (asus_bios_requires_reboot(attr))
+ 		asus_set_reboot_and_signal_event();
+@@ -442,7 +442,8 @@ static ssize_t mini_led_mode_current_value_store(struct kobject *kobj,
+ 
+ 	return armoury_attr_uint_store(kobj, attr, mapped_value, count, 0,
+ 				       mini_led_mode_map[mode], NULL,
+-				       asus_armoury.mini_led_dev_id);
++				       asus_armoury.mini_led_dev_id,
++				       "mini_led_mode");
+ }
+ 
+ static ssize_t mini_led_mode_possible_values_show(struct kobject *kobj,
+@@ -495,7 +496,7 @@ static ssize_t gpu_mux_mode_current_value_store(struct kobject *kobj,
+ 	if (err)
+ 		return err;
+ 
+-	sysfs_notify(kobj, NULL, attr->attr.name);
++	sysfs_notify(kobj, "gpu_mux_mode", attr->attr.name);
+ 	asus_set_reboot_and_signal_event();
+ 
+ 	return count;
+@@ -530,7 +531,7 @@ static ssize_t dgpu_disable_current_value_store(struct kobject *kobj,
+ 			return err;
+ 	}
+ 
+-	sysfs_notify(kobj, NULL, attr->attr.name);
++	sysfs_notify(kobj, "dgpu_disable", attr->attr.name);
+ 
+ 	return count;
+ }
+@@ -652,7 +653,7 @@ static ssize_t egpu_enable_current_value_store(struct kobject *kobj, struct kobj
+ 	 */
+ 	armoury_pci_rescan();
+ 
+-	sysfs_notify(kobj, NULL, attr->attr.name);
++	sysfs_notify(kobj, "egpu_enable", attr->attr.name);
+ 
+ 	return count;
+ }
+@@ -746,7 +747,7 @@ static ssize_t apu_mem_current_value_store(struct kobject *kobj, struct kobj_att
+ 	}
+ 
+ 	pr_info("APU memory changed to %uGB, reboot required\n", requested + 1);
+-	sysfs_notify(kobj, NULL, attr->attr.name);
++	sysfs_notify(kobj, "apu_mem", attr->attr.name);
+ 
+ 	asus_set_reboot_and_signal_event();
+ 
+diff --git a/drivers/platform/x86/asus-armoury.h b/drivers/platform/x86/asus-armoury.h
+index 322bfa647c2dc..a2969c773e7cf 100644
+--- a/drivers/platform/x86/asus-armoury.h
++++ b/drivers/platform/x86/asus-armoury.h
+@@ -25,6 +25,7 @@
+  * @max: Maximum accepted value. Above this returns -EINVAL.
+  * @store_value: Pointer to where the parsed value should be stored.
+  * @wmi_dev: The WMI function ID to use.
++ * @fsname: The name of the attribute's group directory, for sysfs_notify().
+  *
+  * This function is intended to be generic so it can be called from any "_store"
+  * attribute which works only with integers.
+@@ -40,7 +41,7 @@
+  */
+ ssize_t armoury_attr_uint_store(struct kobject *kobj, struct kobj_attribute *attr,
+ 				const char *buf, size_t count, u32 min, u32 max,
+-				u32 *store_value, u32 wmi_dev);
++				u32 *store_value, u32 wmi_dev, const char *fsname);
+ 
+ /**
+  * armoury_attr_uint_show() - Receive an uint from a WMI method.
+@@ -72,13 +73,13 @@ ssize_t armoury_attr_uint_show(struct kobject *kobj, struct kobj_attribute *attr
+ #define __ASUS_ATTR_RW(_func, _name) \
+ 	__ATTR(_name, 0644, _func##_##_name##_show, _func##_##_name##_store)
+ 
+-#define __WMI_STORE_INT(_attr, _min, _max, _wmi)				\
++#define __WMI_STORE_INT(_attr, _min, _max, _wmi, _fsname)			\
+ 	static ssize_t _attr##_store(struct kobject *kobj,			\
+ 				     struct kobj_attribute *attr,		\
+ 				     const char *buf, size_t count)		\
+ 	{									\
+ 		return armoury_attr_uint_store(kobj, attr, buf, count, _min,	\
+-					_max, NULL, _wmi);			\
++					_max, NULL, _wmi, _fsname);		\
+ 	}
+ 
+ #define ASUS_WMI_SHOW_INT(_attr, _wmi)						\
+@@ -121,7 +122,8 @@ ssize_t armoury_attr_uint_show(struct kobject *kobj, struct kobj_attribute *attr
+ 
+ #define __ATTR_RW_INT_GROUP_ENUM(_attrname, _minv, _maxv, _wmi, _fsname,\
+ 				 _possible, _dispname)			\
+-	__WMI_STORE_INT(_attrname##_current_value, _minv, _maxv, _wmi);	\
++	__WMI_STORE_INT(_attrname##_current_value, _minv, _maxv, _wmi,	\
++			_fsname);					\
+ 	ASUS_WMI_SHOW_INT(_attrname##_current_value, _wmi);	\
+ 	static struct kobj_attribute attr_##_attrname##_current_value =	\
+ 		__ASUS_ATTR_RW(_attrname, current_value);		\
+@@ -251,7 +253,7 @@ ssize_t armoury_attr_uint_show(struct kobject *kobj, struct kobj_attribute *attr
+ 	static struct kobj_attribute attr_##_attrname##_default_value =		\
+ 		__ASUS_ATTR_RO(_attrname, default_value)
+ 
+-#define __ROG_TUNABLE_RW(_attr, _wmi)						\
++#define __ROG_TUNABLE_RW(_attr, _wmi, _fsname)					\
+ 	static ssize_t _attr##_current_value_store(				\
+ 		struct kobject *kobj, struct kobj_attribute *attr,		\
+ 		const char *buf, size_t count)					\
+@@ -268,7 +270,7 @@ ssize_t armoury_attr_uint_show(struct kobject *kobj, struct kobj_attribute *attr
+ 		return armoury_attr_uint_store(kobj, attr, buf, count,		\
+ 				       tunables->power_limits->_attr##_min,	\
+ 				       tunables->power_limits->_attr##_max,	\
+-				       &tunables->_attr, _wmi);			\
++				       &tunables->_attr, _wmi, _fsname);	\
+ 	}									\
+ 	static ssize_t _attr##_current_value_show(				\
+ 		struct kobject *kobj, struct kobj_attribute *attr, char *buf)	\
+@@ -284,7 +286,7 @@ ssize_t armoury_attr_uint_show(struct kobject *kobj, struct kobj_attribute *attr
+ 		__ASUS_ATTR_RW(_attr, current_value)
+ 
+ #define ASUS_ATTR_GROUP_ROG_TUNABLE(_attrname, _fsname, _wmi, _dispname)	\
+-	__ROG_TUNABLE_RW(_attrname, _wmi);				\
++	__ROG_TUNABLE_RW(_attrname, _wmi, _fsname);			\
+ 	__ROG_TUNABLE_SHOW_DEFAULT(_attrname);				\
+ 	__ROG_TUNABLE_SHOW(min_value, _attrname, _attrname##_min);	\
+ 	__ROG_TUNABLE_SHOW(max_value, _attrname, _attrname##_max);	\
+
+From 4fe49472971f63030306a60c728a582db8c00158 Mon Sep 17 00:00:00 2001
+From: Ahmed Yaseen <yaseen@ghoul.dev>
+Date: Fri, 28 Aug 2026 11:12:57 +0000
+Subject: [PATCH 2/2] [FROM-ML] platform/x86: asus-armoury: fix pending_reboot
+ for grouped attributes
+
+asus_bios_requires_reboot() matches attr->attr.name against
+"gpu_mux_mode" and "panel_hd_mode", but callers hand it a current_value
+attribute, and that name is always "current_value". The match never
+hits, so panel_hd_mode never sets pending_reboot or emits the
+KOBJ_CHANGE uevent. gpu_mux_mode gets away with it because its
+hand-written store signals the event itself.
+
+Match on the group name instead, which armoury_attr_uint_store() now
+has at hand.
+
+Fixes: f99eb098090e ("platform/x86: asus-armoury: move existing tunings to asus-armoury module")
+Link: https://patch.msgid.link/20260828111232.74443-3-yaseen@ghoul.dev
+Signed-off-by: Ahmed Yaseen <yaseen@ghoul.dev>
+---
+ drivers/platform/x86/asus-armoury.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/platform/x86/asus-armoury.c b/drivers/platform/x86/asus-armoury.c
+index 974274e3c5c25..1ccdd778c6615 100644
+--- a/drivers/platform/x86/asus-armoury.c
++++ b/drivers/platform/x86/asus-armoury.c
+@@ -127,10 +127,10 @@ static ssize_t pending_reboot_show(struct kobject *kobj, struct kobj_attribute *
+ 
+ static struct kobj_attribute pending_reboot = __ATTR_RO(pending_reboot);
+ 
+-static bool asus_bios_requires_reboot(struct kobj_attribute *attr)
++static bool asus_bios_requires_reboot(const char *fsname)
+ {
+-	return !strcmp(attr->attr.name, "gpu_mux_mode") ||
+-	       !strcmp(attr->attr.name, "panel_hd_mode");
++	return !strcmp(fsname, "gpu_mux_mode") ||
++	       !strcmp(fsname, "panel_hd_mode");
+ }
+ 
+ /**
+@@ -314,7 +314,7 @@ ssize_t armoury_attr_uint_store(struct kobject *kobj, struct kobj_attribute *att
+ 		*store_value = value;
+ 	sysfs_notify(kobj, fsname, attr->attr.name);
+ 
+-	if (asus_bios_requires_reboot(attr))
++	if (asus_bios_requires_reboot(fsname))
+ 		asus_set_reboot_and_signal_event();
+ 
+ 	return count;
