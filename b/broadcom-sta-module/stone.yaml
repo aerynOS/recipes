@@ -3,7 +3,7 @@
 
 name        : broadcom-sta-module
 version     : "6.30.223.271"
-release     : 9
+release     : 10
 homepage    : https://www.broadcom.com/support/download-search?pf=Wireless+LAN+Infrastructure
 upstreams   :
     - https://docs.broadcom.com/docs-and-downloads/docs/linux_sta/hybrid-v35_64-nodebug-pcoem-6_30_223_271.tar.gz:
