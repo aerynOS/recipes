@@ -3,7 +3,7 @@
 
 name        : jemalloc
 version     : "5.3.1"
-release     : 5
+release     : 6
 upstreams   :
     - https://github.com/jemalloc/jemalloc/releases/download/5.3.1/jemalloc-5.3.1.tar.bz2: 3826bc80232f22ed5c4662f3034f799ca316e819103bdc7bb99018a421706f92
 homepage    : https://jemalloc.net/
@@ -14,6 +14,8 @@ description : |
 builddeps   :
     - binary(xsltproc)
 setup       : |
+    %patch %(pkgdir)/3ff7e38fac4c261e78974f82e823c7b2f205ebd1.patch
+    %patch %(pkgdir)/b68e7627d6c5e00055e31ee6846bea33844fccfe.patch
     # Note: We need static libjemalloc for rust
     %configure \
         --disable-fill
