@@ -1,0 +1,10 @@
+diff -Npur pyproject-hooks-1.2.0.orig/pyproject.toml pyproject-hooks-1.2.0/pyproject.toml
+--- pyproject-hooks-1.2.0.orig/pyproject.toml	2024-09-29 11:21:41.000000000 +0200
++++ pyproject-hooks-1.2.0/pyproject.toml	2026-09-04 06:00:13.181949326 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=3.2,<4"]
++requires = ["flit_core >=3.2,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]

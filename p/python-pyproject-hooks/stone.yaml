@@ -3,7 +3,7 @@
 
 name        : python-pyproject-hooks
 version     : "1.2.0"
-release     : 7
+release     : 8
 homepage    : https://github.com/pypa/pyproject-hooks
 upstreams   :
     - https://github.com/pypa/pyproject-hooks/archive/refs/tags/v1.2.0.tar.gz:
@@ -27,7 +27,9 @@ environment : |
     if [[ ${_bootstrap} == "1" ]]; then
         cd ../python-bootstrap.git
     fi
-setup      : |
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
     if [[ ${_bootstrap} == "1" ]]; then
         rm -rf external/pyproject-hooks
 
