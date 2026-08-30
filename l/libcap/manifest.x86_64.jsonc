@@ -4,9 +4,14 @@
 	"packages": {
 		"captree": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/sbin/captree",
@@ -19,6 +24,7 @@
 		},
 		"libcap": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
@@ -59,6 +65,7 @@
 		},
 		"libcap-32bit": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
@@ -85,6 +92,7 @@
 		},
 		"libcap-32bit-devel": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
@@ -107,6 +115,7 @@
 		},
 		"libcap-devel": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
@@ -203,6 +212,7 @@
 		},
 		"libcap-staticlib": {
 			"build-depends": [
+				"binary(as)",
 				"binary(go)",
 				"linux-headers",
 				"pkgconfig32(pam)"
@@ -218,6 +228,6 @@
 		}
 	},
 	"source-name": "libcap",
-	"source-release": "13",
+	"source-release": "14",
 	"source-version": "2.78"
 }

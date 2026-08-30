@@ -3,7 +3,7 @@
 
 name        : libcap
 version     : "2.78"
-release     : 13
+release     : 14
 summary     : Library for getting and setting POSIX.1e capabilities
 license     :
     - BSD-3-Clause
@@ -14,8 +14,9 @@ description : |
 upstreams   :
     - https://mirrors.edge.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.78.tar.xz: 0d621e562fd932ccf67b9660fb018e468a683d7b827541df27813228c996bb11
 builddeps   :
-    - pkgconfig32(pam)
+    - binary(as)
     - binary(go)
+    - pkgconfig32(pam)
     - linux-headers
 emul32      : true
 setup       : |
@@ -41,7 +42,7 @@ build       : |
         GO_BUILD_FLAGS="-buildmode=pie -a -v -x -ldflags='-compressdwarf=false -B gobuildid'" \
         $_extra_opts
 install     : |
-    %make_install RAISE_SETFCAP=no prefix=/usr lib=lib%(libsuffix)
+    %make_install CGO_REQUIRED=1 RAISE_SETFCAP=no prefix=/usr lib=lib%(libsuffix)
 
     # Don't need 32bit static libs
     if [[ %(target_triple) == i686* ]]; then
