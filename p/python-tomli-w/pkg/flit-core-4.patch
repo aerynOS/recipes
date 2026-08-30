@@ -1,0 +1,10 @@
+diff -Npur tomli-w-1.2.0.orig/pyproject.toml tomli-w-1.2.0/pyproject.toml
+--- tomli-w-1.2.0.orig/pyproject.toml	2025-01-15 13:04:36.000000000 +0100
++++ tomli-w-1.2.0/pyproject.toml	2026-09-04 06:10:11.818441776 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core>=3.2.0,<4"]
++requires = ["flit_core>=3.2.0,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
