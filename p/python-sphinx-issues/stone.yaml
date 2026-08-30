@@ -3,7 +3,7 @@
 
 name        : python-sphinx-issues
 version     : "6.0.0"
-release     : 3
+release     : 4
 homepage    : https://github.com/sloria/sphinx-issues
 upstreams   :
     - https://pypi.debian.net/sphinx-issues/sphinx_issues-6.0.0.tar.gz : f40f2c71cecb2068c7f06a53825778b674d58d8395b4ea60551a36164d2988e3
@@ -15,6 +15,9 @@ builddeps   :
     - python(flit-core)
 rundeps     :
     - python-libs
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |

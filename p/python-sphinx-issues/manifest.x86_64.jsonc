@@ -15,6 +15,7 @@
 				"/usr/lib/python3.14/site-packages/sphinx_issues-6.0.0.dist-info/RECORD",
 				"/usr/lib/python3.14/site-packages/sphinx_issues-6.0.0.dist-info/WHEEL",
 				"/usr/lib/python3.14/site-packages/sphinx_issues-6.0.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/sphinx_issues-6.0.0.dist-info/licenses/NOTICE",
 				"/usr/lib/python3.14/site-packages/sphinx_issues/__init__.py",
 				"/usr/lib/python3.14/site-packages/sphinx_issues/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sphinx_issues/__pycache__/__init__.cpython-314.pyc"
@@ -26,6 +27,6 @@
 		}
 	},
 	"source-name": "python-sphinx-issues",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "6.0.0"
 }

@@ -1,0 +1,12 @@
+diff -Npur sphinx_issues-6.0.0.orig/pyproject.toml sphinx_issues-6.0.0/pyproject.toml
+--- sphinx_issues-6.0.0.orig/pyproject.toml	2026-03-13 18:22:52.241510900 +0100
++++ sphinx_issues-6.0.0/pyproject.toml	2026-09-04 06:08:43.048985962 +0200
+@@ -30,7 +30,7 @@ test = ["pytest"]
+ dev = [{ include-group = "test" }, "tox", "tox-uv", "pre-commit>=4.5,<5.0"]
+ 
+ [build-system]
+-requires = ["flit_core<4"]
++requires = ["flit_core<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [tool.flit.sdist]
