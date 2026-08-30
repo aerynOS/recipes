@@ -3,7 +3,7 @@
 
 name        : python-installer
 version     : "1.0.1"
-release     : 7
+release     : 8
 homepage    : https://github.com/pypa/installer
 upstreams   :
     - https://pypi.debian.net/installer/installer-1.0.1.tar.gz:
@@ -28,7 +28,9 @@ environment : |
     if [[ ${_bootstrap} == "1" ]]; then
         cd ../python-bootstrap.git
     fi
-setup      : |
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
     if [[ ${_bootstrap} == "1" ]]; then
         rm -rf external/installer
 
