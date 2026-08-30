@@ -1,0 +1,10 @@
+diff -Npur jeepney-0.9.0.orig/pyproject.toml jeepney-0.9.0/pyproject.toml
+--- jeepney-0.9.0.orig/pyproject.toml	2025-02-27 19:48:26.867029200 +0100
++++ jeepney-0.9.0/pyproject.toml	2026-09-04 05:39:11.642389137 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=3.11,<4"]
++requires = ["flit_core >=3.11,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]

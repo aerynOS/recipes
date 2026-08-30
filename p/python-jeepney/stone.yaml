@@ -3,7 +3,7 @@
 
 name        : python-jeepney
 version     : "0.9.0"
-release     : 2
+release     : 3
 homepage    : https://pypi.org/project/jeepney
 upstreams   :
     - https://files.pythonhosted.org/packages/source/j/jeepney/jeepney-0.9.0.tar.gz : cf0e9e845622b81e4a28df94c40345400256ec608d0e55bb8a3feaa9163f5732
@@ -13,6 +13,9 @@ description : |
 license     : MIT
 builddeps   :
     - python(flit-core)
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
