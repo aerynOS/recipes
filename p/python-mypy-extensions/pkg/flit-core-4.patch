@@ -1,0 +1,10 @@
+diff -Npur mypy_extensions-1.1.0.orig/pyproject.toml mypy_extensions-1.1.0/pyproject.toml
+--- mypy_extensions-1.1.0.orig/pyproject.toml	2025-04-22 16:21:35.373651300 +0200
++++ mypy_extensions-1.1.0/pyproject.toml	2026-09-04 05:53:21.105924264 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires      = ["flit_core>=3.11,<4"]
++requires      = ["flit_core>=3.11,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
