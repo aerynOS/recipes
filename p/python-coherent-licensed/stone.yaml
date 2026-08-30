@@ -3,7 +3,7 @@
 
 name        : python-coherent-licensed
 version     : "0.5.2"
-release     : 3
+release     : 4
 homepage    : https://pypi.org/project/coherent.licensed/
 upstreams   :
     - https://pypi.debian.net/coherent.licensed/coherent_licensed-0.5.2.tar.gz : d8071403ce742d3ac3592ddc4fb7057a46caffb415b928b4d52802e5f208416d
@@ -15,6 +15,9 @@ builddeps   :
     - python(flit-core)
 rundeps     :
     - python-libs
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |

@@ -1,0 +1,10 @@
+diff -Npur coherent_licensed-0.5.2.orig/pyproject.toml coherent_licensed-0.5.2/pyproject.toml
+--- coherent_licensed-0.5.2.orig/pyproject.toml	2025-06-02 02:17:24.742873700 +0200
++++ coherent_licensed-0.5.2/pyproject.toml	2026-09-04 05:32:48.408262161 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit-core >=3.11, <4"]
++requires = ["flit-core >=3.11, <5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
