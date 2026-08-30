@@ -1,0 +1,10 @@
+diff -Npur mdurl-0.1.2.orig/pyproject.toml mdurl-0.1.2/pyproject.toml
+--- mdurl-0.1.2.orig/pyproject.toml	2026-09-04 05:48:26.299691416 +0200
++++ mdurl-0.1.2/pyproject.toml	2022-08-14 14:39:47.233307100 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core>=3.2.0,<4"]
++requires = ["flit_core>=3.2.0,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]

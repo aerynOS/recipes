@@ -3,7 +3,7 @@
 
 name        : python-mdurl
 version     : "0.1.2"
-release     : 3
+release     : 4
 homepage    : https://github.com/executablebooks/mdurl
 upstreams   :
     - https://pypi.debian.net/mdurl/mdurl-0.1.2.tar.gz : bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba
@@ -17,6 +17,9 @@ rundeps     :
     - python-libs
 # checkdeps   :
 #     - python(pytest)
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
