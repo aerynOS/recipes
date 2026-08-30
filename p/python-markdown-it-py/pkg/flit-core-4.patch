@@ -1,0 +1,10 @@
+diff -Npur markdown_it_py-4.2.0.orig/pyproject.toml markdown_it_py-4.2.0/pyproject.toml
+--- markdown_it_py-4.2.0.orig/pyproject.toml	2026-05-07 14:08:22.089475000 +0200
++++ markdown_it_py-4.2.0/pyproject.toml	2026-09-04 05:44:09.839106915 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=3.4,<4"]
++requires = ["flit_core >=3.4,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
