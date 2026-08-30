@@ -1,0 +1,10 @@
+diff -Npur pyparsing-3.3.2.orig/pyproject.toml pyparsing-3.3.2/pyproject.toml
+--- pyparsing-3.3.2.orig/pyproject.toml	2026-01-20 23:43:27.724493000 +0100
++++ pyparsing-3.3.2/pyproject.toml	2026-09-04 05:58:14.801757395 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core >=3.12,<4"]
++requires = ["flit_core >=3.12,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]
