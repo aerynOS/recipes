@@ -2,15 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plezy
-version     : "2.17.1"
-release     : 8
-homepage    : https://github.com/edde746/plezy
+version     : "2.18.0"
+release     : 9
+homepage    : https://plezy.app/
 upstreams   :
-    - https://github.com/edde746/plezy/archive/refs/tags/2.17.1.tar.gz:
-        hash: d1182ccef06a26620a58add967c77136775ca11d9bb090c85d2018625f921467
+    - https://github.com/edde746/plezy/archive/refs/tags/2.18.0.tar.gz:
+        hash: d867e6bde1a4ee019f4fd64e129eaa4f7ab97ed66546314421c006bd16b616bc
         unpackdir: plezy
-    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.1-stable.tar.xz:
-        hash: a1d8166c0309267cb7dc99f1424eecf08b86946ad3b50723c6f59945964aea45
+    # https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
+    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.2-stable.tar.xz:
+        hash: 447878859d01ca9bfdb99a85f245af07ed8a15fedcd9d189c4749e8e92d1f185
         unpackdir: plezy/flutter
 summary     : Modern cross-platform Plex & Jellyfin client built with Flutter
 description : |
@@ -20,6 +21,7 @@ networking  : true
 builddeps   :
     - binary(cmake)
     - binary(ninja)
+    - binary(patchelf)
     - binary(which)
     - pkgconfig(gtk+-3.0)
     - pkgconfig(libcurl)
@@ -31,20 +33,37 @@ environment: |
     export PATH="$PATH:%(workdir)/flutter/bin"
     export JAVA_HOME=%(libdir)/openjdk-25
 setup       : |
-    # Everything below translated from AUR PKGBUILD
+    # Everything below translated from Arch Linux PKGBUILD
+    %patch %(pkgdir)/set-flutter-paths.patch
+
     flutter --disable-analytics
     flutter pub get
 build       : |
-    flutter build linux --verbose --release
+    flutter build linux \
+        --dart-define=ENABLE_UPDATE_CHECK=false \
+        --release \
+        --verbose
 install     : |
     _build_folder=build/linux/x64/release/bundle
 
-    %install_dir %(installroot)%(libdir)/%(name)
-    %install_exe ${_build_folder}/%(name) -t %(installroot)%(libdir)/%(name)
-    cp -R ${_build_folder}/* %(installroot)%(libdir)/%(name)
+    # Not required at runtime as it's only used on Android
+    rm -fv ${_build_folder}/lib/libdartjni.so
+
+    %install_bin ${_build_folder}/%(name)
+
+    %install_dir %(installroot){%(datadir),%(libdir)}/%(name)
+    cp -a ${_build_folder}/data/* %(installroot)%(datadir)/%(name)/
+    cp -a ${_build_folder}/lib/* %(installroot)%(libdir)/%(name)/
+    chmod 0755 %(installroot)%(libdir)/%(name)/crashpad_handler
 
     %install_file linux/packaging/com.edde746.%(name).desktop -t %(installroot)%(datadir)/applications/
     %install_file assets/%(name).svg -t %(installroot)%(datadir)/icons/hicolor/scalable/apps/
+    %install_file assets/%(name).png -t %(installroot)%(datadir)/icons/hicolor/1024x1024/apps/
 
-    %install_dir %(installroot)%(bindir)
-    ln -srvf %(installroot)%(libdir)/%(name)/%(name) %(installroot)%(bindir)/%(name)
+    # Set RPATH so the binary finds its libs in /usr/lib/plezy
+    patchelf --set-rpath "%(libdir)/%(name)" %(installroot)%(bindir)/%(name)
+
+    # Bundled libs need no RPATH of their own
+    for lib in %(installroot)%(libdir)/%(name)/*.so; do
+        patchelf --remove-rpath "${lib}"
+    done

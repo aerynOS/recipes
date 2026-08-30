@@ -1,0 +1,26 @@
+From e1de4c4783c9efa0483b8b17a8ec6a90dc9e5075 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jonathan=20Grotel=C3=BCschen?= <tippfehlr@tippfehlr.eu>
+Date: Sat, 8 Aug 2026 14:30:26 +0200
+Subject: [PATCH] Set flutter paths
+
+---
+ linux/runner/my_application.cc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/linux/runner/my_application.cc b/linux/runner/my_application.cc
+index f5ab1cd4..39a3e8d3 100644
+--- a/linux/runner/my_application.cc
++++ b/linux/runner/my_application.cc
+@@ -38,6 +38,9 @@ static void my_application_activate(GApplication* application) {
+ 
+   // Create the Flutter view (opaque — no overlay needed).
+   g_autoptr(FlDartProject) project = fl_dart_project_new();
++  fl_dart_project_set_assets_path(project, g_strdup("/usr/share/plezy/flutter_assets"));
++  fl_dart_project_set_icu_data_path(project, g_strdup("/usr/share/plezy/icudtl.dat"));
++  fl_dart_project_set_aot_library_path(project, "/usr/lib/plezy/libapp.so");
+   fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);
+ 
+   self->flutter_view = fl_view_new(project);
+-- 
+2.55.0
+
