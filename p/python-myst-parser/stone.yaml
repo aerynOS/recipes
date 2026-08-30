@@ -3,7 +3,7 @@
 
 name        : python-myst-parser
 version     : "5.1.0"
-release     : 4
+release     : 5
 homepage    : https://github.com/executablebooks/MyST-Parser
 upstreams   :
     - https://pypi.debian.net/myst-parser/myst_parser-5.1.0.tar.gz : ab69322dc6719dcc7f296479dbb70181b66df6ed315064f92dbc85c0e1bf2f02
@@ -18,6 +18,9 @@ rundeps     :
 # checkdeps   :
 #     - python(pytest)
 # TODO: Figure out tests
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
