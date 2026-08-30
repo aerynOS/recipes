@@ -1,0 +1,12 @@
+diff -Npur jinja2-3.1.6.orig/pyproject.toml jinja2-3.1.6/pyproject.toml
+--- jinja2-3.1.6.orig/pyproject.toml	2025-03-05 20:51:17.000000000 +0100
++++ jinja2-3.1.6/pyproject.toml	2026-09-04 05:41:39.969575554 +0200
+@@ -33,7 +33,7 @@ i18n = ["Babel>=2.7"]
+ jinja2 = "jinja2.ext:babel_extract[i18n]"
+ 
+ [build-system]
+-requires = ["flit_core<4"]
++requires = ["flit_core<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [tool.flit.module]

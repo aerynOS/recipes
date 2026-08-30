@@ -3,7 +3,7 @@
 
 name        : python-jinja
 version     : "3.1.6"
-release     : 9
+release     : 10
 summary     : Jinja2 is a template engine written in pure Python.
 license     : BSD-3-Clause
 homepage    : https://palletsprojects.com/p/jinja/
@@ -16,6 +16,9 @@ builddeps     :
 # checkdeps   :
 #     - python-markupsafe
 #     - python-pytest
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
