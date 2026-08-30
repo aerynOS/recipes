@@ -3,7 +3,7 @@
 
 name        : python-mdit-py-plugins
 version     : "0.6.1"
-release     : 4
+release     : 5
 homepage    : https://github.com/executablebooks/mdit-py-plugins
 upstreams   :
     # The pypi source doesn't include the tests https://github.com/executablebooks/mdit-py-plugins/issues/97
@@ -20,6 +20,9 @@ rundeps     :
 #     - python(markdown-it-py)
 #     - python(pytest)
 # TODO: Needs python-pytest-regressions for tests
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
