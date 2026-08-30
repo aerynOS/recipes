@@ -1,0 +1,10 @@
+diff -Npur sphinx_inline_tabs-2025.12.21.14.orig/pyproject.toml sphinx_inline_tabs-2025.12.21.14/pyproject.toml
+--- sphinx_inline_tabs-2025.12.21.14.orig/pyproject.toml	2025-12-21 14:28:48.889827300 +0100
++++ sphinx_inline_tabs-2025.12.21.14/pyproject.toml	2026-09-04 06:06:18.846607585 +0200
+@@ -1,5 +1,5 @@
+ [build-system]
+-requires = ["flit_core>=3.11,<4"]
++requires = ["flit_core>=3.11,<5"]
+ build-backend = "flit_core.buildapi"
+ 
+ [project]

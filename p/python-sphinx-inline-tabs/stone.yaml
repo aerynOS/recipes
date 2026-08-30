@@ -3,7 +3,7 @@
 
 name        : python-sphinx-inline-tabs
 version     : "2025.12.21.14"
-release     : 3
+release     : 4
 homepage    : https://github.com/pradyunsg/sphinx-inline-tabs
 upstreams   :
     - https://pypi.debian.net/sphinx-inline-tabs/sphinx_inline_tabs-2025.12.21.14.tar.gz : c71a75800326e613fb4e410eed92a0934214741326aca9897c18018b9f968cb6
@@ -15,6 +15,9 @@ builddeps   :
     - python(flit-core)
 rundeps     :
     - python-libs
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
