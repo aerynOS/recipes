@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : atuin
-version     : "18.17.1"
-release     : 5
-homepage    : https://github.com/atuinsh/atuin
+version     : "18.20.1"
+release     : 6
+homepage    : https://atuin.sh/
 upstreams   :
-    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.17.1.tar.gz : 851c3f4870e4bd181b98d2dae60b9fd76ef30f05f16a85efa21ac7e7cf294862
+    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.20.1.tar.gz : c7e8b965be66aa5b969c3eb7007273ff0bbc0d5bf7c8eaafe1c74c5dd1ddf619
 license     : MIT
 summary     : ✨ Magical shell history
 description : |
@@ -14,6 +14,8 @@ description : |
     for your commands. Additionally, it provides optional and fully encrypted synchronisation of your
     history between machines, via an Atuin server
 networking  : true
+builddeps   :
+    - pkgconfig(openssl)
 setup       : |
     %cargo_fetch
 build       : |

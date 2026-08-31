@@ -3,12 +3,17 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"atuin": {
+			"build-depends": [
+				"pkgconfig(openssl)"
+			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libcrypto.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libm.so.6(x86_64))"
+				"soname(libm.so.6(x86_64))",
+				"soname(libssl.so.3(x86_64))"
 			],
 			"files": [
 				"/usr/bin/atuin",
@@ -23,6 +28,6 @@
 		}
 	},
 	"source-name": "atuin",
-	"source-release": "5",
-	"source-version": "18.17.1"
+	"source-release": "6",
+	"source-version": "18.20.1"
 }
