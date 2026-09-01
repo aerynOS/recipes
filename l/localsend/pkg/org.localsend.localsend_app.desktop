@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=LocalSend
+Comment=An open source cross-platform alternative to AirDrop
+Exec=localsend
+Icon=localsend
+Terminal=false
+Categories=Network;Utility;
+StartupWMClass=localsend

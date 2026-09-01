@@ -1,0 +1,14 @@
+diff --git a/app/linux/my_application.cc b/app/linux/my_application.cc
+index c87def2..6e8f980 100644
+--- a/app/linux/my_application.cc
++++ b/app/linux/my_application.cc
+@@ -59,6 +59,9 @@ static void my_application_activate(GApplication* application) {
+   }
+ 
+   g_autoptr(FlDartProject) project = fl_dart_project_new();
++  fl_dart_project_set_assets_path(project, g_strdup("/usr/share/localsend/flutter_assets"));
++  fl_dart_project_set_icu_data_path(project, g_strdup("/usr/share/localsend/icudtl.dat"));
++  fl_dart_project_set_aot_library_path(project, "/usr/lib/localsend/libapp.so");
+   fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);
+ 
+   FlView* view = fl_view_new(project);

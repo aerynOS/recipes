@@ -1,0 +1,13 @@
+diff --git a/app/lib/util/native/tray_helper.dart b/app/lib/util/native/tray_helper.dart
+index 0424907..dd3fab4 100644
+--- a/app/lib/util/native/tray_helper.dart
++++ b/app/lib/util/native/tray_helper.dart
+@@ -33,7 +33,7 @@ Future<void> initTray() async {
+         // Icon for Flatpak, which must exist in /app/share/icons/hicolor/*x*/apps.
+         icon = 'org.localsend.localsend_app-tray';
+       } else {
+-        icon = Assets.img.logo32White.path;
++        icon = '/usr/share/localsend/flutter_assets/assets/img/logo-32-white.png';
+       }
+       _logger.info('Using "$icon" as path of system tray icon');
+       await tm.trayManager.setIcon(icon);

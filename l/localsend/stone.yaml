@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : localsend
+version     : "1.18.2"
+release     : 1
+homepage    : https://localsend.org/
+upstreams   :
+    - https://github.com/localsend/localsend/archive/refs/tags/v1.18.2.tar.gz:
+        hash: 4425dfcf2e016d6540ea44941deb4ba6568201cc47d7f08753606e6e4b2769cd
+        unpackdir: localsend
+    # https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
+    # Check .fvmrc for exact version when updating
+    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.41.9-stable.tar.xz:
+        hash: cf2631dde02570733921a530f47a96abe896b5e334682d2743c29530ea88bb2e
+        unpackdir: localsend/flutter
+summary     : An open-source cross-platform alternative to AirDrop
+description : |
+    LocalSend is a free, open-source app that allows you to securely share files and messages with nearby devices over your local network without needing an internet connection.
+license     : Apache-2.0
+networking  : true
+builddeps   :
+    - binary(cmake)
+    - binary(ninja)
+    - binary(patchelf)
+    - binary(which)
+    - pkgconfig(ayatana-appindicator3-0.1)
+    - pkgconfig(gtk+-3.0)
+environment : |
+    # Flutter
+    export PATH="$PATH:%(workdir)/flutter/bin"
+    # Let cargokit reuse the %cargo_build
+    export CARGOKIT_TARGET_DIR="%(workdir)/target"
+    # error: 'app_indicator_new' is deprecated
+    export CXXFLAGS="${CXXFLAGS} -Wno-deprecated-declarations"
+setup       : |
+    %patch %(pkgdir)/cargokit-system-rust.patch
+    %patch %(pkgdir)/set-flutter-paths.patch
+    %patch %(pkgdir)/tray-icon.patch
+
+    %cargo_fetch
+
+    flutter --disable-analytics
+    flutter pub get
+build       : |
+    %cargo_build -p rust_lib_localsend_app -p localsend-cli -p server
+
+    pushd app
+    flutter build linux --release --verbose
+    popd
+install     : |
+    _build_folder=app/build/linux/x64/release/bundle
+
+    %install_dir %(installroot){%(datadir),%(libdir)}/%(name)
+    cp -a ${_build_folder}/data/* %(installroot)%(datadir)/%(name)/
+    cp -a ${_build_folder}/lib/* %(installroot)%(libdir)/%(name)/
+
+    %cargo_install %(name)-cli
+    %install_exe %(cargo_target_dir)/server -t %(installroot)%(libdir)/%(name)/
+    %install_exe ${_build_folder}/%(name)_app %(installroot)%(bindir)/%(name)
+
+    # Set RPATH so the binary finds its libs in /usr/lib/localsend
+    patchelf --set-rpath "%(libdir)/%(name)" %(installroot)%(bindir)/%(name)
+
+    %install_file %(pkgdir)/org.%(name).%(name)_app.desktop -t %(installroot)%(datadir)/applications/
+    %install_file app/assets/img/logo-512.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/%(name).png
