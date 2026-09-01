@@ -640,6 +640,6 @@
 		}
 	},
 	"source-name": "mozjs-140",
-	"source-release": "17",
-	"source-version": "140.14.0"
+	"source-release": "18",
+	"source-version": "140.15.0"
 }
