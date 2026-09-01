@@ -5,7 +5,6 @@
 		"yazi": {
 			"build-depends": [
 				"binary(make)",
-				"pkgconfig(jemalloc)",
 				"pkgconfig(oniguruma)"
 			],
 			"depends": [
@@ -45,6 +44,6 @@
 		}
 	},
 	"source-name": "yazi",
-	"source-release": "5",
-	"source-version": "26.8.15"
+	"source-release": "6",
+	"source-version": "26.9.1"
 }
