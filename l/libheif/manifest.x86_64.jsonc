@@ -65,7 +65,7 @@
 			],
 			"files": [
 				"/usr/lib/libheif.so.1",
-				"/usr/lib/libheif.so.1.23.2"
+				"/usr/lib/libheif.so.1.23.3"
 			],
 			"name": "libheif",
 			"provides": [
@@ -502,6 +502,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libheif.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -647,6 +648,6 @@
 		}
 	},
 	"source-name": "libheif",
-	"source-release": "17",
-	"source-version": "1.23.2"
+	"source-release": "18",
+	"source-version": "1.23.3"
 }
