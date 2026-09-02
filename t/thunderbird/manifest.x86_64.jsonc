@@ -105,7 +105,7 @@
 				"/usr/lib/thunderbird/dependentlibs.list",
 				"/usr/lib/thunderbird/distribution/distribution.ini",
 				"/usr/lib/thunderbird/fonts/TwemojiMozilla.ttf",
-				"/usr/lib/thunderbird/glxtest",
+				"/usr/lib/thunderbird/gfxtest",
 				"/usr/lib/thunderbird/interesting_serverknobs.json",
 				"/usr/lib/thunderbird/isp/Bogofilter.sfd",
 				"/usr/lib/thunderbird/isp/DSPAM.sfd",
@@ -127,7 +127,6 @@
 				"/usr/lib/thunderbird/removed-files",
 				"/usr/lib/thunderbird/thunderbird",
 				"/usr/lib/thunderbird/thunderbird-bin",
-				"/usr/lib/thunderbird/vaapitest",
 				"/usr/share/applications/net.thunderbird.Thunderbird.desktop",
 				"/usr/share/icons/hicolor/128x128/apps/net.thunderbird.Thunderbird.png",
 				"/usr/share/icons/hicolor/16x16/apps/net.thunderbird.Thunderbird.png",
@@ -154,6 +153,6 @@
 		}
 	},
 	"source-name": "thunderbird",
-	"source-release": "51",
-	"source-version": "154.0"
+	"source-release": "52",
+	"source-version": "155.0"
 }
