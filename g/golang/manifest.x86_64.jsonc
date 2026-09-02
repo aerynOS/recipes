@@ -10506,6 +10506,8 @@
 				"/usr/lib/golang/test/fixedbugs/issue8074.go",
 				"/usr/lib/golang/test/fixedbugs/issue8076.go",
 				"/usr/lib/golang/test/fixedbugs/issue8079.go",
+				"/usr/lib/golang/test/fixedbugs/issue80976.go",
+				"/usr/lib/golang/test/fixedbugs/issue81165.go",
 				"/usr/lib/golang/test/fixedbugs/issue8132.go",
 				"/usr/lib/golang/test/fixedbugs/issue8139.go",
 				"/usr/lib/golang/test/fixedbugs/issue8154.go",
@@ -11405,6 +11407,6 @@
 		}
 	},
 	"source-name": "golang",
-	"source-release": "37",
-	"source-version": "1.27.0"
+	"source-release": "38",
+	"source-version": "1.27.1"
 }
