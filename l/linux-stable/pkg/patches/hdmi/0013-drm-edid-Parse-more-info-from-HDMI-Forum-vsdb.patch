@@ -1,40 +1,29 @@
-From c2ef15a2384cdb91caefcfffbc8dfa95348748a7 Mon Sep 17 00:00:00 2001
+From 662b59beeb63e027a6d49c356853dc161c43d8bc Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Tomasz=20Paku=C5=82a?= <tomasz.pakula.oficjalny@gmail.com>
-Date: Fri, 14 Aug 2026 12:43:42 -0400
-Subject: [PATCH 003/164] [FROM-ML] drm/edid: parse HDMI 2.1 gaming (ALLM/VRR)
- capabilities from HF-VSDB
+Date: Wed, 14 Jan 2026 20:28:05 +0100
+Subject: [PATCH 13/27] drm/edid: Parse more info from HDMI Forum vsdb
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Parse the HDMI 2.1 gaming-related capabilities advertised in the HDMI
-Forum VSDB (HF-VSDB) and expose them through struct drm_hdmi_info so
-drivers can consume them.
+[Why]
+Drivers may need info about gaming features exposed by HDMI sinks. Add
+a central way of storing this information.
 
-Add struct drm_hdmi_vrr_cap describing the sink's VRR capabilities: Fast
-VActive (Quick Frame Transport), Negative M VRR, Cinema VRR, MDelta, and
-the VRRmin/VRRmax range, together with a "supported" flag derived from
-that range. Add the fapa_start_location and allm (Auto Low Latency Mode)
-flags to struct drm_hdmi_info.
-
-drm_parse_hdmi_gaming_info() reads byte 8 of the HF-VSDB for the
-FAPA/ALLM/FVA/CNMVRR/CinemaVRR/MDelta flags and bytes 9-10 for
-VRRmin/VRRmax. Per HDMI 2.1, VRR is considered supported when VRRmin is
-within 1-48 and VRRmax is either 0 (maximum based on the video mode) or
->= 100. It is invoked from drm_parse_hdmi_forum_scds(), and the parsed
-values are logged for debugging.
+[How]
+Adds flags and a struct to hold HDMI VRR information. `supported` here
+is an additional property which allows easier parsing in consumers and
+adds a bit of logic used to detect malformed VRRmin/VRRmax values.
 
 Signed-off-by: Tomasz Pakuła <tomasz.pakula.oficjalny@gmail.com>
-Signed-off-by: Fangzhi Zuo <Jerry.Zuo@amd.com>
 Tested-by: Bernhard Berger <bernhard.berger@gmail.com>
-Reviewed-by: Harry Wentland <harry.wentland@amd.com>
 ---
- drivers/gpu/drm/drm_edid.c  | 42 +++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/drm_edid.c  | 41 +++++++++++++++++++++++++++++++-
  include/drm/drm_connector.h | 47 +++++++++++++++++++++++++++++++++++++
- 2 files changed, 89 insertions(+)
+ 2 files changed, 87 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/drm_edid.c b/drivers/gpu/drm/drm_edid.c
-index df3c25bac761..a4321a68cbe8 100644
+index df3c25bac761..455864c566d1 100644
 --- a/drivers/gpu/drm/drm_edid.c
 +++ b/drivers/gpu/drm/drm_edid.c
 @@ -6182,6 +6182,33 @@ static void drm_parse_ycbcr420_deep_color_info(struct drm_connector *connector,
@@ -71,16 +60,16 @@ index df3c25bac761..a4321a68cbe8 100644
  static void drm_parse_dsc_info(struct drm_hdmi_dsc_cap *hdmi_dsc,
  			       const u8 *hf_scds)
  {
-@@ -6308,6 +6335,8 @@ static void drm_parse_hdmi_forum_scds(struct drm_connector *connector,
+@@ -6307,7 +6334,7 @@ static void drm_parse_hdmi_forum_scds(struct drm_connector *connector,
+ 	}
  
  	drm_parse_ycbcr420_deep_color_info(connector, hf_scds);
- 
+-
 +	drm_parse_hdmi_gaming_info(&connector->display_info.hdmi, hf_scds);
-+
  	if (cea_db_payload_len(hf_scds) >= 11 && hf_scds[11]) {
  		drm_parse_dsc_info(hdmi_dsc, hf_scds);
  		dsc_support = true;
-@@ -6317,6 +6346,19 @@ static void drm_parse_hdmi_forum_scds(struct drm_connector *connector,
+@@ -6317,6 +6344,18 @@ static void drm_parse_hdmi_forum_scds(struct drm_connector *connector,
  		    "[CONNECTOR:%d:%s] HF-VSDB: max TMDS clock: %d KHz, HDMI 2.1 support: %s, DSC 1.2 support: %s\n",
  		    connector->base.id, connector->name,
  		    max_tmds_clock, str_yes_no(max_frl_rate), str_yes_no(dsc_support));
@@ -96,7 +85,6 @@ index df3c25bac761..a4321a68cbe8 100644
 +		    "[CONNECTOR:%d:%s] VRRmin: %u, VRRmax: %u, VRR supported: %s\n",
 +		    connector->base.id, connector->name, hdmi->vrr_cap.vrr_min,
 +		    hdmi->vrr_cap.vrr_max, str_yes_no(hdmi->vrr_cap.supported));
-+
  }
  
  static void drm_parse_hdmi_deep_color_info(struct drm_connector *connector,

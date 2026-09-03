@@ -53,15 +53,31 @@ surface/0039-hid-multitouch-Prevent-mode-set-on-Surface-Laptop-St.patch
 # whether to use radeon or amdgpu from the kernel cmd-line
 0001-Add-kernel-arg-to-enable-amdgpu-overdrive.patch
 
-# OGC patch-set (HDMI 2.1 only)
-# https://github.com/OpenGamingCollective/linux/tree/ogc-7.2.y
-ogc/0001-FROM-ML-drm-amd-display-Add-CH7218-PCON-ID.patch
-ogc/0002-FROM-ML-drm-amd-display-Add-2.1-FreeSync-support-for.patch
-ogc/0003-FROM-ML-drm-edid-parse-HDMI-2.1-gaming-ALLM-VRR-capa.patch
-ogc/0004-FROM-ML-drm-amd-display-Add-HDMI-2.1-VRR-support-fro.patch
-ogc/0005-FROM-ML-drm-amd-display-Enable-HDMI-ALLM-for-Gaming-.patch
-# https://github.com/OpenGamingCollective/linux-unstable/pull/6
-# https://github.com/Lawstorant/linux/tree/hdmi-7.2
-# https://gitlab.freedesktop.org/drm/amd/-/work_items/5649
-ogc/PRs/unstable/PR6/0001-Force-freesync_on_desktop-for-HDMI.patch
-ogc/PRs/unstable/PR6/0002-drm-amd-display-Simplify-VRR-state-handling-in.patch
+# HDMI VRR support https://github.com/Lawstorant/linux/tree/hdmi-7.2
+hdmi/0001-drm-amd-display-Refactor-amdgpu_dm_update_freesync_c.patch
+hdmi/0002-Do-not-modify-display_info-in-freesync_caps.patch
+hdmi/0003-Modify-display-range-if-freesync-capable.patch
+hdmi/0004-drm-amd-display-Remove-redundant-edid-checks.patch
+hdmi/0005-drm-amd-display-Move-DisplayID-vrr-parsing.patch
+hdmi/0006-drm-amd-display-Always-try-to-parse-AMD-vsdb.patch
+hdmi/0007-drm-amd-display-Check-for-VRR-range-in-CEA-AMD-vsdb.patch
+hdmi/0008-drm-amd-display-Use-bigger-VRR-range-if-found-in-AMD.patch
+hdmi/0009-drm-amd-display-Separate-DP-eDP-and-PCON-paths-compl.patch
+hdmi/0010-drm-amd-display-Refactor-PCON-VRR-compatibility-chec.patch
+hdmi/0011-drm-amd-display-Add-PCON-VRR-ID-check-override.patch
+hdmi/0012-drm-amd-display-Add-CH7218-PCON-ID.patch
+hdmi/0013-drm-edid-Parse-more-info-from-HDMI-Forum-vsdb.patch
+hdmi/0014-drm-amd-display-Rename-PCON-adaptive-sync-types.patch
+hdmi/0015-drm-amd-display-Enable-HDMI-VRR-over-PCON.patch
+hdmi/0016-drm-amd-display-Support-HDMI-VRRmax-0.patch
+hdmi/0017-drm-amd-display-Build-HDMI-vsif-in-correct-slot.patch
+hdmi/0018-drm-amd-display-Save-HDMI-gaming-info-to-edid-caps.patch
+hdmi/0019-drm-amd-display-Reintroduce-VTEM-info-frame.patch
+hdmi/0020-drm-amd-display-Enable-HDMI-VRR.patch
+hdmi/0021-Merge-HDMI-and-PCON-paths.patch
+hdmi/0022-drm-amd-display-freesync_on_desktop-support-for-HDMI.patch
+hdmi/0023-Force-freesync_on_desktop-for-HDMI.patch
+hdmi/0024-Fix-enum-redeclaration.patch
+hdmi/0025-Restore-is_hdmi_vic_mode-from-ALLM-stuff.patch
+hdmi/0026-Switch-to-signal-type-helper-functions-from-DC.patch
+hdmi/0027-Enable-HDMI-FRL-by-default.patch

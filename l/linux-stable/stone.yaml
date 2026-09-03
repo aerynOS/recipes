@@ -3,7 +3,7 @@
 
 name        : linux-stable
 version     : "7.2.3"
-release     : 55
+release     : 56
 homepage    : https://kernel.org/
 upstreams   :
         - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.3.tar.xz : 8ba259e8e7b13ec6ef0941c8a39ad90b24bd4a4d6c0010ba6bafb794550ecd03
