@@ -4,7 +4,7 @@
 	"packages": {
 		"docker-buildx": {
 			"build-depends": [
-				"binary(go)"
+				"binary(git)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -17,6 +17,6 @@
 		}
 	},
 	"source-name": "docker-buildx",
-	"source-release": "17",
-	"source-version": "0.36.1"
+	"source-release": "18",
+	"source-version": "0.37.0"
 }

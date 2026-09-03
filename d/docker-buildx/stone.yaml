@@ -2,42 +2,31 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : docker-buildx
-version     : "0.36.1"
-release     : 17
+version     : "0.37.0"
+release     : 18
 homepage    : https://github.com/docker/buildx
 upstreams   :
-    - https://github.com/docker/buildx/archive/refs/tags/v0.36.1.tar.gz : 8959987919445ab61564f50decde4dae810137063d84e2d3c969c9a4a68ecdeb
+    - https://github.com/docker/buildx/archive/refs/tags/v0.37.0.tar.gz : c6e3efdfb9778d9ef69e005ea43abc3041511f088760c927637e3cf6be7cb410
 summary     : Docker CLI plugin for extended build capabilities with BuildKit
 description : |
     Docker CLI plugin for extended build capabilities with BuildKit
-license     :
-    - Apache-2.0
+license     : Apache-2.0
 networking  : true
 builddeps   :
-    - binary(go)
+    - binary(git)
 environment : |
     export _buildx_r=github.com/docker/buildx
     export _cli_plugins_dir=%(libdir)/docker/cli-plugins
 setup       : |
-    mkdir -p src/${_buildx_r}
-    ln -s ${PWD} src/${_buildx_r}/buildx
-
-    go mod vendor
-build      : |
-    cd src/${_buildx_r}/buildx
-    export GO111MODULE=auto
-
-    export CGO_CFLAGS="${CFLAGS}"
-    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
-
+    %go_mod
+build       : |
     # Git commit corresponding to the version tag
     export GITCOMMIT=$(git ls-remote https://github.com/docker/buildx refs/tags/v%(version)^{} |awk '{print $1}')
 
-    go build -o docker-buildx \
-        -ldflags "-linkmode=external \
-        -X ${_buildx_r}/version.Version=v%(version) \
-        -X ${_buildx_r}/version.Revision=$GITCOMMIT \
-        -X ${_buildx_r}/version.Package=${_buildx_r}" \
-        ./cmd/buildx
-install    : |
+    export GOFLAGS+=" -ldflags=-X=${_buildx_r}/version.Version=v%(version) \
+        -ldflags=-X=${_buildx_r}/version.Revision=${GITCOMMIT} \
+        -ldflags=-X=${_buildx_r}/version.Package=${_buildx_r}"
+
+    go build -o docker-buildx ./cmd/buildx
+install     : |
     %install_exe docker-buildx -t %(installroot)/${_cli_plugins_dir}
