@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fish
-version     : "4.8.1"
-release     : 25
+version     : "4.9.0"
+release     : 26
 homepage    : https://fishshell.com/
 upstreams   :
-    - https://github.com/fish-shell/fish-shell/releases/download/4.8.1/fish-4.8.1.tar.xz : 0eb86a851e865e934a7c2091a73d7695225e78f0e00a7bb96d5f877d76c65782
+    - https://github.com/fish-shell/fish-shell/releases/download/4.9.0/fish-4.9.0.tar.xz : 49d86d655cfcc82c7d13d66c6c30a3351600d44b40fb2b6218fbb8fb0e635122
 summary     : The friendly interactive shell
 description : |
     fish is a smart and user-friendly command line shell for macOS, Linux, and the rest of the family. fish includes features like syntax highlighting, autosuggest-as-you-type, and fancy tab completions that just work, with no configuration required.
