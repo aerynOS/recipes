@@ -313,6 +313,6 @@
 		}
 	},
 	"source-name": "podman",
-	"source-release": "5",
-	"source-version": "6.1.0"
+	"source-release": "6",
+	"source-version": "6.1.1"
 }

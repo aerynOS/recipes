@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : podman
-version     : "6.1.0"
-release     : 5
+version     : "6.1.1"
+release     : 6
 homepage    : https://podman.io/
 upstreams   :
-    - https://github.com/containers/podman/archive/refs/tags/v6.1.0.tar.gz : e086183db2f852476a7fa2580d0276cef32086b4cf17ae7020948f06eb613e0d
+    - https://github.com/containers/podman/archive/refs/tags/v6.1.1.tar.gz : 3646384ab6eff7b3d4473e1a0c1e34b6a8001e5a89600af44cc12376da77bccc
 summary     : A tool for managing OCI containers and pods
 description : |
     Podman (the POD MANager) is a tool for managing containers and images, volumes mounted into those containers, and pods made from groups of containers.
