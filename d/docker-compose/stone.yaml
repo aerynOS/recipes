@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : docker-compose
-version     : "5.5.0"
-release     : 24
+version     : "5.5.1"
+release     : 25
 homepage    : https://github.com/docker/compose
 upstreams   :
-    - https://github.com/docker/compose/archive/refs/tags/v5.5.0.tar.gz : 504ed1541f4bc5c301dc9cf7b86ae8e2d26b57a558a248d9b832af188b298bba
+    - https://github.com/docker/compose/archive/refs/tags/v5.5.1.tar.gz : 311077662698fd8e34769a894f9d5240befb1730990efa8ed58e0fa8725d2d84
 summary     : Define and run multi-container applications with Docker
 description : |
     Define and run multi-container applications with Docker
@@ -15,7 +15,6 @@ license     :
 networking  : true
 builddeps   :
     - binary(git)
-    - binary(go)
 rundeps     :
     - binary(docker)
 environment : |
