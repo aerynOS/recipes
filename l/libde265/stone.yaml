@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libde265
-version     : "1.1.1"
-release     : 8
-upstreams   :
-    - https://github.com/strukturag/libde265/releases/download/v1.1.1/libde265-1.1.1.tar.gz : fd48a927e94ed74fc7ce8829d222b9d8599fcbfe8b6448ba66705babc56ab219
+version     : "1.1.2"
+release     : 9
 homepage    : https://www.libde265.org/
-license     : LGPL-3.0-or-later
+upstreams   :
+    - https://github.com/strukturag/libde265/releases/download/v1.1.2/libde265-1.1.2.tar.gz : eaacd1943ab0c452c19f6136a36ca227e6b761b39a81eaca8454d48c147e1f67
 summary     : Open H.265 video codec implementation
 description : |
     libde265 is an open source implementation of the h.265 video codec. It is written from scratch and has a plain C API to enable a simple integration into other software. libde265 supports WPP and tile-based multithreading and includes SSE optimizations. The decoder includes all features of the Main profile and correctly decodes almost all conformance streams.
+license     : LGPL-3.0-or-later
 builddeps   :
     - pkgconfig(sdl2-compat)
 setup       : |

@@ -14,7 +14,7 @@
 			],
 			"files": [
 				"/usr/lib/libde265.so.0",
-				"/usr/lib/libde265.so.0.2.1"
+				"/usr/lib/libde265.so.0.2.2"
 			],
 			"name": "libde265",
 			"provides": [
@@ -74,6 +74,6 @@
 		}
 	},
 	"source-name": "libde265",
-	"source-release": "8",
-	"source-version": "1.1.1"
+	"source-release": "9",
+	"source-version": "1.1.2"
 }
