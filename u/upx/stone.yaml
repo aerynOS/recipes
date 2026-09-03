@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : upx
-version     : "5.2.0"
-release     : 6
+version     : "5.2.1"
+release     : 7
 homepage    : https://upx.github.io/
 upstreams   :
-    - https://github.com/upx/upx/releases/download/v5.2.0/upx-5.2.0-src.tar.xz : af99e526d5759de94412aea1104d5e4ca406cb725295f8633ecc9e843dc1ce1c
+    - https://github.com/upx/upx/releases/download/v5.2.1/upx-5.2.1-src.tar.xz : a7d457be4ef942e46844ee8f301206b111394cbcbde3599747a6904c54ff116b
 summary     : Packer/compressor for binary executable files
 description : |
     Comperess executable binary files down to a small size. Useful in environments where space is a premium and exe time less so.
-license     :
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 setup       : |
     %cmake
 build       : |
