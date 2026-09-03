@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"jujutsu": {
-			"build-depends": [
-				"binary(cargo)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
@@ -147,6 +144,6 @@
 		}
 	},
 	"source-name": "jujutsu",
-	"source-release": "16",
-	"source-version": "0.45.0"
+	"source-release": "17",
+	"source-version": "0.45.1"
 }

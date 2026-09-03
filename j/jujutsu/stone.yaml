@@ -2,30 +2,25 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : jujutsu
-version     : "0.45.0"
-release     : 16
+version     : "0.45.1"
+release     : 17
 homepage    : https://jj-vcs.github.io/jj/
 upstreams   :
-    - https://github.com/jj-vcs/jj/archive/refs/tags/v0.45.0.tar.gz : 1d5f0f380f27a486a398a2f831e0124fe6aaec291dad77a3259fb2e633c8ae6b
+    - https://github.com/jj-vcs/jj/archive/refs/tags/v0.45.1.tar.gz : 72bf95905a92c592dd0e7316e2cbbad9a8f2ca04ca770cc4f4f7960495a44e15
 summary     : Git-compatible VCS that is both simple and powerful
 description : |
     Git-compatible VCS that is both simple and powerful
-networking  : true
 license     : Apache-2.0
-builddeps   :
-    - binary(cargo)
+networking  : true
 setup       : |
     %cargo_fetch
 build       : |
     %cargo_build --all-features
 install     : |
-    _jj=%(cargo_target_dir)/jj
+    %cargo_install jj
 
-    %install_bin ${_jj}
-
-    ${_jj} util completion bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/jj
-    ${_jj} util completion zsh | tail -n+3 | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_jj
+    %(cargo_target_dir)/jj util completion bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/jj
+    %(cargo_target_dir)/jj util completion zsh | tail -n+3 | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_jj
     # Don't install fish completions as the fish package ships a superior version
 
-    %install_dir %(installroot)%(mandir)
-    ${_jj} util install-man-pages %(installroot)%(mandir)
+    %(cargo_target_dir)/jj util install-man-pages %(installroot)%(mandir)
