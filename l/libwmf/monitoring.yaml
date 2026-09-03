@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 230209
+  rss: https://github.com/caolanm/libwmf/releases.atom
+security:
+  cpe:
+    - vendor: wvware
+      product: libwmf

@@ -1,0 +1,151 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libwmf": {
+			"build-depends": [
+				"pkgconfig(freetype2)",
+				"pkgconfig(gdk-pixbuf-2.0)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(x11)",
+				"pkgconfig(xt)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"libwmf-lite",
+				"soname(libX11.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libfreetype.so.6(x86_64))",
+				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libjpeg.so.8(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpng16.so.16(x86_64))",
+				"soname(libwmflite-0.2.so.7(x86_64))",
+				"soname(libxml2.so.16(x86_64))",
+				"soname(libz.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/libwmf-fontmap",
+				"/usr/bin/wmf2eps",
+				"/usr/bin/wmf2fig",
+				"/usr/bin/wmf2gd",
+				"/usr/bin/wmf2svg",
+				"/usr/bin/wmf2x",
+				"/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-wmf.so",
+				"/usr/lib/libwmf-0.2.so.7",
+				"/usr/lib/libwmf-0.2.so.7.1.7",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Bold.afm",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Bold.t1",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-BoldItalic.afm",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-BoldItalic.t1",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Italic.afm",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Italic.t1",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Regular.afm",
+				"/usr/share/libwmf/fonts/NimbusMonoPS-Regular.t1",
+				"/usr/share/libwmf/fonts/NimbusRoman-Bold.afm",
+				"/usr/share/libwmf/fonts/NimbusRoman-Bold.t1",
+				"/usr/share/libwmf/fonts/NimbusRoman-BoldItalic.afm",
+				"/usr/share/libwmf/fonts/NimbusRoman-BoldItalic.t1",
+				"/usr/share/libwmf/fonts/NimbusRoman-Italic.afm",
+				"/usr/share/libwmf/fonts/NimbusRoman-Italic.t1",
+				"/usr/share/libwmf/fonts/NimbusRoman-Regular.afm",
+				"/usr/share/libwmf/fonts/NimbusRoman-Regular.t1",
+				"/usr/share/libwmf/fonts/NimbusSans-Bold.afm",
+				"/usr/share/libwmf/fonts/NimbusSans-Bold.t1",
+				"/usr/share/libwmf/fonts/NimbusSans-BoldItalic.afm",
+				"/usr/share/libwmf/fonts/NimbusSans-BoldItalic.t1",
+				"/usr/share/libwmf/fonts/NimbusSans-Italic.afm",
+				"/usr/share/libwmf/fonts/NimbusSans-Italic.t1",
+				"/usr/share/libwmf/fonts/NimbusSans-Regular.afm",
+				"/usr/share/libwmf/fonts/NimbusSans-Regular.t1",
+				"/usr/share/libwmf/fonts/StandardSymbolsPS.afm",
+				"/usr/share/libwmf/fonts/StandardSymbolsPS.t1",
+				"/usr/share/libwmf/fonts/fontmap"
+			],
+			"name": "libwmf",
+			"provides": [
+				"binary(libwmf-fontmap)",
+				"binary(wmf2eps)",
+				"binary(wmf2fig)",
+				"binary(wmf2gd)",
+				"binary(wmf2svg)",
+				"binary(wmf2x)",
+				"soname(gdk-pixbuf-2.0/2.10.0/loaders/io-wmf.so(x86_64))",
+				"soname(libwmf-0.2.so.7(x86_64))"
+			]
+		},
+		"libwmf-devel": {
+			"build-depends": [
+				"pkgconfig(freetype2)",
+				"pkgconfig(gdk-pixbuf-2.0)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(x11)",
+				"pkgconfig(xt)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"libwmf"
+			],
+			"files": [
+				"/usr/bin/libwmf-config",
+				"/usr/include/libwmf/api.h",
+				"/usr/include/libwmf/canvas.h",
+				"/usr/include/libwmf/color.h",
+				"/usr/include/libwmf/defs.h",
+				"/usr/include/libwmf/eps.h",
+				"/usr/include/libwmf/fig.h",
+				"/usr/include/libwmf/font.h",
+				"/usr/include/libwmf/foreign.h",
+				"/usr/include/libwmf/fund.h",
+				"/usr/include/libwmf/gd.h",
+				"/usr/include/libwmf/ipa.h",
+				"/usr/include/libwmf/macro.h",
+				"/usr/include/libwmf/svg.h",
+				"/usr/include/libwmf/types.h",
+				"/usr/include/libwmf/x.h",
+				"/usr/lib/libwmf.so",
+				"/usr/lib/libwmflite.so",
+				"/usr/lib/pkgconfig/libwmf.pc"
+			],
+			"name": "libwmf-devel",
+			"provides": [
+				"binary(libwmf-config)",
+				"pkgconfig(libwmf)"
+			]
+		},
+		"libwmf-lite": {
+			"build-depends": [
+				"pkgconfig(freetype2)",
+				"pkgconfig(gdk-pixbuf-2.0)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(x11)",
+				"pkgconfig(xt)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libwmflite-0.2.so.7",
+				"/usr/lib/libwmflite-0.2.so.7.0.8"
+			],
+			"name": "libwmf-lite",
+			"provides": [
+				"soname(libwmflite-0.2.so.7(x86_64))"
+			]
+		}
+	},
+	"source-name": "libwmf",
+	"source-release": "1",
+	"source-version": "0.2.15"
+}

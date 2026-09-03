@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libwmf
+version     : "0.2.15"
+release     : 1
+homepage    : https://github.com/caolanm/libwmf
+upstreams   :
+    - https://github.com/caolanm/libwmf/releases/download/v0.2.15/libwmf-0.2.15.tar.gz : bbc90f22b9e86d5f1890d7da11cf7a8e61f429d4c220d900c285021deabe7a52
+summary     : Library for reading and converting Windows Metafile (WMF) images
+description : |
+    libwmf is a library for reading vector images in Microsoft's native Windows Metafile Format (WMF) and for either displaying them or converting them to more standard formats such as SVG.
+license     : LGPL-2.1-or-later
+builddeps   :
+    - pkgconfig(freetype2)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(libjpeg)
+    - pkgconfig(libpng)
+    - pkgconfig(libxml-2.0)
+    - pkgconfig(x11)
+    - pkgconfig(xt)
+    - pkgconfig(zlib)
+setup       : |
+    %configure \
+        --disable-static \
+        --with-libxml2
+build       : |
+    %make
+install     : |
+    %make_install
+
+    # Bundled libgd headers are not part of the public API
+    rm -rf %(installroot)%(includedir)/libwmf/gd
+
+    # gdk-pixbuf trigger only matches lib*.so
+    for f in %(installroot)%(libdir)/gdk-pixbuf-2.0/*/loaders/io-wmf.so; do
+        mv -v "${f}" "$(dirname "${f}")/libpixbufloader-wmf.so"
+    done
+check       : |
+    %make check
+packages    :
+    - "%(name)":
+        rundeps:
+            - "%(name)-lite"
+
+    - "%(name)-lite":
+        summary: Windows Metafile parser library
+        description: |
+            A library for parsing Windows MetaFile vector graphics (WMF).
+        paths:
+            - /usr/lib/libwmflite-0.2.so.*
+
+    - "%(name)-devel":
+        paths:
+            - /usr/bin/libwmf-config
