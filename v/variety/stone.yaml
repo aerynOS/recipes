@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : variety
-version     : "0.9.0"
-release     : 4
+version     : "0.9.1"
+release     : 5
 homepage    : http://peterlevi.com/variety
 upstreams   :
-    - https://github.com/varietywalls/variety/archive/refs/tags/0.9.0.tar.gz : cfd3927d01d0415116a03886d0f54c3a8d5133360c1aef14a693cf76e97927de
+    - https://github.com/varietywalls/variety/archive/refs/tags/0.9.1.tar.gz : 438ab21bd83c6143cd8a5ae3b5695a62d290e8f8ce26f31a6e61454c178f32de
 summary     : Variety changes the wallpaper on a regular interval using user-specified or automatically downloaded images
 description : |
     Variety sits conveniently as an indicator in the panel and can be easily paused and resumed. The mouse wheel can be used to scroll wallpapers back and forth until you find the perfect one for your current mood. Apart from displaying images from local folders, several different online sources can be used to fetch wallpapers according to user-specified criteria. Variety can also automatically apply various fancy filters to the displayed images - charcoal painting, oil painting, heavy blurring, etc. - so that your desktop is always fresh and unique. Applying a heavy blurring filter for example is a great way to get abstract-looking and unobtrusive, yet colorful wallpapers, similar in spirit to the default one in Ubuntu.
