@@ -2,21 +2,22 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : shfmt
-version     : "3.13.1"
-release     : 1
+version     : "3.14.0"
+release     : 2
 homepage    : https://github.com/mvdan/sh
 upstreams   :
-    - https://github.com/mvdan/sh/archive/refs/tags/v3.13.1.tar.gz : b31aad2d4c26b0c6e8ebe894d59022520bbebce33e082d7d29e4325eee35d308
+    - https://github.com/mvdan/sh/archive/refs/tags/v3.14.0.tar.gz : f193c946e2882c4fa04935cd583f60e2cab60344209bd982a3a5933c4192aad8
 summary     : Shell formatter
-description     : Format shell programs
+description : Format shell programs
 license     : 
     - BSD-3-Clause 
 networking  : true
 builddeps   :
     - binary(git)
     - binary(go)
-    - binary(man)
     - binary(scdoc)
+checkdeps   :
+    - binary(man)
     # dbus-1 is required to make `man` work. For more info, see https://github.com/AerynOS/os-tools/issues/828
     - pkgconfig(dbus-1)
 setup       : |
