@@ -3,7 +3,7 @@
 
 name        : lutris
 version     : "0.5.22+git.0747076"
-release     : 1
+release     : 2
 homepage    : https://lutris.net/
 upstreams   :
     - git|https://github.com/lutris/lutris.git : 07470764e709c1abcda8164e680815d9a2239b3c # 0747076
@@ -18,6 +18,9 @@ rundeps     :
     - binary(cabextract)
     - binary(curl)
     - binary(fuser)
+    - binary(glxdemo)
+    - binary(lspci)
+    - binary(notify-send)
     - binary(python3)
     - binary(unzip)
     - python(certifi)
@@ -32,8 +35,8 @@ rundeps     :
     - python(requests)
     - python(urllib3)
     - hicolor-icon-theme
+    - soname(gio/modules/libgioopenssl.so(x86_64))
     - soname(libGL.so.1(386))
-    - soname(libgdk_pixbuf-2.0.so.0(x86_64))
     - soname(libgirepository-1.0.so.1(x86_64))
     - soname(libglib-2.0.so.0(x86_64))
     - soname(libgnome-desktop-3.so.20(x86_64))

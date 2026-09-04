@@ -11,6 +11,9 @@
 				"binary(cabextract)",
 				"binary(curl)",
 				"binary(fuser)",
+				"binary(glxdemo)",
+				"binary(lspci)",
+				"binary(notify-send)",
 				"binary(python3)",
 				"binary(unzip)",
 				"hicolor-icon-theme",
@@ -25,8 +28,8 @@
 				"python(pyyaml)",
 				"python(requests)",
 				"python(urllib3)",
+				"soname(gio/modules/libgioopenssl.so(x86_64))",
 				"soname(libGL.so.1(386))",
-				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
 				"soname(libgirepository-1.0.so.1(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgnome-desktop-3.so.20(x86_64))",
@@ -713,6 +716,6 @@
 		}
 	},
 	"source-name": "lutris",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.5.22+git.0747076"
 }
