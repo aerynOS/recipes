@@ -2,24 +2,34 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pnpm
-version     : "12.3.1"
-release     : 8
+version     : "12.3.4"
+release     : 9
 homepage    : https://pnpm.io
 upstreams   :
-    - https://github.com/pnpm/pnpm/archive/refs/tags/v12.3.1.tar.gz : 24984620f95e2236a5d60ddbaeaad6dc54663e27eee8b29ffa24f13dd8fe16de
+    - https://github.com/pnpm/pnpm/archive/refs/tags/v12.3.4.tar.gz : 4f400669b36259278efe44278e4adfc7f449fbccb4c255670c66332a7a792aa1
+    # Frozen node-gyp tree from the same release; the binary looks for dist/ beside itself
+    - https://github.com/pnpm/pnpm/releases/download/v12.3.4/pnpm-linux-x64.tar.gz:
+        hash: 9705e5704b4679fb503c963a18d1ac4f105e39aafafca8a2ed346facdf820cd0
+        unpack: false
+        rename: pnpm-linux-x64.tar.gz
 summary     : Fast, disk space efficient package manager
 description : |
     Fast, disk space efficient package manager
 license     : MIT
 networking  : true
 rundeps     :
+    - binary(make)
     - binary(node)
+    - binary(python)
 setup       : |
     %cargo_fetch
 build       : |
     %cargo_build -p pnpm-cli --bin pnpm
 install     : |
-    %cargo_install
+    %install_dir %(installroot){%(bindir),%(libdir)/pnpm}
+    %install_exe %(cargo_target_dir)/pnpm %(installroot)%(libdir)/pnpm/pnpm
+    ln -srv %(installroot)%(libdir)/pnpm/pnpm %(installroot)%(bindir)/pnpm
+    bsdtar-static -xf %(sourcedir)/pnpm-linux-x64.tar.gz -C %(installroot)%(libdir)/pnpm dist
 
     # Aliases upstream ships next to the binary in its npm package
     %install_bin pnpm/npm/pnpm/{pn,pnpx,pnx}
