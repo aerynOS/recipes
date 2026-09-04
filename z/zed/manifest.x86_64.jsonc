@@ -4,7 +4,6 @@
 	"packages": {
 		"zed": {
 			"build-depends": [
-				"binary(cargo)",
 				"binary(cmake)",
 				"binary(envsubst)",
 				"binary(jq)",
@@ -64,6 +63,6 @@
 		}
 	},
 	"source-name": "zed",
-	"source-release": "58",
-	"source-version": "1.18.0"
+	"source-release": "59",
+	"source-version": "1.18.1"
 }
