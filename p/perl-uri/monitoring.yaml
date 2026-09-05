@@ -3,6 +3,6 @@
 
 releases:
   id: 3485
-  rss: ~
+  rss: https://metacpan.org/dist/URI/releases.rss
 security:
   cpe: ~
