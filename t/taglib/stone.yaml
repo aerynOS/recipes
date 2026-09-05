@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : taglib
-version     : "2.3.1"
-release     : 8
+version     : "2.3.2"
+release     : 9
 homepage    : https://taglib.org/
 upstreams   :
-    - https://github.com/taglib/taglib/releases/download/v2.3.1/taglib-2.3.1.tar.gz : a19d90e6fd41d09a0281ec0fe762d51491d7a6ccffc923c4f7868c5e647ca230
+    - https://github.com/taglib/taglib/releases/download/v2.3.2/taglib-2.3.2.tar.gz : 3ca2d8afaa7f1cf7f6ed10e511ebc368bfacd6dcaa3dbfa690b89e502e8963dc
 summary     : Library to read metadata from a variety of multimedia formats
 description : |
     TagLib is a library for reading and editing the meta-data of several popular

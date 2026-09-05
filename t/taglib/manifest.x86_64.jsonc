@@ -17,9 +17,9 @@
 			],
 			"files": [
 				"/usr/lib/libtag.so.2",
-				"/usr/lib/libtag.so.2.3.1",
+				"/usr/lib/libtag.so.2.3.2",
 				"/usr/lib/libtag_c.so.2",
-				"/usr/lib/libtag_c.so.2.3.1"
+				"/usr/lib/libtag_c.so.2.3.2"
 			],
 			"name": "taglib",
 			"provides": [
@@ -34,6 +34,7 @@
 				"pkgconfig(zlib)"
 			],
 			"depends": [
+				"pkgconfig(zlib)",
 				"taglib"
 			],
 			"files": [
@@ -190,6 +191,6 @@
 		}
 	},
 	"source-name": "taglib",
-	"source-release": "8",
-	"source-version": "2.3.1"
+	"source-release": "9",
+	"source-version": "2.3.2"
 }
