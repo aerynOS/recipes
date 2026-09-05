@@ -2,26 +2,22 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lazygit
-version     : "0.64.1"
-release     : 12
+version     : "0.65.0"
+release     : 13
 homepage    : https://github.com/jesseduffield/lazygit
 upstreams   :
-    - https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.64.1.tar.gz : b1df6ee72f17efc0ef95fc20a64821cd9eda3935b81cb98b1719c8266163bd07
+    - https://github.com/jesseduffield/lazygit/archive/refs/tags/v0.65.0.tar.gz : 972151d83d8fdfa5c7c881c34349ba4a38c37b7085667696b85c443d2fca97ed
 summary     : A simple terminal UI for git commands
 description : |
     A simple terminal UI for git commands
 license     : MIT
-builddeps   :
-    - binary(go)
+networking  : true
+setup       : |
+    %go_mod
 build       : |
-    go build -v \
-        -gcflags='all=-N -l' \
-        -ldflags "\
-        -X main.version=%(version) \
-        -X main.commit=v%(version) \
-        "
+    export GOFLAGS+=" -ldflags=-X=main.version=%(version) \
+        -ldflags=-X=main.commit=v%(version)"
+    go build -v
 install     : |
     %install_bin lazygit
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
-tuning      :
-    - golang-modflags: false

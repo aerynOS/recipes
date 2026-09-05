@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"lazygit": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))"
@@ -21,6 +18,6 @@
 		}
 	},
 	"source-name": "lazygit",
-	"source-release": "12",
-	"source-version": "0.64.1"
+	"source-release": "13",
+	"source-version": "0.65.0"
 }
