@@ -1,8 +1,7 @@
-#
-# SPDX-FileCopyrightText: © 2020-2026 Serpent OS Developers
-#
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
-#
+
+
 name        : libreoffice
 ### IMPORTANT: Use the update-libreoffice.py script to update this package
 
@@ -485,10 +484,10 @@ builddeps   :
     - binary(flex)
     - binary(gperf)
     - binary(gzip)
+    - binary(java-25)
     - binary(make)
     - binary(mysql_config)
     - binary(nasm)
-    - binary(java-25)
     - binary(patch)
     - binary(perl)
     - binary(python)
@@ -512,8 +511,8 @@ builddeps   :
     - pkgconfig(com_err)
     - pkgconfig(cppunit)
     - pkgconfig(cups)
-    - pkgconfig(dconf)
     - pkgconfig(dbus-1)
+    - pkgconfig(dconf)
     - pkgconfig(epoxy)
     - pkgconfig(expat)
     - pkgconfig(fontconfig)
@@ -523,8 +522,8 @@ builddeps   :
     - pkgconfig(gpgmepp)
     - pkgconfig(graphite2)
     - pkgconfig(gstreamer-1.0)
-    - pkgconfig(gstreamer-plugins-base-1.0)
     - pkgconfig(gstreamer-pbutils-1.0)
+    - pkgconfig(gstreamer-plugins-base-1.0)
     - pkgconfig(gstreamer-video-1.0)
     - pkgconfig(gtk+-3.0)
     - pkgconfig(gtk4)
