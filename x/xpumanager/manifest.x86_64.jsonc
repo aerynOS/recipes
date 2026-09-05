@@ -1,0 +1,47 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"xpumanager": {
+			"build-depends": [
+				"cmake(igsc)",
+				"pkgconfig(CLI11)",
+				"pkgconfig(fmt)",
+				"pkgconfig(hwloc)",
+				"pkgconfig(level-zero)",
+				"pkgconfig(libcurl)",
+				"pkgconfig(libudev)",
+				"pkgconfig(nlohmann_json)",
+				"pkgconfig(pciaccess)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libhwloc.so.15(x86_64))",
+				"soname(libigsc.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpciaccess.so.0(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libze_loader.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/xpu-smi",
+				"/usr/lib/libxpum.so",
+				"/usr/lib/libxpum.so.2",
+				"/usr/lib/libxpum.so.2.1.0",
+				"/usr/share/xpum/resources/config/device_thresholds.json",
+				"/usr/share/xpum/resources/config/pci.conf",
+				"/usr/share/xpum/resources/config/pci.ids"
+			],
+			"name": "xpumanager",
+			"provides": [
+				"binary(xpu-smi)",
+				"soname(libxpum.so.2(x86_64))"
+			]
+		}
+	},
+	"source-name": "xpumanager",
+	"source-release": "1",
+	"source-version": "2.1.0"
+}

@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 392126
+  rss: https://github.com/intel/xpumanager/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-09-05)

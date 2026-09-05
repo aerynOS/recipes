@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xpumanager
+version     : "2.1.0"
+release     : 1
+homepage    : https://intel.github.io/xpumanager/
+upstreams   :
+    - https://github.com/intel/xpumanager/archive/refs/tags/v2.1.0.tar.gz : 12cbcdf7d2d2708cb5adafa91f6c83c7c3e7b44793f89a4a247f250149d7f656
+summary     : Free and open-source tool for monitoring and managing Intel Data Center GPUs.
+description : |
+    Free and open-source tool for monitoring and managing Intel Data Center GPUs.
+license     : MIT
+builddeps   :
+    - cmake(igsc)
+    - pkgconfig(CLI11)
+    - pkgconfig(fmt)
+    - pkgconfig(hwloc)
+    - pkgconfig(level-zero)
+    - pkgconfig(libcurl)
+    - pkgconfig(libudev)
+    - pkgconfig(nlohmann_json)
+    - pkgconfig(pciaccess)
+setup       : |
+    %meson \
+        -Dshared_library=true \
+        -Duse_system_igsc=true \
+        -Duse_system_levelzero=true
+# -Dwith_tests=true
+# requires doctest
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+# check       : |
+#     %meson_test
+packages    :
+    - "%(name)":
+        paths:
+            - /usr/lib/libx*
