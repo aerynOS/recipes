@@ -1,0 +1,5 @@
+releases:
+  id: 390254 # It's showing version 2.50.1 as latest but it doesn't exist. Not sure why this happens
+  rss: ~
+security:
+  cpe: ~

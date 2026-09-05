@@ -1,0 +1,5 @@
+releases:
+  id: 390261 # This is also reporting v2.50.1 as latest but it doesn't exit.
+  rss: ~
+security:
+  cpe: ~

@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gpu-screen-recorder
+version     : "1.12.2"
+release     : 1
+homepage    : https://git.dec05eba.com/gpu-screen-recorder-ui/about/
+upstreams   :
+    - https://dec05eba.com/snapshot/gpu-screen-recorder-ui.git.1.12.2.tar.gz :
+        hash: f128bde2fb44f4ea189cea14c6fe16bb8b1ca082710666ada4700f2fd5c02e0c
+        stripdirs: 0
+summary     : A fullscreen overlay UI for GPU Screen Recorder
+description : |
+    A fullscreen overlay UI for GPU Screen Recorder in the style of ShadowPlay.
+license     :
+    - GPL-3.0-only
+builddeps   :
+    - binary(update-desktop-database)
+    - pkgconfig(dbus-1)
+    - pkgconfig(libdecor-0)
+    - pkgconfig(libdrm)
+    - pkgconfig(libpulse-simple)
+    - pkgconfig(pangoft2)
+    - pkgconfig(wayland-scanner)
+    - pkgconfig(xcomposite)
+    - pkgconfig(xcursor)
+    - pkgconfig(xi)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(xrandr)
+    - sysbinary(setcap)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+
+    # For global keybinds to work.
+    /usr/sbin/setcap cap_setuid+ep %(installroot)%(bindir)/gsr-global-hotkeys

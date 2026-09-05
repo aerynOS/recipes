@@ -1,0 +1,52 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"gpu-screen-recorder": {
+			"build-depends": [
+				"pkgconfig(pangoft2)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-scanner)",
+				"pkgconfig(xext)",
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(xrandr)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libX11.so.6(x86_64))",
+				"soname(libXext.so.6(x86_64))",
+				"soname(libXrandr.so.2(x86_64))",
+				"soname(libXrender.so.1(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libfreetype.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpango-1.0.so.0(x86_64))",
+				"soname(libpangoft2-1.0.so.0(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))",
+				"soname(libwayland-cursor.so.0(x86_64))",
+				"soname(libwayland-egl.so.1(x86_64))",
+				"soname(libxkbcommon.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/gsr-notify",
+				"/usr/share/gsr-notify/images/record.png",
+				"/usr/share/gsr-notify/images/replay.png",
+				"/usr/share/gsr-notify/images/screenshot.png",
+				"/usr/share/gsr-notify/images/stream.png"
+			],
+			"name": "gpu-screen-recorder",
+			"provides": [
+				"binary(gsr-notify)"
+			]
+		}
+	},
+	"source-name": "gpu-screen-recorder",
+	"source-release": "1",
+	"source-version": "1.3.0"
+}
