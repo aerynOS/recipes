@@ -1,0 +1,5 @@
+releases:
+  id: 387428
+  rss: https://github.com/imvaskel/soteria/releases.atom
+security:
+  cpe: ~
