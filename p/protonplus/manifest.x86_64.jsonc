@@ -1,0 +1,75 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"protonplus": {
+			"build-depends": [
+				"binary(msgfmt)",
+				"binary(update-desktop-database)",
+				"binary(vala)",
+				"pkgconfig(gee-0.8)",
+				"pkgconfig(gtk4)",
+				"pkgconfig(json-glib-1.0)",
+				"pkgconfig(libadwaita-1)",
+				"pkgconfig(libarchive)",
+				"pkgconfig(libsoup-3.0)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libadwaita-1.so.0(x86_64))",
+				"soname(libarchive.so.13(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgee-0.8.so.2(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-4.so.1(x86_64))",
+				"soname(libjson-glib-1.0.so.0(x86_64))",
+				"soname(libsoup-3.0.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/protonplus",
+				"/usr/share/applications/com.vysp3r.ProtonPlus.desktop",
+				"/usr/share/glib-2.0/schemas/com.vysp3r.ProtonPlus.gschema.xml",
+				"/usr/share/icons/hicolor/128x128/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/16x16/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/256x256/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/32x32/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/48x48/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/512x512/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/icons/hicolor/64x64/apps/com.vysp3r.ProtonPlus.png",
+				"/usr/share/locale/ar/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/be/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/bs/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/cs/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/de/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/es/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/fi/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/hr/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/id/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/it/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/ka/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/nl/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/pl/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/pt/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/ru/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/sr@latin/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/vi/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/com.vysp3r.ProtonPlus.mo",
+				"/usr/share/metainfo/com.vysp3r.ProtonPlus.metainfo.xml"
+			],
+			"name": "protonplus",
+			"provides": [
+				"binary(protonplus)"
+			]
+		}
+	},
+	"source-name": "protonplus",
+	"source-release": "1",
+	"source-version": "0.5.20"
+}
