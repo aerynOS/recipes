@@ -1,0 +1,102 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6a76fb7c..7a231fd3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -83,6 +83,7 @@ if(ENABLE_LOGGING)
+   find_package(Glog REQUIRED)
+   if(Glog_FOUND)
+     include_directories(${Glog_INCLUDE_PATH})
++    add_compile_definitions(NGLOG_USE_EXPORT)
+     if(WIN32)
+       add_compile_definitions("GLOG_DEPRECATED=__declspec(deprecated)")
+       add_compile_definitions(GLOG_NO_ABBREVIATED_SEVERITIES)
+diff --git a/cmake/FindGlog.cmake b/cmake/FindGlog.cmake
+index d0a15c54..4e9772ee 100644
+--- a/cmake/FindGlog.cmake
++++ b/cmake/FindGlog.cmake
+@@ -1,6 +1,6 @@
+ set(_glog_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
+ 
+-find_path(Glog_INCLUDE_PATH glog/logging.h)
++find_path(Glog_INCLUDE_PATH ng-log/logging.h)
+ 
+ if (Glog_STATIC)
+   if (WIN32)
+@@ -9,7 +9,7 @@ if (Glog_STATIC)
+     set(CMAKE_FIND_LIBRARY_SUFFIXES .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
+   endif (WIN32)
+ endif (Glog_STATIC)
+-find_library(Glog_LIBRARY NAMES glog glogd libglog)
++find_library(Glog_LIBRARY NAMES ng-log libng-log)
+ if(Glog_INCLUDE_PATH AND Glog_LIBRARY)
+   set(Glog_FOUND TRUE)
+ endif(Glog_INCLUDE_PATH AND Glog_LIBRARY)
+diff --git a/src/rime/common.h b/src/rime/common.h
+index e5dfaf9c..fb7dafae 100644
+--- a/src/rime/common.h
++++ b/src/rime/common.h
+@@ -26,7 +26,7 @@
+ #include <boost/unordered_set.hpp>
+ 
+ #ifdef RIME_ENABLE_LOGGING
+-#include <glog/logging.h>
++#include <ng-log/logging.h>
+ #else
+ #include "no_logging.h"
+ #endif  // RIME_ENABLE_LOGGING
+diff --git a/src/rime/lever/deployment_tasks.cc b/src/rime/lever/deployment_tasks.cc
+index 6e6ff895..af46104a 100644
+--- a/src/rime/lever/deployment_tasks.cc
++++ b/src/rime/lever/deployment_tasks.cc
+@@ -634,7 +634,7 @@ bool CleanOldLogFiles::Run(Deployer* deployer) {
+   string today(ymd);
+   DLOG(INFO) << "today: " << today;
+ 
+-  vector<string> dirs(google::GetLoggingDirectories());
++  vector<string> dirs(nglog::GetLoggingDirectories());
+ 
+   DLOG(INFO) << "scanning " << dirs.size() << " temp directory for log files.";
+ 
+diff --git a/src/rime/setup.cc b/src/rime/setup.cc
+index 4c2a73b9..cb289c8c 100644
+--- a/src/rime/setup.cc
++++ b/src/rime/setup.cc
+@@ -8,7 +8,7 @@
+ #include <rime/build_config.h>
+ 
+ #ifdef RIME_ENABLE_LOGGING
+-#include <glog/logging.h>
++#include <ng-log/logging.h>
+ #else
+ #include "no_logging.h"
+ #endif  // RIME_ENABLE_LOGGING
+@@ -75,22 +75,22 @@ RIME_DLL void SetupLogging(const char* app_name,
+ #endif  // RIME_ALSO_LOG_TO_STDERR
+   if (log_dir) {
+     if (log_dir[0] == '\0') {
+-      google::LogToStderr();
++      nglog::LogToStderr();
+     } else {
+       FLAGS_log_dir = log_dir;
+     }
+   }
+-  google::SetLogFilenameExtension(".log");
+-  google::SetLogSymlink(google::GLOG_INFO, app_name);
+-  google::SetLogSymlink(google::GLOG_WARNING, app_name);
+-  google::SetLogSymlink(google::GLOG_ERROR, app_name);
++  nglog::SetLogFilenameExtension(".log");
++  nglog::SetLogSymlink(nglog::INFO, app_name);
++  nglog::SetLogSymlink(nglog::WARNING, app_name);
++  nglog::SetLogSymlink(nglog::ERROR, app_name);
+   // Do not allow other users to read/write log files created by current
+   // process.
+   FLAGS_logfile_mode = 0600;
+-  if (google::IsGoogleLoggingInitialized()) {
++  if (nglog::IsLoggingInitialized()) {
+     LOG(WARNING) << "Glog is already initialized.";
+   } else {
+-    google::InitGoogleLogging(app_name);
++    nglog::InitializeLogging(app_name);
+   }
+ #endif  // RIME_ENABLE_LOGGING
+ }
