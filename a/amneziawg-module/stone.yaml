@@ -1,0 +1,117 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : amneziawg-module
+version     : 3.1.20260812
+release     : 1
+homepage    : https://github.com/amnezia-vpn/amneziawg-linux-kernel-module
+upstreams   :
+    - https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/archive/refs/tags/v3.1.20260812.tar.gz:
+        hash: a85817876676d5933385712657bd5525a0a2939baaf057f68e3629c7b4553c82
+        unpack: false
+        rename: amneziawg.tar.gz
+summary     :  AmneziaWG Linux kernel module
+description : |
+    AmneziaWG is a contemporary version of the WireGuard protocol. It's a fork of
+    WireGuard and offers protection against detection by Deep Packet Inspection
+    (DPI) systems. At the same time, it retains the simplified architecture and
+    high performance of the original.
+license     : GPL-2.0-only
+builddeps   :
+    - binary(eu-readelf)
+    - binary(zstd)
+    - linux-gaming-devel
+    - linux-lts-devel
+    - linux-stable-devel
+environment : |
+    # Create list of kernels to build for
+    declare -a kernels=()
+    for dir in %(libdir)/kernel/*/; do
+        dir=${dir%*/}
+        kernels+=(${dir##*/})
+    done
+setup       : |
+    for _kernel in ${kernels[@]}; do
+        mkdir ${_kernel}
+        bsdtar-static -xf %(sourcedir)/amneziawg.tar.gz --strip-components=1 -C ${_kernel}
+
+        pushd ${_kernel}
+        # This is where patches would go
+        # https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/pull/194
+        %patch %(pkgdir)/kernel-7.1.5.patch
+        popd
+    done
+build       : |
+    for _kernel in ${kernels[@]}; do
+        pushd ${_kernel}
+        %ccache_zero
+        export CCACHE_BASEDIR="${PWD}"
+        # AmneziaWG's compat headers don't like not having a kernel sublevel declared :(
+        _sublevel=$(awk -F'=[[:space:]]*' '/^SUBLEVEL/{print $2}' "/usr/src/linux-headers-${_kernel}/Makefile")
+        %make CC=${CC} LD=${LD} OBJCOPY=${OBJCOPY} KERNELRELEASE=${_kernel} SUBLEVEL=${_sublevel:-0} -C src
+        %ccache_stats
+        popd
+    done
+install     : |
+    for _kernel in ${kernels[@]}; do
+        pushd ${_kernel}
+        %install_file src/amneziawg.ko %(installroot)%(libdir)/modules/${_kernel}/extra/amneziawg.ko
+
+        # Manually construct the debug info from the kernel modules
+        %install_dir %(installroot)%(libdir)/debug/.build-id
+        pushd %(installroot)%(libdir)/modules/${_kernel}
+        module_list=()
+        while IFS=  read -r -d $'\0'; do
+            module_list+=("$REPLY")
+        done < <(find . -type f -name "*.ko" -print0)
+        for module in "${module_list[@]}"; do
+            build_id=$(eu-readelf -n ${module} | awk '/Bui/ {print $3}')
+            debug_path="%(libdir)/debug/.build-id/${build_id:0:2}/${build_id: 2}.debug"
+
+            pushd $(dirname ${module})
+            file=$(basename ${module})
+
+            llvm-objcopy --only-keep-debug "${file}" "${file}.debug"
+            llvm-objcopy --add-gnu-debuglink "${file}.debug" "${file}"
+            llvm-strip -g --strip-unneeded "${file}"
+            %install_file "${file}.debug" "%(installroot)/${debug_path}"
+            rm -v "${file}.debug"
+
+            popd
+        done
+        popd
+
+        # Compress modules with zstd
+        find "%(installroot)%(libdir)/modules/${_kernel}/" -name '*.ko' -print -exec zstd {} \; -exec rm -v {} \;
+
+        popd
+    done
+packages    :
+    # TODO: Make %(name) a virtual package that uses conditional rundeps to pull in the correct package depending on kernel(s) installed
+
+    - "%(name)-gaming":
+        summary: "%(name) built for gaming kernel"
+        description: "%(name) built for gaming kernel"
+        rundeps:
+            - sysbinary(depmod)
+            - linux-gaming
+        paths:
+            - /usr/lib/modules/*.gaming/
+
+    - "%(name)-lts":
+        summary: "%(name) built for LTS kernel"
+        description: "%(name) built for LTS kernel"
+        rundeps:
+            - sysbinary(depmod)
+            - linux-lts
+        paths:
+            - /usr/lib/modules/*.lts/
+
+    - "%(name)-stable":
+        summary: "%(name) built for stable kernel"
+        description: "%(name) built for stable kernel"
+        rundeps:
+            - sysbinary(depmod)
+            - linux-stable
+        paths:
+            - /usr/lib/modules/*.stable/

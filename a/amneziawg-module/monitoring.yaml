@@ -1,0 +1,5 @@
+releases:
+  id: 390938
+  rss: https://github.com/amnezia-vpn/amneziawg-linux-kernel-module/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-06-13)
