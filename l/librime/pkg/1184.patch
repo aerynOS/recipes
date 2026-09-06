@@ -1,0 +1,67 @@
+From 96a55478ba6ae3f8e78a3c824809905745440d57 Mon Sep 17 00:00:00 2001
+From: Ziheng Liu <vcliu25@gmail.com>
+Date: Tue, 30 Jun 2026 02:37:59 +0800
+Subject: [PATCH] fix(simplifier): handle OpenCC converters without conversion
+ chains
+
+---
+ src/rime/gear/simplifier.cc | 25 +++++++++++++++++++------
+ 1 file changed, 19 insertions(+), 6 deletions(-)
+
+diff --git a/src/rime/gear/simplifier.cc b/src/rime/gear/simplifier.cc
+index b337cf1a66..8a581b6ee9 100644
+--- a/src/rime/gear/simplifier.cc
++++ b/src/rime/gear/simplifier.cc
+@@ -43,8 +43,9 @@ class Opencc {
+       // opencc accepts file path encoded in UTF-8.
+       converter_ = config.NewFromFile(config_path_.u8string());
+ 
+-      const list<opencc::ConversionPtr> conversions =
+-          converter_->GetConversionChain()->GetConversions();
++      const list<opencc::ConversionPtr> conversions = GetConversions();
++      if (conversions.empty())
++        return;
+       dict_ = conversions.front()->GetDict();
+     } catch (...) {
+       LOG(ERROR) << "opencc config not found: " << config_path_;
+@@ -56,8 +57,9 @@ class Opencc {
+     if (converter_ == nullptr) {
+       return false;
+     }
+-    const list<opencc::ConversionPtr> conversions =
+-        converter_->GetConversionChain()->GetConversions();
++    const list<opencc::ConversionPtr> conversions = GetConversions();
++    if (conversions.empty())
++      return false;
+     vector<string> original_words{text};
+     bool matched = false;
+     for (auto conversion : conversions) {
+@@ -120,8 +122,9 @@ class Opencc {
+     Initialize();
+     if (dict_ == nullptr)
+       return false;
+-    const list<opencc::ConversionPtr> conversions =
+-        converter_->GetConversionChain()->GetConversions();
++    const list<opencc::ConversionPtr> conversions = GetConversions();
++    if (conversions.empty())
++      return false;
+     const char* phrase = text.c_str();
+     for (auto conversion : conversions) {
+       opencc::DictPtr dict = conversion->GetDict();
+@@ -158,6 +161,16 @@ class Opencc {
+   }
+ 
+  private:
++  list<opencc::ConversionPtr> GetConversions() const {
++    if (converter_ == nullptr)
++      return {};
++    opencc::ConversionChainPtr conversion_chain =
++        converter_->GetConversionChain();
++    if (conversion_chain == nullptr)
++      return {};
++    return conversion_chain->GetConversions();
++  }
++
+   bool initialized_;
+   path config_path_;
+   opencc::ConverterPtr converter_;

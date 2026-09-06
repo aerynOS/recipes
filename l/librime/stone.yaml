@@ -1,0 +1,65 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : librime
+version     : "1.17.0"
+release     : 1
+homepage    : https://rime.im/
+upstreams   :
+    - https://github.com/rime/librime/archive/refs/tags/1.17.0.tar.gz:
+        hash: a60274da5d8b8a7187e6c7e9ba5023334ed7bdd182535e93c4e96de8cf188377
+        unpackdir: rime
+    - git|https://github.com/lotem/librime-octagram.git:
+        ref: bfb168ca33d8b372596fdf2007933f3da1cf360e
+        clonedir: rime/plugins/librime-octagram
+    - git|https://github.com/hchunhui/librime-lua.git:
+        ref: ec52e48ea18f11af37717a01c337f853215cf70b
+        clonedir: rime/plugins/librime-lua
+    - git|https://github.com/rime/librime-charcode.git:
+        ref: 55e7f563e999802d41a13ba02657c1be4b2011b4
+        clonedir: rime/plugins/librime-charcode
+    - git|https://github.com/lotem/librime-proto.git:
+        ref: 657a923cd4c333e681dc943e6894e6f6d42d25b4
+        clonedir: rime/plugins/librime-proto
+    - git|https://github.com/rime/librime-predict.git:
+        ref: 920bd41ebf6f9bf6855d14fbe80212e54e749791
+        clonedir: rime/plugins/librime-predict
+    - git|https://github.com/rime/rime-prelude.git:
+        ref: 082425ea0684bca36474415d4a0e8db9b016487e
+        clonedir: rime-data
+summary     : Rime with your keystrokes.
+description : |
+    Rime Input Method Engine, the core library
+license     : BSD-3-Clause
+builddeps   :
+    - cmake(Boost)
+    - cmake(CapnProto)
+    - cmake(GTest)
+    - cmake(Marisa)
+    - cmake(OpenCC)
+    - cmake(OpenSSL)
+    - cmake(leveldb)
+    - cmake(ng-log)
+    - cmake(yaml-cpp)
+    - cmake(zlib)
+    - pkgconfig(lua)
+setup       : |
+    %patch %(pkgdir)/1184.patch
+    %patch %(pkgdir)/use-nglog.patch
+    %cmake \
+        -DBUILD_MERGED_PLUGINS=OFF \
+        -DENABLE_EXTERNAL_PLUGINS=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+    %install_file ../rime-data/*.yaml -t %(installroot)%(datadir)/rime-data
+check       : |
+    %cmake_test
+packages    :
+    - "%(name)":
+        rundeps:
+            - "%(name)-data"
+    - "%(name)-data":
+        paths:
+            - /usr/share/rime-data
