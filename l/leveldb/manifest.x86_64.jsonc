@@ -1,0 +1,67 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"leveldb": {
+			"build-depends": [
+				"cmake(GTest)",
+				"cmake(benchmark)",
+				"pkgconfig(snappy)",
+				"pkgconfig(sqlite3)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libsnappy.so.1(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libleveldb.so.1",
+				"/usr/lib/libleveldb.so.1.23.0"
+			],
+			"name": "leveldb",
+			"provides": [
+				"soname(libleveldb.so.1(x86_64))"
+			]
+		},
+		"leveldb-devel": {
+			"build-depends": [
+				"cmake(GTest)",
+				"cmake(benchmark)",
+				"pkgconfig(snappy)",
+				"pkgconfig(sqlite3)"
+			],
+			"depends": [
+				"leveldb"
+			],
+			"files": [
+				"/usr/include/leveldb/c.h",
+				"/usr/include/leveldb/cache.h",
+				"/usr/include/leveldb/comparator.h",
+				"/usr/include/leveldb/db.h",
+				"/usr/include/leveldb/dumpfile.h",
+				"/usr/include/leveldb/env.h",
+				"/usr/include/leveldb/export.h",
+				"/usr/include/leveldb/filter_policy.h",
+				"/usr/include/leveldb/iterator.h",
+				"/usr/include/leveldb/options.h",
+				"/usr/include/leveldb/slice.h",
+				"/usr/include/leveldb/status.h",
+				"/usr/include/leveldb/table.h",
+				"/usr/include/leveldb/table_builder.h",
+				"/usr/include/leveldb/write_batch.h",
+				"/usr/lib/cmake/leveldb/leveldbConfig.cmake",
+				"/usr/lib/cmake/leveldb/leveldbConfigVersion.cmake",
+				"/usr/lib/cmake/leveldb/leveldbTargets-release.cmake",
+				"/usr/lib/cmake/leveldb/leveldbTargets.cmake",
+				"/usr/lib/libleveldb.so"
+			],
+			"name": "leveldb-devel",
+			"provides": [
+				"cmake(leveldb)"
+			]
+		}
+	},
+	"source-name": "leveldb",
+	"source-release": "1",
+	"source-version": "1.23"
+}
