@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : flyline
+version     : "1.7.1"
+release     : 1
+homepage    : https://github.com/HalFrgrd/flyline
+upstreams   :
+    - https://github.com/HalFrgrd/flyline/archive/refs/tags/v1.7.1.tar.gz : 067b68de0d1484a43fb77124fd2544f19b3ee30691635d038e94f13868ddb27f
+summary     : A Bash plugin to replace readline for a modern line editing experience
+description : |
+    Flyline is a readline replacement for Bash that provides syntax highlighting,
+    intellisense-style autosuggestions, fuzzy history search, rich prompts,
+    mouse support, and agent-assisted command writing.
+license     :
+    - GPL-3.0-only
+    - MIT
+networking  : true
+rundeps     :
+    - bash
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    # Bash loadable, found via BASH_LOADABLES_PATH as "flyline"
+    %install_exe %(cargo_target_dir)/libflyline.so %(installroot)%(libdir)/bash/flyline
+
+    %install_file %(pkgdir)/50-flyline.sh %(installroot)%(vendordir)/profile.d/50-flyline.sh
+check       : |
+    bash --noprofile --norc -i -c 'enable -f %(cargo_target_dir)/libflyline.so flyline'

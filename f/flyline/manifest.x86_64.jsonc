@@ -1,0 +1,23 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"flyline": {
+			"depends": [
+				"bash",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/bash/flyline",
+				"/usr/share/defaults/profile.d/50-flyline.sh"
+			],
+			"name": "flyline"
+		}
+	},
+	"source-name": "flyline",
+	"source-release": "1",
+	"source-version": "1.7.1"
+}
