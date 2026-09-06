@@ -59,6 +59,7 @@
 				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-hangul.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-hangul.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-hangul.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-hangul.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-hangul.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-hangul.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-hangul.mo",
@@ -72,6 +73,6 @@
 		}
 	},
 	"source-name": "fcitx5-hangul",
-	"source-release": "2",
-	"source-version": "5.1.10"
+	"source-release": "3",
+	"source-version": "5.1.11"
 }
