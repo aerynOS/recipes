@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : capnproto
+version     : "1.5.0"
+release     : 1
+homepage    : https://capnproto.org/
+upstreams   :
+    - https://github.com/capnproto/capnproto/archive/refs/tags/v1.5.0.tar.gz : d5ebdf858e9885c33d4b3f765006d68bd66e9b002bf4d607ff4317ef9c1aac6a
+summary     : Cap'n Proto serialization/RPC system
+description : |
+    Cap'n Proto is an insanely fast data interchange format and capability-based RPC system.
+license     : MIT
+builddeps   :
+    - cmake(OpenSSL)
+    - cmake(zlib)
+checkdeps   :
+    - binary(addr2line)
+setup       : |
+    # From Arch, Coroutine support requires C++20
+    export CXXFLAGS+=" -std=c++20"
+
+    %cmake \
+        -D CMAKE_POSITION_INDEPENDENT_CODE=ON \
+        -D BUILD_SHARED_LIBS=ON \
+        -D WITH_FIBERS=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    # failed: DNS lookup failed. Temporary failure in name resolution
+    # failed: mkdtemp: No such file or directory; filename = /var/tmp/
+    mkdir -p /etc /var/tmp
+    echo '127.0.0.1 localhost' > /etc/hosts
+    %cmake_test
+packages    :
+    - "%(name)-libs":
+        paths:
+            - /usr/lib/libcapnp*.so.*
+            - /usr/lib/libcapnpc.so.*
+            - /usr/lib/libkj*.so.*
