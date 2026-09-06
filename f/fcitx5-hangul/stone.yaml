@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-hangul
-version     : "5.1.10"
-release     : 2
+version     : "5.1.11"
+release     : 3
 homepage    : https://github.com/fcitx/fcitx5-hangul
 upstreams   :
-    - https://github.com/fcitx/fcitx5-hangul/archive/refs/tags/5.1.10.tar.gz : e0c902c9aa2c711315d23c98adfa73e0deb080d110a1bbb829f90e3c40155b6a
+    - https://github.com/fcitx/fcitx5-hangul/archive/refs/tags/5.1.11.tar.gz : 9f9d4714517d7148159972c6f1ca042f1d114cde29ec1b9f6d3462b82dba7960
 summary     : Hangul wrapper for Fcitx
 description : |
     Hangul wrapper for Fcitx.
-license     :
-    - LGPL-2.1-or-later
+license     : LGPL-2.1-or-later
 builddeps   :
     - cmake(ECM)
     - cmake(Fcitx5Core)
