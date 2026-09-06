@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : pkgset-smia-base
+version     : "2026.07.14"
+release     : 1
+homepage    : https://github.com/christian-bendiksen/smia
+# No upstream
+summary     : pkgset virtual package - Smia base
+description : |
+    Base packages for Smia malm configuration
+license     : MIT
+rundeps     :
+    - binary(awww)
+    - binary(bluetui)
+    - binary(brightnessctl)
+    - binary(btop)
+    - binary(elephant)
+    - binary(gnist)
+    - binary(gpu-screen-recorder)
+    - binary(grim)
+    - binary(hx)
+    - binary(hypridle)
+    - binary(hyprlock)
+    - binary(impala)
+    - binary(kitty)
+    - binary(mako)
+    - binary(malm)
+    - binary(notify-send)
+    - binary(nvim)
+    - binary(pkaction)
+    - binary(playerctl)
+    - binary(sddm)
+    - binary(slurp)
+    - binary(swayosd-client)
+    - binary(walker)
+    - binary(waybar)
+    - binary(wl-clip)
+    - binary(wlsunset)
+    - aerynos-eldritch-icon-theme
+    - pkgset-aeryn-base-desktop
+    - polkit-kde-agent
+    - xdg-desktop-portal
+    - xdg-desktop-portal-gtk
+    - xdg-desktop-portal-wlr
+    - xdg-utils
+    - yaru-icon-theme
+install     : |
+    %install_dir %(installroot)%(docdir)/%(name)
