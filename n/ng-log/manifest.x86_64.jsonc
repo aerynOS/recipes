@@ -1,0 +1,84 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"ng-log": {
+			"build-depends": [
+				"cmake(GTest)",
+				"cmake(benchmark)",
+				"cmake(gflags)",
+				"pkgconfig(libunwind)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgflags.so.2.3(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libunwind.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libglog.so.0.8.4",
+				"/usr/lib/libglog.so.3",
+				"/usr/lib/libng-log.so.0",
+				"/usr/lib/libng-log.so.0.8.4"
+			],
+			"name": "ng-log",
+			"provides": [
+				"soname(libglog.so.3(x86_64))",
+				"soname(libng-log.so.0(x86_64))"
+			]
+		},
+		"ng-log-devel": {
+			"build-depends": [
+				"cmake(GTest)",
+				"cmake(benchmark)",
+				"cmake(gflags)",
+				"pkgconfig(libunwind)"
+			],
+			"depends": [
+				"ng-log"
+			],
+			"files": [
+				"/usr/include/glog/export.h",
+				"/usr/include/glog/flags.h",
+				"/usr/include/glog/log_severity.h",
+				"/usr/include/glog/logging.h",
+				"/usr/include/glog/platform.h",
+				"/usr/include/glog/raw_logging.h",
+				"/usr/include/glog/stl_logging.h",
+				"/usr/include/glog/types.h",
+				"/usr/include/glog/vlog_is_on.h",
+				"/usr/include/ng-log/export.h",
+				"/usr/include/ng-log/flags.h",
+				"/usr/include/ng-log/log_severity.h",
+				"/usr/include/ng-log/logging.h",
+				"/usr/include/ng-log/platform.h",
+				"/usr/include/ng-log/raw_logging.h",
+				"/usr/include/ng-log/stl_logging.h",
+				"/usr/include/ng-log/types.h",
+				"/usr/include/ng-log/vlog_is_on.h",
+				"/usr/lib/cmake/glog/glog-config-version.cmake",
+				"/usr/lib/cmake/glog/glog-config.cmake",
+				"/usr/lib/cmake/glog/glog-targets-release.cmake",
+				"/usr/lib/cmake/glog/glog-targets.cmake",
+				"/usr/lib/cmake/ng-log/ng-log-config-version.cmake",
+				"/usr/lib/cmake/ng-log/ng-log-config.cmake",
+				"/usr/lib/cmake/ng-log/ng-log-modules.cmake",
+				"/usr/lib/cmake/ng-log/ng-log-targets-release.cmake",
+				"/usr/lib/cmake/ng-log/ng-log-targets.cmake",
+				"/usr/lib/libglog.so",
+				"/usr/lib/libng-log.so",
+				"/usr/lib/pkgconfig/libng-log.pc",
+				"/usr/share/ng-log/cmake/FindUnwind.cmake"
+			],
+			"name": "ng-log-devel",
+			"provides": [
+				"cmake(glog)",
+				"cmake(ng-log)",
+				"pkgconfig(libng-log)"
+			]
+		}
+	},
+	"source-name": "ng-log",
+	"source-release": "1",
+	"source-version": "0.8.4"
+}
