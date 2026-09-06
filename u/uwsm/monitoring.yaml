@@ -1,0 +1,5 @@
+releases:
+  id: 388878
+  rss: https://github.com/Vladimir-csp/uwsm/releases.atom
+security:
+  cpe: ~

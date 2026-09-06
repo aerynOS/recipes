@@ -1,0 +1,105 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"uwsm": {
+			"build-depends": [
+				"pkgconfig(scdoc)",
+				"python(dbus-python)",
+				"python(pyxdg)"
+			],
+			"depends": [
+				"python-dbus",
+				"python-pyxdg"
+			],
+			"files": [
+				"/usr/bin/fumon",
+				"/usr/bin/ttyautolock",
+				"/usr/bin/uuctl",
+				"/usr/bin/uwsm",
+				"/usr/bin/uwsm-app",
+				"/usr/bin/uwsm-terminal",
+				"/usr/bin/uwsm-terminal-scope",
+				"/usr/bin/uwsm-terminal-service",
+				"/usr/lib/systemd/user-preset/80-fumon.preset",
+				"/usr/lib/systemd/user-preset/80-ttyautolock.preset",
+				"/usr/lib/systemd/user/app-graphical.slice",
+				"/usr/lib/systemd/user/background-graphical.slice",
+				"/usr/lib/systemd/user/fumon.service",
+				"/usr/lib/systemd/user/session-graphical.slice",
+				"/usr/lib/systemd/user/ttyautolock@.service",
+				"/usr/lib/systemd/user/wayland-session-bindpid@.service",
+				"/usr/lib/systemd/user/wayland-session-envelope@.target",
+				"/usr/lib/systemd/user/wayland-session-pre@.target",
+				"/usr/lib/systemd/user/wayland-session-shutdown.target",
+				"/usr/lib/systemd/user/wayland-session-waitenv.service",
+				"/usr/lib/systemd/user/wayland-session-xdg-autostart@.target",
+				"/usr/lib/systemd/user/wayland-session@.target",
+				"/usr/lib/systemd/user/wayland-wm-app-daemon.service",
+				"/usr/lib/systemd/user/wayland-wm-env@.service",
+				"/usr/lib/systemd/user/wayland-wm@.service",
+				"/usr/lib/uwsm/uwsm/prepare-env.sh",
+				"/usr/lib/uwsm/uwsm/signal-handler.sh",
+				"/usr/share/applications/uuctl.desktop",
+				"/usr/share/doc/uwsm/README.md",
+				"/usr/share/doc/uwsm/example-units/cliphist.desktop",
+				"/usr/share/doc/uwsm/example-units/cliphist.service",
+				"/usr/share/doc/uwsm/example-units/hyprpaper.service",
+				"/usr/share/doc/uwsm/example-units/kanshi.desktop",
+				"/usr/share/doc/uwsm/example-units/kanshi.service",
+				"/usr/share/doc/uwsm/example-units/swayidle.service",
+				"/usr/share/doc/uwsm/example-units/uu2gslice.sh",
+				"/usr/share/doc/uwsm/example-units/waybar.desktop",
+				"/usr/share/doc/uwsm/example-units/waybar.service",
+				"/usr/share/doc/uwsm/example-units/waybar_override.conf",
+				"/usr/share/licenses/uwsm/LICENSE",
+				"/usr/share/man/man1/fumon.1",
+				"/usr/share/man/man1/ttyautolock.1",
+				"/usr/share/man/man1/uuctl.1",
+				"/usr/share/man/man1/uwsm-app.1",
+				"/usr/share/man/man1/uwsm.1",
+				"/usr/share/uwsm/modules/uwsm/__init__.py",
+				"/usr/share/uwsm/modules/uwsm/dbus.py",
+				"/usr/share/uwsm/modules/uwsm/main.py",
+				"/usr/share/uwsm/modules/uwsm/misc.py",
+				"/usr/share/uwsm/modules/uwsm/params.py",
+				"/usr/share/uwsm/plugins/hyprland.sh",
+				"/usr/share/uwsm/plugins/labwc.sh",
+				"/usr/share/uwsm/plugins/mango.sh",
+				"/usr/share/uwsm/plugins/niri.sh",
+				"/usr/share/uwsm/plugins/niri_session.sh",
+				"/usr/share/uwsm/plugins/start_hyprland.sh",
+				"/usr/share/uwsm/plugins/sway.sh",
+				"/usr/share/uwsm/plugins/wayfire.sh"
+			],
+			"name": "uwsm",
+			"provides": [
+				"binary(fumon)",
+				"binary(ttyautolock)",
+				"binary(uuctl)",
+				"binary(uwsm)",
+				"binary(uwsm-app)",
+				"binary(uwsm-terminal)",
+				"binary(uwsm-terminal-scope)",
+				"binary(uwsm-terminal-service)"
+			]
+		},
+		"uwsm-devel": {
+			"build-depends": [
+				"pkgconfig(scdoc)",
+				"python(dbus-python)",
+				"python(pyxdg)"
+			],
+			"depends": [
+				"uwsm"
+			],
+			"files": [
+				"/usr/share/man/man3/uwsm-plugins.3"
+			],
+			"name": "uwsm-devel"
+		}
+	},
+	"source-name": "uwsm",
+	"source-release": "1",
+	"source-version": "0.26.4"
+}
