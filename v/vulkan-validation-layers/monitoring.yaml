@@ -1,0 +1,5 @@
+releases:
+  id: 230558
+  rss: https://github.com/KhronosGroup/Vulkan-ValidationLayers/tags.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-07-31)
