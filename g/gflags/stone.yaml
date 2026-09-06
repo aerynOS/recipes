@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gflags
+version     : "2.3.1"
+release     : 1
+homepage    : https://gflags.github.io/gflags/
+upstreams   :
+    - https://github.com/gflags/gflags/archive/refs/tags/v2.3.1.tar.gz : 1b5e0648d7b94021895086e65479b4eaca7935eecfffd7dd9512eb576181c53d
+summary     : The gflags package contains a C++ library that implements commandline flags processing.
+description : |
+    The gflags package contains a C++ library that implements commandline flags processing. It includes built-in support for standard types such as string and the ability to define flags in the source file in which they are used.
+license     : BSD-3-Clause
+setup       : |
+    %cmake \
+        -DBUILD_TESTING=ON \
+        -DINSTALL_HEADERS=ON \
+        -DBUILD_SHARED_LIBS=ON \
+        -DREGISTER_BUILD_DIR=OFF \
+        -DREGISTER_INSTALL_PREFIX=OFF
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    %cmake_test
