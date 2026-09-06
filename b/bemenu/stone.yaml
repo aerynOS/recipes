@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : bemenu
+version     : "0.6.23"
+release     : 1
+homepage    : https://github.com/Cloudef/bemenu
+upstreams   :
+    - https://github.com/Cloudef/bemenu/releases/download/0.6.23/bemenu-0.6.23.tar.gz : 7cd336fb827b50a12c398a5daf6d2e6a07e291217116e725e7f1e021d9e0cdd9
+summary     : Dynamic menu library and client program inspired by dmenu
+description : |
+    Dynamic menu library and client program inspired by dmenu.
+license     :
+    - GPL-3.0-or-later
+    - LGPL-3.0-or-later
+builddeps   :
+    - pkgconfig(cairo)
+    - pkgconfig(pango)
+    - pkgconfig(pangocairo)
+    - pkgconfig(scdoc)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(xkbcommon)
+build       : |
+    %make clients wayland PREFIX=/usr
+install     : |
+    %make_install PREFIX=/usr
