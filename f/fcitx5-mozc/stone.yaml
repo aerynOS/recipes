@@ -1,0 +1,159 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : fcitx5-mozc
+##@@BEGIN_VERSION
+version     : "3.34.6239.2"
+##@@END_VERSION
+release     : 1
+homepage    : https://github.com/google/mozc
+upstreams   :
+##@@BEGIN_GIT_UPSTREAMS
+    - git|https://github.com/fcitx/mozc.git:
+        ref: 3f9b1bd6d089cef2e1e8814d7de25291e730274b
+        clonedir: mozc
+    - git|https://github.com/bazelbuild/bazel-central-registry.git:
+        ref: b4e12725d1ea1e61060d0a851193f3047e5eca64
+        clonedir: bazel-central-registry
+##@@END_GIT_UPSTREAMS
+##@@BEGIN_BAZEL_BINARY
+    - https://github.com/bazelbuild/bazel/releases/download/9.0.2/bazel-9.0.2-linux-x86_64:
+        hash: 422e7a1690b76d7e615c29091d3aca28d0bd3a93fe3c93cbefb8f72d774926d5
+        unpack: false
+##@@END_BAZEL_BINARY
+##@@BEGIN_BAZEL_DEPS
+    - https://github.com/abseil/abseil-cpp/releases/download/20260107.1/abseil-cpp-20260107.1.tar.gz:
+        hash: 4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195
+        unpack: false
+    - https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.11.14+20251031-x86_64-unknown-linux-gnu-install_only.tar.gz:
+        hash: 60f0bd473d861cc45d3401d9914e47ccb9fa037f88a91879ed517a62042b8477
+        unpack: false
+    - https://github.com/bats-core/bats-core/archive/v1.10.0.tar.gz:
+        hash: a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd
+        unpack: false
+    - https://github.com/bazel-contrib/bazel-lib/releases/download/v2.22.5/bazel-lib-v2.22.5.tar.gz:
+        hash: 94e192033ca8027f26de71c9000a67ef9c73695c2b88e2c559045170917ead0c
+        unpack: false
+    - https://github.com/bazel-contrib/bazel-lib/releases/download/v3.0.0/bazel-lib-v3.0.0.tar.gz:
+        hash: 6fd3b1e1a38ca744f9664be4627ced80895c7d2ee353891c172f1ab61309c933
+        unpack: false
+    - https://github.com/bazel-contrib/bazel_features/releases/download/v1.42.1/bazel_features-v1.42.1.tar.gz:
+        hash: 8189bac9a6bf9cc155a854c4cbebfebf58b9ca7a2d0a67645f7d0c1f83c523ac
+        unpack: false
+    - https://github.com/bazel-contrib/rules_go/releases/download/v0.60.0/rules_go-v0.60.0.zip:
+        hash: 86d3dc8f59d253524f933aaf2f3c05896cb0b605fc35b460c0b4b039996124c6
+        unpack: false
+    - https://github.com/bazel-contrib/rules_python/releases/download/1.9.0/rules_python-1.9.0.tar.gz:
+        hash: 098ba13578e796c00c853a2161f382647f32eb9a77099e1c88bc5299333d0d6e
+        unpack: false
+    - https://github.com/bazel-contrib/tar.bzl/releases/download/v0.5.1/tar.bzl-v0.5.1.tar.gz:
+        hash: b47e3c83a0c1440ce335aa1ae18753da6eb7cd551d4946fa303de2abde07e20b
+        unpack: false
+    - https://github.com/bazelbuild/apple_support/releases/download/2.4.0/apple_support.2.4.0.tar.gz:
+        hash: 9f2ee0d23bf46b1c8ac88cea73ab13d415f340ec777e1e68841e09153880a67e
+        unpack: false
+    - https://github.com/bazelbuild/bazel-skylib/releases/download/1.9.0/bazel-skylib-1.9.0.tar.gz:
+        hash: 3b5b49006181f5f8ff626ef8ddceaa95e9bb8ad294f7b5d7b11ea9f7ddaf8c59
+        unpack: false
+    - https://github.com/bazelbuild/platforms/releases/download/1.0.0/platforms-1.0.0.tar.gz:
+        hash: 3384eb1c30762704fbe38e440204e114154086c8fc8a8c2e3e28441028c019a8
+        unpack: false
+    - https://github.com/bazelbuild/rules_android/releases/download/v0.7.1/rules_android-v0.7.1.tar.gz:
+        hash: 7c45b6aaa837fb6f2f23ad11387638cb00fa9f839a04ec564caac70a543a9cd5
+        unpack: false
+    - https://github.com/bazelbuild/rules_android_ndk/releases/download/v0.1.5/rules_android_ndk-v0.1.5.tar.gz:
+        hash: 07e7a2777113bb3d0a432265d1c78cfaa140a5bc4c82be4c8cd988b34382ec90
+        unpack: false
+    - https://github.com/bazelbuild/rules_apple/releases/download/4.5.2/rules_apple.4.5.2.tar.gz:
+        hash: bdac384944a8a7b555f403e10fecb25de6096ff340722e090847bfb562c0ce89
+        unpack: false
+    - https://github.com/bazelbuild/rules_cc/releases/download/0.2.17/rules_cc-0.2.17.tar.gz:
+        hash: 283fa1cdaaf172337898749cf4b9b1ef5ea269da59540954e51fba0e7b8f277a
+        unpack: false
+    - https://github.com/bazelbuild/rules_java/releases/download/9.3.0/rules_java-9.3.0.tar.gz:
+        hash: 6ef26d4f978e8b4cf5ce1d47532d70cb62cd18431227a1c8007c8f7843243c06
+        unpack: false
+    - https://github.com/bazelbuild/rules_kotlin/releases/download/v2.2.2/rules_kotlin-v2.2.2.tar.gz:
+        hash: 411db26afb3492cc8351b5b5349931522afe2c54f2651b6d127730a1256d0f60
+        unpack: false
+    - https://github.com/bazelbuild/rules_license/releases/download/1.0.0/rules_license-1.0.0.tar.gz:
+        hash: 26d4021f6898e23b82ef953078389dd49ac2b5618ac564ade4ef87cced147b38
+        unpack: false
+    - https://github.com/bazelbuild/rules_pkg/releases/download/1.2.0/rules_pkg-1.2.0.tar.gz:
+        hash: b5c9184a23bb0bcff241981fd9d9e2a97638a1374c9953bb1808836ce711f990
+        unpack: false
+    - https://github.com/bazelbuild/rules_shell/releases/download/v0.6.1/rules_shell-v0.6.1.tar.gz:
+        hash: e6b87c89bd0b27039e3af2c5da01147452f240f75d505f5b6880874f31036307
+        unpack: false
+    - https://github.com/bazelbuild/rules_swift/releases/download/3.5.0/rules_swift.3.5.0.tar.gz:
+        hash: c98f201bc217d2ce28e01afc78b410d05c67b846c04a7095e4e701b37422ecb2
+        unpack: false
+    - https://github.com/hiroyuki-komatsu/japanese-usage-dictionary/archive/refs/tags/2025-01-25.zip:
+        hash: 140f24f71f7d78d5eb5b93a9c079f44f23728dca5ab16bf857fe8a3fa1bf20ed
+        unpack: false
+    - https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/621d059fbcbfae17bfca15b439692bae934268c3/jigyosyo.zip:
+        hash: 14be1030f607c5f819f2f45a485e89511907bdd1d62e7fb1931b6e48a3431c3a
+        unpack: false
+    - https://github.com/hiroyuki-komatsu/japanpost_zipcode/raw/621d059fbcbfae17bfca15b439692bae934268c3/ken_all.zip:
+        hash: 3adc97d8e19e1168a6cdcb2fce759d0e9e613a9a3b630cc180aecfd56ae81eaf
+        unpack: false
+    - https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz:
+        hash: 9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23
+        unpack: false
+    - https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protobuf-34.1.bazel.tar.gz:
+        hash: 9f0933ad12abb0a8957b3b64aefc34774ccbe57f77f890c66cb4067519bb83c1
+        unpack: false
+    - https://github.com/protocolbuffers/protobuf/releases/download/v34.1/protoc-34.1-linux-x86_64.zip:
+        hash: af27ea66cd26938fe48587804ca7d4817457a08350021a1c6e23a27ccc8c6904
+        unpack: false
+##@@END_BAZEL_DEPS
+summary     : fcitx5 plugin for Mozc - a Japanese Input Method Editor designed for multi-platform
+description : |
+    Mozc is a Japanese Input Method Editor (IME) designed for multi-platform such as Android OS, Apple macOS, Chromium OS, GNU/Linux and Microsoft Windows. This is the fcitx5 plugin
+license     : BSD-3-Clause
+builddeps   :
+    - binary(python)
+    - cmake(Fcitx5Core)
+    - cmake(Fcitx5Module)
+    - cmake(Qt6Core)
+    - cmake(Qt6Gui)
+    - cmake(Qt6Widgets)
+    - gettext-devel
+build       : |
+    export USE_BAZEL_VERSION="$(echo %(sourcedir)/bazel-*-linux-x86_64)"
+
+    cd src
+    %bazel_build \
+        --config oss_linux \
+        --config stable_channel \
+        --config release_build \
+        --distdir="%(sourcedir)" \
+        --host_cxxopt=-Wno-uninitialized \
+        --registry="file://%(buildroot)/bazel-central-registry" \
+        --nostart_end_lib \
+        //server:mozc_server \
+        //gui/tool:mozc_tool \
+        //unix/fcitx5:fcitx5-mozc.so
+install     : |
+    cd src
+    export PREFIX="%(installroot)%(prefix)"
+    ../scripts/install_server_bazel
+    ../scripts/install_fcitx5_bazel
+
+    # svgs
+    %install_file data/images/icon.svg          %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc.svg
+    %install_file data/images/direct.svg        %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_direct.svg
+    %install_file data/images/hiragana.svg      %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_hiragana.svg
+    %install_file data/images/full_katakana.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_katakana_full.svg
+    %install_file data/images/half_katakana.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_katakana_half.svg
+    %install_file data/images/full_ascii.svg    %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_alpha_full.svg
+    %install_file data/images/half_ascii.svg    %(installroot)%(datadir)/icons/hicolor/scalable/apps/fcitx_mozc_alpha_half.svg
+
+    # replace the symlinks with the pngs (we dont use org.fcitx.Fcitx5.*)
+    for d in %(installroot)%(datadir)/icons/hicolor/*/apps; do
+        cd "${d}"
+        for f in org.fcitx.Fcitx5.fcitx_mozc*.png; do
+            [ -e "${f}" ] || continue
+            mv -f "${f}" "${f#org.fcitx.Fcitx5.}"
+        done
+    done

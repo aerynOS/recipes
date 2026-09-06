@@ -1,0 +1,78 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"fcitx5-mozc": {
+			"build-depends": [
+				"binary(python)",
+				"cmake(Fcitx5Core)",
+				"cmake(Fcitx5Module)",
+				"cmake(Qt6Core)",
+				"cmake(Qt6Gui)",
+				"cmake(Qt6Widgets)",
+				"gettext-devel"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libFcitx5Config.so.6(x86_64))",
+				"soname(libFcitx5Core.so.7(x86_64))",
+				"soname(libFcitx5Utils.so.2(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Widgets.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/fcitx5/fcitx5-mozc.so",
+				"/usr/lib/mozc/mozc_server",
+				"/usr/lib/mozc/mozc_tool",
+				"/usr/share/doc/mozc/credits_en.html",
+				"/usr/share/fcitx5/addon/mozc.conf",
+				"/usr/share/fcitx5/inputmethod/mozc.conf",
+				"/usr/share/icons/hicolor/128x128/apps/fcitx_mozc.png",
+				"/usr/share/icons/hicolor/32x32/apps/fcitx_mozc.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_alpha_full.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_alpha_half.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_dictionary.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_direct.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_hiragana.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_katakana_full.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_katakana_half.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_properties.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_mozc_tool.png",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_alpha_full.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_alpha_half.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_direct.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_hiragana.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_katakana_full.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_mozc_katakana_half.svg",
+				"/usr/share/locale/ca/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/da/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/de/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/he/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/metainfo/org.fcitx.Fcitx5.Addon.Mozc.metainfo.xml"
+			],
+			"name": "fcitx5-mozc",
+			"provides": [
+				"soname(fcitx5/fcitx5-mozc.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "fcitx5-mozc",
+	"source-release": "1",
+	"source-version": "3.34.6239.2"
+}
