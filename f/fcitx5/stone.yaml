@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5
-version     : "5.1.21"
-release     : 2
+version     : "5.1.22"
+release     : 3
 homepage    : https://github.com/fcitx/fcitx5
 upstreams   :
-    - https://github.com/fcitx/fcitx5/archive/refs/tags/5.1.21.tar.gz : 8211fe5996db22254e5df9617cbd45873ae7fab82e7e0c42bde5a197299d1276
+    - https://github.com/fcitx/fcitx5/archive/refs/tags/5.1.22.tar.gz : 1c2ba9b1f4d9795bd923ca15103e1a7cc13330788e618899062836e043ea4803
     - https://github.com/facebook/yoga/archive/042f5013152eb81c1552dec945b88f7b95ca350f.tar.gz :
         hash: 4742f41722a16f181e3da37abf943390db1e928f00f26402cb154662ae7f110f
         unpackdir: yoga
@@ -28,6 +28,7 @@ builddeps   :
     - pkgconfig(gdk-pixbuf-2.0)
     - pkgconfig(iso-codes)
     - pkgconfig(json-c)
+    - pkgconfig(librsvg-2.0)
     - pkgconfig(nlohmann_json)
     - pkgconfig(pango)
     - pkgconfig(systemd)
@@ -46,8 +47,7 @@ builddeps   :
 setup       : |
     rmdir third_party/yoga
     mv /mason/build/x86_64/yoga third_party/yoga
-    # This is used because we save xdg/autostart to %(datadir)
-    # instead of /etc
+    # we save xdg/autostart to %(datadir) instead of /etc
     %cmake -DCMAKE_INSTALL_SYSCONFDIR=%(datadir)
 build       : |
     %cmake_build
