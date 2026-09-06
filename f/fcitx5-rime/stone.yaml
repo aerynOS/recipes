@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : fcitx5-rime
+version     : "5.1.15"
+release     : 1
+homepage    : https://github.com/fcitx/fcitx5-rime
+upstreams   :
+    - https://github.com/fcitx/fcitx5-rime/archive/refs/tags/5.1.15.tar.gz : fcfccd3e0342b706243d7510b70f6fc2c8c6640f55ce60b7bbf40ae97869c37f
+summary     : Rime (中州韵) support for fcitx5
+description : |
+    RIME(中州韻輸入法引擎) is mainly a Traditional Chinese input method engine.
+license     : LGPL-2.1-or-later
+builddeps   :
+    - cmake(ECM)
+    - cmake(Fcitx5Core)
+    - cmake(Fcitx5Module)
+    - cmake(Rime)
+    - gettext-devel
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    %cmake_test

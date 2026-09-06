@@ -1,0 +1,120 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"librime": {
+			"build-depends": [
+				"cmake(Boost)",
+				"cmake(CapnProto)",
+				"cmake(GTest)",
+				"cmake(Marisa)",
+				"cmake(OpenCC)",
+				"cmake(OpenSSL)",
+				"cmake(leveldb)",
+				"cmake(ng-log)",
+				"cmake(yaml-cpp)",
+				"cmake(zlib)",
+				"pkgconfig(lua)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"librime-data",
+				"soname(libboost_locale.so.1.92.0(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcapnp.so.1.5.0(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libleveldb.so.1(x86_64))",
+				"soname(liblua.so.5.5(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libmarisa.so.0(x86_64))",
+				"soname(libng-log.so.0(x86_64))",
+				"soname(libopencc.so.1.4(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libyaml-cpp.so.0.9(x86_64))"
+			],
+			"files": [
+				"/usr/bin/rime_deployer",
+				"/usr/bin/rime_dict_manager",
+				"/usr/bin/rime_patch",
+				"/usr/bin/rime_table_decompiler",
+				"/usr/lib/librime.so.1",
+				"/usr/lib/librime.so.1.17.0",
+				"/usr/lib/rime-plugins/librime-charcode.so",
+				"/usr/lib/rime-plugins/librime-lua.so",
+				"/usr/lib/rime-plugins/librime-octagram.so",
+				"/usr/lib/rime-plugins/librime-predict.so",
+				"/usr/lib/rime-plugins/librime-proto.so"
+			],
+			"name": "librime",
+			"provides": [
+				"binary(rime_deployer)",
+				"binary(rime_dict_manager)",
+				"binary(rime_patch)",
+				"binary(rime_table_decompiler)",
+				"soname(librime.so.1(x86_64))",
+				"soname(rime-plugins/librime-charcode.so(x86_64))",
+				"soname(rime-plugins/librime-lua.so(x86_64))",
+				"soname(rime-plugins/librime-octagram.so(x86_64))",
+				"soname(rime-plugins/librime-predict.so(x86_64))",
+				"soname(rime-plugins/librime-proto.so(x86_64))"
+			]
+		},
+		"librime-data": {
+			"build-depends": [
+				"cmake(Boost)",
+				"cmake(CapnProto)",
+				"cmake(GTest)",
+				"cmake(Marisa)",
+				"cmake(OpenCC)",
+				"cmake(OpenSSL)",
+				"cmake(leveldb)",
+				"cmake(ng-log)",
+				"cmake(yaml-cpp)",
+				"cmake(zlib)",
+				"pkgconfig(lua)"
+			],
+			"files": [
+				"/usr/share/rime-data/default.yaml",
+				"/usr/share/rime-data/key_bindings.yaml",
+				"/usr/share/rime-data/punctuation.yaml",
+				"/usr/share/rime-data/symbols.yaml"
+			],
+			"name": "librime-data"
+		},
+		"librime-devel": {
+			"build-depends": [
+				"cmake(Boost)",
+				"cmake(CapnProto)",
+				"cmake(GTest)",
+				"cmake(Marisa)",
+				"cmake(OpenCC)",
+				"cmake(OpenSSL)",
+				"cmake(leveldb)",
+				"cmake(ng-log)",
+				"cmake(yaml-cpp)",
+				"cmake(zlib)",
+				"pkgconfig(lua)"
+			],
+			"depends": [
+				"librime"
+			],
+			"files": [
+				"/usr/include/rime_api.h",
+				"/usr/include/rime_api_deprecated.h",
+				"/usr/include/rime_api_stdbool.h",
+				"/usr/include/rime_levers_api.h",
+				"/usr/lib/librime.so",
+				"/usr/lib/pkgconfig/rime.pc",
+				"/usr/share/cmake/rime/RimeConfig.cmake"
+			],
+			"name": "librime-devel",
+			"provides": [
+				"cmake(Rime)",
+				"pkgconfig(rime)"
+			]
+		}
+	},
+	"source-name": "librime",
+	"source-release": "1",
+	"source-version": "1.17.0"
+}

@@ -1,0 +1,80 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"fcitx5-rime": {
+			"build-depends": [
+				"cmake(ECM)",
+				"cmake(Fcitx5Core)",
+				"cmake(Fcitx5Module)",
+				"cmake(Rime)",
+				"gettext-devel"
+			],
+			"depends": [
+				"soname(libFcitx5Config.so.6(x86_64))",
+				"soname(libFcitx5Core.so.7(x86_64))",
+				"soname(libFcitx5Utils.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(librime.so.1(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/fcitx5/librime.so",
+				"/usr/share/fcitx5/addon/rime.conf",
+				"/usr/share/fcitx5/inputmethod/rime.conf",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx-rime.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_deploy.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_disable.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_im.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_latin.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_latin_upper.png",
+				"/usr/share/icons/hicolor/48x48/apps/fcitx_rime_sync.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx-rime.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_deploy.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_disable.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_im.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_latin.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_latin_upper.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.fcitx.Fcitx5.fcitx_rime_sync.png",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx-rime.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_deploy.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_disable.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_im.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_latin.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_latin_upper.svg",
+				"/usr/share/icons/hicolor/scalable/apps/fcitx_rime_sync.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx-rime.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_deploy.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_disable.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_im.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_latin.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_latin_upper.svg",
+				"/usr/share/icons/hicolor/scalable/apps/org.fcitx.Fcitx5.fcitx_rime_sync.svg",
+				"/usr/share/locale/ca/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/da/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/de/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/he/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/fcitx5-rime.mo",
+				"/usr/share/metainfo/org.fcitx.Fcitx5.Addon.Rime.metainfo.xml",
+				"/usr/share/rime-data/fcitx5.yaml"
+			],
+			"name": "fcitx5-rime",
+			"provides": [
+				"soname(fcitx5/librime.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "fcitx5-rime",
+	"source-release": "1",
+	"source-version": "5.1.15"
+}

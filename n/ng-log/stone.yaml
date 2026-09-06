@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : ng-log
+version     : "0.8.4"
+release     : 1
+homepage    : https://ng-log.github.io/ng-log/stable/
+upstreams   :
+    - https://github.com/ng-log/ng-log/archive/refs/tags/v0.8.4.tar.gz : e154857d99d4ab6246a1bbde607ddb60f4bd6b1912c4f044a81f688cc89fcdd0
+summary     : C++ library for application-level logging
+description : |
+    ng-log (formerly Google Logging Library or glog) is a C++14 library that implements application-level logging. The library provides logging APIs based on C++-style streams and various helper macros.
+license     : BSD-3-Clause
+builddeps   :
+    - cmake(GTest)
+    - cmake(benchmark)
+    - cmake(gflags)
+    - pkgconfig(libunwind)
+setup       : |
+    %cmake \
+        -DWITH_PKGCONFIG=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    # check passes at -O0, so skip it instead
+    %cmake_test -E DeathNoAllocNewHook
+tuning      :
+    # fix test#52 `symbolize.Symbolize.PCInsideNonInlineFunction`
+    - lto: false
+packages    :
+    - "%(name)-devel":
+        paths:
+            - /usr/share/ng-log/cmake
