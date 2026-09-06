@@ -12,6 +12,7 @@
 				"cmake(LibIMEPinyin)",
 				"cmake(OpenCC)",
 				"cmake(Qt6WebEngineWidgets)",
+				"cmake(nlohmann_json)",
 				"gettext-devel",
 				"pkgconfig(cups)",
 				"pkgconfig(libcurl)"
@@ -229,6 +230,7 @@
 				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-chinese-addons.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-chinese-addons.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-chinese-addons.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-chinese-addons.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-chinese-addons.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-chinese-addons.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/fcitx5-chinese-addons.mo",
@@ -258,6 +260,7 @@
 				"cmake(LibIMEPinyin)",
 				"cmake(OpenCC)",
 				"cmake(Qt6WebEngineWidgets)",
+				"cmake(nlohmann_json)",
 				"gettext-devel",
 				"pkgconfig(cups)",
 				"pkgconfig(libcurl)"
@@ -285,6 +288,6 @@
 		}
 	},
 	"source-name": "fcitx5-chinese-addons",
-	"source-release": "1",
-	"source-version": "5.1.13"
+	"source-release": "2",
+	"source-version": "5.1.14"
 }

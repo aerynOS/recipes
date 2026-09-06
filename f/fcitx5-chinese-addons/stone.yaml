@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-chinese-addons
-version     : "5.1.13"
-release     : 1
+version     : "5.1.14"
+release     : 2
 homepage    : https://github.com/fcitx/fcitx5-chinese-addons
 upstreams   :
-    - https://github.com/fcitx/fcitx5-chinese-addons/archive/refs/tags/5.1.13.tar.gz:
-        hash: ee056e7ac31f5f9c242cee43f7ad8605e2cc188a7bbcc46f869332a49058244a
+    - https://github.com/fcitx/fcitx5-chinese-addons/archive/refs/tags/5.1.14.tar.gz:
+        hash: 12be9ccbc0601f0848f0ec312dfd56ac1dc34318d2fb7927b90201793ec10ecf
         unpackdir: fcitx5
     - https://download.fcitx-im.org/data/py_stroke-20250329.tar.gz:
         hash: c1a7ca7225d3614ab83353fc827503006a980447762018f53760425d7b5303a6
@@ -28,6 +28,7 @@ builddeps   :
     - cmake(LibIMEPinyin)
     - cmake(OpenCC)
     - cmake(Qt6WebEngineWidgets)
+    - cmake(nlohmann_json)
     - pkgconfig(cups)
     - pkgconfig(libcurl)
     - gettext-devel
