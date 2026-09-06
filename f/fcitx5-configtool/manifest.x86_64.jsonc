@@ -23,6 +23,7 @@
 				"cmake(KF6WidgetsAddons)",
 				"cmake(KF6WindowSystem)",
 				"cmake(Plasma)",
+				"cmake(Qt6Svg)",
 				"gettext-devel",
 				"pkgconfig(iso-codes)",
 				"pkgconfig(xkbcommon)",
@@ -66,7 +67,7 @@
 				"/usr/bin/fcitx5-plasma-theme-generator",
 				"/usr/bin/kbd-layout-viewer5",
 				"/usr/lib/libFcitx5Migrator.so.1",
-				"/usr/lib/libFcitx5Migrator.so.5.1.14",
+				"/usr/lib/libFcitx5Migrator.so.5.1.15",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_fcitx5.so",
 				"/usr/share/applications/kbd-layout-viewer5.desktop",
 				"/usr/share/applications/kcm_fcitx5.desktop",
@@ -91,6 +92,8 @@
 				"/usr/share/locale/ko/LC_MESSAGES/kcm_fcitx5.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-configtool.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/kcm_fcitx5.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-configtool.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/kcm_fcitx5.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-configtool.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/kcm_fcitx5.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-configtool.mo",
@@ -131,6 +134,7 @@
 				"cmake(KF6WidgetsAddons)",
 				"cmake(KF6WindowSystem)",
 				"cmake(Plasma)",
+				"cmake(Qt6Svg)",
 				"gettext-devel",
 				"pkgconfig(iso-codes)",
 				"pkgconfig(xkbcommon)",
@@ -148,6 +152,6 @@
 		}
 	},
 	"source-name": "fcitx5-configtool",
-	"source-release": "2",
-	"source-version": "5.1.14"
+	"source-release": "3",
+	"source-version": "5.1.15"
 }
