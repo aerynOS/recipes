@@ -1,0 +1,5 @@
+releases:
+  id: 385720
+  rss: https://gitlab.com/ananicy-cpp/ananicy-cpp/-/tags?format=atom
+security:
+  cpe: ~

@@ -1,0 +1,41 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"ananicy-cpp": {
+			"build-depends": [
+				"binary(bpftool)",
+				"pkgconfig(fmt)",
+				"pkgconfig(libbpf)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libsystemd)",
+				"pkgconfig(nlohmann_json)",
+				"pkgconfig(spdlog)"
+			],
+			"depends": [
+				"ananicy-rules",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libbpf.so.1(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libfmt.so.12(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpcre2-8.so.0(x86_64))",
+				"soname(libspdlog.so.1.17(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libsystemd.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/ananicy-cpp",
+				"/usr/lib/systemd/system/ananicy-cpp.service"
+			],
+			"name": "ananicy-cpp",
+			"provides": [
+				"binary(ananicy-cpp)"
+			]
+		}
+	},
+	"source-name": "ananicy-cpp",
+	"source-release": "1",
+	"source-version": "1.2.0"
+}
