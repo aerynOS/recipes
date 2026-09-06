@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-lua
-version     : "5.0.17"
-release     : 1
+version     : "5.0.18"
+release     : 2
 homepage    : https://github.com/fcitx/fcitx5-lua
 upstreams   :
-    - https://github.com/fcitx/fcitx5-lua/archive/refs/tags/5.0.17.tar.gz : f1a5f7b8b135091a93ebaa3d6bc8de25f2b9ee64f2647793970edd979f0fbd3d
+    - https://github.com/fcitx/fcitx5-lua/archive/refs/tags/5.0.18.tar.gz : fb0695f7738a18ad63ae9228de71aa5f2bece35fe706a1d88cb170950e0b9036
 summary     : Lua support for fcitx.
 description : |
     Lua support for fcitx.

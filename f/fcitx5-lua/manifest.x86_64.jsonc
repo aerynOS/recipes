@@ -27,6 +27,7 @@
 				"/usr/share/locale/ja/LC_MESSAGES/fcitx5-lua.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-lua.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-lua.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-lua.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-lua.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/fcitx5-lua.mo",
 				"/usr/share/metainfo/org.fcitx.Fcitx5.Addon.Lua.metainfo.xml"
@@ -58,6 +59,6 @@
 		}
 	},
 	"source-name": "fcitx5-lua",
-	"source-release": "1",
-	"source-version": "5.0.17"
+	"source-release": "2",
+	"source-version": "5.0.18"
 }
