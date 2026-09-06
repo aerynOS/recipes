@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : fwupd-efi
+version     : "1.8"
+release     : 1
+homepage    : https://github.com/fwupd/fwupd-efi
+upstreams   :
+    - https://github.com/fwupd/fwupd-efi/archive/refs/tags/1.8.tar.gz : c9f1f9b9b967ea50eb0b478f0d7693d6673d4cd76c8e7eb80c55fc44ec928925
+summary     : EFI Application used by uefi-capsule plugin in fwupd
+description : |
+    This repository contains the source used for the fwupd project to generate a UEFI binary for installing updates using the UpdateCapsule runtime service.
+license     : 
+    - GPL-CC-1.0
+    - LGPL-2.1-or-later
+builddeps   :
+    - binary(objcopy) # llvm-objcopy does not support EFI targets
+    - pkgconfig(gnu-efi)
+    - python(pefile)
+setup       : |
+    export OBJCOPY=%(bindir)/objcopy
+    %meson \
+        -D efi-libdir="%(libdir)" \
+        -D efi_sbat_distro_id="com.aerynos" \
+        -D efi_sbat_distro_summary="AerynOS" \
+        -D efi_sbat_distro_pkgname="fwupd-efi" \
+        -D efi_sbat_distro_version="%(version)" \
+        -D efi_sbat_distro_url="https://aerynos.com"
+build       : |
+    %meson_build
+install     : |
+    %meson_install
