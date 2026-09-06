@@ -40,13 +40,13 @@
 				"/usr/lib/fcitx5-qt/fcitx5-qt6-gui-wrapper",
 				"/usr/lib/fcitx5/qt6/libfcitx-quickphrase-editor5.so",
 				"/usr/lib/libFcitx5Qt5DBusAddons.so.1",
-				"/usr/lib/libFcitx5Qt5DBusAddons.so.5.1.14",
+				"/usr/lib/libFcitx5Qt5DBusAddons.so.5.1.15",
 				"/usr/lib/libFcitx5Qt5WidgetsAddons.so.2",
-				"/usr/lib/libFcitx5Qt5WidgetsAddons.so.5.1.14",
+				"/usr/lib/libFcitx5Qt5WidgetsAddons.so.5.1.15",
 				"/usr/lib/libFcitx5Qt6DBusAddons.so.1",
-				"/usr/lib/libFcitx5Qt6DBusAddons.so.5.1.14",
+				"/usr/lib/libFcitx5Qt6DBusAddons.so.5.1.15",
 				"/usr/lib/libFcitx5Qt6WidgetsAddons.so.2",
-				"/usr/lib/libFcitx5Qt6WidgetsAddons.so.5.1.14",
+				"/usr/lib/libFcitx5Qt6WidgetsAddons.so.5.1.15",
 				"/usr/lib/qt5/plugins/platforminputcontexts/libfcitx5platforminputcontextplugin.so",
 				"/usr/lib/qt6/plugins/platforminputcontexts/libfcitx5platforminputcontextplugin.so",
 				"/usr/share/applications/org.fcitx.fcitx5-qt5-gui-wrapper.desktop",
@@ -61,6 +61,7 @@
 				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-qt.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-qt.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-qt.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-qt.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-qt.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-qt.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-qt.mo",
@@ -155,6 +156,6 @@
 		}
 	},
 	"source-name": "fcitx5-qt",
-	"source-release": "2",
-	"source-version": "5.1.14"
+	"source-release": "3",
+	"source-version": "5.1.15"
 }
