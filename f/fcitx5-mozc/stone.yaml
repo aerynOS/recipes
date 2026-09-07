@@ -5,7 +5,7 @@ name        : fcitx5-mozc
 ##@@BEGIN_VERSION
 version     : "3.34.6239.2"
 ##@@END_VERSION
-release     : 1
+release     : 2
 homepage    : https://github.com/google/mozc
 upstreams   :
 ##@@BEGIN_GIT_UPSTREAMS
@@ -120,7 +120,8 @@ builddeps   :
     - cmake(Qt6Widgets)
     - gettext-devel
 build       : |
-    export USE_BAZEL_VERSION="$(echo %(sourcedir)/bazel-*-linux-x86_64)"
+    %install_exe %(sourcedir)/bazel-*-linux-x86_64 %(buildroot)/bazel
+    export USE_BAZEL_VERSION=%(buildroot)/bazel
 
     cd src
     %bazel_build \
