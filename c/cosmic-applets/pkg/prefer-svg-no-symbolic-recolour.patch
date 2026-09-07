@@ -1,0 +1,13 @@
+diff --git a/cosmic-applet-status-area/src/components/status_menu.rs b/cosmic-applet-status-area/src/components/status_menu.rs
+index a228d74..a78b0ed 100644
+--- a/cosmic-applet-status-area/src/components/status_menu.rs
++++ b/cosmic-applet-status-area/src/components/status_menu.rs
+@@ -240,7 +240,7 @@ fn layout_view(layout: &Layout, expanded: Option<i32>) -> cosmic::Element<'_, Ms
+             } else if let Some(icon_name) = i.icon_name() {
+                 let icon = cosmic::widget::icon::from_name(icon_name)
+                     .size(14)
+-                    .symbolic(true);
++                    .prefer_svg(true);
+                 children.insert(0, icon.into());
+             }
+             if i.toggle_state() == Some(1) {

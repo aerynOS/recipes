@@ -3,7 +3,7 @@
 
 name        : cosmic-applets
 version     : "1.7.0"
-release     : 54
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-applets
 summary     : Cosmic Panel Applets
 upstreams   :
@@ -23,6 +23,8 @@ rundeps     :
     - bluez # Bluetooth applet
 networking  : true
 setup       : |
+    # prefer svg over png for menu icons and don't force symbolic recolour
+    %patch %(pkgdir)/prefer-svg-no-symbolic-recolour.patch
     %cargo_fetch
 build       : |
     %cargo_build
