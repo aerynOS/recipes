@@ -1,0 +1,3 @@
+solver:
+  ignore:
+  - accountsservice #: { auxdep: "It doesn't make sense for accountsservice to induce a rebuild of this"}
