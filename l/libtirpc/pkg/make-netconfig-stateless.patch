@@ -1,0 +1,31 @@
+--- old/src/getnetconfig.c	2025-08-25 08:10:30.000000000 -0700
++++ new/src/getnetconfig.c	2026-09-06 19:06:35.932068212 -0700
+@@ -194,7 +194,7 @@
+      */
+     mutex_lock(&nc_db_lock);
+     ni.ref++;
+-    if ((nc_file != NULL) || (nc_file = fopen(NETCONFIG, "r")) != NULL) {
++    if (((nc_file != NULL) || (nc_file = fopen(NETCONFIG, "r")) != NULL) || (nc_file = fopen(ALTNETCONFIG, "r")) != NULL) {
+ 	nc_vars->valid = NC_VALID;
+ 	nc_vars->flag = 0;
+ 	nc_vars->nc_configs = ni.head;
+@@ -460,7 +460,7 @@
+     }
+     mutex_unlock(&nc_db_lock);
+ 
+-    if ((file = fopen(NETCONFIG, "r")) == NULL) {
++    if (((file = fopen(NETCONFIG, "r")) == NULL) && (file = fopen(ALTNETCONFIG, "r")) == NULL) {
+ 	nc_error = NC_NONETCONFIG;
+ 	return (NULL);
+     }
+
+--- old/tirpc/netconfig.h	2025-08-25 08:10:30.000000000 -0700
++++ new/tirpc/netconfig.h	2026-09-06 18:10:57.752696016 -0700
+@@ -6,6 +6,7 @@
+ #endif
+ 
+ #define NETCONFIG "/etc/netconfig"
++#define ALTNETCONFIG "/usr/share/defaults/etc/netconfig"
+ #define NETPATH	  "NETPATH"
+ 
+ struct netconfig {

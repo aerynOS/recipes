@@ -15,7 +15,9 @@
 			],
 			"files": [
 				"/usr/lib/libtirpc.so.3",
-				"/usr/lib/libtirpc.so.3.0.0"
+				"/usr/lib/libtirpc.so.3.0.0",
+				"/usr/share/defaults/etc/bindresvport.blacklist",
+				"/usr/share/defaults/etc/netconfig"
 			],
 			"name": "libtirpc",
 			"provides": [
@@ -110,6 +112,6 @@
 		}
 	},
 	"source-name": "libtirpc",
-	"source-release": "6",
+	"source-release": "7",
 	"source-version": "1.3.7"
 }
