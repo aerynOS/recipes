@@ -51,6 +51,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libcdio.so.19(x86_64))",
 				"soname(libchromaprint.so.1(x86_64))",
+				"soname(libcrypto.so.3(x86_64))",
 				"soname(libebur128.so.1(x86_64))",
 				"soname(libfftw3.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -88,6 +89,6 @@
 		}
 	},
 	"source-name": "strawberry",
-	"source-release": "13",
-	"source-version": "1.2.28"
+	"source-release": "14",
+	"source-version": "1.2.29"
 }
