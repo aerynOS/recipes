@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plezy
-version     : "2.18.0"
-release     : 10
+version     : "2.19.1"
+release     : 11
 homepage    : https://plezy.app/
 upstreams   :
-    - https://github.com/edde746/plezy/archive/refs/tags/2.18.0.tar.gz:
-        hash: d867e6bde1a4ee019f4fd64e129eaa4f7ab97ed66546314421c006bd16b616bc
+    - https://github.com/edde746/plezy/archive/refs/tags/2.19.1.tar.gz:
+        hash: e1476bd23040f44145630b316b9764b9e515cd79ba801a72b3252427f7611eed
         unpackdir: plezy
     # https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
     - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.2-stable.tar.xz:
@@ -33,8 +33,6 @@ environment: |
     export PATH="$PATH:%(workdir)/flutter/bin"
     export JAVA_HOME=%(libdir)/openjdk-25
 setup       : |
-    %patch %(pkgdir)/ftbfs-llvm23.patch
-
     # Everything below translated from Arch Linux PKGBUILD
     %patch %(pkgdir)/set-flutter-paths.patch
 
