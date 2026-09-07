@@ -1,0 +1,5 @@
+releases:
+  id: 371635
+  rss: https://github.com/WillPower3309/swayfx/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-03-11)
