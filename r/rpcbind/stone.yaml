@@ -3,7 +3,7 @@
 
 name        : rpcbind
 version     : "1.2.9"
-release     : 3
+release     : 4
 homepage    : https://sourceforge.net/projects/rpcbind
 upstreams   :
     - https://sourceforge.net/projects/rpcbind/files/rpcbind/1.2.9/rpcbind-1.2.9.tar.bz2 : ce5f1a87c566ef0b2897a28f50a75c1dc23fec413a46a7f4183423b6b6aa991b
