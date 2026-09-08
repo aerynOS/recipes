@@ -3,7 +3,7 @@
 
 name        : device-quirks
 version     : "0.r267.ee8e666"
-release     : 4
+release     : 5
 homepage    : https://github.com/ChimeraOS/device-quirks
 upstreams   :
     - git|https://github.com/ChimeraOS/device-quirks.git : ee8e66690eb460ec8b13b56eabb7388298e0972f
@@ -19,6 +19,9 @@ rundeps     :
     - sysbinary(ethtool)
 setup       : |
    %patch %(pkgdir)/etc.patch
+   # https://github.com/ChimeraOS/device-quirks/pull/129
+   # https://github.com/aerynOS/recipes/issues/2525
+   %patch %(pkgdir)/129.patch
 install     : |
    # Install binaries
    install -v -m755 -D -t "%(installroot)/usr/bin/" usr/bin/*

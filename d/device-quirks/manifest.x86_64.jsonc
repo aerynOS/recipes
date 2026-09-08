@@ -36,6 +36,7 @@
 				"/usr/lib/udev/rules.d/80-amdgpu-reset.rules",
 				"/usr/lib/udev/rules.d/81-wol.rules",
 				"/usr/lib/udev/rules.d/90-orangepi-ftcs-wake.rules",
+				"/usr/lib/udev/rules.d/99-boxflat.rules",
 				"/usr/lib/udev/rules.d/99-controller-wake.rules",
 				"/usr/share/defaults/etc/device-quirks/device-quirks.conf",
 				"/usr/share/defaults/etc/device-quirks/dsdt_override.log",
@@ -79,6 +80,6 @@
 		}
 	},
 	"source-name": "device-quirks",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "0.r267.ee8e666"
 }
