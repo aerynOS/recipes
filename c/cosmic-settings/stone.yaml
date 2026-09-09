@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-settings
-version     : "1.7.0"
-release     : 57
+version     : "1.8.0"
+release     : 58
 homepage    : https://github.com/pop-os/cosmic-settings
 upstreams   :
-    - https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-1.7.0.tar.gz : 76b891ce2f4e30389a96ead032721851c35e8f948d699a93b03e5a8a34cdfd44
+    - https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-1.8.0.tar.gz : 669bb605a63806a8afc751d78c17d7f0e8adc5297247919773b9184ab53328ac
 summary     : Cosmic Desktop Settings
 description : |
     Cosmic Desktop Settings
