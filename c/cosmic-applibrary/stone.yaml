@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-applibrary
-version     : "1.7.0"
-release     : 50
+version     : "1.8.0"
+release     : 51
 homepage    : https://github.com/pop-os/cosmic-applibrary
+upstreams   :
+    - https://github.com/pop-os/cosmic-applibrary/archive/refs/tags/epoch-1.8.0.tar.gz : 73184d86985437d76427570ff5aa442b8e7c49378f983f2d3d5ee85f74f657a4
 summary     : Cosmic Desktop App Launcher
 description : |
     Cosmic Desktop App Launcher
 license     : GPL-3.0
-upstreams   :
-    - https://github.com/pop-os/cosmic-applibrary/archive/refs/tags/epoch-1.7.0.tar.gz : 76208ee5ce43f42d8760ca7dc5b2014ed14a8cdd12ca6abb7aedc6cd74913fdd
 builddeps   :
     - binary(just)
     - pkgconfig(dbus-1)
