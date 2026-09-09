@@ -2,31 +2,27 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vhs
-version     : "0.11.0"
-release     : 3
+version     : "0.12.0"
+release     : 4
 homepage    : https://github.com/charmbracelet/vhs
 upstreams   :
-    - https://github.com/charmbracelet/vhs/archive/refs/tags/v0.11.0.tar.gz : c08b8502989fe7e9626c02938f3fc512c2a4ba21f839f455d20d7eb1da7bc39f
+    - https://github.com/charmbracelet/vhs/archive/refs/tags/v0.12.0.tar.gz : 2e4a3b940f66ffbe1f66ded3b6253c9f3185a69567596e80d08c50cee77eaedf
 summary     : Your CLI home video recorder
 description : |
     Write terminal GIFs as code for integration testing and demoing your CLI tools.
-license     :
-    - JSON
-    - MIT
-    - Xnet
-builddeps   :
-    - binary(go)
+license     : MIT
 rundeps     :
     - binary(ffmpeg)
     - binary(ttyd)
 networking  : true
 setup       : |
-    go mod vendor
+    %go_mod
 build       : |
     # Update themes -- it appears they get compiled in.
     %make all
 
-    go build -v -ldflags "-linkmode=external -X main.Version=%(version)" -o vhs .
+    export GOFLAGS+=" -ldflags=-X=main.Version=%(version)"
+    go build -v -o vhs .
 
     # Generate shell completions and manual page artifacts.
     ./vhs completion bash > vhs.bash

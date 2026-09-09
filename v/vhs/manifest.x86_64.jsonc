@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"vhs": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"binary(ffmpeg)",
 				"binary(ttyd)",
@@ -27,6 +24,6 @@
 		}
 	},
 	"source-name": "vhs",
-	"source-release": "3",
-	"source-version": "0.11.0"
+	"source-release": "4",
+	"source-version": "0.12.0"
 }
