@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : fluxer
+version     : "0.0.8"
+release     : 1
+homepage    : https://fluxer.app/
+upstreams   :
+    - https://api.fluxer.app/dl/desktop/stable/linux/x64/0.0.8/tar_gz :
+        hash: acf6398fa6810720fed85b06c011b324e7db4fec6bf2fc7ad93c2446c3600f2d
+        rename: "Fluxer-0.0.8-linux-x86_64.tar.gz"
+summary     : Group chat, video, and voice calling app
+description : |
+    Fluxer is a free and open source instant messaging and VoIP platform built for friends, groups, and communities.
+license     :
+    - AGPL-3.0-or-later
+builddeps   :
+    - binary(ln)
+install     : |
+    %install_dir %(installroot){%(bindir),%(libdir)}
+    cp -a . %(installroot)%(libdir)/fluxer
+    ln -srv %(installroot)%(libdir)/fluxer/fluxer %(installroot)%(bindir)/fluxer
+
+    %install_file %(pkgdir)/fluxer.desktop -t %(installroot)%(datadir)/applications/
+    %install_dir %(installroot)%(datadir)/icons/hicolor/{256x256/apps/,512x512/apps/}
+    ln -srv %(installroot)%(libdir)/fluxer/resources/icons/256x256.png %(installroot)%(datadir)/icons/hicolor/256x256/apps/fluxer.png
+    ln -srv %(installroot)%(libdir)/fluxer/resources/icons/512x512.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/fluxer.png
