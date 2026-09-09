@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : atuin
-version     : "18.20.1"
-release     : 6
+version     : "18.22.0"
+release     : 7
 homepage    : https://atuin.sh/
 upstreams   :
-    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.20.1.tar.gz : c7e8b965be66aa5b969c3eb7007273ff0bbc0d5bf7c8eaafe1c74c5dd1ddf619
+    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.22.0.tar.gz : a1798f99dcd10864099ec8cd7d4f8babaedb9062017c50cddd197c05b637d965
 license     : MIT
 summary     : ✨ Magical shell history
 description : |
