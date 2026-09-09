@@ -2,11 +2,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ant
-version     : "1.10.17"
-release     : 1
+version     : "1.10.18"
+release     : 2
 homepage    : https://ant.apache.org/
 upstreams   :
-    - https://dlcdn.apache.org/ant/binaries/apache-ant-1.10.17-bin.tar.gz : 9dc984c208585461e81ab34e9bbbfd9b25459956d7b105169ce9f148feded1e9
+    - https://dlcdn.apache.org/ant/binaries/apache-ant-1.10.18-bin.tar.gz:
+        hash: b45db2fdd76d639301550930d33dd7bc672c9d4fdea0fe8cfd2e6a3518388d59
+        rename: apache-ant-1.10.18.tar.gz
 summary     : Java library and command-line tool for building software
 description : |
     Apache Ant is a Java library and command-line tool whose mission is to
