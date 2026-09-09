@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-panel
-version     : "1.7.0"
-release     : 50
+version     : "1.8.0"
+release     : 51
 homepage    : https://github.com/pop-os/cosmic-panel
 upstreams   :
-    - https://github.com/pop-os/cosmic-panel/archive/refs/tags/epoch-1.7.0.tar.gz : cf6960923a87b695b6078f1bdf32245eba0a07e49f7e6aaebdd6c0262e8cb37d
+    - https://github.com/pop-os/cosmic-panel/archive/refs/tags/epoch-1.8.0.tar.gz : 3bc2f7d6481a5ad221c9ee505fcc068a7c28df42c54e171cc6a4c86a5a64549e
 summary     : Cosmic Desktop Panel
 description : |
     Cosmic Desktop panel
