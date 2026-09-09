@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-greeter
-version     : "1.7.0"
-release     : 60
+version     : "1.8.0"
+release     : 61
 homepage    : https://github.com/pop-os/cosmic-greeter
 upstreams   :
-    - https://github.com/pop-os/cosmic-greeter/archive/refs/tags/epoch-1.7.0.tar.gz : 74c7ecc32a3d2a840635aebf805955fb9e9778abe821e92b682efd9cceeb5a8d
+    - https://github.com/pop-os/cosmic-greeter/archive/refs/tags/epoch-1.8.0.tar.gz : c16b4cecb3c356c17520ff16761f19ce5274d761b4a553fcf5bb9089dab047e1
 summary     : Cosmic Desktop Greeter
 description : |
     Cosmic Desktop Greeter
