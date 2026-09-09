@@ -144,6 +144,7 @@
 				"/usr/share/icons/Cosmic/scalable/actions/pen-symbolic.svg",
 				"/usr/share/icons/Cosmic/scalable/actions/pencil-symbolic.svg",
 				"/usr/share/icons/Cosmic/scalable/actions/pin-symbolic.svg",
+				"/usr/share/icons/Cosmic/scalable/actions/printer-queue-symbolic.svg",
 				"/usr/share/icons/Cosmic/scalable/actions/process-stop-symbolic.svg",
 				"/usr/share/icons/Cosmic/scalable/actions/process-stop.svg",
 				"/usr/share/icons/Cosmic/scalable/actions/ratios-symbolic.svg",
@@ -691,6 +692,6 @@
 		}
 	},
 	"source-name": "cosmic-icons",
-	"source-release": "48",
-	"source-version": "1.7.0"
+	"source-release": "49",
+	"source-version": "1.8.0"
 }
