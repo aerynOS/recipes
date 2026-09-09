@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vscodium
-version     : "1.126.04524"
-release     : 12
+version     : "1.135.06055"
+release     : 13
 homepage    : https://vscodium.com/
 upstreams   :
-    - https://github.com/VSCodium/vscodium/releases/download/1.126.04524/VSCodium-linux-x64-1.126.04524.tar.gz:
-        hash: adf3548df055d18e476cdee887488ba7486b879ad99a31a546c6b5c5ff296c24
-    - https://raw.githubusercontent.com/vscodium/vscodium/1.126.04524/src/stable/resources/linux/code.desktop:
+    - https://github.com/VSCodium/vscodium/releases/download/1.135.06055/VSCodium-linux-x64-1.135.06055.tar.gz:
+        hash: c09d8ac8dd7f52b09ee159ee24b440541dfd8f937a0f6f88cc428c78e48ee1f2
+    - https://raw.githubusercontent.com/vscodium/vscodium/1.135.06055/src/stable/resources/linux/code.desktop:
         hash: 8a6102fddc1a472345589c2eb2e32e9734df9539b421055c8039d82fa0ce5423
         unpack: false
         rename: codium.desktop
-    - https://raw.githubusercontent.com/vscodium/vscodium/1.126.04524/src/stable/resources/linux/code-url-handler.desktop:
+    - https://raw.githubusercontent.com/vscodium/vscodium/1.135.06055/src/stable/resources/linux/code-url-handler.desktop:
         hash: 50cecb7af4e7aaff14fb4d4b1a9caad707367003ee0ebc304ffd31762c4f7e20
         unpack: false
         rename: codium-url-handler.desktop
@@ -40,8 +40,9 @@ install     : |
     %install_dir %(installroot)/$vsdir
     cp -R %(workdir)/* %(installroot)/$vsdir/
 
-    # Compiled against aarch64
-    rm -rfv %(installroot)%(libdir)/vscodium/resources/app/node_modules/@microsoft/mxc-sdk/bin/arm64
+    # Remove non-x86_64 binaries.
+    rm -rfv %(installroot)%(libdir)/vscodium/resources/app/node_modules.asar.unpacked/@microsoft/mxc-sdk/bin/arm64
+    rm -rfv %(installroot)%(libdir)/vscodium/resources/app/node_modules.asar.unpacked/@vscode/ripgrep-universal/bin/{darwin-*,linux-arm*,linux-ia32,linux-ppc64,linux-riscv64,linux-s390x,win32-*}
 
     %install_exe %(pkgdir)/vscodium.sh %(installroot)%(bindir)/codium
 
