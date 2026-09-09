@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-initial-setup
-version     : "1.7.0"
-release     : 34
+version     : "1.8.0"
+release     : 35
 homepage    : https://github.com/pop-os/cosmic-initial-setup
 upstreams   :
-    - https://github.com/pop-os/cosmic-initial-setup/archive/refs/tags/epoch-1.7.0.tar.gz : 7a900fb50e8964af3a1a21f7bd9bc9427b0799c58b3266bc970c08a2efd840ba
+    - https://github.com/pop-os/cosmic-initial-setup/archive/refs/tags/epoch-1.8.0.tar.gz : 54096043127b802320966b343d675cb7323aa2614a9b89522730c7ccbe4369a0
 summary     : Cosmic Initial Setup
 description : |
     Cosmic Desktop Intial Setup Application
