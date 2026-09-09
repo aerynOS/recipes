@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : croc
-version     : "11.3.6"
-release     : 9
+version     : "11.5.2"
+release     : 10
 homepage    : https://github.com/schollz/croc
 upstreams   :
-    - https://github.com/schollz/croc/archive/refs/tags/v11.3.6.tar.gz : bedca93ce041ed3e5c8d9f7add8cac25d03b97586eac14e54f3f41fe6eb70081
+    - https://github.com/schollz/croc/archive/refs/tags/v11.5.2.tar.gz : 2ceddb504be8b5912f4a3bfd76dc28bb18afda54191f2bebcf5b0fb24e63f774
 summary     : Securely transfer files and folders between any two computers
 description : |
     croc is a tool that allows any two computers to simply and securely
