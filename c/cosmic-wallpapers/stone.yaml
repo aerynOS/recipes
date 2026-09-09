@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-wallpapers
-version     : "1.7.0"
-release     : 42
+version     : "1.8.0"
+release     : 43
 homepage    : https://github.com/pop-os/cosmic-wallpapers
 upstreams   :
-    - https://github.com/pop-os/cosmic-wallpapers/archive/refs/tags/epoch-1.7.0.tar.gz : 977954b91fd4a9c3cc16aa650da40bb0da42fba034b21ead3b70114478b886d2
+    - https://github.com/pop-os/cosmic-wallpapers/archive/refs/tags/epoch-1.8.0.tar.gz : f489d0aa1a8b7d3803bf7e7d6c534dc0157926e140519e8d7d22c069c8a8fb9c
 summary     : Cosmic Desktop Wallpapers
 description : |
     Cosmic Desktop Wallpapers
