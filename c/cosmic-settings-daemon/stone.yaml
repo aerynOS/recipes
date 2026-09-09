@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-settings-daemon
-version     : "1.7.0"
-release     : 51
+version     : "1.8.0"
+release     : 52
 homepage    : https://github.com/pop-os/cosmic-settings-daemon
 upstreams   :
-    - https://github.com/pop-os/cosmic-settings-daemon/archive/refs/tags/epoch-1.7.0.tar.gz : c93e8f7f3c96619c6466fe0fef4a2eb203fd6acd0f8f484d80d93e052fc2084e
+    - https://github.com/pop-os/cosmic-settings-daemon/archive/refs/tags/epoch-1.8.0.tar.gz : 10e26ed1d815f8e6176068df3c441c13dd6fda7bd85a059afcfddd54b4689e8e
 summary     : Cosmic Settings Daemon
 description : |
     Cosmic Settings Daemon
