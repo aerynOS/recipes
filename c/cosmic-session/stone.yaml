@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-session
-version     : "1.7.0"
-release     : 61
+version     : "1.8.0"
+release     : 62
 homepage    : https://github.com/pop-os/cosmic-session
 upstreams   :
-    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.7.0.tar.gz : 202e2cf7b054764ada3005cc6eb1cf0c504942fd3bf3ccb2c6ea5d8a6a6da330
+    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.8.0.tar.gz : e6e82bce485af7ec8900ef09da5e317c8a1fd4b76901901acf6eaead778542e6
 summary     : Cosmic Session Management
 description : |
     Cosmic Session Management
