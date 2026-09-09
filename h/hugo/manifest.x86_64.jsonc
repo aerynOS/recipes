@@ -3,10 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"hugo": {
-			"build-depends": [
-				"binary(git)",
-				"binary(go)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -72,6 +68,6 @@
 		}
 	},
 	"source-name": "hugo",
-	"source-release": "10",
-	"source-version": "0.165.0"
+	"source-release": "11",
+	"source-version": "0.166.0"
 }
