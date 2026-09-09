@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-sound-theme
-version     : "1.7.0"
-release     : 3
+version     : "1.8.0"
+release     : 4
 homepage    : https://github.com/pop-os/cosmic-sound-theme
 upstreams   :
-    - https://github.com/pop-os/cosmic-sound-theme/archive/refs/tags/epoch-1.7.0.tar.gz : c0f52af335db0a39795636fa319dcedbb75a780621fe79bb962dffefe667e870
+    - https://github.com/pop-os/cosmic-sound-theme/archive/refs/tags/epoch-1.8.0.tar.gz : 478c51c500d639433032535d98074949a4574fad7a156bbd65288a02b53ba086
 summary     : System76 COSMIC Sound Theme
 description : |
     System76 COSMIC Sound Theme
