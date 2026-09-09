@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : krita
+version     : "v6.0.2"
+release     : 1
+homepage    : https://krita.org/
+upstreams   :
+    - https://invent.kde.org/graphics/krita/-/archive/v6.0.2/krita-v6.0.2.tar.gz?ref_type=tags : a40a67bcf8959f7c7d670ad17617fe8405acb5876d420909a1cb2cf53e5465ea
+summary     : A full-featured free digital painting studio
+description : |
+    Krita is a professional FREE and open source painting program. It is made by artists that want to see affordable art tools for everyone.
+license     :
+    - GPL-3.0-only
+builddeps   :
+    - cmake(Boost)
+    - cmake(ECM)
+    - cmake(Eigen3)
+    - cmake(Immer)
+    - pkgconfig(fontconfig)
+    - pkgconfig(freetype2)
+    - pkgconfig(gsl)
+    - pkgconfig(fftw3)
+    - cmake(Qt6)
+    - cmake(Qt6Svg)
+    - cmake(harfbuzz)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6GuiAddons)
+    - cmake(Qt6CorePrivate)
+    - cmake(KF6Crash)
+    - pkgconfig(xi)
+    - cmake(Qt6GuiPrivate)
+    - cmake(Qt6WaylandClientPrivate)
+    - cmake(KF6Config)
+    - cmake(KF6WidgetsAddons)
+    - cmake(KF6Completion)
+    - cmake(KF6ItemViews)
+    - cmake(KF6I18n)
+    - cmake(Qt6Core5Compat)
+    - cmake(KF6ColorScheme)
+setup       : |
+    %cmake_kf6 \
+        -DBUILD_KRITA_QT_DESIGNER_PLUGINS=ON \
+        -DBUILD_TESTING=OFF \
+        -DBUILD_WITH_QT6=ON \
+        -DALLOW_UNSTABLE=QT6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
