@@ -297,6 +297,17 @@
 				"/usr/share/doc/HTML/pt_BR/partitionmanager/referencemanual.docbook",
 				"/usr/share/doc/HTML/pt_BR/partitionmanager/resizehowto.docbook",
 				"/usr/share/doc/HTML/pt_BR/partitionmanager/usermanual.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/copyhowto.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/credits.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/faq.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/glossary.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/index.cache.bz2",
+				"/usr/share/doc/HTML/ru/partitionmanager/index.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/installoshowto.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/introduction.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/referencemanual.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/resizehowto.docbook",
+				"/usr/share/doc/HTML/ru/partitionmanager/usermanual.docbook",
 				"/usr/share/doc/HTML/sl/partitionmanager/copyhowto.docbook",
 				"/usr/share/doc/HTML/sl/partitionmanager/credits.docbook",
 				"/usr/share/doc/HTML/sl/partitionmanager/faq.docbook",
@@ -367,6 +378,6 @@
 		}
 	},
 	"source-name": "partitionmanager",
-	"source-release": "19",
-	"source-version": "26.08.0"
+	"source-release": "20",
+	"source-version": "26.08.1"
 }
