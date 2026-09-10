@@ -3,7 +3,7 @@
 
 name        : linux-stable
 version     : "7.2.4"
-release     : 57
+release     : 58
 homepage    : https://kernel.org/
 upstreams   :
         - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.4.tar.xz : 01710ee01737dac492f1bae52becd057e08d20d11589089aa06accff415c28dd

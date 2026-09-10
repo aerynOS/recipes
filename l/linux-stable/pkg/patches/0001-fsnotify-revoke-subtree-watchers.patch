@@ -1,0 +1,233 @@
+From 27fc6b13cc2464e896436b6d5446fdde74731ae4 Mon Sep 17 00:00:00 2001
+From: Joey Riches <josephriches@gmail.com>
+Date: Wed, 9 Sep 2026 20:04:09 +0100
+Subject: [PATCH 1/1] fsnotify revoke subtree watchers
+
+---
+ fs/ioctl.c                       |   9 ++
+ fs/notify/mark.c                 | 136 +++++++++++++++++++++++++++++++
+ include/linux/fsnotify_backend.h |   6 ++
+ include/uapi/linux/fs.h          |   2 +
+ 4 files changed, 153 insertions(+)
+
+diff --git a/fs/ioctl.c b/fs/ioctl.c
+index 1c152c2b1b67..5a75892e1559 100644
+--- a/fs/ioctl.c
++++ b/fs/ioctl.c
+@@ -22,6 +22,7 @@
+ #include <linux/mount.h>
+ #include <linux/fscrypt.h>
+ #include <linux/fileattr.h>
++#include <linux/fsnotify_backend.h>
+ 
+ #include "internal.h"
+ 
+@@ -571,6 +572,14 @@ static int do_vfs_ioctl(struct file *filp, unsigned int fd,
+ 	case FS_IOC_GETFSSYSFSPATH:
+ 		return ioctl_get_fs_sysfs_path(filp, argp);
+ 
++	case FS_IOC_REVOKE_WATCHES:
++		if (!capable(CAP_SYS_ADMIN))
++			return -EPERM;
++		/* No argument is defined yet */
++		if (arg)
++			return -EINVAL;
++		return fsnotify_revoke_subtree(filp->f_path.dentry);
++
+ 	default:
+ 		if (S_ISREG(inode->i_mode) && !IS_ANON_FILE(inode))
+ 			return file_ioctl(filp, cmd, argp);
+diff --git a/fs/notify/mark.c b/fs/notify/mark.c
+index e256b420100d..e57c18c8204d 100644
+--- a/fs/notify/mark.c
++++ b/fs/notify/mark.c
+@@ -72,6 +72,7 @@
+ #include <linux/ratelimit.h>
+ 
+ #include <linux/atomic.h>
++#include <linux/dcache.h>
+ 
+ #include <linux/fsnotify_backend.h>
+ #include "fsnotify.h"
+@@ -753,6 +754,141 @@ void fsnotify_unmount_inodes(struct fsnotify_sb_info *sbinfo)
+ 	}
+ }
+ 
++/*
++ * Is any alias of @inode at or below @root?  If so, take a reference on the
++ * inode and return true.  i_lock keeps the alias list and the inode stable.
++ */
++static bool fsnotify_inode_under(struct inode *inode, struct dentry *root)
++{
++	struct dentry *alias;
++	bool found = false;
++
++	spin_lock(&inode->i_lock);
++	if (unlikely(inode_state_read(inode) & (I_FREEING | I_WILL_FREE))) {
++		spin_unlock(&inode->i_lock);
++		return false;
++	}
++	for_each_alias(alias, inode) {
++		if (is_subdir(alias, root)) {
++			found = true;
++			break;
++		}
++	}
++	if (found)
++		__iget(inode);
++	spin_unlock(&inode->i_lock);
++
++	return found;
++}
++
++/**
++ * fsnotify_revoke_subtree - revoke all fsnotify marks at or below @root
++ * @root: directory at or below which marks should be revoked
++ *
++ * Send FS_UNMOUNT to every watched inode at or below @root on @root's
++ * superblock and destroy the marks, as if that subtree was being unmounted.
++ * Every inotify mark has FS_UNMOUNT in its mask (inotify_arg_to_mask()), so
++ * inotify watchers get IN_UNMOUNT followed by IN_IGNORED and can re-resolve
++ * their paths.  Watchers that ignore both events lose the watch, exactly as
++ * after a real unmount.  Marks of backends that cannot report FS_UNMOUNT
++ * (fanotify, dnotify) are destroyed without any event.
++ *
++ * An inode is revoked if any of its dentry aliases is at or below @root, so
++ * an inode reachable both inside and outside the subtree (e.g. a hardlink)
++ * is revoked as well.  Only inode marks on @root's superblock are affected:
++ * vfsmount and sb marks as well as marks on submounts below @root are left
++ * alone.
++ *
++ * This is meant for a privileged process that has just replaced the subtree
++ * (e.g. via RENAME_EXCHANGE) and wants existing watchers to follow the new
++ * tree, without having to wait for a superblock to actually be shut down.
++ * Callers should open an fd on the old subtree before replacing it: the fd
++ * keeps the old dentry and its superblock pinned, so it can still target the
++ * old tree afterwards.
++ *
++ * Watches added while the revoke is in progress may or may not be affected;
++ * racing additions are not guaranteed to be caught.
++ *
++ * Return: 0 on success, -ENOTDIR if @root is not a directory, -ENOMEM if the
++ *         temporary inode array could not be allocated.
++ */
++int fsnotify_revoke_subtree(struct dentry *root)
++{
++	struct super_block *sb;
++	struct fsnotify_sb_info *sbinfo;
++	struct fsnotify_inode_mark_connector *iconn;
++	struct inode **victims;
++	long max, n, i, total = 0;
++	bool truncated;
++
++	if (!d_is_dir(root))
++		return -ENOTDIR;
++
++	sb = root->d_sb;
++	sbinfo = fsnotify_sb_info(sb);
++	if (!sbinfo)
++		return 0;
++
++	for (;;) {
++		/*
++		 * The connector list cannot change while list_lock is held, so
++		 * counting under the lock gives us an exact array size.
++		 */
++		spin_lock(&sbinfo->list_lock);
++		max = 0;
++		list_for_each_entry(iconn, &sbinfo->inode_conn_list, conns_list)
++			max++;
++		spin_unlock(&sbinfo->list_lock);
++
++		if (!max)
++			break;
++
++		victims = kvmalloc_array(max, sizeof(*victims), GFP_KERNEL);
++		if (!victims)
++			return -ENOMEM;
++
++		/*
++		 * Collect first: fsnotify_clear_marks_by_inode() untracks the
++		 * connector and removes it from inode_conn_list, so we cannot
++		 * revoke while walking.
++		 */
++		truncated = false;
++		n = 0;
++		spin_lock(&sbinfo->list_lock);
++		list_for_each_entry(iconn, &sbinfo->inode_conn_list, conns_list) {
++			struct inode *inode = iconn->common.obj;
++
++			if (n >= max) {
++				truncated = true;
++				break;
++			}
++			if (fsnotify_inode_under(inode, root))
++				victims[n++] = inode;
++		}
++		spin_unlock(&sbinfo->list_lock);
++
++		for (i = 0; i < n; i++) {
++			fsnotify_inode(victims[i], FS_UNMOUNT);
++			fsnotify_clear_marks_by_inode(victims[i]);
++			iput(victims[i]);
++			cond_resched();
++		}
++		total += n;
++		kvfree(victims);
++
++		/*
++		 * Watches appeared between the count and the walk.  Those we
++		 * found are revoked now, so another pass can catch the rest.
++		 */
++		if (!truncated)
++			break;
++	}
++
++	pr_debug("fsnotify: revoked marks of %ld inode(s) at or below sb %s root inode %lu\n",
++		 total, sb->s_id, d_inode(root)->i_ino);
++	return 0;
++}
++
+ static void fsnotify_init_connector(struct fsnotify_mark_connector *conn,
+ 				    void *obj, unsigned int obj_type)
+ {
+diff --git a/include/linux/fsnotify_backend.h b/include/linux/fsnotify_backend.h
+index e5cde39d6e85..7f87fb3bbc21 100644
+--- a/include/linux/fsnotify_backend.h
++++ b/include/linux/fsnotify_backend.h
+@@ -655,6 +655,7 @@ extern void __fsnotify_vfsmount_delete(struct vfsmount *mnt);
+ extern void fsnotify_sb_delete(struct super_block *sb);
+ extern void __fsnotify_mntns_delete(struct mnt_namespace *mntns);
+ extern void fsnotify_sb_free(struct super_block *sb);
++extern int fsnotify_revoke_subtree(struct dentry *root);
+ extern u32 fsnotify_get_cookie(void);
+ extern void fsnotify_mnt(__u32 mask, struct mnt_namespace *ns, struct vfsmount *mnt);
+ 
+@@ -962,6 +963,11 @@ static inline void __fsnotify_mntns_delete(struct mnt_namespace *mntns)
+ static inline void fsnotify_sb_free(struct super_block *sb)
+ {}
+ 
++static inline int fsnotify_revoke_subtree(struct dentry *root)
++{
++	return -EOPNOTSUPP;
++}
++
+ static inline void fsnotify_update_flags(struct dentry *dentry)
+ {}
+ 
+diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
+index 13f71202845e..d2883b68dda3 100644
+--- a/include/uapi/linux/fs.h
++++ b/include/uapi/linux/fs.h
+@@ -337,6 +337,8 @@ struct file_attr {
+ #define FS_IOC_GETFSSYSFSPATH		_IOR(0x15, 1, struct fs_sysfs_path)
+ /* Get logical block metadata capability details */
+ #define FS_IOC_GETLBMD_CAP		_IOWR(0x15, 2, struct logical_block_metadata_cap)
++/* Revoke all fsnotify watches at or below a directory (CAP_SYS_ADMIN) */
++#define FS_IOC_REVOKE_WATCHES		_IO(0x15, 3)
+ 
+ /*
+  * Inode flags (FS_IOC_GETFLAGS / FS_IOC_SETFLAGS)
+-- 
+2.55.0
+
