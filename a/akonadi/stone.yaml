@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi
-version     : "26.08.0"
-release     : 29
+version     : "26.08.1"
+release     : 30
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/akonadi-26.08.0.tar.xz : 441ecb818ad39c1fbec95f2979e5447c24196d72ad74a7d08331a0e874f30114
+    - https://download.kde.org/stable/release-service/26.08.1/src/akonadi-26.08.1.tar.xz : 40b7eac471333eaa4ea0a010586660d2539def5ba61f9169d4129c2b569b4c34
 homepage    : https://kde.org
 license     : LGPL-2.1-or-later
 summary     : KDE centralized database to store, index and retrieve the user's personal information
