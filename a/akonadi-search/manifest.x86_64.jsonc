@@ -53,13 +53,13 @@
 				"/usr/bin/akonadi_html_to_text",
 				"/usr/bin/akonadi_indexing_agent",
 				"/usr/lib/libKPim6AkonadiSearchCore.so.6",
-				"/usr/lib/libKPim6AkonadiSearchCore.so.6.8.0",
+				"/usr/lib/libKPim6AkonadiSearchCore.so.6.8.1",
 				"/usr/lib/libKPim6AkonadiSearchDebug.so.6",
-				"/usr/lib/libKPim6AkonadiSearchDebug.so.6.8.0",
+				"/usr/lib/libKPim6AkonadiSearchDebug.so.6.8.1",
 				"/usr/lib/libKPim6AkonadiSearchPIM.so.6",
-				"/usr/lib/libKPim6AkonadiSearchPIM.so.6.8.0",
+				"/usr/lib/libKPim6AkonadiSearchPIM.so.6.8.1",
 				"/usr/lib/libKPim6AkonadiSearchXapian.so.6",
-				"/usr/lib/libKPim6AkonadiSearchXapian.so.6.8.0",
+				"/usr/lib/libKPim6AkonadiSearchXapian.so.6.8.1",
 				"/usr/lib/qt6/plugins/kf6/krunner/kcms/kcm_krunner_pimcontacts.so",
 				"/usr/lib/qt6/plugins/kf6/krunner/krunner_pimcontacts.so",
 				"/usr/lib/qt6/plugins/pim6/akonadi/akonadi_search_plugin.so",
@@ -209,6 +209,6 @@
 		}
 	},
 	"source-name": "akonadi-search",
-	"source-release": "19",
-	"source-version": "26.08.0"
+	"source-release": "20",
+	"source-version": "26.08.1"
 }
