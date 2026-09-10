@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : filelight
-version     : "26.08.0"
-release     : 16
+version     : "26.08.1"
+release     : 17
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/filelight-26.08.0.tar.xz : 029ab28cdc6615d2e50741334d1fd29ceb119184019d0d566dce82f65f8d135f
+    - https://download.kde.org/stable/release-service/26.08.1/src/filelight-26.08.1.tar.xz : dbb3aebe51871bf0d9a6d06cefabe1a081a3305d3d0d21b28e0368ccb49b8149
 homepage    : https://apps.kde.org/filelight/
 license     :
     - GFDL-1.2-or-later
