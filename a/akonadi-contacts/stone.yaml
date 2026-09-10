@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi-contacts
-version     : "26.08.0"
-release     : 18
+version     : "26.08.1"
+release     : 19
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/akonadi-contacts-26.08.0.tar.xz : 0a05013b252b77f47c16ba1878e6d4a5f05dcc0a82cb98d7024f308ad8b5a349
+    - https://download.kde.org/stable/release-service/26.08.1/src/akonadi-contacts-26.08.1.tar.xz : 96894e82adff3e0ff84db4e6ed757a62971d4835c785efb353663a76550050e4
 homepage    : https://kde.org
 license     : LGPL-2.1-or-later
 summary     : Libraries and daemons to implement Contact Management in Akonadi
