@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : git-who
+version     : "1.3"
+release     : 1
+homepage    : https://github.com/sinclairtarget/git-who
+upstreams   :
+    - git|https://github.com/sinclairtarget/git-who.git : aa656b041068cc7f83ceeba17fc430bd38fdca9f # v1.3
+summary     : Git blame for file trees
+description : |
+    git-who tells you the people responsible for entire components or subsystems in a codebase.
+    You can think of git-who sort of like git blame but for file trees rather than individual files.
+license     : MIT
+networking  : true
+builddeps   :
+    - binary(rake)
+setup       : |
+    %go_mod
+build       : |
+    rake
+install     : |
+    %install_bin %(name)
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    rake test

@@ -1,0 +1,26 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"git-who": {
+			"build-depends": [
+				"binary(rake)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/git-who",
+				"/usr/share/licenses/git-who/LICENSE"
+			],
+			"name": "git-who",
+			"provides": [
+				"binary(git-who)"
+			]
+		}
+	},
+	"source-name": "git-who",
+	"source-release": "1",
+	"source-version": "1.3"
+}
