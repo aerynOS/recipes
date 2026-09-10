@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qrca
-version     : "26.08.0"
-release     : 7
+version     : "26.08.1"
+release     : 8
 homepage    : https://apps.kde.org/qrca/
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/qrca-26.08.0.tar.xz : 367f615bb882a3e2507fb592e333b510023d233d3fb67113a0529bbf97e770cc
+    - https://download.kde.org/stable/release-service/26.08.1/src/qrca-26.08.1.tar.xz : cbb0758efcfa12c906cf3d9d2cb41614fc2817a7e837d0706161c9b0b642cc8e
 summary     : Scan QR-Codes with your camera on phones and laptops, and create your own for easily sharing data between devices
 description : |
     Qrca is a simple application for Plasma Desktop and Plasma Mobile that lets you scan many barcode formats and create your own QR code images.
