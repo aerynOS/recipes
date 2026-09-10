@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kpmcore
-version     : "26.08.0"
-release     : 16
+version     : "26.08.1"
+release     : 17
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/kpmcore-26.08.0.tar.xz : 3367f581294363fe450f0891518f7f07b7d0c6562c7348236d90008065f79e50
+    - https://download.kde.org/stable/release-service/26.08.1/src/kpmcore-26.08.1.tar.xz : 22cac5b6432c4ad606aef72bf884983d9cb7d5245c43e75edd1c5a36f9058668
 homepage    : https://invent.kde.org/system/kpmcore
 license     : GPL-3.0-or-later
 summary     : Library for managing partitions
