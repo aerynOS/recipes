@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mailcommon
-version     : "26.08.0"
-release     : 19
+version     : "26.08.1"
+release     : 20
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/mailcommon-26.08.0.tar.xz : 40c857a171e6ea8e58a4ee8e757674506661cdd594683a25a1d2e0f60cb8f92f
+    - https://download.kde.org/stable/release-service/26.08.1/src/mailcommon-26.08.1.tar.xz : 055bbae0e0df9f0610fca2a4303fe6caabdfc206910a04832cbd717b3c1374e4
 homepage    : https://kde.org
 license     :
     - GPL-2.0-or-later
