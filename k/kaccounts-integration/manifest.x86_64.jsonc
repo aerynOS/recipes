@@ -37,7 +37,7 @@
 			],
 			"files": [
 				"/usr/lib/libkaccounts6.so.2",
-				"/usr/lib/libkaccounts6.so.26.08.0",
+				"/usr/lib/libkaccounts6.so.26.08.1",
 				"/usr/lib/qt6/plugins/kaccounts/daemonplugins/kaccounts_kio_webdav_plugin.so",
 				"/usr/lib/qt6/plugins/kf6/kded/kded_accounts.so",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_kaccounts.so",
@@ -171,6 +171,6 @@
 		}
 	},
 	"source-name": "kaccounts-integration",
-	"source-release": "24",
-	"source-version": "26.08.0"
+	"source-release": "25",
+	"source-version": "26.08.1"
 }
