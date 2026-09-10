@@ -39,11 +39,11 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6IdentityManagementCore.so.6",
-				"/usr/lib/libKPim6IdentityManagementCore.so.6.8.0",
+				"/usr/lib/libKPim6IdentityManagementCore.so.6.8.1",
 				"/usr/lib/libKPim6IdentityManagementQuick.so.6",
-				"/usr/lib/libKPim6IdentityManagementQuick.so.6.8.0",
+				"/usr/lib/libKPim6IdentityManagementQuick.so.6.8.1",
 				"/usr/lib/libKPim6IdentityManagementWidgets.so.6",
-				"/usr/lib/libKPim6IdentityManagementWidgets.so.6.8.0",
+				"/usr/lib/libKPim6IdentityManagementWidgets.so.6.8.1",
 				"/usr/lib/qt6/qml/org/kde/kidentitymanagement/BasicIdentityEditorCard.qml",
 				"/usr/lib/qt6/qml/org/kde/kidentitymanagement/CryptographyEditorCard.qml",
 				"/usr/lib/qt6/qml/org/kde/kidentitymanagement/IdentityConfigurationForm.qml",
@@ -203,6 +203,6 @@
 		}
 	},
 	"source-name": "kidentitymanagement",
-	"source-release": "24",
-	"source-version": "26.08.0"
+	"source-release": "25",
+	"source-version": "26.08.1"
 }
