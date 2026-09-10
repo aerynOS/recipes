@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKSaneCore6.so.1",
-				"/usr/lib/libKSaneCore6.so.26.08.0",
+				"/usr/lib/libKSaneCore6.so.26.08.1",
 				"/usr/share/locale/ar/LC_MESSAGES/ksanecore.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/ksanecore.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/ksanecore.mo",
@@ -98,6 +98,6 @@
 		}
 	},
 	"source-name": "ksanecore",
-	"source-release": "13",
-	"source-version": "26.08.0"
+	"source-release": "14",
+	"source-version": "26.08.1"
 }
