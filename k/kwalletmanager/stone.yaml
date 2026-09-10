@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwalletmanager
-version     : "26.08.0"
-release     : 16
+version     : "26.08.1"
+release     : 17
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/kwalletmanager-26.08.0.tar.xz : 8ca9ca7ffa561b9f7211b678f3cdf6d1aa310944b7f1829005347a60b79d6937
+    - https://download.kde.org/stable/release-service/26.08.1/src/kwalletmanager-26.08.1.tar.xz : 9c7476a479884278ebe8024807bf25c6709c5a2da8aaba5aecf24cdd11ee721f
 homepage    : https://apps.kde.org/kwalletmanager5/
 license     : GPL-2.0-or-later
 summary     : KWallet Management Tool
