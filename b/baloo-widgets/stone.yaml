@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : baloo-widgets
-version     : "26.08.0"
-release     : 21
+version     : "26.08.1"
+release     : 22
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/baloo-widgets-26.08.0.tar.xz : 4ac009e3a58bc24c58710aa53d9788761f7fa6230f20c5816744bc17e6d45d9a
+    - https://download.kde.org/stable/release-service/26.08.1/src/baloo-widgets-26.08.1.tar.xz : b4af5cc65d886ab9d2a807254e11295e585d7cedd993d2b3b78f2f17e3a7f544
 homepage    : https://community.kde.org/Baloo
 license     : LGPL-2.1-only
 summary     : Widgets for the Baloo search engine

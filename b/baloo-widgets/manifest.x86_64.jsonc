@@ -32,7 +32,7 @@
 			],
 			"files": [
 				"/usr/bin/baloo_filemetadata_temp_extractor",
-				"/usr/lib/libKF6BalooWidgets.so.26.08.0",
+				"/usr/lib/libKF6BalooWidgets.so.26.08.1",
 				"/usr/lib/libKF6BalooWidgets.so.6",
 				"/usr/lib/qt6/plugins/kf6/kfileitemaction/tagsfileitemaction.so",
 				"/usr/lib/qt6/plugins/kf6/propertiesdialog/baloofilepropertiesplugin.so",
@@ -135,6 +135,6 @@
 		}
 	},
 	"source-name": "baloo-widgets",
-	"source-release": "21",
-	"source-version": "26.08.0"
+	"source-release": "22",
+	"source-version": "26.08.1"
 }
