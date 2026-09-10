@@ -32,7 +32,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6CalendarUtils.so.6",
-				"/usr/lib/libKPim6CalendarUtils.so.6.8.0",
+				"/usr/lib/libKPim6CalendarUtils.so.6.8.1",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/kcalendar_grantlee_plugin.so",
 				"/usr/share/locale/ar/LC_MESSAGES/libkcalutils6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libkcalutils6.mo",
@@ -147,6 +147,6 @@
 		}
 	},
 	"source-name": "kcalutils",
-	"source-release": "17",
-	"source-version": "26.08.0"
+	"source-release": "18",
+	"source-version": "26.08.1"
 }
