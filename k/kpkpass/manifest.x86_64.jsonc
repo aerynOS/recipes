@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6PkPass.so.6",
-				"/usr/lib/libKPim6PkPass.so.6.8.0",
+				"/usr/lib/libKPim6PkPass.so.6.8.1",
 				"/usr/lib/qt6/qml/org/kde/pkpass/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/pkpass/kpkpassqmlplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/pkpass/libkpkpassqmlplugin.so",
@@ -73,6 +73,6 @@
 		}
 	},
 	"source-name": "kpkpass",
-	"source-release": "19",
-	"source-version": "26.08.0"
+	"source-release": "20",
+	"source-version": "26.08.1"
 }
