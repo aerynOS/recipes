@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kjournald
-version     : "26.08.0"
-release     : 19
+version     : "26.08.1"
+release     : 20
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/kjournald-26.08.0.tar.xz : 9ee4fbd2ac01c22f5d4aa28a1f1c6d1cfe93aca1b302f91cb56da18e62cc0d86
+    - https://download.kde.org/stable/release-service/26.08.1/src/kjournald-26.08.1.tar.xz : 768067c405e4f2b2cb527ffdae0dc27fc311acc191c5cc85fb0108f5f9c73609
 homepage    : https://apps.kde.org/kjournaldbrowser/
 license     : GPL-2.0-or-later
 summary     : Framework for interacting with systemd-journald
