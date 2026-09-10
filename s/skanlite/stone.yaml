@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : skanlite
-version     : "26.08.0"
-release     : 13
+version     : "26.08.1"
+release     : 14
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/skanlite-26.08.0.tar.xz : 3dae13db8a8c280a7fc632b1803fa2958f32c01bb41d19da86ec26a8aa8c7f30
+    - https://download.kde.org/stable/release-service/26.08.1/src/skanlite-26.08.1.tar.xz : 7ab83ff5c3d5bfe5e3534a77a5423de88a0ea43850a6a5666551f2e684d87bb2
 homepage    : https://apps.kde.org/skanlite/
 license     : GPL-2.0-or-later
 summary     : Image Scanning Application for KDE
