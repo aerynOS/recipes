@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kldap
-version     : "26.08.0"
-release     : 16
+version     : "26.08.1"
+release     : 17
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/kldap-26.08.0.tar.xz : d6fe84369db50a61371c5dcb268efe1705bc45decd4eff00bf7c8cecf04237bd
+    - https://download.kde.org/stable/release-service/26.08.1/src/kldap-26.08.1.tar.xz : e4be78254cfd19976544ad10981bae5aacdd96b778a9eaa4cec28be233722505
 homepage    : https://kde.org
 license     : LGPL-2.1-or-later
 summary     : Allows LDAP accessing with a convenient Qt style C++ API
