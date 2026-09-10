@@ -36,7 +36,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6AkonadiMime.so.6",
-				"/usr/lib/libKPim6AkonadiMime.so.6.8.0",
+				"/usr/lib/libKPim6AkonadiMime.so.6.8.1",
 				"/usr/lib/qt6/plugins/akonadi_serializer_mail.so",
 				"/usr/lib/qt6/qml/org/kde/akonadi/mime/akonadi_mime_quick_plugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/akonadi/mime/kde-qmlmodule.version",
@@ -192,6 +192,6 @@
 		}
 	},
 	"source-name": "akonadi-mime",
-	"source-release": "23",
-	"source-version": "26.08.0"
+	"source-release": "24",
+	"source-version": "26.08.1"
 }
