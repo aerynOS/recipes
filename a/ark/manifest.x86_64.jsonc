@@ -142,6 +142,7 @@
 				"/usr/share/man/man1/ark.1",
 				"/usr/share/man/nl/man1/ark.1",
 				"/usr/share/man/pt_BR/man1/ark.1",
+				"/usr/share/man/ru/man1/ark.1",
 				"/usr/share/man/sl/man1/ark.1",
 				"/usr/share/man/sr/man1/ark.1",
 				"/usr/share/man/sr@latin/man1/ark.1",
@@ -285,7 +286,7 @@
 			],
 			"files": [
 				"/usr/lib/libkerfuffle.so.26",
-				"/usr/lib/libkerfuffle.so.26.08.0",
+				"/usr/lib/libkerfuffle.so.26.08.1",
 				"/usr/lib/qt6/plugins/kerfuffle/kerfuffle_cli7z.so",
 				"/usr/lib/qt6/plugins/kerfuffle/kerfuffle_cliarj.so",
 				"/usr/lib/qt6/plugins/kerfuffle/kerfuffle_clirar.so",
@@ -318,6 +319,6 @@
 		}
 	},
 	"source-name": "ark",
-	"source-release": "24",
-	"source-version": "26.08.0"
+	"source-release": "25",
+	"source-version": "26.08.1"
 }

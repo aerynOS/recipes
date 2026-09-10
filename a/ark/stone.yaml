@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ark
-version     : "26.08.0"
-release     : 24
+version     : "26.08.1"
+release     : 25
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/ark-26.08.0.tar.xz : d4627791d17d17f0c4472f8bc464778d7b5526adeca9bba27565e77ff8b44db7
+    - https://download.kde.org/stable/release-service/26.08.1/src/ark-26.08.1.tar.xz : 0b277a28263074359ce1a1b994c83e974187c0901e320dcbac6042e104b4d8ce
 homepage    : https://kde.org/applications/utilities/org.kde.ark
 license     : GPL-2.0-or-later
 summary     : A graphical file compression/decompression utility
