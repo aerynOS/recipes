@@ -108,19 +108,19 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6MessageComposer.so.6",
-				"/usr/lib/libKPim6MessageComposer.so.6.8.0",
+				"/usr/lib/libKPim6MessageComposer.so.6.8.1",
 				"/usr/lib/libKPim6MessageCore.so.6",
-				"/usr/lib/libKPim6MessageCore.so.6.8.0",
+				"/usr/lib/libKPim6MessageCore.so.6.8.1",
 				"/usr/lib/libKPim6MessageList.so.6",
-				"/usr/lib/libKPim6MessageList.so.6.8.0",
+				"/usr/lib/libKPim6MessageList.so.6.8.1",
 				"/usr/lib/libKPim6MessageViewer.so.6",
-				"/usr/lib/libKPim6MessageViewer.so.6.8.0",
+				"/usr/lib/libKPim6MessageViewer.so.6.8.1",
 				"/usr/lib/libKPim6MimeTreeParser.so.6",
-				"/usr/lib/libKPim6MimeTreeParser.so.6.8.0",
+				"/usr/lib/libKPim6MimeTreeParser.so.6.8.1",
 				"/usr/lib/libKPim6TemplateParser.so.6",
-				"/usr/lib/libKPim6TemplateParser.so.6.8.0",
+				"/usr/lib/libKPim6TemplateParser.so.6.8.1",
 				"/usr/lib/libKPim6WebEngineViewer.so.6",
-				"/usr/lib/libKPim6WebEngineViewer.so.6.8.0",
+				"/usr/lib/libKPim6WebEngineViewer.so.6.8.1",
 				"/usr/lib/qt6/plugins/pim6/messageviewer/headerstyle/messageviewer_defaultgrantleeheaderstyleplugin.so",
 				"/usr/lib/qt6/plugins/pim6/messageviewer/kf6/ktexttemplate/messageviewer_ktexttemplate_extension.so",
 				"/usr/share/config.kcfg/customtemplates_kfg.kcfg",
@@ -1237,6 +1237,6 @@
 		}
 	},
 	"source-name": "messagelib",
-	"source-release": "22",
-	"source-version": "26.08.0"
+	"source-release": "23",
+	"source-version": "26.08.1"
 }

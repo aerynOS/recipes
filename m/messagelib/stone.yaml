@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : messagelib
-version     : "26.08.0"
-release     : 22
+version     : "26.08.1"
+release     : 23
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/messagelib-26.08.0.tar.xz : a0f48b86e8995f49b04dc0458f6b7ba0ea35cd1c452eeb19f48aeff01ba8f537
+    - https://download.kde.org/stable/release-service/26.08.1/src/messagelib-26.08.1.tar.xz : 0f3d5b72a4c49bee88aa4c432b127f85e1f152eafecd6d5bd6abca5c05206d68
 homepage    : https://kde.org
 license     :
     - GPL-2.0-only
