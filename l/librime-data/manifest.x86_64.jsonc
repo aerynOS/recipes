@@ -1,0 +1,158 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"librime-data": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"files": [
+				"/usr/share/rime-data/build/default.yaml",
+				"/usr/share/rime-data/default.yaml",
+				"/usr/share/rime-data/key_bindings.yaml",
+				"/usr/share/rime-data/punctuation.yaml",
+				"/usr/share/rime-data/symbols.yaml"
+			],
+			"name": "librime-data"
+		},
+		"rime-bopomofo": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-stroke",
+				"rime-terra-pinyin"
+			],
+			"files": [
+				"/usr/share/rime-data/bopomofo.schema.yaml",
+				"/usr/share/rime-data/bopomofo_express.schema.yaml",
+				"/usr/share/rime-data/bopomofo_tw.schema.yaml",
+				"/usr/share/rime-data/build/bopomofo.prism.bin",
+				"/usr/share/rime-data/build/bopomofo.schema.yaml",
+				"/usr/share/rime-data/detenele.schema.yaml",
+				"/usr/share/rime-data/zhuyin.yaml"
+			],
+			"name": "rime-bopomofo"
+		},
+		"rime-cangjie": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-luna-pinyin"
+			],
+			"files": [
+				"/usr/share/rime-data/build/cangjie5.prism.bin",
+				"/usr/share/rime-data/build/cangjie5.reverse.bin",
+				"/usr/share/rime-data/build/cangjie5.schema.yaml",
+				"/usr/share/rime-data/build/cangjie5.table.bin",
+				"/usr/share/rime-data/cangjie5.base.dict.yaml",
+				"/usr/share/rime-data/cangjie5.dict.yaml",
+				"/usr/share/rime-data/cangjie5.extended.dict.yaml",
+				"/usr/share/rime-data/cangjie5.schema.yaml",
+				"/usr/share/rime-data/cangjie5.stem.dict.yaml",
+				"/usr/share/rime-data/cangjie5_char.dict.yaml",
+				"/usr/share/rime-data/cangjie5_express.schema.yaml"
+			],
+			"name": "rime-cangjie"
+		},
+		"rime-essay": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data"
+			],
+			"files": [
+				"/usr/share/rime-data/essay.txt"
+			],
+			"name": "rime-essay"
+		},
+		"rime-luna-pinyin": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-stroke"
+			],
+			"files": [
+				"/usr/share/rime-data/build/luna_pinyin.prism.bin",
+				"/usr/share/rime-data/build/luna_pinyin.reverse.bin",
+				"/usr/share/rime-data/build/luna_pinyin.schema.yaml",
+				"/usr/share/rime-data/build/luna_pinyin.table.bin",
+				"/usr/share/rime-data/build/luna_quanpin.prism.bin",
+				"/usr/share/rime-data/build/luna_quanpin.schema.yaml",
+				"/usr/share/rime-data/luna_pinyin.dict.yaml",
+				"/usr/share/rime-data/luna_pinyin.schema.yaml",
+				"/usr/share/rime-data/luna_pinyin_fluency.schema.yaml",
+				"/usr/share/rime-data/luna_pinyin_simp.schema.yaml",
+				"/usr/share/rime-data/luna_pinyin_tw.schema.yaml",
+				"/usr/share/rime-data/luna_quanpin.schema.yaml",
+				"/usr/share/rime-data/pinyin.yaml"
+			],
+			"name": "rime-luna-pinyin"
+		},
+		"rime-quick": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-luna-pinyin"
+			],
+			"files": [
+				"/usr/share/rime-data/build/quick5.prism.bin",
+				"/usr/share/rime-data/build/quick5.reverse.bin",
+				"/usr/share/rime-data/build/quick5.schema.yaml",
+				"/usr/share/rime-data/build/quick5.table.bin",
+				"/usr/share/rime-data/quick5.dict.yaml",
+				"/usr/share/rime-data/quick5.schema.yaml",
+				"/usr/share/rime-data/quick5.supplement.dict.yaml"
+			],
+			"name": "rime-quick"
+		},
+		"rime-stroke": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-luna-pinyin"
+			],
+			"files": [
+				"/usr/share/rime-data/build/stroke.prism.bin",
+				"/usr/share/rime-data/build/stroke.reverse.bin",
+				"/usr/share/rime-data/build/stroke.schema.yaml",
+				"/usr/share/rime-data/build/stroke.table.bin",
+				"/usr/share/rime-data/stroke.dict.yaml",
+				"/usr/share/rime-data/stroke.schema.yaml"
+			],
+			"name": "rime-stroke"
+		},
+		"rime-terra-pinyin": {
+			"build-depends": [
+				"binary(rime_deployer)"
+			],
+			"depends": [
+				"librime-data",
+				"rime-stroke"
+			],
+			"files": [
+				"/usr/share/rime-data/build/terra_pinyin.prism.bin",
+				"/usr/share/rime-data/build/terra_pinyin.reverse.bin",
+				"/usr/share/rime-data/build/terra_pinyin.schema.yaml",
+				"/usr/share/rime-data/build/terra_pinyin.table.bin",
+				"/usr/share/rime-data/terra_pinyin.dict.yaml",
+				"/usr/share/rime-data/terra_pinyin.schema.yaml",
+				"/usr/share/rime-data/terra_pinyin_12345.schema.yaml"
+			],
+			"name": "rime-terra-pinyin"
+		}
+	},
+	"source-name": "librime-data",
+	"source-release": "1",
+	"source-version": "0.0.0.20260826"
+}

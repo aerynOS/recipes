@@ -1,0 +1,118 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : librime-data
+##@@BEGIN_VERSION
+version     : "0.0.0.20260826"
+release     : 1
+##@@END_VERSION
+homepage    : https://rime.im/
+upstreams   :
+##@@BEGIN_GIT_UPSTREAMS
+    - git|https://github.com/rime/rime-bopomofo.git:
+        ref: 6085c9a38a4a728047862b33d67eee18aa86f3b9
+        clonedir: rime-data/bopomofo
+    - git|https://github.com/rime/rime-cangjie.git:
+        ref: 52d90a1b1312e74042b38c1cbc8142defbc53171
+        clonedir: rime-data/cangjie
+    - git|https://github.com/rime/rime-essay.git:
+        ref: e9b1a374a6ea015fca5bdd04318924b4483ac35a
+        clonedir: rime-data/essay
+    - git|https://github.com/rime/rime-luna-pinyin.git:
+        ref: 56b934b099dfbeab842320f13aa8b461a6ab3e42
+        clonedir: rime-data/luna-pinyin
+    - git|https://github.com/rime/rime-prelude.git:
+        ref: 082425ea0684bca36474415d4a0e8db9b016487e
+        clonedir: rime-data/prelude
+    - git|https://github.com/rime/rime-quick.git:
+        ref: 5dcdb9e353d314239e9c8cddc0f42d52da4837bb
+        clonedir: rime-data/quick
+    - git|https://github.com/rime/rime-stroke.git:
+        ref: 1e8fff9b9494ddec23b0cbc526bcfd8171a6fd48
+        clonedir: rime-data/stroke
+    - git|https://github.com/rime/rime-terra-pinyin.git:
+        ref: 8a2c895ad7ee8e2b137d91be77f18f86b04d7fc9
+        clonedir: rime-data/terra-pinyin
+##@@END_GIT_UPSTREAMS
+summary     : Rime input schema
+description : |
+    Preset data for Rime input method engines. The base librime-data package
+    provides the rime-prelude configuration files, whilst each schema subpackage
+    ships its own dictionaries, schemas and pre-compiled caches.
+license     : LGPL-3.0-or-later
+builddeps   :
+    - binary(rime_deployer)
+build       : |
+    PRESET=%(buildroot)/rime-preset
+    mkdir -p "${PRESET}"
+
+    cd %(buildroot)/rime-data
+    shopt -s nullglob
+    for repo in prelude essay bopomofo cangjie luna-pinyin quick stroke terra-pinyin; do
+        cp "${repo}"/*.yaml "${repo}"/*.txt "${PRESET}/"
+    done
+
+    # Pre-compile schema/dictionary data into build/ caches
+    rime_deployer --build "${PRESET}"
+    rm -f "${PRESET}/user.yaml"
+install     : |
+    cd %(buildroot)/rime-data
+    shopt -s nullglob
+    for repo in prelude essay bopomofo cangjie luna-pinyin quick stroke terra-pinyin; do
+        %install_file "${repo}"/*.yaml "${repo}"/*.txt -t "%(installroot)%(datadir)/rime-data"
+    done
+
+    %install_file %(buildroot)/rime-preset/build/* -t "%(installroot)%(datadir)/rime-data/build"
+packages    :
+    - "rime-essay":
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/share/rime-data/essay.txt
+            - /usr/share/rime-data/build/essay*
+    - "rime-bopomofo":
+        rundeps:
+            - "%(name)"
+            - "rime-terra-pinyin"
+            - "rime-stroke"
+        paths:
+            - /usr/share/rime-data/bopomofo*
+            - /usr/share/rime-data/build/bopomofo*
+            - /usr/share/rime-data/detenele.schema.yaml
+            - /usr/share/rime-data/zhuyin.yaml
+    - "rime-cangjie":
+        rundeps:
+            - "%(name)"
+            - "rime-luna-pinyin"
+        paths:
+            - /usr/share/rime-data/cangjie5*
+            - /usr/share/rime-data/build/cangjie5*
+    - "rime-quick":
+        rundeps:
+            - "%(name)"
+            - "rime-luna-pinyin"
+        paths:
+            - /usr/share/rime-data/quick5*
+            - /usr/share/rime-data/build/quick5*
+    - "rime-luna-pinyin":
+        rundeps:
+            - "%(name)"
+            - "rime-stroke"
+        paths:
+            - /usr/share/rime-data/luna_*
+            - /usr/share/rime-data/pinyin.yaml
+            - /usr/share/rime-data/build/luna_*
+    - "rime-stroke":
+        rundeps:
+            - "%(name)"
+            - "rime-luna-pinyin"
+        paths:
+            - /usr/share/rime-data/stroke.*
+            - /usr/share/rime-data/build/stroke*
+    - "rime-terra-pinyin":
+        rundeps:
+            - "%(name)"
+            - "rime-stroke"
+        paths:
+            - /usr/share/rime-data/terra_pinyin*
+            - /usr/share/rime-data/build/terra_pinyin*
