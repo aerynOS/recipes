@@ -22,21 +22,21 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6GAPIBlogger.so.6",
-				"/usr/lib/libKPim6GAPIBlogger.so.6.8.0",
+				"/usr/lib/libKPim6GAPIBlogger.so.6.8.1",
 				"/usr/lib/libKPim6GAPICalendar.so.6",
-				"/usr/lib/libKPim6GAPICalendar.so.6.8.0",
+				"/usr/lib/libKPim6GAPICalendar.so.6.8.1",
 				"/usr/lib/libKPim6GAPICore.so.6",
-				"/usr/lib/libKPim6GAPICore.so.6.8.0",
+				"/usr/lib/libKPim6GAPICore.so.6.8.1",
 				"/usr/lib/libKPim6GAPIDrive.so.6",
-				"/usr/lib/libKPim6GAPIDrive.so.6.8.0",
+				"/usr/lib/libKPim6GAPIDrive.so.6.8.1",
 				"/usr/lib/libKPim6GAPILatitude.so.6",
-				"/usr/lib/libKPim6GAPILatitude.so.6.8.0",
+				"/usr/lib/libKPim6GAPILatitude.so.6.8.1",
 				"/usr/lib/libKPim6GAPIMaps.so.6",
-				"/usr/lib/libKPim6GAPIMaps.so.6.8.0",
+				"/usr/lib/libKPim6GAPIMaps.so.6.8.1",
 				"/usr/lib/libKPim6GAPIPeople.so.6",
-				"/usr/lib/libKPim6GAPIPeople.so.6.8.0",
+				"/usr/lib/libKPim6GAPIPeople.so.6.8.1",
 				"/usr/lib/libKPim6GAPITasks.so.6",
-				"/usr/lib/libKPim6GAPITasks.so.6.8.0",
+				"/usr/lib/libKPim6GAPITasks.so.6.8.1",
 				"/usr/lib/sasl2/libkdexoauth2.so",
 				"/usr/lib/sasl2/libkdexoauth2.so.3",
 				"/usr/lib/sasl2/libkdexoauth2.so.3.0.0",
@@ -521,6 +521,6 @@
 		}
 	},
 	"source-name": "libkgapi",
-	"source-release": "17",
-	"source-version": "26.08.0"
+	"source-release": "18",
+	"source-version": "26.08.1"
 }
