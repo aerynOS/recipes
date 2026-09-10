@@ -1,0 +1,199 @@
+From fd918a71e0c9f7d5a933a80af06814c478cd962a Mon Sep 17 00:00:00 2001
+From: Alexander Egorov <begeebe@gmail.com>
+Date: Tue, 28 Jul 2026 11:35:29 +0300
+Subject: [PATCH 090/176] [FROM-ML] platform/x86: oxpec: Report tablet mode on
+ OneXPlayer detachables
+
+The OneXPlayer X1 family and Super X have detachable pogo-pin
+keyboards. The firmware does not expose a tablet-mode input switch.
+
+The Super X keyboard enumerates as 1a86:1305. The X1 family folio
+keyboard enumerates as 258a:001e.
+
+Register an input device on these boards and report SW_TABLET_MODE from
+the model-specific pogo keyboard USB hotplug state. Other USB and
+Bluetooth keyboards do not affect the switch.
+
+A complete dump of the 256-byte Super X EC register map was compared
+with the keyboard attached, detached, and reattached. No register
+changed predictably with the attachment state.
+
+Tested on a OneXPlayer Super X. Mutter enables accelerometer-driven
+display rotation only while the pogo keyboard is absent.
+
+Assisted-by: Codex:gpt-5.6
+Signed-off-by: Alexander Egorov <begeebe@gmail.com>
+---
+ drivers/platform/x86/Kconfig |   2 +
+ drivers/platform/x86/oxpec.c | 103 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 105 insertions(+)
+
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index b54b5212b204..960b2ae6d94d 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -1056,6 +1056,8 @@ config OXP_EC
+ 	depends on ACPI_BATTERY
+ 	depends on HWMON
+ 	depends on X86
++	depends on INPUT
++	depends on USB
+ 	help
+ 		Enables support for the platform EC of OneXPlayer and AOKZOE
+ 		handheld devices. This includes fan speed, fan controls, and
+diff --git a/drivers/platform/x86/oxpec.c b/drivers/platform/x86/oxpec.c
+index 00a5e64b2001..5680c3bcd604 100644
+--- a/drivers/platform/x86/oxpec.c
++++ b/drivers/platform/x86/oxpec.c
+@@ -18,10 +18,12 @@
+ #include <linux/dmi.h>
+ #include <linux/hwmon.h>
+ #include <linux/init.h>
++#include <linux/input.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/processor.h>
++#include <linux/usb.h>
+ #include <acpi/battery.h>
+ 
+ /* Handle ACPI lock mechanism */
+@@ -55,6 +57,8 @@ enum oxp_board {
+ 
+ static enum oxp_board board;
+ static struct device *oxp_dev;
++static struct input_dev *oxp_tablet_mode_input;
++static struct notifier_block oxp_usb_notifier;
+ 
+ /* Fan reading and PWM */
+ #define OXP_SENSOR_FAN_REG		0x76 /* Fan reading is 2 registers long */
+@@ -300,6 +304,74 @@ static const struct dmi_system_id dmi_table[] = {
+ 	{},
+ };
+ 
++#define OXP_KEYBOARD_VID_QINHENG	0x1a86
++#define OXP_KEYBOARD_PID_K2445		0x1305
++#define OXP_KEYBOARD_VID_HAILUCK	0x258a
++#define OXP_KEYBOARD_PID_HAILUCK	0x001e
++
++static int oxp_find_keyboard(struct usb_device *udev, void *data)
++{
++	bool *keyboard_attached = data;
++	u16 vid = le16_to_cpu(udev->descriptor.idVendor);
++	u16 pid = le16_to_cpu(udev->descriptor.idProduct);
++
++	switch (board) {
++	case oxp_x1:
++		if (vid == OXP_KEYBOARD_VID_HAILUCK &&
++		    pid == OXP_KEYBOARD_PID_HAILUCK)
++			*keyboard_attached = true;
++		break;
++	case oxp_super_x:
++		if (vid == OXP_KEYBOARD_VID_QINHENG &&
++		    pid == OXP_KEYBOARD_PID_K2445)
++			*keyboard_attached = true;
++		break;
++	default:
++		break;
++	}
++
++	return 0;
++}
++
++static int oxp_usb_notify(struct notifier_block *nb,
++			  unsigned long action, void *data)
++{
++	struct usb_device *udev = data;
++	u16 vid = le16_to_cpu(udev->descriptor.idVendor);
++	u16 pid = le16_to_cpu(udev->descriptor.idProduct);
++	bool keyboard = false;
++
++	switch (board) {
++	case oxp_x1:
++		keyboard = vid == OXP_KEYBOARD_VID_HAILUCK &&
++			   pid == OXP_KEYBOARD_PID_HAILUCK;
++		break;
++	case oxp_super_x:
++		keyboard = vid == OXP_KEYBOARD_VID_QINHENG &&
++			   pid == OXP_KEYBOARD_PID_K2445;
++		break;
++	default:
++		break;
++	}
++
++	if (!keyboard)
++		return NOTIFY_DONE;
++
++	switch (action) {
++	case USB_DEVICE_ADD:
++		input_report_switch(oxp_tablet_mode_input, SW_TABLET_MODE, false);
++		break;
++	case USB_DEVICE_REMOVE:
++		input_report_switch(oxp_tablet_mode_input, SW_TABLET_MODE, true);
++		break;
++	default:
++		return NOTIFY_DONE;
++	}
++
++	input_sync(oxp_tablet_mode_input);
++	return NOTIFY_OK;
++}
++
+ /* Helper functions to handle EC read/write */
+ static int read_from_ec(u8 reg, int size, long *val)
+ {
+@@ -955,6 +1027,7 @@ static const struct hwmon_chip_info oxp_ec_chip_info = {
+ /* Initialization logic */
+ static int oxp_platform_probe(struct platform_device *pdev)
+ {
++	bool keyboard_attached = false;
+ 	struct device *dev = &pdev->dev;
+ 	struct device *hwdev;
+ 	int ret;
+@@ -972,6 +1045,33 @@ static int oxp_platform_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
++	switch (board) {
++	case oxp_x1:
++	case oxp_super_x:
++		oxp_tablet_mode_input = devm_input_allocate_device(dev);
++		if (!oxp_tablet_mode_input)
++			return -ENOMEM;
++
++		oxp_tablet_mode_input->name = "OneXPlayer Tablet Mode Switch";
++		oxp_tablet_mode_input->phys = "oxp-platform/input0";
++		oxp_tablet_mode_input->id.bustype = BUS_HOST;
++		input_set_capability(oxp_tablet_mode_input, EV_SW, SW_TABLET_MODE);
++
++		ret = input_register_device(oxp_tablet_mode_input);
++		if (ret)
++			return ret;
++
++		oxp_usb_notifier.notifier_call = oxp_usb_notify;
++		usb_register_notify(&oxp_usb_notifier);
++		usb_for_each_dev(&keyboard_attached, oxp_find_keyboard);
++		input_report_switch(oxp_tablet_mode_input, SW_TABLET_MODE,
++				    !keyboard_attached);
++		input_sync(oxp_tablet_mode_input);
++		break;
++	default:
++		break;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -1012,6 +1112,9 @@ static int __init oxp_platform_init(void)
+ 
+ static void __exit oxp_platform_exit(void)
+ {
++	if (board == oxp_x1 || board == oxp_super_x)
++		usb_unregister_notify(&oxp_usb_notifier);
++
+ 	platform_device_unregister(oxp_platform_device);
+ 	platform_driver_unregister(&oxp_platform_driver);
+ }
+-- 
+2.55.0
+

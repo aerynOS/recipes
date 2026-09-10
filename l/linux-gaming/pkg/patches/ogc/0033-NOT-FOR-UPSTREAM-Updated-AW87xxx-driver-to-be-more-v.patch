@@ -1,0 +1,116 @@
+From f6cd8d40a1dfa9267e64f10acd35f429a437ba6c Mon Sep 17 00:00:00 2001
+From: CVMagic <546352+CVMagic@users.noreply.github.com>
+Date: Thu, 16 May 2024 04:57:32 +0000
+Subject: [PATCH 033/176] [NOT-FOR-UPSTREAM] Updated AW87xxx driver to be more
+ verbose for debugging purposes, but also fixed Reset Pin GPIO initialization
+ issue with Ayn Loki Mini
+
+This is deliberately an OGC-carried patch and must not be sent upstream.
+
+(cherry picked from commit 4b4179efc86828f8762f0819aabf4413a3ba0d27)
+Signed-off-by: Hijae Song <hijae@naver.com>
+---
+ sound/soc/codecs/aw87xxx/aw87xxx.c        | 49 ++++++++++++++---------
+ sound/soc/codecs/aw87xxx/aw87xxx_device.c |  8 ++--
+ 2 files changed, 33 insertions(+), 24 deletions(-)
+
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx.c b/sound/soc/codecs/aw87xxx/aw87xxx.c
+index eddb016955e9..0eaea9ba7e06 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx.c
+@@ -1284,7 +1284,7 @@ static struct aw87xxx *aw87xxx_malloc_init(struct i2c_client *client)
+ 
+ 	mutex_init(&aw87xxx->reg_lock);
+ 
+-	AW_DEV_LOGI(&client->dev, "struct aw87xxx devm_kzalloc and init down");
++	AW_DEV_LOGI(&client->dev, "Driver struct alloc and mutex init done, devinfo: i2c_bus=%u, i2c_addr=%x", client->adapter->nr, client->addr);
+ 	return aw87xxx;
+ }
+ 
+@@ -1324,29 +1324,38 @@ static int aw87xxx_i2c_probe(struct i2c_client *client)
+ 	}
+ 
+ 	gpiod = gpiod_get_optional(aw87xxx->dev, "reset", GPIOD_OUT_LOW);
+-	if (IS_ERR(gpiod)){
+-		AW_DEV_LOGE(aw87xxx->dev, "Get gpiod failed");
+-		goto exit_device_init_failed;
+-	}
+-
+-	aw87xxx->aw_dev.rst_gpio = desc_to_gpio(gpiod);
+-        aw87xxx->aw_dev.hwen_status = AW_DEV_HWEN_OFF;
+-        AW_DEV_LOGI(aw87xxx->dev, "reset gpio[%d] parse succeed", aw87xxx->aw_dev.rst_gpio);
+-        if (gpio_is_valid(aw87xxx->aw_dev.rst_gpio)) {
+-                ret = devm_gpio_request_one(aw87xxx->dev, aw87xxx->aw_dev.rst_gpio, GPIOF_OUT_INIT_LOW, "aw87xxx_reset");
+-                if (ret < 0) {
+-                        AW_DEV_LOGE(aw87xxx->dev, "reset request failed");
+-                        goto exit_device_init_failed;
+-                }
+-        }
+ */
+ 
+-	/*Disabling RESET GPIO*/
+-        AW_DEV_LOGI(aw87xxx->dev, "no reset gpio provided, hardware reset unavailable");
+-        aw87xxx->aw_dev.rst_gpio = AW_NO_RESET_GPIO;
+-        aw87xxx->aw_dev.hwen_status = AW_DEV_HWEN_INVALID;
++	if (g_aw87xxx_dev_cnt == 0){
++		gpiod = gpiod_get(aw87xxx->dev, NULL, GPIOD_OUT_LOW);
++		if (gpiod == NULL){
++	                AW_DEV_LOGE(aw87xxx->dev, "Gpiod returned NULL failing gracefully.");
++	                goto exit_device_init_failed;
++	        }
+ 
++		if (IS_ERR(gpiod)){
++			AW_DEV_LOGE(aw87xxx->dev, "Get gpiod failed.");
++			goto exit_device_init_failed;
++		}
+ 
++		aw87xxx->aw_dev.rst_gpio = desc_to_gpio(gpiod);
++	        aw87xxx->aw_dev.hwen_status = AW_DEV_HWEN_OFF;
++	        AW_DEV_LOGI(aw87xxx->dev, "reset gpio[%x] parse succeed", aw87xxx->aw_dev.rst_gpio);
++
++	        if (gpio_is_valid(aw87xxx->aw_dev.rst_gpio)) {
++	                ret = devm_gpio_request_one(aw87xxx->dev, aw87xxx->aw_dev.rst_gpio, GPIOF_OUT_INIT_LOW, "aw87xxx_reset");
++	                if ((ret < 0) && (ret != -EBUSY)) {
++	                        AW_DEV_LOGE(aw87xxx->dev, "reset request failed, returned [%d]", ret);
++	                        goto exit_device_init_failed;
++	                }
++	        }else{
++			/*Disabling RESET GPIO*/
++	        	AW_DEV_LOGI(aw87xxx->dev, "no reset gpio provided, hardware reset unavailable");
++	        	aw87xxx->aw_dev.rst_gpio = AW_NO_RESET_GPIO;
++        		aw87xxx->aw_dev.hwen_status = AW_DEV_HWEN_INVALID;
++		}
++
++	}
+ 	/*hw power on PA*/
+ 	aw87xxx_dev_hw_pwr_ctrl(&aw87xxx->aw_dev, true);
+ 
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx_device.c b/sound/soc/codecs/aw87xxx/aw87xxx_device.c
+index 8d7b7b83d694..a4c9ad7d96dc 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx_device.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx_device.c
+@@ -102,8 +102,8 @@ int aw87xxx_dev_i2c_write_byte(struct aw_device *aw_dev,
+ 	while (cnt < AW_I2C_RETRIES) {
+ 		ret = i2c_smbus_write_byte_data(aw_dev->i2c, reg_addr, reg_data);
+ 		if (ret < 0)
+-			AW_DEV_LOGE(aw_dev->dev, "i2c_write cnt=%d error=%d",
+-				cnt, ret);
++			AW_DEV_LOGE(aw_dev->dev, "i2c_write cnt=%d error=%d i2c_bus=%u i2c_addr=%X chipid=%X",
++				cnt, ret, aw_dev->i2c_bus, aw_dev->i2c_addr, aw_dev->chipid);
+ 		else
+ 			break;
+ 
+@@ -123,8 +123,8 @@ int aw87xxx_dev_i2c_read_byte(struct aw_device *aw_dev,
+ 	while (cnt < AW_I2C_RETRIES) {
+ 		ret = i2c_smbus_read_byte_data(aw_dev->i2c, reg_addr);
+ 		if (ret < 0) {
+-			AW_DEV_LOGE(aw_dev->dev, "i2c_read cnt=%d error=%d",
+-				cnt, ret);
++			AW_DEV_LOGE(aw_dev->dev, "i2c_read cnt=%d error=%d i2c_bus=%u i2c_addr=%X chipid=%X",
++				cnt, ret, aw_dev->i2c_bus, aw_dev->i2c_addr, aw_dev->chipid);
+ 		} else {
+ 			*reg_data = ret;
+ 			break;
+-- 
+2.55.0
+

@@ -1,0 +1,247 @@
+From e94fe0696cf64459643ba180fafdf30341d1b7f1 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Wed, 26 Aug 2026 01:56:20 +0000
+Subject: [PATCH 078/176] Revert "[FROM-ML] HID: hid-msi: Add Rumble Intensity
+ Attributes"
+
+This reverts commit d7587f830c78b0366cf9702ded1064b57b5b6664.
+---
+ drivers/hid/hid-msi.c | 151 ------------------------------------------
+ 1 file changed, 151 deletions(-)
+
+diff --git a/drivers/hid/hid-msi.c b/drivers/hid/hid-msi.c
+index d4688caef296..8ea8f551b8e4 100644
+--- a/drivers/hid/hid-msi.c
++++ b/drivers/hid/hid-msi.c
+@@ -79,8 +79,6 @@ enum claw_profile_ack_pending {
+ 	CLAW_M1_PENDING,
+ 	CLAW_M2_PENDING,
+ 	CLAW_RGB_PENDING,
+-	CLAW_RUMBLE_LEFT_PENDING,
+-	CLAW_RUMBLE_RIGHT_PENDING,
+ };
+ 
+ enum claw_key_index {
+@@ -236,7 +234,6 @@ static const struct {
+ 	{ 0xcc, "BTN_EXTRA" },
+ 	{ 0xcd, "REL_WHEEL_UP" },
+ 	{ 0xce, "REL_WHEEL_DOWN" },
+-	{ 0xff, "DISABLED" },
+ };
+ 
+ enum claw_rgb_effect_index {
+@@ -268,11 +265,6 @@ static const u16 button_mapping_addr_new[] = {
+ static const u16 rgb_addr_old = 0x01fa;
+ static const u16 rgb_addr_new = 0x024a;
+ 
+-static const u16 rumble_addr[] = {
+-	0x0022,  /* left  */
+-	0x0023,  /* right */
+-};
+-
+ struct claw_command_report {
+ 	u8 report_id;
+ 	u8 padding[2];
+@@ -323,10 +315,7 @@ struct claw_drvdata {
+ 	enum claw_gamepad_mode_index gamepad_mode;
+ 	u8 m1_codes[CLAW_KEYS_MAX];
+ 	u8 m2_codes[CLAW_KEYS_MAX];
+-	u8 rumble_intensity_right;
+-	u8 rumble_intensity_left;
+ 	const u16 *bmap_addr;
+-	bool rumble_support;
+ 	bool bmap_support;
+ 
+ 	/* RGB Variables */
+@@ -411,12 +400,6 @@ static int claw_profile_event(struct claw_drvdata *drvdata, struct claw_command_
+ 			drvdata->led_mc.subled_info[2].intensity = frame->zone_data.zone[0].blue;
+ 		}
+ 
+-		break;
+-	case CLAW_RUMBLE_LEFT_PENDING:
+-		drvdata->rumble_intensity_left = cmd_rep->data[4];
+-		break;
+-	case CLAW_RUMBLE_RIGHT_PENDING:
+-		drvdata->rumble_intensity_right = cmd_rep->data[4];
+ 		break;
+ 	default:
+ 		dev_dbg(&drvdata->hdev->dev,
+@@ -695,9 +678,6 @@ static const char *button_mapping_code_to_name(u8 code)
+ {
+ 	int i;
+ 
+-	if (code == 0xff)
+-		return NULL;
+-
+ 	for (i = 0; i < ARRAY_SIZE(claw_button_mapping_key_map); i++) {
+ 		if (claw_button_mapping_key_map[i].code == code)
+ 			return claw_button_mapping_key_map[i].name;
+@@ -836,126 +816,6 @@ static ssize_t button_mapping_options_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(button_mapping_options);
+ 
+-static ssize_t rumble_intensity_left_store(struct device *dev,
+-					   struct device_attribute *attr,
+-					   const char *buf, size_t count)
+-{
+-	u8 data[] = { 0x01, (rumble_addr[0] >> 8) & 0xff, rumble_addr[0] & 0xff, 0x01, 0x00 };
+-	struct hid_device *hdev = to_hid_device(dev);
+-	struct claw_drvdata *drvdata = hid_get_drvdata(hdev);
+-	u8 val;
+-	int ret;
+-
+-	ret = kstrtou8(buf, 10, &val);
+-	if (ret)
+-		return ret;
+-
+-	if (val > 100)
+-		return -EINVAL;
+-
+-	data[4] = val;
+-
+-	guard(mutex)(&drvdata->rom_mutex);
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_WRITE_PROFILE_DATA,
+-				    data, ARRAY_SIZE(data), 8);
+-	if (ret)
+-		return ret;
+-
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_SYNC_TO_ROM, NULL, 0, 8);
+-	if (ret)
+-		return ret;
+-
+-	drvdata->rumble_intensity_left = val;
+-
+-	return count;
+-}
+-
+-static ssize_t rumble_intensity_left_show(struct device *dev,
+-					  struct device_attribute *attr,
+-					  char *buf)
+-{
+-	u8 data[4] = { 0x01, (rumble_addr[0] >> 8) & 0xff, rumble_addr[0] & 0xff, 0x01 };
+-	struct hid_device *hdev = to_hid_device(dev);
+-	struct claw_drvdata *drvdata = hid_get_drvdata(hdev);
+-	int ret;
+-
+-	guard(mutex)(&drvdata->profile_mutex);
+-	drvdata->profile_pending = CLAW_RUMBLE_LEFT_PENDING;
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_READ_PROFILE, data,
+-				    ARRAY_SIZE(data), 8);
+-	if (ret) {
+-		drvdata->profile_pending = CLAW_NO_PENDING;
+-		return ret;
+-	}
+-
+-	return sysfs_emit(buf, "%u\n", drvdata->rumble_intensity_left);
+-}
+-static DEVICE_ATTR_RW(rumble_intensity_left);
+-
+-static ssize_t rumble_intensity_right_store(struct device *dev,
+-					    struct device_attribute *attr,
+-					    const char *buf, size_t count)
+-{
+-	u8 data[] = { 0x01, (rumble_addr[1] >> 8) & 0xff, rumble_addr[1] & 0xff, 0x01, 0x00 };
+-	struct hid_device *hdev = to_hid_device(dev);
+-	struct claw_drvdata *drvdata = hid_get_drvdata(hdev);
+-	u8 val;
+-	int ret;
+-
+-	ret = kstrtou8(buf, 10, &val);
+-	if (ret)
+-		return ret;
+-
+-	if (val > 100)
+-		return -EINVAL;
+-
+-	data[4] = val;
+-
+-	guard(mutex)(&drvdata->rom_mutex);
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_WRITE_PROFILE_DATA,
+-				    data, ARRAY_SIZE(data), 8);
+-	if (ret)
+-		return ret;
+-
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_SYNC_TO_ROM, NULL, 0, 8);
+-	if (ret)
+-		return ret;
+-
+-	drvdata->rumble_intensity_right = val;
+-
+-	return count;
+-}
+-
+-static ssize_t rumble_intensity_right_show(struct device *dev,
+-					   struct device_attribute *attr,
+-					   char *buf)
+-{
+-	u8 data[4] = { 0x01, (rumble_addr[1] >> 8) & 0xff, rumble_addr[1] & 0xff, 0x01 };
+-	struct hid_device *hdev = to_hid_device(dev);
+-	struct claw_drvdata *drvdata = hid_get_drvdata(hdev);
+-	int ret;
+-
+-	guard(mutex)(&drvdata->profile_mutex);
+-	drvdata->profile_pending = CLAW_RUMBLE_RIGHT_PENDING;
+-	ret = claw_hw_output_report(hdev, CLAW_COMMAND_TYPE_READ_PROFILE, data,
+-				    ARRAY_SIZE(data), 8);
+-	if (ret) {
+-		drvdata->profile_pending = CLAW_NO_PENDING;
+-		return ret;
+-	}
+-
+-	return sysfs_emit(buf, "%u\n", drvdata->rumble_intensity_right);
+-}
+-static DEVICE_ATTR_RW(rumble_intensity_right);
+-
+-static ssize_t rumble_intensity_range_show(struct device *dev,
+-					   struct device_attribute *attr,
+-					   char *buf)
+-{
+-	return sysfs_emit(buf, "0-100\n");
+-}
+-static DEVICE_ATTR_RO(rumble_intensity_range);
+-
+ static umode_t claw_gamepad_attr_is_visible(struct kobject *kobj, struct attribute *attr,
+ 					    int n)
+ {
+@@ -976,12 +836,6 @@ static umode_t claw_gamepad_attr_is_visible(struct kobject *kobj, struct attribu
+ 	    attr == &dev_attr_reset.attr)
+ 		return attr->mode;
+ 
+-	/* Hide rumble attrs if not supported */
+-	if (attr == &dev_attr_rumble_intensity_left.attr ||
+-	    attr == &dev_attr_rumble_intensity_right.attr ||
+-	    attr == &dev_attr_rumble_intensity_range.attr)
+-		return drvdata->rumble_support ? attr->mode : 0;
+-
+ 	/* Hide button mapping attrs if it isn't supported */
+ 	return drvdata->bmap_support ? attr->mode : 0;
+ }
+@@ -995,9 +849,6 @@ static struct attribute *claw_gamepad_attrs[] = {
+ 	&dev_attr_mkeys_function.attr,
+ 	&dev_attr_mkeys_function_index.attr,
+ 	&dev_attr_reset.attr,
+-	&dev_attr_rumble_intensity_left.attr,
+-	&dev_attr_rumble_intensity_right.attr,
+-	&dev_attr_rumble_intensity_range.attr,
+ 	NULL,
+ };
+ 
+@@ -1469,7 +1320,6 @@ static void claw_features_supported(struct claw_drvdata *drvdata)
+ 		drvdata->bmap_support = true;
+ 		if (minor >= 0x66) {
+ 			drvdata->bmap_addr = button_mapping_addr_new;
+-			drvdata->rumble_support = true;
+ 			drvdata->rgb_addr = rgb_addr_new;
+ 		} else {
+ 			drvdata->bmap_addr = button_mapping_addr_old;
+@@ -1481,7 +1331,6 @@ static void claw_features_supported(struct claw_drvdata *drvdata)
+ 	if ((major == 0x02 && minor >= 0x17) || major >= 0x03) {
+ 		drvdata->bmap_support = true;
+ 		drvdata->bmap_addr = button_mapping_addr_new;
+-		drvdata->rumble_support = true;
+ 		drvdata->rgb_addr = rgb_addr_new;
+ 		return;
+ 	}
+-- 
+2.55.0
+

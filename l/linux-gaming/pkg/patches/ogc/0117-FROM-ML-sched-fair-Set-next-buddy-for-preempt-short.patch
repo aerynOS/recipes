@@ -1,0 +1,51 @@
+From 899a4cc96c210ab0a8ad1d235d0e2de548788efc Mon Sep 17 00:00:00 2001
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 24 Jun 2026 17:12:24 +0200
+Subject: [PATCH 117/176] [FROM-ML] sched/fair: Set next buddy for preempt
+ short
+
+If a shorter slice task can preempt current at wakeup, we make sure that
+the decision will not be overwritten in between by setting the task as the
+next buddy. This still implies that the waking task remains eligible when
+the scheduler will actually pick the next task to run.
+
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Link: https://patch.msgid.link/20260624151229.1710703-2-vincent.guittot@linaro.org
+---
+ kernel/sched/fair.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 0ebb905abb4c..59855832292b 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -9759,6 +9759,15 @@ static inline bool set_preempt_buddy(struct cfs_rq *cfs_rq, struct sched_entity
+ 	return true;
+ }
+ 
++static inline bool set_short_buddy(struct cfs_rq *cfs_rq, struct sched_entity *pse)
++{
++	if (cfs_rq->next && cfs_rq->next->slice < pse->slice)
++		return false;
++
++	set_next_buddy(cfs_rq, pse);
++	return true;
++}
++
+ /*
+  * WF_SYNC|WF_TTWU indicates the waker expects to sleep but it is not
+  * strictly enforced because the hint is either misunderstood or
+@@ -9933,7 +9942,7 @@ static void wakeup_preempt_fair(struct rq *rq, struct task_struct *p, int wake_f
+ preempt:
+ 	if (preempt_action == PREEMPT_WAKEUP_SHORT) {
+ 		cancel_protect_slice(se);
+-		clear_buddies(cfs_rq, se);
++		set_short_buddy(cfs_rq, pse);
+ 	}
+ 
+ 	resched_curr_lazy(rq);
+-- 
+2.55.0
+

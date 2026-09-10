@@ -1,0 +1,30 @@
+From 9bb1e3fd40ae2dfa0415e445272efbdee44e5e15 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Tue, 28 Jul 2026 20:59:46 -0700
+Subject: [PATCH 087/176] [NOT-FOR-UPSTREAM] HID: hid-oxp: Report RGB LED under
+ the Legion Go name
+
+This is deliberately an OGC-carried patch and must not be sent upstream.
+Squatting on another device's LED name is not acceptable in mainline; the
+real fix belongs in the Steam client, which should match the
+"*:rgb:joystick_rings" suffix rather than a per-device prefix.
+---
+ drivers/hid/hid-oxp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/hid/hid-oxp.c b/drivers/hid/hid-oxp.c
+index 20a54f337220..b7427ebf6d1d 100644
+--- a/drivers/hid/hid-oxp.c
++++ b/drivers/hid/hid-oxp.c
+@@ -1386,7 +1386,7 @@ static struct mc_subled oxp_rgb_subled_info[] = {
+ 
+ static struct led_classdev_mc oxp_cdev_rgb = {
+ 	.led_cdev = {
+-		.name = "oxp:rgb:joystick_rings",
++		.name = "go:rgb:joystick_rings",
+ 		.color = LED_COLOR_ID_RGB,
+ 		.brightness = 0x64,
+ 		.max_brightness = 0x64,
+-- 
+2.55.0
+

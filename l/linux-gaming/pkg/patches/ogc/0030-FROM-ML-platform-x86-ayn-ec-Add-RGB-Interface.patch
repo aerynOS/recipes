@@ -1,0 +1,383 @@
+From f15698b7afd0103c51e1a5ea43083400f3b04103 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Sat, 26 Jul 2025 13:40:40 -0700
+Subject: [PATCH 030/176] [FROM-ML] platform/x86: (ayn-ec) Add RGB Interface
+
+Adds an EC controlled LED Multicolor Class Device for controlling the
+RGB rings around the joysticks.
+
+The EC provides a single register for each of the colors red, green, and
+blue, as well as a mode switching register. The EC accepts values
+[0-255] for all colors. There are two available effects: breathe, which is
+the default when the device is started, and monocolor. When resuming from
+sleep the user selected effect will be overwritten by the EC, so the
+driver retains the last setting and resets on resume. When setting a
+color, each color register is set before a final "write" code is sent to
+the device. The EC may briefly reflect the "write" code when writing, but
+quickly changes to the "monocolor" value once complete. The driver
+interprets both of these values as "monocolor" in _show to simplify the
+sysfs exposed to the user.
+
+Two custom attributes are added to the standard LED parent device:
+effect, a RW file descriptor used to set the effect, and effect_index,
+which enumerates the available valid options.
+
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/platform/x86/Kconfig  |   3 +
+ drivers/platform/x86/ayn-ec.c | 285 ++++++++++++++++++++++++++++++++++
+ 2 files changed, 288 insertions(+)
+
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index dde81298afe0..96f3b7ad497a 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -334,6 +334,9 @@ config AYN_EC
+ 	tristate "AYN x86 devices EC platform control"
+ 	depends on ACPI
+ 	depends on HWMON
++	depends on NEW_LEDS
++	select LEDS_CLASS
++	select LEDS_CLASS_MULTICOLOR
+ 	help
+ 	  This is a driver for AYN and Tectoy x86 handheld devices. It provides
+ 	  temperature monitoring, manual fan speed control, fan curve control,
+diff --git a/drivers/platform/x86/ayn-ec.c b/drivers/platform/x86/ayn-ec.c
+index 466cc33adcb0..25f748d7db18 100644
+--- a/drivers/platform/x86/ayn-ec.c
++++ b/drivers/platform/x86/ayn-ec.c
+@@ -28,6 +28,8 @@
+ #include <linux/hwmon.h>
+ #include <linux/init.h>
+ #include <linux/kernel.h>
++#include <linux/led-class-multicolor.h>
++#include <linux/leds.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/sysfs.h>
+@@ -68,6 +70,16 @@
+ #define AYN_SENSOR_PROC_TEMP_REG	0x09 /* CPU Core */
+ #define AYN_SENSOR_VCORE_TEMP_REG	0x08 /* vCore */
+ 
++/* EC Controlled RGB registers */
++#define AYN_LED_MC_RED_REG	0xB0 /* Range 0x00-0xFF */
++#define AYN_LED_MC_GREEN_REG	0xB1 /* Range 0x00-0xFF */
++#define AYN_LED_MC_BLUE_REG	0xB2 /* Range 0x00-0xFF */
++#define AYN_RGB_EFFECT_REG	0xB3
++
++/* RGB effect modes */
++#define AYN_RGB_EFFECT_BREATHE		0x00
++#define AYN_RGB_EFFECT_MONOCOLOR	0x55
++#define AYN_RGB_EFFECT_WRITE		0xAA
+ 
+ /* Handle ACPI lock mechanism */
+ #define ACPI_LOCK_DELAY_MS 500
+@@ -86,7 +98,9 @@ int ayn_pwm_curve_registers[10] = {
+ };
+ 
+ struct ayn_device {
++	struct led_classdev *led_cdev;
+ 	u32 ayn_lock; /* ACPI EC Lock */
++	u8 rgb_effect;
+ } drvdata;
+ 
+ struct thermal_sensor {
+@@ -103,6 +117,33 @@ static struct thermal_sensor thermal_sensors[] = {
+ 	{}
+ };
+ 
++#define DEVICE_ATTR_RW_NAMED(_name, _attrname)               \
++	struct device_attribute dev_attr_##_name = {         \
++		.attr = { .name = _attrname, .mode = 0644 }, \
++		.show = _name##_show,                        \
++		.store = _name##_store,                      \
++	}
++
++#define DEVICE_ATTR_RO_NAMED(_name, _attrname)               \
++	struct device_attribute dev_attr_##_name = {         \
++		.attr = { .name = _attrname, .mode = 0444 }, \
++		.show = _name##_show,                        \
++	}
++
++/* Handle ACPI lock mechanism */
++#define ACPI_LOCK_DELAY_MS 500
++
++/* RGB effect values */
++enum RGB_EFFECT_OPTION {
++	BREATHE,
++	MONOCOLOR,
++};
++
++static const char *const RGB_EFFECT_TEXT[] = {
++	[BREATHE] = "breathe",
++	[MONOCOLOR] = "monocolor",
++};
++
+ static bool lock_global_acpi_lock(void)
+ {
+ 	return ACPI_SUCCESS(acpi_acquire_global_lock(ACPI_LOCK_DELAY_MS,
+@@ -528,10 +569,253 @@ static struct attribute *ayn_sensors_attrs[] = {
+ 
+ ATTRIBUTE_GROUPS(ayn_sensors);
+ 
++/**
++ * rgb_effect_write() - Set the RGB effect stored in drvdata.rgb_effect.
++ */
++static int rgb_effect_write(void)
++{
++	return write_to_ec(AYN_RGB_EFFECT_REG, drvdata.rgb_effect);
++};
++
++/**
++ * rgb_effect_read() - Read the RGB effect and store it in drvdata.rgb_effect.
++ */
++static int rgb_effect_read(void)
++{
++	int ret;
++	long effect;
++
++	ret = read_from_ec(AYN_RGB_EFFECT_REG, 1, &effect);
++	if (ret)
++		return ret;
++
++	switch (effect) {
++	case AYN_RGB_EFFECT_WRITE:
++	case AYN_RGB_EFFECT_MONOCOLOR:
++		drvdata.rgb_effect = AYN_RGB_EFFECT_WRITE;
++		break;
++	default:
++		drvdata.rgb_effect = AYN_RGB_EFFECT_BREATHE;
++	}
++
++	return 0;
++}
++
++/**
++ * rgb_effect_store() - Store the given RGB effect and set it.
++ *
++ * @dev: parent device of the given attribute.
++ * @attr: The attribute to write to.
++ * @buf: Input value string from sysfs write.
++ * @count: The number of bytes written.
++ *
++ * Return: The number of bytes written, or an error.
++ */
++static ssize_t rgb_effect_store(struct device *dev,
++				struct device_attribute *attr, const char *buf,
++				size_t count)
++{
++	int ret;
++
++	ret = sysfs_match_string(RGB_EFFECT_TEXT, buf);
++	if (ret < 0)
++		return ret;
++
++	if (ret)
++		drvdata.rgb_effect = AYN_RGB_EFFECT_WRITE;
++	else
++		drvdata.rgb_effect = AYN_RGB_EFFECT_BREATHE;
++
++	ret = rgb_effect_write();
++	if (ret)
++		return ret;
++
++	return count;
++};
++
++/**
++ * rgb_effect_show() - Read the current RGB effect.
++ *
++ * @dev: parent device of the given attribute.
++ * @attr: The attribute to read.
++ * @buf: Buffer to read to.
++ *
++ * Return: The number of bytes read, or an error.
++ */
++static ssize_t rgb_effect_show(struct device *dev,
++			       struct device_attribute *attr, char *buf)
++{
++	int ret, i;
++
++	ret = rgb_effect_read();
++	if (ret)
++		return ret;
++
++	switch (drvdata.rgb_effect) {
++	case AYN_RGB_EFFECT_WRITE:
++	case AYN_RGB_EFFECT_MONOCOLOR:
++		i = MONOCOLOR;
++		break;
++	default:
++		i = BREATHE;
++		break;
++	}
++
++	return sysfs_emit(buf, "%s\n", RGB_EFFECT_TEXT[i]);
++};
++
++static DEVICE_ATTR_RW_NAMED(rgb_effect, "effect");
++
++/**
++ * rgb_effect_show() - Display the RGB effects available.
++ *
++ * @dev: parent device of the given attribute.
++ * @attr: The attribute to read.
++ * @buf: Buffer to read to.
++ *
++ * Return: The number of bytes read, or an error.
++ */
++static ssize_t rgb_effect_index_show(struct device *dev,
++				     struct device_attribute *attr, char *buf)
++{
++	size_t count = 0;
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(RGB_EFFECT_TEXT); i++)
++		count += sysfs_emit_at(buf, count, "%s ", RGB_EFFECT_TEXT[i]);
++
++	buf[count - 1] = '\n';
++
++	return count;
++}
++
++static DEVICE_ATTR_RO_NAMED(rgb_effect_index, "effect_index");
++
++/**
++ * ayn_led_mc_brightness_set() - Write the brightness for the RGB LED.
++ *
++ * @led_cdev: Parent LED device for the led_classdev_mc.
++ * @brightness: Brightness value to write [0-255].
++ */
++static void ayn_led_mc_brightness_set(struct led_classdev *led_cdev,
++				      enum led_brightness brightness)
++{
++	struct led_classdev_mc *led_cdev_mc = lcdev_to_mccdev(led_cdev);
++	struct mc_subled s_led;
++	int i, ret, val;
++
++	switch (drvdata.rgb_effect) {
++	case AYN_RGB_EFFECT_WRITE:
++	case AYN_RGB_EFFECT_MONOCOLOR:
++		break;
++	case AYN_RGB_EFFECT_BREATHE:
++		return;
++	}
++
++	led_cdev->brightness = brightness;
++	for (i = 0; i < led_cdev_mc->num_colors; i++) {
++		s_led = led_cdev_mc->subled_info[i];
++		val = brightness * s_led.intensity / led_cdev->max_brightness;
++		ret = write_to_ec(s_led.channel, val);
++		if (ret) {
++			dev_err(led_cdev->dev,
++				"Error setting brightness:  %d\n", ret);
++			return;
++		}
++	}
++
++	/* Must write mode again to change to set color */
++	write_to_ec(AYN_RGB_EFFECT_REG, AYN_RGB_EFFECT_WRITE);
++};
++
++/**
++ * ayn_led_mc_brightness_get() - Get the brightness for the RGB LED.
++ *
++ * @led_cdev: Parent LED device for the led_classdev_mc.
++ *
++ * Return: Current brightness.
++ */
++static enum led_brightness ayn_led_mc_brightness_get(struct led_classdev *led_cdev)
++{
++	return led_cdev->brightness;
++};
++
++static struct attribute *ayn_led_mc_attrs[] = {
++	&dev_attr_rgb_effect.attr,
++	&dev_attr_rgb_effect_index.attr,
++	NULL,
++};
++
++static struct attribute_group ayn_led_mc_group = {
++	.attrs = ayn_led_mc_attrs,
++};
++
++struct mc_subled ayn_led_mc_subled_info[] = {
++	{
++		.color_index = LED_COLOR_ID_RED,
++		.brightness = 0,
++		.intensity = 0,
++		.channel = AYN_LED_MC_RED_REG,
++	},
++	{
++		.color_index = LED_COLOR_ID_GREEN,
++		.brightness = 0,
++		.intensity = 0,
++		.channel = AYN_LED_MC_GREEN_REG,
++	},
++	{
++		.color_index = LED_COLOR_ID_BLUE,
++		.brightness = 0,
++		.intensity = 0,
++		.channel = AYN_LED_MC_BLUE_REG,
++	},
++};
++
++struct led_classdev_mc ayn_led_mc = {
++	.led_cdev = {
++		.name = "ayn:rgb:joystick_rings",
++		.brightness = 0,
++		.max_brightness = 255,
++		.brightness_set = ayn_led_mc_brightness_set,
++		.brightness_get = ayn_led_mc_brightness_get,
++		.color = LED_COLOR_ID_RGB,
++	},
++	.num_colors = ARRAY_SIZE(ayn_led_mc_subled_info),
++	.subled_info = ayn_led_mc_subled_info,
++};
++
++static int ayn_ec_resume(struct platform_device *pdev)
++{
++	struct led_classdev *led_cdev = drvdata.led_cdev;
++	int ret;
++
++	ret = rgb_effect_write();
++	if (ret)
++		return ret;
++
++	ayn_led_mc_brightness_set(led_cdev, led_cdev->brightness);
++
++	return 0;
++}
++
+ static int ayn_ec_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct device *hwdev;
++	int ret;
++
++	ret = devm_led_classdev_multicolor_register(dev, &ayn_led_mc);
++	if (ret)
++		return ret;
++
++	ret = devm_device_add_group(ayn_led_mc.led_cdev.dev, &ayn_led_mc_group);
++	if (ret)
++		return ret;
++
++	drvdata.led_cdev = &ayn_led_mc.led_cdev;
++	ret = rgb_effect_read();
++	if (ret)
++		return ret;
+ 
+ 	hwdev = devm_hwmon_device_register_with_info(dev, "aynec", NULL,
+ 						     &ayn_ec_chip_info,
+@@ -544,6 +828,7 @@ static struct platform_driver ayn_ec_driver = {
+ 		.name = "ayn-ec",
+ 	},
+ 	.probe = ayn_ec_probe,
++	.resume = ayn_ec_resume,
+ };
+ 
+ static struct platform_device *ayn_ec_device;
+-- 
+2.55.0
+
