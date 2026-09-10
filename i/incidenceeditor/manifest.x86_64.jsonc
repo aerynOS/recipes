@@ -69,7 +69,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6IncidenceEditor.so.6",
-				"/usr/lib/libKPim6IncidenceEditor.so.6.8.0",
+				"/usr/lib/libKPim6IncidenceEditor.so.6.8.1",
 				"/usr/share/locale/ar/LC_MESSAGES/libincidenceeditors6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libincidenceeditors6.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/libincidenceeditors6.mo",
@@ -193,6 +193,6 @@
 		}
 	},
 	"source-name": "incidenceeditor",
-	"source-release": "17",
-	"source-version": "26.08.0"
+	"source-release": "18",
+	"source-version": "26.08.1"
 }
