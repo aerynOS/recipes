@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dolphin-plugins
-version     : "26.08.0"
-release     : 4
+version     : "26.08.1"
+release     : 5
 homepage    : https://apps.kde.org/de/dolphin_plugins/
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/dolphin-plugins-26.08.0.tar.xz : 08e918a91ea438d0d30f6acc5167451e57199dc4b5b7beac51805c9c4904f703
+    - https://download.kde.org/stable/release-service/26.08.1/src/dolphin-plugins-26.08.1.tar.xz : f9edc41bb0fc75dba1ac32a8c15ef33fb8152740f10b90265dbc6f1724eb929b
 summary     : Plugins for Dolphin
 description : |
     These plugins integrate Dolphin with the revision control systems Bazaar, Mercurial and Git.
