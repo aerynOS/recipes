@@ -1,7 +1,5 @@
 # Upstream patches
 upstream/0000-drm-amdgpu-fix-race-condition-in-amdgpu_vm_wait_idle-during-process-kill.patch
-# https://gitlab.freedesktop.org/drm/amd/-/work_items/5490
-upstream/amdgpu/0001-drm-amd-display-Fix-HPD-consideration-for-VGA-LVDS-connectors-on-DCE.patch
 
 # Enable x86_64-v2 build optimisations
 more-ISA-levels-and-uarches-for-kernel-6.16+.patch
@@ -66,3 +64,4 @@ ogc/0169-FROM-ML-drm-amd-display-Keep-FreeSync-for-HF-VSDB-VR.patch
 ogc/0170-FROM-ML-drm-amd-display-Emit-VTEM-for-HF-VSDB-VRR-on.patch
 ogc/0171-FROM-ML-drm-amd-display-freesync_on_desktop-support-.patch
 ogc/0172-FROM-ML-drm-amd-display-Fix-NULL-deref-of-new_stream.patch
+ogc/0176-Revert-drm-amd-display-add-HDMI-2.1-Compliance-Suppo.patch
