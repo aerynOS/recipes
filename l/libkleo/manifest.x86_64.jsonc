@@ -37,7 +37,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6Libkleo.so.6",
-				"/usr/lib/libKPim6Libkleo.so.6.8.0",
+				"/usr/lib/libKPim6Libkleo.so.6.8.1",
 				"/usr/share/libkleopatra/pics/smartcard.xpm",
 				"/usr/share/locale/ar/LC_MESSAGES/libkleopatra6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libkleopatra6.mo",
@@ -325,6 +325,6 @@
 		}
 	},
 	"source-name": "libkleo",
-	"source-release": "20",
-	"source-version": "26.08.0"
+	"source-release": "21",
+	"source-version": "26.08.1"
 }
