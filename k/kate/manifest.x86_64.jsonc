@@ -60,7 +60,7 @@
 				"soname(libQt6Xml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgpgmepp.so.7(x86_64))",
-				"soname(libkateprivate.so.26.08.0(x86_64))",
+				"soname(libkateprivate.so.26.08.1(x86_64))",
 				"soname(libqt6keychain.so.1(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
@@ -627,6 +627,7 @@
 				"/usr/share/locale/fi/LC_MESSAGES/katekonsoleplugin.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/kateproject.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/katesearch.mo",
+				"/usr/share/locale/fi/LC_MESSAGES/kateshownonprintableplugin.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/katesnippetsplugin.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/katesql.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/katesymbolviewer.mo",
@@ -944,9 +945,11 @@
 				"/usr/share/locale/ja/LC_MESSAGES/kate-replicode-plugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/kate.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katebacktracebrowserplugin.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/katebookmarksplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katebuild-plugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katecloseexceptplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katecolorpickerplugin.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/katecompilerexplorer.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/kateexternaltoolsplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katefilebrowserplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katefiletree.mo",
@@ -956,6 +959,7 @@
 				"/usr/share/locale/ja/LC_MESSAGES/katekonsoleplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/kateproject.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katesearch.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/kateshownonprintableplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katesnippetsplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katesql.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/katesymbolviewer.mo",
@@ -965,6 +969,7 @@
 				"/usr/share/locale/ja/LC_MESSAGES/ktexteditorpreviewplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/lspclient.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/rainbowparens.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/rbqlplugin.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/tabswitcherplugin.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/formatplugin.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/kate-ctags-plugin.mo",
@@ -2038,11 +2043,11 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libkateprivate.so.26.08.0"
+				"/usr/lib/libkateprivate.so.26.08.1"
 			],
 			"name": "kate-libs",
 			"provides": [
-				"soname(libkateprivate.so.26.08.0(x86_64))"
+				"soname(libkateprivate.so.26.08.1(x86_64))"
 			]
 		},
 		"kwrite": {
@@ -2074,7 +2079,7 @@
 				"soname(libQt6Gui.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libkateprivate.so.26.08.0(x86_64))"
+				"soname(libkateprivate.so.26.08.1(x86_64))"
 			],
 			"files": [
 				"/usr/bin/kwrite",
@@ -2099,6 +2104,6 @@
 		}
 	},
 	"source-name": "kate",
-	"source-release": "27",
-	"source-version": "26.08.0"
+	"source-release": "28",
+	"source-version": "26.08.1"
 }

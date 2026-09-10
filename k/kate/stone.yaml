@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kate
-version     : "26.08.0"
-release     : 27
+version     : "26.08.1"
+release     : 28
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/kate-26.08.0.tar.xz : abe6ceb81155eaa4c046fbff21deaed2a1cd3b031f732acfb95aa283e68d0f52
+    - https://download.kde.org/stable/release-service/26.08.1/src/kate-26.08.1.tar.xz : b7d690761e37c29b425375ee42b959b59a9de693789de86e0fb826bace5b3d7f
 homepage    : https://apps.kde.org/kate
 license     :
     - GPL-2.0-or-later
