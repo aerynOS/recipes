@@ -3,7 +3,7 @@
 
 name        : plezy
 version     : "2.19.1"
-release     : 11
+release     : 12
 homepage    : https://plezy.app/
 upstreams   :
     - https://github.com/edde746/plezy/archive/refs/tags/2.19.1.tar.gz:
@@ -60,10 +60,8 @@ install     : |
     %install_file assets/%(name).svg -t %(installroot)%(datadir)/icons/hicolor/scalable/apps/
     %install_file assets/%(name).png -t %(installroot)%(datadir)/icons/hicolor/1024x1024/apps/
 
-    # Set RPATH so the binary finds its libs in /usr/lib/plezy
+    # Dart FFI dlopen()s libsqlite3.so from bundled .so files, not the binary
     patchelf --set-rpath "%(libdir)/%(name)" %(installroot)%(bindir)/%(name)
-
-    # Bundled libs need no RPATH of their own
     for lib in %(installroot)%(libdir)/%(name)/*.so; do
-        patchelf --remove-rpath "${lib}"
+        patchelf --set-rpath '$ORIGIN' "${lib}"
     done
