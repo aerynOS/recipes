@@ -70,7 +70,7 @@
 			"files": [
 				"/usr/bin/akonadiconsole",
 				"/usr/lib/libakonadiconsole.so.6",
-				"/usr/lib/libakonadiconsole.so.6.8.0",
+				"/usr/lib/libakonadiconsole.so.6.8.1",
 				"/usr/share/applications/org.kde.akonadiconsole.desktop",
 				"/usr/share/icons/hicolor/128x128/apps/akonadiconsole.png",
 				"/usr/share/icons/hicolor/16x16/apps/akonadiconsole.png",
@@ -132,6 +132,6 @@
 		}
 	},
 	"source-name": "akonadiconsole",
-	"source-release": "12",
-	"source-version": "26.08.0"
+	"source-release": "13",
+	"source-version": "26.08.1"
 }
