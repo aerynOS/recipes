@@ -591,9 +591,9 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libdolphinprivate.so.26.08.0",
+				"/usr/lib/libdolphinprivate.so.26.08.1",
 				"/usr/lib/libdolphinprivate.so.6",
-				"/usr/lib/libdolphinvcs.so.26.08.0",
+				"/usr/lib/libdolphinvcs.so.26.08.1",
 				"/usr/lib/libdolphinvcs.so.6",
 				"/usr/lib/qt6/plugins/dolphin/kcms/kcm_dolphingeneral.so",
 				"/usr/lib/qt6/plugins/dolphin/kcms/kcm_dolphinviewmodes.so",
@@ -616,6 +616,6 @@
 		}
 	},
 	"source-name": "dolphin",
-	"source-release": "30",
-	"source-version": "26.08.0"
+	"source-release": "31",
+	"source-version": "26.08.1"
 }
