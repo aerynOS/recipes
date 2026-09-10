@@ -106,10 +106,10 @@
 				"/usr/bin/merkuro-contact",
 				"/usr/bin/merkuro-mail",
 				"/usr/lib/libMerkuroComponents.so",
-				"/usr/lib/libMerkuroComponents.so.26.08.0",
+				"/usr/lib/libMerkuroComponents.so.26.08.1",
 				"/usr/lib/libMerkuroComponents.so.6",
 				"/usr/lib/libmerkuro_contact.so",
-				"/usr/lib/libmerkuro_contact.so.26.08.0",
+				"/usr/lib/libmerkuro_contact.so.26.08.1",
 				"/usr/lib/libmerkuro_contact.so.6",
 				"/usr/lib/qt6/plugins/plasma/applets/org.kde.merkuro.contact.applet.so",
 				"/usr/lib/qt6/qml/org/kde/merkuro/components/BaseApplication.qml",
@@ -324,6 +324,6 @@
 		}
 	},
 	"source-name": "merkuro",
-	"source-release": "30",
-	"source-version": "26.08.0"
+	"source-release": "31",
+	"source-version": "26.08.1"
 }
