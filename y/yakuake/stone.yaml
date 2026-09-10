@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yakuake
-version     : "26.08.0"
-release     : 24
+version     : "26.08.1"
+release     : 25
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/yakuake-26.08.0.tar.xz : 7ce707aa3609a318bd65533b3fc0a8cbcb1713372a8b769bf09876f51652686e
+    - https://download.kde.org/stable/release-service/26.08.1/src/yakuake-26.08.1.tar.xz : 723a806681faeb3d4aa2fbc93e11392f6fbb66d8bfadcc5508c355d2eaa893ee
 homepage    : https://apps.kde.org/yakuake/
 license     : GPL-2.0-or-later
 summary     : A quake style dropdown terminal.
