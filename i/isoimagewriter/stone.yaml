@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : isoimagewriter
-version     : "26.08.0"
-release     : 4
+version     : "26.08.1"
+release     : 5
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.0/src/isoimagewriter-26.08.0.tar.xz : 548edc92eb4496a22e0252d4dce09d72de3bef9ba1685cd3c7a9ba1510d56f44
+    - https://download.kde.org/stable/release-service/26.08.1/src/isoimagewriter-26.08.1.tar.xz : 5b477c775740302beec0dc93a644d5f6696a7125371fb5cc499493121843880f
 homepage    : https://apps.kde.org/isoimagewriter/
 license     : GPL-3.0-or-later
 summary     : ISO Image Writer is a KDE tool to write a .iso file to a USB disk
