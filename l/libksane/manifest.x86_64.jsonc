@@ -25,7 +25,7 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libKSaneWidgets6.so.26.08.0",
+				"/usr/lib/libKSaneWidgets6.so.26.08.1",
 				"/usr/lib/libKSaneWidgets6.so.6",
 				"/usr/share/icons/hicolor/16x16/actions/black-white.png",
 				"/usr/share/icons/hicolor/16x16/actions/color.png",
@@ -127,6 +127,6 @@
 		}
 	},
 	"source-name": "libksane",
-	"source-release": "13",
-	"source-version": "26.08.0"
+	"source-release": "14",
+	"source-version": "26.08.1"
 }
