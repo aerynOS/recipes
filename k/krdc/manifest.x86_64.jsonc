@@ -344,7 +344,7 @@
 				"soname(libwinpr3.so.3(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libkrdccore.so.26.08.0",
+				"/usr/lib/libkrdccore.so.26.08.1",
 				"/usr/lib/libkrdccore.so.5",
 				"/usr/lib/qt6/plugins/krdc/kcms/libkcm_krdc_rdpplugin.so",
 				"/usr/lib/qt6/plugins/krdc/kcms/libkcm_krdc_vncplugin.so",
@@ -364,6 +364,6 @@
 		}
 	},
 	"source-name": "krdc",
-	"source-release": "19",
-	"source-version": "26.08.0"
+	"source-release": "20",
+	"source-version": "26.08.1"
 }
