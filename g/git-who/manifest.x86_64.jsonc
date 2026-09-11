@@ -4,7 +4,7 @@
 	"packages": {
 		"git-who": {
 			"build-depends": [
-				"binary(rake)"
+				"binary(minitest)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -21,6 +21,6 @@
 		}
 	},
 	"source-name": "git-who",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "1.3"
 }

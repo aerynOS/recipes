@@ -3,24 +3,42 @@
 
 name        : git-who
 version     : "1.3"
-release     : 1
+release     : 2
 homepage    : https://github.com/sinclairtarget/git-who
 upstreams   :
-    - git|https://github.com/sinclairtarget/git-who.git : aa656b041068cc7f83ceeba17fc430bd38fdca9f # v1.3
+    - https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.3.tar.gz:
+        hash: 7af9950b8786a52e71e80457986f8b961064dc39923de1e330bc9fede42feef4
+        unpackdir: git-who
+    - git|https://github.com/benoitc/gunicorn.git:
+        ref: a86ea1e4e6c271d1cd1823c7e14490123f9238fe
+        clonedir: git-who/test/repos/gunicorn
+    - git|https://github.com/sinclairtarget/git-who-test-repo.git:
+        ref: e72a7d2ed1a491dd317d6295b6c61914610d863a
+        clonedir: git-who/test/repos/test-repo
 summary     : Git blame for file trees
 description : |
     git-who tells you the people responsible for entire components or subsystems in a codebase.
     You can think of git-who sort of like git blame but for file trees rather than individual files.
 license     : MIT
 networking  : true
-builddeps   :
-    - binary(rake)
+checkdeps   :
+    - binary(minitest)
 setup       : |
     %go_mod
 build       : |
-    rake
+    # Git commit corresponding to the version tag
+    GITCOMMIT=$(git ls-remote https://github.com/sinclairtarget/git-who "refs/tags/v%(version)^{}" | cut -c1-7)
+
+    # merge -X flags into existing -ldflags
+    # repeated -ldflags do not accumulate (last one wins)
+    _xflags="-X main.Version=v%(version) -X main.Commit=${GITCOMMIT}"
+    export GOFLAGS="$(echo "${GOFLAGS}" | sed "s#-ldflags=[^ ]*#\"& ${_xflags}\"#")"
+
+    go build -v -o %(name) .
 install     : |
     %install_bin %(name)
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
 check       : |
-    rake test
+    go test -count=1 ./internal/...
+    go test -count=1 ./test/integration/...
+    RUBYLIB=test/functional:test/functional/lib:. minitest test/functional
