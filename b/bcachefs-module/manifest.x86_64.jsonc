@@ -21,9 +21,9 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.2.4-34.gaming/65-bcachefs-module-shared-1.39.5-48.initrd",
-				"/usr/lib/kernel/7.2.4-34.gaming/70-bcachefs-module-1.39.5-48.initrd",
-				"/usr/lib/modules/7.2.4-34.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.2.5-35.gaming/65-bcachefs-module-shared-1.39.5-49.initrd",
+				"/usr/lib/kernel/7.2.5-35.gaming/70-bcachefs-module-1.39.5-49.initrd",
+				"/usr/lib/modules/7.2.5-35.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-gaming"
 		},
@@ -46,9 +46,9 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/6.18.50-33.lts/65-bcachefs-module-shared-1.39.5-48.initrd",
-				"/usr/lib/kernel/6.18.50-33.lts/70-bcachefs-module-1.39.5-48.initrd",
-				"/usr/lib/modules/6.18.50-33.lts/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/6.18.51-34.lts/65-bcachefs-module-shared-1.39.5-49.initrd",
+				"/usr/lib/kernel/6.18.51-34.lts/70-bcachefs-module-1.39.5-49.initrd",
+				"/usr/lib/modules/6.18.51-34.lts/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-lts"
 		},
@@ -66,7 +66,7 @@
 				"sysbinary(bcachefs)"
 			],
 			"files": [
-				"/usr/lib/kernel/initrd.d/65-bcachefs-module-shared-1.39.5-48.initrd"
+				"/usr/lib/kernel/initrd.d/65-bcachefs-module-shared-1.39.5-49.initrd"
 			],
 			"name": "bcachefs-module-shared"
 		},
@@ -89,14 +89,14 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.2.4-57.stable/65-bcachefs-module-shared-1.39.5-48.initrd",
-				"/usr/lib/kernel/7.2.4-57.stable/70-bcachefs-module-1.39.5-48.initrd",
-				"/usr/lib/modules/7.2.4-57.stable/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.2.5-58.stable/65-bcachefs-module-shared-1.39.5-49.initrd",
+				"/usr/lib/kernel/7.2.5-58.stable/70-bcachefs-module-1.39.5-49.initrd",
+				"/usr/lib/modules/7.2.5-58.stable/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-stable"
 		}
 	},
 	"source-name": "bcachefs-module",
-	"source-release": "48",
+	"source-release": "49",
 	"source-version": "1.39.5"
 }
