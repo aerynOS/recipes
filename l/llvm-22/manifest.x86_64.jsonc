@@ -42,7 +42,7 @@
 				"soname(libLLVM.so.22.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libclang-cpp.so.22.1(x86_64))",
-				"soname(libmimalloc.so.2(x86_64))",
+				"soname(libmimalloc.so.3(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -1787,7 +1787,7 @@
 				"soname(liblldMachO.so.22.1(x86_64))",
 				"soname(liblldMinGW.so.22.1(x86_64))",
 				"soname(liblldWasm.so.22.1(x86_64))",
-				"soname(libmimalloc.so.2(x86_64))",
+				"soname(libmimalloc.so.3(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -1971,7 +1971,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libmimalloc.so.2(x86_64))",
+				"soname(libmimalloc.so.3(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libz.so.1(x86_64))",
 				"soname(libzstd.so.1(x86_64))"
@@ -4716,6 +4716,6 @@
 		}
 	},
 	"source-name": "llvm-22",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "22.1.8"
 }
