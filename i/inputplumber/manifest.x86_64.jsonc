@@ -45,6 +45,7 @@
 				"/usr/share/inputplumber/capability_maps/ayn_type1.yaml",
 				"/usr/share/inputplumber/capability_maps/ayn_type2.yaml",
 				"/usr/share/inputplumber/capability_maps/ayn_type3.yaml",
+				"/usr/share/inputplumber/capability_maps/cec.yaml",
 				"/usr/share/inputplumber/capability_maps/dinput_generic.yaml",
 				"/usr/share/inputplumber/capability_maps/flow_type1.yaml",
 				"/usr/share/inputplumber/capability_maps/flydigi_vader_4_pro.yaml",
@@ -139,6 +140,7 @@
 				"/usr/share/inputplumber/devices/60-8bit_do_pro_2.yaml",
 				"/usr/share/inputplumber/devices/60-8bit_do_ultimate_2.yaml",
 				"/usr/share/inputplumber/devices/60-LogitechDualAction.yaml",
+				"/usr/share/inputplumber/devices/60-cec.yaml",
 				"/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
 				"/usr/share/inputplumber/devices/60-horipad_steam.yaml",
 				"/usr/share/inputplumber/devices/60-ps4_gamepad.yaml",
@@ -170,6 +172,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "66",
-	"source-version": "0.79.0"
+	"source-release": "67",
+	"source-version": "0.79.5"
 }
