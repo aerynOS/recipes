@@ -1,0 +1,139 @@
+From 35450c81bd2ec3007ea32c94c720da7448b4a774 Mon Sep 17 00:00:00 2001
+From: crosire <crosiredev@gmail.com>
+Date: Sun, 23 Jun 2024 17:54:25 +0200
+Subject: [PATCH] Improve compatibility with C++20
+
+---
+ ReShade.vcxproj                          | 18 ++++++++++--------
+ source/d3d10/d3d10_impl_device.cpp       |  2 +-
+ source/d3d12/d3d12_impl_type_convert.hpp |  3 ---
+ source/effect_codegen.hpp                |  4 ++--
+ 4 files changed, 13 insertions(+), 14 deletions(-)
+
+diff --git a/ReShade.vcxproj b/ReShade.vcxproj
+index a976e49544..bead7c4450 100644
+--- a/ReShade.vcxproj
++++ b/ReShade.vcxproj
+@@ -126,6 +126,7 @@
+       <LanguageStandard>stdcpp17</LanguageStandard>
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
++      <AdditionalOptions>/utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -157,7 +158,7 @@
+       <LanguageStandard>stdcpp17</LanguageStandard>
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -189,6 +190,7 @@
+       <LanguageStandard>stdcpp17</LanguageStandard>
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
++      <AdditionalOptions>/utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -220,7 +222,7 @@
+       <LanguageStandard>stdcpp17</LanguageStandard>
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -257,7 +259,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -297,7 +299,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -336,7 +338,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -375,7 +377,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -415,7 +417,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+@@ -459,7 +461,7 @@
+       <FloatingPointModel>Fast</FloatingPointModel>
+       <RuntimeTypeInfo>false</RuntimeTypeInfo>
+       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+-      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 %(AdditionalOptions)</AdditionalOptions>
++      <AdditionalOptions>/Zc:threadSafeInit- /utf-8 /Zc:char8_t- %(AdditionalOptions)</AdditionalOptions>
+     </ClCompile>
+     <Link>
+       <SubSystem>Windows</SubSystem>
+diff --git a/source/d3d10/d3d10_impl_device.cpp b/source/d3d10/d3d10_impl_device.cpp
+index 5c4cff8275..12a931ae0c 100644
+--- a/source/d3d10/d3d10_impl_device.cpp
++++ b/source/d3d10/d3d10_impl_device.cpp
+@@ -83,7 +83,7 @@ bool reshade::d3d10::device_impl::check_capability(api::device_caps capability)
+ 	case api::device_caps::compute_shader:
+ 		return false;
+ 	case api::device_caps::geometry_shader:
+-		return _orig->GetFeatureLevel() >= D3D_FEATURE_LEVEL_10_0;
++		return _orig->GetFeatureLevel() >= D3D10_FEATURE_LEVEL_10_0;
+ 	case api::device_caps::hull_and_domain_shader:
+ 	case api::device_caps::logic_op:
+ 		return false;
+diff --git a/source/effect_codegen.hpp b/source/effect_codegen.hpp
+index 1e278075ca..48780ea0ea 100644
+--- a/source/effect_codegen.hpp
++++ b/source/effect_codegen.hpp
+@@ -26,7 +26,7 @@ namespace reshadefx
+ 		/// Writes result of the code generation to the specified <paramref name="module"/>.
+ 		/// </summary>
+ 		/// <param name="module">Target module to fill.</param>
+-		virtual void write_result(module &module) = 0;
++		virtual void write_result(struct module &module) = 0;
+ 
+ 	public:
+ 		/// <summary>
+@@ -339,7 +339,7 @@ namespace reshadefx
+ 			return align_up(size, alignment) * (elements - 1) + size;
+ 		}
+ 
+-		module _module;
++		struct module _module;
+ 		std::vector<struct_info> _structs;
+ 		std::vector<std::unique_ptr<function_info>> _functions;
+ 		id _next_id = 1;
