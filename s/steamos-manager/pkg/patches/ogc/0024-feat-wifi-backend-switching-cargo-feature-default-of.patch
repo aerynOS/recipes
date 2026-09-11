@@ -1,18 +1,19 @@
-From 667e48b6a590f4bb74bad9e8c6916bc397da913a Mon Sep 17 00:00:00 2001
+From 456ab0eec49d70f7917c6e49be547babf5c613fc Mon Sep 17 00:00:00 2001
 From: Kyle Gospodnetich <me@kylegospodneti.ch>
-Date: Wed, 27 May 2026 19:37:24 -0700
-Subject: [PATCH] feat: wifi-backend-switching cargo feature (default off)
+Date: Thu, 28 May 2026 15:12:12 -0700
+Subject: [PATCH 24/37] feat: wifi-backend-switching cargo feature (default
+ off) (#2)
 
 ---
- steamos-manager/Cargo.toml            |  4 ++++
+ steamos-manager/Cargo.toml            |  4 +++
  steamos-manager/src/bin/steamosctl.rs |  2 ++
- steamos-manager/src/manager/root.rs   |  7 ++++--
+ steamos-manager/src/manager/root.rs   |  7 +++--
  steamos-manager/src/manager/user.rs   |  2 ++
- steamos-manager/src/wifi.rs           | 34 ++++++++++++++++-----------
- 5 files changed, 33 insertions(+), 16 deletions(-)
+ steamos-manager/src/wifi.rs           | 44 +++++++++++++++------------
+ 5 files changed, 38 insertions(+), 21 deletions(-)
 
 diff --git a/steamos-manager/Cargo.toml b/steamos-manager/Cargo.toml
-index 68078ee..ddc5a55 100644
+index d684830..9afc9f1 100644
 --- a/steamos-manager/Cargo.toml
 +++ b/steamos-manager/Cargo.toml
 @@ -38,3 +38,7 @@ udev = { version = "^0.9.3", features = ["send", "sync"] }
@@ -24,10 +25,10 @@ index 68078ee..ddc5a55 100644
 +default = []
 +wifi-backend-switching = []
 diff --git a/steamos-manager/src/bin/steamosctl.rs b/steamos-manager/src/bin/steamosctl.rs
-index adaa355..2be9ed3 100644
+index 396cf33..0d99f71 100644
 --- a/steamos-manager/src/bin/steamosctl.rs
 +++ b/steamos-manager/src/bin/steamosctl.rs
-@@ -168,6 +168,7 @@ enum Commands {
+@@ -167,6 +167,7 @@ enum Commands {
      SuggestedDefaultPerformanceProfile,
  
      /// Set the Wi-Fi backend, if possible
@@ -35,7 +36,7 @@ index adaa355..2be9ed3 100644
      SetWifiBackend {
          /// Supported backends are `iwd`, `wpa_supplicant`
          backend: WifiBackend,
-@@ -602,6 +603,7 @@ async fn main() -> Result<()> {
+@@ -661,6 +662,7 @@ async fn main() -> Result<()> {
              let value = proxy.tdp_limit_min().await?;
              println!("TDP limit min: {value}");
          }
@@ -44,12 +45,12 @@ index adaa355..2be9ed3 100644
              let proxy = WifiBackend1Proxy::new(&conn).await?;
              proxy.set_wifi_backend(backend.to_string().as_str()).await?;
 diff --git a/steamos-manager/src/manager/root.rs b/steamos-manager/src/manager/root.rs
-index 2b56d8a..2f8a6b2 100644
+index 6229d81..439ee80 100644
 --- a/steamos-manager/src/manager/root.rs
 +++ b/steamos-manager/src/manager/root.rs
-@@ -42,9 +42,11 @@ use crate::process::{run_script, script_output};
- use crate::session::root::{clean_temporary_sessions, set_default_session, set_temporary_session};
+@@ -43,9 +43,11 @@ use crate::session::root::{clean_temporary_sessions, set_default_session, set_te
  use crate::sysfs::SysfsWritten;
+ use crate::systemd::{JobMode, SystemdUnit};
  use crate::wifi::{
 -    WifiBackend, WifiDebugMode, WifiPowerManagement, extract_wifi_trace, generate_wifi_dump,
 -    set_wifi_backend, set_wifi_debug_mode, set_wifi_power_management_state,
@@ -61,7 +62,7 @@ index 2b56d8a..2f8a6b2 100644
  use crate::{SerialOrderValidator, path};
  
  #[derive(PartialEq, Debug, Copy, Clone)]
-@@ -544,6 +546,7 @@ impl SteamOSManager {
+@@ -619,6 +621,7 @@ impl SteamOSManager {
          }
      }
  
@@ -70,10 +71,10 @@ index 2b56d8a..2f8a6b2 100644
          if self.wifi_debug_mode == WifiDebugMode::Tracing {
              return Err(fdo::Error::Failed(String::from(
 diff --git a/steamos-manager/src/manager/user.rs b/steamos-manager/src/manager/user.rs
-index 63e85fb..38fb600 100644
+index c134fd8..a342fdb 100644
 --- a/steamos-manager/src/manager/user.rs
 +++ b/steamos-manager/src/manager/user.rs
-@@ -1294,6 +1294,7 @@ impl WifiBackend1 {
+@@ -1421,6 +1421,7 @@ impl WifiBackend1 {
          }
      }
  
@@ -81,7 +82,7 @@ index 63e85fb..38fb600 100644
      #[zbus(property)]
      async fn set_wifi_backend(
          &self,
-@@ -1337,6 +1338,7 @@ impl WifiDebug1 {
+@@ -1464,6 +1465,7 @@ impl WifiDebug1 {
          }
      }
  
@@ -90,7 +91,7 @@ index 63e85fb..38fb600 100644
      async fn set_wifi_backend(
          &self,
 diff --git a/steamos-manager/src/wifi.rs b/steamos-manager/src/wifi.rs
-index 9379fa2..be960a8 100644
+index fcf84b7..ce0a678 100644
 --- a/steamos-manager/src/wifi.rs
 +++ b/steamos-manager/src/wifi.rs
 @@ -269,6 +269,7 @@ pub(crate) async fn set_wifi_debug_mode(
@@ -101,7 +102,7 @@ index 9379fa2..be960a8 100644
  async fn ensure_default_interface() -> Result<()> {
      if !list_wifi_interfaces().await?.is_empty() {
          return Ok(());
-@@ -345,22 +346,25 @@ async fn set_nm_settings(
+@@ -350,25 +351,28 @@ async fn set_nm_settings(
      let unit = SystemdUnit::new(connection, "NetworkManager.service").await?;
  
      if restart {
@@ -113,6 +114,17 @@ index 9379fa2..be960a8 100644
 -            },
 -        )
 -        .await?;
+-
+-        unit.stop(JobMode::Fail).await?.wait().await?;
+-        // These systemd units are not set to enabled permanently, NetworkManager will pull them as necessary
+-        backend_unit.disable().await?;
+-        backend_unit.stop(JobMode::Fail).await?.wait().await?;
+-
+-        // Restart NetworkManager even if this fails, otherwise the system is
+-        // left with no networking at all
+-        let res = ensure_default_interface().await;
+-        unit.start(JobMode::Fail).await?;
+-        res?;
 +        #[cfg(feature = "wifi-backend-switching")]
 +        {
 +            let backend_unit = SystemdUnit::new(
@@ -123,25 +135,22 @@ index 9379fa2..be960a8 100644
 +                },
 +            )
 +            .await?;
- 
--        unit.stop(JobMode::Fail).await?.wait().await?;
--        // These systemd units are not set to enabled permanently, NetworkManager will pull them as necessary
--        backend_unit.disable().await?;
--        backend_unit.stop(JobMode::Fail).await?.wait().await?;
++
 +            unit.stop(JobMode::Fail).await?.wait().await?;
 +            // These systemd units are not set to enabled permanently, NetworkManager will pull them as necessary
 +            backend_unit.disable().await?;
 +            backend_unit.stop(JobMode::Fail).await?.wait().await?;
- 
--        ensure_default_interface().await?;
--        unit.start(JobMode::Fail).await?;
-+            ensure_default_interface().await?;
++
++            // Restart NetworkManager even if this fails, otherwise the system is
++            // left with no networking at all
++            let res = ensure_default_interface().await;
 +            unit.start(JobMode::Fail).await?;
++            res?;
 +        }
      } else {
          unit.reload(JobMode::Fail).await?.wait().await?;
      }
-@@ -371,6 +375,7 @@ pub(crate) async fn get_wifi_backend() -> Result<WifiBackend> {
+@@ -379,6 +383,7 @@ pub(crate) async fn get_wifi_backend() -> Result<WifiBackend> {
      Ok(get_nm_settings().await?.backend)
  }
  
@@ -149,7 +158,7 @@ index 9379fa2..be960a8 100644
  pub(crate) async fn set_wifi_backend(backend: WifiBackend, connection: &Connection) -> Result<()> {
      let mut settings = get_nm_settings().await?;
      settings.backend = backend;
-@@ -652,6 +657,7 @@ mod test {
+@@ -671,6 +676,7 @@ mod test {
          );
      }
  
@@ -157,3 +166,6 @@ index 9379fa2..be960a8 100644
      #[tokio::test]
      async fn test_set_nm_settings_restart() {
          let mut h = testing::start();
+-- 
+2.55.0
+

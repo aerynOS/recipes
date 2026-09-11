@@ -1,0 +1,162 @@
+From 4f5b1d305dba197bb875f18c6870e62e3960c9d2 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Tue, 4 Aug 2026 22:39:05 -0700
+Subject: [PATCH 26/37] fix: Correct TDP issues on HTPCs with AMD dGPUs when
+ powerstation is present (#3)
+
+Splits the generic profile into three separate ones, ayaneo and gpd generic both getting their own. Generic is now firmly HTPC only.
+Adds an option for "None" TDP since we don't want to configure TDP on HTPCs.
+Modifies the load order of configs so that wildcards can't shadow real devices.
+---
+ data/devices/ayaneo-generic.toml | 11 +++++++++++
+ data/devices/generic.toml        | 17 +----------------
+ data/devices/gpd-generic.toml    | 11 +++++++++++
+ steamos-manager/src/hardware.rs  | 10 ++++++++--
+ steamos-manager/src/power.rs     | 24 ++++++++++++++++++++++++
+ 5 files changed, 55 insertions(+), 18 deletions(-)
+ create mode 100644 data/devices/ayaneo-generic.toml
+ create mode 100644 data/devices/gpd-generic.toml
+
+diff --git a/data/devices/ayaneo-generic.toml b/data/devices/ayaneo-generic.toml
+new file mode 100644
+index 0000000..aaaedb2
+--- /dev/null
++++ b/data/devices/ayaneo-generic.toml
+@@ -0,0 +1,11 @@
++[[device]]
++dmi.sys_vendor = "AYANEO"
++dmi.board_name = "*"
++device = "ayaneo_generic"
++variant = "AYANEO_Generic"
++
++[tdp_limit]
++method = "power_station"
++
++[inputplumber]
++target_devices = ["deck-uhid", "keyboard", "mouse"]
+\ No newline at end of file
+diff --git a/data/devices/generic.toml b/data/devices/generic.toml
+index 6c34358..3874117 100644
+--- a/data/devices/generic.toml
++++ b/data/devices/generic.toml
+@@ -1,15 +1,3 @@
+-[[device]]
+-dmi.sys_vendor = "GPD"
+-dmi.board_name = "*"
+-device = "gpd_generic"
+-variant = "GPD_Generic"
+-
+-[[device]]
+-dmi.sys_vendor = "AYANEO"
+-dmi.board_name = "*"
+-device = "ayaneo_generic"
+-variant = "AYANEO_Generic"
+-
+ [[device]]
+ dmi.sys_vendor = "*"
+ dmi.board_name = "*"
+@@ -17,7 +5,4 @@ device = "generic"
+ variant = "Generic"
+ 
+ [tdp_limit]
+-method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+\ No newline at end of file
++method = "none"
+\ No newline at end of file
+diff --git a/data/devices/gpd-generic.toml b/data/devices/gpd-generic.toml
+new file mode 100644
+index 0000000..83aca5c
+--- /dev/null
++++ b/data/devices/gpd-generic.toml
+@@ -0,0 +1,11 @@
++[[device]]
++dmi.sys_vendor = "GPD"
++dmi.board_name = "*"
++device = "gpd_generic"
++variant = "GPD_Generic"
++
++[tdp_limit]
++method = "power_station"
++
++[inputplumber]
++target_devices = ["deck-uhid", "keyboard", "mouse"]
+\ No newline at end of file
+diff --git a/steamos-manager/src/hardware.rs b/steamos-manager/src/hardware.rs
+index b2aa1f0..296ce2e 100644
+--- a/steamos-manager/src/hardware.rs
++++ b/steamos-manager/src/hardware.rs
+@@ -415,13 +415,19 @@ impl DeviceConfig {
+         }
+ 
+         // 3. Phase 2: Global wildcard matching
++        let mut catch_all = None;
+         for config in &configs {
+-            if config.wildcard_device_match().await?.is_some() {
++            let Some(device) = config.wildcard_device_match().await? else {
++                continue;
++            };
++            if device.dmi.as_ref().is_none_or(|dmi| dmi.sys_vendor == "*") {
++                catch_all.get_or_insert(config);
++            } else {
+                 return Ok(Some(config.clone()));
+             }
+         }
+ 
+-        Ok(None)
++        Ok(catch_all.cloned())
+     }
+ 
+     async fn read_from_path(path: impl AsRef<Path>) -> Result<DeviceConfig> {
+diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
+index 47a2478..4abaa3e 100644
+--- a/steamos-manager/src/power.rs
++++ b/steamos-manager/src/power.rs
+@@ -133,6 +133,8 @@ pub enum TdpLimitingMethod {
+     FirmwareAttribute,
+     RemoteInterface,
+     PowerStation,
++    // Explicitly opts a device out of TDP limiting entirely
++    None,
+ }
+ 
+ #[derive(Debug)]
+@@ -199,6 +201,7 @@ pub(crate) async fn tdp_limit_manager(system: &Connection) -> Result<Box<dyn Tdp
+             TdpLimitingMethod::PowerStation => Box::new(PowerStationTdpLimitManager {
+                 gpu_card_path: StdMutex::new(None),
+             }),
++            TdpLimitingMethod::None => bail!("TDP limiting disabled by device configuration"),
+         })
+     } else {
+         Ok(Box::new(RemoteInterfaceLimitManager {
+@@ -2428,4 +2431,25 @@ pub(crate) mod test {
+         manager.set_tdp_limit(2).await.unwrap_err();
+         assert_eq!(manager.get_tdp_limit().await.unwrap(), 7);
+     }
++
++    #[tokio::test]
++    async fn test_tdp_limiting_disabled() {
++        let mut h = testing::start();
++        setup().await.expect("setup");
++
++        let connection = h.new_dbus().await.expect("new_dbus");
++        let config = DeviceConfig {
++            tdp_limit: Some(TdpLimitConfig {
++                method: TdpLimitingMethod::None,
++                range: None,
++                download_mode_limit: None,
++                firmware_attribute: None,
++                performance_profile: None,
++            }),
++            ..DeviceConfig::default()
++        };
++        h.test.set_device_config(config).await;
++
++        assert!(tdp_limit_manager(&connection).await.is_err());
++    }
+ }
+-- 
+2.55.0
+

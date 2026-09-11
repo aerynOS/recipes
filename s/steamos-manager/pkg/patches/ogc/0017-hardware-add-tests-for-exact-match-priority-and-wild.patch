@@ -1,7 +1,7 @@
-From 321d631b0ba913a0725a673c77c26fe1517f1a21 Mon Sep 17 00:00:00 2001
+From 086aa680d4ff521180e7ab854850ca5c9d608161 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 09/17] hardware: add tests for exact match priority and
+Subject: [PATCH 17/37] hardware: add tests for exact match priority and
  wildcard fallback
 
 ---
@@ -9,10 +9,10 @@ Subject: [PATCH 09/17] hardware: add tests for exact match priority and
  1 file changed, 36 insertions(+)
 
 diff --git a/steamos-manager/src/hardware.rs b/steamos-manager/src/hardware.rs
-index 1bbbdfd..fa675f2 100644
+index 6c034d1..b2aa1f0 100644
 --- a/steamos-manager/src/hardware.rs
 +++ b/steamos-manager/src/hardware.rs
-@@ -936,6 +936,42 @@ pub mod test {
+@@ -1017,6 +1017,42 @@ pub mod test {
          assert!(!DeviceConfig::dmi_glob_match("????", "ZOTAC"));
      }
  
@@ -56,5 +56,5 @@ index 1bbbdfd..fa675f2 100644
      fn fan_control_state_roundtrip() {
          enum_roundtrip!(FanControlState {
 -- 
-2.52.0
+2.55.0
 

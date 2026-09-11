@@ -1,0 +1,28 @@
+From d164c971e920474ae98f9d3cf93ae492352a6268 Mon Sep 17 00:00:00 2001
+From: honjow <honjow311@gmail.com>
+Date: Fri, 13 Mar 2026 02:55:14 +0800
+Subject: [PATCH 14/37] power: update battery_charge_limit method to acpi_sb
+
+---
+ data/devices/msi-claw-intel.toml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/data/devices/msi-claw-intel.toml b/data/devices/msi-claw-intel.toml
+index f111737..d4165b7 100644
+--- a/data/devices/msi-claw-intel.toml
++++ b/data/devices/msi-claw-intel.toml
+@@ -33,8 +33,8 @@ method = "firmware_attribute"
+ attribute = "msi-wmi-platform"
+ performance_profile = "performance"
+ 
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard"]
+-
+ [battery_charge_limit]
+ method = "acpi_sb"
++
++[inputplumber]
++target_devices = ["deck-uhid", "keyboard", "mouse"]
+-- 
+2.55.0
+

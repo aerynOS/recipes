@@ -1,0 +1,34 @@
+From a3adfc356b4053c5f07d78ea3787ca359129b51a Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Thu, 10 Sep 2026 10:47:08 -0700
+Subject: [PATCH 35/37] feat: Add Framework Desktop
+
+---
+ data/devices/framework-desktop.toml | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 data/devices/framework-desktop.toml
+
+diff --git a/data/devices/framework-desktop.toml b/data/devices/framework-desktop.toml
+new file mode 100644
+index 0000000..7d952b1
+--- /dev/null
++++ b/data/devices/framework-desktop.toml
+@@ -0,0 +1,15 @@
++[[device]]
++dmi.sys_vendor = "Framework"
++dmi.product_name = "Desktop (AMD Ryzen AI Max 300 Series)"
++device = "framework_desktop"
++variant = "Desktop"
++friendly_name = "Framework Desktop"
++
++[gpu_performance]
++driver = "amdgpu"
++
++[gpu_power_profile]
++driver = "amdgpu"
++
++[tdp_limit]
++method = "power_station"
+-- 
+2.55.0
+

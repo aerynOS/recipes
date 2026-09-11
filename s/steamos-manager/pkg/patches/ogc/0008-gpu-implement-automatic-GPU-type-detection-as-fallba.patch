@@ -1,14 +1,14 @@
-From 1b1e43e7849f23af7929644cbff8ada33548253e Mon Sep 17 00:00:00 2001
+From ccbe6e228e49be96a8624ef93c3c22433de8ba16 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:40:46 +0800
-Subject: [PATCH 02/17] gpu: implement automatic GPU type detection as fallback
+Subject: [PATCH 08/37] gpu: implement automatic GPU type detection as fallback
 
 ---
  steamos-manager/src/gpu.rs | 31 ++++++++++++++++++++++++++-----
  1 file changed, 26 insertions(+), 5 deletions(-)
 
 diff --git a/steamos-manager/src/gpu.rs b/steamos-manager/src/gpu.rs
-index a5c7299..60f1f08 100644
+index 8057c84..9894f7d 100644
 --- a/steamos-manager/src/gpu.rs
 +++ b/steamos-manager/src/gpu.rs
 @@ -150,14 +150,35 @@ pub(crate) async fn gpu_power_profile_driver() -> Result<Box<dyn GpuPowerProfile
@@ -53,5 +53,5 @@ index a5c7299..60f1f08 100644
          GpuPerformanceLevelDriverType::Intel => {
              Box::new(IntelGpuPerformanceLevelDriver::new().await?)
 -- 
-2.52.0
+2.55.0
 

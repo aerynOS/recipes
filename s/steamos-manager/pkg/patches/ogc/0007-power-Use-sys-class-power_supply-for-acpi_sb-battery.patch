@@ -1,0 +1,39 @@
+From 2586c19b5df77cef73b98dac1edb210fd04f937e Mon Sep 17 00:00:00 2001
+From: honjow <honjow311@gmail.com>
+Date: Fri, 13 Mar 2026 02:28:22 +0800
+Subject: [PATCH 07/37] power: Use /sys/class/power_supply for acpi_sb battery
+ charge limit
+
+The previous path /sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply
+requires the ACPI battery driver to be bound, which is not always the
+case. Use /sys/class/power_supply instead, which works regardless of
+which driver created the power_supply device.
+---
+ steamos-manager/src/power.rs | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
+index 5255428..a373b9a 100644
+--- a/steamos-manager/src/power.rs
++++ b/steamos-manager/src/power.rs
+@@ -66,6 +66,7 @@ const TDP_LIMIT2: &str = "power2_cap";
+ 
+ #[cfg(not(test))]
+ const SB_PATHS: &[&str] = &[
++    "/sys/class/power_supply",
+     "/sys/bus/platform/drivers/acpi-battery/PNP0C0A:00/firmware_node/power_supply",
+     "/sys/bus/acpi/drivers/battery/PNP0C0A:00/power_supply",
+ ];
+@@ -677,9 +678,6 @@ async fn find_battery_charge_path() -> Result<PathBuf> {
+                     Err(e) => return Err(e.into()),
+                 };
+                 while let Some(entry) = dir.next_entry().await? {
+-                    if !entry.file_type().await?.is_dir() {
+-                        continue;
+-                    }
+                     let path = entry.path();
+                     let path = match read_to_string(path.join("type")).await {
+                         Ok(s) if s.trim() == "Battery" => path.join(SB_LIMIT_PATH),
+-- 
+2.55.0
+

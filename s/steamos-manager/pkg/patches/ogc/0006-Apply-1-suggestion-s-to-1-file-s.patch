@@ -1,0 +1,25 @@
+From 61d9ae7b626b6be0847d5fe7a8716d35215b2db6 Mon Sep 17 00:00:00 2001
+From: Vicki Pfau <vi@endrift.com>
+Date: Tue, 1 Sep 2026 17:01:41 -0700
+Subject: [PATCH 06/37] Apply 1 suggestion(s) to 1 file(s)
+
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index fa38bed..6b3a986 100644
+--- a/README.md
++++ b/README.md
+@@ -36,7 +36,7 @@ this, but this mostly consists of installing `rustup` from the
+ an initial toolchain, or just installing the regular `rust` package for a
+ system-managed installation.
+ 
+-Some of the Rust dependencies require Clang, which requires to install the
++Some of the Rust dependencies require Clang, which require installing the
+ `clang` package on most distributions.
+ 
+ Once you have that and `cargo` is in your path, to build the project you can
+-- 
+2.55.0
+

@@ -1,0 +1,67 @@
+From 7de5caad5e4d4f3bd9f179ddd7acc94e1cb2d677 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Thu, 23 Jul 2026 14:04:41 -0700
+Subject: [PATCH 01/37] data/devices: Add MSI Claw 8 EX, update A8 - Adds MSI
+ Claw 8 EX AI+ support. - Updates MSI Claw A8 to include TDP control via
+ firmware-attributes
+
+Depends on https://gitlab.steamos.cloud/jupiter/linux-integration/-/merge_requests/270
+---
+ data/devices/msi-claw-8ex.toml | 26 ++++++++++++++++++++++++++
+ data/devices/msi-claw-amd.toml |  7 +++++++
+ 2 files changed, 33 insertions(+)
+ create mode 100644 data/devices/msi-claw-8ex.toml
+
+diff --git a/data/devices/msi-claw-8ex.toml b/data/devices/msi-claw-8ex.toml
+new file mode 100644
+index 0000000..7e28bc7
+--- /dev/null
++++ b/data/devices/msi-claw-8ex.toml
+@@ -0,0 +1,26 @@
++[[device]]
++dmi.sys_vendor = "Micro-Star International Co., Ltd."
++dmi.board_name = "MS-1T91"
++device = "claw"
++variant = "Claw 8 EX AI+ CG3EM"
++friendly_name = "MSI Claw"
++
++[gpu_performance]
++driver = "intel"
++
++[performance_profile]
++platform_profile_name = "msi-wmi-platform"
++suggested_default = "balanced"
++
++[tdp_limit]
++method = "firmware_attribute"
++
++[tdp_limit.firmware_attribute]
++attribute = "msi-wmi-platform"
++performance_profile = "custom"
++
++[inputplumber]
++target_devices = ["deck-uhid", "keyboard"]
++
++[battery_charge_limit]
++method = "acpi_sb"
+diff --git a/data/devices/msi-claw-amd.toml b/data/devices/msi-claw-amd.toml
+index e603100..904254b 100644
+--- a/data/devices/msi-claw-amd.toml
++++ b/data/devices/msi-claw-amd.toml
+@@ -15,6 +15,13 @@ driver = "amdgpu"
+ platform_profile_name = "msi-wmi-platform"
+ suggested_default = "balanced"
+ 
++[tdp_limit]
++method = "firmware_attribute"
++
++[tdp_limit.firmware_attribute]
++attribute = "msi-wmi-platform"
++performance_profile = "performance"
++
+ [inputplumber]
+ target_devices = ["deck-uhid", "keyboard"]
+ 
+-- 
+2.55.0
+

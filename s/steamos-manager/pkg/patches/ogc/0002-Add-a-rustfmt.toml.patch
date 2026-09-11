@@ -1,0 +1,21 @@
+From f9cd49655b79fcf66ffd10badb3a2647ec77a6f6 Mon Sep 17 00:00:00 2001
+From: Arun Raghavan <arunr@valvesoftware.com>
+Date: Tue, 12 May 2026 11:27:27 -0700
+Subject: [PATCH 02/37] Add a rustfmt.toml
+
+So cargo fmt and LSP do the same thing.
+---
+ rustfmt.toml | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 rustfmt.toml
+
+diff --git a/rustfmt.toml b/rustfmt.toml
+new file mode 100644
+index 0000000..f216078
+--- /dev/null
++++ b/rustfmt.toml
+@@ -0,0 +1 @@
++edition = "2024"
+-- 
+2.55.0
+

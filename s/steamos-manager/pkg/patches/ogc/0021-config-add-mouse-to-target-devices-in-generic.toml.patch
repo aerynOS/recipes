@@ -1,7 +1,7 @@
-From f2226b55287eb1eaa8fd93f23814a2430c8cc6b1 Mon Sep 17 00:00:00 2001
+From 75beb7acf84ca7850ff4daa24f478b8692a24932 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 13/17] config: add mouse to target devices in generic.toml
+Subject: [PATCH 21/37] config: add mouse to target devices in generic.toml
 
 ---
  data/devices/generic.toml | 2 +-
@@ -20,5 +20,5 @@ index 6457725..6c34358 100644
 +target_devices = ["deck-uhid", "keyboard", "mouse"]
 \ No newline at end of file
 -- 
-2.52.0
+2.55.0
 

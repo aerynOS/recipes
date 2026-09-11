@@ -1,0 +1,25 @@
+From a5c4244d478fc277d710a9d0cf6a1ee77410e049 Mon Sep 17 00:00:00 2001
+From: Matthieu Bucchianeri <mbucchia@valvesoftware.com>
+Date: Wed, 22 Jul 2026 14:04:35 -0700
+Subject: [PATCH 03/37] Fix bash-ism in plain sh script.
+
+---
+ steamos-manager-proxy/src/update_proxy.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/steamos-manager-proxy/src/update_proxy.sh b/steamos-manager-proxy/src/update_proxy.sh
+index 949ea57..4e62187 100755
+--- a/steamos-manager-proxy/src/update_proxy.sh
++++ b/steamos-manager-proxy/src/update_proxy.sh
+@@ -3,7 +3,7 @@ set -e
+ zbus-xmlgen file ../../data/interfaces/com.steampowered.SteamOSManager1.xml
+ 
+ for f in *.rs; do
+-    if [ "$f" == "lib.rs" ]; then
++    if [ "$f" = "lib.rs" ]; then
+         continue
+     fi
+ 
+-- 
+2.55.0
+

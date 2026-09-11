@@ -1,0 +1,414 @@
+From ea51e1772986abc17772508ef19eb89749eb8d8d Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Mon, 10 Aug 2026 20:10:54 -0700
+Subject: [PATCH 29/37] feat: Allow disabling InputPlumber target device
+ management per device
+
+---
+ data/devices/anbernic-win600.toml   |  3 --
+ data/devices/aokzoe-a1.toml         |  3 --
+ data/devices/ayaneo-2.toml          |  3 --
+ data/devices/ayaneo-2021.toml       |  3 --
+ data/devices/ayaneo-3.toml          |  3 --
+ data/devices/ayaneo-air.toml        |  3 --
+ data/devices/ayaneo-flip.toml       |  3 --
+ data/devices/ayaneo-generic.toml    |  3 --
+ data/devices/ayaneo-kun.toml        |  3 --
+ data/devices/ayaneo-next.toml       |  3 --
+ data/devices/ayaneo-slide.toml      |  3 --
+ data/devices/ayn-loki.toml          |  3 --
+ data/devices/gpd-generic.toml       |  3 --
+ data/devices/gpd-win.toml           |  3 --
+ data/devices/legion-go-series.toml  |  3 --
+ data/devices/msi-claw-8ex.toml      |  3 --
+ data/devices/msi-claw-amd.toml      |  3 --
+ data/devices/msi-claw-intel.toml    |  3 --
+ data/devices/onexplayer-2.toml      |  3 --
+ data/devices/onexplayer-f1.toml     |  3 --
+ data/devices/onexplayer-g1a.toml    |  3 --
+ data/devices/orangepi-neo.toml      |  3 --
+ steamos-manager/src/hardware.rs     | 18 ++++++++
+ steamos-manager/src/inputplumber.rs | 65 +++++++++++++++++++++++++----
+ 24 files changed, 75 insertions(+), 74 deletions(-)
+
+diff --git a/data/devices/anbernic-win600.toml b/data/devices/anbernic-win600.toml
+index 60dce65..9e7c7cc 100644
+--- a/data/devices/anbernic-win600.toml
++++ b/data/devices/anbernic-win600.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/aokzoe-a1.toml b/data/devices/aokzoe-a1.toml
+index 68c25f8..76111ad 100644
+--- a/data/devices/aokzoe-a1.toml
++++ b/data/devices/aokzoe-a1.toml
+@@ -27,6 +27,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-2.toml b/data/devices/ayaneo-2.toml
+index 8b2b205..9edf8a1 100644
+--- a/data/devices/ayaneo-2.toml
++++ b/data/devices/ayaneo-2.toml
+@@ -41,6 +41,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-2021.toml b/data/devices/ayaneo-2021.toml
+index 8e831dd..4e75f4f 100644
+--- a/data/devices/ayaneo-2021.toml
++++ b/data/devices/ayaneo-2021.toml
+@@ -41,6 +41,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-3.toml b/data/devices/ayaneo-3.toml
+index a7b9412..8fa8d19 100644
+--- a/data/devices/ayaneo-3.toml
++++ b/data/devices/ayaneo-3.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-air.toml b/data/devices/ayaneo-air.toml
+index fe3dc0a..53885cf 100644
+--- a/data/devices/ayaneo-air.toml
++++ b/data/devices/ayaneo-air.toml
+@@ -50,6 +50,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-flip.toml b/data/devices/ayaneo-flip.toml
+index 3054dcf..d04caf6 100644
+--- a/data/devices/ayaneo-flip.toml
++++ b/data/devices/ayaneo-flip.toml
+@@ -27,6 +27,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-generic.toml b/data/devices/ayaneo-generic.toml
+index aaaedb2..b91cb60 100644
+--- a/data/devices/ayaneo-generic.toml
++++ b/data/devices/ayaneo-generic.toml
+@@ -6,6 +6,3 @@ variant = "AYANEO_Generic"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+\ No newline at end of file
+diff --git a/data/devices/ayaneo-kun.toml b/data/devices/ayaneo-kun.toml
+index c7fbf0b..7e05c7d 100644
+--- a/data/devices/ayaneo-kun.toml
++++ b/data/devices/ayaneo-kun.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-next.toml b/data/devices/ayaneo-next.toml
+index 1be6f1c..567d738 100644
+--- a/data/devices/ayaneo-next.toml
++++ b/data/devices/ayaneo-next.toml
+@@ -55,6 +55,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayaneo-slide.toml b/data/devices/ayaneo-slide.toml
+index 5d0d0cb..2882cef 100644
+--- a/data/devices/ayaneo-slide.toml
++++ b/data/devices/ayaneo-slide.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/ayn-loki.toml b/data/devices/ayn-loki.toml
+index ee3399e..5d158ad 100644
+--- a/data/devices/ayn-loki.toml
++++ b/data/devices/ayn-loki.toml
+@@ -27,6 +27,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/gpd-generic.toml b/data/devices/gpd-generic.toml
+index 83aca5c..afe41fe 100644
+--- a/data/devices/gpd-generic.toml
++++ b/data/devices/gpd-generic.toml
+@@ -6,6 +6,3 @@ variant = "GPD_Generic"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+\ No newline at end of file
+diff --git a/data/devices/gpd-win.toml b/data/devices/gpd-win.toml
+index ce21d0d..32dcddc 100644
+--- a/data/devices/gpd-win.toml
++++ b/data/devices/gpd-win.toml
+@@ -55,6 +55,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/legion-go-series.toml b/data/devices/legion-go-series.toml
+index 9e37bcc..7b73de0 100644
+--- a/data/devices/legion-go-series.toml
++++ b/data/devices/legion-go-series.toml
+@@ -37,6 +37,3 @@ method = "firmware_attribute"
+ [tdp_limit.firmware_attribute]
+ attribute = "lenovo-wmi-other-0"
+ performance_profile = "custom"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/msi-claw-8ex.toml b/data/devices/msi-claw-8ex.toml
+index 7e28bc7..a3cb808 100644
+--- a/data/devices/msi-claw-8ex.toml
++++ b/data/devices/msi-claw-8ex.toml
+@@ -19,8 +19,5 @@ method = "firmware_attribute"
+ attribute = "msi-wmi-platform"
+ performance_profile = "custom"
+ 
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard"]
+-
+ [battery_charge_limit]
+ method = "acpi_sb"
+diff --git a/data/devices/msi-claw-amd.toml b/data/devices/msi-claw-amd.toml
+index 904254b..32c0fa4 100644
+--- a/data/devices/msi-claw-amd.toml
++++ b/data/devices/msi-claw-amd.toml
+@@ -22,8 +22,5 @@ method = "firmware_attribute"
+ attribute = "msi-wmi-platform"
+ performance_profile = "performance"
+ 
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard"]
+-
+ [battery_charge_limit]
+ method = "acpi_sb"
+diff --git a/data/devices/msi-claw-intel.toml b/data/devices/msi-claw-intel.toml
+index d4165b7..a800bf7 100644
+--- a/data/devices/msi-claw-intel.toml
++++ b/data/devices/msi-claw-intel.toml
+@@ -35,6 +35,3 @@ performance_profile = "performance"
+ 
+ [battery_charge_limit]
+ method = "acpi_sb"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/onexplayer-2.toml b/data/devices/onexplayer-2.toml
+index 55d461c..5e98980 100644
+--- a/data/devices/onexplayer-2.toml
++++ b/data/devices/onexplayer-2.toml
+@@ -41,6 +41,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/onexplayer-f1.toml b/data/devices/onexplayer-f1.toml
+index 210d151..b523a22 100644
+--- a/data/devices/onexplayer-f1.toml
++++ b/data/devices/onexplayer-f1.toml
+@@ -41,6 +41,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/onexplayer-g1a.toml b/data/devices/onexplayer-g1a.toml
+index cf3be86..aa480d3 100644
+--- a/data/devices/onexplayer-g1a.toml
++++ b/data/devices/onexplayer-g1a.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/data/devices/orangepi-neo.toml b/data/devices/orangepi-neo.toml
+index 65a431b..9d660da 100644
+--- a/data/devices/orangepi-neo.toml
++++ b/data/devices/orangepi-neo.toml
+@@ -13,6 +13,3 @@ driver = "amdgpu"
+ 
+ [tdp_limit]
+ method = "power_station"
+-
+-[inputplumber]
+-target_devices = ["deck-uhid", "keyboard", "mouse"]
+diff --git a/steamos-manager/src/hardware.rs b/steamos-manager/src/hardware.rs
+index 296ce2e..af8ba5c 100644
+--- a/steamos-manager/src/hardware.rs
++++ b/steamos-manager/src/hardware.rs
+@@ -1079,6 +1079,24 @@ pub mod test {
+         assert!(FanControlState::from_str("on").is_err());
+     }
+ 
++    #[test]
++    fn inputplumber_target_devices_parse() {
++        let config: InputPlumberConfig =
++            toml::from_str(r#"target_devices = ["deck-uhid", "keyboard", "mouse"]"#).unwrap();
++        assert_eq!(
++            config.target_devices,
++            [
++                InputPlumberTargetDevice::DeckUhid,
++                InputPlumberTargetDevice::Keyboard,
++                InputPlumberTargetDevice::Mouse,
++            ]
++        );
++        assert!(toml::from_str::<InputPlumberConfig>(r#"target_devices = ["none"]"#).is_err());
++
++        let config: InputPlumberConfig = toml::from_str("").unwrap();
++        assert!(config.target_devices.is_empty());
++    }
++
+     #[derive(Default)]
+     struct MockUnit {
+         active: bool,
+diff --git a/steamos-manager/src/inputplumber.rs b/steamos-manager/src/inputplumber.rs
+index 0da1ea7..b8e3fdd 100644
+--- a/steamos-manager/src/inputplumber.rs
++++ b/steamos-manager/src/inputplumber.rs
+@@ -8,7 +8,7 @@
+ use anyhow::Result;
+ use tokio::spawn;
+ use tokio_stream::StreamExt;
+-use tracing::{debug, info};
++use tracing::{debug, info, warn};
+ use zbus::Connection;
+ use zbus::fdo::{InterfacesAdded, ObjectManagerProxy};
+ use zbus::names::OwnedInterfaceName;
+@@ -16,7 +16,7 @@ use zbus::proxy::CacheProperties;
+ use zbus::zvariant::ObjectPath;
+ 
+ use crate::Service;
+-use crate::hardware::{InputPlumberTargetDevice, device_config};
++use crate::hardware::{InputPlumberConfig, InputPlumberTargetDevice, device_config};
+ 
+ #[zbus::proxy(
+     interface = "org.shadowblip.Input.CompositeDevice",
+@@ -44,6 +44,17 @@ pub struct DeckService {
+     composite_device_iface_name: OwnedInterfaceName,
+ }
+ 
++/// Returns the target devices to apply, or `None` if target device management is
++/// disabled for this device, which is the case whenever no target devices are
++/// configured.
++fn resolve_targets(config: Option<&InputPlumberConfig>) -> Option<&[InputPlumberTargetDevice]> {
++    let targets = config?.target_devices.as_slice();
++    if targets.is_empty() {
++        return None;
++    }
++    Some(targets)
++}
++
+ impl DeckService {
+     pub fn init(connection: Connection) -> DeckService {
+         DeckService {
+@@ -103,12 +114,12 @@ impl DeckService {
+             .await?;
+         if !self.is_deck(&proxy).await? {
+             let config = device_config().await?;
+-            let targets: &[_] = config
+-                .as_ref()
+-                .and_then(|c| c.inputplumber.as_ref())
+-                .map_or(&[InputPlumberTargetDevice::DeckUhid], |ip| {
+-                    ip.target_devices.as_slice()
+-                });
++            let Some(targets) =
++                resolve_targets(config.as_ref().and_then(|c| c.inputplumber.as_ref()))
++            else {
++                debug!("Target device management disabled for CompositeDevice {path}");
++                return Ok(());
++            };
+             let new_targets: Vec<&str> = targets.iter().map(AsRef::as_ref).collect();
+ 
+             debug!(
+@@ -157,3 +168,41 @@ impl Service for DeckService {
+         }
+     }
+ }
++
++#[cfg(test)]
++mod test {
++    use super::*;
++
++    #[test]
++    fn resolve_targets_disabled_without_config() {
++        assert_eq!(resolve_targets(None), Option::None);
++    }
++
++    #[test]
++    fn resolve_targets_passes_through_configured_list() {
++        let config = InputPlumberConfig {
++            target_devices: vec![
++                InputPlumberTargetDevice::DeckUhid,
++                InputPlumberTargetDevice::Keyboard,
++            ],
++        };
++        assert_eq!(
++            resolve_targets(Some(&config)),
++            Some(
++                [
++                    InputPlumberTargetDevice::DeckUhid,
++                    InputPlumberTargetDevice::Keyboard,
++                ]
++                .as_slice()
++            )
++        );
++    }
++
++    #[test]
++    fn resolve_targets_disabled_by_empty_list() {
++        let config = InputPlumberConfig {
++            target_devices: Vec::new(),
++        };
++        assert_eq!(resolve_targets(Some(&config)), Option::None);
++    }
++}
+-- 
+2.55.0
+

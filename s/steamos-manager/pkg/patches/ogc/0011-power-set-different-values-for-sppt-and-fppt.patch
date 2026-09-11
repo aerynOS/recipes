@@ -1,17 +1,17 @@
-From 4a3097b899c450932ff8f52243f259722820eee7 Mon Sep 17 00:00:00 2001
+From 8b4f7f18976c72c1186889ff730df55d12c23e0b Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:42:00 +0800
-Subject: [PATCH 03/17] power: set different values for sppt and fppt
+Subject: [PATCH 11/37] power: set different values for sppt and fppt
 
 ---
  steamos-manager/src/power.rs | 15 +++++++++++++--
  1 file changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
-index f36f6f3..d698295 100644
+index a373b9a..e001bb9 100644
 --- a/steamos-manager/src/power.rs
 +++ b/steamos-manager/src/power.rs
-@@ -547,9 +547,20 @@ impl TdpLimitManager for FirmwareAttributeLimitManager {
+@@ -548,9 +548,20 @@ impl TdpLimitManager for FirmwareAttributeLimitManager {
              .and_then(|s| s.trim().parse::<u32>().ok())
              .unwrap_or(0);
  
@@ -35,5 +35,5 @@ index f36f6f3..d698295 100644
          write_synced(
              base.join(Self::SPL_SUFFIX).join("current_value"),
 -- 
-2.52.0
+2.55.0
 

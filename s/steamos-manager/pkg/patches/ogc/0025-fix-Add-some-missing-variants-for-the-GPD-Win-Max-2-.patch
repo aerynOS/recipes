@@ -1,0 +1,45 @@
+From aa0eb4aed39b896ca2db2fb49e3f4a1150ad4946 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Thu, 30 Jul 2026 19:49:44 -0700
+Subject: [PATCH 25/37] fix: Add some missing variants for the GPD Win Max 2
+ and GPD Win Mini
+
+---
+ data/devices/gpd-win.toml | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/data/devices/gpd-win.toml b/data/devices/gpd-win.toml
+index 3e9e471..ce21d0d 100644
+--- a/data/devices/gpd-win.toml
++++ b/data/devices/gpd-win.toml
+@@ -26,6 +26,13 @@ device = "gpd_win_max_2"
+ variant = "G1619-04"
+ friendly_name = "GPD WIN MAX 2"
+ 
++[[device]]
++dmi.sys_vendor = "GPD"
++dmi.product_name = "G1619-05"
++device = "gpd_win_max_2"
++variant = "G1619-05"
++friendly_name = "GPD WIN MAX 2 HX370"
++
+ [[device]]
+ dmi.sys_vendor = "GPD"
+ dmi.product_name = "G1617-01"
+@@ -33,6 +40,13 @@ device = "gpd_win_mini"
+ variant = "G1617-01"
+ friendly_name = "GPD WIN Mini"
+ 
++[[device]]
++dmi.sys_vendor = "GPD"
++dmi.product_name = "G1617-02"
++device = "gpd_win_mini"
++variant = "G1617-02"
++friendly_name = "GPD WIN Mini HX370"
++
+ [gpu_performance]
+ driver = "amdgpu"
+ 
+-- 
+2.55.0
+

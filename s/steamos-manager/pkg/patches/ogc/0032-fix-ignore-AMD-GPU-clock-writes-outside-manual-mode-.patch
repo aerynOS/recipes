@@ -1,0 +1,53 @@
+From b2b641ed32587da7c4900c510fcbd8ca080d174f Mon Sep 17 00:00:00 2001
+From: Nilesh Chakraborty <nileshchakraborty@gmail.com>
+Date: Sun, 23 Aug 2026 08:58:01 -0700
+Subject: [PATCH 32/37] fix: ignore AMD GPU clock writes outside manual mode
+ (#5)
+
+---
+ steamos-manager/src/gpu.rs | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+
+diff --git a/steamos-manager/src/gpu.rs b/steamos-manager/src/gpu.rs
+index 930b5c1..c953a2f 100644
+--- a/steamos-manager/src/gpu.rs
++++ b/steamos-manager/src/gpu.rs
+@@ -386,8 +386,13 @@ impl GpuPerformanceLevelDriver for AmdgpuPerformanceLevelDriver {
+     }
+ 
+     async fn set_clocks(&self, clocks: u32) -> Result<()> {
+-        // Set GPU clocks to given value valid
+-        // Only used when GPU Performance Level is manual, but write whenever called.
++        if self.get_performance_level().await?
++            != GpuPerformanceLevel::Amdgpu(AmdgpuPerformanceLevel::Manual)
++        {
++            return Ok(());
++        }
++
++        // Set GPU clocks to the given value while manual mode is active.
+         let base = find_hwmon(AMDGPU_HWMON_NAME).await?;
+         let mut myfile = File::create(base.join(Self::CLOCKS_SUFFIX))
+             .await
+@@ -879,6 +884,19 @@ CCLK_RANGE in Core0:
+         assert!(driver.set_clocks(1600).await.is_err());
+         setup_amdgpu().await.expect("setup_amdgpu");
+ 
++        let base = find_hwmon(AMDGPU_HWMON_NAME).await.unwrap();
++        let performance_level = base.join(AmdgpuPerformanceLevelDriver::PERFORMANCE_LEVEL_SUFFIX);
++        write(performance_level.as_path(), "auto\n")
++            .await
++            .expect("write");
++        write_clocks(600).await;
++
++        assert!(driver.set_clocks(200).await.is_ok());
++        assert_eq!(driver.get_clocks().await.unwrap(), 600);
++
++        write(performance_level.as_path(), "manual\n")
++            .await
++            .expect("write");
+         assert!(driver.set_clocks(200).await.is_ok());
+ 
+         assert_eq!(read_clocks().await.unwrap(), format_clocks(200));
+-- 
+2.55.0
+

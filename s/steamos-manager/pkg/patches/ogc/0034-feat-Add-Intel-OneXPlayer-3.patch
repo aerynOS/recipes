@@ -1,0 +1,28 @@
+From 66d246d1ac2e3f4c27115ffd63ffdace3901a291 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Thu, 10 Sep 2026 09:40:42 -0700
+Subject: [PATCH 34/37] feat: Add Intel OneXPlayer 3
+
+---
+ data/devices/onexplayer-3.toml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 data/devices/onexplayer-3.toml
+
+diff --git a/data/devices/onexplayer-3.toml b/data/devices/onexplayer-3.toml
+new file mode 100644
+index 0000000..a4e2c9d
+--- /dev/null
++++ b/data/devices/onexplayer-3.toml
+@@ -0,0 +1,9 @@
++[[device]]
++dmi.sys_vendor = "ONE-NETBOOK"
++dmi.product_name = "ONEXPLAYER 3"
++device = "onexplayer_3"
++variant = "3"
++friendly_name = "ONEXPLAYER 3"
++
++[tdp_limit]
++method = "power_station"
+-- 
+2.55.0
+

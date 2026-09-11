@@ -1,0 +1,146 @@
+From 922ef1ac99a0945f7d395f780439f6f630a0677b Mon Sep 17 00:00:00 2001
+From: Timothy Small <smalls.online@icloud.com>
+Date: Wed, 19 Aug 2026 22:55:29 -0400
+Subject: [PATCH 31/37] feat: Make scx service configurable (#4)
+
+* Add ScxConfig struct to PlatformConfig
+
+- Allows configuring the systemd service, rather than being hardcoded
+- Defaults to scx.service
+
+* Implement ScxConfig in power module
+
+- Sets scx_unit to the configured service
+---
+ steamos-manager/src/manager/user.rs |  4 +--
+ steamos-manager/src/platform.rs     | 39 +++++++++++++++++++++++++++++
+ steamos-manager/src/power.rs        | 11 +++++---
+ 3 files changed, 49 insertions(+), 5 deletions(-)
+
+diff --git a/steamos-manager/src/manager/user.rs b/steamos-manager/src/manager/user.rs
+index a3ea1c5..5adc7ec 100644
+--- a/steamos-manager/src/manager/user.rs
++++ b/steamos-manager/src/manager/user.rs
+@@ -2082,8 +2082,7 @@ mod test {
+         SteamDeckVariant, TdpLimitConfig,
+     };
+     use crate::platform::{
+-        FormatDeviceConfig, PlatformConfig, ResetConfig, ScriptConfig, ServiceConfig,
+-        SessionConfig, StorageConfig,
++        FormatDeviceConfig, PlatformConfig, ResetConfig, ScriptConfig, ScxConfig, ServiceConfig, SessionConfig, StorageConfig,
+     };
+     use crate::power::test::Nodes as PowerNodes;
+     use crate::power::{BatteryChargeLimitMethod, TdpLimitingMethod, TdpManagerService};
+@@ -2185,6 +2184,7 @@ mod test {
+                 "jupiter-fan-control.service",
+             ))),
+             session: Some(SessionConfig::default()),
++            scx: Some(ScxConfig::default()),
+         })
+     }
+ 
+diff --git a/steamos-manager/src/platform.rs b/steamos-manager/src/platform.rs
+index 072adf9..7231a5d 100644
+--- a/steamos-manager/src/platform.rs
++++ b/steamos-manager/src/platform.rs
+@@ -45,6 +45,21 @@ impl Default for SessionConfig {
+     }
+ }
+ 
++#[derive(Clone, Deserialize, Debug)]
++#[serde(default)]
++pub(crate) struct ScxConfig {
++    pub scx_service: String,
++}
++
++impl Default for ScxConfig {
++    fn default() -> Self {
++        ScxConfig {
++            scx_service: String::from("scx.service"),
++        }
++    }
++}
++
++
+ #[derive(Clone, Default, Deserialize, Debug)]
+ #[serde(default)]
+ pub(crate) struct PlatformConfig {
+@@ -54,6 +69,7 @@ pub(crate) struct PlatformConfig {
+     pub storage: Option<StorageConfig>,
+     pub fan_control: Option<ServiceConfig>,
+     pub session: Option<SessionConfig>,
++    pub scx: Option<ScxConfig>
+ }
+ 
+ #[derive(Clone, Default, Deserialize, Debug)]
+@@ -267,6 +283,29 @@ pub(crate) async fn session_config() -> SessionConfig {
+         .session
+         .unwrap_or_default()
+ }
++
++#[cfg(not(test))]
++pub(crate) async fn scx_config() -> ScxConfig {
++    match platform_config().await {
++        Ok(config) => config
++            .as_ref()
++            .map(|c| c.scx.clone().unwrap_or_default())
++            .unwrap_or_default(),
++        Err(_) => ScxConfig::default(),
++    }
++}
++
++#[cfg(test)]
++pub(crate) async fn scx_config() -> ScxConfig {
++    platform_config()
++        .await
++        .ok()
++        .flatten()
++        .unwrap_or_default()
++        .scx
++        .unwrap_or_default()
++}
++
+ #[cfg(test)]
+ mod test {
+     use super::*;
+diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
+index 4abaa3e..939b359 100644
+--- a/steamos-manager/src/power.rs
++++ b/steamos-manager/src/power.rs
+@@ -36,6 +36,7 @@ use crate::hardware::{FanControlState, device_config};
+ use crate::manager::MANAGER_PATH;
+ use crate::manager::root::RootManagerProxy;
+ use crate::manager::user::TdpLimit1;
++use crate::platform::scx_config;
+ use crate::proxy::TdpLimit1Proxy;
+ use crate::sysfs::{SysfsWritten, find_sysdir, sysfs_queued_write};
+ use crate::systemd::{EnableState, JobMode, SystemdUnit};
+@@ -324,10 +325,14 @@ impl<'dbus> CpuSchedulerManager<'dbus> {
+     pub async fn new(connection: &Connection) -> Result<CpuSchedulerManager<'dbus>> {
+         // Try to create a SystemdUnit for scx.service; if systemd isn't available in the
+         // test DBus environment, treat the service as not installed instead of failing.
+-        let scx_unit = match SystemdUnit::new(connection, "scx.service").await {
++
++        // Load config for scx from the platform config.
++        let config = scx_config().await;
++        
++        let scx_unit = match SystemdUnit::new(connection, &config.scx_service).await {
+             Ok(u) => Some(u),
+             Err(e) => {
+-                warn!("Could not create SystemdUnit for scx.service: {e}");
++                warn!("Could not create SystemdUnit for {}: {e}", &config.scx_service);
+                 None
+             }
+         };
+@@ -383,7 +388,7 @@ impl<'dbus> CpuSchedulerManager<'dbus> {
+                     self.current = CpuScheduler::LAVD;
+                 } else {
+                     // service not present; remain at None
+-                    bail!("Cannot set CPU scheduler to LAVD; scx.service not installed");
++                    bail!("Cannot set CPU scheduler to LAVD; no scx systemd unit installed");
+                 }
+             }
+         }
+-- 
+2.55.0
+

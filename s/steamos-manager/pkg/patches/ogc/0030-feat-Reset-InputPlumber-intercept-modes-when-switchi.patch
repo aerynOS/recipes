@@ -1,0 +1,500 @@
+From a76d2736b00e190ba6b28e3f903f085715ed703e Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Mon, 10 Aug 2026 21:14:04 -0700
+Subject: [PATCH 30/37] feat: Reset InputPlumber intercept modes when switching
+ to desktop
+
+---
+ steamos-manager/src/daemon/user.rs  |   3 +
+ steamos-manager/src/inputplumber.rs | 315 ++++++++++++++++++++++++++++
+ steamos-manager/src/manager/root.rs |  28 +++
+ steamos-manager/src/manager/user.rs |  10 +-
+ 4 files changed, 355 insertions(+), 1 deletion(-)
+
+diff --git a/steamos-manager/src/daemon/user.rs b/steamos-manager/src/daemon/user.rs
+index 51a4d95..b9c9875 100644
+--- a/steamos-manager/src/daemon/user.rs
++++ b/steamos-manager/src/daemon/user.rs
+@@ -238,6 +238,9 @@ pub async fn daemon() -> Result<()> {
+     if let Some(service) = services.cecd {
+         daemon.add_service(service);
+     }
++    if let Some(service) = services.intercept_mode {
++        daemon.add_service(service);
++    }
+ 
+     let context = UserContext {
+         session,
+diff --git a/steamos-manager/src/inputplumber.rs b/steamos-manager/src/inputplumber.rs
+index b8e3fdd..31397dd 100644
+--- a/steamos-manager/src/inputplumber.rs
++++ b/steamos-manager/src/inputplumber.rs
+@@ -7,6 +7,8 @@
+ 
+ use anyhow::Result;
+ use tokio::spawn;
++use tokio::sync::broadcast;
++use tokio::sync::broadcast::error::RecvError;
+ use tokio_stream::StreamExt;
+ use tracing::{debug, info, warn};
+ use zbus::Connection;
+@@ -17,6 +19,8 @@ use zbus::zvariant::ObjectPath;
+ 
+ use crate::Service;
+ use crate::hardware::{InputPlumberConfig, InputPlumberTargetDevice, device_config};
++use crate::manager::root::RootManagerProxy;
++use crate::session::{LoginMode, SessionManagerMessage};
+ 
+ #[zbus::proxy(
+     interface = "org.shadowblip.Input.CompositeDevice",
+@@ -27,6 +31,9 @@ trait CompositeDevice {
+     fn target_devices(&self) -> Result<Vec<String>>;
+ 
+     async fn set_target_devices(&self, devices: &[&str]) -> Result<()>;
++
++    #[zbus(property)]
++    fn set_intercept_mode(&self, mode: u32) -> Result<()>;
+ }
+ 
+ #[zbus::proxy(
+@@ -44,6 +51,11 @@ pub struct DeckService {
+     composite_device_iface_name: OwnedInterfaceName,
+ }
+ 
++pub(crate) struct InterceptModeService {
++    pub(crate) manager: RootManagerProxy<'static>,
++    pub(crate) channel: broadcast::Receiver<SessionManagerMessage>,
++}
++
+ /// Returns the target devices to apply, or `None` if target device management is
+ /// disabled for this device, which is the case whenever no target devices are
+ /// configured.
+@@ -134,6 +146,55 @@ impl DeckService {
+     }
+ }
+ 
++async fn reset_intercept_mode(connection: &Connection, path: &ObjectPath<'_>) -> Result<()> {
++    let proxy = CompositeDeviceProxy::builder(connection)
++        .cache_properties(CacheProperties::No)
++        .path(path)?
++        .build()
++        .await?;
++    debug!("Resetting intercept mode on CompositeDevice {path}");
++    proxy.set_intercept_mode(0).await
++}
++
++/// Sets every InputPlumber composite device back to intercept mode `None`.
++pub(crate) async fn reset_intercept_modes(connection: &Connection) -> Result<()> {
++    let object_manager = match ObjectManagerProxy::new(
++        connection,
++        "org.shadowblip.InputPlumber",
++        "/org/shadowblip/InputPlumber",
++    )
++    .await
++    {
++        Ok(object_manager) => object_manager,
++        Err(e) => {
++            debug!("InputPlumber not available, not resetting intercept modes: {e}");
++            return Ok(());
++        }
++    };
++
++    let objects = match object_manager.get_managed_objects().await {
++        Ok(objects) => objects,
++        Err(e) => {
++            debug!("Can't query InputPlumber devices, not resetting intercept modes: {e}");
++            return Ok(());
++        }
++    };
++
++    let composite_device_iface_name =
++        OwnedInterfaceName::try_from("org.shadowblip.Input.CompositeDevice")?;
++
++    for (path, ifaces) in objects {
++        if !ifaces.contains_key(&composite_device_iface_name) {
++            continue;
++        }
++        if let Err(e) = reset_intercept_mode(connection, &path).await {
++            warn!("Couldn't reset intercept mode on CompositeDevice {path}: {e}");
++        }
++    }
++
++    Ok(())
++}
++
+ impl Service for DeckService {
+     const NAME: &'static str = "inputplumber";
+ 
+@@ -169,9 +230,263 @@ impl Service for DeckService {
+     }
+ }
+ 
++impl Service for InterceptModeService {
++    const NAME: &'static str = "inputplumber-intercept-mode";
++
++    async fn run(&mut self) -> Result<()> {
++        loop {
++            match self.channel.recv().await {
++                Ok(SessionManagerMessage::LoginModeChanged(LoginMode::Desktop)) => {
++                    if let Err(e) = self.manager.reset_intercept_modes().await {
++                        warn!(
++                            "Could not reset InputPlumber intercept modes when entering desktop mode: {e}"
++                        );
++                    }
++                }
++                Ok(SessionManagerMessage::LoginModeChanged(LoginMode::Game)) => (),
++                Err(RecvError::Closed) => return Ok(()),
++                Err(e) => return Err(e.into()),
++            }
++        }
++    }
++}
++
+ #[cfg(test)]
+ mod test {
+     use super::*;
++    use crate::testing;
++    use std::time::Duration;
++    use tokio::spawn;
++    use tokio::time::sleep;
++    use zbus::fdo::{self, ObjectManager};
++
++    #[derive(Default)]
++    struct MockRootManager {
++        reset_count: u32,
++    }
++
++    #[zbus::interface(name = "com.steampowered.SteamOSManager1.RootManager")]
++    impl MockRootManager {
++        async fn reset_intercept_modes(&mut self) -> fdo::Result<()> {
++            self.reset_count += 1;
++            Ok(())
++        }
++    }
++
++    #[tokio::test]
++    async fn intercept_mode_service_resets_on_desktop_only() {
++        let mut h = testing::start();
++        let connection = h.new_dbus().await.expect("dbus");
++        let object_server = connection.object_server().clone();
++
++        object_server
++            .at(
++                "/com/steampowered/SteamOSManager1",
++                MockRootManager::default(),
++            )
++            .await
++            .expect("at");
++        connection
++            .request_name("com.steampowered.SteamOSManager1")
++            .await
++            .expect("request_name");
++
++        let client = h.new_connection().await.expect("connection");
++        let (tx, rx) = broadcast::channel(5);
++        let mut service = InterceptModeService {
++            manager: RootManagerProxy::new(&client).await.expect("proxy"),
++            channel: rx,
++        };
++        let handle = spawn(async move { service.run().await });
++
++        let mock = object_server
++            .interface::<_, MockRootManager>("/com/steampowered/SteamOSManager1")
++            .await
++            .expect("interface");
++
++        tx.send(SessionManagerMessage::LoginModeChanged(LoginMode::Game))
++            .expect("send");
++        sleep(Duration::from_millis(10)).await;
++        assert_eq!(mock.get().await.reset_count, 0);
++
++        tx.send(SessionManagerMessage::LoginModeChanged(LoginMode::Desktop))
++            .expect("send");
++        sleep(Duration::from_millis(10)).await;
++        assert_eq!(mock.get().await.reset_count, 1);
++
++        handle.abort();
++    }
++
++    #[derive(Default)]
++    struct MockCompositeDevice {
++        intercept_mode: u32,
++        fail: bool,
++    }
++
++    #[zbus::interface(name = "org.shadowblip.Input.CompositeDevice")]
++    impl MockCompositeDevice {
++        #[zbus(property)]
++        async fn intercept_mode(&self) -> u32 {
++            self.intercept_mode
++        }
++
++        #[zbus(property)]
++        async fn set_intercept_mode(&mut self, mode: u32) -> fdo::Result<()> {
++            if self.fail {
++                return Err(fdo::Error::Failed(String::from("mock failure")));
++            }
++            self.intercept_mode = mode;
++            Ok(())
++        }
++    }
++
++    struct MockNotAComposite;
++
++    #[zbus::interface(name = "org.shadowblip.Input.Source")]
++    impl MockNotAComposite {
++        #[zbus(property)]
++        async fn unique_id(&self) -> String {
++            String::from("mock")
++        }
++    }
++
++    async fn mock_intercept_mode(object_server: &zbus::ObjectServer, path: &str) -> u32 {
++        object_server
++            .interface::<_, MockCompositeDevice>(path)
++            .await
++            .expect("interface")
++            .get()
++            .await
++            .intercept_mode
++    }
++
++    #[tokio::test]
++    async fn reset_intercept_modes_resets_every_device() {
++        let mut h = testing::start();
++        let connection = h.new_dbus().await.expect("dbus");
++        let object_server = connection.object_server().clone();
++
++        object_server
++            .at(
++                "/org/shadowblip/InputPlumber/CompositeDevice0",
++                MockCompositeDevice {
++                    intercept_mode: 2,
++                    fail: false,
++                },
++            )
++            .await
++            .expect("at");
++        object_server
++            .at(
++                "/org/shadowblip/InputPlumber/CompositeDevice1",
++                MockCompositeDevice {
++                    intercept_mode: 1,
++                    fail: false,
++                },
++            )
++            .await
++            .expect("at");
++        object_server
++            .at(
++                "/org/shadowblip/InputPlumber/SourceDevice0",
++                MockNotAComposite,
++            )
++            .await
++            .expect("at");
++        object_server
++            .at("/org/shadowblip/InputPlumber", ObjectManager {})
++            .await
++            .expect("at");
++        connection
++            .request_name("org.shadowblip.InputPlumber")
++            .await
++            .expect("request_name");
++
++        let client = h.new_connection().await.expect("connection");
++        reset_intercept_modes(&client).await.expect("reset");
++
++        assert_eq!(
++            mock_intercept_mode(
++                &object_server,
++                "/org/shadowblip/InputPlumber/CompositeDevice0"
++            )
++            .await,
++            0
++        );
++        assert_eq!(
++            mock_intercept_mode(
++                &object_server,
++                "/org/shadowblip/InputPlumber/CompositeDevice1"
++            )
++            .await,
++            0
++        );
++    }
++
++    #[tokio::test]
++    async fn reset_intercept_modes_continues_past_a_failing_device() {
++        let mut h = testing::start();
++        let connection = h.new_dbus().await.expect("dbus");
++        let object_server = connection.object_server().clone();
++
++        object_server
++            .at(
++                "/org/shadowblip/InputPlumber/CompositeDevice0",
++                MockCompositeDevice {
++                    intercept_mode: 2,
++                    fail: true,
++                },
++            )
++            .await
++            .expect("at");
++        object_server
++            .at(
++                "/org/shadowblip/InputPlumber/CompositeDevice1",
++                MockCompositeDevice {
++                    intercept_mode: 2,
++                    fail: false,
++                },
++            )
++            .await
++            .expect("at");
++        object_server
++            .at("/org/shadowblip/InputPlumber", ObjectManager {})
++            .await
++            .expect("at");
++        connection
++            .request_name("org.shadowblip.InputPlumber")
++            .await
++            .expect("request_name");
++
++        let client = h.new_connection().await.expect("connection");
++        reset_intercept_modes(&client).await.expect("reset");
++
++        assert_eq!(
++            mock_intercept_mode(
++                &object_server,
++                "/org/shadowblip/InputPlumber/CompositeDevice0"
++            )
++            .await,
++            2
++        );
++        assert_eq!(
++            mock_intercept_mode(
++                &object_server,
++                "/org/shadowblip/InputPlumber/CompositeDevice1"
++            )
++            .await,
++            0
++        );
++    }
++
++    #[tokio::test]
++    async fn reset_intercept_modes_ignores_missing_inputplumber() {
++        let mut h = testing::start();
++        let _connection = h.new_dbus().await.expect("dbus");
++        let client = h.new_connection().await.expect("connection");
++
++        assert!(reset_intercept_modes(&client).await.is_ok());
++    }
+ 
+     #[test]
+     fn resolve_targets_disabled_without_config() {
+diff --git a/steamos-manager/src/manager/root.rs b/steamos-manager/src/manager/root.rs
+index 439ee80..bba9fb6 100644
+--- a/steamos-manager/src/manager/root.rs
++++ b/steamos-manager/src/manager/root.rs
+@@ -118,6 +118,7 @@ pub(crate) trait RootManager {
+     fn set_temporary_session(&self, session: &str) -> zbus::Result<()>;
+     fn set_default_session(&self, session: &str) -> zbus::Result<()>;
+     fn set_fan_speed(&self, rpm: u32) -> zbus::Result<()>;
++    fn reset_intercept_modes(&self) -> zbus::Result<()>;
+ 
+     #[zbus(property)]
+     fn fan_control_state(&self) -> zbus::Result<u32>;
+@@ -751,6 +752,13 @@ impl SteamOSManager {
+             .map_err(to_zbus_fdo_error)
+     }
+ 
++    async fn reset_intercept_modes(&self) -> fdo::Result<()> {
++        info!("Resetting InputPlumber intercept modes");
++        crate::inputplumber::reset_intercept_modes(&self.connection)
++            .await
++            .map_err(to_zbus_fdo_error)
++    }
++
+     async fn clean_temporary_sessions(&self) -> fdo::Result<()> {
+         info!("Cleaning temporary sessions");
+         clean_temporary_sessions().await.map_err(to_zbus_fdo_error)
+@@ -973,6 +981,26 @@ mod test {
+         test.connection.close().await.unwrap();
+     }
+ 
++    #[zbus::proxy(
++        interface = "com.steampowered.SteamOSManager1.RootManager",
++        default_path = "/com/steampowered/SteamOSManager1"
++    )]
++    trait ResetInterceptModes {
++        fn reset_intercept_modes(&self) -> zbus::Result<()>;
++    }
++
++    #[tokio::test]
++    async fn reset_intercept_modes_without_inputplumber() {
++        let test = start().await.expect("start");
++
++        let name = test.connection.unique_name().unwrap();
++        let proxy = ResetInterceptModesProxy::new(&test.connection, name.clone())
++            .await
++            .unwrap();
++
++        assert!(proxy.reset_intercept_modes().await.is_ok());
++    }
++
+     #[zbus::proxy(
+         interface = "com.steampowered.SteamOSManager1.RootManager",
+         default_path = "/com/steampowered/SteamOSManager1"
+diff --git a/steamos-manager/src/manager/user.rs b/steamos-manager/src/manager/user.rs
+index a342fdb..a3ea1c5 100644
+--- a/steamos-manager/src/manager/user.rs
++++ b/steamos-manager/src/manager/user.rs
+@@ -43,6 +43,7 @@ use crate::gpu::{
+ use crate::hardware::{
+     SteamDeckVariant, device_config, device_type, device_variant, steam_deck_variant,
+ };
++use crate::inputplumber::InterceptModeService;
+ use crate::job::JobManagerCommand;
+ use crate::manager::root::{RootManagerProxy, SteamOSManagerSignals};
+ use crate::manager::{MANAGER_PATH, RemoteInterface, RemoteInterfaceConfig, RemoteOwner};
+@@ -1839,6 +1840,7 @@ pub(crate) struct UserServices {
+     pub session_manager: Option<SessionManagerService>,
+     pub screenreader_setup: Option<ScreenReaderSetupService>,
+     pub cecd: Option<CecdService>,
++    pub intercept_mode: Option<InterceptModeService>,
+ }
+ 
+ pub(crate) async fn create_interfaces(
+@@ -2000,7 +2002,7 @@ pub(crate) async fn create_interfaces(
+                 MANAGER_PATH,
+                 HdmiCec2 {
+                     hdmi_cec,
+-                    manager: root_manager,
++                    manager: root_manager.clone(),
+                 },
+             )
+             .await?;
+@@ -2010,10 +2012,15 @@ pub(crate) async fn create_interfaces(
+ 
+     let mut session_manager_service = None;
+     let mut screenreader_setup_service = None;
++    let mut intercept_mode_service = None;
+     if is_session_managed().await? {
+         match session_management.manager.create_service().await {
+             Ok((service, channel)) => {
+                 session_manager_service = Some(service);
++                intercept_mode_service = Some(InterceptModeService {
++                    manager: root_manager.clone(),
++                    channel: channel.resubscribe(),
++                });
+                 screenreader_setup_service = Some(ScreenReaderSetupService {
+                     session: session.clone(),
+                     channel,
+@@ -2057,6 +2064,7 @@ pub(crate) async fn create_interfaces(
+         session_manager: session_manager_service,
+         screenreader_setup: screenreader_setup_service,
+         cecd: cecd_service,
++        intercept_mode: intercept_mode_service,
+     })
+ }
+ 
+-- 
+2.55.0
+

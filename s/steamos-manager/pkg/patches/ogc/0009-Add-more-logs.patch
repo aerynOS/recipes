@@ -1,17 +1,17 @@
-From ca8e46ee8e9d75dc2fd19793ca5de92da1da5c16 Mon Sep 17 00:00:00 2001
+From 8f0e19b2c6ff64f9552c88d79c9e478f07aae295 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:42:36 +0800
-Subject: [PATCH 04/17] Add more logs
+Subject: [PATCH 09/37] Add more logs
 
 ---
  steamos-manager/src/manager/root.rs | 9 +++++++++
  1 file changed, 9 insertions(+)
 
 diff --git a/steamos-manager/src/manager/root.rs b/steamos-manager/src/manager/root.rs
-index 583e8c2..172396d 100644
+index 4fe59ed..6229d81 100644
 --- a/steamos-manager/src/manager/root.rs
 +++ b/steamos-manager/src/manager/root.rs
-@@ -335,6 +335,7 @@ impl SteamOSManager {
+@@ -434,6 +434,7 @@ impl SteamOSManager {
          let profile = driver
              .power_profile_from_str(value)
              .map_err(to_zbus_fdo_error)?;
@@ -19,7 +19,7 @@ index 583e8c2..172396d 100644
          driver
              .set_power_profile(profile)
              .await
-@@ -344,6 +345,7 @@ impl SteamOSManager {
+@@ -443,6 +444,7 @@ impl SteamOSManager {
  
      async fn set_cpu_scaling_governor(&self, governor: String) -> fdo::Result<()> {
          let g = CPUScalingGovernor::try_from(governor.as_str()).map_err(to_zbus_fdo_error)?;
@@ -27,7 +27,7 @@ index 583e8c2..172396d 100644
          set_cpu_scaling_governor(g)
              .await
              .inspect_err(|message| error!("Error setting CPU scaling governor: {message}"))
-@@ -384,6 +386,7 @@ impl SteamOSManager {
+@@ -489,6 +491,7 @@ impl SteamOSManager {
              Ok(state) => state,
              Err(err) => return Err(to_zbus_fdo_error(err)),
          };
@@ -35,7 +35,7 @@ index 583e8c2..172396d 100644
          set_cpu_boost_state(state)
              .await
              .inspect_err(|message| error!("Error setting CPU boost state: {message}"))
-@@ -404,6 +407,7 @@ impl SteamOSManager {
+@@ -509,6 +512,7 @@ impl SteamOSManager {
                  "GPU performance settings not configured",
              )));
          };
@@ -43,7 +43,7 @@ index 583e8c2..172396d 100644
          let level = match driver.performance_level_from_str(level) {
              Ok(level) => level,
              Err(e) => return Err(to_zbus_fdo_error(e)),
-@@ -429,6 +433,7 @@ impl SteamOSManager {
+@@ -534,6 +538,7 @@ impl SteamOSManager {
                  "GPU performance settings not configured",
              )));
          };
@@ -51,7 +51,7 @@ index 583e8c2..172396d 100644
          driver
              .set_clocks(clocks)
              .await
-@@ -450,6 +455,7 @@ impl SteamOSManager {
+@@ -555,6 +560,7 @@ impl SteamOSManager {
                  "TDP limiting not configured",
              )));
          };
@@ -59,7 +59,7 @@ index 583e8c2..172396d 100644
          manager
              .set_tdp_limit(limit)
              .await
-@@ -624,18 +630,21 @@ impl SteamOSManager {
+@@ -729,18 +735,21 @@ impl SteamOSManager {
      }
  
      async fn set_temporary_session(&self, session: &str) -> fdo::Result<()> {
@@ -80,7 +80,7 @@ index 583e8c2..172396d 100644
 +        info!("Cleaning temporary sessions");
          clean_temporary_sessions().await.map_err(to_zbus_fdo_error)
      }
- }
+ 
 -- 
-2.52.0
+2.55.0
 

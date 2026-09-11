@@ -1,0 +1,32 @@
+From e9d4fb34abc794a475ed28b3ab40551d9804e155 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Thu, 10 Sep 2026 23:28:11 -0700
+Subject: [PATCH 37/37] feat: Add platform profiles to framework desktop via
+ amd-pmf
+
+---
+ data/devices/framework-desktop.toml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/data/devices/framework-desktop.toml b/data/devices/framework-desktop.toml
+index 7d952b1..2f3cb01 100644
+--- a/data/devices/framework-desktop.toml
++++ b/data/devices/framework-desktop.toml
+@@ -11,5 +11,13 @@ driver = "amdgpu"
+ [gpu_power_profile]
+ driver = "amdgpu"
+ 
++[performance_profile]
++platform_profile_name = "amd-pmf"
++suggested_default = "performance"
++
+ [tdp_limit]
+ method = "power_station"
++
++[tdp_limit.firmware_attribute]
++attribute = "amd-pmf"
++performance_profile = "performance"
+\ No newline at end of file
+-- 
+2.55.0
+

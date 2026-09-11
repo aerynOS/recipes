@@ -1,0 +1,51 @@
+From 652c1926b1f8ce07415f794e6cd46a693615e068 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Sat, 8 Aug 2026 15:47:39 -0700
+Subject: [PATCH 27/37] fix: Allow GPU clock control to be disabled on a
+ per-device level
+
+---
+ data/devices/generic.toml  | 5 ++++-
+ steamos-manager/src/gpu.rs | 4 ++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/data/devices/generic.toml b/data/devices/generic.toml
+index 3874117..b744467 100644
+--- a/data/devices/generic.toml
++++ b/data/devices/generic.toml
+@@ -5,4 +5,7 @@ device = "generic"
+ variant = "Generic"
+ 
+ [tdp_limit]
+-method = "none"
+\ No newline at end of file
++method = "none"
++
++[gpu_performance]
++driver = "none"
+\ No newline at end of file
+diff --git a/steamos-manager/src/gpu.rs b/steamos-manager/src/gpu.rs
+index 9894f7d..930b5c1 100644
+--- a/steamos-manager/src/gpu.rs
++++ b/steamos-manager/src/gpu.rs
+@@ -96,6 +96,7 @@ pub enum GpuPowerProfileDriverType {
+ pub enum GpuPerformanceLevelDriverType {
+     Amdgpu,
+     Intel,
++    None,
+ }
+ 
+ #[derive(Debug)]
+@@ -183,6 +184,9 @@ pub(crate) async fn gpu_performance_level_driver() -> Result<Box<dyn GpuPerforma
+         GpuPerformanceLevelDriverType::Intel => {
+             Box::new(IntelGpuPerformanceLevelDriver::new().await?)
+         }
++        GpuPerformanceLevelDriverType::None => {
++            bail!("GPU performance level control disabled by device configuration")
++        }
+     })
+ }
+ 
+-- 
+2.55.0
+

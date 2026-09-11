@@ -1,7 +1,7 @@
-From b14f8532fc760f4a68dae59670dafa1814597174 Mon Sep 17 00:00:00 2001
+From ffaa13074d79ced762ea3b5b6648e5af15c0dbfc Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:41:19 +0800
-Subject: [PATCH 15/17] devices: Add configuration for ROG Flow Z13
+Subject: [PATCH 10/37] devices: Add configuration for ROG Flow Z13
 
 ---
  data/devices/rog-flow-z13.toml | 27 +++++++++++++++++++++++++++
@@ -43,5 +43,5 @@ index 0000000..06ef940
 +method = "acpi_sb"
 \ No newline at end of file
 -- 
-2.52.0
+2.55.0
 

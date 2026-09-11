@@ -1,39 +1,13 @@
-diff -Npur steamos-manager-v26.0.1.orig/steamos-manager/src/session.rs steamos-manager-v26.0.1/steamos-manager/src/session.rs
---- steamos-manager-v26.0.1.orig/steamos-manager/src/session.rs	2026-03-05 05:25:34.000000000 +0100
-+++ steamos-manager-v26.0.1/steamos-manager/src/session.rs	2026-03-19 08:15:45.160356577 +0100
-@@ -207,7 +207,7 @@ impl SessionManager {
-     }
- 
-     pub(crate) async fn current_login_mode(&self) -> Result<LoginMode> {
--        if self.unit_is_active("gamescope-session.service").await? {
-+        if self.unit_is_active("gamescope-session-plus@steam-plus.service").await? {
-             return Ok(LoginMode::Game);
-         }
-         Ok(LoginMode::Desktop)
-@@ -284,7 +284,7 @@ impl SessionManager {
- 
-     pub(crate) async fn session_for_mode(&self, mode: LoginMode) -> Result<String> {
-         match mode {
--            LoginMode::Game => Ok(String::from("gamescope-wayland.desktop")),
-+            LoginMode::Game => Ok(String::from("gamescope-session-steam-plus.desktop")),
-             LoginMode::Desktop => self.default_desktop_session().await,
+--- a/steamos-manager/src/platform.rs	2026-09-11 09:04:21.259657156 +0200
++++ b/steamos-manager/src/platform.rs	2026-09-11 09:11:00.359253227 +0200
+@@ -38,8 +38,8 @@ pub(crate) struct SessionConfig {
+ impl Default for SessionConfig {
+     fn default() -> Self {
+         SessionConfig {
+-            gamescope_session_service: String::from("gamescope-session-plus@ogui-steam.service"),
+-            gamescope_session_desktop: String::from("gamescope-session-ogui-steam.desktop"),
++            gamescope_session_service: String::from("gamescope-session-plus@steam-plus.service"),
++            gamescope_session_desktop: String::from("gamescope-session-steam-plus.desktop"),
+             desktop: String::from("plasma.desktop"),
          }
      }
-@@ -348,7 +348,7 @@ impl Service for SessionManagerService {
-     const NAME: &'static str = "session-manager";
- 
-     async fn run(&mut self) -> Result<()> {
--        let unit = SystemdUnit::new(&self.session, "gamescope-session.service").await?;
-+        let unit = SystemdUnit::new(&self.session, "gamescope-session-plus@steam-plus.service").await?;
- 
-         let stream = unit
-             .proxy
-@@ -749,7 +749,7 @@ mod test {
-         notify.notified().await;
-         assert_eq!(
-             root_manager.get().await.temporary_session,
--            "gamescope-wayland.desktop"
-+            "gamescope-session-steam-plus.desktop"
-         );
-         {
-             let mut unit = unit.get_mut().await;

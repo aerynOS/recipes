@@ -1,7 +1,7 @@
-From e3092789f8ba67a6653be817f9d2e44a6611fb5a Mon Sep 17 00:00:00 2001
+From 9ded45abc04c830317b20a3a1522512694af8e6b Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 08/17] hardware: add DMI wildcard matching with priority
+Subject: [PATCH 16/37] hardware: add DMI wildcard matching with priority
  system
 
 - Implement two-phase matching: exact first, then wildcard
@@ -11,15 +11,15 @@ Subject: [PATCH 08/17] hardware: add DMI wildcard matching with priority
  Cargo.lock                      |   1 +
  data/devices/generic.toml       |  11 ++
  steamos-manager/Cargo.toml      |   1 +
- steamos-manager/src/hardware.rs | 203 ++++++++++++++++++++++++++++++--
- 4 files changed, 204 insertions(+), 12 deletions(-)
+ steamos-manager/src/hardware.rs | 201 ++++++++++++++++++++++++++++++--
+ 4 files changed, 203 insertions(+), 11 deletions(-)
  create mode 100644 data/devices/generic.toml
 
 diff --git a/Cargo.lock b/Cargo.lock
-index 23ab284..8b3e714 100644
+index e077c31..8f5ed29 100644
 --- a/Cargo.lock
 +++ b/Cargo.lock
-@@ -1147,6 +1147,7 @@ dependencies = [
+@@ -1217,6 +1217,7 @@ dependencies = [
   "clap",
   "config",
   "gio",
@@ -46,10 +46,10 @@ index 0000000..6326bae
 +target_devices = ["deck-uhid", "keyboard"]
 \ No newline at end of file
 diff --git a/steamos-manager/Cargo.toml b/steamos-manager/Cargo.toml
-index 44c7214..01d5cfc 100644
+index a24a47d..d684830 100644
 --- a/steamos-manager/Cargo.toml
 +++ b/steamos-manager/Cargo.toml
-@@ -11,6 +11,7 @@ cecd-proxy = { version = "0.1" }
+@@ -11,6 +11,7 @@ cecd-proxy = { version = "0.2" }
  clap = { version = "4.5", default-features = false, features = ["derive", "help", "std", "usage"] }
  config = { version = "0.15", default-features = false, features = ["async", "ini", "toml"] }
  gio = "0.21"
@@ -58,20 +58,18 @@ index 44c7214..01d5cfc 100644
  input-linux = "0.7"
  itertools = "0.14"
 diff --git a/steamos-manager/src/hardware.rs b/steamos-manager/src/hardware.rs
-index cebb30a..1bbbdfd 100644
+index efd99df..6c034d1 100644
 --- a/steamos-manager/src/hardware.rs
 +++ b/steamos-manager/src/hardware.rs
-@@ -5,7 +5,8 @@
-  * SPDX-License-Identifier: MIT
+@@ -6,6 +6,7 @@
   */
  
--use anyhow::{Result, bail, ensure};
-+use anyhow::{bail, ensure, Result};
+ use anyhow::{Result, anyhow, bail, ensure};
 +use glob::Pattern;
  use linux_cec::VendorId;
  use num_enum::TryFromPrimitive;
  use serde::Deserialize;
-@@ -50,6 +51,13 @@ pub(crate) enum SteamDeckVariant {
+@@ -52,6 +53,13 @@ pub(crate) enum SteamDeckVariant {
      Galileo,
  }
  
@@ -85,7 +83,7 @@ index cebb30a..1bbbdfd 100644
  #[derive(Display, EnumString, PartialEq, Debug, Copy, Clone, TryFromPrimitive)]
  #[strum(ascii_case_insensitive)]
  #[repr(u32)]
-@@ -183,7 +191,59 @@ async fn try_read_to_string<S: AsRef<Path>>(path: S) -> std::io::Result<Option<S
+@@ -213,7 +221,59 @@ async fn try_read_to_string<S: AsRef<Path>>(path: S) -> std::io::Result<Option<S
  }
  
  impl DeviceConfig {
@@ -145,7 +143,7 @@ index cebb30a..1bbbdfd 100644
          let Some(sys_vendor) = try_read_to_string(path(SYS_VENDOR_PATH)).await? else {
              return Ok(None);
          };
-@@ -193,23 +253,108 @@ impl DeviceConfig {
+@@ -223,23 +283,108 @@ impl DeviceConfig {
          let product_name = try_read_to_string(path(PRODUCT_NAME_PATH)).await?;
          let product_name = product_name.as_ref().map(|name| name.trim_end());
  
@@ -263,7 +261,7 @@ index cebb30a..1bbbdfd 100644
          let mut dir = read_dir(DEVICE_CONFIG_PATH)
              .await
              .inspect_err(|err| error!("Failed to scan device configs: {err}"))?;
-@@ -236,10 +381,23 @@ impl DeviceConfig {
+@@ -259,10 +404,23 @@ impl DeviceConfig {
                      continue;
                  }
              };
@@ -288,9 +286,9 @@ index cebb30a..1bbbdfd 100644
 +
          Ok(None)
      }
- }
-@@ -757,6 +915,27 @@ pub mod test {
-         );
+ 
+@@ -838,6 +996,27 @@ pub mod test {
+         assert!(ECLoggingState::from_str("DiSaBlEd").is_ok());
      }
  
 +    #[tokio::test]
@@ -318,5 +316,5 @@ index cebb30a..1bbbdfd 100644
      fn fan_control_state_roundtrip() {
          enum_roundtrip!(FanControlState {
 -- 
-2.52.0
+2.55.0
 

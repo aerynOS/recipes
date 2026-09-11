@@ -1,7 +1,7 @@
-From cf5207ab84c718812f93a01b72e1189b481c0c32 Mon Sep 17 00:00:00 2001
+From efa18b828153ffd30b8888dc6c56d04e290c2f50 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 14/17] config: add power_station TDP limit configuration for
+Subject: [PATCH 22/37] config: add power_station TDP limit configuration for
  multiple devices
 
 ---
@@ -180,10 +180,10 @@ index 5273e79..3e9e471 100644
  [inputplumber]
  target_devices = ["deck-uhid", "keyboard", "mouse"]
 diff --git a/data/devices/onexplayer-2.toml b/data/devices/onexplayer-2.toml
-index fd00b91..a7ffa08 100644
+index 7e5e90f..55d461c 100644
 --- a/data/devices/onexplayer-2.toml
 +++ b/data/devices/onexplayer-2.toml
-@@ -25,5 +25,8 @@ driver = "amdgpu"
+@@ -39,5 +39,8 @@ driver = "amdgpu"
  [gpu_power_profile]
  driver = "amdgpu"
  
@@ -193,10 +193,10 @@ index fd00b91..a7ffa08 100644
  [inputplumber]
  target_devices = ["deck-uhid", "keyboard", "mouse"]
 diff --git a/data/devices/onexplayer-f1.toml b/data/devices/onexplayer-f1.toml
-index d68fb06..4c62921 100644
+index cbc2fd0..210d151 100644
 --- a/data/devices/onexplayer-f1.toml
 +++ b/data/devices/onexplayer-f1.toml
-@@ -18,5 +18,8 @@ driver = "amdgpu"
+@@ -39,5 +39,8 @@ driver = "amdgpu"
  [gpu_power_profile]
  driver = "amdgpu"
  
@@ -232,5 +232,5 @@ index 25c2dfa..65a431b 100644
  [inputplumber]
  target_devices = ["deck-uhid", "keyboard", "mouse"]
 -- 
-2.52.0
+2.55.0
 

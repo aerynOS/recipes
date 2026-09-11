@@ -1,7 +1,7 @@
-From d5daba3ca6e3bfb3c1eefd788e1102d375a968f3 Mon Sep 17 00:00:00 2001
+From 91da78a7ce339ad99368dbb40aae4c6bc1b9a74a Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 12/17] power: Implement asynchronous get and set TDP boost
+Subject: [PATCH 20/37] power: Implement asynchronous get and set TDP boost
  functionality
 
 - Added `get_max_boost` and `set_tdp_boost` asynchronous methods
@@ -11,10 +11,10 @@ Subject: [PATCH 12/17] power: Implement asynchronous get and set TDP boost
  1 file changed, 15 insertions(+), 12 deletions(-)
 
 diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
-index 1963b77..b96e358 100644
+index 958726c..47a2478 100644
 --- a/steamos-manager/src/power.rs
 +++ b/steamos-manager/src/power.rs
-@@ -888,17 +888,17 @@ impl PowerStationTdpLimitManager {
+@@ -904,17 +904,17 @@ impl PowerStationTdpLimitManager {
          Ok(max_tdp.round() as u32)
      }
  
@@ -43,7 +43,7 @@ index 1963b77..b96e358 100644
  }
  
  #[async_trait]
-@@ -921,10 +921,13 @@ impl TdpLimitManager for PowerStationTdpLimitManager {
+@@ -937,10 +937,13 @@ impl TdpLimitManager for PowerStationTdpLimitManager {
              limit,
              range
          );
@@ -59,5 +59,5 @@ index 1963b77..b96e358 100644
  
      // Implementation of the required get_tdp_limit_range method
 -- 
-2.52.0
+2.55.0
 

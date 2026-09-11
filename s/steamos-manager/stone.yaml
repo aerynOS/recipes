@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : steamos-manager
-version     : "26.3.0"
-release     : 5
+version     : "26.4.1"
+release     : 6
 homepage    : https://gitlab.steamos.cloud/holo/steamos-manager
 upstreams   :
-    - https://gitlab.steamos.cloud/holo/steamos-manager/-/archive/v26.3.0/steamos-manager-v26.3.0.tar.gz : 9442ab4793c281df8a44c9bff5cfa5364d0dc2a597d734e48f3b33224845340f
+    - https://gitlab.steamos.cloud/holo/steamos-manager/-/archive/v26.4.1/steamos-manager-v26.4.1.tar.gz : 7b25030b319aa3aaec1e34c16292732205535351f959b0180ca8b6b4cd0c2d8f
 summary     : SteamOS Manager is a system daemon that aims to abstract Steam's interactions with the operating system
 description : |
     SteamOS Manager is a system daemon that aims to abstract Steam's interactions

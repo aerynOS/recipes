@@ -1,7 +1,7 @@
-From 771978c53e92a9afb3d4c570fee09d212eaf3bb2 Mon Sep 17 00:00:00 2001
+From 9315aa9f5b47845d5e28baf22be6032b4233bf24 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 10/17] hardware: add GPD and AYANEO device configurations
+Subject: [PATCH 18/37] hardware: add GPD and AYANEO device configurations
 
 ---
  data/devices/generic.toml | 12 ++++++++++++
@@ -28,5 +28,5 @@ index 6326bae..6457725 100644
  dmi.sys_vendor = "*"
  dmi.board_name = "*"
 -- 
-2.52.0
+2.55.0
 

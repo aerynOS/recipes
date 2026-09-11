@@ -1,0 +1,124 @@
+From f5e4aaf35b2f96c7f0a8f96ae2f6823febe5adf7 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Sun, 6 Sep 2026 01:41:49 -0700
+Subject: [PATCH 33/37] feat: Add OneXPlayer F1Pro, OneXPlayer X2Mini Pro, GPD
+ Win Pocket 4, KONKR FIT, and Ayaneo Next 2 as devices supported by
+ PowerStation
+
+---
+ data/devices/ayaneo-next-2.toml     | 15 +++++++++++++++
+ data/devices/gpd-win.toml           |  7 +++++++
+ data/devices/konkr-fit.toml         | 15 +++++++++++++++
+ data/devices/onexplayer-x1-amd.toml | 15 +++++++++++++++
+ data/devices/onexplayer-x2.toml     | 15 +++++++++++++++
+ 5 files changed, 67 insertions(+)
+ create mode 100644 data/devices/ayaneo-next-2.toml
+ create mode 100644 data/devices/konkr-fit.toml
+ create mode 100644 data/devices/onexplayer-x1-amd.toml
+ create mode 100644 data/devices/onexplayer-x2.toml
+
+diff --git a/data/devices/ayaneo-next-2.toml b/data/devices/ayaneo-next-2.toml
+new file mode 100644
+index 0000000..3b0162b
+--- /dev/null
++++ b/data/devices/ayaneo-next-2.toml
+@@ -0,0 +1,15 @@
++[[device]]
++dmi.sys_vendor = "AYA"
++dmi.product_name = "AB09"
++device = "ayaneo_2"
++variant = "NEXT 2"
++friendly_name = "AYANEO NEXT 2"
++
++[gpu_performance]
++driver = "amdgpu"
++
++[gpu_power_profile]
++driver = "amdgpu"
++
++[tdp_limit]
++method = "power_station"
+diff --git a/data/devices/gpd-win.toml b/data/devices/gpd-win.toml
+index 32dcddc..48641d1 100644
+--- a/data/devices/gpd-win.toml
++++ b/data/devices/gpd-win.toml
+@@ -47,6 +47,13 @@ device = "gpd_win_mini"
+ variant = "G1617-02"
+ friendly_name = "GPD WIN Mini HX370"
+ 
++[[device]]
++dmi.sys_vendor = "GPD"
++dmi.product_name = "G1628-04"
++device = "gpd_win_pocket_4"
++variant = "G1628-04"
++friendly_name = "GPD WIN Pocket 4"
++
+ [gpu_performance]
+ driver = "amdgpu"
+ 
+diff --git a/data/devices/konkr-fit.toml b/data/devices/konkr-fit.toml
+new file mode 100644
+index 0000000..43b0a9a
+--- /dev/null
++++ b/data/devices/konkr-fit.toml
+@@ -0,0 +1,15 @@
++[[device]]
++dmi.sys_vendor = "KONKR"
++dmi.product_name = "KONKR FIT"
++device = "konkr_fit"
++variant = "FIT"
++friendly_name = "KONKR FIT"
++
++[gpu_performance]
++driver = "amdgpu"
++
++[gpu_power_profile]
++driver = "amdgpu"
++
++[tdp_limit]
++method = "power_station"
+diff --git a/data/devices/onexplayer-x1-amd.toml b/data/devices/onexplayer-x1-amd.toml
+new file mode 100644
+index 0000000..644ad9e
+--- /dev/null
++++ b/data/devices/onexplayer-x1-amd.toml
+@@ -0,0 +1,15 @@
++[[device]]
++dmi.sys_vendor = "ONE-NETBOOK"
++dmi.product_name = "ONEXPLAYER X1Pro"
++device = "onexplayer_x1_pro"
++variant = "X1 Pro"
++friendly_name = "ONEXPLAYER X1 Pro"
++
++[gpu_performance]
++driver = "amdgpu"
++
++[gpu_power_profile]
++driver = "amdgpu"
++
++[tdp_limit]
++method = "power_station"
+diff --git a/data/devices/onexplayer-x2.toml b/data/devices/onexplayer-x2.toml
+new file mode 100644
+index 0000000..4e03f89
+--- /dev/null
++++ b/data/devices/onexplayer-x2.toml
+@@ -0,0 +1,15 @@
++[[device]]
++dmi.sys_vendor = "ONE-NETBOOK"
++dmi.product_name = "ONEXPLAYER X2Mini PRO"
++device = "onexplayer_2"
++variant = "X2Mini Pro"
++friendly_name = "ONEXPLAYER X2 Mini PRO"
++
++[gpu_performance]
++driver = "amdgpu"
++
++[gpu_power_profile]
++driver = "amdgpu"
++
++[tdp_limit]
++method = "power_station"
+-- 
+2.55.0
+

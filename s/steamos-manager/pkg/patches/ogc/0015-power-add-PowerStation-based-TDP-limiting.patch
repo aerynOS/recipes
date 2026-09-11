@@ -1,17 +1,17 @@
-From 8f95d9a3235a0d48b8bd8a450a4a2ff7a434ad43 Mon Sep 17 00:00:00 2001
+From 69a063a2c1e826b6451d81bd3772bee32e9f7357 Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:00 +0800
-Subject: [PATCH 07/17] power: add PowerStation-based TDP limiting
+Subject: [PATCH 15/37] power: add PowerStation-based TDP limiting
 
 ---
  steamos-manager/src/power.rs | 289 ++++++++++++++++++++++++++++++++++-
  1 file changed, 288 insertions(+), 1 deletion(-)
 
 diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
-index f36f6f3..1963b77 100644
+index c2e525b..958726c 100644
 --- a/steamos-manager/src/power.rs
 +++ b/steamos-manager/src/power.rs
-@@ -16,6 +16,7 @@ use std::ops::RangeInclusive;
+@@ -17,6 +17,7 @@ use std::ops::RangeInclusive;
  use std::os::fd::OwnedFd;
  use std::path::{Path, PathBuf};
  use std::str::FromStr;
@@ -19,7 +19,7 @@ index f36f6f3..1963b77 100644
  use strum::{Display, EnumIter, EnumString, VariantNames};
  use tokio::fs::{self, File, read_dir, read_to_string, try_exists};
  use tokio::io::{AsyncWriteExt, ErrorKind, Interest};
-@@ -25,7 +26,7 @@ use tokio::sync::oneshot;
+@@ -26,7 +27,7 @@ use tokio::sync::oneshot;
  use tokio::task::JoinSet;
  use tracing::{debug, error, warn};
  use zbus::names::OwnedBusName;
@@ -28,7 +28,7 @@ index f36f6f3..1963b77 100644
  use zbus::{Connection, ObjectServer, fdo};
  
  use crate::error::{to_zbus_error, to_zbus_fdo_error};
-@@ -124,6 +125,7 @@ pub enum TdpLimitingMethod {
+@@ -131,6 +132,7 @@ pub enum TdpLimitingMethod {
      AmdgpuHwmon,
      FirmwareAttribute,
      RemoteInterface,
@@ -36,7 +36,7 @@ index f36f6f3..1963b77 100644
  }
  
  #[derive(Debug)]
-@@ -143,6 +145,11 @@ pub(crate) struct RemoteInterfaceLimitManager<'proxy> {
+@@ -150,6 +152,11 @@ pub(crate) struct RemoteInterfaceLimitManager<'proxy> {
      proxy: Option<TdpLimit1Proxy<'proxy>>,
  }
  
@@ -48,7 +48,7 @@ index f36f6f3..1963b77 100644
  #[async_trait]
  pub(crate) trait TdpLimitManager: Send + Sync {
      async fn get_tdp_limit(&self) -> Result<u32>;
-@@ -182,6 +189,9 @@ pub(crate) async fn tdp_limit_manager(system: &Connection) -> Result<Box<dyn Tdp
+@@ -189,6 +196,9 @@ pub(crate) async fn tdp_limit_manager(system: &Connection) -> Result<Box<dyn Tdp
                  connection: system.clone(),
                  proxy: None,
              }),
@@ -58,7 +58,7 @@ index f36f6f3..1963b77 100644
          })
      } else {
          Ok(Box::new(RemoteInterfaceLimitManager {
-@@ -660,6 +670,283 @@ impl<'proxy> TdpLimitManager for RemoteInterfaceLimitManager<'proxy> {
+@@ -676,6 +686,283 @@ impl<'proxy> TdpLimitManager for RemoteInterfaceLimitManager<'proxy> {
      }
  }
  
@@ -343,5 +343,5 @@ index f36f6f3..1963b77 100644
      let config = device_config().await?;
      let config = config
 -- 
-2.52.0
+2.55.0
 

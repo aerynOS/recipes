@@ -1,0 +1,25 @@
+From 6067b61273f6462bbb8b854d2b8723094b45cb51 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Thu, 10 Sep 2026 13:52:00 -0700
+Subject: [PATCH 36/37] fix: Use same verbiage as powerstation
+
+---
+ steamos-manager/src/power.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/steamos-manager/src/power.rs b/steamos-manager/src/power.rs
+index 939b359..cc58d5e 100644
+--- a/steamos-manager/src/power.rs
++++ b/steamos-manager/src/power.rs
+@@ -809,7 +809,7 @@ impl PowerStationTdpLimitManager {
+             let class: String = class.try_into()?;
+ 
+             // If we find a discrete GPU, use it
+-            if class == "discrete" {
++            if class == "dedicated" {
+                 return Ok(card_path);
+             }
+         }
+-- 
+2.55.0
+

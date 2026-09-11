@@ -1,0 +1,26 @@
+From eacbe32d0fde0b9842dae9c0e7270d706fbe243a Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Fri, 13 Mar 2026 02:46:05 +0800
+Subject: [PATCH 12/37] devices: add firmware-attribute bits for MSI Claw Intel
+ handhelds
+
+---
+ data/devices/msi-claw-intel.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/data/devices/msi-claw-intel.toml b/data/devices/msi-claw-intel.toml
+index aa04c61..f111737 100644
+--- a/data/devices/msi-claw-intel.toml
++++ b/data/devices/msi-claw-intel.toml
+@@ -24,7 +24,7 @@ driver = "intel"
+ 
+ [performance_profile]
+ platform_profile_name = "msi-wmi-platform"
+-suggested_default = "balanced"
++suggested_default = "balanced-performance"
+ 
+ [tdp_limit]
+ method = "firmware_attribute"
+-- 
+2.55.0
+

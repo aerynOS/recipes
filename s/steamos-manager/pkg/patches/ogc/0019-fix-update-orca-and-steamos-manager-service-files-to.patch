@@ -1,7 +1,7 @@
-From 3f94ac1810b7076e1cce74e1ddb364ff8dfd3faa Mon Sep 17 00:00:00 2001
+From cf4181937f0c032fd324e082bc7182f434bb0dcb Mon Sep 17 00:00:00 2001
 From: honjow <honjow311@gmail.com>
 Date: Fri, 13 Mar 2026 02:47:58 +0800
-Subject: [PATCH 11/17] fix: update orca and steamos-manager service files to
+Subject: [PATCH 19/37] fix: update orca and steamos-manager service files to
  use optional environment file
 
 ---
@@ -32,5 +32,5 @@ index c6dc9fe..0585da0 100644
  [Install]
  WantedBy=graphical-session.target
 -- 
-2.52.0
+2.55.0
 
