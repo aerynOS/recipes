@@ -4,8 +4,10 @@
 	"packages": {
 		"mold": {
 			"build-depends": [
+				"mimalloc-static",
 				"pkgconfig(libblake3)",
 				"pkgconfig(libzstd)",
+				"pkgconfig(mimalloc)",
 				"pkgconfig(tbb)",
 				"pkgconfig(zlib)"
 			],
@@ -14,6 +16,7 @@
 				"soname(libblake3.so.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libm.so.6(x86_64))",
+				"soname(libmimalloc.so.3(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libtbb.so.12(x86_64))",
 				"soname(libz.so.1(x86_64))",
@@ -37,6 +40,6 @@
 		}
 	},
 	"source-name": "mold",
-	"source-release": "15",
+	"source-release": "16",
 	"source-version": "2.42.1"
 }

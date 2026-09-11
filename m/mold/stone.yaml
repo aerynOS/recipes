@@ -3,7 +3,7 @@
 
 name        : mold
 version     : "2.42.1"
-release     : 15
+release     : 16
 summary     : A Modern Linker
 license     : BSD-3-Clause
 homepage    : https://github.com/rui314/mold
@@ -14,11 +14,10 @@ upstreams   :
 builddeps   :
     - pkgconfig(libblake3)
     - pkgconfig(libzstd)
-    # - pkgconfig(mimalloc)
+    - pkgconfig(mimalloc)
     - pkgconfig(tbb)
     - pkgconfig(zlib)
-    # - mimalloc-static
-    # TODO: Use mimalloc 3
+    - mimalloc-static
 setup       : |
     %patch %(pkgdir)/0001-Set-default-settings-for-compression-and-build.patch
 
@@ -27,7 +26,7 @@ setup       : |
         -DCMAKE_INSTALL_LIBEXECDIR="%(libdir)" \
         -DMOLD_LTO=ON \
         -DMOLD_MOSTLY_STATIC=OFF \
-        -DMOLD_USE_SYSTEM_MIMALLOC=OFF \
+        -DMOLD_USE_SYSTEM_MIMALLOC=ON \
         -DMOLD_USE_SYSTEM_TBB=ON
 build       : |
     %cmake_build
