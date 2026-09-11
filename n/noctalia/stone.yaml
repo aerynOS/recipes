@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : noctalia
-version     : "5.0.1"
-release     : 6
+version     : "5.1.0"
+release     : 7
 homepage    : https://github.com/noctalia-dev/noctalia
 upstreams   :
-    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.0.1.tar.gz : ed8334f294e9f94f4744e315b674511fc51203a6a56c561af8803a6eb6884698
+    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.1.0.tar.gz : fcf37d99ecb6093b38df8f0d6a18012f518895cd8d3934fd16164a7d0b7b3062
 summary     : A sleek and minimal desktop shell thoughtfully crafted for Wayland
 description : |
     Noctalia is a native Wayland desktop shell providing the shell layer around
