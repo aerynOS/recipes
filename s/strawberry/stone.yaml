@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : strawberry
-version     : "1.2.29"
-release     : 14
+version     : "1.2.30"
+release     : 15
 homepage    : https://www.strawberrymusicplayer.org
 upstreams   :
-    - https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.29/strawberry-1.2.29.tar.xz : f5fa02477e25cf1b2d501ee1b0a31521fc7ba74ea13055ab5f934793eb7dc264
+    - https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.30/strawberry-1.2.30.tar.xz : 30fea0fdfc2f9c5449ac30d78ac2f5429fb5e1d025a4d1d3473d10f2abe1ef2a
 summary     : Strawberry is a audio player and music collection organizer.
 description : |
     Strawberry is a audio player and music collection organizer. It is a fork of Clementine released in 2018 aimed at music collectors, audio enthusiasts and audiophiles.
