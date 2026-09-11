@@ -2,23 +2,63 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mimalloc
-version     : "2.4.5"
-release     : 16
+version     : "3.5.1"
+release     : 17
 homepage    : https://github.com/microsoft/mimalloc
 upstreams   :
-    - https://github.com/microsoft/mimalloc/archive/refs/tags/v2.4.5.tar.gz: e05502c5e7d2776f3b80b4cdc5422b50c75fd716f41199955b972d24ed7a3163
+    - https://github.com/microsoft/mimalloc/archive/refs/tags/v3.5.1.tar.gz:
+        hash: 2602daad9b64b213a8835dee6fadda96d2081c0171bfcd3fb2db39bdc669d6b3
+        unpackdir: current
+
+    - https://github.com/microsoft/mimalloc/archive/refs/tags/v2.5.1.tar.gz:
+        hash: 8381e86a7fe49b1e8759574ca1ad4dc915cedc1181182e4623454df53ed9abed
+        unpackdir: compat
 summary     : Compact general purpose allocator
 description : |
     mimalloc is a compact general purpose allocator with excellent performance.
 license     : MIT
 setup       : |
+    if [ -d ../compat ]; then
+        pushd ../compat
+
+        %cmake \
+            -DMI_ALLOW_THP=OFF \
+            -DMI_BUILD_OBJECT=OFF \
+            -DMI_BUILD_STATIC=ON \
+            -DMI_INSTALL_TOPLEVEL=ON
+        popd
+    fi
+
+    # 2026-09-11: Enabling transparent huge pages actually slows down clang startup slightly likely due to the aerynOS kernel already enabling THP by default
     %cmake \
+        -DMI_ALLOW_THP=OFF \
         -DMI_BUILD_OBJECT=OFF \
         -DMI_BUILD_STATIC=ON \
         -DMI_INSTALL_TOPLEVEL=ON
 build       : |
-    %cmake_build
+    if [ -d ../compat ]; then
+        pushd ../compat
+            %ccache_zero
+            env CCACHE_BASEDIR="${PWD}" %cmake_build
+            %ccache_stats
+        popd
+    fi
+
+    %ccache_zero
+    env CCACHE_BASEDIR="${PWD}" %cmake_build
+    %ccache_stats
 install     : |
+    if [ -d ../compat ]; then
+        pushd ../compat
+            mkdir tmp
+            DESTDIR="${PWD}/tmp" cmake --install "%(builddir)" --verbose
+
+            # Only copy the sonames
+            %install_dir %(installroot)/%(libdir)
+            find ${PWD}/tmp/%(libdir) -name "libmimalloc.so.*" -print -exec mv {} %(installroot)/%(libdir) \;
+        popd
+    fi
+
     %cmake_install
 check       : |
     %cmake_test
