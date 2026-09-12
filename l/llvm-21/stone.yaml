@@ -3,7 +3,7 @@
 
 name        : llvm-21
 version     : "21.1.8"
-release     : 5
+release     : 6
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception

@@ -3,7 +3,7 @@
 
 name        : llvm-22
 version     : "22.1.8"
-release     : 1
+release     : 2
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception
@@ -56,6 +56,8 @@ environment : |
     if [[ " ${PATH[*]} " =~ "ccache" ]]; then
         EXTRA_LLVM_FLAGS="-DLLVM_CCACHE_BUILD=ON"
     fi
+
+    _MAJOR_VERSION=$(echo %(version) | cut -d. -f1)
 
     function apply_llvm_patches() {
         # Build-related patches, achieving adjustments/fixes to the build that cannot be done via cmake flags
@@ -334,18 +336,41 @@ build:   |
 install: |
     DESTDIR="%(installroot)" cmake --build "%(builddir)" --verbose --target install-distribution
 
+    export LD_LIBRARY_PATH="%(installroot)/%(libdir)/llvm-${_MAJOR_VERSION}/lib/"
+
+    export BOLTED_BINS="%(libdir)/llvm-${_MAJOR_VERSION}/lib/libclang-cpp.so.${_MAJOR_VERSION}.1 %(libdir)/llvm-${_MAJOR_VERSION}/lib/libLLVM.so.${_MAJOR_VERSION}.1"
+
+    for i in ${BOLTED_BINS}; do
+        %bolt_instr %(installroot)/$i
+    done
+
+    cmake -G Ninja -B bolt-clang -S runtimes \
+        -DCMAKE_C_COMPILER="%(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/bin/clang" \
+        -DCMAKE_CXX_COMPILER="%(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/bin/clang++" \
+        -DLLVM_ENABLE_RUNTIMES='libcxx;libcxxabi;libunwind' \
+        -DLLVM_USE_LINKER="%(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/bin/ld.lld" \
+        -DLLVM_ENABLE_LTO=Full
+    ninja -C bolt-clang
+
+    for i in ${BOLTED_BINS}; do
+        %bolt_merge %(installroot)/$i
+        %bolt_opt %(installroot)/$i
+        # Clean-up
+        rm -v %(installroot)/$i.{bolt,orig}
+    done
+
     # Versioned bins
     %install_dir %(installroot)%(bindir)
-    pushd %(installroot)%(libdir)/llvm-22/bin/
+    pushd %(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/bin/
     for i in *; do
-        ln -srv ${i} %(installroot)%(bindir)/${i}-22
+        ln -srv ${i} %(installroot)%(bindir)/${i}-${_MAJOR_VERSION}
     done
     popd
     # Double versioned
-    rm -v %(installroot)%(bindir)/clang-22-22
+    rm -v %(installroot)%(bindir)/clang-${_MAJOR_VERSION}-${_MAJOR_VERSION}
 
     ### LLVM (begin)
-    pushd %(installroot)%(libdir)/llvm-22/lib/
+    pushd %(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/lib/
     for i in libLLVM.so.* libLTO.so.* libRemarks.so.*; do
         ln -Pv ${i} %(installroot)%(libdir)/${i}
     done
@@ -353,7 +378,7 @@ install: |
     # LLVM (end)
 
     ### Clang (begin)
-    pushd %(installroot)%(libdir)/llvm-22/lib/
+    pushd %(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/lib/
     for i in libclang.so.* libclang-cpp.so.*; do
         ln -Pv ${i} %(installroot)%(libdir)/${i}
     done
@@ -361,7 +386,7 @@ install: |
     ### Clang (end)
 
     ### lld (begin)
-    pushd %(installroot)%(libdir)/llvm-22/lib/
+    pushd %(installroot)%(libdir)/llvm-${_MAJOR_VERSION}/lib/
     for i in liblld*.so.*; do
         ln -Pv ${i} %(installroot)%(libdir)/${i}
     done

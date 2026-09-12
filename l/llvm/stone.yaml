@@ -3,7 +3,7 @@
 
 name        : llvm
 version     : "23.1.1"
-release     : 64
+release     : 65
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception

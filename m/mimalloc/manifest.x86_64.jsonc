@@ -8,11 +8,14 @@
 			],
 			"files": [
 				"/usr/lib/libmimalloc.so.2",
-				"/usr/lib/libmimalloc.so.2.4"
+				"/usr/lib/libmimalloc.so.2.5",
+				"/usr/lib/libmimalloc.so.3",
+				"/usr/lib/libmimalloc.so.3.5"
 			],
 			"name": "mimalloc",
 			"provides": [
-				"soname(libmimalloc.so.2(x86_64))"
+				"soname(libmimalloc.so.2(x86_64))",
+				"soname(libmimalloc.so.3(x86_64))"
 			]
 		},
 		"mimalloc-devel": {
@@ -48,6 +51,6 @@
 		}
 	},
 	"source-name": "mimalloc",
-	"source-release": "16",
-	"source-version": "2.4.5"
+	"source-release": "17",
+	"source-version": "3.5.1"
 }
