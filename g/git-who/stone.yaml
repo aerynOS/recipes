@@ -3,7 +3,7 @@
 
 name        : git-who
 version     : "1.3"
-release     : 2
+release     : 3
 homepage    : https://github.com/sinclairtarget/git-who
 upstreams   :
     - https://github.com/sinclairtarget/git-who/archive/refs/tags/v1.3.tar.gz:
