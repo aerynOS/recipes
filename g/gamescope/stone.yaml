@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gamescope
-version     : "3.16.26"
-release     : 11
+version     : "3.16.28"
+release     : 12
 homepage    : https://github.com/ValveSoftware/gamescope
 upstreams   :
-    - git|https://github.com/ValveSoftware/gamescope.git : 565397f8cc0979104acd922e54783b451ddbb840
+    - git|https://github.com/ValveSoftware/gamescope.git : fa0b4d3342078f01eadff0193e09c3b561f40c03
     - git|https://github.com/misyltoad/GamescopeShaders.git : 64d7a0570e15dc5c9aeef084278b9eb4cc1abb25
 summary     : SteamOS session compositing window manager
 description : |
@@ -60,6 +60,11 @@ setup       : |
     git submodule init src/reshade
     git submodule init thirdparty/SPIRV-Headers
     git -c protocol.file.allow=always submodule update
+
+    # https://github.com/crosire/reshade/commit/35450c81bd2ec3007ea32c94c720da7448b4a774
+    cd src/reshade
+    %patch %(pkgdir)/ftbfs-improve_compatibility_with_C++20.patch
+    cd ../..
 
     %meson \
         --wrap-mode=default \
