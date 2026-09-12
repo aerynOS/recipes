@@ -1,0 +1,5 @@
+releases:
+  id: 390492
+  rss: https://github.com/fluxerapp/fluxer/releases.atom
+security:
+  cpe: ~
