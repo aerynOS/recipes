@@ -1,0 +1,5 @@
+releases:
+  id: 370173
+  rss: https://github.com/KhronosGroup/Vulkan-Utility-Libraries/tags.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-07-31)

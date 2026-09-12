@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : vulkan-utility-libraries
+version     : "1.4.357.0"
+release     : 1
+homepage    : https://vulkan.org/
+upstreams   :
+    - https://github.com/KhronosGroup/Vulkan-Utility-Libraries/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz: 6d450436aea4a821d7b0d8bb914c2e375088d98eeeaad0fbf059fdb06ac937f4
+summary     : Utility libraries for Vulkan developers
+description : |
+    Utility libraries for Vulkan developers
+license     : 
+    - Apache-2.0
+    - CC-BY-4.0
+builddeps   :
+    - cmake(VulkanHeaders)
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+packages    :
+    - "%(name)":
+        paths:
+            - /*
