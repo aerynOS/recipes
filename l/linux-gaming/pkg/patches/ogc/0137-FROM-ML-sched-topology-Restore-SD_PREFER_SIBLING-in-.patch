@@ -1,0 +1,74 @@
+From 01a4dfb80eff34caf8c9c59d95cce126bb2f07f5 Mon Sep 17 00:00:00 2001
+From: Ricardo Neri <ricardo.neri-calderon@linux.intel.com>
+Date: Mon, 20 Jul 2026 19:43:22 -0700
+Subject: [PATCH 137/176] [FROM-ML] sched/topology: Restore SD_PREFER_SIBLING
+ in domains with asymmetric capacity
+
+Commit 9c63e84db29b ("sched/core: Disable SD_PREFER_SIBLING on asymmetric
+CPU capacity domains") removed the SD_PREFER_SIBLING from the domains with
+asymmetric capacity. This was done to avoid spreading tasks to sibling
+scheduling groups with less capacity, but this does not happen: checks for
+capacity in update_sd_pick_busiest(), sched_balance_find_src_group(), and
+sched_balance_find_src_rq() prevent migrations from high- to low-capacity
+CPUs if the busiest group is not overloaded.
+
+The cluster topology is a notable example: some systems have scheduling
+domains spanning CPUs of asymmetric capacity, grouped into two or more
+equal-capacity clusters sharing an L2 cache. When CONFIG_SCHED_CLUSTER is
+enabled, SD_PREFER_SIBLING is needed in the domain to spread load across
+these clusters.
+
+CPUs with spare capacity, big or small, have always helped overloaded
+groups. Once the overloading condition disappears, misfit load will still
+be used to move high-utilization tasks to bigger CPUs if they have spare
+capacity.
+
+Adding the SD_PREFER_SIBLING flag shifts load balancing in shared-LLC
+domains from equalizing the number of idle CPUs to equalizing the number
+of running tasks. This enables migrations among clusters from newly-idle
+load balance, where the outgoing task is already dequeued but the CPU
+has not yet transitioned to idle.
+
+Signed-off-by: Ricardo Neri <ricardo.neri-calderon@linux.intel.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Vincent Guittot <vincent.guittot@linaro.org>
+Tested-by: Christian Loehle <christian.loehle@arm.com>
+Tested-by: Andrea Righi <arighi@nvidia.com>
+Link: https://patch.msgid.link/20260720-rneri-fix-cas-clusters-v6-6-bb500bf4afd4@linux.intel.com
+---
+ include/linux/sched/sd_flags.h | 3 +--
+ kernel/sched/topology.c        | 4 ----
+ 2 files changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/include/linux/sched/sd_flags.h b/include/linux/sched/sd_flags.h
+index 42839cfa2778..dc3ec2452ee1 100644
+--- a/include/linux/sched/sd_flags.h
++++ b/include/linux/sched/sd_flags.h
+@@ -146,8 +146,7 @@ SD_FLAG(SD_ASYM_PACKING, SDF_NEEDS_GROUPS)
+ /*
+  * Prefer to place tasks in a sibling domain
+  *
+- * Set up until domains start spanning NUMA nodes. Close to being a SHARED_CHILD
+- * flag, but cleared below domains with SD_ASYM_CPUCAPACITY.
++ * Set up until domains start spanning NUMA nodes.
+  *
+  * NEEDS_GROUPS: Load balancing flag.
+  */
+diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
+index 622e2e01974c..21e816ad23ee 100644
+--- a/kernel/sched/topology.c
++++ b/kernel/sched/topology.c
+@@ -1995,10 +1995,6 @@ sd_init(struct sched_domain_topology_level *tl,
+ 	/*
+ 	 * Convert topological properties into behaviour.
+ 	 */
+-	/* Don't attempt to spread across CPUs of different capacities. */
+-	if ((sd->flags & SD_ASYM_CPUCAPACITY) && sd->child)
+-		sd->child->flags &= ~SD_PREFER_SIBLING;
+-
+ 	if (sd->flags & SD_SHARE_CPUCAPACITY) {
+ 		sd->imbalance_pct = 110;
+ 
+-- 
+2.55.0
+

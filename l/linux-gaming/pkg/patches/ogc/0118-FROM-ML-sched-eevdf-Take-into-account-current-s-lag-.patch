@@ -1,0 +1,38 @@
+From 11750d93a2906e7b033a277c31b7a43dd15d6af6 Mon Sep 17 00:00:00 2001
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 24 Jun 2026 17:12:25 +0200
+Subject: [PATCH 118/176] [FROM-ML] sched/eevdf: Take into account current's
+ lag when updating slice protection
+
+Take into account the lag of current task when updating the slice
+protection in order to ensure that the absolute value of lags will remain
+in the range [0 : slice+tick]
+A task that already has a negative lag will see its protection reduced
+whereas a task with positive lag will keep a full slice protection.
+
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Link: https://patch.msgid.link/20260624151229.1710703-3-vincent.guittot@linaro.org
+---
+ kernel/sched/fair.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 59855832292b..85037abf941c 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -1067,8 +1067,9 @@ static inline void set_protect_slice(struct cfs_rq *cfs_rq, struct sched_entity
+ static inline void update_protect_slice(struct cfs_rq *cfs_rq, struct sched_entity *se)
+ {
+ 	u64 slice = cfs_rq_min_slice(cfs_rq);
++	u64 vruntime = min_vruntime(se->vruntime, avg_vruntime(cfs_rq));
+ 
+-	se->vprot = min_vruntime(se->vprot, se->vruntime + calc_delta_fair(slice, se));
++	se->vprot = min_vruntime(se->vprot, vruntime + calc_delta_fair(slice, se));
+ }
+ 
+ static inline bool protect_slice(struct sched_entity *se)
+-- 
+2.55.0
+

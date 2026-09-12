@@ -1,0 +1,73 @@
+From 4985faa30fc96b244b9e9add5c8fbf0ea107d8bb Mon Sep 17 00:00:00 2001
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 24 Jun 2026 17:12:27 +0200
+Subject: [PATCH 120/176] [FROM-ML] sched/eevdf: Cancel slice protection if
+ short slice task is eligible
+
+If a short slice task will not be the next to be picked but is eligible,
+we cancel the slice protection to speedup the time when the short slice
+task will be the next to run.
+
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Tested-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Link: https://patch.msgid.link/20260624151229.1710703-5-vincent.guittot@linaro.org
+---
+ kernel/sched/fair.c | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index a04ab8c4f42d..89ad50b0dfab 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -9861,18 +9861,13 @@ static void wakeup_preempt_fair(struct rq *rq, struct task_struct *p, int wake_f
+ 	cse_is_idle = se_is_idle(se);
+ 	pse_is_idle = se_is_idle(pse);
+ 
++	nse = se;
+ 	/*
+ 	 * Preempt an idle entity in favor of a non-idle entity (and don't preempt
+ 	 * in the inverse case).
+ 	 */
+-	if (cse_is_idle && !pse_is_idle) {
+-		/*
+-		 * When non-idle entity preempt an idle entity,
+-		 * don't give idle entity slice protection.
+-		 */
+-		preempt_action = PREEMPT_WAKEUP_SHORT;
++	if (cse_is_idle && !pse_is_idle)
+ 		goto preempt;
+-	}
+ 
+ 	if (cse_is_idle != pse_is_idle)
+ 		return;
+@@ -9935,16 +9930,23 @@ static void wakeup_preempt_fair(struct rq *rq, struct task_struct *p, int wake_f
+ 			goto preempt;
+ 	}
+ 
++	/*
++	 * If @p is eligible but not the next task to run then cancel protection
++	 * to prevent large scheduling latency
++	 */
++	if (preempt_action == PREEMPT_WAKEUP_SHORT && entity_eligible(cfs_rq, pse))
++		goto preempt;
++
+ 	if (sched_feat(RUN_TO_PARITY))
+ 		update_protect_slice(cfs_rq, se);
+ 
+ 	return;
+ 
+ preempt:
+-	if (preempt_action == PREEMPT_WAKEUP_SHORT) {
+-		cancel_protect_slice(se);
++	cancel_protect_slice(se);
++
++	if (preempt_action == PREEMPT_WAKEUP_SHORT)
+ 		set_short_buddy(cfs_rq, pse);
+-	}
+ 
+ 	resched_curr_lazy(rq);
+ }
+-- 
+2.55.0
+

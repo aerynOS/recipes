@@ -1,0 +1,83 @@
+From eb029e1f4290b2ef0952493dfda075ef802f7fcf Mon Sep 17 00:00:00 2001
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 12 Aug 2026 14:50:39 +0200
+Subject: [PATCH 139/176] [FROM-ML] sched/fair: Fix flat hierarchy
+
+When a fair task is enqueued, we must update curr and more precisely
+its vruntime before placing the enqueued task so avg vruntime will take
+into account the last exec phase.
+
+Example:
+TA is an always running task in cgroup G0.
+TB is a short running task (cyclictest) in cgroup G1.
+The lag of TB always increases up the clamp limit because TB is placed
+before TA(curr) is updated (since the last tick). When curr(TA) is
+finally updated, its last exec phase provide positive lag to TB
+
+Because TA and TB don't belong to the same group, enqueue_hierarchy() will not
+update TA's entity when updating curr but only G0's entity at root level.
+
+The same applies when dequeuing.
+
+This is because update_curr() uses ->h_curr, rather than ->curr, and therefore,
+while it is invoked on the root cfs_rq, which contains all the eevdf bits, it
+does not do the right thing.
+
+Fixes: 85570f10a4c6 ("sched/eevdf: Move to a single runqueue")
+Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Link: https://patch.msgid.link/20260812125039.1717249-1-vincent.guittot@linaro.org
+---
+ kernel/sched/fair.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 8a8247b0654e..f79fcba4afec 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -7903,8 +7903,6 @@ requeue_delayed_entity(struct cfs_rq *cfs_rq, struct sched_entity *se)
+ 	WARN_ON_ONCE(!se->sched_delayed);
+ 	WARN_ON_ONCE(!se->on_rq);
+ 
+-	update_curr(cfs_rq);
+-
+ 	if (update_entity_lag(cfs_rq, se)) {
+ 		cfs_rq->h_nr_queued--;
+ 		if (se != cfs_rq->curr)
+@@ -7958,6 +7956,15 @@ static unsigned long enqueue_hierarchy(struct task_struct *p, int flags)
+ 	return weight;
+ }
+ 
++/* Update curr's vruntime before placing entity or updating lag */
++static inline void update_curr_eevdf(struct cfs_rq *cfs_rq)
++{
++	if (!cfs_rq->curr)
++		return;
++
++	update_curr(cfs_rq_of(cfs_rq->curr));
++}
++
+ /*
+  * The enqueue_task method is called before nr_running is
+  * increased. Here we update the fair scheduling stats and
+@@ -7985,6 +7992,8 @@ enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+ 	if (!p->se.sched_delayed || (flags & ENQUEUE_DELAYED))
+ 		util_est_enqueue(cfs_rq, p);
+ 
++	update_curr_eevdf(cfs_rq);
++
+ 	if (flags & ENQUEUE_DELAYED) {
+ 		requeue_delayed_entity(cfs_rq, se);
+ 		return;
+@@ -8105,7 +8114,7 @@ static bool __dequeue_task(struct rq *rq, struct task_struct *p, int flags)
+ 
+ 	clear_buddies(cfs_rq, se);
+ 
+-	update_curr(cfs_rq_of(se));
++	update_curr_eevdf(cfs_rq);
+ 	update_entity_lag(cfs_rq, se);
+ 
+ 	if (flags & DEQUEUE_DELAYED) {
+-- 
+2.55.0
+

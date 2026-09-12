@@ -1,0 +1,58 @@
+From 75f26dc4b5458a5b7255e94c65aa4e6e320fa3ce Mon Sep 17 00:00:00 2001
+From: Hijae Song <hijae@naver.com>
+Date: Tue, 1 Sep 2026 22:54:42 +0900
+Subject: [PATCH 039/176] [NOT-FOR-UPSTREAM] aw87xxx: add compat shim for
+ snd_soc_unregister_component
+
+Newer kernels (6.16+) changed snd_soc_unregister_component()'s
+signature. Add a version-gated wrapper so the driver still builds
+across the kernel versions this branch needs to support.
+
+This is deliberately an OGC-carried patch and must not be sent upstream.
+
+Signed-off-by: Hijae Song <hijae@naver.com>
+---
+ sound/soc/codecs/aw87xxx/aw87xxx.c | 11 ++++++++++-
+ sound/soc/codecs/aw87xxx/aw87xxx.h |  4 ++++
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx.c b/sound/soc/codecs/aw87xxx/aw87xxx.c
+index d0e177d6d73a..6793e8103aaf 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx.c
+@@ -71,7 +71,16 @@ unsigned int g_aw87xxx_dev_cnt = 0;
+ static const char *const aw87xxx_monitor_switch[] = {"Disable", "Enable"};
+ static const char *const aw87xxx_spin_switch[] = {"spin_0", "spin_90",
+ 					 "spin_180", "spin_270"};
+-#ifdef AW_KERNEL_VER_OVER_4_19_1
++#if defined(AW_KERNEL_VER_OVER_6_16_1)
++static void new_snd_soc_unregister_component(struct device *dev)
++{
++	return snd_soc_unregister_component_by_driver(dev, NULL);
++}
++static struct aw_componet_codec_ops aw_componet_codec_ops = {
++	.add_codec_controls = snd_soc_add_component_controls,
++	.unregister_codec = new_snd_soc_unregister_component,
++};
++#elif defined(AW_KERNEL_VER_OVER_4_19_1)
+ static struct aw_componet_codec_ops aw_componet_codec_ops = {
+ 	.add_codec_controls = snd_soc_add_component_controls,
+ 	.unregister_codec = snd_soc_unregister_component,
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx.h b/sound/soc/codecs/aw87xxx/aw87xxx.h
+index 4a613e4a8f12..9638819cdc7e 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx.h
++++ b/sound/soc/codecs/aw87xxx/aw87xxx.h
+@@ -38,6 +38,10 @@
+  * aw87xxx codec control compatible with kernel 4.19
+  *
+  ***********************************************************/
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(6, 16, 1)
++#define AW_KERNEL_VER_OVER_6_16_1
++#endif
++
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 19, 1)
+ #define AW_KERNEL_VER_OVER_4_19_1
+ #endif
+-- 
+2.55.0
+

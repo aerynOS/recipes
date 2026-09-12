@@ -1,0 +1,95 @@
+From bf07df41e55785b305cae22a6aa6980713584552 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Sat, 26 Jul 2025 13:40:41 -0700
+Subject: [PATCH 031/176] [FROM-ML] platform/x86: (ayn-ec) Add AYN EC Platform
+ Documentation
+
+Adds ABI documentation for the ayn-ec platform driver
+
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ .../ABI/testing/sysfs-platform-ayn-ec         | 59 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 2 files changed, 60 insertions(+)
+ create mode 100644 Documentation/ABI/testing/sysfs-platform-ayn-ec
+
+diff --git a/Documentation/ABI/testing/sysfs-platform-ayn-ec b/Documentation/ABI/testing/sysfs-platform-ayn-ec
+new file mode 100644
+index 000000000000..32cb6f7ca2fc
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-platform-ayn-ec
+@@ -0,0 +1,59 @@
++What:		/sys/class/hwmon/hwmon[0-9]/pwm1_enable
++Date:		July 2025
++KernelVersion:	6.17
++Contact:	"Derek J. Clark" <derekjohn.clark@gmail.com>
++Description:
++		This sets the PWM fan mode of operation. Valid values are [0-3].
++    Values [0-2] conform with standard hwmon operating modes. Value 3
++    enables user defined fan curve settings.
++
++    Applies to AYN Loki and Tectoy Zeenix lines of handheld devices.
++
++What:		/sys/class/hwmon/hwmon[0-9]/pwm1_auto_point[1-5]_pwm
++Date:		July 2025
++KernelVersion:	6.17
++Contact:	"Derek J. Clark" <derekjohn.clark@gmail.com>
++Description:
++		This sets the PWM fan duty cycle for the given index of the fan curve.
++    When the temperature reaches the corresponding pwm1_auto_point[1-5]_temp,
++    the EC will automatically increase the fan duty cycle to the given value.
++
++    Values are [0-255]
++
++    Applies to AYN Loki and Tectoy Zeenix lines of handheld devices.
++
++What:		/sys/class/hwmon/hwmon[0-9]/pwm1_auto_point[1-5]_temp
++Date:		July 2025
++KernelVersion:	6.17
++Contact:	"Derek J. Clark" <derekjohn.clark@gmail.com>
++Description:
++		This sets the activation temperature for the given index of the fan curve.
++    When the temperature reaches the given value, the EC will automatically
++    increase the fan duty cycle to the corresponding pwm1_auto_point[1-5]_pwm
++    value.
++
++    Values are [0-100]
++
++    Applies to AYN Loki and Tectoy Zeenix lines of handheld devices.
++
++What:		/sys/class/leds/ayn:rgb:joystick_rings/effect
++Date:		July 2025
++KernelVersion:	6.17
++Contact:	"Derek J. Clark" <derekjohn.clark@gmail.com>
++Description:
++		This controls the display effect of the RGB interface.
++
++    Values are monocolor or breathe.
++
++    Applies to AYN Loki and Tectoy Zeenix lines of handheld devices.
++
++What:		/sys/class/leds/ayn:rgb:joystick_rings/effect_index
++Date:		July 2025
++KernelVersion:	6.17
++Contact:	"Derek J. Clark" <derekjohn.clark@gmail.com>
++Description:
++		This displays the available options for the effect attribute.
++
++    Values are monocolor or breathe.
++
++    Applies to AYN Loki and Tectoy Zeenix lines of handheld devices.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9472521965bc..4dae728bffcf 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4463,6 +4463,7 @@ AYN PLATFORM EC DRIVER
+ M:	Derek J. Clark <derekjohn.clark@gmail.com>
+ L:	platform-driver-x86@vger.kernel.org
+ S:	Maintained
++F:	Documentation/ABI/testing/sysfs-platform-ayn-ec
+ F:	drivers/platform/x86/ayn-ec.c
+ 
+ AYANEO PLATFORM EC DRIVER
+-- 
+2.55.0
+

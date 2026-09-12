@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : linux-firmware
-version     : "20260810"
-release     : 43
+version     : "20260910"
+release     : 44
 homepage    : https://kernel.org
 upstreams   :
-    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : 2135b2f7714a3a514c989b9728f51f36144cab6f
+    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : eeccccbe83daf22e1931e3557ba05b2c02427e4e
 summary     : Firmware to allow devices to function correctly
 description : |
     Firmware to allow devices to function correctly
@@ -21,9 +21,6 @@ builddeps   :
     - binary(which)
 setup       : |
     _backports=(
-        # amdgpu crashes
-        # https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/work_items/50
-        9305ccd3e07e6c5c2a34f84fb4a056fc47840ad3
     )
     _reverts=(
     )
@@ -35,10 +32,6 @@ setup       : |
         echo Reverting $(git log --oneline -1 "${c}")
         git revert -n "${c}"
     done
-    # amdgpu decoding glitches
-    # https://gitlab.archlinux.org/archlinux/packaging/packages/linux-firmware/-/work_items/49
-    git checkout 20260622 amdgpu/*vcn*
-    git diff --staged --stat
 install     : |
     make install-zst FIRMWAREDIR=/usr/lib/firmware DESTDIR=%(installroot)
 

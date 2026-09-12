@@ -1,0 +1,71 @@
+From fbe3501ac92bcd4b44af0cb4a6c4fc356a725420 Mon Sep 17 00:00:00 2001
+From: Hijae Song <hijae@naver.com>
+Date: Tue, 1 Sep 2026 22:48:23 +0900
+Subject: [PATCH 038/176] [NOT-FOR-UPSTREAM] aw87xxx: drop unused
+ linux/of_gpio.h include
+
+linux/of_gpio.h has been removed from the tree. None of these
+files actually use anything from it (no of_gpio_* calls), so drop
+the dead include to fix the build.
+
+This is deliberately an OGC-carried patch and must not be sent upstream.
+
+Signed-off-by: Hijae Song <hijae@naver.com>
+---
+ sound/soc/codecs/aw87xxx/aw87xxx.c           | 1 -
+ sound/soc/codecs/aw87xxx/aw87xxx_bin_parse.c | 1 -
+ sound/soc/codecs/aw87xxx/aw87xxx_device.c    | 1 -
+ sound/soc/codecs/aw87xxx/aw87xxx_monitor.c   | 1 -
+ 4 files changed, 4 deletions(-)
+
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx.c b/sound/soc/codecs/aw87xxx/aw87xxx.c
+index ee717d74eecf..d0e177d6d73a 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx.c
+@@ -16,7 +16,6 @@
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <linux/gpio.h>
+-#include <linux/of_gpio.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/interrupt.h>
+ #include <linux/delay.h>
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx_bin_parse.c b/sound/soc/codecs/aw87xxx/aw87xxx_bin_parse.c
+index c40055460278..89984a6076b2 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx_bin_parse.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx_bin_parse.c
+@@ -12,7 +12,6 @@
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/i2c.h>
+-#include <linux/of_gpio.h>
+ #include <linux/delay.h>
+ #include <linux/device.h>
+ #include <linux/firmware.h>
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx_device.c b/sound/soc/codecs/aw87xxx/aw87xxx_device.c
+index a4c9ad7d96dc..8619aacc2ccf 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx_device.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx_device.c
+@@ -14,7 +14,6 @@
+ 
+ #include <linux/i2c.h>
+ #include <linux/gpio.h>
+-#include <linux/of_gpio.h>
+ #include <linux/interrupt.h>
+ #include <linux/delay.h>
+ #include <linux/kernel.h>
+diff --git a/sound/soc/codecs/aw87xxx/aw87xxx_monitor.c b/sound/soc/codecs/aw87xxx/aw87xxx_monitor.c
+index f580506b2786..61adba6b6169 100644
+--- a/sound/soc/codecs/aw87xxx/aw87xxx_monitor.c
++++ b/sound/soc/codecs/aw87xxx/aw87xxx_monitor.c
+@@ -23,7 +23,6 @@
+ #include <linux/hrtimer.h>
+ #include <linux/i2c.h>
+ #include <linux/gpio.h>
+-#include <linux/of_gpio.h>
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+ #include <linux/firmware.h>
+-- 
+2.55.0
+

@@ -1,0 +1,35 @@
+From 323605c16d27c41407687fefeb28ab8e5eab705e Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Sat, 20 Dec 2025 19:57:41 -0800
+Subject: [PATCH 049/176] [FROM-ML] mmc: rtsx_pci_sdmmc: drop
+ MMC_CAP_AGGRESSIVE_PM for RTS525A
+
+Using MMC_CAP_AGGRESSIVE_PM on RTS525A card readers causes game
+performance issues when the card reader comes back from idle into active
+use. This can be observed in Hades II when loading new sections of the
+game or menu after the card reader puts itself into idle, and presents
+as a 1-2 second hang.
+
+Disabling this capability for RTS525A eliminates the performance issues.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/mmc/host/rtsx_pci_sdmmc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/mmc/host/rtsx_pci_sdmmc.c b/drivers/mmc/host/rtsx_pci_sdmmc.c
+index 8dfbc62f165b..ab7dbc7c7a18 100644
+--- a/drivers/mmc/host/rtsx_pci_sdmmc.c
++++ b/drivers/mmc/host/rtsx_pci_sdmmc.c
+@@ -1421,7 +1421,7 @@ static void realtek_init_host(struct realtek_pci_sdmmc *host)
+ 	mmc->caps = MMC_CAP_4_BIT_DATA | MMC_CAP_SD_HIGHSPEED |
+ 		MMC_CAP_MMC_HIGHSPEED | MMC_CAP_BUS_WIDTH_TEST |
+ 		MMC_CAP_UHS_SDR12 | MMC_CAP_UHS_SDR25;
+-	if (pcr->rtd3_en)
++	if (pcr->rtd3_en && PCI_PID(pcr) != PID_525A)
+ 		mmc->caps = mmc->caps | MMC_CAP_AGGRESSIVE_PM;
+ 	mmc->caps2 = MMC_CAP2_NO_PRESCAN_POWERUP | MMC_CAP2_FULL_PWR_CYCLE |
+ 		MMC_CAP2_NO_SDIO;
+-- 
+2.55.0
+

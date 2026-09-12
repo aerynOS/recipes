@@ -1,0 +1,46 @@
+From 5a60d57dac83c7cadb1ba6e1f81baeaf1319b0d4 Mon Sep 17 00:00:00 2001
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+Date: Fri, 26 Jun 2026 08:56:14 +0200
+Subject: [PATCH 116/176] [FROM-ML] sched/fair: Remove unused arguments from
+ set_preempt_buddy()
+
+On a tangential note, I just noticed set_preempt_buddy() has two unused
+parameters. Seems to have been like that since it was introduced in
+commit e837456fdca8 ("sched/fair: Reimplement NEXT_BUDDY to align with
+EEVDF goals").
+
+Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+---
+ kernel/sched/fair.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 0a4887462790..0ebb905abb4c 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -9744,9 +9744,7 @@ enum preempt_wakeup_action {
+ 	PREEMPT_WAKEUP_RESCHED,	/* Force reschedule. */
+ };
+ 
+-static inline bool
+-set_preempt_buddy(struct cfs_rq *cfs_rq, int wake_flags,
+-		  struct sched_entity *pse, struct sched_entity *se)
++static inline bool set_preempt_buddy(struct cfs_rq *cfs_rq, struct sched_entity *pse)
+ {
+ 	/*
+ 	 * Keep existing buddy if the deadline is sooner than pse.
+@@ -9895,9 +9893,7 @@ static void wakeup_preempt_fair(struct rq *rq, struct task_struct *p, int wake_f
+ 		return;
+ 
+ 	/* Prefer picking wakee soon if appropriate. */
+-	if (sched_feat(NEXT_BUDDY) &&
+-	    set_preempt_buddy(cfs_rq, wake_flags, pse, se)) {
+-
++	if (sched_feat(NEXT_BUDDY) && set_preempt_buddy(cfs_rq, pse)) {
+ 		/*
+ 		 * Decide whether to obey WF_SYNC hint for a new buddy. Old
+ 		 * buddies are ignored as they may not be relevant to the
+-- 
+2.55.0
+
