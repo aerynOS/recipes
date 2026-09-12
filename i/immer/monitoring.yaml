@@ -1,0 +1,5 @@
+releases:
+  id: 371757
+  rss: https://github.com/arximboldi/immer/releases.atom
+security:
+  cpe:
