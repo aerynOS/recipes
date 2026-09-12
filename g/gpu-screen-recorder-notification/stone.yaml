@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gpu-screen-recorder
+version     : "1.3.0"
+release     : 1
+homepage    : https://git.dec05eba.com/gpu-screen-recorder-notification/about/
+upstreams   :
+    - https://dec05eba.com/snapshot/gpu-screen-recorder-notification.git.1.3.0.tar.gz :
+        hash: a82426b0dafccbe51417f8e69f2500351702bfe1aa9425a21b31a0137cb8e440
+        stripdirs: 0
+summary     : Notification for GPU Screen Recorder UI
+description : |
+    Notification for GPU Screen Recorder UI in the style of ShadowPlay.
+license     :
+    - GPL-3.0-only
+builddeps   :
+    - pkgconfig(pangoft2)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-scanner)
+    - pkgconfig(xext)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(xrandr)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
