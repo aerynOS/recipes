@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"docker-buildx": {
-			"build-depends": [
-				"binary(git)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))"
@@ -17,6 +14,6 @@
 		}
 	},
 	"source-name": "docker-buildx",
-	"source-release": "18",
-	"source-version": "0.37.0"
+	"source-release": "19",
+	"source-version": "0.37.1"
 }
