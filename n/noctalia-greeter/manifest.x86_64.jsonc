@@ -1,0 +1,86 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"noctalia-greeter": {
+			"build-depends": [
+				"binary(wayland-scanner)",
+				"pkgconfig(cairo)",
+				"pkgconfig(dbus-1)",
+				"pkgconfig(fontconfig)",
+				"pkgconfig(freetype2)",
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(libglvnd)",
+				"pkgconfig(librsvg-2.0)",
+				"pkgconfig(libwebp)",
+				"pkgconfig(nlohmann_json)",
+				"pkgconfig(pango)",
+				"pkgconfig(tomlplusplus)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-protocols)",
+				"pkgconfig(wlroots-0.20)",
+				"stb"
+			],
+			"depends": [
+				"binary(greetd)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libEGL.so.1(x86_64))",
+				"soname(libGLESv2.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcairo.so.2(x86_64))",
+				"soname(libfontconfig.so.1(x86_64))",
+				"soname(libfreetype.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libinput.so.10(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpango-1.0.so.0(x86_64))",
+				"soname(libpangocairo-1.0.so.0(x86_64))",
+				"soname(libpangoft2-1.0.so.0(x86_64))",
+				"soname(librsvg-2.so.2(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libtomlplusplus.so.3(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))",
+				"soname(libwayland-egl.so.1(x86_64))",
+				"soname(libwayland-server.so.0(x86_64))",
+				"soname(libwebp.so.7(x86_64))",
+				"soname(libwlroots-0.20.so(x86_64))",
+				"soname(libxkbcommon.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/noctalia-greeter",
+				"/usr/bin/noctalia-greeter-apply-appearance",
+				"/usr/bin/noctalia-greeter-compositor",
+				"/usr/bin/noctalia-greeter-print-greetd-config",
+				"/usr/bin/noctalia-greeter-session",
+				"/usr/lib/systemd/system/noctalia-greeter.service",
+				"/usr/lib/tmpfiles.d/noctalia-greeter.conf",
+				"/usr/share/doc/noctalia-greeter/README.md",
+				"/usr/share/greetd/noctalia-greeter.toml",
+				"/usr/share/licenses/noctalia-greeter/LICENSE",
+				"/usr/share/noctalia-greeter/assets/fonts/tabler-icons-license.txt",
+				"/usr/share/noctalia-greeter/assets/fonts/tabler.json",
+				"/usr/share/noctalia-greeter/assets/fonts/tabler.ttf",
+				"/usr/share/noctalia-greeter/assets/noctalia.svg",
+				"/usr/share/noctalia-greeter/greetd_setup_lib.sh",
+				"/usr/share/noctalia-greeter/print_greetd_config.sh",
+				"/usr/share/noctalia-greeter/setup_greetd_pam.sh",
+				"/usr/share/noctalia-greeter/setup_greeter_system.sh",
+				"/usr/share/polkit-1/actions/org.noctalia.greeter.apply-appearance.policy"
+			],
+			"name": "noctalia-greeter",
+			"provides": [
+				"binary(noctalia-greeter)",
+				"binary(noctalia-greeter-apply-appearance)",
+				"binary(noctalia-greeter-compositor)",
+				"binary(noctalia-greeter-print-greetd-config)",
+				"binary(noctalia-greeter-session)"
+			]
+		}
+	},
+	"source-name": "noctalia-greeter",
+	"source-release": "1",
+	"source-version": "1.2.1"
+}
