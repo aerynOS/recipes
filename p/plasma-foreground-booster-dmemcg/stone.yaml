@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : plasma-foreground-booster-dmemcg
+version     : "0.0.experimental"
+release     : 1
+homepage    : https://github.com/pixelcluster/kcgroups
+upstreams   :
+    - https://github.com/pixelcluster/kcgroups/archive/refs/tags/booster-dmemcg-experimental.tar.gz : 50e9eb2867903f901b0ef566fd90aba729eebe34ef7bcb6cb8386390379acdd2
+summary     : Foreground app CPU weight booster
+description : |
+    Foreground app CPU weight booster utilizing dmem cgroup
+license     : LGPL-2.1-or-later
+networking  : true
+builddeps   :
+    - cmake(ECM)
+    - cmake(KF5CGroups)
+    - cmake(KF6Config)
+    - cmake(KF6DBusAddons)
+    - cmake(LibTaskManager)
+rundeps:
+    - binary(dmemcg-booster)
+    - tzdata
+setup       : |
+    %cmake \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : kcgroups-dmemcg
+version     : "0.0.experimental"
+release     : 1
+homepage    : https://github.com/pixelcluster/kcgroups
+upstreams   :
+    - https://github.com/pixelcluster/kcgroups/archive/refs/tags/kcgroups-dmemcg-experimental.tar.gz : a603f68376fd1a7343b476818afe980c7cc7b405dd5d89577131b497f9decb16
+summary     : KDE library to manipulate cgroups - fork adding dmem cgroup support
+description : |
+    KDE library to manipulate cgroups - fork adding dmem cgroup support
+license     : LGPL-2.1-or-later
+networking  : true
+builddeps   :
+    - binary(cmake)
+    - binary(qdbus6)
+    - cmake(ECM)
+    - cmake(Qt6)
+setup       : |
+    %cmake \
+    -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+    -DBUILD_WITH_QT6=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
