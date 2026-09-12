@@ -1,0 +1,5 @@
+releases:
+  id: ~
+  rss: https://codeberg.org/lumi/aerbox/releases.rss
+security:
+  cpe: ~ # No CPE found, last checked (2026-05-20)
