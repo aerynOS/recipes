@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wlr-randr
+version     : "0.5.0"
+release     : 1
+homepage    : https://gitlab.freedesktop.org/emersion/wlr-randr
+upstreams   :
+    - https://gitlab.freedesktop.org/emersion/wlr-randr/-/archive/v0.5.0/wlr-randr-v0.5.0.tar.gz?ref_type=tags : c566d94fddb84f801c733f1415a4ad5b75870305346363074cbdf468d4ac263a
+summary     : Utility to manage outputs of a Wayland compositor
+description : |
+    Utility to manage outputs of a Wayland compositor.
+license     : MIT
+builddeps   :
+    - pkgconfig(scdoc)
+    - pkgconfig(wayland-client)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/wlr-randr/
