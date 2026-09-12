@@ -1,0 +1,62 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"scx-manager": {
+			"build-depends": [
+				"binary(rustc)",
+				"cmake(Qt6)",
+				"cmake(Qt6LinguistTools)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"scx-scheds",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Widgets.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/scx-manager",
+				"/usr/lib/libscxctl-ui.so.1",
+				"/usr/lib/libscxctl-ui.so.1.15.11",
+				"/usr/share/applications/org.cachyos.scx-manager.desktop",
+				"/usr/share/icons/hicolor/scalable/apps/org.cachyos.scx-manager.png"
+			],
+			"name": "scx-manager",
+			"provides": [
+				"binary(scx-manager)",
+				"soname(libscxctl-ui.so.1(x86_64))"
+			]
+		},
+		"scx-manager-devel": {
+			"build-depends": [
+				"binary(rustc)",
+				"cmake(Qt6)",
+				"cmake(Qt6LinguistTools)"
+			],
+			"depends": [
+				"scx-manager"
+			],
+			"files": [
+				"/usr/include/scx-manager/schedext-window.hpp",
+				"/usr/lib/cmake/scxctl-ui/scxctl-ui-config-version.cmake",
+				"/usr/lib/cmake/scxctl-ui/scxctl-ui-config.cmake",
+				"/usr/lib/cmake/scxctl-ui/scxctl-ui-targets-release.cmake",
+				"/usr/lib/cmake/scxctl-ui/scxctl-ui-targets.cmake",
+				"/usr/lib/libscxctl-ui.so"
+			],
+			"name": "scx-manager-devel",
+			"provides": [
+				"cmake(scxctl-ui)"
+			]
+		}
+	},
+	"source-name": "scx-manager",
+	"source-release": "1",
+	"source-version": "1.15.11"
+}

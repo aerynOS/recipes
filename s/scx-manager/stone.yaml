@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : scx-manager
+version     : "1.15.11"
+release     : 1
+homepage    : https://github.com/CachyOS/scx-manager
+upstreams   :
+    - https://github.com/CachyOS/scx-manager/archive/refs/tags/v1.15.11.tar.gz : 60964eaf7bd51c5f6c4be714fc26c0bedf72d29b17b68032e1290b27ad497fc6
+summary     : Simple GUI for managing sched-ext schedulers via scx_loader
+description : |
+    Simple GUI for managing sched-ext schedulers via scx_loader.
+license     :
+    - GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - cmake(Qt6)
+    - cmake(Qt6LinguistTools)
+    - binary(rustc)
+rundeps     :
+    - scx-scheds
+setup       : |
+    export AR=llvm-ar
+    export CC=clang
+    export CXX=clang++
+    export NM=llvm-nm
+    export RANLIB=llvm-ranlib
+
+    export RUSTFLAGS="-Cembed-bitcode -C opt-level=3 -Ccodegen-units=1 -Clinker=clang -C link-arg=-flto -Clink-arg=-fuse-ld=/usr/bin/ld.lld"
+
+    %cmake \
+        -GNinja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
