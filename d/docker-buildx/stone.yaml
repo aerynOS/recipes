@@ -2,18 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : docker-buildx
-version     : "0.37.0"
-release     : 18
+version     : "0.37.1"
+release     : 19
 homepage    : https://github.com/docker/buildx
 upstreams   :
-    - https://github.com/docker/buildx/archive/refs/tags/v0.37.0.tar.gz : c6e3efdfb9778d9ef69e005ea43abc3041511f088760c927637e3cf6be7cb410
+    - https://github.com/docker/buildx/archive/refs/tags/v0.37.1.tar.gz : c8eb34392910bf18a858d4099e841deec2f7ea433bb3ed230082f55b69f19118
 summary     : Docker CLI plugin for extended build capabilities with BuildKit
 description : |
     Docker CLI plugin for extended build capabilities with BuildKit
 license     : Apache-2.0
 networking  : true
-builddeps   :
-    - binary(git)
 environment : |
     export _buildx_r=github.com/docker/buildx
     export _cli_plugins_dir=%(libdir)/docker/cli-plugins
@@ -21,11 +19,10 @@ setup       : |
     %go_mod
 build       : |
     # Git commit corresponding to the version tag
-    export GITCOMMIT=$(git ls-remote https://github.com/docker/buildx refs/tags/v%(version)^{} |awk '{print $1}')
+    GITCOMMIT=$(git ls-remote https://github.com/docker/buildx "refs/tags/v%(version)^{}" | awk '{print $1}')
 
-    export GOFLAGS+=" -ldflags=-X=${_buildx_r}/version.Version=v%(version) \
-        -ldflags=-X=${_buildx_r}/version.Revision=${GITCOMMIT} \
-        -ldflags=-X=${_buildx_r}/version.Package=${_buildx_r}"
+    _xflags="-X ${_buildx_r}/version.Version=v%(version) -X ${_buildx_r}/version.Revision=${GITCOMMIT} -X ${_buildx_r}/version.Package=${_buildx_r}"
+    export GOFLAGS="$(echo "${GOFLAGS}" | sed "s#-ldflags=[^ ]*#\"& ${_xflags}\"#")"
 
     go build -o docker-buildx ./cmd/buildx
 install     : |
