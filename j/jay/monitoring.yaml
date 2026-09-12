@@ -1,0 +1,5 @@
+releases:
+  id: 387970
+  rss: https://github.com/mahkoh/jay/releases.atom
+security:
+  cpe: ~
