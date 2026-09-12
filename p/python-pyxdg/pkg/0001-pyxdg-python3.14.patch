@@ -1,0 +1,16 @@
+From 6911ebd8741bd2caa351f61cfb8899267ebb06a7 Mon Sep 17 00:00:00 2001
+From: witchlliee <witchlliee@tuta.io>
+Date: Wed, 10 Jun 2026 18:31:33 -0300
+Subject: [PATCH] pyxdg-python3.14
+
+---
+ stateless.patch | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 stateless.patch
+
+diff --git a/stateless.patch b/stateless.patch
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.54.0
+

@@ -1,0 +1,5 @@
+releases:
+  id: 253337
+  rss: https://github.com/takluyver/pyxdg/archive/refs/tags/releases.atom
+security:
+  cpe: ~

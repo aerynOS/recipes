@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-pyxdg
+version     : "0.28"
+release     : 1
+homepage    : https://github.com/takluyver/pyxdg/archive/refs/tags
+upstreams   :
+    - https://github.com/takluyver/pyxdg/archive/refs/tags/rel-0.28.tar.gz : 29152f20f46a5e2365ae74fc00341ba761688de879100ebccaff507971a78c36
+summary     : Python library to access freedesktop.org standards
+description : |
+    PyXDG provides Python implementations of various freedesktop.org specifications.
+license     :
+    - LGPL-2.0-only
+setup       : |
+    # Compatibility fixes for newer Python versions
+    %patch %(pkgdir)/0001-pyxdg-python3.14.patch
+build       : |
+    %python_setup
+install     : |
+    %python_install
