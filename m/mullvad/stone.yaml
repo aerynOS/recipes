@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mullvad
-version     : "2026.4"
-release     : 9
+version     : "2026.5"
+release     : 10
 homepage    : https://mullvad.net
 upstreams   :
-    - https://github.com/mullvad/mullvadvpn-app/archive/refs/tags/2026.4.tar.gz :
-        hash : 991acc58ee0afa68c0a13a562e7b51dc68158c2e3ff00fcf89e32609dd2c2d6c
+    - https://github.com/mullvad/mullvadvpn-app/archive/refs/tags/2026.5.tar.gz :
+        hash : a133345d8d61f037d247ed89ff0dce823f652a7f25dea74f13a5029aa0374d23
         rename: mullvad
     - https://github.com/mullvad/wireguard-go/archive/refs/tags/0.0.20230223-mullvad-0.1.6.tar.gz :
         hash: fd9fa45155098223a17ea934eaa6eb44ee990cd2a7ab638bce482f62fd8502e8
