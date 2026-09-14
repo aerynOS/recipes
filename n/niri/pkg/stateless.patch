@@ -1,0 +1,19 @@
+commit ca37ae833a15378bce3ff26a463406e053c6715f
+Author: Ivan Molodetskikh <yalterz@gmail.com>
+Date:   Mon Sep 14 21:19:09 2026 +0300
+
+    niri-session: Change /etc/shells to /usr/share/defaults/shells
+
+diff --git a/resources/niri-session b/resources/niri-session
+index a9a4d9409..451eaa939 100755
+--- a/resources/niri-session
++++ b/resources/niri-session
+@@ -11,7 +11,7 @@ if [ -n "${MANAGERPID:-}" ] && [ "${SYSTEMD_EXEC_PID:-}" = "$$" ]; then
+ fi
+ 
+ if [ -n "$SHELL" ] &&
+-   grep -q "$SHELL" /etc/shells &&
++   grep -q "$SHELL" /usr/share/defaults/shells &&
+    ! (echo "$SHELL" | grep -q "false") &&
+    ! (echo "$SHELL" | grep -q "nologin"); then
+   if [ "$1" != '-l' ]; then
