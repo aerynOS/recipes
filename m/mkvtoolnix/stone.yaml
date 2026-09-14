@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mkvtoolnix
-version     : "101.0"
-release     : 3
+version     : "102.0"
+release     : 4
 homepage    : https://codeberg.org/mbunkus/mkvtoolnix
 upstreams   :
-    - https://codeberg.org/mbunkus/mkvtoolnix/archive/release-101.0.tar.gz : 8720211c312ffc741dc9ff4434e0d1087227b4d47e24568deed5aeb3ad84ef05
+    - https://codeberg.org/mbunkus/mkvtoolnix/archive/release-102.0.tar.gz : 5ed2aa0b53c18c3db7a11724635ffe543972f78906b1e6142ceb43a21320685f
 summary     : MKV Toolkit for Linux
 description : |
     With these tools one can get information about (mkvinfo) Matroska files, extract tracks/data from (mkvextract) Matroska files and create (mkvmerge) Matroska files from other media files. Matroska is a new multimedia file format aiming to become THE new container format for the future.
