@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : thunderbird
-version     : "155.0.1"
-release     : 53
+version     : "156.0"
+release     : 54
 homepage    : https://www.thunderbird.net/
 upstreams   :
-    - https://releases.mozilla.org/pub/thunderbird/releases/155.0.1/source/thunderbird-155.0.1.source.tar.xz : e461c18a215527922d78922ec4d048cb70313f19359e87ce0dfd113b7d6bf8b2
+    - https://releases.mozilla.org/pub/thunderbird/releases/156.0/source/thunderbird-156.0.source.tar.xz : d20185160e19a9b483b8e6f21622c185f96c9dea4090feb806531d58cac5928e
 summary     : Thunderbird Email Client
 description : |
     Thunderbird Email Client
@@ -58,16 +58,11 @@ environment : |
     export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE="none"
     export MOZ_BUILD_DATE="$(date -u${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH} +%%Y%%m%%d%%H%%M%%S)"
 setup       : |
-    # %patch %(pkgdir)/patches/pgo.patch
     %patch %(pkgdir)/patches/0001-Fix-Firefox-Thunderbird-envvar-conflicts.patch
     %patch %(pkgdir)/patches/0001-Allow-installing-addons-from-user-scope.patch
 
     cp %(pkgdir)/build/mozconfig .
     sed -e 's|@@JOBCOUNT@@|%(jobs)|' -e 's|@@LIBDIR@@|%(libdir)|' -i mozconfig
-
-    # https://bugzilla.mozilla.org/show_bug.cgi?id=2041134
-    # sed -i 's/log\.warn(/log.warning(/' \
-    #     comm/build/moz.configure/gecko_source.configure
 
     if [ $FULL_BUILD -ne 0 ]; then
         # PGO build, no LTO
@@ -134,7 +129,7 @@ install     : |
     DESTDIR=%(installroot) ./mach install
 
     for i in 16 22 24 32 48 128 256; do
-        install -dm00755 %(installroot)/%(datadir)/icons/hicolor/${i}x${i}/apps
+        %install_dir %(installroot)/%(datadir)/icons/hicolor/${i}x${i}/apps
         ln -srv %(installroot)/%(libdir)/thunderbird/chrome/icons/default/default${i}.png %(installroot)/%(datadir)/icons/hicolor/${i}x${i}/apps/net.thunderbird.Thunderbird.png
     done
 
@@ -146,7 +141,7 @@ install     : |
 
     # Use a wrapper script to configure langpacks
     rm -v %(installroot)/%(bindir)/thunderbird
-    install -D -m 00755 %(pkgdir)/install/thunderbird-wrapper.sh %(installroot)/%(bindir)/thunderbird
+    %install_exe %(pkgdir)/install/thunderbird-wrapper.sh %(installroot)/%(bindir)/thunderbird
 tuning      :
     - lto: false # Controlled by the build
     - thread-exceptions: false # #  error "STL code can only be used with -fno-exceptions"
