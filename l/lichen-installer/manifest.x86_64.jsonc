@@ -1,0 +1,43 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"lichen-installer": {
+			"build-depends": [
+				"binary(cargo)",
+				"pkgconfig(protobuf)"
+			],
+			"depends": [
+				"binary(btrfs)",
+				"binary(moss)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"iso-codes",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"sysbinary(mkfs.bcachefs)",
+				"sysbinary(mkfs.ext4)",
+				"sysbinary(mkfs.f2fs)",
+				"sysbinary(mkfs.vfat)",
+				"sysbinary(mkfs.xfs)"
+			],
+			"files": [
+				"/usr/bin/lichen-cli",
+				"/usr/bin/lichen-new-cli",
+				"/usr/bin/lichen_backend",
+				"/usr/share/applications/lichen-installer.desktop",
+				"/usr/share/polkit-1/actions/org.freedesktop.policykit.pkexec.lichen-installer.policy"
+			],
+			"name": "lichen-installer",
+			"provides": [
+				"binary(lichen-cli)",
+				"binary(lichen-new-cli)",
+				"binary(lichen_backend)"
+			]
+		}
+	},
+	"source-name": "lichen-installer",
+	"source-release": "1",
+	"source-version": "0.1.0+git.f124f9d"
+}

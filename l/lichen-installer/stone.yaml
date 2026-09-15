@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : lichen-installer
+version     : "0.1.0+git.f124f9d"
+release     : 1
+summary     : OS installer
+license     : MPL-2.0
+homepage    : https://github.com/AerynOS/lichen-installer
+upstreams   :
+    - git|https://github.com/AerynOS/lichen-installer.git :
+         ref : 265797ebcc4444825b7677bfa5925bc7066783ae
+description : |
+    Experimental OS installer
+builddeps   :
+    - binary(cargo)
+    - pkgconfig(protobuf)
+networking  : true
+rundeps     :
+    - binary(btrfs)
+    - binary(moss)
+    - sysbinary(mkfs.bcachefs)
+    - sysbinary(mkfs.ext4)
+    - sysbinary(mkfs.f2fs)
+    - sysbinary(mkfs.vfat)
+    - sysbinary(mkfs.xfs)
+    - iso-codes
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install lichen_cli
+    mv %(installroot)%(bindir)/lichen_cli %(installroot)%(bindir)/lichen-cli
+    %cargo_install lichen_backend
+    %install_file %(pkgdir)/lichen-installer.desktop -t %(installroot)/%(datadir)/applications/
+    %install_file %(pkgdir)/org.freedesktop.policykit.pkexec.lichen-installer.policy -t %(installroot)/%(datadir)/polkit-1/actions/
+    %install_exe %(pkgdir)/lichen-cli.sh %(installroot)%(bindir)/lichen-new-cli
