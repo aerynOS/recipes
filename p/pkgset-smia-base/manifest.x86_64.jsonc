@@ -1,0 +1,51 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"pkgset-smia-base": {
+			"depends": [
+				"aerynos-eldritch-icon-theme",
+				"binary(awww)",
+				"binary(bluetui)",
+				"binary(brightnessctl)",
+				"binary(btop)",
+				"binary(elephant)",
+				"binary(gnist)",
+				"binary(gpu-screen-recorder)",
+				"binary(grim)",
+				"binary(hx)",
+				"binary(hypridle)",
+				"binary(hyprlock)",
+				"binary(impala)",
+				"binary(kitty)",
+				"binary(mako)",
+				"binary(malm)",
+				"binary(notify-send)",
+				"binary(nvim)",
+				"binary(pkaction)",
+				"binary(playerctl)",
+				"binary(sddm)",
+				"binary(slurp)",
+				"binary(swayosd-client)",
+				"binary(walker)",
+				"binary(waybar)",
+				"binary(wl-clip)",
+				"binary(wlsunset)",
+				"pkgset-aeryn-base-desktop",
+				"polkit-kde-agent",
+				"xdg-desktop-portal",
+				"xdg-desktop-portal-gtk",
+				"xdg-desktop-portal-wlr",
+				"xdg-utils",
+				"yaru-icon-theme"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-smia-base"
+			],
+			"name": "pkgset-smia-base"
+		}
+	},
+	"source-name": "pkgset-smia-base",
+	"source-release": "1",
+	"source-version": "2026.07.14"
+}
