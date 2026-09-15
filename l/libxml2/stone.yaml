@@ -3,7 +3,7 @@
 
 name        : libxml2
 version     : "2.15.4"
-release     : 23
+release     : 24
 summary     : XML parsing library
 license     : MIT
 homepage    : http://www.xmlsoft.org/
@@ -21,10 +21,10 @@ upstreams   :
 builddeps   :
     - binary(doxygen)
     - binary(xsltproc)
-    - pkgconfig32(readline)
-    - pkgconfig32(zlib)
     - pkgconfig(icu-i18n)
     - pkgconfig(python3)
+    - pkgconfig32(readline)
+    - pkgconfig32(zlib)
     - docbook-xsl
     - perl
 emul32      : true
@@ -47,6 +47,9 @@ profiles    :
                 -Dpython=disabled
 environment : |
     %export_docbook_catalogs
+
+    # Help out PGO
+    export CFLAGS="${CFLAGS} -mllvm -vp-counters-per-site=6"
 setup       : |
     if [ -d ../compat ]; then
         pushd ../compat
@@ -80,6 +83,9 @@ build       : |
     %ccache_zero
     env CCACHE_BASEDIR="${PWD}" %meson_build
     %ccache_stats
+
+    # These are no longer built by default but they are required by the tests
+    %meson_build runsuite runtest runxmlconf testapi testcatalog testchar testdict testlimits testparser testrecurse example/io1
 install     : |
     if [ -d ../compat ]; then
         pushd ../compat
@@ -94,20 +100,20 @@ install     : |
 
     %meson_install
 check       : |
-    # These are no longer built by default but they are required by the tests
-    %meson_build runsuite runtest runxmlconf testapi testcatalog testchar testdict testlimits testparser testrecurse example/io1
-
     %meson_test
 workload    : |
+    %meson_test || :
+
     # Script is no longer included with the source tarballs and so has been vendored
     perl %(pkgdir)/dbgenattr.pl 100000 > dba100000.xml
 
-    %(builddir)/xmllint --noout dba100000.xml
-    %(builddir)/xmllint --stream dba100000.xml
+    %(builddir)/xmllint --noout %(workdir)/dba100000.xml
+    %(builddir)/xmllint --stream %(workdir)/dba100000.xml
     %(builddir)/xmllint --noout --valid test/valid/REC-xml-19980210.xml
     %(builddir)/xmllint --stream --valid test/valid/REC-xml-19980210.xml
 tuning      :
     - lto: full
+    - optimize : speed
 packages    :
     - "python-%(name)":
         summary: "XML parsing library - Python support"
