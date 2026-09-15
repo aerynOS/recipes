@@ -178,6 +178,7 @@ ogc/0174-FROM-ML-drm-amd-display-freesync_on_desktop-support-.patch
 ogc/0175-FROM-ML-drm-amd-display-Fix-NULL-deref-of-new_stream.patch
 ogc/0176-Revert-drm-amd-display-add-HDMI-2.1-Compliance-Suppo.patch
 ogc/0177-FROM-ML-sched-fair-floor-tg_cpus-at-1.patch
+ogc/PR/118.patch
 
 # Valve patches
 # https://github.com/ValveSoftware/steam-devices/pull/83#issuecomment-4786835173

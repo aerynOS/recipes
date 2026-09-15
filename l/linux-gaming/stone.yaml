@@ -3,7 +3,7 @@
 
 name        : linux-gaming
 version     : "7.2.6"
-release     : 36
+release     : 37
 homepage    : https://kernel.org/
 upstreams   :
         - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.6.tar.xz : 039aef84f2b0994aeda3f4fcfc3d02ec9d7a9bbb9020ea264c43f446c860f606
