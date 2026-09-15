@@ -1,0 +1,63 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"efivar": {
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/efisecdb",
+				"/usr/bin/efivar",
+				"/usr/lib/libefiboot.so.1",
+				"/usr/lib/libefiboot.so.1.39",
+				"/usr/lib/libefisec.so.1",
+				"/usr/lib/libefisec.so.1.39",
+				"/usr/lib/libefivar.so.1",
+				"/usr/lib/libefivar.so.1.39"
+			],
+			"name": "efivar",
+			"provides": [
+				"binary(efisecdb)",
+				"binary(efivar)",
+				"soname(libefiboot.so.1(x86_64))",
+				"soname(libefisec.so.1(x86_64))",
+				"soname(libefivar.so.1(x86_64))"
+			]
+		},
+		"efivar-devel": {
+			"depends": [
+				"efivar"
+			],
+			"files": [
+				"/usr/include/efivar/efiboot-creator.h",
+				"/usr/include/efivar/efiboot-loadopt.h",
+				"/usr/include/efivar/efiboot.h",
+				"/usr/include/efivar/efisec-secdb.h",
+				"/usr/include/efivar/efisec-types.h",
+				"/usr/include/efivar/efisec.h",
+				"/usr/include/efivar/efivar-dp.h",
+				"/usr/include/efivar/efivar-guids.h",
+				"/usr/include/efivar/efivar-time.h",
+				"/usr/include/efivar/efivar-types.h",
+				"/usr/include/efivar/efivar.h",
+				"/usr/lib/libefiboot.so",
+				"/usr/lib/libefisec.so",
+				"/usr/lib/libefivar.so",
+				"/usr/lib/pkgconfig/efiboot.pc",
+				"/usr/lib/pkgconfig/efisec.pc",
+				"/usr/lib/pkgconfig/efivar.pc"
+			],
+			"name": "efivar-devel",
+			"provides": [
+				"pkgconfig(efiboot)",
+				"pkgconfig(efisec)",
+				"pkgconfig(efivar)"
+			]
+		}
+	},
+	"source-name": "efivar",
+	"source-release": "1",
+	"source-version": "39"
+}

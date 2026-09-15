@@ -1,0 +1,37 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"fwupd-efi": {
+			"build-depends": [
+				"binary(objcopy)",
+				"pkgconfig(gnu-efi)",
+				"python(pefile)"
+			],
+			"files": [
+				"/usr/lib/fwupd-efi/fwupd/efi/fwupdx64.efi"
+			],
+			"name": "fwupd-efi"
+		},
+		"fwupd-efi-devel": {
+			"build-depends": [
+				"binary(objcopy)",
+				"pkgconfig(gnu-efi)",
+				"python(pefile)"
+			],
+			"depends": [
+				"fwupd-efi"
+			],
+			"files": [
+				"/usr/lib/pkgconfig/fwupd-efi.pc"
+			],
+			"name": "fwupd-efi-devel",
+			"provides": [
+				"pkgconfig(fwupd-efi)"
+			]
+		}
+	},
+	"source-name": "fwupd-efi",
+	"source-release": "1",
+	"source-version": "1.8"
+}

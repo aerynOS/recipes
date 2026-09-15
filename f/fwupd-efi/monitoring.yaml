@@ -1,0 +1,5 @@
+releases:
+  id: 326081
+  rss: https://github.com/fwupd/fwupd-efi/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-07-08)
