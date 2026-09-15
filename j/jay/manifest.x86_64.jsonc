@@ -1,0 +1,52 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"jay": {
+			"build-depends": [
+				"pkgconfig(cairo)",
+				"pkgconfig(fontconfig)",
+				"pkgconfig(gbm)",
+				"pkgconfig(libinput)",
+				"pkgconfig(libudev)",
+				"pkgconfig(pango)"
+			],
+			"depends": [
+				"alacritty",
+				"bemenu",
+				"binary(Xwayland)",
+				"binary(gnome-keyring)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcairo.so.2(x86_64))",
+				"soname(libfontconfig.so.1(x86_64))",
+				"soname(libgbm.so.1(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libinput.so.10(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpango-1.0.so.0(x86_64))",
+				"soname(libpangocairo-1.0.so.0(x86_64))",
+				"soname(libudev.so.1(x86_64))",
+				"sqlite",
+				"xdg-desktop-portal-gtk"
+			],
+			"files": [
+				"/usr/bin/jay",
+				"/usr/share/bash-completion/completions/jay",
+				"/usr/share/fish/vendor_completions.d/jay.fish",
+				"/usr/share/wayland-sessions/jay.desktop",
+				"/usr/share/xdg-desktop-portal/jay-portals.conf",
+				"/usr/share/xdg-desktop-portal/portals/jay.portal",
+				"/usr/share/zsh/site-functions/_jay"
+			],
+			"name": "jay",
+			"provides": [
+				"binary(jay)"
+			]
+		}
+	},
+	"source-name": "jay",
+	"source-release": "1",
+	"source-version": "1.14.0"
+}
