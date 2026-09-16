@@ -11,11 +11,12 @@
 				"soname(libgnutls.so.30(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libnfs.so.17.1.0"
+				"/usr/lib/libnfs.so.17",
+				"/usr/lib/libnfs.so.17.0.2"
 			],
 			"name": "libnfs",
 			"provides": [
-				"soname(libnfs.so.17.1.0(x86_64))"
+				"soname(libnfs.so.17(x86_64))"
 			]
 		},
 		"libnfs-devel": {
@@ -56,7 +57,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libnfs.so.17.1.0(x86_64))"
+				"soname(libnfs.so.17(x86_64))"
 			],
 			"files": [
 				"/usr/bin/nfs-cat",
@@ -77,6 +78,6 @@
 		}
 	},
 	"source-name": "libnfs",
-	"source-release": "3",
-	"source-version": "7.0.1"
+	"source-release": "4",
+	"source-version": "7.0.2"
 }
