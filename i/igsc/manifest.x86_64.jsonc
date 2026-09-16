@@ -11,13 +11,13 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libmetee.so.6.2.5.0(x86_64))",
+				"soname(libmetee.so.6.2.6.0(x86_64))",
 				"soname(libudev.so.1(x86_64))"
 			],
 			"files": [
 				"/usr/bin/igsc",
 				"/usr/lib/libigsc.so.1",
-				"/usr/lib/libigsc.so.1.3.1.0"
+				"/usr/lib/libigsc.so.1.3.2.0"
 			],
 			"name": "igsc",
 			"provides": [
@@ -49,6 +49,6 @@
 		}
 	},
 	"source-name": "igsc",
-	"source-release": "3",
-	"source-version": "1.3.1"
+	"source-release": "4",
+	"source-version": "1.3.2"
 }
