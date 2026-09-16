@@ -966,7 +966,7 @@
 				"qemu-common",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libnfs.so.17.1.0(x86_64))"
+				"soname(libnfs.so.17(x86_64))"
 			],
 			"files": [
 				"/usr/lib/qemu/block-nfs.so"
@@ -5311,6 +5311,6 @@
 		}
 	},
 	"source-name": "qemu",
-	"source-release": "40",
+	"source-release": "41",
 	"source-version": "11.1.1"
 }
