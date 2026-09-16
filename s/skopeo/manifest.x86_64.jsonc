@@ -46,6 +46,6 @@
 		}
 	},
 	"source-name": "skopeo",
-	"source-release": "11",
-	"source-version": "1.24.0"
+	"source-release": "12",
+	"source-version": "1.24.1"
 }

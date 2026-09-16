@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : skopeo
-version     : "1.24.0"
-release     : 11
+version     : "1.24.1"
+release     : 12
 upstreams   :
-    - https://github.com/containers/skopeo/archive/refs/tags/v1.24.0.tar.gz : 1eea9364e344c4d6cb398fac53bc387663d19690552003b43c75819e8bb55527
+    - https://github.com/containers/skopeo/archive/refs/tags/v1.24.1.tar.gz : 6a3f342a327ec7684198eb0e15114940b6101506db48d9a96590f5942cb3b335
 homepage    : https://github.com/containers/skopeo
 license     : Apache-2.0
 summary     : Inspect container images and repositories on registries
