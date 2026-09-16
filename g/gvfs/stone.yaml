@@ -3,7 +3,7 @@
 
 name        : gvfs
 version     : "1.62.0"
-release     : 27
+release     : 28
 homepage    : https://wiki.gnome.org/Projects/gvfs
 upstreams   :
     - https://download.gnome.org/sources/gvfs/1.62/gvfs-1.62.0.tar.xz : dd8e6c255fd3bed5eeb190b59027c88b38e63c1be0932ddce9cfeb48f3c43d0f

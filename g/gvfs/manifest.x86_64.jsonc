@@ -707,7 +707,7 @@
 				"soname(libgio-2.0.so.0(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
-				"soname(libnfs.so.17.1.0(x86_64))"
+				"soname(libnfs.so.17(x86_64))"
 			],
 			"files": [
 				"/usr/lib/gvfs/gvfsd-nfs",
@@ -775,6 +775,6 @@
 		}
 	},
 	"source-name": "gvfs",
-	"source-release": "27",
+	"source-release": "28",
 	"source-version": "1.62.0"
 }
