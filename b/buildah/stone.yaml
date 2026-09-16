@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : buildah
-version     : "1.45.0"
-release     : 9
+version     : "1.45.1"
+release     : 10
 homepage    : https://buildah.io/
 upstreams   :
-    - https://github.com/containers/buildah/archive/refs/tags/v1.45.0.tar.gz : d2bc03332c9f6ad5fcc210c68ad3190fe11d358214c88fb12a233f5045d5eddd
+    - https://github.com/containers/buildah/archive/refs/tags/v1.45.1.tar.gz : b48e701c75a2bd30dfe63fda5f886c8a7e0c3dd17b6aa0feb74cc93099254ca4
 summary     : A command line tool used for creating OCI Images
 description : |
     The buildah package provides a command line tool which can be used to
