@@ -703,8 +703,6 @@
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/package.json",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/package.nls.json",
 				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/schemas/package.schema.json",
-				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/scripts/updateMarkdownEditorPackageJson.mts",
-				"/usr/lib/vscode/resources/app/extensions/markdown-language-features/scripts/updateMarkdownEditorPackageJson.test.mts",
 				"/usr/lib/vscode/resources/app/extensions/markdown-math/README.md",
 				"/usr/lib/vscode/resources/app/extensions/markdown-math/dist/extension.js",
 				"/usr/lib/vscode/resources/app/extensions/markdown-math/icon.png",
@@ -1362,7 +1360,10 @@
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/animations/app-install-nudge.json.gz",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/animations/banner.json.gz",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/app.js",
+				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/assets/copilot.ico",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/assets/copilot.png",
+				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/assets/copilot.svg",
+				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/assets/copilot_win.png",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/builtin-skills/customize-cloud-agent/SKILL.md",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/builtin-skills/discover-resources/SKILL.md",
 				"/usr/lib/vscode/resources/app/node_modules.asar.unpacked/@github/copilot-linux-x64/builtin-skills/github-pr-media/SKILL.md",
@@ -2496,6 +2497,6 @@
 		}
 	},
 	"source-name": "vscode-bin",
-	"source-release": "41",
-	"source-version": "1.137.0"
+	"source-release": "42",
+	"source-version": "1.138.0"
 }
