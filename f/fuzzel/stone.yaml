@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fuzzel
-version     : "1.14.1"
-release     : 2
+version     : "1.15.0"
+release     : 3
 homepage    : https://codeberg.org/dnkl/fuzzel
 upstreams   :
-    - https://codeberg.org/dnkl/fuzzel/releases/download/1.14.1/fuzzel-1.14.1.tar.gz : a3af48d00d5cb7cb5526ab86bd632c62dbea5901693fdd746a2e7bb5bd64cf04
+    - https://codeberg.org/dnkl/fuzzel/releases/download/1.15.0/fuzzel-1.15.0.tar.gz : 11bee600e19ee1638db592e41980445673224716fbedbd0213b25153325f4182
 summary     : App launcher and fuzzy finder for Wayland, inspired by rofi and dmenu.
 description : |
     Fuzzel is a Wayland-native application launcher and fuzzy finder, inspired by rofi and dmenu.
