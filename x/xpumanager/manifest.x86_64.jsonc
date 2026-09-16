@@ -21,6 +21,7 @@
 				"soname(libhwloc.so.15(x86_64))",
 				"soname(libigsc.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
+				"soname(libmetee.so.6.2.6.0(x86_64))",
 				"soname(libpciaccess.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libze_loader.so.1(x86_64))"
@@ -29,7 +30,7 @@
 				"/usr/bin/xpu-smi",
 				"/usr/lib/libxpum.so",
 				"/usr/lib/libxpum.so.2",
-				"/usr/lib/libxpum.so.2.1.0",
+				"/usr/lib/libxpum.so.2.2.0",
 				"/usr/share/xpum/resources/config/device_thresholds.json",
 				"/usr/share/xpum/resources/config/pci.conf",
 				"/usr/share/xpum/resources/config/pci.ids"
@@ -42,6 +43,6 @@
 		}
 	},
 	"source-name": "xpumanager",
-	"source-release": "1",
-	"source-version": "2.1.0"
+	"source-release": "2",
+	"source-version": "2.2.0"
 }
