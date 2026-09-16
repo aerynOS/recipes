@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : unrar
-version     : "7.2.7"
-release     : 6
+version     : "7.3.1"
+release     : 7
 homepage    : https://www.rarlab.com/rar
 upstreams   :
-    - https://www.rarlab.com/rar/unrarsrc-7.2.7.tar.gz : 01d903a7dcf413cb2925696d7796e48e38d471f79bfe7ef3ad2aebf6c12dbefd
+    - https://www.rarlab.com/rar/unrarsrc-7.3.1.tar.gz : 634900842a3737d9cc15bbcc71d4c74cc713437e0bca296a573424fe5f2660ab
 summary     : A program to extract, test, and view RAR archives.
 description : |
     The UnRAR utility is a freeware program distributed with source code and developed for extracting, testing, and viewing the contents of archives created with the RAR archiver.
-license     : LicenseRef-scancode-unrar
+license     : UnRAR
 builddeps   :
     - binary(strip)
 build       : |
