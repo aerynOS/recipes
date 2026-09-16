@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : heroic-games-launcher
-version     : "2.22.1"
-release     : 2
+version     : "2.22.3"
+release     : 3
 homepage    : https://heroicgameslauncher.com
 upstreams   :
-    - git|https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher.git : dbb5f4a500e9b27e650a449e2290f23ed584bbd3
+    - git|https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher.git : 97078f6b81e1db86eb8b287d1468ef31a5b6cf13
 summary     : A games launcher for GOG, Amazon and Epic Games for Linux, Windows and macOS.
 description : |
     Heroic is an Open Source Game Launcher for Linux, Windows and macOS. Right now it supports launching games from the Epic Games Store using Legendary, GOG Games using our custom implementation with gogdl and Amazon Games using Nile.
@@ -19,8 +19,6 @@ builddeps   :
     - pkgconfig(gtk+-3.0)
 networking  : true
 setup       : |
-    # Fix Add-to-Steam
-    %patch %(pkgdir)/fix-exec-heroic-add-to-steam.patch
     # Fix Desktop file
     %patch %(pkgdir)/fix-exec-heroic-desktop-file.patch
     pnpm install
