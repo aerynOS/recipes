@@ -128,6 +128,7 @@
 				"/usr/share/gamescope/scripts/00-gamescope/displays/deckhd.steamdeck.deckhd-lcd.lua",
 				"/usr/share/gamescope/scripts/00-gamescope/displays/gpd.win4.lcd.lua",
 				"/usr/share/gamescope/scripts/00-gamescope/displays/lenovo.legiongo.lcd.lua",
+				"/usr/share/gamescope/scripts/00-gamescope/displays/lenovo.legiongo2.oled.lua",
 				"/usr/share/gamescope/scripts/00-gamescope/displays/lenovo.legiongos.lcd.lua",
 				"/usr/share/gamescope/scripts/00-gamescope/displays/onexplayer.f1.oled.lua",
 				"/usr/share/gamescope/scripts/00-gamescope/displays/valve.steamdeck.lcd.lua",
@@ -148,6 +149,6 @@
 		}
 	},
 	"source-name": "gamescope",
-	"source-release": "12",
-	"source-version": "3.16.28"
+	"source-release": "13",
+	"source-version": "3.16.29"
 }
