@@ -4,7 +4,6 @@
 	"packages": {
 		"containerd": {
 			"build-depends": [
-				"binary(go)",
 				"binary(go-md2man)",
 				"binary(sed)",
 				"pkgconfig(libbtrfsutil)"
@@ -38,6 +37,6 @@
 		}
 	},
 	"source-name": "containerd",
-	"source-release": "22",
-	"source-version": "2.3.5"
+	"source-release": "23",
+	"source-version": "2.4.0"
 }
