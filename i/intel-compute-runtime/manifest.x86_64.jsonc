@@ -22,20 +22,21 @@
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libigdgmm.so.12(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libocloc.so(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/bin/ocloc",
 				"/usr/lib/intel-opencl/libigdrcl.so",
+				"/usr/lib/libocloc.so",
 				"/usr/lib/libze_intel_gpu.so.1",
-				"/usr/lib/libze_intel_gpu.so.1.17.39395",
+				"/usr/lib/libze_intel_gpu.so.1.17.39758",
 				"/usr/share/OpenCL/vendors/intel.icd"
 			],
 			"name": "intel-compute-runtime",
 			"provides": [
 				"binary(ocloc)",
 				"soname(intel-opencl/libigdrcl.so(x86_64))",
+				"soname(libocloc.so(x86_64))",
 				"soname(libze_intel_gpu.so.1(x86_64))"
 			]
 		},
@@ -52,10 +53,7 @@
 				"pkgconfig(libze_loader)"
 			],
 			"depends": [
-				"intel-compute-runtime",
-				"soname(libc.so.6(x86_64))",
-				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libstdc++.so.6(x86_64))"
+				"intel-compute-runtime"
 			],
 			"files": [
 				"/usr/include/level_zero/driver_experimental/zex_api.h",
@@ -74,16 +72,12 @@
 				"/usr/include/level_zero/zes_intel_gpu_sysman.h",
 				"/usr/include/level_zero/zet_intel_gpu_debug.h",
 				"/usr/include/level_zero/zet_intel_gpu_metric.h",
-				"/usr/include/ocloc_api.h",
-				"/usr/lib/libocloc.so"
+				"/usr/include/ocloc_api.h"
 			],
-			"name": "intel-compute-runtime-devel",
-			"provides": [
-				"soname(libocloc.so(x86_64))"
-			]
+			"name": "intel-compute-runtime-devel"
 		}
 	},
 	"source-name": "intel-compute-runtime",
-	"source-release": "8",
-	"source-version": "26.31.39395.13"
+	"source-release": "9",
+	"source-version": "26.35.39758.10"
 }
