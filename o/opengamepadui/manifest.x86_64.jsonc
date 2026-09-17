@@ -4,7 +4,6 @@
 	"packages": {
 		"opengamepadui": {
 			"build-depends": [
-				"binary(cargo)",
 				"binary(unzip)",
 				"binary(wget)",
 				"pkgconfig(fontconfig)",
@@ -49,6 +48,6 @@
 		}
 	},
 	"source-name": "opengamepadui",
-	"source-release": "30",
-	"source-version": "0.46.0"
+	"source-release": "31",
+	"source-version": "0.46.1"
 }

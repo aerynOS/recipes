@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : opengamepadui
-version     : "0.46.0"
-release     : 30
+version     : "0.46.1"
+release     : 31
 homepage    : https://github.com/ShadowBlip/OpenGamepadUI
 upstreams   :
-    - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.46.0.tar.gz : 81bbcf442b9ef10d2332ecb2279c8b46f8c76aa9d42b5fc43d7a36b228714fdf
+    - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.46.1.tar.gz : 64a36fd6ebf37fb71530ef2aca277d6392cb11355ca702baa016d6e62e0ae264
     - https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip :
         hash: c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba
         rename: godot.zip
@@ -19,7 +19,6 @@ description : |
 license     : GPL-3.0-or-later
 networking  : true
 builddeps   :
-    - binary(cargo)
     - binary(unzip)
     - binary(wget)
     - pkgconfig(fontconfig)
