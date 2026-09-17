@@ -5,6 +5,7 @@
 		"intel-graphics-compiler": {
 			"build-depends": [
 				"binary(bison)",
+				"binary(clang-format)",
 				"binary(flex)",
 				"binary(mold)",
 				"binary(objdump)",
@@ -36,12 +37,12 @@
 				"/usr/bin/iga64",
 				"/usr/lib/igc2/NOTICES.txt",
 				"/usr/lib/libiga64.so.2",
-				"/usr/lib/libiga64.so.2.40.0+0",
+				"/usr/lib/libiga64.so.2.41.0+0",
 				"/usr/lib/libigc.so.2",
-				"/usr/lib/libigc.so.2.40.0+0",
+				"/usr/lib/libigc.so.2.41.0+0",
 				"/usr/lib/libigdfcl.so.2",
-				"/usr/lib/libigdfcl.so.2.40.0+0",
-				"/usr/lib/libopencl-clang.so.17"
+				"/usr/lib/libigdfcl.so.2.41.0+0",
+				"/usr/lib/libopencl-clang.so.22.1"
 			],
 			"name": "intel-graphics-compiler",
 			"provides": [
@@ -49,12 +50,13 @@
 				"soname(libiga64.so.2(x86_64))",
 				"soname(libigc.so.2(x86_64))",
 				"soname(libigdfcl.so.2(x86_64))",
-				"soname(libopencl-clang.so.17(x86_64))"
+				"soname(libopencl-clang.so.22.1(x86_64))"
 			]
 		},
 		"intel-graphics-compiler-devel": {
 			"build-depends": [
 				"binary(bison)",
+				"binary(clang-format)",
 				"binary(flex)",
 				"binary(mold)",
 				"binary(objdump)",
@@ -198,6 +200,6 @@
 		}
 	},
 	"source-name": "intel-graphics-compiler",
-	"source-release": "8",
-	"source-version": "2.40.13"
+	"source-release": "9",
+	"source-version": "2.41.5"
 }
