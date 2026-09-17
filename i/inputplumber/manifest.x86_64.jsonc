@@ -34,6 +34,8 @@
 				"/usr/share/inputplumber/capability_maps/ally_type2.yaml",
 				"/usr/share/inputplumber/capability_maps/anbernic_type1.yaml",
 				"/usr/share/inputplumber/capability_maps/ayaneo_type1.yaml",
+				"/usr/share/inputplumber/capability_maps/ayaneo_type10.yaml",
+				"/usr/share/inputplumber/capability_maps/ayaneo_type11.yaml",
 				"/usr/share/inputplumber/capability_maps/ayaneo_type2.yaml",
 				"/usr/share/inputplumber/capability_maps/ayaneo_type3.yaml",
 				"/usr/share/inputplumber/capability_maps/ayaneo_type4.yaml",
@@ -90,6 +92,7 @@
 				"/usr/share/inputplumber/devices/50-ayaneo_flip_1s.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_kun.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_next.yaml",
+				"/usr/share/inputplumber/devices/50-ayaneo_pocket_ds.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_pocket_s2.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_slide.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_loki_max.yaml",
@@ -172,6 +175,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "67",
-	"source-version": "0.79.5"
+	"source-release": "68",
+	"source-version": "0.81.0"
 }

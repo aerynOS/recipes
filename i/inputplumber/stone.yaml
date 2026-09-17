@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : inputplumber
-version     : "0.79.5"
-release     : 67
+version     : "0.81.0"
+release     : 68
 homepage    : https://github.com/ShadowBlip/InputPlumber
 upstreams   :
-    - https://github.com/ShadowBlip/InputPlumber/archive/refs/tags/v0.79.5.tar.gz : bb217556a7947207ee34d9f22138c448b72fe0d543319d350d33067f37e9829c
+    - https://github.com/ShadowBlip/InputPlumber/archive/refs/tags/v0.81.0.tar.gz : 804ff31b6b67efe266f21cc752282b1defe14b34916261d0600da1b6094a21a7
 summary     : Open source input router and remapper daemon for Linux
 description : |
     InputPlumber is an open source input routing and control daemon for Linux.
