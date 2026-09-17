@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : powerstation
-version     : "0.8.1"
-release     : 13
+version     : "0.8.4"
+release     : 14
 homepage    : https://github.com/ShadowBlip/PowerStation
 upstreams   :
-    - https://github.com/ShadowBlip/PowerStation/archive/refs/tags/v0.8.1.tar.gz : 8cd83d570a6e4d3ae3178a9073329c31526e8cd5e5900e8309a57d1db3c83ab4
+    - https://github.com/ShadowBlip/PowerStation/archive/refs/tags/v0.8.4.tar.gz : 80c6e91e998dcace7616c0a31c9d57a43be7af353ef82e81c483572477bee3d1
 summary     : Open source TDP control and performance daemon with DBus interface
 description : |
     PowerStation is an open source TDP control and performance daemon for Linux that can be used to control CPU and GPU settings for better performance and battery life.

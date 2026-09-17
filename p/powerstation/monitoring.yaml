@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: ~
-  rss: ~
+  id: 392338
+  rss: https://github.com/ShadowBlip/PowerStation/tags.atom
 security:
   cpe: ~
