@@ -5,10 +5,13 @@
 		"opencv": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -26,6 +29,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -86,10 +90,13 @@
 		"opencv-bgsegm": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -107,6 +114,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -132,10 +140,13 @@
 		"opencv-calib3d": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -153,6 +164,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -160,7 +172,6 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libopenblas.so.0(x86_64))",
 				"soname(libopencv_core.so.414(x86_64))",
 				"soname(libopencv_features2d.so.414(x86_64))",
 				"soname(libopencv_flann.so.414(x86_64))",
@@ -179,10 +190,13 @@
 		"opencv-core": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -200,6 +214,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -232,10 +247,13 @@
 		"opencv-devel": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -253,6 +271,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -269,12 +288,14 @@
 				"opencv-imgproc",
 				"opencv-ml",
 				"opencv-objdetect",
+				"opencv-optflow",
 				"opencv-photo",
 				"opencv-plot",
 				"opencv-stitching",
 				"opencv-tracking",
 				"opencv-video",
-				"opencv-videoio"
+				"opencv-videoio",
+				"opencv-ximgproc"
 			],
 			"files": [
 				"/usr/include/opencv4/opencv2/bgsegm.hpp",
@@ -501,6 +522,11 @@
 				"/usr/include/opencv4/opencv2/objdetect/objdetect.hpp",
 				"/usr/include/opencv4/opencv2/opencv.hpp",
 				"/usr/include/opencv4/opencv2/opencv_modules.hpp",
+				"/usr/include/opencv4/opencv2/optflow.hpp",
+				"/usr/include/opencv4/opencv2/optflow/motempl.hpp",
+				"/usr/include/opencv4/opencv2/optflow/pcaflow.hpp",
+				"/usr/include/opencv4/opencv2/optflow/rlofflow.hpp",
+				"/usr/include/opencv4/opencv2/optflow/sparse_matching_gpc.hpp",
 				"/usr/include/opencv4/opencv2/photo.hpp",
 				"/usr/include/opencv4/opencv2/photo/cuda.hpp",
 				"/usr/include/opencv4/opencv2/photo/legacy/constants_c.h",
@@ -541,6 +567,33 @@
 				"/usr/include/opencv4/opencv2/videoio/registry.hpp",
 				"/usr/include/opencv4/opencv2/videoio/videoio.hpp",
 				"/usr/include/opencv4/opencv2/videoio/videoio_c.h",
+				"/usr/include/opencv4/opencv2/ximgproc.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/brightedges.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/color_match.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/deriche_filter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/disparity_filter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/edge_drawing.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/edge_filter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/edgeboxes.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/edgepreserving_filter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/estimated_covariance.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/fast_hough_transform.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/fast_line_detector.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/find_ellipses.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/fourier_descriptors.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/lsc.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/paillou_filter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/peilin.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/radon_transform.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/ridgefilter.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/run_length_morphology.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/scansegment.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/seeds.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/segmentation.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/slic.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/sparse_match_interpolator.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/structured_edge_detection.hpp",
+				"/usr/include/opencv4/opencv2/ximgproc/weighted_median_filter.hpp",
 				"/usr/lib/cmake/opencv4/OpenCVConfig-version.cmake",
 				"/usr/lib/cmake/opencv4/OpenCVConfig.cmake",
 				"/usr/lib/cmake/opencv4/OpenCVModules-release.cmake",
@@ -556,12 +609,14 @@
 				"/usr/lib/libopencv_imgproc.so",
 				"/usr/lib/libopencv_ml.so",
 				"/usr/lib/libopencv_objdetect.so",
+				"/usr/lib/libopencv_optflow.so",
 				"/usr/lib/libopencv_photo.so",
 				"/usr/lib/libopencv_plot.so",
 				"/usr/lib/libopencv_stitching.so",
 				"/usr/lib/libopencv_tracking.so",
 				"/usr/lib/libopencv_video.so",
 				"/usr/lib/libopencv_videoio.so",
+				"/usr/lib/libopencv_ximgproc.so",
 				"/usr/lib/pkgconfig/opencv4.pc",
 				"/usr/share/opencv4/valgrind.supp",
 				"/usr/share/opencv4/valgrind_3rdparty.supp"
@@ -575,10 +630,13 @@
 		"opencv-dnn": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -596,6 +654,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -622,10 +681,13 @@
 		"opencv-features2d": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -643,6 +705,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -667,10 +730,13 @@
 		"opencv-flann": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -688,6 +754,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -710,10 +777,13 @@
 		"opencv-highgui": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -731,6 +801,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -757,10 +828,13 @@
 		"opencv-imgcodecs": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -778,6 +852,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -813,10 +888,13 @@
 		"opencv-imgproc": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -834,6 +912,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -856,10 +935,13 @@
 		"opencv-ml": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -877,6 +959,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -899,10 +982,13 @@
 		"opencv-objdetect": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -920,6 +1006,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -942,13 +1029,16 @@
 				"soname(libopencv_objdetect.so.414(x86_64))"
 			]
 		},
-		"opencv-photo": {
+		"opencv-optflow": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -966,6 +1056,60 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
+				"pkgconfig(zlib)",
+				"protobuf-staticlib"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libopencv_calib3d.so.414(x86_64))",
+				"soname(libopencv_core.so.414(x86_64))",
+				"soname(libopencv_flann.so.414(x86_64))",
+				"soname(libopencv_imgcodecs.so.414(x86_64))",
+				"soname(libopencv_imgproc.so.414(x86_64))",
+				"soname(libopencv_video.so.414(x86_64))",
+				"soname(libopencv_ximgproc.so.414(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libopencv_optflow.so.4.14.0",
+				"/usr/lib/libopencv_optflow.so.414"
+			],
+			"name": "opencv-optflow",
+			"provides": [
+				"soname(libopencv_optflow.so.414(x86_64))"
+			]
+		},
+		"opencv-photo": {
+			"build-depends": [
+				"binary(nasm)",
+				"cmake(Eigen3)",
+				"cmake(OpenEXR)",
+				"cmake(OpenJPEG)",
+				"cmake(Qt6Core5Compat)",
+				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
+				"cmake(hdf5)",
+				"cmake(libavif)",
+				"cmake(libjpeg-turbo)",
+				"cmake(protobuf)",
+				"cmake(tiff)",
+				"pkgconfig(OpenCL)",
+				"pkgconfig(freetype2)",
+				"pkgconfig(gstreamer-plugins-base-1.0)",
+				"pkgconfig(harfbuzz)",
+				"pkgconfig(libavcodec)",
+				"pkgconfig(libavdevice)",
+				"pkgconfig(libavformat)",
+				"pkgconfig(libjxl)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libswscale)",
+				"pkgconfig(libva)",
+				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -989,10 +1133,13 @@
 		"opencv-plot": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -1010,6 +1157,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -1032,10 +1180,13 @@
 		"opencv-stitching": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -1053,6 +1204,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -1079,10 +1231,13 @@
 		"opencv-tracking": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -1100,6 +1255,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -1124,10 +1280,13 @@
 		"opencv-video": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -1145,6 +1304,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -1171,10 +1331,13 @@
 		"opencv-videoio": {
 			"build-depends": [
 				"binary(nasm)",
+				"cmake(Eigen3)",
 				"cmake(OpenEXR)",
 				"cmake(OpenJPEG)",
 				"cmake(Qt6Core5Compat)",
 				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
 				"cmake(hdf5)",
 				"cmake(libavif)",
 				"cmake(libjpeg-turbo)",
@@ -1192,6 +1355,7 @@
 				"pkgconfig(libswscale)",
 				"pkgconfig(libva)",
 				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
 				"pkgconfig(zlib)",
 				"protobuf-staticlib"
 			],
@@ -1226,9 +1390,61 @@
 			"provides": [
 				"soname(libopencv_videoio.so.414(x86_64))"
 			]
+		},
+		"opencv-ximgproc": {
+			"build-depends": [
+				"binary(nasm)",
+				"cmake(Eigen3)",
+				"cmake(OpenEXR)",
+				"cmake(OpenJPEG)",
+				"cmake(Qt6Core5Compat)",
+				"cmake(VulkanHeaders)",
+				"cmake(gflags)",
+				"cmake(glog)",
+				"cmake(hdf5)",
+				"cmake(libavif)",
+				"cmake(libjpeg-turbo)",
+				"cmake(protobuf)",
+				"cmake(tiff)",
+				"pkgconfig(OpenCL)",
+				"pkgconfig(freetype2)",
+				"pkgconfig(gstreamer-plugins-base-1.0)",
+				"pkgconfig(harfbuzz)",
+				"pkgconfig(libavcodec)",
+				"pkgconfig(libavdevice)",
+				"pkgconfig(libavformat)",
+				"pkgconfig(libjxl)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libswscale)",
+				"pkgconfig(libva)",
+				"pkgconfig(openblas)",
+				"pkgconfig(tesseract)",
+				"pkgconfig(zlib)",
+				"protobuf-staticlib"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libomp.so(x86_64))",
+				"soname(libopencv_calib3d.so.414(x86_64))",
+				"soname(libopencv_core.so.414(x86_64))",
+				"soname(libopencv_imgcodecs.so.414(x86_64))",
+				"soname(libopencv_imgproc.so.414(x86_64))",
+				"soname(libopencv_video.so.414(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libopencv_ximgproc.so.4.14.0",
+				"/usr/lib/libopencv_ximgproc.so.414"
+			],
+			"name": "opencv-ximgproc",
+			"provides": [
+				"soname(libopencv_ximgproc.so.414(x86_64))"
+			]
 		}
 	},
 	"source-name": "opencv",
-	"source-release": "25",
+	"source-release": "26",
 	"source-version": "4.14.0"
 }

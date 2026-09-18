@@ -3,7 +3,7 @@
 
 name        : opencv
 version     : "4.14.0"
-release     : 25
+release     : 26
 homepage    : https://opencv.org
 upstreams   :
     - https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz:
@@ -18,10 +18,13 @@ description : |
 license     : BSD-3-Clause
 builddeps   :
     - binary(nasm)
+    - cmake(Eigen3)
     - cmake(OpenEXR)
     - cmake(OpenJPEG)
     - cmake(Qt6Core5Compat)
     - cmake(VulkanHeaders)
+    - cmake(gflags)
+    - cmake(glog)
     - cmake(hdf5)
     - cmake(libavif)
     - cmake(libjpeg-turbo)
@@ -39,16 +42,17 @@ builddeps   :
     - pkgconfig(libswscale)
     - pkgconfig(libva)
     - pkgconfig(openblas)
+    - pkgconfig(tesseract)
     - pkgconfig(zlib)
     - protobuf-staticlib
-    # TODO eigen (?), tesseract
 setup       : |
     # TODO build extra modules, python module, etc, VTK, GTK
 
     # Using `BUILD_OPENCV_*` options we disable all extra modules from opencv_contrib that we don't explicitly need
     # To make this easier on ourselves let's allowlist the modules we want and disable every other one
     # Technically we don't need plot but tracking checks for it so it can build samples (which we don't end up installing anyway)
-    modules=(bgsegm plot tracking)
+    # optflow and ximgproc from request https://github.com/aerynOS/recipes/issues/2621
+    modules=(bgsegm optflow plot tracking ximgproc)
     contrib_cmake_args=""
     pushd contrib/modules
     directories=(*)
@@ -101,7 +105,8 @@ setup       : |
         -DWITH_VA=ON \
         -DWITH_VULKAN=ON \
         -DVULKAN_INCLUDE_DIRS=%(includedir)/vulkan \
-        ${contrib_cmake_args}
+        ${contrib_cmake_args} \
+        -Wno-author
 build       : |
     %cmake_build
 install     : |
@@ -127,12 +132,14 @@ packages    :
             - "%(name)-imgproc"
             - "%(name)-ml"
             - "%(name)-objdetect"
+            - "%(name)-optflow"
             - "%(name)-photo"
             - "%(name)-plot"
             - "%(name)-stitching"
             - "%(name)-tracking"
             - "%(name)-video"
             - "%(name)-videoio"
+            - "%(name)-ximgproc"
 
     # Most other distros just subpackage every individual library. That seems easiest rather than
     # trying to bundle some together into similar groupings. Autodep will just handle all of the
@@ -167,6 +174,9 @@ packages    :
     - "%(name)-objdetect":
         paths:
             - /usr/lib/libopencv_objdetect.so.*
+    - "%(name)-optflow": # opencv_contrib module
+        paths:
+            - /usr/lib/libopencv_optflow.so.*
     - "%(name)-photo":
         paths:
             - /usr/lib/libopencv_photo.so.*
@@ -185,3 +195,6 @@ packages    :
     - "%(name)-videoio":
         paths:
             - /usr/lib/libopencv_videoio.so.*
+    - "%(name)-ximgproc": # opencv_contrib module
+        paths:
+            - /usr/lib/libopencv_ximgproc.so.*
