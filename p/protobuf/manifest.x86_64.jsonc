@@ -37,19 +37,19 @@
 				"soname(libz.so.1(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libprotobuf-lite.so.36.1.0",
-				"/usr/lib/libprotobuf.so.36.1.0",
-				"/usr/lib/libprotoc.so.36.1.0",
-				"/usr/lib/libutf8_range.so.36.1.0",
-				"/usr/lib/libutf8_validity.so.36.1.0"
+				"/usr/lib/libprotobuf-lite.so.36.2.0",
+				"/usr/lib/libprotobuf.so.36.2.0",
+				"/usr/lib/libprotoc.so.36.2.0",
+				"/usr/lib/libutf8_range.so.36.2.0",
+				"/usr/lib/libutf8_validity.so.36.2.0"
 			],
 			"name": "protobuf",
 			"provides": [
-				"soname(libprotobuf-lite.so.36.1.0(x86_64))",
-				"soname(libprotobuf.so.36.1.0(x86_64))",
-				"soname(libprotoc.so.36.1.0(x86_64))",
-				"soname(libutf8_range.so.36.1.0(x86_64))",
-				"soname(libutf8_validity.so.36.1.0(x86_64))"
+				"soname(libprotobuf-lite.so.36.2.0(x86_64))",
+				"soname(libprotobuf.so.36.2.0(x86_64))",
+				"soname(libprotoc.so.36.2.0(x86_64))",
+				"soname(libutf8_range.so.36.2.0(x86_64))",
+				"soname(libutf8_validity.so.36.2.0(x86_64))"
 			]
 		},
 		"protobuf-devel": {
@@ -107,20 +107,20 @@
 				"soname(libabsl_strings.so.2608.0.0(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libprotobuf.so.36.1.0(x86_64))",
-				"soname(libprotoc.so.36.1.0(x86_64))",
+				"soname(libprotobuf.so.36.2.0(x86_64))",
+				"soname(libprotoc.so.36.2.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
-				"soname(libutf8_validity.so.36.1.0(x86_64))"
+				"soname(libutf8_validity.so.36.2.0(x86_64))"
 			],
 			"files": [
 				"/usr/bin/protoc",
-				"/usr/bin/protoc-36.1.0",
+				"/usr/bin/protoc-36.2.0",
 				"/usr/bin/protoc-gen-upb",
-				"/usr/bin/protoc-gen-upb-36.1.0",
+				"/usr/bin/protoc-gen-upb-36.2.0",
 				"/usr/bin/protoc-gen-upb_minitable",
-				"/usr/bin/protoc-gen-upb_minitable-36.1.0",
+				"/usr/bin/protoc-gen-upb_minitable-36.2.0",
 				"/usr/bin/protoc-gen-upbdefs",
-				"/usr/bin/protoc-gen-upbdefs-36.1.0",
+				"/usr/bin/protoc-gen-upbdefs-36.2.0",
 				"/usr/include/google/protobuf/any.h",
 				"/usr/include/google/protobuf/any.pb.h",
 				"/usr/include/google/protobuf/any.proto",
@@ -460,13 +460,13 @@
 			"name": "protobuf-devel",
 			"provides": [
 				"binary(protoc)",
-				"binary(protoc-36.1.0)",
+				"binary(protoc-36.2.0)",
 				"binary(protoc-gen-upb)",
-				"binary(protoc-gen-upb-36.1.0)",
+				"binary(protoc-gen-upb-36.2.0)",
 				"binary(protoc-gen-upb_minitable)",
-				"binary(protoc-gen-upb_minitable-36.1.0)",
+				"binary(protoc-gen-upb_minitable-36.2.0)",
 				"binary(protoc-gen-upbdefs)",
-				"binary(protoc-gen-upbdefs-36.1.0)",
+				"binary(protoc-gen-upbdefs-36.2.0)",
 				"cmake(protobuf)",
 				"cmake(utf8_range)",
 				"pkgconfig(protobuf)",
@@ -676,10 +676,10 @@
 				"/usr/lib/python3.14/site-packages/google/protobuf/util/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/google/protobuf/util/__pycache__/__init__.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/google/protobuf/wrappers_pb2.py",
-				"/usr/lib/python3.14/site-packages/protobuf-7.36.1.dist-info/LICENSE",
-				"/usr/lib/python3.14/site-packages/protobuf-7.36.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/protobuf-7.36.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/protobuf-7.36.1.dist-info/WHEEL"
+				"/usr/lib/python3.14/site-packages/protobuf-7.36.2.dist-info/LICENSE",
+				"/usr/lib/python3.14/site-packages/protobuf-7.36.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/protobuf-7.36.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/protobuf-7.36.2.dist-info/WHEEL"
 			],
 			"name": "python-protobuf",
 			"provides": [
@@ -689,6 +689,6 @@
 		}
 	},
 	"source-name": "protobuf",
-	"source-release": "18",
-	"source-version": "36.1"
+	"source-release": "19",
+	"source-version": "36.2"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : protobuf
-version     : "36.1"
-release     : 18
+version     : "36.2"
+release     : 19
 homepage    : https://github.com/protocolbuffers/protobuf
 upstreams   :
-    - https://github.com/protocolbuffers/protobuf/releases/download/v36.1/protobuf-36.1.tar.gz : dc74fa582f559cbd31614ddfefb4868f43c919d7184bde514bb47f90c6025eb8
+    - https://github.com/protocolbuffers/protobuf/releases/download/v36.2/protobuf-36.2.tar.gz : 3d9642a662d10e68ebae5e53f14dcce5105684212d5078f8e0d47d1ab3ae6b64
 summary     : Protocol Buffers - Google's data interchange format
 description : |
     Protocol Buffers - Google's data interchange format
