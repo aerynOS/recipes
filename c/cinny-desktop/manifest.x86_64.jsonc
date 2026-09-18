@@ -24,6 +24,7 @@
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libcairo.so.2(x86_64))",
+				"soname(libdbus-1.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libgdk-3.so.0(x86_64))",
 				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
@@ -38,7 +39,7 @@
 			],
 			"files": [
 				"/usr/bin/cinny-desktop",
-				"/usr/share/applications/in.cinny.Cinny.desktop/in.cinny.Cinny.desktop",
+				"/usr/share/applications/in.cinny.Cinny.desktop",
 				"/usr/share/icons/hicolor/scalable/apps/cinny-desktop.svg"
 			],
 			"name": "cinny-desktop",
@@ -48,6 +49,6 @@
 		}
 	},
 	"source-name": "cinny-desktop",
-	"source-release": "2",
-	"source-version": "4.12.1"
+	"source-release": "3",
+	"source-version": "4.12.7"
 }

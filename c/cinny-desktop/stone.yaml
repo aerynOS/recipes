@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cinny-desktop
-version     : "4.12.1"
-release     : 2
+version     : "4.12.7"
+release     : 3
 homepage    : https://github.com/cinnyapp/cinny-desktop
 upstreams   :
-    - https://github.com/cinnyapp/cinny-desktop/archive/refs/tags/v4.12.1.tar.gz :
-        hash: c1fbe50dffe0039a983f075b0dd8d81206a0c71312eca1fb00efb0fe3ed6d0ae
+    - https://github.com/cinnyapp/cinny-desktop/archive/refs/tags/v4.12.7.tar.gz :
+        hash: 80d444d8a2452d4bfb177ee17d3715ead5e22a296ce2c56bd1eff1bc870e01b0
         rename: cinny-desktop
-    - https://github.com/cinnyapp/cinny/archive/refs/tags/v4.12.1.tar.gz :
-        hash: b5b9921eb376a8e1be847690b0e104420d6c862d912da746aee876070ecb537b
+    - https://github.com/cinnyapp/cinny/archive/refs/tags/v4.12.7.tar.gz :
+        hash: 239b1aec953065eef2bd356b499e5e9b91f4122d346da5a56b81a8eb1047ff21
         unpackdir: cinny-desktop/cinny/
 summary     :  Yet another matrix client for desktop
 description : |
@@ -41,5 +41,5 @@ build       : |
     npm run tauri build -- --no-bundle
 install     : |
     %install_exe src-tauri/target/release/cinny %(installroot)/%(bindir)/cinny-desktop
-    %install_file %(pkgdir)/in.cinny.Cinny.desktop -t %(installroot)%(datadir)/applications/in.cinny.Cinny.desktop
+    %install_file %(pkgdir)/in.cinny.Cinny.desktop -t %(installroot)%(datadir)/applications
     %install_file cinny/public/res/svg/cinny.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/cinny-desktop.svg
