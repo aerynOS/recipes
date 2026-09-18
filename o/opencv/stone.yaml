@@ -3,7 +3,8 @@
 
 name        : opencv
 version     : "4.14.0"
-release     : 24
+release     : 25
+homepage    : https://opencv.org
 upstreams   :
     - https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz:
         hash: ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e
@@ -11,11 +12,10 @@ upstreams   :
     - https://github.com/opencv/opencv_contrib/archive/4.14.0/opencv_contrib-4.14.0.tar.gz:
         hash: 4f17abd1bc7f88e19c3380c8de7cbf2d863aced5b5ee8d8934cc7902b67d42c9
         unpackdir: opencv/contrib
-homepage    : https://opencv.org
-license     : BSD-3-Clause
 summary     : An open source computer vision and machine learning software library
 description : |
     OpenCV is an open source computer vision and machine learning software library
+license     : BSD-3-Clause
 builddeps   :
     - binary(nasm)
     - cmake(OpenEXR)
@@ -34,9 +34,9 @@ builddeps   :
     - pkgconfig(libavcodec)
     - pkgconfig(libavdevice)
     - pkgconfig(libavformat)
-    - pkgconfig(libswscale)
     - pkgconfig(libjxl)
     - pkgconfig(libpng)
+    - pkgconfig(libswscale)
     - pkgconfig(libva)
     - pkgconfig(openblas)
     - pkgconfig(zlib)

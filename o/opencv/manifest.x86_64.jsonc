@@ -607,7 +607,7 @@
 				"soname(libm.so.6(x86_64))",
 				"soname(libopencv_core.so.414(x86_64))",
 				"soname(libopencv_imgproc.so.414(x86_64))",
-				"soname(libprotobuf.so.36.1.0(x86_64))",
+				"soname(libprotobuf.so.36.2.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -1229,6 +1229,6 @@
 		}
 	},
 	"source-name": "opencv",
-	"source-release": "24",
+	"source-release": "25",
 	"source-version": "4.14.0"
 }
