@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 8763
+  rss: https://invent.kde.org/utilities/keepsecret/-/tags?format=atom
+security:
+  # No known CPE, last checked 2026-09-18
+  cpe: ~
