@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zulip-desktop
-version     : "5.12.4"
-release     : 5
-upstreams   :
-    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.12.4.tar.gz : 2db95b7fe239dde54470d269150185118515ee232ef52684345db55a42c9edfd
+version     : "5.13.1"
+release     : 6
 homepage    : https://zulipchat.com
-license     : Apache-2.0
+upstreams   :
+    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.13.1.tar.gz : 0c805076b70e08c5076da38e20c8e4f58ae2721beabc1d07c5c68e6ec0c7cb1c
 summary     : Desktop client for Zulip
 description : |
     Real-time team chat based on the email threading model
+license     : Apache-2.0
 networking  : true
 builddeps   :
     - binary(pnpm)

@@ -52,8 +52,6 @@
 				"/usr/lib/zulip-desktop/chrome_200_percent.pak",
 				"/usr/lib/zulip-desktop/chrome_crashpad_handler",
 				"/usr/lib/zulip-desktop/icudtl.dat",
-				"/usr/lib/zulip-desktop/libEGL.so",
-				"/usr/lib/zulip-desktop/libGLESv2.so",
 				"/usr/lib/zulip-desktop/libffmpeg.so",
 				"/usr/lib/zulip-desktop/libvk_swiftshader.so",
 				"/usr/lib/zulip-desktop/libvulkan.so.1",
@@ -138,8 +136,6 @@
 			"name": "zulip-desktop",
 			"provides": [
 				"binary(zulip)",
-				"soname(zulip-desktop/libEGL.so(x86_64))",
-				"soname(zulip-desktop/libGLESv2.so(x86_64))",
 				"soname(zulip-desktop/libffmpeg.so(x86_64))",
 				"soname(zulip-desktop/libvk_swiftshader.so(x86_64))",
 				"soname(zulip-desktop/libvulkan.so.1(x86_64))"
@@ -147,6 +143,6 @@
 		}
 	},
 	"source-name": "zulip-desktop",
-	"source-release": "5",
-	"source-version": "5.12.4"
+	"source-release": "6",
+	"source-version": "5.13.1"
 }
