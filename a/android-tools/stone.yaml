@@ -3,7 +3,7 @@
 
 name        : android-tools
 version     : "37.0.0"
-release     : 8
+release     : 9
 homepage    : https://developer.android.com/tools
 upstreams   :
     - https://github.com/nmeum/android-tools/releases/download/37.0.0/android-tools-37.0.0.tar.xz : 2725d09f892a3a38e534429f47a321f58ecf6a3169caa42c915fb2cb7d46be0e
