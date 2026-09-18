@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 391965
+  rss: https://invent.kde.org/libraries/kirigami-app-components/-/tags?format=atom
+security:
+  # No known CPE, last checked 2026-09-18
+  cpe: ~
