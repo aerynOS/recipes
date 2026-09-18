@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : uutils-coreutils
-version     : "0.11.0"
-release     : 39
+version     : "0.12.0"
+release     : 40
 homepage    : https://uutils.github.io/coreutils/
 upstreams   :
-    - https://github.com/uutils/coreutils/archive/refs/tags/0.11.0.tar.gz : a47966117783bef18650cc724f1b1d061b717ac91a0feaabdd34910703cf70a4
+    - https://github.com/uutils/coreutils/archive/refs/tags/0.12.0.tar.gz : 4fb327655cb4ffcbf2f16550cf9234079ffe839692f7aa1a6eda104af684e122
 summary     : Cross-platform Rust rewrite of the GNU coreutils
 description : |
     Cross-platform Rust rewrite of the GNU coreutils
@@ -64,6 +64,8 @@ install     : |
 
     declare -a _gnu_utils
     # https://github.com/uutils/coreutils/issues/10862
+    # https://github.com/uutils/coreutils/issues/14549
+    # TODO: revisit again with v0.13.0
     # Upstream patch is not accounting umask 0022 yet, hence use gnu-cp for now
     _gnu_utils+=(cp)
 
