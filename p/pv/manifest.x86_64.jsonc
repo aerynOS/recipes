@@ -24,11 +24,14 @@
 				"/usr/share/locale/de/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/fr/LC_MESSAGES/pv.mo",
+				"/usr/share/locale/it/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/pt/LC_MESSAGES/pv.mo",
+				"/usr/share/locale/ro/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/pv.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/pv.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/pv.mo",
 				"/usr/share/man/man1/pv.1"
 			],
 			"name": "pv",
@@ -38,6 +41,6 @@
 		}
 	},
 	"source-name": "pv",
-	"source-release": "7",
-	"source-version": "1.11.0"
+	"source-release": "8",
+	"source-version": "1.12.0"
 }
