@@ -21,7 +21,7 @@
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libicui18n.so.78(x86_64))",
 				"soname(libicuuc.so.78(x86_64))",
-				"soname(libprotobuf.so.36.1.0(x86_64))",
+				"soname(libprotobuf.so.36.2.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -99,6 +99,6 @@
 		}
 	},
 	"source-name": "libphonenumber",
-	"source-release": "16",
-	"source-version": "9.0.38"
+	"source-release": "17",
+	"source-version": "9.0.39"
 }
