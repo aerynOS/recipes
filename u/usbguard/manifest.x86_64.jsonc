@@ -32,7 +32,7 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libpolkit-gobject-1.so.0(x86_64))",
-				"soname(libprotobuf.so.36.1.0(x86_64))",
+				"soname(libprotobuf.so.36.2.0(x86_64))",
 				"soname(libqb.so.100(x86_64))",
 				"soname(libseccomp.so.2(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
@@ -122,6 +122,6 @@
 		}
 	},
 	"source-name": "usbguard",
-	"source-release": "16",
+	"source-release": "17",
 	"source-version": "1.1.4"
 }
