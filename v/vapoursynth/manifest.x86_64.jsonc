@@ -10,6 +10,7 @@
 				"binary(patchelf)",
 				"binary(readelf)",
 				"pkgconfig(python3)",
+				"pkgconfig(vulkan)",
 				"pkgconfig(zimg)",
 				"python(meson-python)"
 			],
@@ -23,11 +24,11 @@
 				"soname(libzimg.so.2(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/vapoursynth-79.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/vapoursynth-79.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/vapoursynth-79.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/vapoursynth-79.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/vapoursynth-79.dist-info/licenses/COPYING.LESSER",
+				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/licenses/COPYING.LESSER",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__init__.py",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__main__.py",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -73,6 +74,7 @@
 				"binary(patchelf)",
 				"binary(readelf)",
 				"pkgconfig(python3)",
+				"pkgconfig(vulkan)",
 				"pkgconfig(zimg)",
 				"python(meson-python)"
 			],
@@ -100,6 +102,7 @@
 				"binary(patchelf)",
 				"binary(readelf)",
 				"pkgconfig(python3)",
+				"pkgconfig(vulkan)",
 				"pkgconfig(zimg)",
 				"python(meson-python)"
 			],
@@ -110,6 +113,7 @@
 				"/usr/include/vapoursynth/VSConstants4.h",
 				"/usr/include/vapoursynth/VSHelper4.h",
 				"/usr/include/vapoursynth/VSScript4.h",
+				"/usr/include/vapoursynth/VSVulkan4.h",
 				"/usr/include/vapoursynth/VapourSynth4.h",
 				"/usr/lib/libvapoursynth-script.so",
 				"/usr/lib/libvapoursynth.so",
@@ -131,6 +135,7 @@
 				"binary(patchelf)",
 				"binary(readelf)",
 				"pkgconfig(python3)",
+				"pkgconfig(vulkan)",
 				"pkgconfig(zimg)",
 				"python(meson-python)"
 			],
@@ -147,6 +152,6 @@
 		}
 	},
 	"source-name": "vapoursynth",
-	"source-release": "3",
-	"source-version": "79"
+	"source-release": "4",
+	"source-version": "80"
 }
