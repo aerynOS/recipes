@@ -1,0 +1,8 @@
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.udisks2.encrypted-unlock" ||
+         action.id == "org.freedesktop.udisks2.encrypted-unlock-system" ||
+         action.id == "org.freedesktop.udisks2.encrypted-unlock-other-seat") &&
+        subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+    }
+});
