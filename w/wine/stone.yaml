@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wine
-version     : "11.17"
-release     : 38
+version     : "11.18"
+release     : 39
 homepage    : https://www.winehq.org
 upstreams   :
-    - https://dl.winehq.org/wine/source/11.x/wine-11.17.tar.xz : 8e752e29bba2901ad9f915139345c6ee67184b099d425704d915971ca5c055fc
+    - https://dl.winehq.org/wine/source/11.x/wine-11.18.tar.xz : c6282f6d4daecf11f3ab9f9a2b6c598f67be7e28c363ba2cae8a3c44b611e7a4
 summary     : Wine is a program which allows running Microsoft Windows programs on Unix.
 description : |
     Wine is a program which allows running Microsoft Windows programs
