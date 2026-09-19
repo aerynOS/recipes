@@ -3,7 +3,7 @@
 
 name        : pkgset-aeryn-plasma
 version     : "2025.10" # I guess let's just match the OS version for now
-release     : 16
+release     : 17
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : pkgset virtual packages - Plasma/KDE Desktop
@@ -64,7 +64,7 @@ packages    :
             - kaccounts-providers # Used for logging into various providers
             - kio-admin
             - kio-gdrive
-            - kwalletmanager # UI for configuring KDE wallet
+            - keepsecret # UI for Secret Service collections (KWallet backend via kwallet-pam)
 
             # Desktop base profile
             - pkgset-aeryn-base-desktop
