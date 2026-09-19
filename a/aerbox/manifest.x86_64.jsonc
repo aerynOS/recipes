@@ -1,0 +1,38 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"aerbox": {
+			"build-depends": [
+				"clang-devel",
+				"pkgconfig(pam)"
+			],
+			"depends": [
+				"binary(moss)",
+				"binary(podman)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libpam.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/aerbox",
+				"/usr/share/aerbox/host/bin/aerbox-login",
+				"/usr/share/defaults/aerbox/templates/default/container-config.kdl",
+				"/usr/share/defaults/aerbox/templates/default/system-model.kdl",
+				"/usr/share/defaults/aerbox/templates/empty/container-config.kdl",
+				"/usr/share/defaults/aerbox/templates/empty/system-model.kdl",
+				"/usr/share/defaults/aerbox/templates/rust-dev/container-config.kdl",
+				"/usr/share/defaults/aerbox/templates/rust-dev/system-model.kdl"
+			],
+			"name": "aerbox",
+			"provides": [
+				"binary(aerbox)"
+			]
+		}
+	},
+	"source-name": "aerbox",
+	"source-release": "1",
+	"source-version": "0.0.1-52782c03eb36823f2fb1571cef65b9a2f1ca3ea4"
+}
