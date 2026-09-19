@@ -64,7 +64,7 @@
 				"/usr/bin/bazaar-dl-worker",
 				"/usr/bin/bge-demo",
 				"/usr/lib/libbge.so.0",
-				"/usr/lib/libbge.so.0.9.5",
+				"/usr/lib/libbge.so.0.9.6",
 				"/usr/lib/systemd/user/io.github.kolunmi.Bazaar.service",
 				"/usr/share/applications/io.github.kolunmi.Bazaar.desktop",
 				"/usr/share/dbus-1/services/io.github.kolunmi.Bazaar.SearchProvider.service",
@@ -93,6 +93,7 @@
 				"/usr/share/locale/ka/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/kk/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/kw/LC_MESSAGES/bazaar.mo",
+				"/usr/share/locale/nb/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/pt/LC_MESSAGES/bazaar.mo",
@@ -167,6 +168,6 @@
 		}
 	},
 	"source-name": "bazaar",
-	"source-release": "8",
-	"source-version": "0.9.5"
+	"source-release": "9",
+	"source-version": "0.9.6"
 }
