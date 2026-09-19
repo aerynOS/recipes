@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : protonplus
+version     : "0.5.20"
+release     : 1
+homepage    : https://github.com/Vysp3r/ProtonPlus
+upstreams   :
+    - https://github.com/Vysp3r/ProtonPlus/archive/refs/tags/v0.5.20.tar.gz : 824c7918636f2ba97b68f004cea3bf1da876dab6b39a80c049fc66e51621b660
+summary     : A modern compatibility tools manager for Linux
+description : |
+    ProtonPlus is a modern compatibility tools manager for Linux. It allows you to easily manage and update various compatibility tools like Proton, Wine, DXVK, and VKD3D across different launchers.
+license     :
+    - GPL-3.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - binary(update-desktop-database)
+    - binary(vala)
+    - pkgconfig(gee-0.8)
+    - pkgconfig(gtk4)
+    - pkgconfig(json-glib-1.0)
+    - pkgconfig(libadwaita-1)
+    - pkgconfig(libarchive)
+    - pkgconfig(libsoup-3.0)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

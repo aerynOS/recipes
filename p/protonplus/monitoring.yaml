@@ -1,0 +1,5 @@
+releases:
+  id: 381419
+  rss: https://github.com/Vysp3r/ProtonPlus/releases.atom
+security:
+  cpe: ~
