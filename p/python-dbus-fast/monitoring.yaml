@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: ~ # https://release-monitoring.org/ and use the numeric id in the url of project
+  rss: https://pypi.org/rss/project/dbus_fast/releases.xml
+security:
+  cpe: ~ # No CPE found, last checked (2026-09-11)

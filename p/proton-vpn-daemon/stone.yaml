@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : proton-vpn-daemon
+version     : "0.13.8"
+release     : 1
+homepage    : https://github.com/ProtonVPN/proton-vpn-daemon
+upstreams   :
+    - https://github.com/ProtonVPN/proton-vpn-daemon/archive/refs/tags/v0.13.8.tar.gz : a8b51794932035797e93db50c64145816fdc4bea951488b5ebdc9c7a4c504ab2
+summary     : Daemons that are required for the ProtonVPN linux client
+description : |
+    proton-vpn-daemon contains all daemons that are required for the linux client.
+license     : UPDATE LICENSE
+builddeps   :
+    - pkgconfig(python3)
+    - python(build)
+    - python(installer)
+    - python(setuptools)
+build       : |
+    %python_setup
+install     : |
+    %python_install
