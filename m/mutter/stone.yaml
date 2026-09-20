@@ -3,7 +3,7 @@
 
 name        : mutter
 version     : "51.0"
-release     : 41
+release     : 42
 homepage    : https://gnome.org
 upstreams   :
     - https://download.gnome.org/sources/mutter/51/mutter-51.0.tar.xz : 5d28f3ae225692428fcafb96500d673f34328b698b86960c9c1460d0b1d983b3
@@ -88,9 +88,10 @@ builddeps   :
     - pkgconfig(xwayland)
     - mesa-libegl-devel
 rundeps     :
+    - binary(Xwayland)
     - binary(gnome-session)
     - binary(pipewire) # DMA-BUF
-    - binary(Xwayland)
+    - mutter-common
 setup       : |
     %meson \
         -Dtests=disabled \
@@ -101,6 +102,14 @@ install     : |
     %meson_install
     %install_file %(installroot)/etc/bash_completion.d/gdctl %(installroot)/%(completionsdir)/gdctl
 packages    :
+    - "%(name)-common":
+        summary: Common files used by Mutter and software requiring mutter gschema data
+        description: |
+            Common files used by Mutter and software requiring mutter gschema data
+        paths:
+            - /usr/share/GConf
+            - /usr/share/glib-2.0
+            - /usr/share/gnome-control-center
     - "%(name)-devel":
         paths:
             - /usr/share/applications/org.gnome.Mutter.Mdk.desktop
