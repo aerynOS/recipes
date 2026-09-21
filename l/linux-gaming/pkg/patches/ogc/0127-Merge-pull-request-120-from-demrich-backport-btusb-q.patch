@@ -1,0 +1,89 @@
+From 9287cbbcc6ca50e39c6976afc92b227ae222b569 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Fri, 18 Sep 2026 14:21:05 -0700
+Subject: [PATCH 127/173] Merge pull request #120 from
+ demrich/backport/btusb-qca-wcn785x-firmware-reload
+
+[Backport] Bluetooth: btusb: always reload QCA rampatch/NVM on WCN785x (0489:e10a)
+---
+ drivers/bluetooth/btusb.c | 47 ++++++++++++++++++++++-----------------
+ 1 file changed, 26 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index e61c047448db..3cf626eaf247 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -3668,7 +3668,6 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 	const struct qca_device_info *info = NULL;
+ 	struct qca_version ver;
+ 	u32 ver_rom;
+-	u8 status;
+ 	int i, err;
+ 
+ 	err = btusb_qca_send_vendor_req(udev, QCA_GET_TARGET_VERSION, &ver,
+@@ -3694,17 +3693,25 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 		return -ENODEV;
+ 	}
+ 
+-	err = btusb_qca_send_vendor_req(udev, QCA_CHECK_STATUS, &status,
+-					sizeof(status));
+-	if (err)
++	/*
++	 * Some QCA chips (notably WCN785x family rebadged by Foxconn as
++	 * USB 0489:e10a in MSI X870/B850 motherboards) retain firmware
++	 * state across reboots in on-die NVM. After a previous OS or
++	 * driver version has loaded firmware, QCA_CHECK_STATUS reports
++	 * PATCH_UPDATED|SYSCFG_UPDATED even though the running firmware
++	 * may be incompatible with what bluez/btusb expect. Trusting the
++	 * status flags then leaves the chip on stale firmware, breaking
++	 * AVDTP transport setup (Acquire returns Failed; A2DP audio
++	 * cannot stream).
++	 *
++	 * Always re-apply the rampatch and NVM to guarantee a known-good
++	 * firmware state on every probe. The cost is a few hundred
++	 * milliseconds of firmware upload during enumeration.
++	 */
++	err = btusb_setup_qca_load_rampatch(hdev, &ver, info);
++	if (err < 0)
+ 		return err;
+ 
+-	if (!(status & QCA_PATCH_UPDATED)) {
+-		err = btusb_setup_qca_load_rampatch(hdev, &ver, info);
+-		if (err < 0)
+-			return err;
+-	}
+-
+ 	err = btusb_qca_send_vendor_req(udev, QCA_GET_TARGET_VERSION, &ver,
+ 					sizeof(ver));
+ 	if (err)
+@@ -3715,18 +3722,16 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 		btdata->qca_dump.controller_id = le32_to_cpu(ver.rom_version);
+ 	}
+ 
+-	if (!(status & QCA_SYSCFG_UPDATED)) {
+-		err = btusb_setup_qca_load_nvm(hdev, &ver, info);
+-		if (err < 0)
+-			return err;
++	err = btusb_setup_qca_load_nvm(hdev, &ver, info);
++	if (err < 0)
++		return err;
+ 
+-		/* WCN6855 2.1 and later will reset to apply firmware downloaded here, so
+-		 * wait ~100ms for reset Done then go ahead, otherwise, it maybe
+-		 * cause potential enable failure.
+-		 */
+-		if (info->rom_version >= 0x00130201)
+-			msleep(QCA_BT_RESET_WAIT_MS);
+-	}
++	/* WCN6855 2.1 and later will reset to apply firmware downloaded here, so
++	 * wait ~100ms for reset Done then go ahead, otherwise, it maybe
++	 * cause potential enable failure.
++	 */
++	if (info->rom_version >= 0x00130201)
++		msleep(QCA_BT_RESET_WAIT_MS);
+ 
+ 	/* Mark HCI_OP_ENHANCED_SETUP_SYNC_CONN as broken as it doesn't seem to
+ 	 * work with the likes of HSP/HFP mSBC.
+-- 
+2.55.0
+

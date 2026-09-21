@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86_64 7.2.6-39.gaming Kernel Configuration
+# Linux/x86_64 7.2.7-40.gaming Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="clang version 23.1.1 (AerynOS)"
 CONFIG_GCC_VERSION=0
@@ -8507,6 +8507,7 @@ CONFIG_HID_APPLETB_KBD=m
 CONFIG_HID_ASUS=m
 CONFIG_HID_ASUS_ALLY=m
 CONFIG_HID_AUREAL=m
+CONFIG_HID_AYANEO=m
 CONFIG_HID_BELKIN=m
 CONFIG_HID_BETOP_FF=m
 CONFIG_HID_BIGBEN_FF=m
