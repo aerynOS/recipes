@@ -87,13 +87,10 @@
 				"/usr/share/plezy/flutter_assets/assets/rating_icons/tmdb.svg",
 				"/usr/share/plezy/flutter_assets/assets/seerr_mark.svg",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_AutoDownscalePre_x2.glsl",
-				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_AutoDownscalePre_x4.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Clamp_Highlights.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Restore_CNN_M.glsl",
-				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Restore_CNN_UL.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Restore_CNN_VL.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Upscale_CNN_x2_M.glsl",
-				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Upscale_CNN_x2_UL.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/anime4k/Anime4K_Upscale_CNN_x2_VL.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/artcnn/ArtCNN_C4F16.glsl",
 				"/usr/share/plezy/flutter_assets/assets/shaders/artcnn/ArtCNN_C4F16_DN.glsl",
@@ -131,6 +128,6 @@
 		}
 	},
 	"source-name": "plezy",
-	"source-release": "13",
-	"source-version": "2.20.0"
+	"source-release": "14",
+	"source-version": "2.21.0"
 }
