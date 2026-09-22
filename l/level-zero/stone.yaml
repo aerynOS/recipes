@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : level-zero
-version     : "1.32.0"
-release     : 4
+version     : "1.33.1"
+release     : 5
 homepage    : https://github.com/oneapi-src/level-zero
 upstreams   :
-    - https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.32.0.tar.gz : b658d3be89b2ea3c5e6b3214592acb58a4875e738184b1a4cc7e9cf878b5f7b9
+    - https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.33.1.tar.gz : e0274918e10d788041aa79e166699d0975de9adf1b0b650ee02c123f81f0533f
 summary     : oneAPI Level Zero Specification Headers and Loader
 description : |
     The oneAPI Level Zero (Level Zero) provides low-level direct-to-metal interfaces that are tailored to the devices in a oneAPI platform. This package includes the Level Zero headers, loader, and validation layer

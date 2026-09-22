@@ -14,11 +14,11 @@
 			],
 			"files": [
 				"/usr/lib/libze_loader.so.1",
-				"/usr/lib/libze_loader.so.1.32.0",
+				"/usr/lib/libze_loader.so.1.33.1",
 				"/usr/lib/libze_tracing_layer.so.1",
-				"/usr/lib/libze_tracing_layer.so.1.32.0",
+				"/usr/lib/libze_tracing_layer.so.1.33.1",
 				"/usr/lib/libze_validation_layer.so.1",
-				"/usr/lib/libze_validation_layer.so.1.32.0"
+				"/usr/lib/libze_validation_layer.so.1.33.1"
 			],
 			"name": "level-zero",
 			"provides": [
@@ -63,6 +63,6 @@
 		}
 	},
 	"source-name": "level-zero",
-	"source-release": "4",
-	"source-version": "1.32.0"
+	"source-release": "5",
+	"source-version": "1.33.1"
 }
