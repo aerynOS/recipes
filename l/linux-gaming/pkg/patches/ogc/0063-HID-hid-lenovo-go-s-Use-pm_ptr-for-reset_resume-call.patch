@@ -1,0 +1,32 @@
+From e63b23b89776c025c8be1f9a75a825cec0de8be0 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Mon, 14 Sep 2026 15:52:57 -0700
+Subject: [PATCH 063/193] HID: hid-lenovo-go-s: Use pm_ptr for reset_resume
+ callback
+
+Adds missing pm_ptr to the .reset_resume callback for hid-lenovo-go-s
+
+Fixes: 3524900cc571bd922a ("HID: hid-lenovo-go-s: restore OS_TYPE after resume from s2idle")
+Cc: stable@vger.kernel.org
+Link: https://patch.msgid.link/20260914225303.868569-5-derekjohn.clark@gmail.com
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/hid/hid-lenovo-go-s.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/hid/hid-lenovo-go-s.c b/drivers/hid/hid-lenovo-go-s.c
+index 8b16fc7d151e..b6850cf2c029 100644
+--- a/drivers/hid/hid-lenovo-go-s.c
++++ b/drivers/hid/hid-lenovo-go-s.c
+@@ -1556,7 +1556,7 @@ static struct hid_driver hid_lenovo_go_s = {
+ 	.probe = hid_gos_probe,
+ 	.remove = hid_gos_remove,
+ 	.raw_event = hid_gos_raw_event,
+-	.reset_resume = hid_gos_reset_resume,
++	.reset_resume = pm_ptr(hid_gos_reset_resume),
+ };
+ module_hid_driver(hid_lenovo_go_s);
+ 
+-- 
+2.55.0
+

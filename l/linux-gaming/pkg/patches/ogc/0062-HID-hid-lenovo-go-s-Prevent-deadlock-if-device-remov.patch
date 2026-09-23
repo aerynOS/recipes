@@ -1,0 +1,37 @@
+From 71e7d31ea297b47de711037580201a8ebecb7d37 Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Mon, 14 Sep 2026 15:52:56 -0700
+Subject: [PATCH 062/193] HID: hid-lenovo-go-s: Prevent deadlock if device
+ removed during setup
+
+hid_gos_cfg_remove() calls a mutex before canceling delayed work. That
+delayed work function calls mcu_property_out(), which holds the same mutex.
+Prevent deadlock my removing the mutex prior to stopping the work.
+Additionally, since cancel_delayed_work has the potential to re-arm,
+switch to disable_delayed_work.
+
+Fixes: a23f3497bf208c59ad ("HID: hid-lenovo-go-s: Add Lenovo Legion Go S Series HID Driver")
+Cc: stable@vger.kernel.org
+Link: https://patch.msgid.link/20260914225303.868569-4-derekjohn.clark@gmail.com
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/hid/hid-lenovo-go-s.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/hid/hid-lenovo-go-s.c b/drivers/hid/hid-lenovo-go-s.c
+index 36505d8402ff..8b16fc7d151e 100644
+--- a/drivers/hid/hid-lenovo-go-s.c
++++ b/drivers/hid/hid-lenovo-go-s.c
+@@ -1442,8 +1442,7 @@ static int hid_gos_cfg_probe(struct hid_device *hdev,
+ 
+ static void hid_gos_cfg_remove(struct hid_device *hdev)
+ {
+-	guard(mutex)(&drvdata.cfg_mutex);
+-	cancel_delayed_work_sync(&drvdata.gos_cfg_setup);
++	disable_delayed_work_sync(&drvdata.gos_cfg_setup);
+ 	sysfs_remove_groups(&hdev->dev.kobj, top_level_attr_groups);
+ 	hid_hw_close(hdev);
+ 	hid_hw_stop(hdev);
+-- 
+2.55.0
+
