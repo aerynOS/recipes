@@ -1,0 +1,11 @@
+--- a/arch/x86/Kconfig.cpu	2026-09-25 18:52:00.475750340 +0200
++++ b/arch/x86/Kconfig.cpu	2026-09-25 19:10:41.175567146 +0200
+@@ -233,7 +233,7 @@ config X86_NATIVE_CPU
+ 	bool "Build and optimize for local/native CPU"
+ 	depends on X86_64
+ 	depends on CC_HAS_MARCH_NATIVE
+-	depends on !RUST || RUSTC_HAS_APXF
++	depends on RUSTC_HAS_APXF
+ 	help
+ 	  Optimize for the current CPU used to compile the kernel.
+ 	  Use this option if you intend to build the kernel for your
