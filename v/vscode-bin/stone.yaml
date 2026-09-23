@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vscode-bin
-version     : "1.138.0"
-release     : 42
+version     : "1.139.0"
+release     : 43
 homepage    : https://code.visualstudio.com/
 upstreams   :
-    - https://vscode.download.prss.microsoft.com/dbazure/download/stable/7debcd0e2acdea1c52de81bf9ee1620444407dda/code-stable-x64-1789458585.tar.gz : 59fb0f88eab2fe2e3a053ac020e18fcb2b5c113d255e41c82d26302b675d580c
-    - https://raw.githubusercontent.com/microsoft/vscode/1.138.0/resources/linux/code.desktop:
-        hash: 2f1782b30c4e040efff655fd9cf477930c5a0c81ddae27749b0cbb922c1d248e
+    - https://vscode.download.prss.microsoft.com/dbazure/download/stable/2242ebbb54efeeb0129e08e919e7e8d43033cd83/code-stable-x64-1790091292.tar.gz : ef18461d14d658255917ea978cdccb20576f797af8d9f6062e6ac5afa9f5ec51
+    - https://raw.githubusercontent.com/microsoft/vscode/1.139.0/resources/linux/code.desktop:
+        hash: 2b36d3a8c70fcead5258dd0855be0782305b23a00448f0eef11ee4ea462193a0
         unpack: false
-    - https://raw.githubusercontent.com/microsoft/vscode/1.138.0/resources/linux/code-url-handler.desktop:
+    - https://raw.githubusercontent.com/microsoft/vscode/1.139.0/resources/linux/code-url-handler.desktop:
         hash: c361efa7e02fcad759ed80d2fbab67877f33219b981578af6fffaf18aeb12d9b
         unpack: false
-    - https://raw.githubusercontent.com/microsoft/vscode/1.138.0/resources/linux/code-workspace.xml:
+    - https://raw.githubusercontent.com/microsoft/vscode/1.139.0/resources/linux/code-workspace.xml:
         hash: 3af748dd6578a1775e8eb7248ba397b7e11840df2ea6ee234ff76fee3dc306cf
         unpack: false
 summary     : Visual Studio Code (vscode) - Editor for building and debugging modern web and cloud applications (official binary version)
@@ -30,6 +30,7 @@ environment : |
     function meta_info() {
         sed 's/@@NAME_LONG@@/Visual Studio Code/g' "$1" |\
         sed 's/@@NAME_SHORT@@/Code/g' |\
+        sed 's/@@DESKTOP_NAME@@/com.microsoft.VSCode/g' |\
         sed 's/@@NAME@@/code/g' |\
         sed 's#@@EXEC@@#/usr/bin/code#g' |\
         sed 's/@@ICON@@/visual-studio-code/g' |\
