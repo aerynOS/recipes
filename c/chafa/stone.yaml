@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : chafa
-version     : "1.18.2"
-release     : 5
+version     : "1.18.3"
+release     : 6
 homepage    : https://github.com/hpjansson/chafa
 upstreams   :
-    - https://github.com/hpjansson/chafa/releases/download/1.18.2/chafa-1.18.2.tar.xz : 0b8d9ba9f347e8b6c0c71878217c9b0e478b4a42aa4babea0bf20840567239c2
+    - https://github.com/hpjansson/chafa/releases/download/1.18.3/chafa-1.18.3.tar.xz : fb995ef21dce6c73dd0dd454ba3e0f7fac08e053ea16060a2e5ce69a3746ee27
 summary     : Converts image data into graphics formats or ANSI/Unicode character art suitable for display in a terminal.
 description : |
     Converts image data into graphics formats or ANSI/Unicode character art suitable for display in a terminal.
@@ -36,6 +36,9 @@ build       : |
     %make
 install     : |
     %make_install
+    %install_file tools/completions/bash-completion.sh %(installroot)%(bashcompletionsdir)/chafa
+    %install_file tools/completions/fish-completion.fish %(installroot)%(fishcompletionsdir)/chafa.fish
+    %install_file tools/completions/zsh-completion.zsh %(installroot)%(zshcompletionsdir)/_chafa
 packages    :
     - "%(name)-libs":
         paths:

@@ -36,7 +36,10 @@
 				"soname(libwebpdemux.so.2(x86_64))"
 			],
 			"files": [
-				"/usr/bin/chafa"
+				"/usr/bin/chafa",
+				"/usr/share/bash-completion/completions/chafa",
+				"/usr/share/fish/vendor_completions.d/chafa.fish",
+				"/usr/share/zsh/site-functions/_chafa"
 			],
 			"name": "chafa",
 			"provides": [
@@ -162,7 +165,7 @@
 			],
 			"files": [
 				"/usr/lib/libchafa.so.0",
-				"/usr/lib/libchafa.so.0.11.2"
+				"/usr/lib/libchafa.so.0.11.3"
 			],
 			"name": "chafa-libs",
 			"provides": [
@@ -171,6 +174,6 @@
 		}
 	},
 	"source-name": "chafa",
-	"source-release": "5",
-	"source-version": "1.18.2"
+	"source-release": "6",
+	"source-version": "1.18.3"
 }
