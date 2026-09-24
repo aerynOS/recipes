@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
 releases:
   id: 5833
   rss: https://github.com/fwupd/fwupd/releases.atom
