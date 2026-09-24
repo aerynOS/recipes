@@ -33,6 +33,7 @@
 				"/usr/bin/cosmic-applet-minimize",
 				"/usr/bin/cosmic-applet-network",
 				"/usr/bin/cosmic-applet-notifications",
+				"/usr/bin/cosmic-applet-osk",
 				"/usr/bin/cosmic-applet-power",
 				"/usr/bin/cosmic-applet-status-area",
 				"/usr/bin/cosmic-applet-tiling",
@@ -50,6 +51,7 @@
 				"/usr/share/applications/com.system76.CosmicAppletMinimize.desktop",
 				"/usr/share/applications/com.system76.CosmicAppletNetwork.desktop",
 				"/usr/share/applications/com.system76.CosmicAppletNotifications.desktop",
+				"/usr/share/applications/com.system76.CosmicAppletOsk.desktop",
 				"/usr/share/applications/com.system76.CosmicAppletPower.desktop",
 				"/usr/share/applications/com.system76.CosmicAppletStatusArea.desktop",
 				"/usr/share/applications/com.system76.CosmicAppletTiling.desktop",
@@ -138,6 +140,7 @@
 				"binary(cosmic-applet-minimize)",
 				"binary(cosmic-applet-network)",
 				"binary(cosmic-applet-notifications)",
+				"binary(cosmic-applet-osk)",
 				"binary(cosmic-applet-power)",
 				"binary(cosmic-applet-status-area)",
 				"binary(cosmic-applet-tiling)",
@@ -149,6 +152,6 @@
 		}
 	},
 	"source-name": "cosmic-applets",
-	"source-release": "56",
-	"source-version": "1.8.0"
+	"source-release": "57",
+	"source-version": "1.9.0"
 }
