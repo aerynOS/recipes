@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-player
-version     : "1.8.0"
-release     : 41
+version     : "1.9.0"
+release     : 42
 homepage    : https://github.com/pop-os/cosmic-player
 upstreams   :
-    - https://github.com/pop-os/cosmic-player/archive/refs/tags/epoch-1.8.0.tar.gz : 34e23a39e8cf9d484378355a0890dfdb0f050c0dcc10c37026549ff112e1aa89
+    - https://github.com/pop-os/cosmic-player/archive/refs/tags/epoch-1.9.0.tar.gz : d2a13306348cdc3886f75c918f00e3722ec85509d0b7f286023f3929b7aa0600
 summary     : COSMIC media player
 description : |
     Cosmic Desktop Media Player
