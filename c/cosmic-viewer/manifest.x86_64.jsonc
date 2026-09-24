@@ -1,0 +1,70 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"cosmic-viewer": {
+			"build-depends": [
+				"binary(cmake)",
+				"binary(just)",
+				"binary(make)",
+				"binary(nasm)",
+				"pkgconfig(SvtAv1Enc)",
+				"pkgconfig(aom)",
+				"pkgconfig(dav1d)",
+				"pkgconfig(libde265)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libopenjp2)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libsharpyuv)",
+				"pkgconfig(openh264)",
+				"pkgconfig(openjph)",
+				"pkgconfig(rav1e)",
+				"pkgconfig(x264)",
+				"pkgconfig(x265)",
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libSvtAv1Enc.so.4(x86_64))",
+				"soname(libaom.so.3(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libdav1d.so.7(x86_64))",
+				"soname(libde265.so.0(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libjpeg.so.8(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libopenh264.so.8(x86_64))",
+				"soname(libopenjp2.so.7(x86_64))",
+				"soname(libopenjph.so.0.32(x86_64))",
+				"soname(librav1e.so.0.8(x86_64))",
+				"soname(libsharpyuv.so.0(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libturbojpeg.so.0(x86_64))",
+				"soname(libx264.so.165(x86_64))",
+				"soname(libx265.so.216(x86_64))",
+				"soname(libxkbcommon.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/cosmic-viewer",
+				"/usr/share/applications/com.system76.CosmicViewer.desktop",
+				"/usr/share/icons/hicolor/128x128/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/16x16/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/24x24/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/256x256/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/32x32/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/48x48/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/icons/hicolor/64x64/apps/com.system76.CosmicViewer.svg",
+				"/usr/share/metainfo/com.system76.CosmicViewer.metainfo.xml"
+			],
+			"name": "cosmic-viewer",
+			"provides": [
+				"binary(cosmic-viewer)"
+			]
+		}
+	},
+	"source-name": "cosmic-viewer",
+	"source-release": "1",
+	"source-version": "1.9.0"
+}

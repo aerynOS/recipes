@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : cosmic-viewer
+version     : "1.9.0"
+release     : 1
+homepage    : https://github.com/pop-os/cosmic-viewer
+upstreams   :
+    - https://github.com/pop-os/cosmic-viewer/archive/refs/tags/epoch-1.9.0.tar.gz : a1c3b54c5f7dde278d17e4bd67395cd1ce4ef4a130ec1b0cfeebc05cc0ce3026
+summary     : Cosmic Desktop Image Viewer
+description : |
+    Cosmic Desktop Image Viewer
+license     : GPL-3.0
+builddeps   :
+    - binary(cmake)
+    - binary(just)
+    - binary(make)
+    - binary(nasm)
+    - pkgconfig(SvtAv1Enc)
+    - pkgconfig(aom)
+    - pkgconfig(dav1d)
+    - pkgconfig(libde265)
+    - pkgconfig(libjpeg)
+    - pkgconfig(libopenjp2)
+    - pkgconfig(libpng)
+    - pkgconfig(libsharpyuv)
+    - pkgconfig(openh264)
+    - pkgconfig(openjph)
+    - pkgconfig(rav1e)
+    - pkgconfig(x264)
+    - pkgconfig(x265)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(zlib)
+networking  : true
+environment : |
+    # Use the system TurboJPEG library instead of compiling the vendored copy.
+    export TURBOJPEG_SOURCE=pkg-config
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    CARGO_TARGET_DIR="target/%(target_triple)" just rootdir=%(installroot) install
