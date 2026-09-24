@@ -1,0 +1,32 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"cosmic-osk": {
+			"build-depends": [
+				"binary(just)",
+				"pkgconfig(libudev)",
+				"pkgconfig(xkbcommon)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libudev.so.1(x86_64))",
+				"soname(libxkbcommon.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/cosmic-osk"
+			],
+			"name": "cosmic-osk",
+			"provides": [
+				"binary(cosmic-osk)"
+			]
+		}
+	},
+	"source-name": "cosmic-osk",
+	"source-release": "1",
+	"source-version": "1.9.0"
+}

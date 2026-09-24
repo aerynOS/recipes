@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : cosmic-osk
+version     : "1.9.0"
+release     : 1
+homepage    : https://github.com/pop-os/cosmic-osk
+upstreams   :
+    - https://github.com/pop-os/cosmic-osk/archive/refs/tags/epoch-1.9.0.tar.gz : 6a4095f0474d55ecefe0e1f4bb24f5a7bffdf0450e87de40c668da1d628bd1f6
+summary     : Cosmic On-Screen Keyboard
+description : |
+    Cosmic On-Screen Keyboard
+license     : GPL-3.0
+builddeps   :
+    - binary(just)
+    - pkgconfig(libudev)
+    - pkgconfig(xkbcommon)
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    CARGO_TARGET_DIR="target/%(target_triple)" just rootdir=%(installroot) install
