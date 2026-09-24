@@ -25,6 +25,7 @@
 				"binary(cosmic-launcher)",
 				"binary(cosmic-notifications)",
 				"binary(cosmic-osd)",
+				"binary(cosmic-osk)",
 				"binary(cosmic-panel)",
 				"binary(cosmic-randr)",
 				"binary(cosmic-screenshot)",
@@ -33,6 +34,7 @@
 				"binary(cosmic-settings-daemon)",
 				"binary(cosmic-store)",
 				"binary(cosmic-term)",
+				"binary(cosmic-viewer)",
 				"binary(cosmic-workspaces)",
 				"cosmic-icons",
 				"pkgset-aeryn-base-desktop",
@@ -45,7 +47,10 @@
 		},
 		"pkgset-aeryn-cosmic-recommended": {
 			"depends": [
+				"binary(cosmic-monitor)",
 				"binary(cosmic-player)",
+				"cosmic-sound-theme",
+				"cosmic-wallpapers",
 				"pkgset-aeryn-cosmic-minimal"
 			],
 			"files": [
@@ -55,6 +60,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn-cosmic",
-	"source-release": "7",
-	"source-version": "2025.10"
+	"source-release": "8",
+	"source-version": "2026.08"
 }
