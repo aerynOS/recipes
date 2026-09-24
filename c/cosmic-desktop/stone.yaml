@@ -3,7 +3,7 @@
 
 name        : cosmic-desktop
 version     : "1.1"
-release     : 17
+release     : 18
 homepage    : https://system76.com/cosmic
 summary     : Cosmic Desktop Metapackage
 description : |
@@ -22,6 +22,7 @@ rundeps     :
     - binary(cosmic-monitor)
     - binary(cosmic-notifications)
     - binary(cosmic-osd)
+    - binary(cosmic-osk)
     - binary(cosmic-panel)
     - binary(cosmic-player)
     - binary(cosmic-randr)
@@ -30,6 +31,7 @@ rundeps     :
     - binary(cosmic-settings)
     - binary(cosmic-settings-daemon)
     - binary(cosmic-term)
+    - binary(cosmic-viewer)
     - binary(cosmic-workspaces)
     - binary(update-desktop-database)
     - binary(update-mime-database)

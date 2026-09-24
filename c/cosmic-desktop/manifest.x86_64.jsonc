@@ -16,6 +16,7 @@
 				"binary(cosmic-monitor)",
 				"binary(cosmic-notifications)",
 				"binary(cosmic-osd)",
+				"binary(cosmic-osk)",
 				"binary(cosmic-panel)",
 				"binary(cosmic-player)",
 				"binary(cosmic-randr)",
@@ -24,6 +25,7 @@
 				"binary(cosmic-settings)",
 				"binary(cosmic-settings-daemon)",
 				"binary(cosmic-term)",
+				"binary(cosmic-viewer)",
 				"binary(cosmic-workspaces)",
 				"binary(update-desktop-database)",
 				"binary(update-mime-database)",
@@ -42,6 +44,6 @@
 		}
 	},
 	"source-name": "cosmic-desktop",
-	"source-release": "17",
+	"source-release": "18",
 	"source-version": "1.1"
 }
