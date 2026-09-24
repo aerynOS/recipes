@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-session
-version     : "1.8.0"
-release     : 62
+version     : "1.9.0"
+release     : 63
 homepage    : https://github.com/pop-os/cosmic-session
 upstreams   :
-    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.8.0.tar.gz : e6e82bce485af7ec8900ef09da5e317c8a1fd4b76901901acf6eaead778542e6
+    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.9.0.tar.gz : e6d093938ab59baafdccac576cb0bc1a1966c825a5fedf9cb498061d8099ed57
 summary     : Cosmic Session Management
 description : |
     Cosmic Session Management
@@ -25,10 +25,12 @@ rundeps     :
     - binary(cosmic-idle)
     - binary(cosmic-notifications)
     - binary(cosmic-osd)
+    - binary(cosmic-osk)
     - binary(cosmic-panel)
     - binary(cosmic-randr)
     - binary(cosmic-settings)
     - binary(cosmic-settings-daemon)
+    - binary(cosmic-viewer)
     - binary(cosmic-workspaces)
     - binary(gnome-keyring)
     - binary(switcherooctl)

@@ -19,10 +19,12 @@
 				"binary(cosmic-idle)",
 				"binary(cosmic-notifications)",
 				"binary(cosmic-osd)",
+				"binary(cosmic-osk)",
 				"binary(cosmic-panel)",
 				"binary(cosmic-randr)",
 				"binary(cosmic-settings)",
 				"binary(cosmic-settings-daemon)",
+				"binary(cosmic-viewer)",
 				"binary(cosmic-workspaces)",
 				"binary(gnome-keyring)",
 				"binary(switcherooctl)",
@@ -57,6 +59,6 @@
 		}
 	},
 	"source-name": "cosmic-session",
-	"source-release": "62",
-	"source-version": "1.8.0"
+	"source-release": "63",
+	"source-version": "1.9.0"
 }
