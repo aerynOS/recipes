@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-edit
-version     : "1.8.0"
-release     : 54
+version     : "1.9.0"
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-edit
 upstreams   :
-    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.8.0.tar.gz : 91be2987160ddc8b83752e9879f3488615f62dbacad0766605d71086c0d251f2
+    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.9.0.tar.gz : 2748de5388e637c8390801961961b063e1c15778c33912cdc62448994194a789
 summary     : Cosmic Desktop Text Editor
 description : |
     Cosmic desktop Text Editor
