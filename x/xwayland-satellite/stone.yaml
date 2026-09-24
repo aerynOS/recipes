@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : xwayland-satellite
-version     : "0.8.2"
-release     : 9
+version     : "0.8.3"
+release     : 10
 upstreams   :
-    - https://github.com/Supreeeme/xwayland-satellite/archive/refs/tags/v0.8.2.tar.gz : cb50bb6948582d5ec3aa511d2d66ad622989bb14bef94e3bb81bae8b64c120b1
+    - https://github.com/Supreeeme/xwayland-satellite/archive/refs/tags/v0.8.3.tar.gz : 8b32873d7d740143ce9efa3cfb43c17d0176b89d2e8ffaa497db709f154fc478
 homepage    : https://github.com/Supreeeme/xwayland-satellite
 license     : MPL-2.0
 summary     : Rootless Xwayland integration for Wayland compositors
