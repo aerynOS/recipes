@@ -23,6 +23,7 @@
 			"files": [
 				"/usr/bin/faugus-launcher",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/backup.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/faugus/__pycache__/backup_daemon.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/components.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/config_manager.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/ea_fix.cpython-314.pyc",
@@ -42,6 +43,7 @@
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/tray_sni.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/utils.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/backup.py",
+				"/usr/lib/python3.14/site-packages/faugus/backup_daemon.py",
 				"/usr/lib/python3.14/site-packages/faugus/components.py",
 				"/usr/lib/python3.14/site-packages/faugus/config_manager.py",
 				"/usr/lib/python3.14/site-packages/faugus/ea_fix.py",
@@ -108,6 +110,6 @@
 		}
 	},
 	"source-name": "faugus-launcher",
-	"source-release": "20",
-	"source-version": "2.3.0"
+	"source-release": "21",
+	"source-version": "2.4.0"
 }
