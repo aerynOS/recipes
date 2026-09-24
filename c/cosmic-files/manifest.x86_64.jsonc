@@ -31,6 +31,7 @@
 			"files": [
 				"/usr/bin/cosmic-files",
 				"/usr/bin/cosmic-files-applet",
+				"/usr/bin/cosmic-files-thumbnailer",
 				"/usr/share/applications/com.system76.CosmicFiles.desktop",
 				"/usr/share/icons/hicolor/128x128/apps/com.system76.CosmicFiles.svg",
 				"/usr/share/icons/hicolor/16x16/apps/com.system76.CosmicFiles.svg",
@@ -39,16 +40,18 @@
 				"/usr/share/icons/hicolor/32x32/apps/com.system76.CosmicFiles.svg",
 				"/usr/share/icons/hicolor/48x48/apps/com.system76.CosmicFiles.svg",
 				"/usr/share/icons/hicolor/64x64/apps/com.system76.CosmicFiles.svg",
-				"/usr/share/metainfo/com.system76.CosmicFiles.metainfo.xml"
+				"/usr/share/metainfo/com.system76.CosmicFiles.metainfo.xml",
+				"/usr/share/thumbnailers/com.system76.CosmicFiles.thumbnailer"
 			],
 			"name": "cosmic-files",
 			"provides": [
 				"binary(cosmic-files)",
-				"binary(cosmic-files-applet)"
+				"binary(cosmic-files-applet)",
+				"binary(cosmic-files-thumbnailer)"
 			]
 		}
 	},
 	"source-name": "cosmic-files",
-	"source-release": "57",
-	"source-version": "1.8.0"
+	"source-release": "58",
+	"source-version": "1.9.0"
 }

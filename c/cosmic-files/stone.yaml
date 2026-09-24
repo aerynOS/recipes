@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-files
-version     : "1.8.0"
-release     : 57
+version     : "1.9.0"
+release     : 58
 homepage    : https://github.com/pop-os/cosmic-files
 upstreams   :
-    - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.8.0.tar.gz : b8c62e4d071b9a63a2ac0103896567907cd16958c6c1a64e11e1f021f531a18b
+    - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.9.0.tar.gz : c30cb40b8177112c821753a95134ba82e64dfd8230f5c371a1c89a4b0d066309
 summary     : Cosmic Desktop File Browser
 description : |
     Cosmic desktop File Browser
@@ -34,5 +34,6 @@ setup       : |
 build       : |
     %cargo_build -p cosmic-files
     %cargo_build -p cosmic-files-applet
+    %cargo_build -p cosmic-files-thumbnailer
 install     : |
     CARGO_TARGET_DIR="target/%(target_triple)" just rootdir=%(installroot) install
