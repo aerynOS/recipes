@@ -19,6 +19,7 @@
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libatomic.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libdebuginfod.so.1(x86_64))",
 				"soname(libexpat.so.1(x86_64))",
@@ -109,6 +110,7 @@
 				"/usr/share/gdb/syscalls/netbsd.xml",
 				"/usr/share/gdb/syscalls/ppc-linux.xml",
 				"/usr/share/gdb/syscalls/ppc64-linux.xml",
+				"/usr/share/gdb/syscalls/riscv-linux.xml",
 				"/usr/share/gdb/syscalls/s390-linux.xml",
 				"/usr/share/gdb/syscalls/s390x-linux.xml",
 				"/usr/share/gdb/syscalls/sparc-linux.xml",
@@ -126,7 +128,6 @@
 				"/usr/share/info/gdb.info-7",
 				"/usr/share/info/gdb.info-8",
 				"/usr/share/info/gdb.info-9",
-				"/usr/share/info/stabs.info",
 				"/usr/share/man/man1/gcore.1",
 				"/usr/share/man/man1/gdb-add-index.1",
 				"/usr/share/man/man1/gdb.1",
@@ -169,6 +170,6 @@
 		}
 	},
 	"source-name": "gdb",
-	"source-release": "11",
-	"source-version": "17.2"
+	"source-release": "12",
+	"source-version": "18.1"
 }

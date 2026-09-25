@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gdb
-version     : "17.2"
-release     : 11
+version     : "18.1"
+release     : 12
 homepage    : https://www.sourceware.org/gdb
 upstreams   :
-    - https://ftp.gnu.org/gnu/gdb/gdb-17.2.tar.xz : 1c036c0d72e4b3d1fb5c94c88632add6f9d76f4d7c4d2ea793c12a9f19a3228c
+    - https://ftp.gnu.org/gnu/gdb/gdb-18.1.tar.xz : cd9fc3fe2b47743840e42c1592d3d87f8302eb18639c0b8b4ba0898002e2348f
 summary     : The GNU debugger
 description : |
     GDB, the GNU Project debugger, allows you to see what is going on "inside" another program while it executes - or what another program was doing at the moment it crashed.
