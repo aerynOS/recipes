@@ -11,6 +11,7 @@
 				"pkgconfig(libblake3)",
 				"pkgconfig(libcap)",
 				"pkgconfig(libseccomp)",
+				"pkgconfig(python3)",
 				"pkgconfig(systemd)"
 			],
 			"depends": [
@@ -47,6 +48,7 @@
 				"pkgconfig(libblake3)",
 				"pkgconfig(libcap)",
 				"pkgconfig(libseccomp)",
+				"pkgconfig(python3)",
 				"pkgconfig(systemd)"
 			],
 			"depends": [
@@ -56,9 +58,43 @@
 				"/usr/lib/libcrun.so"
 			],
 			"name": "crun-devel"
+		},
+		"python-crun": {
+			"build-depends": [
+				"binary(go-md2man)",
+				"binary(gperf)",
+				"binary(python3)",
+				"pkgconfig(json-c)",
+				"pkgconfig(libblake3)",
+				"pkgconfig(libcap)",
+				"pkgconfig(libseccomp)",
+				"pkgconfig(python3)",
+				"pkgconfig(systemd)"
+			],
+			"depends": [
+				"crun",
+				"soname(libblake3.so.0(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcap.so.2(x86_64))",
+				"soname(libcrun.so.0(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libjson-c.so.5(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libseccomp.so.2(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libsystemd.so.0(x86_64))",
+				"soname(libtbb.so.12(x86_64))"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/python_crun.so"
+			],
+			"name": "python-crun",
+			"provides": [
+				"soname(python3.14/site-packages/python_crun.so(x86_64))"
+			]
 		}
 	},
 	"source-name": "crun",
-	"source-release": "6",
-	"source-version": "1.29.1"
+	"source-release": "7",
+	"source-version": "1.30.1"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : crun
-version     : "1.29.1"
-release     : 6
+version     : "1.30.1"
+release     : 7
 homepage    : https://github.com/containers/crun
 upstreams   :
-    - https://github.com/containers/crun/releases/download/1.29.1/crun-1.29.1.tar.zst : 0fc095f629b6bba010b0cfa8b25ca1f769455e8891e06eb62c829ddc92ea2cad
+    - https://github.com/containers/crun/releases/download/1.30.1/crun-1.30.1.tar.zst : d62b89a82520a553edf63fd3ae11275be6f16ec86ed90d8ef7b113d06b239fa2
 summary     : A fast and low-memory footprint OCI Container Runtime fully written in C
 description : |
     A fast and lightweight fully featured OCI runtime and C library for running containers
@@ -21,16 +21,24 @@ builddeps   :
     - pkgconfig(libblake3)
     - pkgconfig(libcap)
     - pkgconfig(libseccomp)
-    # - pkgconfig(python3)
+    - pkgconfig(python3)
     - pkgconfig(systemd)
     # criu
 setup       : |
-    # What even uses the python bindings? They shouldn't be re-enabled until there's a note here what they're for
+    # python_crun: native module so users can import crun from Python scripts
     %configure \
         --disable-static \
         --enable-shared \
-        --without-python-bindings
+        --with-python-bindings
 build       : |
     %make
 install     : |
     %make_install
+packages    :
+    - "python-%(name)":
+        summary: Python bindings for %(name)
+        description: Python bindings for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/python3*/site-packages/
