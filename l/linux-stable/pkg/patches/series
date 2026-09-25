@@ -1,5 +1,7 @@
-# Upstream patches
-upstream/0000-drm-amdgpu-fix-race-condition-in-amdgpu_vm_wait_idle-during-process-kill.patch
+# TEMP Workarounds
+# Note: workaround for 'Kconfig recursive dependency limitations' issue introduced with v7.2.8
+# by 'x86-build-64-prevent-native-builds-from-generating-egpr-use.patch'
+hack-config-X86_NATIVE_CPU.patch
 
 # Enable x86_64-v2 build optimisations
 more-ISA-levels-and-uarches-for-kernel-6.16+.patch
