@@ -34,12 +34,12 @@
 			"files": [
 				"/usr/bin/lact",
 				"/usr/lib/kernel/cmdline.d/70-lact.cmdline",
-				"/usr/lib/systemd/system-preset/98-lact.preset",
 				"/usr/lib/systemd/system/lactd.service",
 				"/usr/share/applications/io.github.ilya_zlobintsev.LACT.desktop",
 				"/usr/share/icons/hicolor/512x512/apps/io.github.ilya_zlobintsev.LACT.png",
 				"/usr/share/icons/hicolor/scalable/apps/io.github.ilya_zlobintsev.LACT.svg",
-				"/usr/share/metainfo/io.github.ilya_zlobintsev.LACT.metainfo.xml"
+				"/usr/share/metainfo/io.github.ilya_zlobintsev.LACT.metainfo.xml",
+				"/usr/share/polkit-1/actions/io.github.ilya_zlobintsev.LACT.policy"
 			],
 			"name": "lact",
 			"provides": [
@@ -48,6 +48,6 @@
 		}
 	},
 	"source-name": "lact",
-	"source-release": "3",
-	"source-version": "0.9.1"
+	"source-release": "4",
+	"source-version": "0.10.1"
 }

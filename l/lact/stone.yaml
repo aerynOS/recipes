@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lact
-version     : "0.9.1"
-release     : 3
-upstreams   :
-    - https://github.com/ilya-zlobintsev/LACT/archive/refs/tags/v0.9.1.tar.gz : cb6790ffb99104ffb93502c82e19b9e8d07ec7c1eadf131948694d48eba49789
+version     : "0.10.1"
+release     : 4
 homepage    : https://github.com/ilya-zlobintsev/LACT
-license     : MIT
+upstreams   :
+    - https://github.com/ilya-zlobintsev/LACT/archive/refs/tags/v0.10.1.tar.gz : cbbbd0336fb65ce539ea29d99fe2e38f7c82de08c07d26dfab355735a88d853c
 summary     : Linux GPU Configuration Tool
 description : |
     Linux GPU Configuration Tool
+license     : MIT
 networking  : true
 builddeps   :
     - binary(cargo)
@@ -32,6 +32,3 @@ build       : |
 install     : |
     %make_install PREFIX=%(prefix)
     %install_file %(pkgdir)/kernel-lact.cmdline %(installroot)%(libdir)/kernel/cmdline.d/70-lact.cmdline
-
-    # Enable system-wide upon install
-    %install_file %(pkgdir)/98-lact.preset -t %(installroot)/%(libdir)/systemd/system-preset
