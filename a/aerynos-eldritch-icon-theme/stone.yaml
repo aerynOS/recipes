@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : aerynos-eldritch-icon-theme
+version     : 1.0
+release     : 1
+homepage    : https://codeberg.org/StormRosenaa/AerynOS-Art-icons
+upstreams   :
+    - https://codeberg.org/StormRosenaa/AerynOS-Art-icons/raw/branch/main/AerynOS-Eldritch.tar.xz : 58c3bd6ca4a4e1a81dbdde17a05c9d9d030d0ec98d392fea8ac583063ea80d50
+summary     : Eldritch icon theme for AerynOS
+description : |
+    Eldritch is a custom icon theme for AerynOS.
+license     : GPL
+builddeps   :
+    - binary(gtk-update-icon-cache)
+install     : |
+    %install_dir %(installroot)%(datadir)/icons/AerynOS-Eldritch
+
+    cp -a -- . \
+        %(installroot)%(datadir)/icons/AerynOS-Eldritch/
+
+    gtk-update-icon-cache -f \
+        %(installroot)%(datadir)/icons/AerynOS-Eldritch
