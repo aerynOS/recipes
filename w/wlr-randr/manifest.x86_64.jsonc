@@ -1,0 +1,29 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"wlr-randr": {
+			"build-depends": [
+				"pkgconfig(scdoc)",
+				"pkgconfig(wayland-client)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/wlr-randr",
+				"/usr/share/licenses/wlr-randr/LICENSE",
+				"/usr/share/man/man1/wlr-randr.1"
+			],
+			"name": "wlr-randr",
+			"provides": [
+				"binary(wlr-randr)"
+			]
+		}
+	},
+	"source-name": "wlr-randr",
+	"source-release": "1",
+	"source-version": "0.5.0"
+}
