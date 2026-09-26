@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : immer
+version     : "0.9.1"
+release     : 1
+homepage    : https://github.com/arximboldi/immer
+upstreams   :
+    - https://github.com/arximboldi/immer/archive/refs/tags/v0.9.1.tar.gz : b18b92ba60ec3186dc36ef671d3c2ae542cbb63eb6dc0e258476c6111a67c971
+summary     : Postmodern immutable and persistent data structures for C++
+description : |
+    immer is a library of persistent and immutable data structures written in C++. These enable whole new kinds of architectures for interactive and concurrent programs of striking simplicity, correctness, and performance.
+license     :
+    - BSL-1.0
+builddeps   :
+    - cmake(Boost)
+setup       : |
+    %cmake \
+        -Dimmer_BUILD_EXAMPLES=Off \
+        -Dimmer_BUILD_TESTS=Off
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
