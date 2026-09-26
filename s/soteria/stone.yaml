@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : soteria
+version     : "0.3.1"
+release     : 1
+homepage    : https://github.com/imvaskel/soteria
+upstreams   :
+    - https://github.com/imvaskel/soteria/archive/refs/tags/v0.3.1.tar.gz : f691e5be899fa572b5dc995c37d24a2ad1463959521234770ea2b984cb7afa2c
+summary     : Polkit authentication agent written in GTK
+description : |
+    Soteria is a Polkit authentication agent written in GTK designed to be used with any desktop environment.
+license     :
+    - Apache-2.0
+builddeps   :
+    - pkgconfig(cairo)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gtk4)
+    - pkgconfig(pango)
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+
+    %install_dir %(installroot)%(libdir)/soteria-polkit/
+    %install_dir %(installroot)%(libdir)/systemd/user/
+    %install_dir %(installroot)%(datadir)/licenses/soteria/
+
+    mv %(installroot)%(bindir)/soteria %(installroot)%(libdir)/soteria-polkit/
+    %install_file %(pkgdir)/soteria.service -t %(installroot)%(libdir)/systemd/user/
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/soteria/
+check       : |
+    %cargo_test
