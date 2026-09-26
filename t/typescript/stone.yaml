@@ -2,35 +2,24 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : typescript
-version     : "6.0.3"
-release     : 7
+version     : "7.0.2"
+release     : 8
 homepage    : https://www.typescriptlang.org
 upstreams   :
-    - https://registry.npmjs.org/typescript/-/typescript-6.0.3.tgz : 33cd0ee1beaa8c9e9d15a9da836c62ddea4c34a42d7c2d349dbc80d94165d22a
+    - https://github.com/microsoft/TypeScript/archive/refs/tags/v7.0.2.tar.gz : 8472f284b1465f5c4826a64c88853eccba667446f31a435ed1d0b28d373dbc0b
 summary     : A language for application-scale JavaScript
 description : |
     TypeScript is a language for application-scale JavaScript. TypeScript adds optional types to JavaScript that support tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript compiles to  readable, standards-based JavaScript.
 license     : Apache-2.0
-builddeps   :
-    - binary(npm-22)
-    - binary(npm-24)
-    - pkgconfig(zlib)
-rundeps     :
-    - binary(node)
+networking  : true
+setup       : |
+    %go_mod -C tsc
+build       : |
+    # noembed makes tsc load lib.*.d.ts from its own directory, matching upstream's npm build.
+    go build -C tsc -v -trimpath -tags noembed -o tsc ./cmd/tsgo
 install     : |
-    OLDPATH=${PATH}
+    %install_exe tsc/tsc -t %(installroot)%(libexecdir)
+    %install_file tsc/internal/bundled/libs/*.d.ts -t %(installroot)%(libexecdir)
 
-    # Nodejs-22 (non-default)
-    mkdir tmpinstall
-    export PATH=/usr/lib/nodejs-22/bin:$OLDPATH
-    npm install -g --prefix tmpinstall %(sourcedir)/typescript-%(version).tgz
-
-    # We only care about the node_modules for non-default nodejs versions
-    mkdir -p %(installroot)%(libdir)/
-    mv tmpinstall/lib/node_modules %(installroot)%(libdir)/node_modules_22
-
-    # Nodejs-24 (default)
-    export PATH=/usr/lib/nodejs-24/bin:$OLDPATH
-    npm install -g --prefix %(installroot)%(prefix) %(sourcedir)/typescript-%(version).tgz
-
-    mv %(installroot)%(libdir)/node_modules %(installroot)%(libdir)/node_modules_24
+    %install_dir %(installroot)%(bindir)
+    ln -s ../lib/%(name)/tsc %(installroot)%(bindir)/tsc
