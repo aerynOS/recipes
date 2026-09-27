@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : imagemagick
-version     : "7.1.2-31"
-release     : 25
+version     : "7.1.2-32"
+release     : 26
 homepage    : https://imagemagick.org/
 upstreams   :
-    - https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-31.tar.gz : 34d9cc3acddc3e3c429d23af60eda5ceaac477a8b296ddb9469f773f44a80a5f
+    - https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.2-32.tar.gz : 940e349f0ef394e658fd57400b83d1d7a81b954f6e7bdbfbfad31b2718c10add
 summary     : ImageMagick® suite to create, edit, compose, or convert bitmap images
 description : |
     ImageMagick® is a software suite to create, edit, compose, or convert bitmap images. It can read and write images in a variety of formats (over 200) including PNG, JPEG, JPEG-2000, GIF, TIFF, DPX, EXR, WebP, Postscript, PDF, and SVG. Use ImageMagick to resize, flip, mirror, rotate, distort, shear and transform images, adjust image colors, apply various special effects, or draw text, lines, polygons, ellipses and Bézier curves.

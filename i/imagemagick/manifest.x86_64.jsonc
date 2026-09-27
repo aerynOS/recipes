@@ -470,6 +470,7 @@
 				"/usr/share/doc/ImageMagick-7/www/composite/index.html",
 				"/usr/share/doc/ImageMagick-7/www/conjure/index.html",
 				"/usr/share/doc/ImageMagick-7/www/connected-components/index.html",
+				"/usr/share/doc/ImageMagick-7/www/content-provenance-authenticity/index.html",
 				"/usr/share/doc/ImageMagick-7/www/convert/index.html",
 				"/usr/share/doc/ImageMagick-7/www/convex-hull/index.html",
 				"/usr/share/doc/ImageMagick-7/www/defines/index.html",
@@ -1257,6 +1258,6 @@
 		}
 	},
 	"source-name": "imagemagick",
-	"source-release": "25",
-	"source-version": "7.1.2-31"
+	"source-release": "26",
+	"source-version": "7.1.2-32"
 }
