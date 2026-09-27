@@ -87,8 +87,6 @@
 				"/usr/share/noctalia/assets/fonts/tabler.json",
 				"/usr/share/noctalia/assets/noctalia-wallpaper.png",
 				"/usr/share/noctalia/assets/noctalia.svg",
-				"/usr/share/noctalia/assets/sounds/notification.wav",
-				"/usr/share/noctalia/assets/sounds/volume-change.wav",
 				"/usr/share/noctalia/assets/templates/alacritty/alacritty.toml",
 				"/usr/share/noctalia/assets/templates/alacritty/apply.sh",
 				"/usr/share/noctalia/assets/templates/alacritty/undo.sh",
@@ -165,6 +163,7 @@
 				"/usr/share/noctalia/assets/translations/he.json",
 				"/usr/share/noctalia/assets/translations/hu.json",
 				"/usr/share/noctalia/assets/translations/it.json",
+				"/usr/share/noctalia/assets/translations/ja.json",
 				"/usr/share/noctalia/assets/translations/ko.json",
 				"/usr/share/noctalia/assets/translations/ku.json",
 				"/usr/share/noctalia/assets/translations/nl.json",
@@ -186,6 +185,6 @@
 		}
 	},
 	"source-name": "noctalia",
-	"source-release": "7",
-	"source-version": "5.1.0"
+	"source-release": "8",
+	"source-version": "5.2.0"
 }
