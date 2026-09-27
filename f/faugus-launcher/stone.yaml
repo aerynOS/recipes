@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : faugus-launcher
-version     : "2.4.0"
-release     : 21
+version     : "2.4.2"
+release     : 22
 homepage    : https://github.com/Faugus/faugus-launcher
 upstreams   :
-    - https://github.com/Faugus/faugus-launcher/archive/refs/tags/2.4.0.tar.gz : 81b40664128c35bc841ae89e95574fe50ff997f52db10298b2150f95cc9f3330
+    - https://github.com/Faugus/faugus-launcher/archive/refs/tags/2.4.2.tar.gz : 16c52897a0343a5e5e9bef1ae4c2d3ea092eb293a59133eeac666b0614aaf986
 summary     : A simple and lightweight app for running Windows games using UMU-Launcher
 description : |
     A simple and lightweight app for running Windows games using UMU-Launcher
