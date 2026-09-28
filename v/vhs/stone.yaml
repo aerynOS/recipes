@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vhs
-version     : "0.12.0"
-release     : 4
+version     : "0.12.1"
+release     : 5
 homepage    : https://github.com/charmbracelet/vhs
 upstreams   :
-    - https://github.com/charmbracelet/vhs/archive/refs/tags/v0.12.0.tar.gz : 2e4a3b940f66ffbe1f66ded3b6253c9f3185a69567596e80d08c50cee77eaedf
+    - https://github.com/charmbracelet/vhs/archive/refs/tags/v0.12.1.tar.gz : ba9fbcb40133d1734c580ccb6b0fcae9673bf51d227f00877ac581c56ad15b77
 summary     : Your CLI home video recorder
 description : |
     Write terminal GIFs as code for integration testing and demoing your CLI tools.
@@ -21,7 +21,7 @@ build       : |
     # Update themes -- it appears they get compiled in.
     %make all
 
-    export GOFLAGS+=" -ldflags=-X=main.Version=%(version)"
+    export GOFLAGS+=" \"-ldflags=-linkmode=external -X=main.Version=%(version)\""
     go build -v -o vhs .
 
     # Generate shell completions and manual page artifacts.
