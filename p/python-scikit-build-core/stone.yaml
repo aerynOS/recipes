@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-scikit-build-core
-version     : "1.0.3"
-release     : 2
+version     : "1.1.0"
+release     : 3
 homepage    : https://github.com/scikit-build/scikit-build-core
 upstreams   :
-    - https://pypi.debian.net/scikit-build-core/scikit_build_core-1.0.3.tar.gz : a4d7a05978ee37975c37743510c8991e2debce7ef83afb0a07c0c576fd4f16e8
+    - https://pypi.debian.net/scikit-build-core/scikit_build_core-1.1.0.tar.gz : d421f837a0f645e51b99fc0d8b00c976917845d954d609ce6b06b11b2c94621b
 summary     : Scikit-build-core is a build backend for Python that uses CMake to build extension modules
 description : |
     Scikit-build-core is a build backend for Python that uses CMake to build extension modules
