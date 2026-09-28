@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wl-clipboard-rs
-version     : "0.9.3"
-release     : 4
+version     : "0.9.4"
+release     : 5
 homepage    : https://github.com/YaLTeR/wl-clipboard-rs
 upstreams   :
-    - https://github.com/YaLTeR/wl-clipboard-rs/archive/v0.9.3.tar.gz: 09566b20a9bab12e2709f828f908a0756a55625f567a51917388ec8b69547c77
+    - https://github.com/YaLTeR/wl-clipboard-rs/archive/v0.9.4.tar.gz: ce408c2b696e66eb4ced95a049b7b20aeece9f117f203af4080b9e50cbbb837b
 summary     : Rust-based command-line copy/paste utilities for Wayland
 description : |
     A Rust reimplementation of wl-clipboard tools for Wayland compositors.
