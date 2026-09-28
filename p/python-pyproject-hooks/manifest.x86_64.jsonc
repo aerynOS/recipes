@@ -7,10 +7,10 @@
 				"python(flit-core)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.2.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.2.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.2.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.2.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.3.3.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.3.3.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.3.3.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pyproject_hooks-1.3.3.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/pyproject_hooks/__init__.py",
 				"/usr/lib/python3.14/site-packages/pyproject_hooks/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyproject_hooks/__pycache__/__init__.cpython-314.pyc",
@@ -32,6 +32,6 @@
 		}
 	},
 	"source-name": "python-pyproject-hooks",
-	"source-release": "8",
-	"source-version": "1.2.0"
+	"source-release": "9",
+	"source-version": "1.3.3"
 }
