@@ -265,6 +265,7 @@
 				"/usr/share/git-core/templates/hooks/sendemail-validate.sample",
 				"/usr/share/git-core/templates/hooks/update.sample",
 				"/usr/share/git-core/templates/info/exclude",
+				"/usr/share/locale/af/LC_MESSAGES/git.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/git.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/git.mo",
 				"/usr/share/locale/de/LC_MESSAGES/git.mo",
@@ -277,6 +278,7 @@
 				"/usr/share/locale/it/LC_MESSAGES/git.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/git.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/git.mo",
+				"/usr/share/locale/pt_BR/LC_MESSAGES/git.mo",
 				"/usr/share/locale/pt_PT/LC_MESSAGES/git.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/git.mo",
 				"/usr/share/locale/sv/LC_MESSAGES/git.mo",
@@ -658,6 +660,6 @@
 		}
 	},
 	"source-name": "git",
-	"source-release": "25",
-	"source-version": "2.55.0"
+	"source-release": "26",
+	"source-version": "2.56.0"
 }
