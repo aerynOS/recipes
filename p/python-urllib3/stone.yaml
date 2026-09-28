@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-urllib3
-version     : "2.7.0"
-release     : 5
+version     : "2.8.0"
+release     : 6
 homepage    : https://urllib3.readthedocs.io/
 upstreams   :
-    - https://pypi.debian.net/urllib3/urllib3-2.7.0.tar.gz : 231e0ec3b63ceb14667c67be60f2f2c40a518cb38b03af60abc813da26505f4c
+    - https://pypi.debian.net/urllib3/urllib3-2.8.0.tar.gz : 63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63
 summary     : Python HTTP library with thread-safe connection pooling, file post, and more
 description : |
     urllib3 is a powerful, sanity-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries.
