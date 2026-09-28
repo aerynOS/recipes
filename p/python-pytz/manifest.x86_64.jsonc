@@ -4,11 +4,11 @@
 	"packages": {
 		"python-pytz": {
 			"files": [
-				"/usr/lib/python3.14/site-packages/pytz-2026.3.post1-py3.14.egg-info/PKG-INFO",
-				"/usr/lib/python3.14/site-packages/pytz-2026.3.post1-py3.14.egg-info/SOURCES.txt",
-				"/usr/lib/python3.14/site-packages/pytz-2026.3.post1-py3.14.egg-info/dependency_links.txt",
-				"/usr/lib/python3.14/site-packages/pytz-2026.3.post1-py3.14.egg-info/top_level.txt",
-				"/usr/lib/python3.14/site-packages/pytz-2026.3.post1-py3.14.egg-info/zip-safe",
+				"/usr/lib/python3.14/site-packages/pytz-2026.4-py3.14.egg-info/PKG-INFO",
+				"/usr/lib/python3.14/site-packages/pytz-2026.4-py3.14.egg-info/SOURCES.txt",
+				"/usr/lib/python3.14/site-packages/pytz-2026.4-py3.14.egg-info/dependency_links.txt",
+				"/usr/lib/python3.14/site-packages/pytz-2026.4-py3.14.egg-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pytz-2026.4-py3.14.egg-info/zip-safe",
 				"/usr/lib/python3.14/site-packages/pytz/__init__.py",
 				"/usr/lib/python3.14/site-packages/pytz/__pycache__/__init__.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pytz/__pycache__/exceptions.cpython-314.pyc",
@@ -633,6 +633,6 @@
 		}
 	},
 	"source-name": "python-pytz",
-	"source-release": "11",
-	"source-version": "2026.3.post1"
+	"source-release": "12",
+	"source-version": "2026.4"
 }
