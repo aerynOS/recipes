@@ -12,12 +12,12 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.69.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__init__.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.pyc",
@@ -229,6 +229,8 @@
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/loguru.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/mcp.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/mcp.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/mistral.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/mistral.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/modules.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/modules.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/openai.cpython-314.opt-1.pyc",
@@ -399,6 +401,7 @@
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/logging.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/loguru.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/mcp.py",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/mistral.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/modules.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/openai.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/openai_agents/__init__.py",
@@ -606,6 +609,6 @@
 		}
 	},
 	"source-name": "python-sentry-sdk",
-	"source-release": "12",
-	"source-version": "2.69.1"
+	"source-release": "13",
+	"source-version": "2.70.0"
 }
