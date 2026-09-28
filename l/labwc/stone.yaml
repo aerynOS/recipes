@@ -3,7 +3,7 @@
 
 name        : labwc
 version     : "0.20.2"
-release     : 1
+release     : 2
 upstreams   :
     - https://github.com/labwc/labwc/archive/refs/tags/0.20.2.tar.gz : fae023b6fe022f7057556707a17cdb2d98e0138c5dffaedaa1dade975699f9e8
 homepage    : https://labwc.github.io/
@@ -47,3 +47,13 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+packages:
+    - "%(name)-session":
+        summary: Session files for %(name)
+        description: Session files for %(name)
+        rundeps:
+            - binary(labwc)
+        paths:
+            - /usr/share/icons
+            - /usr/share/wayland-sessions
+            - /usr/lib/systemd/user/labwc-session.target

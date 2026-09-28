@@ -62,7 +62,6 @@
 				"/usr/bin/lab-sensible-terminal",
 				"/usr/bin/labnag",
 				"/usr/bin/labwc",
-				"/usr/lib/systemd/user/labwc-session.target",
 				"/usr/share/doc/labwc/README",
 				"/usr/share/doc/labwc/autostart",
 				"/usr/share/doc/labwc/environment",
@@ -71,8 +70,6 @@
 				"/usr/share/doc/labwc/rc.xml.all",
 				"/usr/share/doc/labwc/shutdown",
 				"/usr/share/doc/labwc/themerc",
-				"/usr/share/icons/hicolor/scalable/apps/labwc-symbolic.svg",
-				"/usr/share/icons/hicolor/scalable/apps/labwc.svg",
 				"/usr/share/locale/ar/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/cs/LC_MESSAGES/labwc.mo",
@@ -119,7 +116,6 @@
 				"/usr/share/man/man5/labwc-config.5",
 				"/usr/share/man/man5/labwc-menu.5",
 				"/usr/share/man/man5/labwc-theme.5",
-				"/usr/share/wayland-sessions/labwc.desktop",
 				"/usr/share/xdg-desktop-portal/labwc-portals.conf"
 			],
 			"name": "labwc",
@@ -128,9 +124,49 @@
 				"binary(labnag)",
 				"binary(labwc)"
 			]
+		},
+		"labwc-session": {
+			"build-depends": [
+				"binary(msgfmt)",
+				"binary(scdoc)",
+				"binary(wayland-scanner)",
+				"pkgconfig(cairo)",
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(libdrm)",
+				"pkgconfig(libinput)",
+				"pkgconfig(libpng)",
+				"pkgconfig(librsvg-2.0)",
+				"pkgconfig(libsfdo-basedir)",
+				"pkgconfig(libsfdo-desktop)",
+				"pkgconfig(libsfdo-icon)",
+				"pkgconfig(libsystemd)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(pangocairo)",
+				"pkgconfig(pixman-1)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-cursor)",
+				"pkgconfig(wayland-protocols)",
+				"pkgconfig(wayland-server)",
+				"pkgconfig(wlroots)",
+				"pkgconfig(xcb)",
+				"pkgconfig(xcb-ewmh)",
+				"pkgconfig(xcb-icccm)",
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(xwayland)"
+			],
+			"depends": [
+				"binary(labwc)"
+			],
+			"files": [
+				"/usr/lib/systemd/user/labwc-session.target",
+				"/usr/share/icons/hicolor/scalable/apps/labwc-symbolic.svg",
+				"/usr/share/icons/hicolor/scalable/apps/labwc.svg",
+				"/usr/share/wayland-sessions/labwc.desktop"
+			],
+			"name": "labwc-session"
 		}
 	},
 	"source-name": "labwc",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.20.2"
 }
