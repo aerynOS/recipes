@@ -63,8 +63,6 @@
 				"/usr/lib/signal/chrome_200_percent.pak",
 				"/usr/lib/signal/chrome_crashpad_handler",
 				"/usr/lib/signal/icudtl.dat",
-				"/usr/lib/signal/libEGL.so",
-				"/usr/lib/signal/libGLESv2.so",
 				"/usr/lib/signal/libffmpeg.so",
 				"/usr/lib/signal/libvk_swiftshader.so",
 				"/usr/lib/signal/libvulkan.so.1",
@@ -189,8 +187,6 @@
 			"name": "signal-desktop",
 			"provides": [
 				"binary(signal-desktop)",
-				"soname(signal/libEGL.so(x86_64))",
-				"soname(signal/libGLESv2.so(x86_64))",
 				"soname(signal/libffmpeg.so(x86_64))",
 				"soname(signal/libvk_swiftshader.so(x86_64))",
 				"soname(signal/libvulkan.so.1(x86_64))"
@@ -198,6 +194,6 @@
 		}
 	},
 	"source-name": "signal-desktop",
-	"source-release": "27",
-	"source-version": "8.27.0"
+	"source-release": "28",
+	"source-version": "8.28.0"
 }
