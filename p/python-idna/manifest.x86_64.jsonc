@@ -12,11 +12,11 @@
 			],
 			"files": [
 				"/usr/bin/idna",
-				"/usr/lib/python3.14/site-packages/idna-3.19.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/idna-3.19.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/idna-3.19.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/idna-3.19.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/idna-3.19.dist-info/licenses/LICENSE.md",
+				"/usr/lib/python3.14/site-packages/idna-3.20.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/idna-3.20.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/idna-3.20.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/idna-3.20.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/idna-3.20.dist-info/licenses/LICENSE.md",
 				"/usr/lib/python3.14/site-packages/idna/__init__.py",
 				"/usr/lib/python3.14/site-packages/idna/__main__.py",
 				"/usr/lib/python3.14/site-packages/idna/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -57,6 +57,6 @@
 		}
 	},
 	"source-name": "python-idna",
-	"source-release": "7",
-	"source-version": "3.19"
+	"source-release": "8",
+	"source-version": "3.20"
 }
