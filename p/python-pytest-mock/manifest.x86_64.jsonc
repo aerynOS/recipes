@@ -11,12 +11,12 @@
 				"python(pytest)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/pytest_mock-3.15.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pytest_mock-3.16.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/pytest_mock/__init__.py",
 				"/usr/lib/python3.14/site-packages/pytest_mock/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pytest_mock/__pycache__/__init__.cpython-314.pyc",
@@ -38,6 +38,6 @@
 		}
 	},
 	"source-name": "python-pytest-mock",
-	"source-release": "1",
-	"source-version": "3.15.1"
+	"source-release": "2",
+	"source-version": "3.16.0"
 }

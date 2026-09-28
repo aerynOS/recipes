@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pytest-mock
-version     : "3.15.1"
-release     : 1
+version     : "3.16.0"
+release     : 2
 homepage    : https://github.com/pytest-dev/pytest-mock
 upstreams   :
-    - https://pypi.debian.net/pytest-mock/pytest_mock-3.15.1.tar.gz : 1849a238f6f396da19762269de72cb1814ab44416fa73a8686deac10b0d87a0f
+    - https://pypi.debian.net/pytest-mock/pytest_mock-3.16.0.tar.gz : 5a8395528b8f498205f3718f575228d0edaed7425fff638f87d1a6c3e0383636
 summary     : Thin-wrapper around the mock package for easier use with pytest
 description : |
     This plugin installs a mocker fixture which is a thin-wrapper around the patching API provided by the mock package, but with the benefit of not having to worry about undoing patches at the end of a test.
