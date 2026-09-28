@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : otter-launcher
-version     : "0.7.6"
-release     : 2
+version     : "0.7.8"
+release     : 3
 homepage    : https://github.com/kuokuo123/otter-launcher
 upstreams   :
-    - https://github.com/kuokuo123/otter-launcher/archive/refs/tags/v0.7.6.tar.gz : 67c2d9f527411627e5fc24f0fc25a0ebd5b1dcb567a55397a7cf979e282c256b
+    - https://github.com/kuokuo123/otter-launcher/archive/refs/tags/v0.7.8.tar.gz : 70a88c5a5900c4705a7b615b53ee0fd26783df03d152ebe6eabe8524321c2a74
 summary     : minimalist, blazingly fast, keyboard-centric
 description : |
      A hackable cli/tui launcher built for keyboard-centric wm users, featuring vi & emacs keybinds, ansi decoration, etc.
@@ -14,11 +14,12 @@ license     : GPL-3.0-or-later
 networking  : true
 rundeps     :
     - binary(fzf)
+setup       : |
+    %patch %(pkgdir)/Fall-back-to-stateless-vendor-config.patch
 build       : |
     cargo build --release
 install     : |
     %install_bin target/release/%(name)
-    %install_dir %(installroot)%(vendordir)/%(name)
     %install_file config_example/config.toml %(installroot)%(vendordir)/%(name)/config.toml
     %install_dir %(installroot)%(datadir)/licenses/%(name)
     %install_file LICENSE %(installroot)%(datadir)/licenses/%(name)

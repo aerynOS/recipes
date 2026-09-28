@@ -1,0 +1,22 @@
+diff --git a/src/glob_vars.rs b/src/glob_vars.rs
+index 5dadc7d..8ad36f3 100644
+--- a/src/glob_vars.rs
++++ b/src/glob_vars.rs
+@@ -91,13 +91,16 @@ fn load_config() -> Result<Config, Box<dyn std::error::Error>> {
+     let user_config_path = USER_CONFIG_PATH.get_or_init(|| String::new());
+     let home_dir = env::var("HOME").unwrap_or_else(|_| "/".to_string());
+     let xdg_config_path = format!("{}/.config/otter-launcher/config.toml", home_dir);
++    let system_config_path = "/etc/otter-launcher/config.toml";
+ 
+     let config_file = if !user_config_path.is_empty() {
+         user_config_path.to_string()
+     } else if Path::new(&xdg_config_path).exists() {
+         xdg_config_path
++    } else if Path::new(system_config_path).exists() {
++        system_config_path.to_string()
+     } else {
+-        "/etc/otter-launcher/config.toml".to_string()
++        "/usr/share/defaults/otter-launcher/config.toml".to_string()
+     };
+ 
+     // if config_file not exist
