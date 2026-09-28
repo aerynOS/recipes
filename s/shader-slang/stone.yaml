@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : shader-slang
-version     : "2026.18.2"
-release     : 1
+version     : "2026.18.3"
+release     : 2
 homepage    : https://shader-slang.com/
 upstreams   :
     # The tag tarball omits submodules that are compiled in: miniz, unordered_dense, cmark, fast_float, and lua.
-    - git|https://github.com/shader-slang/slang.git : afeaf511c23dbcce397d9cd9934e724c2795ad35 # v2026.18.2
+    - git|https://github.com/shader-slang/slang.git : 6eb89786ca882d71049c8568638e247f60864b6f # v2026.18.3
 summary     : Shading language for large, high-performance shader codebases
 description : |
     Slang is a shading language and compiler for building and maintaining large shader codebases.
