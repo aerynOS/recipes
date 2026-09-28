@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-trove-classifiers
-version     : "2026.6.1.19"
-release     : 12
+version     : "2026.9.21.13"
+release     : 13
 homepage    : https://pypi.org/project/trove-classifiers
 upstreams   :
-    - https://pypi.debian.net/trove-classifiers/trove_classifiers-2026.6.1.19.tar.gz : c5132b4b61a829d11cfbd2d72e97f20a45ed6edb95e45c5efdeb5e00836b2745
+    - https://pypi.debian.net/trove-classifiers/trove_classifiers-2026.9.21.13.tar.gz : 0a9ebc8d4e2f3e8a22848c5258033035bec17a3012ac3fea16dbaa764489eb71
 summary     : Canonical source for classifiers on PyPI.
 description : |
     Classifiers categorize projects per PEP 301. Use this package to validate classifiers in packages for PyPI upload or download.
-license     :
-    - Apache-2.0
+license     : Apache-2.0
 builddeps   :
     - python(calver)
     - python(setuptools)

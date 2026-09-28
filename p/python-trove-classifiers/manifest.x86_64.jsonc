@@ -13,12 +13,12 @@
 			],
 			"files": [
 				"/usr/bin/trove-classifiers",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.6.1.19.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/trove_classifiers-2026.9.21.13.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/trove_classifiers/__init__.py",
 				"/usr/lib/python3.14/site-packages/trove_classifiers/__main__.py",
 				"/usr/lib/python3.14/site-packages/trove_classifiers/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -35,6 +35,6 @@
 		}
 	},
 	"source-name": "python-trove-classifiers",
-	"source-release": "12",
-	"source-version": "2026.6.1.19"
+	"source-release": "13",
+	"source-version": "2026.9.21.13"
 }
