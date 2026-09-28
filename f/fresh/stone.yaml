@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fresh
-version     : "0.4.10"
-release     : 10
+version     : "0.5.2"
+release     : 11
 homepage    : https://getfresh.dev/
 upstreams   :
-    - https://github.com/sinelaw/fresh/archive/refs/tags/v0.4.10.tar.gz : a315a38f0598554998e7b256d4ef997d158592532d43ca52328c8dc8e177d65f
+    - https://github.com/sinelaw/fresh/archive/refs/tags/v0.5.2.tar.gz : f2a5af8438f50e37b9ce5b33eb17d2fc69f5b58a20a1a03971eca61ed5251cc1
 summary     : A terminal text editor built in rust
 description : |
   A lightweight, fast terminal-based text editor with LSP support and TypeScript plugins built with Rust.
 checkdeps   :
     - binary(python3)
-license     : GPL-2.0-only
+license     : GPL-3.0-or-later
 networking  : true
 setup       : |
     %cargo_fetch
@@ -24,4 +24,8 @@ install     : |
     %install_file crates/fresh-editor/flatpak/io.github.sinelaw.fresh.metainfo.xml %(installroot)%(datadir)/metainfo/io.github.sinelaw.fresh.metainfo.xml
     %install_file crates/fresh-editor/flatpak/io.github.sinelaw.fresh.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/io.github.sinelaw.fresh.svg
 check       : |
-    %cargo_test --lib -- --skip the_release_feed_override_is_shared_by_check_and_update
+    %cargo_test --lib \
+        --config 'profile.release.package.fresh-editor.debug-assertions=true' \
+        --config 'profile.release.package.fresh-editor-core.debug-assertions=true' \
+        --config 'profile.release.package.fresh-update.debug-assertions=true' \
+        -- --skip the_release_feed_override_is_shared_by_check_and_update
