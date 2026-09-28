@@ -10,10 +10,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/soupsieve-2.9.2.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/soupsieve-2.9.2.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/soupsieve-2.9.2.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/soupsieve-2.9.2.dist-info/licenses/LICENSE.md",
+				"/usr/lib/python3.14/site-packages/soupsieve-2.10.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/soupsieve-2.10.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/soupsieve-2.10.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/soupsieve-2.10.dist-info/licenses/LICENSE.md",
 				"/usr/lib/python3.14/site-packages/soupsieve/__init__.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/__meta__.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -44,6 +44,6 @@
 		}
 	},
 	"source-name": "python-soupsieve",
-	"source-release": "5",
-	"source-version": "2.9.2"
+	"source-release": "6",
+	"source-version": "2.10"
 }
