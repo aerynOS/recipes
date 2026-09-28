@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-meson-python
-version     : "0.21.1"
-release     : 4
-homepage    : https://pypi.debian.net/meson-python
+version     : "0.22.0"
+release     : 5
+homepage    : https://mesonbuild.com/meson-python/
 upstreams   :
-    - https://pypi.debian.net/meson-python/meson_python-0.21.1.tar.gz : 78b3345dcbc0fed7b939e7e37a9faab35bddaae07bf62e7542c8ad479c395af5
+    - https://pypi.debian.net/meson-python/meson_python-0.22.0.tar.gz : 9c819d0d4efa746edadfaae4663c0e9c75659186ef7e5bab12330bfe22964dfc
 summary     : Meson PEP 517 Python build backend
 description : |
     meson-python is a Python build back-end built on top of the Meson build system. It enables using Meson for the configuration and build steps of Python packages.
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - binary(meson)
     - binary(ninja)
