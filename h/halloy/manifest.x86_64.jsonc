@@ -1,0 +1,42 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"halloy": {
+			"build-depends": [
+				"pkgconfig(alsa)",
+				"pkgconfig(xcb)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libasound.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libxcb.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/halloy",
+				"/usr/share/applications/org.squidowl.halloy.desktop",
+				"/usr/share/icons/hicolor/128x128/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/16x16/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/24x24/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/256x256/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/32x32/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/48x48/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/512x512/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/64x64/apps/org.squidowl.halloy.png",
+				"/usr/share/icons/hicolor/96x96/apps/org.squidowl.halloy.png",
+				"/usr/share/metainfo/org.squidowl.halloy.appdata.xml"
+			],
+			"name": "halloy",
+			"provides": [
+				"binary(halloy)"
+			]
+		}
+	},
+	"source-name": "halloy",
+	"source-release": "1",
+	"source-version": "2026.8"
+}

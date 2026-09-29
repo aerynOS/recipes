@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : halloy
+version     : "2026.8"
+release     : 1
+homepage    : https://halloy.chat/
+upstreams   :
+    - https://github.com/squidowl/halloy/archive/refs/tags/2026.8.tar.gz : b8206d52f41fac338f9013bd575c2ab5f397fadc9b088e9038f6ad548428f99a
+summary     : Open-source IRC client
+description : |
+    Halloy is a native cross-platform desktop IRC client built with Rust and the iced GUI library. 
+license     : GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - pkgconfig(alsa)
+    - pkgconfig(xcb)
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+
+    %install_file assets/linux/org.squidowl.halloy.desktop %(installroot)/%(datadir)/applications/org.squidowl.halloy.desktop
+
+    %install_file assets/linux/org.squidowl.halloy.appdata.xml %(installroot)%(datadir)/metainfo/org.squidowl.halloy.appdata.xml
+
+    for i in 16 24 32 48 64 96 128 256 512; do
+        %install_file assets/linux/icons/hicolor/${i}x${i}/apps/org.squidowl.halloy.png %(installroot)%(datadir)/icons/hicolor/${i}x${i}/apps/org.squidowl.halloy.png
+    done
+check       : |
+    %cargo_test
