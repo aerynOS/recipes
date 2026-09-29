@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : supersonic
+version     : "0.22.1"
+release     : 1
+homepage    : https://github.com/supersonic-app/supersonic
+upstreams   :
+    - https://github.com/supersonic-app/supersonic/archive/refs/tags/v0.22.1.tar.gz : 7d4d6012d7354373b69609ce55acd7933406363ba13802f756a2713b19f9c599
+summary     : Client for self-hosted music servers
+description : |
+    A lightweight and full-featured cross-platform desktop client for self-hosted music servers like Navidrome and Jellyfin
+license     : GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - pkgconfig(egl)
+    - pkgconfig(gl)
+    - pkgconfig(mpv)
+    - pkgconfig(wayland-client)
+    - pkgconfig(x11)
+    - pkgconfig(xcursor)
+    - pkgconfig(xi)
+    - pkgconfig(xinerama)
+    - pkgconfig(xkbcommon)
+    - pkgconfig(xrandr)
+    - pkgconfig(xxf86vm)
+setup       : |
+    %patch %(pkgdir)/launchable-desktop-id.patch
+    %go_mod
+build       : |
+    %make
+install     : |
+    %install_exe supersonic %(installroot)%(bindir)/supersonic-desktop
+    
+    %install_file res/supersonic-desktop.desktop %(installroot)/%(datadir)/applications/supersonic-desktop.desktop
+
+    %install_file res/io.github.dweymouth.supersonic.appdata.xml %(installroot)%(datadir)/metainfo/io.github.supersonic-app.supersonic.metainfo.xml
+
+    for i in 128 256 512; do
+        %install_file res/appicon-${i}.png %(installroot)/%(datadir)/icons/hicolor/${i}x${i}/apps/supersonic-desktop.png
+    done

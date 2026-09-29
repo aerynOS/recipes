@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 392499
+  rss: https://github.com/supersonic-app/supersonic/releases.atom
+security:
+  cpe: ~

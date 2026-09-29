@@ -1,0 +1,44 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"supersonic": {
+			"build-depends": [
+				"pkgconfig(egl)",
+				"pkgconfig(gl)",
+				"pkgconfig(mpv)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(x11)",
+				"pkgconfig(xcursor)",
+				"pkgconfig(xi)",
+				"pkgconfig(xinerama)",
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(xrandr)",
+				"pkgconfig(xxf86vm)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libGL.so.1(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libmpv.so.2(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/supersonic-desktop",
+				"/usr/share/applications/supersonic-desktop.desktop",
+				"/usr/share/icons/hicolor/128x128/apps/supersonic-desktop.png",
+				"/usr/share/icons/hicolor/256x256/apps/supersonic-desktop.png",
+				"/usr/share/icons/hicolor/512x512/apps/supersonic-desktop.png",
+				"/usr/share/metainfo/io.github.supersonic-app.supersonic.metainfo.xml"
+			],
+			"name": "supersonic",
+			"provides": [
+				"binary(supersonic-desktop)"
+			]
+		}
+	},
+	"source-name": "supersonic",
+	"source-release": "1",
+	"source-version": "0.22.1"
+}

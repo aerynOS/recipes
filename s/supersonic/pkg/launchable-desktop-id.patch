@@ -1,0 +1,12 @@
+diff --git a/res/io.github.dweymouth.supersonic.appdata.xml b/res/io.github.dweymouth.supersonic.appdata.xml
+--- a/res/io.github.dweymouth.supersonic.appdata.xml
++++ b/res/io.github.dweymouth.supersonic.appdata.xml
+@@ -42,7 +42,7 @@
+     <category>Audio</category>
+   </categories>
+ 
+-  <launchable type="desktop-id">io.github.supersonic-app.supersonic</launchable>
++  <launchable type="desktop-id">io.github.supersonic-app.supersonic.desktop</launchable>
+ 
+   <url type="homepage">https://github.com/supersonic-app/supersonic</url>
+   <url type="bugtracker">https://github.com/supersonic-app/supersonic/issues</url>
