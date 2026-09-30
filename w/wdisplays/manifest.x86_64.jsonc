@@ -1,0 +1,43 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"wdisplays": {
+			"build-depends": [
+				"pkgconfig(epoxy)",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-protocols)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcairo.so.2(x86_64))",
+				"soname(libepoxy.so.0(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpango-1.0.so.0(x86_64))",
+				"soname(libpangocairo-1.0.so.0(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/wdisplays",
+				"/usr/share/applications/network.cycles.wdisplays.desktop",
+				"/usr/share/glib-2.0/schemas/network.cycles.wdisplays.gschema.xml",
+				"/usr/share/icons/hicolor/scalable/apps/network.cycles.wdisplays.svg"
+			],
+			"name": "wdisplays",
+			"provides": [
+				"binary(wdisplays)"
+			]
+		}
+	},
+	"source-name": "wdisplays",
+	"source-release": "1",
+	"source-version": "1.3.0"
+}
