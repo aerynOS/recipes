@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gammastep
+version     : "2.0.11"
+release     : 1
+homepage    : https://gitlab.com/chinstrap/gammastep
+upstreams   :
+    - https://gitlab.com/chinstrap/gammastep/-/archive/v2.0.11/gammastep-v2.0.11.tar.gz : e16026b8f21d5e02cfe7cd2f738c80f150c1f06a098e5e47e0fc088244a763bd
+summary     : Adjust the color temperature of your screen according to your surroundings
+description : |
+    Adjust the color temperature of your screen according to your surroundings
+license     :
+    - GPL-3.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - binary(python)
+    - binary(wayland-scanner)
+    - pkgconfig(gio-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gobject-2.0)
+    - pkgconfig(libdrm)
+    - pkgconfig(xcb)
+    - pkgconfig(xcb-randr)
+    - pkgconfig(wayland-client)
+    - pkgconfig(x11)
+    - pkgconfig(xxf86vm)
+    - intltool-devel
+setup       : |
+    %reconfigure
+build       : |
+    %make
+install     : |
+    %make_install
+packages    :
+    - "%(name)-indicator":
+          summary: "GTK indicator for %(name)"
+          description: "GTK indicator for %(name)"
+          rundeps:
+              - "%(name)"
+              - binary(python3)
+              - python(pygobject)
+              - python(pyxdg)
+              - soname(libgtk-3.so.0(x86_64))
+              - hicolor-icon-theme
+          paths:
+              - /usr/bin/gammastep-indicator
+              - /usr/share/applications/gammastep-indicator.desktop
+              - /usr/share/icons
+              - /usr/lib/python3*/site-packages/
+              - /usr/share/metainfo/gammastep-indicator.appdata.xml
+              - /usr/lib/systemd/user/gammastep-indicator.service
