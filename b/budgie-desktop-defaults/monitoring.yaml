@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: ~ # No id currently (as of 03102026) in release-monitoring.org
+  rss: https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-defaults/releases.rss
+security:
+  cpe: ~ # No CPE found, last checked (2026-09-30)
