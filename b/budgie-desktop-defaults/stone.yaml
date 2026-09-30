@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : budgie-desktop-defaults
+version     : "0.6.1"
+release     : 1
+homepage    : https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-defaults
+upstreams   :
+    - https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-defaults/releases/download/v0.6.1/budgie-desktop-defaults-v0.6.1.tar.xz : d8aafac57cece7271af2a025f9560586d48cdb068dd650d1c012aa1cc6bb0231
+summary     : Branding defaults for Budgie Desktop on aerynOS
+description : |
+    Branding defaults for Budgie Desktop on aerynOS. Based on upstream generic template.
+license     :
+    - CC-BY-NC-SA-4.0
+rundeps     :
+    - budgie-desktop
+    - papirus-icon-theme
+    - pocillo-gtk-theme
+setup       : |
+    %meson \
+      -Dbackground='%(datadir)/backgrounds/aerynos/Circles.png' \
+      -Dmenu-logo='%(datadir)/pixmaps/system-logo-black.svg' \
+      -Dpinned-apps=org.kde.dolphin.desktop,org.mozilla.firefox.desktop,org.kde.elisa.desktop,org.kde.discover.desktop,org.kde.dragonplayer.desktop \
+      -Dwith-gedit=false
+build       : |
+    %meson_build
+install     : |
+    %meson_install

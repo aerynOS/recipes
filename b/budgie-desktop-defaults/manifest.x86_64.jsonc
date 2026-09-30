@@ -1,0 +1,21 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"budgie-desktop-defaults": {
+			"depends": [
+				"budgie-desktop",
+				"papirus-icon-theme",
+				"pocillo-gtk-theme"
+			],
+			"files": [
+				"/usr/share/glib-2.0/schemas/10_budgie_org_gnome_settings.gschema.override",
+				"/usr/share/glib-2.0/schemas/10_budgie_org_settings.gschema.override"
+			],
+			"name": "budgie-desktop-defaults"
+		}
+	},
+	"source-name": "budgie-desktop-defaults",
+	"source-release": "1",
+	"source-version": "0.6.1"
+}
