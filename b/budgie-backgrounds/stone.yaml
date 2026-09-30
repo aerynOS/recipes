@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : budgie-backgrounds
+version     : "4.1"
+release     : 1
+homepage    : https://github.com/BuddiesOfBudgie/budgie-backgrounds
+upstreams   :
+    - https://github.com/BuddiesOfBudgie/budgie-backgrounds/releases/download/v4.1/budgie-backgrounds-v4.1.tar.xz : c760da9869f3ef7524ffc19936c99bbb54f728ec4b798caecac470a981711e41
+summary     : Budgie Backgrounds is the default set of background images for the Budgie Desktop
+description : |
+    Budgie Backgrounds is the default set of background images for the Budgie Desktop.
+license     :
+    - CC0-1.0
+builddeps   :
+    - binary(mogrify)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
