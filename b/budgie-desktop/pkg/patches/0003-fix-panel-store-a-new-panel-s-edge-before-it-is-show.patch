@@ -1,0 +1,48 @@
+From 4dea78eb211e32b8ec02d1588aa633c2c6a65f35 Mon Sep 17 00:00:00 2001
+From: Joshua Strobl <me@joshuastrobl.com>
+Date: Wed, 30 Sep 2026 21:14:18 +0300
+Subject: [PATCH 3/5] fix(panel): store a new panel's edge before it is shown
+
+create_panel put the uuid into the panels list right away but the
+location was only written once show_panel reached update_geometry.
+show_panel defers until the WaylandClient has found the primary
+monitor, which on a first run is a 200ms poll, so if the process ended
+in that window the next login had a panel with no stored location.
+
+Write the edge as soon as the panel object exists. A layout section
+with no Position key now gets a real edge at creation too.
+
+Assisted-by: Claude:claude-fable-5-1
+Signed-off-by: Joshua Strobl <me@joshuastrobl.com>
+---
+ src/panel/manager.vala | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/panel/manager.vala b/src/panel/manager.vala
+index 2e226b2d..56783df3 100644
+--- a/src/panel/manager.vala
++++ b/src/panel/manager.vala
+@@ -1339,6 +1339,11 @@ namespace Budgie {
+ 				} catch (Error e) {
+ 					warning("create_panel(): %s", e.message);
+ 				}
++
++				// The layout did not say where this panel goes, so pick an edge for it
++				if (position == PanelPosition.NONE) {
++					position = fallback_position();
++				}
+ 			} else {
+ 				position = get_first_position(this.primary_monitor);
+ 				if (position == PanelPosition.NONE) {
+@@ -1349,6 +1354,8 @@ namespace Budgie {
+ 
+ 			var uuid = LibUUID.new(UUIDFlags.LOWER_CASE|UUIDFlags.TIME_SAFE_TYPE);
+ 			load_panel(uuid, false);
++			// show_panel may be deferred, so store the edge now
++			panels.lookup(uuid).set_position_setting(position);
+ 
+ 			set_panels();
+ 			show_panel(uuid, position, transparency, policy, dock_mode, shadow_visible, spacing);
+-- 
+2.55.0
+
