@@ -12,12 +12,12 @@
 			],
 			"files": [
 				"/usr/bin/diffoscope",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/licenses/COPYING",
-				"/usr/lib/python3.14/site-packages/diffoscope-328.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/licenses/COPYING",
+				"/usr/lib/python3.14/site-packages/diffoscope-332.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/diffoscope/__init__.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/__pycache__/__init__.cpython-314.pyc",
@@ -157,6 +157,8 @@
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/missing_file.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/mono.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/mono.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/nar.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/nar.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/ocaml.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/ocaml.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/__pycache__/odt.cpython-314.opt-1.pyc",
@@ -278,6 +280,7 @@
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/macho.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/missing_file.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/mono.py",
+				"/usr/lib/python3.14/site-packages/diffoscope/comparators/nar.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/ocaml.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/odt.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/comparators/ogg.py",
@@ -400,6 +403,7 @@
 				"/usr/lib/python3.14/site-packages/diffoscope/readers/json.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/readers/utils.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/scripts/extract-vmlinux",
+				"/usr/lib/python3.14/site-packages/diffoscope/scripts/restore-nar.scm",
 				"/usr/lib/python3.14/site-packages/diffoscope/tempfiles.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/tools.py",
 				"/usr/lib/python3.14/site-packages/diffoscope/utils.py"
@@ -412,6 +416,6 @@
 		}
 	},
 	"source-name": "diffoscope",
-	"source-release": "9",
-	"source-version": "328"
+	"source-release": "10",
+	"source-version": "332"
 }
