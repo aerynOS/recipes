@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : budgie-desktop-view
+version     : "10.10.3"
+release     : 1
+homepage    : https://github.com/BuddiesOfBudgie/budgie-desktop-view
+upstreams   :
+    - https://github.com/BuddiesOfBudgie/budgie-desktop-view/releases/download/v10.10.3/budgie-desktop-view-v10.10.3.tar.xz : 22bfebcb8a2377b17264c03e4f23f686c3217166b83381f1136e49da6f785be7
+summary     : udgie Desktop View is the official Budgie desktop icons application / implementation
+description : |
+    udgie Desktop View is the official Budgie desktop icons application / implementation.
+license     : Apache-2.0
+builddeps   :
+    - binary(intltool-merge)
+    - binary(msgfmt)
+    - pkgconfig(gdk-3.0)
+    - pkgconfig(gio-unix-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(gtk-layer-shell-0)
+    - pkgconfig(libxfce4windowing-0)
+    - pkgconfig(vapigen)
+rundeps     :
+    - glycin-thumbnailer
+setup       : |
+    %patch %(pkgdir)/patches/0001-fix-stop-removed-icons-from-reappearing.patch
+    %meson -Dwith-stateless=true
+build       : |
+    %meson_build
+install     : |
+    %meson_install
