@@ -3,7 +3,7 @@
 
 name        : spirv-tools
 version     : "1.4.363.0"
-release     : 17
+release     : 18
 homepage    : https://github.com/KhronosGroup/SPIRV-Tools
 upstreams   :
     - https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/vulkan-sdk-1.4.363.0.tar.gz: e6c83a215538fbfd265ccf398d3877985055df1273dbed73912bd05307664688
