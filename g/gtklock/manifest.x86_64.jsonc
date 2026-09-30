@@ -1,0 +1,44 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"gtklock": {
+			"build-depends": [
+				"binary(msgfmt)",
+				"binary(scdoc)",
+				"pkgconfig(gmodule-export-2.0)",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(gtk-session-lock-0)",
+				"pkgconfig(pam)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgmodule-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libgtk-session-lock.so.0(x86_64))",
+				"soname(libpam.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/gtklock",
+				"/usr/share/defaults/pam.d/gtklock",
+				"/usr/share/locale/cs/LC_MESSAGES/gtklock.mo",
+				"/usr/share/locale/de/LC_MESSAGES/gtklock.mo",
+				"/usr/share/locale/sr/LC_MESSAGES/gtklock.mo",
+				"/usr/share/locale/sr@latin/LC_MESSAGES/gtklock.mo",
+				"/usr/share/man/man1/gtklock.1"
+			],
+			"name": "gtklock",
+			"provides": [
+				"binary(gtklock)"
+			]
+		}
+	},
+	"source-name": "gtklock",
+	"source-release": "1",
+	"source-version": "4.0.0"
+}

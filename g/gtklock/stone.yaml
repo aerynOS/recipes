@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gtklock
+version     : "4.0.0"
+release     : 1
+homepage    : https://github.com/jovanlanik/gtklock
+upstreams   :
+    - https://github.com/jovanlanik/gtklock/archive/refs/tags/v4.0.0.tar.gz : db20bf27bd5dd01901ea1753c89c170777dd7cf8fca19130cf90f5f4e3fb9633
+summary     : Lock screen based on gtkgreet
+description : |
+    A lock screen based on gtkgreet. It uses the ext-session-lock Wayland protocol. Works on sway and other wlroots-based compositors.
+license     : GPL-3.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - binary(scdoc)
+    - pkgconfig(gmodule-export-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(gtk-session-lock-0)
+    - pkgconfig(pam)
+setup       : |
+    %meson --sysconfdir=%(vendordir)
+build       : |
+    %meson_build
+install     : |
+    %meson_install
