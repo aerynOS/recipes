@@ -1,0 +1,70 @@
+From 75f0aca7a5f9a93454c1234fa64e6587b8b0ab5f Mon Sep 17 00:00:00 2001
+From: Evan Maddock <maddock.evan@vivaldi.net>
+Date: Mon, 13 Jul 2026 11:41:12 -0400
+Subject: [PATCH] cleanup: Remove G_GNUC_CONST for *_get_type functions
+
+GLib recently removed `G_GNUC_CONST` attributes from its `*get_type`
+declarations to avoid miscompilations with GCC trunk. This does the same
+for us, meaning we have one less thing to worry about for the next GCC
+release.
+
+Signed-off-by: Evan Maddock <maddock.evan@vivaldi.net>
+---
+ gnome-session/gsm-inhibitor.h        | 2 +-
+ gnome-session/gsm-presence.h         | 2 +-
+ gnome-session/gsm-shell-extensions.h | 2 +-
+ gnome-session/gsm-xsmp-client.h      | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/gnome-session/gsm-inhibitor.h b/gnome-session/gsm-inhibitor.h
+index 519b70cfa..e7d33314a 100644
+--- a/gnome-session/gsm-inhibitor.h
++++ b/gnome-session/gsm-inhibitor.h
+@@ -59,7 +59,7 @@ typedef enum
+ #define GSM_INHIBITOR_ERROR gsm_inhibitor_error_quark ()
+ GQuark         gsm_inhibitor_error_quark          (void);
+ 
+-GType          gsm_inhibitor_get_type             (void) G_GNUC_CONST;
++GType          gsm_inhibitor_get_type             (void);
+ 
+ GsmInhibitor * gsm_inhibitor_new                  (const char    *app_id,
+                                                    guint          toplevel_xid,
+diff --git a/gnome-session/gsm-presence.h b/gnome-session/gsm-presence.h
+index dec503fc8..8dab7df36 100644
+--- a/gnome-session/gsm-presence.h
++++ b/gnome-session/gsm-presence.h
+@@ -61,7 +61,7 @@ typedef enum
+ #define GSM_PRESENCE_ERROR gsm_presence_error_quark ()
+ GQuark         gsm_presence_error_quark          (void);
+ 
+-GType          gsm_presence_get_type             (void) G_GNUC_CONST;
++GType          gsm_presence_get_type             (void);
+ 
+ GsmPresence *  gsm_presence_new                  (void);
+ 
+diff --git a/gnome-session/gsm-shell-extensions.h b/gnome-session/gsm-shell-extensions.h
+index a3b3d063a..3106164e1 100644
+--- a/gnome-session/gsm-shell-extensions.h
++++ b/gnome-session/gsm-shell-extensions.h
+@@ -50,7 +50,7 @@ struct _GsmShellExtensionsClass
+     GObjectClass parent_class;
+ };
+ 
+-GType gsm_shell_extensions_get_type                   (void) G_GNUC_CONST;
++GType gsm_shell_extensions_get_type                   (void);
+ 
+ gboolean gsm_shell_extensions_disable_all             (GsmShellExtensions *self);
+ 
+diff --git a/gnome-session/gsm-xsmp-client.h b/gnome-session/gsm-xsmp-client.h
+index 1b49dc3d2..2db779310 100644
+--- a/gnome-session/gsm-xsmp-client.h
++++ b/gnome-session/gsm-xsmp-client.h
+@@ -68,7 +68,7 @@ struct _GsmXSMPClientClass
+ 
+ };
+ 
+-GType       gsm_xsmp_client_get_type             (void) G_GNUC_CONST;
++GType       gsm_xsmp_client_get_type             (void);
+ 
+ GsmClient  *gsm_xsmp_client_new                  (IceConn         ice_conn);
+ 
