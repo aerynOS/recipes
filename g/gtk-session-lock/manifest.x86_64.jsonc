@@ -1,0 +1,67 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"gtk-session-lock": {
+			"build-depends": [
+				"binary(python3)",
+				"binary(vapigen)",
+				"pkgconfig(gobject-introspection-1.0)",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-protocols)",
+				"pkgconfig(wayland-scanner)",
+				"pkgconfig(wayland-server)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/girepository-1.0/GtkSessionLock-0.1.typelib",
+				"/usr/lib/libgtk-session-lock.so.0",
+				"/usr/lib/libgtk-session-lock.so.0.2.0"
+			],
+			"name": "gtk-session-lock",
+			"provides": [
+				"soname(libgtk-session-lock.so.0(x86_64))"
+			]
+		},
+		"gtk-session-lock-devel": {
+			"build-depends": [
+				"binary(python3)",
+				"binary(vapigen)",
+				"pkgconfig(gobject-introspection-1.0)",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(wayland-client)",
+				"pkgconfig(wayland-protocols)",
+				"pkgconfig(wayland-scanner)",
+				"pkgconfig(wayland-server)"
+			],
+			"depends": [
+				"gtk-session-lock",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(wayland-client)"
+			],
+			"files": [
+				"/usr/include/gtk-session-lock/gtk-session-lock.h",
+				"/usr/lib/libgtk-session-lock.so",
+				"/usr/lib/pkgconfig/gtk-session-lock-0.pc",
+				"/usr/share/gir-1.0/GtkSessionLock-0.1.gir",
+				"/usr/share/vala/vapi/gtk-session-lock-0.deps",
+				"/usr/share/vala/vapi/gtk-session-lock-0.vapi"
+			],
+			"name": "gtk-session-lock-devel",
+			"provides": [
+				"pkgconfig(gtk-session-lock-0)"
+			]
+		}
+	},
+	"source-name": "gtk-session-lock",
+	"source-release": "1",
+	"source-version": "0.2.0"
+}
