@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-pyxdg
+version     : "0.28"
+release     : 1
+homepage    : https://pypi.org/project/pyxdg
+upstreams   :
+    - https://files.pythonhosted.org/packages/source/p/pyxdg/pyxdg-0.28.tar.gz : 3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4
+summary     : Python library to access freedesktop.org standards
+description : |
+    Python library to access freedesktop.org standards
+license     : LGPL-2.0-only
+builddeps   :
+    - python(setuptools)
+rundeps     :
+    - binary(python3)
+setup       : |
+    %patch %(pkgdir)/patches/replace-imp-with-importlib.patch
+    %patch %(pkgdir)/patches/handle-python-3.14-ast.Str-changes.patch
+    %patch %(pkgdir)/patches/handle-python-3.15-deprecations.patch
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
