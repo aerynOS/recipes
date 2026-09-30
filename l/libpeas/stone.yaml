@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libpeas
+version     : "2.2.1"
+release     : 1
+homepage    : https://download.gnome.org/sources/libpeas/2.2
+upstreams   :
+    - https://download.gnome.org/sources/libpeas/2.2/libpeas-2.2.1.tar.xz : 589eca89b437006edf3755478df037c740a2a84cfa5d202dbad6095e828e2488
+summary     : libpeas is a gobject-based plugins engine
+description : |
+    libpeas is a gobject-based plugins engine, and is targetted at giving every application the chance to assume its own extensibility.
+license     : LGPL-2.1-or-later
+builddeps   :
+    - binary(msgfmt)
+    - binary(vapigen)
+    - binary(xmllint)
+    - pkgconfig(gi-docgen)
+    - pkgconfig(gio-2.0)
+    - pkgconfig(girepository-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gmodule-2.0)
+    - pkgconfig(gobject-2.0)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(pygobject-3.0)
+    - pkgconfig(python3-embed)
+setup       : |
+    %meson \
+      -Dgjs=false \
+      -Dgtk_doc=true \
+      -Dlua51=false \
+      -Dvapi=true
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+packages    :
+    - "%(name)":
+        paths:
+            - /usr/lib/libpeas-2/loaders
+    - "%(name)-devel":
+        paths:
+            - /usr/share/doc
