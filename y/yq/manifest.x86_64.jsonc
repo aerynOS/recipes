@@ -4,7 +4,6 @@
 	"packages": {
 		"yq": {
 			"build-depends": [
-				"binary(go)",
 				"tzdata"
 			],
 			"depends": [
@@ -24,6 +23,6 @@
 		}
 	},
 	"source-name": "yq",
-	"source-release": "17",
-	"source-version": "4.53.6"
+	"source-release": "18",
+	"source-version": "4.54.1"
 }

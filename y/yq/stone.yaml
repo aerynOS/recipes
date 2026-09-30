@@ -2,37 +2,29 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yq
-version     : "4.53.6"
-release     : 17
+version     : "4.54.1"
+release     : 18
 homepage    : https://mikefarah.gitbook.io/yq/
 upstreams   :
-    - https://github.com/mikefarah/yq/archive/refs/tags/v4.53.6.tar.gz : 132a28a669526f99dba52486ac80de3bdafdf9a1a52a0c6bd6045301aca0cd25
+    - https://github.com/mikefarah/yq/archive/refs/tags/v4.54.1.tar.gz : 0cec36e7035dd56c508bda56245cbd71e4495d2317bc2528165c4162bce79335
 summary     : yq is a lightweight command-line YAML processor
 description : |
     A lightweight and portable command-line YAML processor. yq uses jq like syntax but works with yaml files as well as json. It doesn't yet support everything jq does - but it does support the most common operations and functions, and more is being added continuously.
 license     :
     - MIT
-builddeps   :
-   - binary(go)
 checkdeps   :
     # Some of the tests need timezone data
     - tzdata
 networking  : true
 setup       : |
-    %patch %(pkgdir)/ftbfs-test.patch
+    %go_mod
 build       : |
     go build -v ./yq.go
 install     : |
     %install_bin yq
 
-    # Completions
-    ./yq shell-completion bash > bash-completion
-    %install_file bash-completion %(installroot)%(bashcompletionsdir)/yq
-
-    ./yq shell-completion zsh > zsh-completion
-    %install_file zsh-completion %(installroot)%(zshcompletionsdir)/_yq
-
-    ./yq shell-completion fish > fish-completion
-    %install_file fish-completion %(installroot)%(fishcompletionsdir)/yq.fish
+    ./yq shell-completion bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/yq
+    ./yq shell-completion zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_yq
+    ./yq shell-completion fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/yq.fish
 check       : |
     go test ./...
