@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gtk-session-lock
+version     : "0.2.0"
+release     : 1
+homepage    : https://github.com/Cu3PO42/gtk-session-lock
+upstreams   :
+    - https://github.com/Cu3PO42/gtk-session-lock/archive/refs/tags/v0.2.0.tar.gz : a4245c6930580c15ed263b9a7bb7e39f47693baec78be1026b4e0e28b233cb4e
+summary     : Library to use GTK 3 to build screen lockers
+description : |
+    A library to use GTK 3 to build screen lockers using the secure ext-session-lock-v1 protocol.
+license     :
+    - GPL-3.0-or-later
+    - MIT
+builddeps:
+    - binary(python3)
+    - binary(vapigen)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wayland-scanner)
+    - pkgconfig(wayland-server)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
