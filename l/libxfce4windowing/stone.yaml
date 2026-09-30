@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libxfce4windowing
+version     : "4.20.7"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/libxfce4windowing/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/libxfce4windowing/4.20/libxfce4windowing-4.20.7.tar.bz2 : 01320b279648ab5b13263f8d260bc5958be599e1eaac77c4503598dfcf96c8bb
+summary     : A windowing concept abstraction library
+description : |
+    Libxfce4windowing is an abstraction library that attempts to present
+    windowing concepts (screens, toplevel windows, workspaces, etc.) in a
+    windowing-system-independent manner.
+license     :
+    - LGPL-2.1-or-later
+    - LGPL-2.1-only
+builddeps   :
+    - binary(msgfmt)
+    - binary(python3)
+    - binary(vapigen)
+    - binary(xdt-gen-visibility)
+    - pkgconfig(gdk-3.0)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(gdk-wayland-3.0)
+    - pkgconfig(gio-unix-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gobject-2.0)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wayland-scanner)
+    - pkgconfig(wlr-protocols)
+rundeps     :
+    - glycin-loaders
+setup       : |
+    %meson -Dx11=disabled
+build       : |
+    %meson_build
+install     : |
+    %meson_install
