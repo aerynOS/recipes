@@ -1,0 +1,49 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"pkgset-aeryn-budgie-full": {
+			"depends": [
+				"neochat",
+				"pkgset-aeryn-budgie-recommended"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-budgie-full/README"
+			],
+			"name": "pkgset-aeryn-budgie-full"
+		},
+		"pkgset-aeryn-budgie-minimal": {
+			"depends": [
+				"binary(bluejay)",
+				"binary(budgie-control-center)",
+				"binary(dolphin)",
+				"binary(konsole)",
+				"binary(org.buddiesofbudgie.budgie-desktop-view)",
+				"binary(plasma-discover)",
+				"binary(plasma-systemmonitor)",
+				"binary(wdisplays)",
+				"budgie-desktop-defaults",
+				"pkgset-aeryn-base-desktop"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-budgie-minimal/README"
+			],
+			"name": "pkgset-aeryn-budgie-minimal"
+		},
+		"pkgset-aeryn-budgie-recommended": {
+			"depends": [
+				"binary(dragon)",
+				"binary(gwenview)",
+				"partitionmanager",
+				"pkgset-aeryn-budgie-minimal"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-budgie-recommended/README"
+			],
+			"name": "pkgset-aeryn-budgie-recommended"
+		}
+	},
+	"source-name": "pkgset-aeryn-budgie",
+	"source-release": "1",
+	"source-version": "2026.09"
+}

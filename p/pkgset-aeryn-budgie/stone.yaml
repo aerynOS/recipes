@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name       : pkgset-aeryn-budgie
+version    : "2026.09"
+release    : 1
+homepage   : https://aerynos.com/
+# No upstreams!
+summary    : pkgset virtual packages - Budgie Desktop
+description: |
+    pkgset virtual packages - Budgie Desktop
+license    :
+    - MPL-2.0
+install    : |
+    for i in minimal recommended full; do
+        %install_dir %(installroot)%(docdir)/%(name)-${i}
+        echo "This file will disappear when virtual packages are introduced" > %(installroot)%(docdir)/%(name)-${i}/README
+    done
+packages   :
+    - "%(name)-minimal":
+          summary: Minimal packages for a Budgie Desktop session
+          description: |
+              Minimal packages for a Budgie Desktop session
+          rundeps:
+              - binary(budgie-control-center)
+              - binary(org.buddiesofbudgie.budgie-desktop-view)
+              - binary(wdisplays)
+              - budgie-desktop-defaults
+              # Sane defaults / basic apps
+              - binary(bluejay)
+              - binary(dolphin)
+              - binary(konsole)
+              - binary(plasma-discover)
+              - binary(plasma-systemmonitor)
+              # Desktop base profile
+              - pkgset-aeryn-base-desktop
+          paths:
+              - /usr/share/doc/%(name)-minimal/README
+    - "%(name)-recommended":
+          summary: Budgie Desktop plus recommended applications
+          description: |
+              Budgie Desktop plus recommended applications
+          rundeps:
+              - "%(name)-minimal"
+              - binary(dragon)
+              - binary(gwenview)
+              - partitionmanager
+          paths:
+              - /usr/share/doc/%(name)-recommended/README
+    - "%(name)-full":
+          summary: Budgie Desktop plus all recommended applications
+          description: |
+              Budgie Desktop plus all recommended applications
+          rundeps:
+              - "%(name)-recommended"
+              - neochat
+          paths:
+              - /usr/share/doc/%(name)-full/README
