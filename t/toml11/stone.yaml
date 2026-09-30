@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : toml11
+version     : "4.4.0"
+release     : 1
+homepage    : https://github.com/ToruNiina/toml11
+upstreams   :
+    - https://github.com/ToruNiina/toml11/archive/refs/tags/v4.4.0.tar.gz : 815bfe6792aa11a13a133b86e7f0f45edc5d71eb78f5fb6686c49c7f792b9049
+summary     : toml11 is a feature-rich TOML language library for C++11/14/17/20
+description : |
+    toml11 is a feature-rich TOML language library for C++11/14/17/20
+license     :
+    - MIT
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+# It is a header-only package so shove everything into main
+paths       :
+    - /
