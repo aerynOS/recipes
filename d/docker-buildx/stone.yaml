@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : docker-buildx
-version     : "0.37.1"
-release     : 19
+version     : "0.37.2"
+release     : 20
 homepage    : https://github.com/docker/buildx
 upstreams   :
-    - https://github.com/docker/buildx/archive/refs/tags/v0.37.1.tar.gz : c8eb34392910bf18a858d4099e841deec2f7ea433bb3ed230082f55b69f19118
+    - https://github.com/docker/buildx/archive/refs/tags/v0.37.2.tar.gz : 6b4cdf64fd6b919b65be75fdfcfb6a42c9738730ee18453e26641132ecc177b4
 summary     : Docker CLI plugin for extended build capabilities with BuildKit
 description : |
     Docker CLI plugin for extended build capabilities with BuildKit
