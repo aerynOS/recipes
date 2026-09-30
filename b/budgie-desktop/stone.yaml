@@ -1,0 +1,106 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : budgie-desktop
+version     : "10.10.3"
+release     : 1
+homepage    : https://buddiesofbudgie.org
+upstreams   :
+    - https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v10.10.3/budgie-desktop-v10.10.3.tar.xz : 5dae4e311bc95ad982b6256265537c2c6e2bcd19dd35efd19bdbb33633516b74
+summary     : A feature-rich, modern desktop designed to keep out the way of the user
+description : |
+    A feature-rich, modern desktop designed to keep out the way of the user.
+license     :
+    - CC0-1.0
+    - CC-BY-SA-4.0
+    - GPL-2.0-or-later
+    - GPL-2.0-only
+    - LGPL-2.1-or-later
+builddeps   :
+    - binary(eglinfo)
+    - binary(gammastep)
+    - binary(git)
+    - binary(grim)
+    - binary(gtklock)
+    - binary(intltool-merge)
+    - binary(labwc)
+    - binary(msgfmt)
+    - binary(python3)
+    - binary(sassc)
+    - binary(slurp)
+    - binary(swaybg)
+    - binary(swayidle)
+    - binary(wlopm)
+    - pkgconfig(accountsservice)
+    - pkgconfig(alsa)
+    - pkgconfig(cairo)
+    - pkgconfig(gee-0.8)
+    - pkgconfig(gio-unix-2.0)
+    - pkgconfig(girepository-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gnome-desktop-3.0)
+    - pkgconfig(gnome-settings-daemon)
+    - pkgconfig(gsettings-desktop-schemas)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gstreamer-1.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(gtk-layer-shell-0)
+    - pkgconfig(ibus-1.0)
+    - pkgconfig(libcanberra-gtk3)
+    - pkgconfig(libgtop-2.0)
+    - pkgconfig(libnotify)
+    - pkgconfig(libpeas-2)
+    - pkgconfig(libpulse)
+    - pkgconfig(libxfce4windowing-0)
+    - pkgconfig(upower-glib)
+    - pkgconfig(uuid)
+    - pkgconfig(vapigen)
+    - python(dbus-python)
+    - python(psutil)
+    - python(pygobject)
+rundeps     :
+    - binary(budgie-session)
+    - binary(dbus-send)
+    - binary(gammastep)
+    - binary(gnome-keyring)
+    - binary(grim)
+    - binary(gtklock)
+    - binary(labwc)
+    - binary(killall)
+    - binary(nm-applet)
+    - binary(org.buddiesofbudgie.Services)
+    - binary(python3)
+    - binary(slurp)
+    - binary(swaybg)
+    - binary(swayidle)
+    - binary(switcherooctl)
+    - binary(wlopm)
+    - binary(wpctl)
+    - python(dbus-python)
+    - python(psutil)
+    - python(pygobject)
+    - glycin-loaders
+    - gnome-settings-daemon
+    - mutter-common
+    - power-profiles-daemon
+    - xdg-desktop-portal-gtk
+    - xdg-desktop-portal-wlr
+setup       : |
+    %patch %(pkgdir)/patches/0001-fix-bridges-stop-left-click-on-the-desktop-opening-t.patch
+    %patch %(pkgdir)/patches/0002-fix-panel-stop-aborting-when-a-panel-has-no-stored-l.patch
+    %patch %(pkgdir)/patches/0003-fix-panel-store-a-new-panel-s-edge-before-it-is-show.patch
+    %patch %(pkgdir)/patches/0004-feat-appindexer-share-one-list-of-installed-apps-acr.patch
+    %patch %(pkgdir)/patches/0005-fix-session-dont-force-qpa-wayland-platform-fallback.patch
+
+    %meson \
+      -Dbudgie-session-libexecdir=%(libdir)/budgie-session \
+      -Dgsd-components-excluded=DiskUtilityNotify,UsbProtection \
+      -Dgsd-libexecdir=%(libdir)/gnome-settings-daemon \
+      -Dxdp-libexecdir=%(libdir)/xdg-desktop-portal \
+      -Dwith-gtk-doc=false \
+      -Dwith-runtime-dependencies=true \
+      -Dwith-stateless=true
+build       : |
+    %meson_build
+install     : |
+    %meson_install
