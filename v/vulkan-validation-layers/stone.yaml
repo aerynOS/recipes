@@ -3,7 +3,7 @@
 
 name        : vulkan-validation-layers
 version     : "1.4.363.0"
-release     : 1
+release     : 2
 homepage    : https://github.com/KhronosGroup/Vulkan-ValidationLayers
 upstreams   :
     - https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/vulkan-sdk-1.4.363.0.tar.gz : 36720627913a591ae8ffc0f24b3c04f98af65242c9b7215d1944a85ff5b70e00
