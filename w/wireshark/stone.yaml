@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wireshark
-version     : "4.6.8"
-release     : 9
+version     : "4.6.9"
+release     : 10
 homepage    : https://www.wireshark.org/
 upstreams   :
-    - https://gitlab.com/wireshark/wireshark/-/archive/v4.6.8/wireshark-v4.6.8.tar.gz : d6789c907f9d9650728c90e15631ed2b35c6bd5101e39c37b619427dc471fefd
+    - https://gitlab.com/wireshark/wireshark/-/archive/v4.6.9/wireshark-v4.6.9.tar.gz : dba1b5c79b668963160457b9a0792e7b00644ed36879e532cbf9ced2dcb138b1
 summary     : Wireshark is the world's foremost network protocol analyzer.
 description : |
     Wireshark is the world's foremost network protocol analyzer. It lets you see what's happening on your network at a microscopic level.
@@ -61,11 +61,12 @@ install     : |
     %cmake_install
 
     # TODO fix this when we support caps
-    install -Dm00644 %(pkgdir)/wireshark.sysusers %(installroot)/%(libdir)/sysusers.d/wireshark.conf
-    chmod 750  %(installroot)/usr/bin/dumpcap
+    %sysusers "g wireshark 150 -"
+    chmod 750 %(installroot)/usr/bin/dumpcap
     chown :150 %(installroot)/usr/bin/dumpcap
 
-    %tmpfiles 't %(installroot)/usr/bin/dumpcap - - - - security.capability=0sAQAAAgAwAAAAAAAAAAAAAAAAAAA='
+    %tmpfiles "z /usr/bin/dumpcap 0750 root wireshark - -"
+    %tmpfiles "k /usr/bin/dumpcap - - - - cap_net_admin,cap_net_raw=ep"
 packages    :
     - "%(name)-cli":
         summary: Network traffic analyzer

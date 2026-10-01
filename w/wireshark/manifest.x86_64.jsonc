@@ -134,7 +134,6 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libcap.so.2(x86_64))",
 				"soname(libcares.so.2(x86_64))",
-				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libgcrypt.so.20(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgmodule-2.0.so.0(x86_64))",
@@ -177,9 +176,9 @@
 				"/usr/bin/tfshark",
 				"/usr/bin/tshark",
 				"/usr/lib/libwireshark.so.19",
-				"/usr/lib/libwireshark.so.19.1.8",
+				"/usr/lib/libwireshark.so.19.1.9",
 				"/usr/lib/libwiretap.so.16",
-				"/usr/lib/libwiretap.so.16.0.8",
+				"/usr/lib/libwiretap.so.16.0.9",
 				"/usr/lib/libwsutil.so.17",
 				"/usr/lib/libwsutil.so.17.0.0",
 				"/usr/lib/sysusers.d/wireshark.conf",
@@ -669,6 +668,6 @@
 		}
 	},
 	"source-name": "wireshark",
-	"source-release": "9",
-	"source-version": "4.6.8"
+	"source-release": "10",
+	"source-version": "4.6.9"
 }
