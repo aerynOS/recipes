@@ -810,6 +810,8 @@
 				"/usr/lib/kitty/kitty/shaders/custom/cursor-trail-default.slang",
 				"/usr/lib/kitty/kitty/shaders/custom/cursor-trail-lightning.pipeline",
 				"/usr/lib/kitty/kitty/shaders/custom/cursor-trail-lightning.slang",
+				"/usr/lib/kitty/kitty/shaders/custom/cursor-trail-motion-blur.pipeline",
+				"/usr/lib/kitty/kitty/shaders/custom/cursor-trail-motion-blur.slang",
 				"/usr/lib/kitty/kitty/shaders/custom/demo.py",
 				"/usr/lib/kitty/kitty/shaders/custom/dim-inactive-windows.pipeline",
 				"/usr/lib/kitty/kitty/shaders/custom/fireworks-rockets.pipeline",
@@ -1444,6 +1446,6 @@
 		}
 	},
 	"source-name": "kitty",
-	"source-release": "21",
-	"source-version": "0.49.1"
+	"source-release": "22",
+	"source-version": "0.49.2"
 }
