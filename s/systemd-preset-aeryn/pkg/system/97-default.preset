@@ -21,6 +21,9 @@ enable NetworkManager-wait-online.service
 enable NetworkManager-dispatcher.service
 enable ModemManager.service
 
+# Default firewall
+enable firewalld.service
+
 # Default wireless service
 enable iwd.service
 
