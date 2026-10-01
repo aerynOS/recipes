@@ -2,32 +2,27 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : chezmoi
-version     : "2.70.2"
-release     : 7
+version     : "2.73.0"
+release     : 8
 homepage    : https://github.com/twpayne/chezmoi
 upstreams   :
-    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.70.2.tar.gz : 4dfacb37e1f6714305d7c8570bc25880342dfddbe81259c9253a5881de035321
+    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.73.0.tar.gz : f6fba40bec4662d5438eecce5cd5c1bcad0bcae5ec34a547fdcf66fb58535764
 summary     : Manage your dotfiles across multiple machines
 description : |
     chezmoi helps you manage your personal configuration files
     (dotfiles, like ~/.gitconfig) across multiple machines.
 license     : MIT
 networking  : true
-builddeps   :
-    - binary(git)
-    - binary(go)
 setup       : |
-    go mod download
+    %go_mod
 build       : |
-    go build \
-        -buildmode=pie \
-        -mod=readonly \
-        -tags noupgrade \
-        -ldflags "-compressdwarf=false \
-        -X main.version=%(version) \
-        -X main.date=$(date -u +'%%Y-%%m-%%dT%%H:%%M:%%SZ' --date=@$SOURCE_DATE_EPOCH)"
+    export GOFLAGS+=" -ldflags=-linkmode=external \
+        -ldflags=-compressdwarf=false \
+        -ldflags=-X=main.version=%(version) \
+        -ldflags=-X=main.date=$(date -u +'%%Y-%%m-%%dT%%H:%%M:%%SZ' --date=@$SOURCE_DATE_EPOCH)"
+    go build -tags noupgrade
 install     : |
     %install_bin chezmoi
-    %install_file completions/chezmoi-completion.bash %(installroot)%(datadir)/bash-completion/completions/chezmoi
-    %install_file completions/chezmoi.fish %(installroot)%(datadir)/fish/completions/chezmoi.fish
-    %install_file completions/chezmoi.zsh %(installroot)%(datadir)/zsh/site-functions/_chezmoi
+    %install_file completions/chezmoi-completion.bash %(installroot)%(bashcompletionsdir)/chezmoi
+    %install_file completions/chezmoi.fish %(installroot)%(fishcompletionsdir)/chezmoi.fish
+    %install_file completions/chezmoi.zsh %(installroot)%(zshcompletionsdir)/_chezmoi
