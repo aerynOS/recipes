@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : otter-launcher
-version     : "0.7.8"
-release     : 3
+version     : "0.7.9"
+release     : 4
 homepage    : https://github.com/kuokuo123/otter-launcher
 upstreams   :
-    - https://github.com/kuokuo123/otter-launcher/archive/refs/tags/v0.7.8.tar.gz : 70a88c5a5900c4705a7b615b53ee0fd26783df03d152ebe6eabe8524321c2a74
+    - https://github.com/kuokuo123/otter-launcher/archive/refs/tags/v0.7.9.tar.gz : 00c7163c2444c45ff465c221094c065d578ff2c3a8da3bde2b6bdd6a8ce24027
 summary     : minimalist, blazingly fast, keyboard-centric
 description : |
      A hackable cli/tui launcher built for keyboard-centric wm users, featuring vi & emacs keybinds, ansi decoration, etc.
