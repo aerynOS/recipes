@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : thunderbird
-version     : "157.0"
-release     : 56
+version     : "157.0.1"
+release     : 57
 homepage    : https://www.thunderbird.net/
 upstreams   :
-    - https://releases.mozilla.org/pub/thunderbird/releases/157.0/source/thunderbird-157.0.source.tar.xz : c276e8687b529fc7472df62c8fca11ea19f3bf06109217437210cfe48e5b01c9
+    - https://releases.mozilla.org/pub/thunderbird/releases/157.0.1/source/thunderbird-157.0.1.source.tar.xz : f4f46de621d44ab7718a5878e0fcaff136e13f0f326db657c38953dc0151a1e8
 summary     : Thunderbird Email Client
 description : |
     Thunderbird Email Client
