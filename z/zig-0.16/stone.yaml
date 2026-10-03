@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : zig-0.16
+version     : "0.16.0"
+release     : 1
+homepage    : https://ziglang.org
+upstreams   :
+    - https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz : 43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf
+summary     : General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software
+description : |
+    A general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.
+
+    This contains Zig 0.16
+license     : MIT
+builddeps   :
+    - binary(llvm-config-21)
+    - clang-21-devel
+    - lld-21-devel
+setup       : |
+    %patch %(pkgdir)/0001-Try-versioned-zig-libdir.patch
+
+    # Note: Check the kernel minimum in glibc for the kernel version to use below
+    %cmake \
+        -DZIG_PIE=ON \
+        -DZIG_SHARED_LLVM=ON \
+        -DZIG_TARGET_MCPU=x86_64_v2 \
+        -DZIG_TARGET_TRIPLE=x86_64-linux.6.1-gnu.2.44 \
+        -DZIG_USE_LLVM_CONFIG=ON
+build       : |
+    %cmake_build
+install     : |
+    _MAJOR_MIN_VERSION=$(echo %(version) | cut -d. -f1-2)
+    _ZIG_LIBDIR=%(installroot)%(libdir)/zig-${_MAJOR_MIN_VERSION}
+
+    DESTDIR="${PWD}/tmp" cmake --install "%(builddir)" --verbose
+
+    %install_dir %(installroot)%(bindir) ${_ZIG_LIBDIR}
+
+    cd "${PWD}/tmp/usr"
+    cp -va --no-preserve=ownership bin ${_ZIG_LIBDIR}
+    cp -va --no-preserve=ownership lib/zig/* ${_ZIG_LIBDIR}
+
+    # Add versioned command
+    ln -srv ${_ZIG_LIBDIR}/bin/zig %(installroot)%(bindir)/zig-${_MAJOR_MIN_VERSION}
