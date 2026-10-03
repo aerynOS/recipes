@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : croc
-version     : "11.5.2"
-release     : 10
-homepage    : https://github.com/schollz/croc
+version     : "11.5.4"
+release     : 11
+homepage    : https://getcroc.com/
 upstreams   :
-    - https://github.com/schollz/croc/archive/refs/tags/v11.5.2.tar.gz : 2ceddb504be8b5912f4a3bfd76dc28bb18afda54191f2bebcf5b0fb24e63f774
+    - https://github.com/schollz/croc/archive/refs/tags/v11.5.4.tar.gz : 16910b594704b40e9df35eb3bc637db675fe3d770a4588bd32b5a12c5ff174ff
 summary     : Securely transfer files and folders between any two computers
 description : |
     croc is a tool that allows any two computers to simply and securely
@@ -19,8 +19,7 @@ networking  : true
 setup       : |
     %go_mod
 build       : |
-    CGO_ENABLED=0 go build -v \
-        -ldflags "-s -w -X github.com/schollz/croc/v10/src/cli.Version=v%(version)"
+    CGO_ENABLED=0 go build -v -ldflags "-s -w"
 
     ./croc generate-fish-completion > croc.fish
 install     : |
