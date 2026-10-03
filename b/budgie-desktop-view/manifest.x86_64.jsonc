@@ -1,0 +1,69 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"budgie-desktop-view": {
+			"build-depends": [
+				"binary(intltool-merge)",
+				"binary(msgfmt)",
+				"pkgconfig(gdk-3.0)",
+				"pkgconfig(gio-unix-2.0)",
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(gtk+-3.0)",
+				"pkgconfig(gtk-layer-shell-0)",
+				"pkgconfig(libxfce4windowing-0)",
+				"pkgconfig(vapigen)"
+			],
+			"depends": [
+				"glycin-thumbnailer",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libgtk-layer-shell.so.0(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libxfce4windowing-0.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/org.buddiesofbudgie.budgie-desktop-view",
+				"/usr/share/applications/org.buddiesofbudgie.budgie-desktop-view.desktop",
+				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.budgie-desktop-view.gschema.xml",
+				"/usr/share/locale/cs/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/en_GB/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/en_US/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/es/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/es_MX/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/he/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ja_JP/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ka/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ko/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/lt/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ms_MY/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/oc/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/pt_BR/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/pt_PT/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/ru/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/sq/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/tr/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/vi_VN/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/zh/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/budgie-desktop-view.mo",
+				"/usr/share/xdg/autostart/org.buddiesofbudgie.budgie-desktop-view-autostart.desktop"
+			],
+			"name": "budgie-desktop-view",
+			"provides": [
+				"binary(org.buddiesofbudgie.budgie-desktop-view)"
+			]
+		}
+	},
+	"source-name": "budgie-desktop-view",
+	"source-release": "1",
+	"source-version": "10.10.3"
+}

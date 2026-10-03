@@ -1,0 +1,40 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"budgie-backgrounds": {
+			"build-depends": [
+				"binary(mogrify)"
+			],
+			"files": [
+				"/usr/share/backgrounds/budgie/abstract-spiral.jxl",
+				"/usr/share/backgrounds/budgie/beacon-street-sunset.jxl",
+				"/usr/share/backgrounds/budgie/blue-periwinkle.jxl",
+				"/usr/share/backgrounds/budgie/canyon-wren.jxl",
+				"/usr/share/backgrounds/budgie/casa-mila.jxl",
+				"/usr/share/backgrounds/budgie/extreme-desert-hike.jxl",
+				"/usr/share/backgrounds/budgie/high-trestle-trail.jxl",
+				"/usr/share/backgrounds/budgie/lake-sherburne.jxl",
+				"/usr/share/backgrounds/budgie/oakland-zoo-otters.jxl",
+				"/usr/share/backgrounds/budgie/ocean-waves.jxl",
+				"/usr/share/backgrounds/budgie/perched-osprey.jxl",
+				"/usr/share/backgrounds/budgie/perched-shrike.jxl",
+				"/usr/share/backgrounds/budgie/piazza-gae-aulenti.jxl",
+				"/usr/share/backgrounds/budgie/pondering-heron.jxl",
+				"/usr/share/backgrounds/budgie/roman-colosseum.jxl",
+				"/usr/share/backgrounds/budgie/saturnian-profile.jxl",
+				"/usr/share/backgrounds/budgie/singaporean-cityscape.jxl",
+				"/usr/share/backgrounds/budgie/sunning-anhinga.jxl",
+				"/usr/share/backgrounds/budgie/tea-gardens.jxl",
+				"/usr/share/backgrounds/budgie/the-spices-of-life.jxl",
+				"/usr/share/backgrounds/budgie/valley-midnight.jxl",
+				"/usr/share/backgrounds/budgie/waves-midnight.jxl",
+				"/usr/share/gnome-background-properties/budgie-backgrounds.xml"
+			],
+			"name": "budgie-backgrounds"
+		}
+	},
+	"source-name": "budgie-backgrounds",
+	"source-release": "1",
+	"source-version": "4.1"
+}

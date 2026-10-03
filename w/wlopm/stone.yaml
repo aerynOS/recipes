@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wlopm
+version     : "1.0.0"
+release     : 1
+homepage    : https://sr.ht/~leon_plickat/wlopm
+upstreams   :
+    - https://git.sr.ht/~leon_plickat/wlopm/archive/v1.0.0.tar.gz : 15f31bbd855131943397dded3a26003f2f5056e4c6a1a93d35ff7697b3f1e439
+summary     : wlopm is a Wayland output power management client
+description : |
+    wlopm is a Wayland output power management client.
+license     : GPL-3.0-only
+builddeps   :
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-scanner)
+build       : |
+    %make
+install     : |
+    %install_dir %(installroot)%(completionsdir)
+    %make_install DESTDIR=%(installroot) PREFIX=%(prefix)

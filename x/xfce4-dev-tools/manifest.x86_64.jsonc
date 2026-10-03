@@ -1,0 +1,64 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"xfce4-dev-tools": {
+			"build-depends": [
+				"binary(gettext)",
+				"binary(meson)",
+				"binary(xsltproc)",
+				"pkgconfig(glib-2.0)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/xdt-autogen",
+				"/usr/bin/xdt-check-abi",
+				"/usr/bin/xdt-csource",
+				"/usr/bin/xdt-gen-visibility",
+				"/usr/bin/xfce-build",
+				"/usr/bin/xfce-do-release",
+				"/usr/bin/xfce-get-release-notes",
+				"/usr/bin/xfce-get-translations",
+				"/usr/bin/xfce-update-news",
+				"/usr/share/man/man1/xdt-csource.1"
+			],
+			"name": "xfce4-dev-tools",
+			"provides": [
+				"binary(xdt-autogen)",
+				"binary(xdt-check-abi)",
+				"binary(xdt-csource)",
+				"binary(xdt-gen-visibility)",
+				"binary(xfce-build)",
+				"binary(xfce-do-release)",
+				"binary(xfce-get-release-notes)",
+				"binary(xfce-get-translations)",
+				"binary(xfce-update-news)"
+			]
+		},
+		"xfce4-dev-tools-devel": {
+			"build-depends": [
+				"binary(gettext)",
+				"binary(meson)",
+				"binary(xsltproc)",
+				"pkgconfig(glib-2.0)"
+			],
+			"depends": [
+				"xfce4-dev-tools"
+			],
+			"files": [
+				"/usr/share/aclocal/xdt-depends.m4",
+				"/usr/share/aclocal/xdt-features.m4",
+				"/usr/share/aclocal/xdt-i18n.m4",
+				"/usr/share/aclocal/xdt-version.m4"
+			],
+			"name": "xfce4-dev-tools-devel"
+		}
+	},
+	"source-name": "xfce4-dev-tools",
+	"source-release": "1",
+	"source-version": "4.20.0"
+}

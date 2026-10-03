@@ -1,0 +1,222 @@
+From d609c94f859b914b00287625300b5dabd07b8328 Mon Sep 17 00:00:00 2001
+From: Joshua Strobl <me@joshuastrobl.com>
+Date: Wed, 23 Sep 2026 16:28:18 +0300
+Subject: [PATCH] fix: resolve runtime criticals and warnings across shell and
+ panels
+
+- shell: register the app CSS provider in startup, since the default
+  screen does not exist yet when the application is constructed
+- shell: free the GKeyFile with g_key_file_unref, as it is not a GObject
+- shell: sink the floating reference on the introduction panel loaded
+  for keyword collection
+- background: stop embedding the Add Picture button in the header twice
+- sound: skip casefolding stream names that are NULL when sorting
+- user-accounts: remove the Take a Picture button left behind by the
+  webcam code removal, and only read the symlink target of faces that
+  are symlinks
+- user-accounts: fall back to loading the image directly when no
+  thumbnailer is installed, which otherwise left the avatar file
+  chooser unable to accept PNG and JPEG files
+
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Joshua Strobl <me@joshuastrobl.com>
+---
+ panels/background/cc-background-panel.c   |  2 --
+ panels/sound/cc-stream-list-box.c         |  9 +++++++--
+ panels/user-accounts/cc-avatar-chooser.c  | 14 ++++++++++----
+ panels/user-accounts/cc-avatar-chooser.ui |  7 -------
+ shell/cc-application.c                    | 15 +++++++--------
+ shell/cc-keyfile-search.c                 |  5 ++---
+ shell/cc-window.c                         |  2 +-
+ 7 files changed, 27 insertions(+), 27 deletions(-)
+
+diff --git a/panels/background/cc-background-panel.c b/panels/background/cc-background-panel.c
+index 6e4b71918c..67a6439d49 100644
+--- a/panels/background/cc-background-panel.c
++++ b/panels/background/cc-background-panel.c
+@@ -325,8 +325,6 @@ cc_background_panel_constructed (GObject *object)
+   self = CC_BACKGROUND_PANEL (object);
+   shell = cc_panel_get_shell (CC_PANEL (self));
+ 
+-  cc_shell_embed_widget_in_header (shell, GTK_WIDGET (self->add_picture_button), GTK_POS_RIGHT);
+-
+   /* Create style button */
+   popover = create_style_popover (self);
+   gtk_menu_button_set_popover (self->style_button, popover);
+diff --git a/panels/sound/cc-stream-list-box.c b/panels/sound/cc-stream-list-box.c
+index ca914ef94e..61acd52d60 100644
+--- a/panels/sound/cc-stream-list-box.c
++++ b/panels/sound/cc-stream-list-box.c
+@@ -50,6 +50,7 @@ sort_cb (GtkListBoxRow *row1,
+ {
+   CcStreamListBox *self = user_data;
+   GvcMixerStream *stream1, *stream2, *event_sink;
++  const gchar *raw_name1, *raw_name2;
+   g_autofree gchar *name1 = NULL;
+   g_autofree gchar *name2 = NULL;
+ 
+@@ -63,8 +64,12 @@ sort_cb (GtkListBoxRow *row1,
+   else if (stream2 == event_sink)
+     return 1;
+ 
+-  name1 = g_utf8_casefold (gvc_mixer_stream_get_name (stream1), -1);
+-  name2 = g_utf8_casefold (gvc_mixer_stream_get_name (stream2), -1);
++  raw_name1 = gvc_mixer_stream_get_name (stream1);
++  raw_name2 = gvc_mixer_stream_get_name (stream2);
++  if (raw_name1 != NULL)
++    name1 = g_utf8_casefold (raw_name1, -1);
++  if (raw_name2 != NULL)
++    name2 = g_utf8_casefold (raw_name2, -1);
+ 
+   return g_strcmp0 (name1, name2);
+ }
+diff --git a/panels/user-accounts/cc-avatar-chooser.c b/panels/user-accounts/cc-avatar-chooser.c
+index 7adf7b7492..49456050c5 100644
+--- a/panels/user-accounts/cc-avatar-chooser.c
++++ b/panels/user-accounts/cc-avatar-chooser.c
+@@ -46,7 +46,6 @@ struct _CcAvatarChooser {
+         GtkWidget *crop_area;
+         GtkWidget *user_flowbox;
+         GtkWidget *flowbox;
+-        GtkWidget *take_picture_button;
+ 
+         GnomeDesktopThumbnailFactory *thumb_factory;
+         GListStore *faces;
+@@ -188,7 +187,7 @@ update_preview (GtkFileChooser               *chooser,
+                                                                                      NULL,
+                                                                                      &error);
+                        if (error) {
+-                                g_warning("could not general thumbnail %s (%s) %s\n", uri, mime_type, error->message);
++                                g_debug ("could not generate thumbnail %s (%s): %s", uri, mime_type, error->message);
+                                 g_clear_error(&error);
+                        }
+ #else
+@@ -198,6 +197,14 @@ update_preview (GtkFileChooser               *chooser,
+ #endif
+                 }
+ 
++                /* Thumbnailing fails when no thumbnailer for the mime type is installed */
++                if (pixbuf == NULL && mime_type != NULL) {
++                        g_autofree gchar *path = g_file_get_path (file);
++
++                        if (path != NULL)
++                                pixbuf = gdk_pixbuf_new_from_file_at_size (path, 128, 128, NULL);
++                }
++
+                 gtk_dialog_set_response_sensitive (GTK_DIALOG (chooser),
+                                                    GTK_RESPONSE_ACCEPT,
+                                                    (pixbuf != NULL));
+@@ -382,7 +389,7 @@ add_faces_from_dirs (GListStore *faces, GStrv facesdirs, gboolean add_all)
+                                 continue;
+                         }
+ 
+-                        target = g_file_info_get_symlink_target (info);
++                        target = g_file_info_get_is_symlink (info) ? g_file_info_get_symlink_target (info) : NULL;
+                         if (target != NULL && g_str_has_prefix (target , "legacy/")) {
+                                 continue;
+                         }
+@@ -499,7 +506,6 @@ cc_avatar_chooser_class_init (CcAvatarChooserClass *klass)
+ 
+         gtk_widget_class_bind_template_child (wclass, CcAvatarChooser, user_flowbox);
+         gtk_widget_class_bind_template_child (wclass, CcAvatarChooser, flowbox);
+-        gtk_widget_class_bind_template_child (wclass, CcAvatarChooser, take_picture_button);
+ 
+         gtk_widget_class_bind_template_callback (wclass, cc_avatar_chooser_select_file);
+ 
+diff --git a/panels/user-accounts/cc-avatar-chooser.ui b/panels/user-accounts/cc-avatar-chooser.ui
+index 45bcbabfc3..115cd24e3a 100644
+--- a/panels/user-accounts/cc-avatar-chooser.ui
++++ b/panels/user-accounts/cc-avatar-chooser.ui
+@@ -33,13 +33,6 @@
+             <property name="halign">GTK_ALIGN_CENTER</property>
+             <property name="border-width">10</property>
+             <property name="spacing">10</property>
+-            <child>
+-              <object class="GtkButton" id="take_picture_button">
+-                <property name="visible">True</property>
+-                <property name="label" translatable="yes">Take a Picture…</property>
+-                <signal name="clicked" handler="webcam_icon_selected" swapped="yes"/>
+-              </object>
+-            </child>
+             <child>
+               <object class="GtkButton">
+                 <property name="visible">True</property>
+diff --git a/shell/cc-application.c b/shell/cc-application.c
+index 9a909c4375..833359f731 100644
+--- a/shell/cc-application.c
++++ b/shell/cc-application.c
+@@ -222,6 +222,7 @@ cc_application_startup (GApplication *application)
+ {
+   CcApplication *self = CC_APPLICATION (application);
+   const gchar *help_accels[] = { "F1", NULL };
++  g_autoptr(GtkCssProvider) provider = NULL;
+ 
+   g_action_map_add_action_entries (G_ACTION_MAP (self),
+                                    cc_app_actions,
+@@ -230,6 +231,12 @@ cc_application_startup (GApplication *application)
+ 
+   G_APPLICATION_CLASS (cc_application_parent_class)->startup (application);
+ 
++  provider = gtk_css_provider_new ();
++  gtk_css_provider_load_from_resource (provider, "/org/buddiesofbudgie/ControlCenter/gtk/style.css");
++  gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
++                                             GTK_STYLE_PROVIDER (provider),
++                                             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
++
+   hdy_init ();
+   hdy_style_manager_set_color_scheme (hdy_style_manager_get_default (),
+                                       HDY_COLOR_SCHEME_PREFER_DARK);
+@@ -291,17 +298,9 @@ cc_application_class_init (CcApplicationClass *klass)
+ static void
+ cc_application_init (CcApplication *self)
+ {
+-  g_autoptr(GtkCssProvider) provider = NULL;
+-
+   cc_object_storage_initialize ();
+ 
+   g_application_add_main_option_entries (G_APPLICATION (self), all_options);
+-
+-  provider = gtk_css_provider_new ();
+-  gtk_css_provider_load_from_resource (provider, "/org/buddiesofbudgie/ControlCenter/gtk/style.css");
+-  gtk_style_context_add_provider_for_screen (gdk_screen_get_default (),
+-                                             GTK_STYLE_PROVIDER (provider),
+-                                             GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+ }
+ 
+ GtkApplication *
+diff --git a/shell/cc-keyfile-search.c b/shell/cc-keyfile-search.c
+index e65091d794..1c79467dc8 100644
+--- a/shell/cc-keyfile-search.c
++++ b/shell/cc-keyfile-search.c
+@@ -49,8 +49,7 @@ gboolean initialize_keyfile(void) {
+                 if (error && !g_error_matches(error, G_FILE_ERROR, G_FILE_ERROR_NOENT)) {
+                     g_warning("Could not load key file: %s", error->message);
+                 }
+-                g_clear_object(&keyfile);
+-                keyfile = NULL;
++                g_clear_pointer(&keyfile, g_key_file_unref);
+             }
+         }
+         process++;
+@@ -66,7 +65,7 @@ gboolean initialize_keyfile(void) {
+ 
+ // Public function to cleanup the keyfile
+ void cleanup_keyfile(void) {
+-    g_clear_object(&keyfile);
++    g_clear_pointer(&keyfile, g_key_file_unref);
+ }
+ 
+ // Convenience function to confirm if the search for the object should be declared visible
+diff --git a/shell/cc-window.c b/shell/cc-window.c
+index 2312c497ec..56d35818c3 100644
+--- a/shell/cc-window.c
++++ b/shell/cc-window.c
+@@ -456,7 +456,7 @@ enhance_introduction_panel_keywords (CcWindow *self)
+     }
+ 
+   /* Load the introduction panel to get its apps */
+-  panel = cc_panel_loader_load_by_name (CC_SHELL (self), "introduction", NULL);
++  panel = g_object_ref_sink (cc_panel_loader_load_by_name (CC_SHELL (self), "introduction", NULL));
+   if (!panel || !CC_IS_INTRODUCTION_PANEL (panel))
+     {
+       g_debug ("Failed to load introduction panel");

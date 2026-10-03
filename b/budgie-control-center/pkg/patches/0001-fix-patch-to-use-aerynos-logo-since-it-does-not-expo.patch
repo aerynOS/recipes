@@ -1,0 +1,27 @@
+From 45ab1b39606534e87083b7fda4d53ae4d815a583 Mon Sep 17 00:00:00 2001
+From: Joshua Strobl <me@joshuastrobl.com>
+Date: Tue, 15 Sep 2026 16:28:34 +0300
+Subject: [PATCH 1/1] fix: patch to use aerynos-logo since it does not expose
+ LOGO in os info
+
+Signed-off-by: Joshua Strobl <me@joshuastrobl.com>
+---
+ panels/info-overview/cc-info-overview-panel.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/panels/info-overview/cc-info-overview-panel.c b/panels/info-overview/cc-info-overview-panel.c
+index 25cda02d3..a53d0e975 100644
+--- a/panels/info-overview/cc-info-overview-panel.c
++++ b/panels/info-overview/cc-info-overview-panel.c
+@@ -988,7 +988,7 @@ setup_os_logo (CcInfoOverviewPanel *panel)
+   g_autoptr(GIcon) icon = NULL;
+ 
+   if (logo_name == NULL)
+-    logo_name = g_strdup ("budgie-logo");
++    logo_name = g_strdup ("aerynos-logo");
+ 
+   array = g_ptr_array_new_with_free_func (g_free);
+ 
+-- 
+2.55.0
+

@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : budgie-control-center
+version     : "2.1.3"
+release     : 1
+homepage    : https://github.com/BuddiesOfBudgie/budgie-control-center
+upstreams   :
+    - https://github.com/BuddiesOfBudgie/budgie-control-center/releases/download/v2.1.3/budgie-control-center-2.1.3.tar.xz : ad173a72bc8e06b9e256589593a9c2853bc46746e74076d0052af0150d14600a
+summary     : A fork of GNOME Control Center for the Budgie 10 Series
+description : |
+    A fork of GNOME Control Center for the Budgie 10 Series
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(accountsservice)
+    - pkgconfig(colord)
+    - pkgconfig(cups)
+    - pkgconfig(epoxy)
+    - pkgconfig(gcr-base-3)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(gio-2.0)
+    - pkgconfig(gio-unix-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gnome-desktop-3.0)
+    - pkgconfig(gnome-settings-daemon)
+    - pkgconfig(goa-1.0)
+    - pkgconfig(gsettings-desktop-schemas)
+    - pkgconfig(gsound)
+    - pkgconfig(gthread-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(gudev-1.0)
+    - pkgconfig(ibus-1.0)
+    - pkgconfig(libgtop-2.0)
+    - pkgconfig(libhandy-1)
+    - pkgconfig(libnm)
+    - pkgconfig(libnma)
+    - pkgconfig(libpulse)
+    - pkgconfig(libpulse-mainloop-glib)
+    - pkgconfig(libsecret-1)
+    - pkgconfig(libxml-2.0)
+    - pkgconfig(malcontent-0)
+    - pkgconfig(mm-glib)
+    - pkgconfig(polkit-gobject-1)
+    - pkgconfig(pwquality)
+    - pkgconfig(smbclient)
+    - pkgconfig(tecla)
+    - pkgconfig(udisks2)
+    - pkgconfig(upower-glib)
+    - pkgconfig(x11)
+    - pkgconfig(xi)
+rundeps     :
+    - binary(boltctl)
+    - binary(glxinfo)
+    - binary(nm-connection-editor)
+    - binary(switcherooctl)
+    - binary(tecla)
+    - cups-pk-helper
+    - fprintd
+    - iso-codes
+    - networkmanager-wifi
+    - os-artwork
+setup       : |
+    export CFLAGS+=" -Wno-error=incompatible-pointer-types"
+    %patch %(pkgdir)/patches/0001-fix-patch-to-use-aerynos-logo-since-it-does-not-expo.patch
+    %patch %(pkgdir)/patches/0002-fix-resolve-runtime-criticals.patch
+    %meson \
+      -Ddark_mode_distributor_logo=%(datadir)/pixmaps/system-logo-white.png \
+      -Dmalcontent=true \
+      -Dsnap=false
+build       : |
+    %meson_build
+install     : |
+    %meson_install

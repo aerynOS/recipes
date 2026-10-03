@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : pocillo-gtk-theme
+version     : "0.13.0"
+release     : 1
+homepage    : https://github.com/UbuntuBudgie/pocillo-gtk-theme
+upstreams   :
+    - https://github.com/UbuntuBudgie/pocillo-gtk-theme/archive/refs/tags/v0.13.0.tar.gz : b13235c33d381ed7eb979fc8416551eec01a2cb3ceb9486ba3da65568f23d9c2
+    - https://github.com/sass/dart-sass/releases/download/1.105.1/dart-sass-1.105.1-linux-x64.tar.gz : 9046fdd4a31a524a0020298c55d9e155d4c22363ef268e8992574335a72c6a6f
+summary     : Pocillo is a Material Design theme for the Budgie Desktop
+description : |
+    Pocillo is a Material Design theme for the Budgie Desktop.
+license     : GPL-2.0-or-later
+rundeps     :
+    - papirus-icon-theme
+setup       : |
+    bsdtar-static -xf %(sourcedir)/dart-sass-1.105.1-linux-x64.tar.gz -C %(workdir)/
+    export PATH="%(workdir)/dart-sass:${PATH}"
+    %meson -Dlabwc_icons="papirus"
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    rm %(installroot)/usr/share/themes/Pocillo*/INSTALL_GDM_THEME.md

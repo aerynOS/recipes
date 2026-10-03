@@ -1,0 +1,69 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"bluejay": {
+			"build-depends": [
+				"binary(python3)",
+				"cmake(ECM)",
+				"cmake(KF6BluezQt)",
+				"cmake(KF6ColorScheme)",
+				"cmake(KF6Config)",
+				"cmake(KF6CoreAddons)",
+				"cmake(KF6DBusAddons)",
+				"cmake(KF6I18n)",
+				"cmake(KF6Kirigami)",
+				"cmake(KF6KirigamiAddons)",
+				"cmake(KF6QQC2DesktopStyle)",
+				"cmake(Qt6Core)",
+				"cmake(Qt6CorePrivate)",
+				"cmake(Qt6DBus)",
+				"cmake(Qt6Gui)",
+				"cmake(Qt6Quick)",
+				"cmake(Qt6UiTools)",
+				"cmake(Qt6Widgets)"
+			],
+			"depends": [
+				"hicolor-icon-theme",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"kf6-kiconthemes",
+				"kf6-kirigami",
+				"kf6-kirigami-addons",
+				"kf6-qqc2-desktop-style",
+				"soname(libKF6BluezQt.so.6(x86_64))",
+				"soname(libKF6ColorScheme.so.6(x86_64))",
+				"soname(libKF6CoreAddons.so.6(x86_64))",
+				"soname(libKF6I18n.so.6(x86_64))",
+				"soname(libKF6I18nQml.so.6(x86_64))",
+				"soname(libKirigamiAddonsStatefulApp.so.6(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6DBus.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Qml.so.6(x86_64))",
+				"soname(libQt6QuickControls2.so.6(x86_64))",
+				"soname(libQt6Widgets.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/bluejay",
+				"/usr/share/applications/io.github.ebonjaeger.bluejay.desktop",
+				"/usr/share/bluejay/pin-code-database.xml",
+				"/usr/share/icons/hicolor/scalable/apps/io.github.ebonjaeger.bluejay.svg",
+				"/usr/share/locale/cs/LC_MESSAGES/bluejay.mo",
+				"/usr/share/locale/de/LC_MESSAGES/bluejay.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/bluejay.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/bluejay.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/bluejay.mo",
+				"/usr/share/metainfo/io.github.ebonjaeger.bluejay.metainfo.xml"
+			],
+			"name": "bluejay",
+			"provides": [
+				"binary(bluejay)"
+			]
+		}
+	},
+	"source-name": "bluejay",
+	"source-release": "1",
+	"source-version": "1.0.3"
+}

@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : bluejay
+version     : "1.0.3"
+release     : 1
+homepage    : https://codeberg.org/EbonJaeger/bluejay
+upstreams   :
+    - https://codeberg.org/EbonJaeger/bluejay/archive/v1.0.3.tar.gz : 5133e4e205b75751c9bd48bcecf3581e39b53fb1bd90c7070002f2becb240bf2
+summary     : A Bluetooth manager and Bluez front-end
+description : |
+    A Bluetooth manager and Bluez front-end. With it, you can
+    pair devices, connect to and remove devices, turn Bluetooth
+    on and off, and more. Bluejay is powered by the Qt6 graphical
+    toolkit and KDE Frameworks.
+license     : MPL-2.0
+builddeps   :
+    - binary(python3)
+    - cmake(ECM)
+    - cmake(KF6BluezQt)
+    - cmake(KF6ColorScheme)
+    - cmake(KF6Config)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6DBusAddons)
+    - cmake(KF6I18n)
+    - cmake(KF6Kirigami)
+    - cmake(KF6KirigamiAddons)
+    - cmake(KF6QQC2DesktopStyle)
+    - cmake(Qt6Core)
+    - cmake(Qt6CorePrivate)
+    - cmake(Qt6DBus)
+    - cmake(Qt6Gui)
+    - cmake(Qt6Quick)
+    - cmake(Qt6UiTools)
+    - cmake(Qt6Widgets)
+rundeps     :
+    - hicolor-icon-theme
+    - kf6-kiconthemes
+    - kf6-kirigami
+    - kf6-kirigami-addons
+    - kf6-qqc2-desktop-style
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

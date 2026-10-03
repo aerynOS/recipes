@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-dev-tools
+version     : "4.20.0"
+release     : 1
+homepage    : https://archive.xfce.org/xfce/4.20/src
+upstreams   :
+    - https://archive.xfce.org/xfce/4.20/src/xfce4-dev-tools-4.20.0.tar.bz2 : 1fba39a08a0ecc771eaa3a3b6e4272a4f0b9e7c67d0f66e780cd6090cd4466aa
+summary     : Xfce developer tools
+description : |
+    Xfce developer tools
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(gettext)
+    - binary(xsltproc)
+    - binary(meson)
+    - pkgconfig(glib-2.0)
+setup       : |
+    %configure
+build       : |
+    %make
+install     : |
+    %make_install
