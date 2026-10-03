@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zig
-version     : "0.16.0"
-release     : 5
+version     : "0.17.0"
+release     : 6
 homepage    : https://ziglang.org
 upstreams   :
-    - https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz : 43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf
+    - https://ziglang.org/download/0.17.0/zig-0.17.0.tar.xz : b6c7f1728f043700d6529bac980800792f824256a9d2f1839b3d62beed0b8abd
 summary     : General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software
 description : |
     A general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.
 license     : MIT
 builddeps   :
-    - binary(llvm-config-21)
-    - clang-21-devel
-    - lld-21-devel
+    - binary(llvm-config-22)
+    - clang-22-devel
+    - lld-22-devel
 setup       : |
     %patch %(pkgdir)/0001-Try-versioned-zig-libdir.patch
 
@@ -23,7 +23,7 @@ setup       : |
         -DZIG_PIE=ON \
         -DZIG_SHARED_LLVM=ON \
         -DZIG_TARGET_MCPU=x86_64_v2 \
-        -DZIG_TARGET_TRIPLE=x86_64-linux.6.1-gnu.2.43 \
+        -DZIG_TARGET_TRIPLE=x86_64-linux.6.1-gnu.2.44 \
         -DZIG_USE_LLVM_CONFIG=ON
 build       : |
     %cmake_build
