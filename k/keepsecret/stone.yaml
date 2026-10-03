@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : keepsecret
+version     : "26.08.1"
+release     : 1
+homepage    : https://apps.kde.org/keepsecret/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.1/src/keepsecret-26.08.1.tar.xz : a17a277eb8361cb911fc813c92c9e8132ca5f5b02daa1c1c22eb5a458bd039a9
+summary     : Password manager for Secret Service
+description : |
+    KeepSecret is a password manager GUI for Secret Service compatible providers.
+    It can be used with KWallet, and also other systems such as oo7, GNOME Keyring, or KeePassXC.
+license     : GPL-2.0-or-later
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Config)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6Crash)
+    - cmake(KF6DBusAddons)
+    - cmake(KF6I18n)
+    - cmake(KF6ItemModels)
+    - cmake(KF6Kirigami)
+    - cmake(KF6KirigamiAddons)
+    - cmake(KF6KirigamiAppComponents)
+    - cmake(Qt6Qml)
+    - cmake(Qt6QuickControls2)
+    - cmake(Qt6Svg)
+    - pkgconfig(libsecret-1)
+rundeps     :
+    - kf6-kirigami-app-components
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
