@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-qt
-version     : "5.1.15"
-release     : 4
+version     : "5.1.16"
+release     : 5
 homepage    : https://github.com/fcitx/fcitx5-qt
 upstreams   :
-    - https://github.com/fcitx/fcitx5-qt/archive/refs/tags/5.1.15.tar.gz : 62613bb0db7ae0661f088753e36203b1b488432d4499481e6dcaab59ef39c75d
+    - https://github.com/fcitx/fcitx5-qt/archive/refs/tags/5.1.16.tar.gz : 94883b1f5501b9e8e994ce1790932750457d284dae992603cb40675c00eedea5
 summary     : Qt library and IM module for fcitx5
 description : |
     Qt library and IM module for fcitx5
