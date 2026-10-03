@@ -37,11 +37,11 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libKirigamiAddonsComponents.so.1.14.2",
+				"/usr/lib/libKirigamiAddonsComponents.so.1.15.0",
 				"/usr/lib/libKirigamiAddonsComponents.so.6",
-				"/usr/lib/libKirigamiAddonsStatefulApp.so.1.14.2",
+				"/usr/lib/libKirigamiAddonsStatefulApp.so.1.15.0",
 				"/usr/lib/libKirigamiAddonsStatefulApp.so.6",
-				"/usr/lib/libKirigamiApp.so.1.14.2",
+				"/usr/lib/libKirigamiApp.so.1.15.0",
 				"/usr/lib/libKirigamiApp.so.6",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/actions/ActionMenu.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/actions/ActionMenuBar.qml",
@@ -125,6 +125,7 @@
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormRadioDelegate.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormRadioSelectorDelegate.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormSectionText.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormSliderDelegate.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormSpinBoxDelegate.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormSwitchDelegate.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/FormTextAreaDelegate.qml",
@@ -139,6 +140,8 @@
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/private/FormChoiceDelegateLayout.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/private/FormDelegateLayout.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/private/FormInfoGrid.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/private/FormInlineMessage.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/private/FormPathCompletion.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/formcard/qmldir",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/labs/components/AbstractMaximizeComponent.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/labs/components/AlbumMaximizeComponent.qml",
@@ -347,6 +350,6 @@
 		}
 	},
 	"source-name": "kf6-kirigami-addons",
-	"source-release": "20",
-	"source-version": "1.14.2"
+	"source-release": "21",
+	"source-version": "1.15.0"
 }
