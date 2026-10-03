@@ -1,0 +1,34 @@
+From bce482ff956d850fe6434d6e266420865a2770bb Mon Sep 17 00:00:00 2001
+From: Muhammad Usama Anjum <usama.anjum@collabora.com>
+Date: Tue, 6 Jun 2023 16:12:06 +0500
+Subject: [PATCH 204/205] [FROM-ML] x86: revert extra time added to check for
+ tsc wraps
+
+Reverts extra time duration added to test tsc wraps in
+"x86: implement tsc=directsync for systems without IA32_TSC_ADJUST".
+This duration makes the sanity checking longer in case tsc wraps. Revert
+this to decrease average resume time.
+
+Signed-off-by: Muhammad Usama Anjum <usama.anjum@collabora.com>
+(cherry picked from commit 458039cfa58ef8b1c4538a75487b67bf489374c4)
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/x86/kernel/tsc_sync.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/x86/kernel/tsc_sync.c b/arch/x86/kernel/tsc_sync.c
+index ec518e4310a2..47c9c9b448d9 100644
+--- a/arch/x86/kernel/tsc_sync.c
++++ b/arch/x86/kernel/tsc_sync.c
+@@ -341,8 +341,6 @@ static cycles_t check_tsc_warp(unsigned int timeout)
+  */
+ static inline unsigned int loop_timeout(int cpu)
+ {
+-	if (!boot_cpu_has(X86_FEATURE_TSC_ADJUST))
+-		return 30;
+ 	return (cpumask_weight(topology_core_cpumask(cpu)) > 1) ? 2 : 20;
+ }
+ 
+-- 
+2.56.0
+
