@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5
-version     : "5.1.22"
-release     : 3
+version     : "5.1.23"
+release     : 4
 homepage    : https://github.com/fcitx/fcitx5
 upstreams   :
-    - https://github.com/fcitx/fcitx5/archive/refs/tags/5.1.22.tar.gz : 1c2ba9b1f4d9795bd923ca15103e1a7cc13330788e618899062836e043ea4803
+    - https://github.com/fcitx/fcitx5/archive/refs/tags/5.1.23.tar.gz : adeeafdba468111573233fb09e5cabf2e2c240cdc85e74ead498c2d702c795b8
     - https://github.com/facebook/yoga/archive/042f5013152eb81c1552dec945b88f7b95ca350f.tar.gz :
         hash: 4742f41722a16f181e3da37abf943390db1e928f00f26402cb154662ae7f110f
         unpackdir: yoga
