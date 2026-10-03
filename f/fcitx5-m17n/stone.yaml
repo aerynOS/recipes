@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-m17n
-version     : "5.1.7"
-release     : 2
+version     : "5.1.8"
+release     : 3
 homepage    : https://github.com/fcitx/fcitx5-m17n
 upstreams   :
-    - https://github.com/fcitx/fcitx5-m17n/archive/refs/tags/5.1.7.tar.gz : a76086866fc158b141b38f15d3a8974edb8bbca2e77f20d4a1daf600646dba78
+    - https://github.com/fcitx/fcitx5-m17n/archive/refs/tags/5.1.8.tar.gz : 596d3f64f1e6f63d1232ff2b04b9ab1d88de53a788b70339e869185624242abf
 summary     : Wrapper for m17n input method engine
 description : |
     Wrap the m17n input method engine into a fcitx input method.
