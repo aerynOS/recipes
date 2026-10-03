@@ -2,21 +2,21 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libime
-version     : "1.1.15"
-release     : 1
+version     : "1.1.17"
+release     : 2
 homepage    : https://github.com/fcitx/libime
 upstreams   :
-    - https://github.com/fcitx/libime/archive/refs/tags/1.1.15.tar.gz:
-        hash: e8ce7b90035aeafa5ce5f59a05f84d6c192fcecc009b2e74cf179bc18b21eaf5
+    - https://github.com/fcitx/libime/archive/refs/tags/1.1.17.tar.gz:
+        hash: 6af056717edf99be8d4b83717de01b6404398d2fc47a301b609ca7d31331cafb
         unpackdir: ime
     - git|https://github.com/kpu/kenlm.git:
         ref: 4cb443e60b7bf2c0ddf3c745378f76cb59e254e5
         clonedir: ime/src/libime/core/kenlm
-    - https://download.fcitx-im.org/data/lm_sc.arpa-20260606.tar.zst:
-        hash: 8c7da1b03770060269b92c0e6172552a2a9041cb74ef0be0b2659e10f0a703f1
+    - https://download.fcitx-im.org/data/lm_sc.arpa-20260629.tar.zst:
+        hash: 06808333b9173e5374cf2cb5afc12d08f5625bf9abb536489cac376fc05f2e7f
         unpack: false
-    - https://download.fcitx-im.org/data/dict-20260430.tar.zst:
-        hash: 3edc008d90fcd61b9967b9e590f396189d7a00fa74c45ecde0d9850a0fdd6241
+    - https://download.fcitx-im.org/data/dict-20260907.tar.zst:
+        hash: fb75a179065e690dfc4559ce1807cbaf4fbe4f0111a5005615be9f435e6b9d76
         unpack: false
     - https://download.fcitx-im.org/data/table-20240108.tar.zst:
         hash: 3e9d87b04a393f131723472c8eaa860dd23c378a3d4f6a9005513b2a95b3614b
