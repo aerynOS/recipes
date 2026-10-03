@@ -2,9 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : helix
-version     : "25.07.01"
-release     : 8
-license     : MPL-2.0
+version     : "25.07.1"
+release     : 9
 homepage    : https://helix-editor.com/
 upstreams   :
     - git|https://github.com/helix-editor/helix.git : a05c151bb6e8e9c65ec390b0ae2afe7a5efd619b
@@ -13,13 +12,14 @@ description : |
     Helix is a Neovim / Kakoune (object-verb) inspired modal, console-based text editor written in Rust, with built-in support for multiple selections, Language Server Protocol (LSP), tree-sitter, and experimental support for Debug Adapter Protocol (DAP).
 
     Note: If you want to fetch and build grammars yourself, use `CC=clang CXX=clang hx -g build` to build grammars after fetching them with `hx -g fetch`.
+license     : MPL-2.0
 builddeps   :
-    - binary(cargo)
     - binary(git)
 networking  : true
 environment : |
     export HELIX_DEFAULT_RUNTIME=%(libexecdir)/runtime
 setup       : |
+    %patch %(pkgdir)/Update-gotmpl-grammar-to-live-repo.patch
     %cargo_fetch
 build       : |
     %cargo_build
@@ -33,6 +33,6 @@ install     : |
     rm -r runtime/grammars/sources
     mv runtime %(installroot)/%(libexecdir)/
 
-    %install_file contrib/completion/hx.bash %(installroot)/%(completionsdir)/hx.bash
-    %install_file contrib/completion/hx.zsh %(installroot)/%(datadir)/zsh/site-functions/_hx
-    %install_file contrib/completion/hx.fish %(installroot)/%(datadir)/fish/vendor_completions.d/hx.fish
+    %install_file contrib/completion/hx.bash %(installroot)%(bashcompletionsdir)/hx.bash
+    %install_file contrib/completion/hx.zsh %(installroot)%(zshcompletionsdir)/_hx
+    %install_file contrib/completion/hx.fish %(installroot)%(fishcompletionsdir)/hx.fish
