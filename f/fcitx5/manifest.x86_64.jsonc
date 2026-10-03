@@ -95,12 +95,12 @@
 				"/usr/lib/fcitx5/libwaylandim.so",
 				"/usr/lib/fcitx5/libxcb.so",
 				"/usr/lib/fcitx5/libxim.so",
-				"/usr/lib/libFcitx5Config.so.5.1.22",
+				"/usr/lib/libFcitx5Config.so.5.1.23",
 				"/usr/lib/libFcitx5Config.so.6",
-				"/usr/lib/libFcitx5Core.so.5.1.22",
+				"/usr/lib/libFcitx5Core.so.5.1.23",
 				"/usr/lib/libFcitx5Core.so.7",
 				"/usr/lib/libFcitx5Utils.so.2",
-				"/usr/lib/libFcitx5Utils.so.5.1.22",
+				"/usr/lib/libFcitx5Utils.so.5.1.23",
 				"/usr/share/applications/fcitx5-configtool.desktop",
 				"/usr/share/applications/fcitx5-wayland-launcher.desktop",
 				"/usr/share/applications/org.fcitx.Fcitx5.desktop",
@@ -565,6 +565,7 @@
 				"/usr/lib/cmake/Fcitx5ModuleXCB/Fcitx5ModuleXCBConfigVersion.cmake",
 				"/usr/lib/cmake/Fcitx5Utils/Fcitx5CompilerSettings.cmake",
 				"/usr/lib/cmake/Fcitx5Utils/Fcitx5Download.cmake.in",
+				"/usr/lib/cmake/Fcitx5Utils/Fcitx5ImportAddon.cpp.in",
 				"/usr/lib/cmake/Fcitx5Utils/Fcitx5Macros.cmake",
 				"/usr/lib/cmake/Fcitx5Utils/Fcitx5ModuleTemplate.cmake.in",
 				"/usr/lib/cmake/Fcitx5Utils/Fcitx5UtilsConfig.cmake",
@@ -605,6 +606,6 @@
 		}
 	},
 	"source-name": "fcitx5",
-	"source-release": "3",
-	"source-version": "5.1.22"
+	"source-release": "4",
+	"source-version": "5.1.23"
 }
