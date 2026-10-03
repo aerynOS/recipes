@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install AerynOS
+GenericName=Install AerynOS
+Comment=Install AerynOS on your system
+Icon=system-software-install
+Exec=lichen-cli-new
+Terminal=true
+Categories=X-GNOME-Settings-Panel;GTK;System;ConsoleOnly;Settings;
+Keywords=Install;SystemSettings;
