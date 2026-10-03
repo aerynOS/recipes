@@ -4,6 +4,8 @@
 	"packages": {
 		"fcitx5-configtool": {
 			"build-depends": [
+				"binary(appstreamcli)",
+				"binary(python3)",
 				"cmake(ECM)",
 				"cmake(Fcitx5Config)",
 				"cmake(Fcitx5Core)",
@@ -67,7 +69,7 @@
 				"/usr/bin/fcitx5-plasma-theme-generator",
 				"/usr/bin/kbd-layout-viewer5",
 				"/usr/lib/libFcitx5Migrator.so.1",
-				"/usr/lib/libFcitx5Migrator.so.5.1.15",
+				"/usr/lib/libFcitx5Migrator.so.5.1.16",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_fcitx5.so",
 				"/usr/share/applications/kbd-layout-viewer5.desktop",
 				"/usr/share/applications/kcm_fcitx5.desktop",
@@ -115,6 +117,8 @@
 		},
 		"fcitx5-configtool-devel": {
 			"build-depends": [
+				"binary(appstreamcli)",
+				"binary(python3)",
 				"cmake(ECM)",
 				"cmake(Fcitx5Config)",
 				"cmake(Fcitx5Core)",
@@ -152,6 +156,6 @@
 		}
 	},
 	"source-name": "fcitx5-configtool",
-	"source-release": "3",
-	"source-version": "5.1.15"
+	"source-release": "4",
+	"source-version": "5.1.16"
 }
