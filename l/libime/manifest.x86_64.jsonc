@@ -26,11 +26,11 @@
 				"/usr/bin/libime_slm_build_binary",
 				"/usr/bin/libime_tabledict",
 				"/usr/lib/libIMECore.so.0",
-				"/usr/lib/libIMECore.so.1.1.15",
+				"/usr/lib/libIMECore.so.1.1.17",
 				"/usr/lib/libIMEPinyin.so.0",
-				"/usr/lib/libIMEPinyin.so.1.1.15",
+				"/usr/lib/libIMEPinyin.so.1.1.17",
 				"/usr/lib/libIMETable.so.0",
-				"/usr/lib/libIMETable.so.1.1.15",
+				"/usr/lib/libIMETable.so.1.1.17",
 				"/usr/lib/libime/zh_CN.lm",
 				"/usr/lib/libime/zh_CN.lm.predict",
 				"/usr/share/libime/cj.main.dict",
@@ -127,6 +127,6 @@
 		}
 	},
 	"source-name": "libime",
-	"source-release": "1",
-	"source-version": "1.1.15"
+	"source-release": "2",
+	"source-version": "1.1.17"
 }
