@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2020-2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : strawberry
-version     : "1.2.30"
-release     : 16
+version     : "1.2.31"
+release     : 17
 homepage    : https://www.strawberrymusicplayer.org
 upstreams   :
-    - https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.30/strawberry-1.2.30.tar.xz : 30fea0fdfc2f9c5449ac30d78ac2f5429fb5e1d025a4d1d3473d10f2abe1ef2a
+    - https://github.com/strawberrymusicplayer/strawberry/releases/download/1.2.31/strawberry-1.2.31.tar.xz : cffc0cd453f3126a930b9e67f547e54d9fde0c8754fdead8185d2b2f5c68c037
 summary     : Strawberry is a audio player and music collection organizer.
 description : |
     Strawberry is a audio player and music collection organizer. It is a fork of Clementine released in 2018 aimed at music collectors, audio enthusiasts and audiophiles.
@@ -34,9 +34,11 @@ builddeps   :
     - pkgconfig(libebur128)
     - pkgconfig(libmtp)
     - pkgconfig(libpulse)
+    - pkgconfig(libsecret-1)
     - pkgconfig(libsparsehash)
     - pkgconfig(sqlite3)
     - pkgconfig(taglib)
+    - pkgconfig(uchardet)
     - pkgconfig(x11)
     - pkgconfig(xcb)
     - pkgconfig(xkbcommon)
