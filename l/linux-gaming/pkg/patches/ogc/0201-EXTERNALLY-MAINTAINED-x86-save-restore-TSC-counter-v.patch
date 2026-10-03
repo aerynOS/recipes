@@ -1,0 +1,83 @@
+From ea506c84ce375ed9d832b8a407a0f1126ced3ae1 Mon Sep 17 00:00:00 2001
+From: Steven Noonan <steven@uplinklabs.net>
+Date: Wed, 17 Nov 2021 00:26:20 -0800
+Subject: [PATCH 201/205] [EXTERNALLY-MAINTAINED] x86: save/restore TSC counter
+ value during sleep/wake
+
+Signed-off-by: Steven Noonan <steven@uplinklabs.net>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/x86/kernel/acpi/sleep.c      |  5 +++++
+ arch/x86/realmode/rm/wakeup.h     |  3 +++
+ arch/x86/realmode/rm/wakeup_asm.S | 12 ++++++++++++
+ 3 files changed, 20 insertions(+)
+
+diff --git a/arch/x86/kernel/acpi/sleep.c b/arch/x86/kernel/acpi/sleep.c
+index 91fa262f0e30..31761a44ce59 100644
+--- a/arch/x86/kernel/acpi/sleep.c
++++ b/arch/x86/kernel/acpi/sleep.c
+@@ -104,6 +104,11 @@ int x86_acpi_suspend_lowlevel(void)
+ 			header->pmode_misc_en_high))
+ 		header->pmode_behavior |=
+ 			(1 << WAKEUP_BEHAVIOR_RESTORE_MISC_ENABLE);
++	if (!rdmsr_safe(MSR_IA32_TSC,
++	                &header->pmode_tsc_low,
++	                &header->pmode_tsc_high))
++		header->pmode_behavior |=
++			(1 << WAKEUP_BEHAVIOR_RESTORE_TSC);
+ 	header->realmode_flags = acpi_realmode_flags;
+ 	header->real_magic = 0x12345678;
+ 
+diff --git a/arch/x86/realmode/rm/wakeup.h b/arch/x86/realmode/rm/wakeup.h
+index 3b6d8fa82d3e..e52c5046c553 100644
+--- a/arch/x86/realmode/rm/wakeup.h
++++ b/arch/x86/realmode/rm/wakeup.h
+@@ -23,6 +23,8 @@ struct wakeup_header {
+ 	u64 pmode_gdt;
+ 	u32 pmode_misc_en_low;	/* Protected mode MISC_ENABLE */
+ 	u32 pmode_misc_en_high;
++	u32 pmode_tsc_low;
++	u32 pmode_tsc_high;
+ 	u32 pmode_behavior;	/* Wakeup routine behavior flags */
+ 	u32 realmode_flags;
+ 	u32 real_magic;
+@@ -39,5 +41,6 @@ extern struct wakeup_header wakeup_header;
+ #define WAKEUP_BEHAVIOR_RESTORE_MISC_ENABLE     0
+ #define WAKEUP_BEHAVIOR_RESTORE_CR4		1
+ #define WAKEUP_BEHAVIOR_RESTORE_EFER		2
++#define WAKEUP_BEHAVIOR_RESTORE_TSC		3
+ 
+ #endif /* ARCH_X86_KERNEL_ACPI_RM_WAKEUP_H */
+diff --git a/arch/x86/realmode/rm/wakeup_asm.S b/arch/x86/realmode/rm/wakeup_asm.S
+index 02d0ba16ae33..0154ef895960 100644
+--- a/arch/x86/realmode/rm/wakeup_asm.S
++++ b/arch/x86/realmode/rm/wakeup_asm.S
+@@ -27,6 +27,7 @@ SYM_DATA_START(wakeup_header)
+ 	pmode_efer:	.quad	0	/* Saved EFER */
+ 	pmode_gdt:	.quad	0
+ 	pmode_misc_en:	.quad	0	/* Saved MISC_ENABLE MSR */
++	pmode_tsc:	.quad	0	/* Saved TSC MSR */
+ 	pmode_behavior:	.long	0	/* Wakeup behavior flags */
+ 	realmode_flags:	.long	0
+ 	real_magic:	.long	0
+@@ -104,6 +105,17 @@ SYM_CODE_START(wakeup_start)
+ 	wrmsr
+ 1:
+ 
++	/* Restore TSC */
++	movl	pmode_behavior, %edi
++	btl	$WAKEUP_BEHAVIOR_RESTORE_TSC, %edi
++	jnc	1f
++
++	movl    pmode_tsc, %eax
++	movl    pmode_tsc + 4, %edx
++	movl    $MSR_IA32_TSC, %ecx
++	wrmsr
++1:
++
+ 	/* Do any other stuff... */
+ 
+ #ifndef CONFIG_64BIT
+-- 
+2.56.0
+

@@ -1,45 +1,46 @@
-From c853f7a1d2e458f6d3b7954ff8bd13223aae72a1 Mon Sep 17 00:00:00 2001
+From 027bb0122c1d051a4f889f96db1c1a0762a89111 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
-Date: Mon, 16 Feb 2026 21:45:40 +0100
-Subject: [PATCH 118/193] [FROM-ML] drm: panel-orientation-quirks: Add
- OneXPlayer G1 variants
+Date: Mon, 16 Feb 2026 21:45:38 +0100
+Subject: [PATCH 118/205] [FROM-ML] drm: panel-orientation-quirks: Add
+ OneXPlayer X1 Mini variants
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Add quirks for the new clamshell device OneXPlayer G1 for both AMD
-and Intel. The device has a 1600x2560p 144hz LCD panel.
+The OneXPlayer X1 mini features a 2k 8.8 display with a portrait
+orientation. The Pro is a CPU refresh. Add quirks to set the panel
+orientation to portrait mode. There is no Intel variant.
 
 Reviewed-by: Philip Müller <philm@manjaro.org>
 Signed-off-by: Antheas Kapenekakis <lkml@antheas.dev>
-Link: https://patch.msgid.link/20260216204547.293291-8-lkml@antheas.dev
+Link: https://patch.msgid.link/20260216204547.293291-6-lkml@antheas.dev
 ---
  drivers/gpu/drm/drm_panel_orientation_quirks.c | 12 ++++++++++++
  1 file changed, 12 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_panel_orientation_quirks.c b/drivers/gpu/drm/drm_panel_orientation_quirks.c
-index af45d79622b5..675a0aeb750e 100644
+index 2efffe962460..1ee66e4db0e9 100644
 --- a/drivers/gpu/drm/drm_panel_orientation_quirks.c
 +++ b/drivers/gpu/drm/drm_panel_orientation_quirks.c
-@@ -558,6 +558,18 @@ static const struct dmi_system_id orientation_data[] = {
- 		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER F1Pro"),
+@@ -516,6 +516,18 @@ static const struct dmi_system_id orientation_data[] = {
+ 		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER X1 i"),
  		},
- 		.driver_data = (void *)&lcd1080x1920_leftside_up,
-+	}, {	/* OneXPlayer OneXFly G1 AMD */
+ 		.driver_data = (void *)&lcd1600x2560_leftside_up,
++	}, {	/* OneXPlayer X1 mini (AMD) */
 +		.matches = {
 +		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "ONE-NETBOOK"),
-+		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER G1 A"),
++		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER X1 mini"),
 +		},
 +		.driver_data = (void *)&lcd1600x2560_leftside_up,
-+	}, {	/* OneXPlayer OneXFly G1 Intel */
++	}, {	/* OneXPlayer X1 mini pro (AMD Strix Point) */
 +		.matches = {
 +		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "ONE-NETBOOK"),
-+		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER G1 i"),
++		  DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "ONEXPLAYER X1Mini Pro"),
 +		},
 +		.driver_data = (void *)&lcd1600x2560_leftside_up,
- 	}, {	/* OrangePi Neo */
+ 	}, {	/* OneXPlayer X1 AMD Strix Point */
  		.matches = {
- 		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "OrangePi"),
+ 		  DMI_EXACT_MATCH(DMI_SYS_VENDOR, "ONE-NETBOOK"),
 -- 
-2.55.0
+2.56.0
 

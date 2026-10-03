@@ -1,0 +1,45 @@
+From b65f35cf266f0d3d3c0c65143b9768483ac25030 Mon Sep 17 00:00:00 2001
+From: Steven Noonan <steven@uplinklabs.net>
+Date: Wed, 17 Nov 2021 11:55:18 -0800
+Subject: [PATCH 200/205] [EXTERNALLY-MAINTAINED] x86: touch clocksource
+ watchdog after syncing TSCs
+
+Signed-off-by: Steven Noonan <steven@uplinklabs.net>
+[Forward port to 6.11.2]
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/x86/kernel/smpboot.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/x86/kernel/smpboot.c b/arch/x86/kernel/smpboot.c
+index cb999feb66b0..de8d2f68342c 100644
+--- a/arch/x86/kernel/smpboot.c
++++ b/arch/x86/kernel/smpboot.c
+@@ -61,6 +61,7 @@
+ #include <linux/cpuhotplug.h>
+ #include <linux/mc146818rtc.h>
+ #include <linux/acpi.h>
++#include <linux/clocksource.h>
+ 
+ #include <asm/acpi.h>
+ #include <asm/cacheinfo.h>
+@@ -1261,6 +1262,7 @@ void arch_thaw_secondary_cpus_begin(void)
+ 
+ void arch_thaw_secondary_cpus_end(void)
+ {
++	clocksource_touch_watchdog();
+ 	cache_aps_init();
+ }
+ 
+@@ -1282,6 +1284,8 @@ void __init native_smp_cpus_done(unsigned int max_cpus)
+ {
+ 	pr_debug("Boot done\n");
+ 
++	clocksource_touch_watchdog();
++
+ 	build_sched_topology();
+ 	nmi_selftest();
+ 	impress_friends();
+-- 
+2.56.0
+
