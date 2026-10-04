@@ -3,14 +3,14 @@
 
 name        : libksieve
 version     : "26.08.1"
-release     : 18
+release     : 19
+homepage    : https://invent.kde.org/pim/libksieve
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.1/src/libksieve-26.08.1.tar.xz : 6e9629c4aae301fb2cfd8d5c383c647bb33a04d0e983dcd4fae8964d5ad67ed6
-homepage    : https://kde.org/applications/system/org.kde.libksieve
-license     : GPL-2.0-only
 summary     : Sieve Script Library
 description : |
     Sieve Script Library
+license     : GPL-2.0-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
@@ -30,8 +30,8 @@ builddeps   :
     - cmake(KF6TextCustomEditor)
     - cmake(KF6TextEditTextToSpeech)
     - cmake(KF6TextUtils)
-    - cmake(KPim6IdentityManagementCore)
     - cmake(KPim6IMAP)
+    - cmake(KPim6IdentityManagementCore)
     - cmake(KPim6Libkdepim)
     - cmake(KPim6MailTransport)
     - cmake(KPim6PimCommon)
