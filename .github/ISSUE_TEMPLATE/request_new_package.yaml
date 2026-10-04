@@ -13,7 +13,7 @@ body:
       value: |
         ## Thank you for your package request!
 
-        Before you continue, please read the [Package Addition Policy](blob/main/PACKAGING_POLICY.md) to understand how we evaluate packages.
+        Before you continue, please read the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) to understand how we evaluate packages.
 
   - type: input
     id: upstream_url
@@ -92,7 +92,7 @@ body:
       label: Policy Confirmation
       description: Confirm that you've reviewed the Package Addition Policy.
       options:
-        - label: I have read the [Package Addition Policy](blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria.
+        - label: I have read the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria.
           required: true
         - label: I have searched for existing [requests](https://github.com/aerynOS/recipes/issues?q=is%3Aissue%20is%3Aopen%20label%3A%22package%3A%20request%22) and confirmed this hasn't been requested before.
           required: true
@@ -123,4 +123,4 @@ body:
       value: |
         ---
 
-        **Next Steps:** A member of the Team will review your request against the [Package Addition Policy](blob/main/PACKAGING_POLICY.md) and respond within the coming days. Approved requests will be labelled `package: approved` and made available for packagers to implement. Please note that we are currently limiting the repo size during the development stages of the project.
+        **Next Steps:** A member of the Team will review your request against the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) and respond within the coming days. Approved requests will be labelled `package: approved` and made available for packagers to implement. Please note that we are currently limiting the repo size during the development stages of the project.

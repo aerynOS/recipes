@@ -66,7 +66,7 @@ body:
       label: Policy Confirmation
       description: Confirm that you've reviewed the Package Addition Policy.
       options:
-        - label: I have read the [Package Addition Policy](blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria for package update.
+        - label: I have read the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria for package update.
           required: true
         - label: I have searched for existing [requests](https://github.com/aerynOS/recipes/issues?q=is%3Aissue+is%3Aopen+label%3A%22package%3A+update%22) and confirmed this hasn't been requested before.
           required: true

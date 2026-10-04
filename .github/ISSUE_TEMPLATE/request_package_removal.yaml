@@ -34,7 +34,7 @@ body:
         - Security vulnerability (unpatched)
         - Proprietary license change
         - Duplicate functionality (exists elsewhere)
-        - Violates [Package Addition Policy](blob/main/PACKAGING_POLICY.md)
+        - Violates [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md)
         - Low usage / niche software
         - Blocking migration/upgrades
         - Other
@@ -54,7 +54,7 @@ body:
       label: Policy Confirmation
       description: Confirm that you've reviewed the Package Addition Policy.
       options:
-        - label: I have read the [Package Addition Policy](blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria for package removal.
+        - label: I have read the [Package Addition Policy](https://github.com/aerynOS/recipes/blob/main/PACKAGING_POLICY.md) and believe this package meets the criteria for package removal.
           required: true
         - label: I have searched for existing [requests](https://github.com/aerynOS/recipes/issues?q=is%3Aissue+is%3Aopen+label%3A%22package%3A+removal%22) and confirmed this hasn't been requested before.
           required: true
@@ -79,4 +79,4 @@ body:
       value: |
         ---
 
-        Removal decisions are made by the aerynOS Staff after evaluating the impact on existing users. Urgent requests involving security risks will be prioritised. Please note that at this stage, aerynOS tooling prohibits fully removing packages. Packages flagged for removals will be added to the [removals](blob/main/removals.md) file and be removed once the prerequisite tooling development has been completed.
+        Removal decisions are made by the aerynOS Staff after evaluating the impact on existing users. Urgent requests involving security risks will be prioritised. Please note that at this stage, aerynOS tooling prohibits fully removing packages. Packages flagged for removals will be added to the [removals](https://github.com/aerynOS/recipes/blob/main/removals.md) file and be removed once the prerequisite tooling development has been completed.
