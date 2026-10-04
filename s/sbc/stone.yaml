@@ -3,8 +3,8 @@
 
 name        : sbc
 version     : "2.2"
-release     : 5
-homepage    : https://www.bluez.org/
+release     : 6
+homepage    : https://bluez.github.io/
 upstreams   :
     - https://www.kernel.org/pub/linux/bluetooth/sbc-2.2.tar.xz : a1ada76ef35e5af9c2fbd063754dc9e37a8d989417c6eb1ecebb089b1383ae9e
 summary     : Bluetooth Subband Codec
