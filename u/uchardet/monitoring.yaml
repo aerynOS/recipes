@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 9265
+  rss: https://gitlab.freedesktop.org/uchardet/uchardet/-/tags?format=atom
+security:
+  # No known CPE, last checked 2026-10-03
+  cpe: ~

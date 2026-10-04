@@ -1,0 +1,47 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"uchardet": {
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/uchardet",
+				"/usr/lib/libuchardet.so.0",
+				"/usr/lib/libuchardet.so.0.0.8",
+				"/usr/share/man/man1/uchardet.1"
+			],
+			"name": "uchardet",
+			"provides": [
+				"binary(uchardet)",
+				"soname(libuchardet.so.0(x86_64))"
+			]
+		},
+		"uchardet-devel": {
+			"depends": [
+				"uchardet"
+			],
+			"files": [
+				"/usr/include/uchardet/uchardet.h",
+				"/usr/lib/cmake/uchardet/uchardet-config-version.cmake",
+				"/usr/lib/cmake/uchardet/uchardet-config.cmake",
+				"/usr/lib/cmake/uchardet/uchardet-targets-release.cmake",
+				"/usr/lib/cmake/uchardet/uchardet-targets.cmake",
+				"/usr/lib/libuchardet.so",
+				"/usr/lib/pkgconfig/uchardet.pc"
+			],
+			"name": "uchardet-devel",
+			"provides": [
+				"cmake(uchardet)",
+				"pkgconfig(uchardet)"
+			]
+		}
+	},
+	"source-name": "uchardet",
+	"source-release": "1",
+	"source-version": "0.0.8"
+}

@@ -27,9 +27,11 @@
 				"pkgconfig(libebur128)",
 				"pkgconfig(libmtp)",
 				"pkgconfig(libpulse)",
+				"pkgconfig(libsecret-1)",
 				"pkgconfig(libsparsehash)",
 				"pkgconfig(sqlite3)",
 				"pkgconfig(taglib)",
+				"pkgconfig(uchardet)",
 				"pkgconfig(x11)",
 				"pkgconfig(xcb)",
 				"pkgconfig(xkbcommon)"
@@ -69,9 +71,11 @@
 				"soname(libm.so.6(x86_64))",
 				"soname(libmtp.so.9(x86_64))",
 				"soname(libpulse.so.0(x86_64))",
+				"soname(libsecret-1.so.0(x86_64))",
 				"soname(libsqlite3.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
-				"soname(libtag.so.2(x86_64))"
+				"soname(libtag.so.2(x86_64))",
+				"soname(libuchardet.so.0(x86_64))"
 			],
 			"files": [
 				"/usr/bin/strawberry",
@@ -89,6 +93,6 @@
 		}
 	},
 	"source-name": "strawberry",
-	"source-release": "16",
-	"source-version": "1.2.30"
+	"source-release": "17",
+	"source-version": "1.2.31"
 }

@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : uchardet
+version     : "0.0.8"
+release     : 1
+homepage    : https://www.freedesktop.org/wiki/Software/uchardet/
+upstreams   :
+    - https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz : e97a60cfc00a1c147a674b097bb1422abd9fa78a2d9ce3f3fdcc2e78a34ac5f0
+summary     : Encoding detector library
+description : |
+    uchardet takes a sequence of bytes in an unknown character encoding and attempts to determine the encoding of the text. Returned encoding names are iconv-compatible.
+license     : MPL-1.1
+setup       : |
+    %cmake \
+        -DBUILD_SHARED_LIBS=ON \
+        -DBUILD_STATIC=OFF \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    %cmake_test
