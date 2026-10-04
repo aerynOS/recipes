@@ -3,15 +3,14 @@
 
 name        : grim
 version     : "1.5.0"
-release     : 2
-homepage    : https://gitlab.freedesktop.org/emersion/grim/-/releases/v1.5.0/downloads
+release     : 3
+homepage    : https://gitlab.freedesktop.org/emersion/grim
 upstreams   :
     - https://gitlab.freedesktop.org/emersion/grim/-/releases/v1.5.0/downloads/grim-1.5.0.tar.gz : 99708950205d5bfd2e769519fcb6423a9f545175a29c46c7c1cf7965afc4b8eb
 summary     : Grab images from a Wayland compositor
 description : |
     Grab images from a Wayland compositor
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - pkgconfig(libjpeg)
     - pkgconfig(libpng)
