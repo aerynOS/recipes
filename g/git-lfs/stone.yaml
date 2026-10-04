@@ -2,35 +2,29 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : git-lfs
-version     : "3.7.1"
-release     : 3
+version     : "3.8.0"
+release     : 4
 homepage    : https://git-lfs.github.com
 upstreams   :
-    - https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-v3.7.1.tar.gz : 8f56058622edfea1d111e50e9844ef2f5ce670b2dbe4d55d48e765c943af4351
+    - https://github.com/git-lfs/git-lfs/releases/download/v3.8.0/git-lfs-v3.8.0.tar.gz : 4f75492c6832038fa73d39a45316657208bb6caa23b273451cb4ec2358d42ccb
 summary     : A command line extension and specification for managing large files with Git.
 description : |
     A command line extension and specification for managing large files with Git.
 license     : MIT
 builddeps   :
     - binary(asciidoctor)
-    - binary(git)
-    - binary(go)
 rundeps     :
     - binary(git)
-networking     : true
+networking  : true
 setup       : |
-    go mod vendor
+    %go_mod
 build       : |
-    export CGO_CFLAGS="${CFLAGS}"
-    export CGO_CXXFLAGS="${CXXFLAGS}"
-    export CGO_LDFLAGS="${LDFLAGS}"
-    export GOFLAGS="-buildmode=pie -trimpath -modcacherw -ldflags=-linkmode=external"
-
+    export GOFLAGS+=" \"-ldflags=-linkmode=external -s -w -buildid=\""
     go generate ./commands
-    go build .
+    go build -v .
     %make man
 install     : |
-    %install_exe git-lfs %(installroot)%(bindir)/git-lfs
+    %install_bin git-lfs
 
     # Man pages
     %install_file -t %(installroot)%(mandir)/man1 man/man1/*.1
