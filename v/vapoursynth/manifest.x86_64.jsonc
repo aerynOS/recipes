@@ -24,11 +24,11 @@
 				"soname(libzimg.so.2(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/vapoursynth-80.dist-info/licenses/COPYING.LESSER",
+				"/usr/lib/python3.14/site-packages/vapoursynth-81.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/vapoursynth-81.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/vapoursynth-81.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/vapoursynth-81.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/vapoursynth-81.dist-info/licenses/COPYING.LESSER",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__init__.py",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__main__.py",
 				"/usr/lib/python3.14/site-packages/vapoursynth/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -152,6 +152,6 @@
 		}
 	},
 	"source-name": "vapoursynth",
-	"source-release": "4",
-	"source-version": "80"
+	"source-release": "5",
+	"source-version": "81"
 }
