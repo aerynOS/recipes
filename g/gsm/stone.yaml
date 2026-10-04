@@ -3,14 +3,14 @@
 
 name        : gsm
 version     : "1.0.24"
-release     : 4
-upstreams   :
-    - http://www.quut.com/gsm/gsm-1.0.24.tar.gz : a3c40c6471928383f4abfcb2e8f24012a1f562be2f17b8d672145d5986681a92
+release     : 5
 homepage    : https://www.quut.com/gsm/
-license     : MIT
+upstreams   :
+    - https://www.quut.com/gsm/gsm-1.0.24.tar.gz : a3c40c6471928383f4abfcb2e8f24012a1f562be2f17b8d672145d5986681a92
 summary     : GSM lossy speech compression library
 description : |
     GSM lossy speech compression library
+license     : MIT
 setup       : |
     %patch %(pkgdir)/gsm-shared.patch -p0
     %patch %(pkgdir)/fix-toast.patch -p0
