@@ -1,0 +1,12 @@
+diff --git a/src/handlers/commit_meta.rs b/src/handlers/commit_meta.rs
+--- a/src/handlers/commit_meta.rs
++++ b/src/handlers/commit_meta.rs
+@@ -116,7 +116,7 @@
+     fn test_commit_record_on_every_row_the_header_draws() {
+         // The record is on the commit row, and on the decoration row the style
+         // adds; the rest of the commit block carries nothing.
+-        assert_snapshot!(visible_metadata_records(LOG, &["--commit-decoration-style", "blue ol"]), @"
++        assert_snapshot!(visible_metadata_records(LOG, &["--commit-decoration-style", "blue ol", "--width=47"]), @"
+         ⟦1;C;;;8a9c3f2b1d4e5f60718293a4b5c6d7e8f9012345⟧───────────────────────────────────────────────
+         ⟦1;C;;;8a9c3f2b1d4e5f60718293a4b5c6d7e8f9012345⟧commit 8a9c3f2b1d4e5f60718293a4b5c6d7e8f9012345
+         Author: Someone <someone@example.com>

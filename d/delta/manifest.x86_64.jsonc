@@ -11,7 +11,10 @@
 				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/bin/delta"
+				"/usr/bin/delta",
+				"/usr/share/bash-completion/completions/delta",
+				"/usr/share/fish/vendor_completions.d/delta.fish",
+				"/usr/share/zsh/site-functions/_delta"
 			],
 			"name": "delta",
 			"provides": [
@@ -20,6 +23,6 @@
 		}
 	},
 	"source-name": "delta",
-	"source-release": "3",
-	"source-version": "0.19.2"
+	"source-release": "4",
+	"source-version": "0.20.0"
 }
