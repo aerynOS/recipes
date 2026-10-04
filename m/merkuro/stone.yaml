@@ -3,18 +3,18 @@
 
 name        : merkuro
 version     : "26.08.1"
-release     : 32
+release     : 33
+homepage    : https://apps.kde.org/merkuro/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.1/src/merkuro-26.08.1.tar.xz : 036df52be52c1fc7b239ada44bd45eb7f875c13f59b5009e7029d303b152a16e
-homepage    : https://kde.org/applications/system/org.kde.merkuro
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
 summary     : Application suite designed to handle emails, calendars, contacts and tasks
 description : |
     Merkuro is a KDE personal information management suite for managing email, calendars,
     contacts, and tasks in one integrated app. It provides a modern interface for organizing
     communication, scheduling events, tracking to-dos, and keeping address books synchronized.
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
@@ -29,9 +29,9 @@ builddeps   :
     - cmake(KF6I18n)
     - cmake(KF6IconThemes)
     - cmake(KF6ItemModels)
+    - cmake(KF6KIO)
     - cmake(KF6Kirigami)
     - cmake(KF6KirigamiAddons) ##
-    - cmake(KF6KIO)
     - cmake(KF6Mime)
     - cmake(KF6Notifications)
     - cmake(KF6QQC2DesktopStyle)
@@ -43,21 +43,21 @@ builddeps   :
     - cmake(KPim6IdentityManagementCore)
     - cmake(KPim6IdentityManagementQuick)
     - cmake(KPim6Libkdepim)
+    - cmake(KPim6Libkleo)
     - cmake(KPim6MailCommon)
     - cmake(KPim6MailTransport)
-    - cmake(KPim6MimeTreeParserCore)
     - cmake(KPim6Mbox)
-    - cmake(KPim6PimCommonAkonadi)
-    - cmake(KPim6Libkleo)
     - cmake(KPim6MessageComposer)
+    - cmake(KPim6MimeTreeParserCore)
+    - cmake(KPim6PimCommonAkonadi)
+    - cmake(Plasma)
     - cmake(Qt6CorePrivate)
     - cmake(Qt6Location)
     - cmake(Qt6Qml)
     - cmake(Qt6Svg)
-    - cmake(Plasma)
 rundeps     :
-    - kf6-qqc2-desktop-style
     - kdepim-runtime # Required for basically anything function-wise
+    - kf6-qqc2-desktop-style
     - qt6-location # QML dep
     - qt6-wayland
 setup       : |
