@@ -1,5 +1,7 @@
+<!--
 # SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
+-->
 
 # aerynOS Package Addition Policy
 
