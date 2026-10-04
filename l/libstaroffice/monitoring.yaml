@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 9687
+  rss: https://github.com/https://github.com/fosnola/libstaroffice/tags.atom
+security:
+  cpe:
+  - vendor: libstaroffice_project
+    product: libstaroffice

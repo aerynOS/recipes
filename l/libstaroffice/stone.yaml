@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libstaroffice
+version     : "0.0.8"
+release     : 1
+upstreams   :
+    - https://github.com/fosnola/libstaroffice/releases/download/0.0.8/libstaroffice-0.0.8.tar.xz : bbca92882e96c55bd1527670866d6bc7529ccb12786da55a2398b60a063378da
+homepage    : https://github.com/fosnola/libstaroffice
+license     : LGPL-2.1-or-later OR MPL-2.0
+summary     : filter for old StarOffice documents
+description : |
+    filter for old StarOffice documents(.sdc, .sdw, ...) based on librevenge
+builddeps   :
+    - binary(doxygen)
+    - pkgconfig(librevenge-0.0)
+    - pkgconfig(zlib)
+setup       : |
+    %configure
+build       : |
+    %make
+install     : |
+    %make_install
+packages    :
+    - "%(name)-docs":
+        paths:
+            - /usr/share/doc/
+
+    - "%(name)-tools":
+        summary: Tools to transform StarOffice documents into other formats
+        description: Tools to transform StarOffice documents into other formats
+        paths:
+            - /usr/bin/
