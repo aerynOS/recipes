@@ -3,8 +3,8 @@
 
 name        : djvulibre
 version     : "3.5.30.1"
-release     : 3
-homepage    : http://djvu.sourceforge.net/
+release     : 4
+homepage    : https://djvu.sourceforge.net/
 upstreams   :
     - git|https://git.code.sf.net/p/djvu/djvulibre-git : af7431e5b024cc24eb04f8609c271ae68542fd5e # release.3.5.30.1
 summary     : A web-centric format and software platform for distributing documents and images
