@@ -2,22 +2,22 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ly
-version     : "1.4.1"
-release     : 6
+version     : "1.5.0"
+release     : 7
 homepage    : https://codeberg.org/fairyglade/ly
 upstreams   :
-    - https://codeberg.org/fairyglade/ly/archive/v1.4.1.tar.gz : 4d1c10422e6c5b8d5a795150e4c364c82404f900c1a04318b83fe8d81fade58b
+    - https://codeberg.org/fairyglade/ly/archive/v1.5.0.tar.gz : 115a7f7fb281803ca7f9e0ddbdf76834a53f7fa6bc702d766d03772ce1976dc3
 summary     : TUI display manager
 description : |
     Ly is a lightweight TUI display manager for Linux.
 license     : WTFPL
 networking  : true
 builddeps   :
-    - binary(zig-0.16)
+    - binary(zig-0.17)
     - pkgconfig(pam)
     - pkgconfig(xcb)
 environment : |
-    _zig=zig-0.16
+    _zig=zig-0.17
 build       : |
     # *Look* for configuration stuff in /etc/ly
     ${_zig} build \
