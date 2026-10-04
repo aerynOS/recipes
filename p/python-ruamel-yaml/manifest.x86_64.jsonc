@@ -123,6 +123,6 @@
 		}
 	},
 	"source-name": "python-ruamel-yaml",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "0.19.1"
 }
