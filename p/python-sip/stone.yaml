@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-sip
-version     : "6.16.1"
-release     : 2
-homepage    : https://www.riverbankcomputing.com/software/sip
+version     : "6.17.0"
+release     : 3
+homepage    : https://github.com/Python-SIP/sip
 upstreams   :
-    - https://pypi.debian.net/sip/sip-6.16.1.tar.gz : 0a739c9cd2929de4e0884456d8caf3cfb22c10534757c7797bd8dc6bd9ed69bc
+    - https://pypi.debian.net/sip/sip-6.17.0.tar.gz : 8c8839fb1fe87247cd315671c41897780b760aa76d01a6440f85c1fe76456bf4
 summary     : python-sip is a tool that creates python 3 bindings for C and C++ libraries
 description : |
     SIP is a tool for generating bindings for C++ classes so that they can be accessed as normal Python classes. SIP takes many of its ideas from SWIG but, because it is specifically designed for C++ and Python, is able to generate tighter bindings. SIP is so called because it is a small SWIG.
