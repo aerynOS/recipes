@@ -3,8 +3,8 @@
 
 name        : bluez
 version     : "5.87"
-release     : 14
-homepage    : https://www.bluez.org/
+release     : 15
+homepage    : https://bluez.github.io/
 upstreams   :
     - https://www.kernel.org/pub/linux/bluetooth/bluez-5.87.tar.xz : 26bdcf2cebd7310c6f598850606b037ef0c515fe6608ebc54d22c50c4c32b35f
 summary     : Bluetooth protocol stack for Linux
