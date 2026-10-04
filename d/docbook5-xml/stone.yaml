@@ -3,8 +3,8 @@
 
 name        : docbook5-xml
 version     : "5.1"
-release     : 2
-homepage    : https://docbook.org/schemas/5x
+release     : 3
+homepage    : https://docbook.org/schemas/docbook/
 upstreams   :
     - https://archive.docbook.org/xml/5.0/docbook-5.0.zip:
         hash: 3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e
