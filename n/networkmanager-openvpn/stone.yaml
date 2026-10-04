@@ -3,15 +3,15 @@
 
 name        : networkmanager-openvpn
 version     : "1.12.5"
-release     : 4
+release     : 5
+homepage    : https://gitlab.gnome.org/GNOME/NetworkManager-openvpn
 upstreams   :
     - https://download.gnome.org/sources/NetworkManager-openvpn/1.12/NetworkManager-openvpn-1.12.5.tar.xz : ce32e38b0500eddf2fc8072ca17679817fc2d35eb91f6ff7b9904209c14b5afd
-homepage    : https://www.gnome.org/projects/NetworkManager/
-license     : GPL-2.0-or-later
 summary     : NetworkManager VPN plugin for OpenVPN
 description : |
     This package contains software for integrating VPN capabilities with
     the OpenVPN server with NetworkManager.
+license     : GPL-2.0-or-later
 builddeps   :
     - binary(msgfmt)
     - pkgconfig(glib-2.0)
