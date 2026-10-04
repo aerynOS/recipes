@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sdl2-compat
-version     : "2.32.72"
-release     : 14
+version     : "2.32.74"
+release     : 15
 homepage    : https://github.com/libsdl-org/sdl2-compat
 upstreams   :
-    - https://github.com/libsdl-org/sdl2-compat/releases/download/release-2.32.72/sdl2-compat-2.32.72.tar.gz : a14d2f78dad8e83ef1039b6534ace4d14f11f5b11d023af989affd70ac1bb35e
+    - https://github.com/libsdl-org/sdl2-compat/releases/download/release-2.32.74/sdl2-compat-2.32.74.tar.gz : ec68abde77e2e459c8abc4f9587b8976b5d2a657b2bfda2fb3a079b0f8924588
 summary     : Simple DirectMedia Library - Compat library
 description : |
     Simple DirectMedia Library - Compat library

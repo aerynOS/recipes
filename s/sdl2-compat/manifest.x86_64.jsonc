@@ -13,7 +13,7 @@
 			],
 			"files": [
 				"/usr/lib/libSDL2-2.0.so.0",
-				"/usr/lib/libSDL2-2.0.so.0.3200.72",
+				"/usr/lib/libSDL2-2.0.so.0.3200.74",
 				"/usr/share/licenses/sdl2-compat/LICENSE.txt"
 			],
 			"name": "sdl2-compat",
@@ -152,6 +152,6 @@
 		}
 	},
 	"source-name": "sdl2-compat",
-	"source-release": "14",
-	"source-version": "2.32.72"
+	"source-release": "15",
+	"source-version": "2.32.74"
 }
