@@ -3,8 +3,8 @@
 
 name        : iniparser
 version     : "4.3.0"
-release     : 3
-homepage    : https://gitlab.com/iniparser/iniparser/-/archive/v4.2.6
+release     : 4
+homepage    : https://gitlab.com/iniparser/iniparser
 upstreams   :
     - https://gitlab.com/iniparser/iniparser/-/archive/v4.3.0/iniparser-v4.3.0.tar.gz : 7a339779ddb37fafbacbf73b176ce968ef9dc5146831b87aba80a18b68355ed4
 summary     : This modules offers parsing of ini files from C
