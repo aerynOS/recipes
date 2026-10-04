@@ -3,8 +3,8 @@
 
 name        : libplist
 version     : "2.7.0"
-release     : 5
-homepage    : https://github.com/libimobiledevice/libplis
+release     : 6
+homepage    : https://libimobiledevice.org/docs/libplist/latest/
 upstreams   :
     - https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2 : 7ac42301e896b1ebe3c654634780c82baa7cb70df8554e683ff89f7c2643eb8b
 summary     : Library for handling Apple Property List format
@@ -15,7 +15,8 @@ builddeps   :
     - binary(cython)
     - pkgconfig(python3)
 setup       : |
-    %configure --disable-static
+    %configure \
+        --disable-static
 build       : |
     %make
 install     : |
