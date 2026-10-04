@@ -3,8 +3,8 @@
 
 name       : nextcloud-client
 version    : "4.0.11"
-release    : 10
-homepage   : https://docs.nextcloud.com/desktop
+release    : 11
+homepage   : https://nextcloud.com/
 upstreams  :
     - https://github.com/nextcloud/desktop/archive/refs/tags/v4.0.11.tar.gz : f2384199657f674c0af76e9bf6d7fea89dd838289b87cf8a678fb22f4b3f3d37
 summary    : Nextcloud client for nextcloud server
