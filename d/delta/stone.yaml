@@ -2,20 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : delta
-version     : "0.20.0"
-release     : 4
+version     : "0.20.1"
+release     : 5
 homepage    : https://dandavison.github.io/delta/
 upstreams   :
-    - https://github.com/dandavison/delta/archive/refs/tags/0.20.0.tar.gz :
-        hash: b1abf1dca07cc3dfee72484d2b0c1d1d97a27a0445fb8b2950c5c8e58c80b5e7
+    - https://github.com/dandavison/delta/archive/refs/tags/0.20.1.tar.gz :
+        hash: d9d502396e3595ee8fd926f1ed2e54ac9935baabd3569a3753efab36304f90fa
 summary     : A syntax-highlighting pager for git, diff, grep, and blame output
 description : |
     A syntax-highlighting pager for git, diff, grep, and blame output.
 license     : MIT
 networking  : true
 setup       : |
-    # https://github.com/dandavison/delta/issues/2270
-    %patch %(pkgdir)/fix-width-to-match-test.patch
     %cargo_fetch
 build       : |
     %cargo_build
