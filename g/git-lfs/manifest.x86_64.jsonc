@@ -4,9 +4,7 @@
 	"packages": {
 		"git-lfs": {
 			"build-depends": [
-				"binary(asciidoctor)",
-				"binary(git)",
-				"binary(go)"
+				"binary(asciidoctor)"
 			],
 			"depends": [
 				"binary(git)",
@@ -61,6 +59,6 @@
 		}
 	},
 	"source-name": "git-lfs",
-	"source-release": "3",
-	"source-version": "3.7.1"
+	"source-release": "4",
+	"source-version": "3.8.0"
 }
