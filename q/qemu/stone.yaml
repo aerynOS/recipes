@@ -3,15 +3,14 @@
 
 name        : qemu
 version     : "11.1.2"
-release     : 42
-homepage    : http://www.qemu.org/
+release     : 43
+homepage    : https://www.qemu.org/
 upstreams   :
     - https://download.qemu.org/qemu-11.1.2.tar.xz : 731b5681e4bb18be313231579b8efd0296c5b015fa36dc533874b639ba838016
 summary     :  A generic and open source machine emulator and virtualizer
 description : |
      A generic and open source machine emulator and virtualizer
-license     :
-    - GPL-2.0
+license     : GPL-2.0
 builddeps   :
     - binary(bzip2)
     - binary(iasl)
