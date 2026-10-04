@@ -2,22 +2,29 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : delta
-version     : "0.19.2"
-release     : 3
+version     : "0.20.0"
+release     : 4
 homepage    : https://dandavison.github.io/delta/
 upstreams   :
-    - https://github.com/dandavison/delta/archive/refs/tags/0.19.2.tar.gz :
-        hash: f59b86f8c8dda4d76a3ba34b8553777a20c3b461646917d8e480fac6531bba9f
+    - https://github.com/dandavison/delta/archive/refs/tags/0.20.0.tar.gz :
+        hash: b1abf1dca07cc3dfee72484d2b0c1d1d97a27a0445fb8b2950c5c8e58c80b5e7
 summary     : A syntax-highlighting pager for git, diff, grep, and blame output
 description : |
     A syntax-highlighting pager for git, diff, grep, and blame output.
 license     : MIT
 networking  : true
 setup       : |
+    # https://github.com/dandavison/delta/issues/2270
+    %patch %(pkgdir)/fix-width-to-match-test.patch
     %cargo_fetch
 build       : |
     %cargo_build
 install     : |
     %cargo_install
+
+    # completions (Makefile shell-completion target)
+    %(cargo_target_dir)/delta --generate-completion bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/delta
+    %(cargo_target_dir)/delta --generate-completion fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/delta.fish
+    %(cargo_target_dir)/delta --generate-completion zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_delta
 check       : |
     %cargo_test
