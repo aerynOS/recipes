@@ -1,0 +1,29 @@
+From fefc524a5b4156cb1fc4145a6ab0d7c1628572e3 Mon Sep 17 00:00:00 2001
+From: Daniel Nylander <yeager@users.noreply.gitlab.gnome.org>
+Date: Fri, 11 Sep 2026 23:05:39 +0200
+Subject: [PATCH] build: Do not promote unused globals to errors with Clang
+
+Clang 23 includes -Wunused-but-set-global in -Wunused-but-set-variable.
+GLib type macros and the boundary tests set globals that are unused in
+some builds, so promoting that group to an error fails the build. Keep
+the warning visible, but do not make the global variant fatal.
+
+Upstream: https://gitlab.gnome.org/GNOME/pango/-/merge_requests/927
+---
+ meson.build | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/meson.build b/meson.build
+--- a/meson.build
++++ b/meson.build
+@@ -151,6 +151,10 @@
+     '-Wundef', # FIXME: https://bugzilla.gnome.org/show_bug.cgi?id=792481
+   ]
+ 
++  test_cflags += cc.get_supported_arguments([
++    '-Wno-error=unused-but-set-global',
++  ])
++
+   if host_system == 'windows'
+     test_cflags += [ '-mms-bitfields' ]
+   else
