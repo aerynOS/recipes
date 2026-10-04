@@ -3,8 +3,8 @@
 
 name        : pango
 version     : "1.58.2"
-release     : 14
-homepage    : https://pango.gnome.org/
+release     : 15
+homepage    : https://gitlab.gnome.org/GNOME/pango
 upstreams   :
     - https://download.gnome.org/sources/pango/1.58/pango-1.58.2.tar.xz : 342385b6ca3b7c73455d7c80a13b7dbe4489e00bc3bd4c5bd6ed4dce421e374a
 summary     : Pango is a library for layout and rendering of text, with an emphasis on internationalization
@@ -37,6 +37,8 @@ builddeps   :
     - pkgconfig(xft)
     - pkgconfig(xrender)
 setup       : |
+    %patch %(pkgdir)/ftbfs-clang-unused-global.patch
+
     %meson \
         -Dintrospection=enabled \
         -Dman-pages=true \
