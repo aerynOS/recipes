@@ -46,7 +46,7 @@
 			],
 			"files": [
 				"/usr/lib/libSDL3.so.0",
-				"/usr/lib/libSDL3.so.0.4.16",
+				"/usr/lib/libSDL3.so.0.4.18",
 				"/usr/share/licenses/SDL3/LICENSE.txt"
 			],
 			"name": "sdl3",
@@ -204,6 +204,6 @@
 		}
 	},
 	"source-name": "sdl3",
-	"source-release": "19",
-	"source-version": "3.4.16"
+	"source-release": "20",
+	"source-version": "3.4.18"
 }
