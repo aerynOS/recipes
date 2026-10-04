@@ -3,8 +3,8 @@
 
 name        : tllist
 version     : "1.1.0"
-release     : 2
-homepage    : https://codeberg.org/dnkl/tllist/releases/download/1.1.0
+release     : 3
+homepage    : https://codeberg.org/dnkl/tllist/
 upstreams   :
     - https://codeberg.org/dnkl/tllist/releases/download/1.1.0/tllist-1.1.0.tar.gz : a1f0ce0dc4fcb4ce59c37202a1d914c853a8bd2d7c5d57d623b15a8dd9778767
 summary     : A C header file only implementation of a typed linked list.
