@@ -3,14 +3,14 @@
 
 name        : polkit-qt-1
 version     : "0.201.1"
-release     : 6
+release     : 7
+homepage    : https://invent.kde.org/libraries/polkit-qt-1
 upstreams   :
     - https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.201.1.tar.xz : 95d8e2cae530c546d9437459deb8a1bea38d572f0f9772cc2860dc143637f256
-homepage    : https://api.kde.org/polkit-qt-1/html/
-license     : LGPL-2.1-or-later
 summary     : Qt wrapper around polkit-1
 description : |
     Qt wrapper around polkit-1
+license     : LGPL-2.1-or-later
 builddeps   :
     - cmake(Qt6)
     - pkgconfig(polkit-agent-1)
