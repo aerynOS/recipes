@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bcachefs-module
-version     : "1.39.6"
-release     : 60
+version     : "1.39.7"
+release     : 61
 homepage    : https://bcachefs.org
 upstreams   :
-    - https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-vendored-1.39.6.tar.zst : 17c9e0f2492e6ceba88e3c55b17506982be26a5878cfd01aa9a6907ae65628f9
+    - https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-vendored-1.39.7.tar.zst : 5d6927d7b88578518209c92f1510161dbec6e523221dac1cec54c57272d11293
 summary     : bcachefs kernel module
 description : |
     bcachefs kernel module
