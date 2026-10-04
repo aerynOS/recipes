@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pyqt-builder
-version     : "1.19.1"
-release     : 2
-homepage    : https://www.riverbankcomputing.com/software/pyqt-builder/
+version     : "1.20.0"
+release     : 4
+homepage    : https://github.com/Python-PyQt/PyQt-builder
 upstreams   :
-    - https://pypi.debian.net/PyQt-builder/pyqt_builder-1.19.1.tar.gz : 6af6646ba29668751b039bfdced51642cb510e300796b58a4d68b7f956a024d8
+    - https://pypi.debian.net/PyQt-builder/pyqt_builder-1.20.0.tar.gz : 267ac1ee1593c67884f3c9cb6566f72a92ca28353050fc9d087433c28c74a889
 summary     : The PEP 517 compliant PyQt build system
 description : |
     PyQt-builder is the PEP 517 compliant build system for PyQt and projects that extend PyQt. It extends the SIP build system and uses Qt's qmake, in conjunction with make, to perform the actual compilation and installation of extension modules.
