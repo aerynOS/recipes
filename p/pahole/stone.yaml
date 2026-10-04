@@ -3,7 +3,7 @@
 
 name        : pahole
 version     : "1.32"
-release     : 4
+release     : 5
 upstreams   :
     - https://fedorapeople.org/~acme/dwarves/dwarves-1.32.tar.xz : 319cbf319e9fc92065a5407ce47eb868d73566f3d4840a56832734e4579df947
 homepage    : https://git.kernel.org/pub/scm/devel/pahole/pahole.git
@@ -17,6 +17,9 @@ builddeps   :
     - pkgconfig(libelf)
     - pkgconfig(zlib)
 setup       : |
+    %patch %(pkgdir)/cxx-dialects-lang-exclude.patch
+    %patch %(pkgdir)/dwarf-atomic.patch
+
     # Re-enable libbpf in next update
     %cmake \
         -DLIBBPF_EMBEDDED=ON
