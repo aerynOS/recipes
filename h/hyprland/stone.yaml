@@ -3,14 +3,14 @@
 
 name        : hyprland
 version     : "0.56.2"
-release     : 14
+release     : 15
+homepage    : https://hypr.land/
 upstreams   :
     - https://github.com/hyprwm/Hyprland/releases/download/v0.56.2/source-v0.56.2.tar.gz : 03ad3f5ef152ff44116ffd56fcf808486211ecabf4f0ba567108ee746ba5cd2e
-homepage    : https://hyprland.org/
-license     : BSD-3-Clause
 summary     : Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 description : |
     Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks. It provides the latest Wayland features, is highly customizable, has all the eyecandy, the most powerful plugins, easy IPC, much more QoL stuff than other compositors and more...
+license     : BSD-3-Clause
 builddeps   :
     - binary(python3)
     - cmake(glaze)
@@ -23,8 +23,8 @@ builddeps   :
     - pkgconfig(hyprland-protocols)
     - pkgconfig(hyprlang)
     - pkgconfig(hyprutils)
-    - pkgconfig(hyprwire)
     - pkgconfig(hyprwayland-scanner)
+    - pkgconfig(hyprwire)
     - pkgconfig(lcms2)
     - pkgconfig(libdrm)
     - pkgconfig(libeis-1.0)
