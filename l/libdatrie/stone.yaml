@@ -3,17 +3,17 @@
 
 name        : libdatrie
 version     : "0.2.14"
-release     : 5
-homepage    : https://www.linux.thai.net/~thep/datrie/datrie.html
+release     : 6
+homepage    : https://linux.thai.net/~thep/datrie/datrie.html
 upstreams   :
     - https://github.com/tlwg/libdatrie/releases/download/v0.2.14/libdatrie-0.2.14.tar.xz : f04095010518635b51c2313efa4f290b7db828d6273e39b2b8858f859dfe81d5
 summary     : datrie - Double-Array Trie Library
 description : |
     Trie is a kind of digital search tree, an efficient indexing method in which search time is independent of database size. It only takes O(m) search time, where m is the length of the search string. Comparably as efficient as hashing, trie also provides flexibility on incremental matching and key spelling manipulation. This makes it ideal for lexical analyzers, as well as spelling dictionaries.
-license     :
-    - LGPL-2.1-or-later
+license     : LGPL-2.1-or-later
 setup       : |
-    %configure --disable-static
+    %configure \
+        --disable-static
 build       : |
     %make
 install     : |
