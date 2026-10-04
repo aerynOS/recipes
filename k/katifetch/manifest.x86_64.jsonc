@@ -1,0 +1,36 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"katifetch": {
+			"build-depends": [
+				"bash"
+			],
+			"depends": [
+				"bash"
+			],
+			"files": [
+				"/usr/bin/katifetch",
+				"/usr/share/katifetch/logos/aix.txt",
+				"/usr/share/katifetch/logos/aperio.txt",
+				"/usr/share/katifetch/logos/cachyos.txt",
+				"/usr/share/katifetch/logos/debian.txt",
+				"/usr/share/katifetch/logos/default.txt",
+				"/usr/share/katifetch/logos/fedora.txt",
+				"/usr/share/katifetch/logos/fedorasilverblue.txt",
+				"/usr/share/katifetch/logos/hash.txt",
+				"/usr/share/katifetch/logos/ubuntu.txt",
+				"/usr/share/katifetch/themes/config2.theme",
+				"/usr/share/katifetch/themes/default.theme",
+				"/usr/share/licenses/katifetch/LICENSE"
+			],
+			"name": "katifetch",
+			"provides": [
+				"binary(katifetch)"
+			]
+		}
+	},
+	"source-name": "katifetch",
+	"source-release": "1",
+	"source-version": "13.1"
+}
