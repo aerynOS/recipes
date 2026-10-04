@@ -20,7 +20,7 @@
 			"files": [
 				"/usr/bin/hunspell",
 				"/usr/lib/libhunspell-1.7.so.0",
-				"/usr/lib/libhunspell-1.7.so.0.2.0",
+				"/usr/lib/libhunspell-1.7.so.0.2.1",
 				"/usr/share/locale/an/LC_MESSAGES/hunspell.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/hunspell.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/hunspell.mo",
@@ -166,6 +166,6 @@
 		}
 	},
 	"source-name": "hunspell",
-	"source-release": "6",
-	"source-version": "1.7.4"
+	"source-release": "7",
+	"source-version": "1.7.5"
 }
