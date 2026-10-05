@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libsoup
-version     : "3.6.6"
-release     : 12
+version     : "3.8.0"
+release     : 13
 homepage    : https://gitlab.gnome.org/GNOME/libsoup
 upstreams   :
-    - https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz : 51ed0ae06f9d5a40f401ff459e2e5f652f9a510b7730e1359ee66d14d4872740
+    - https://download.gnome.org/sources/libsoup/3.8/libsoup-3.8.0.tar.xz : bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238
 summary     : libsoup is an HTTP client/server library for GNOME.
 description : |
     libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop, to integrate well with GNOME applications.
@@ -21,12 +21,16 @@ builddeps   :
     # binary(httpd2)
     # binary(wstest)
     - binary(xgettext)
+    - pkgconfig(gio-2.0)
+    - pkgconfig(glib-2.0)
     - pkgconfig(gmodule-2.0)
     - pkgconfig(gnutls)
+    - pkgconfig(gobject-2.0)
     - pkgconfig(krb5-gssapi)
     - pkgconfig(libbrotlidec)
     - pkgconfig(libnghttp2)
     - pkgconfig(libpsl)
+    - pkgconfig(libzstd)
     - pkgconfig(sqlite3)
     - pkgconfig(sysprof-capture-4)
     - pkgconfig(zlib)
@@ -40,10 +44,6 @@ build       : |
 install     : |
     %meson_install
 packages    :
-    - "%(name)-devel":
-        paths:
-            - /usr/share/vala/
-
     - "%(name)-docs":
         paths:
             - /usr/share/doc/
