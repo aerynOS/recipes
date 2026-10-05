@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : poppler
-version     : "26.08.0"
-release     : 25
+version     : "26.10.0"
+release     : 26
 homepage    : https://poppler.freedesktop.org
 upstreams   :
-    - https://poppler.freedesktop.org/poppler-26.08.0.tar.xz : dc906e68cea698109706ac6aa3d2c9d4512fcfcac42d90b8afcda486d1b9abd0
-    - git|https://gitlab.freedesktop.org/poppler/test.git : 5368d7e64682ab07a22ce241fe0671234229ab84
+    - https://poppler.freedesktop.org/poppler-26.10.0.tar.xz : 6792cb7c69205007ad87d2e936cecc5b3a31fac29ab54ffc3175fdb6b2a6ce35
+    - git|https://gitlab.freedesktop.org/poppler/test.git : 48b6219b84fc0a708040cb279d51095cc4e1c603
 summary     : A PDF rendering library
 description : |
     Poppler is a PDF rendering library based on the xpdf-3.0 code base
@@ -24,6 +24,8 @@ builddeps   :
     - pkgconfig(gobject-introspection-1.0)
     - pkgconfig(gtk+-3.0)
     - pkgconfig(gpgme)
+    - pkgconfig(harfbuzz)
+    - pkgconfig(harfbuzz-subset)
     - pkgconfig(lcms2)
     - pkgconfig(libcurl)
     - pkgconfig(libtiff-4)
@@ -37,6 +39,8 @@ rundeps     :
     # - https://en.wikipedia.org/wiki/PDF#Text
     # - https://mail.kde.org/pipermail/distributions/2025-December/001657.html
     - urw-base35-fonts
+checkdeps   :
+    - font-noto-sans-cjk # subset tests
 setup       : |
     %cmake \
       -DENABLE_QT5=OFF \
