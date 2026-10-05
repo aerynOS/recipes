@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyperfine
-version     : "1.20.0"
-release     : 7
+version     : "1.21.0"
+release     : 8
 homepage    : https://github.com/sharkdp/hyperfine
 upstreams   :
-    - https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.20.0.tar.gz : f90c3b096af568438be7da52336784635a962c9822f10f98e5ad11ae8c7f5c64
+    - https://github.com/sharkdp/hyperfine/archive/refs/tags/v1.21.0.tar.gz : aee01125074fd5a6a556818db7bba0577edae94cbe85165daae0e778aa28348d
 summary     : A command-line benchmarking tool
 description : |
     A command-line benchmarking tool.
@@ -17,10 +17,15 @@ networking  : true
 setup       : |
     %cargo_fetch
 build       : |
+    export SHELL_COMPLETIONS_DIR=%(workdir)/completions
     %cargo_build
 install     : |
     %cargo_install
+
+    %install_file doc/hyperfine.1 %(installroot)%(mandir)/man1/hyperfine.1
+    %install_file completions/hyperfine.bash %(installroot)%(bashcompletionsdir)/hyperfine
+    %install_file completions/hyperfine.fish %(installroot)%(fishcompletionsdir)/hyperfine.fish
+    %install_file completions/_hyperfine %(installroot)%(zshcompletionsdir)/_hyperfine
+    %install_file completions/hyperfine.elv %(installroot)%(elvishcompletionsdir)/hyperfine.elv
 check       : |
     %cargo_test
-tuning      :
-    - lto : thin
