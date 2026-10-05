@@ -40,7 +40,7 @@
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libphonenumber.so.9(x86_64))",
-				"soname(libpoppler.so.163(x86_64))",
+				"soname(libpoppler.so.165(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libxml2.so.16(x86_64))",
 				"soname(libz.so.1(x86_64))"
@@ -283,6 +283,6 @@
 		}
 	},
 	"source-name": "kitinerary",
-	"source-release": "34",
+	"source-release": "35",
 	"source-version": "26.08.1"
 }
