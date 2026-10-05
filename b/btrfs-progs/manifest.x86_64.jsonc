@@ -38,12 +38,12 @@
 				"/usr/bin/btrfs-select-super",
 				"/usr/bin/btrfsck",
 				"/usr/bin/btrfstune",
-				"/usr/bin/fsck.btrfs",
-				"/usr/bin/mkfs.btrfs",
 				"/usr/lib/systemd/system/btrfs-scrub@.service",
 				"/usr/lib/systemd/system/btrfs-scrub@.timer",
 				"/usr/lib/udev/rules.d/64-btrfs-dm.rules",
 				"/usr/lib/udev/rules.d/64-btrfs-zoned.rules",
+				"/usr/sbin/fsck.btrfs",
+				"/usr/sbin/mkfs.btrfs",
 				"/usr/share/bash-completion/completions/btrfs",
 				"/usr/share/man/man5/btrfs.5",
 				"/usr/share/man/man8/btrfs-balance.8",
@@ -82,8 +82,8 @@
 				"binary(btrfs-select-super)",
 				"binary(btrfsck)",
 				"binary(btrfstune)",
-				"binary(fsck.btrfs)",
-				"binary(mkfs.btrfs)"
+				"sysbinary(fsck.btrfs)",
+				"sysbinary(mkfs.btrfs)"
 			]
 		},
 		"btrfs-progs-devel": {
@@ -154,6 +154,6 @@
 		}
 	},
 	"source-name": "btrfs-progs",
-	"source-release": "19",
+	"source-release": "20",
 	"source-version": "7.1"
 }

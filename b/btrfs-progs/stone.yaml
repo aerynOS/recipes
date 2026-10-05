@@ -3,7 +3,7 @@
 
 name        : btrfs-progs
 version     : "7.1"
-release     : 19
+release     : 20
 homepage    : https://github.com/kdave/btrfs-progs
 upstreams   :
     - https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v7.1.tar.xz : d1f55cc2971398c9142eaa79d203e63d586a3b4b867f956664a1d68322cd4e34
@@ -35,6 +35,9 @@ build       : |
 install     : |
     %make_install
     %install_file btrfs-completion %(installroot)/%(completionsdir)/btrfs
+
+    %install_dir %(installroot)%(sbindir)
+    mv %(installroot)%(bindir)/{fsck,mkfs}.btrfs %(installroot)%(sbindir)
 
     # Systemd integration
     %install_file %(pkgdir)/btrfs-scrub@.service -t %(installroot)/%(libdir)/systemd/system/
