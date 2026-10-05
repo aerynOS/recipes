@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : iniparser
-version     : "4.3.0"
-release     : 4
+version     : "4.3.2"
+release     : 5
 homepage    : https://gitlab.com/iniparser/iniparser
 upstreams   :
-    - https://gitlab.com/iniparser/iniparser/-/archive/v4.3.0/iniparser-v4.3.0.tar.gz : 7a339779ddb37fafbacbf73b176ce968ef9dc5146831b87aba80a18b68355ed4
+    - https://gitlab.com/iniparser/iniparser/-/archive/v4.3.2/iniparser-v4.3.2.tar.gz : d7382f72f94649afa7a9d61346a7fc31cd3ff9ae389a71f92770133d49f1b22c
 summary     : This modules offers parsing of ini files from C
 description : |
     This modules offers parsing of ini files from C.

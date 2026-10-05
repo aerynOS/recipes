@@ -11,7 +11,7 @@
 			],
 			"files": [
 				"/usr/lib/libiniparser.so.4",
-				"/usr/lib/libiniparser.so.4.3.0"
+				"/usr/lib/libiniparser.so.4.3.2"
 			],
 			"name": "iniparser",
 			"provides": [
@@ -47,6 +47,6 @@
 		}
 	},
 	"source-name": "iniparser",
-	"source-release": "4",
-	"source-version": "4.3.0"
+	"source-release": "5",
+	"source-version": "4.3.2"
 }
