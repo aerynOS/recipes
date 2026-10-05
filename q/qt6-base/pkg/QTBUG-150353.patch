@@ -1,0 +1,51 @@
+From a642918fe84a2ceaa4dcc601c0c9731c4ac499d4 Mon Sep 17 00:00:00 2001
+From: Eskil Abrahamsen Blomfeldt <eskil.abrahamsen-blomfeldt@qt.io>
+Date: Tue, 29 Sep 2026 14:48:29 +0200
+Subject: [PATCH] wayland: Make sure event queue reads are always cancelled
+
+The event thread run() function loops until it reaches the m_quitting
+state. This may be set at any time, which means that the loop may
+quit after preparing a read. Failing to stop the read in one
+EventThread will keep the lock and if there is a second thread
+(as there will be if we have a render thread polling for frame events)
+then this will freeze forever. The fix is to check if we are still
+reading at the end of run() and cancel if necessary.
+
+Pick-to: 6.12
+Fixes: QTBUG-150353
+Change-Id: I93053f8b5c89ea2bf54b1eb34193287c343a7554
+Reviewed-by: David Redondo <qt@david-redondo.de>
+---
+ src/plugins/platforms/wayland/qwaylanddisplay.cpp | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/src/plugins/platforms/wayland/qwaylanddisplay.cpp b/src/plugins/platforms/wayland/qwaylanddisplay.cpp
+index d57758879a3..a0dce320676 100644
+--- a/src/plugins/platforms/wayland/qwaylanddisplay.cpp
++++ b/src/plugins/platforms/wayland/qwaylanddisplay.cpp
+@@ -193,8 +193,8 @@ protected:
+             poll(fds, 2, -1);
+ 
+             if (fds[1].revents & POLLIN) {
+-                // we don't really care to read the byte that was written here since we're closing down
+-                wl_display_cancel_read(m_wldisplay);
++                // we don't really care to read the byte that was written here since we're closing down.
++                // The pending read is cancelled after the loop.
+                 break;
+             }
+ 
+@@ -206,6 +206,11 @@ protected:
+             else
+                 wl_display_cancel_read(m_wldisplay);
+         }
++
++        // If a read was prepared (by us or by the main thread on our behalf) and we are
++        // exiting without consuming it, cancel it so that other readers are not blocked.
++        if (m_reading.loadAcquire())
++            wl_display_cancel_read(m_wldisplay);
+     }
+ 
+ private:
+-- 
+GitLab
+

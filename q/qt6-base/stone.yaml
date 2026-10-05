@@ -3,7 +3,7 @@
 
 name        : qt6-base
 version     : "6.12.0"
-release     : 37
+release     : 38
 homepage    : https://www.qt.io
 upstreams   :
     - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz : a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307
@@ -81,7 +81,12 @@ setup       : |
     %patch %(pkgdir)/0001-Run-render-tick-at-120fps.patch
 
     # Upstream backports
-    ## None for now
+    %patch %(pkgdir)/QTBUG-146211.patch
+    %patch %(pkgdir)/QTBUG-148575.patch
+    %patch %(pkgdir)/QTBUG-150353.patch
+    %patch %(pkgdir)/upstream-01.patch
+    %patch %(pkgdir)/upstream-02.patch
+    %patch %(pkgdir)/upstream-03.patch
 
     %cmake_qt6 \
         -DQT_QMAKE_TARGET_MKSPEC=linux-clang \

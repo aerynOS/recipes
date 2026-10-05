@@ -1,0 +1,132 @@
+From dc41c4eed450e96d0af7a7b8948778efae3e54d5 Mon Sep 17 00:00:00 2001
+From: Inho Lee <inho.lee@qt.io>
+Date: Thu, 9 Jul 2026 09:10:57 +0200
+Subject: [PATCH] qpa/wayland: enable/disable text-input based on focusObject
+
+Since the window content can be changed runtime, text-inputs could
+work wrong.
+
+Task-number: QTBUG-146211
+Pick-to: 6.11
+Change-Id: I146351beec2811cb10a5f35c1a0e1aca76f152e9
+Reviewed-by: David Edmundson <davidedmundson@kde.org>
+(cherry picked from commit e26d5a8eee0078c24e6a2a741b7a0df18824281a)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ .../wayland/qwaylandinputcontext.cpp          | 63 ++++++-------------
+ .../wayland/qwaylandinputcontext_p.h          |  5 +-
+ 2 files changed, 23 insertions(+), 45 deletions(-)
+
+diff --git a/src/plugins/platforms/wayland/qwaylandinputcontext.cpp b/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
+index 0d9b8854f04..dbaf9bc5527 100644
+--- a/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
++++ b/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
+@@ -80,21 +80,11 @@ void QWaylandInputContext::update(Qt::InputMethodQueries queries)
+     qCDebug(qLcQpaInputMethods) << Q_FUNC_INFO << queries;
+ 
+     QWaylandTextInputInterface *inputInterface = textInput();
+-    if (!QGuiApplication::focusObject() || !inputInterface)
+-        return;
+-
+-    auto *currentSurface = surfaceForWindow(mCurrentWindow);
+ 
+-    if (currentSurface && !inputMethodAccepted()) {
+-        inputInterface->disableSurface(currentSurface);
+-        mCurrentWindow.clear();
+-    } else if (!currentSurface && inputMethodAccepted()) {
+-        QWindow *window = QGuiApplication::focusWindow();
+-        if (auto *focusSurface = surfaceForWindow(window)) {
+-            inputInterface->enableSurface(focusSurface);
+-            mCurrentWindow = window;
+-        }
+-    }
++    // When a client changing focusObject, update could be called
++    // before setFocusObject, but it will not be processed.
++    if ((m_focusObject != QGuiApplication::focusObject()) || !inputInterface)
++        return;
+ 
+     inputInterface->updateState(queries, QWaylandTextInputInterface::update_state_change);
+ }
+@@ -178,42 +168,29 @@ Qt::LayoutDirection QWaylandInputContext::inputDirection() const
+ void QWaylandInputContext::setFocusObject(QObject *object)
+ {
+     qCDebug(qLcQpaInputMethods) << Q_FUNC_INFO;
+-#if QT_CONFIG(xkbcommon)
+-    m_focusObject = object;
+-#else
+-    Q_UNUSED(object);
+-#endif
+ 
+     QWaylandTextInputInterface *inputInterface = textInput();
+     if (!inputInterface)
+         return;
+ 
+-    QWindow *window = QGuiApplication::focusWindow();
+-
+-    if (window && window->handle()) {
+-        if (mCurrentWindow.data() != window) {
+-            if (!inputMethodAccepted()) {
+-                auto *surface = static_cast<QWaylandWindow *>(window->handle())->wlSurface();
+-                if (surface)
+-                    inputInterface->disableSurface(surface);
+-                mCurrentWindow.clear();
+-            } else {
+-                auto *surface = static_cast<QWaylandWindow *>(window->handle())->wlSurface();
+-                if (surface) {
+-                    inputInterface->enableSurface(surface);
+-                    mCurrentWindow = window;
+-                } else {
+-                    mCurrentWindow.clear();
+-                }
+-            }
+-        }
+-        if (mCurrentWindow)
+-            inputInterface->updateState(Qt::ImQueryAll, QWaylandTextInputInterface::update_state_enter);
++    if (m_focusObject == object)
+         return;
+-    }
+ 
+-    if (mCurrentWindow)
+-        mCurrentWindow.clear();
++    if (m_inputMethodEnabled) {
++        inputInterface->disableSurface(mCurrentSurface);
++        mCurrentSurface = nullptr;
++        m_inputMethodEnabled = false;
++    }
++    if (object && inputMethodAccepted()) {
++        QWindow *window = QGuiApplication::focusWindow();
++        mCurrentSurface = surfaceForWindow(window);
++        if (mCurrentSurface) {
++            inputInterface->enableSurface(mCurrentSurface);
++            m_inputMethodEnabled = true;
++            inputInterface->updateState(Qt::ImQueryAll, QWaylandTextInputInterface::update_state_enter);
++        }
++    }
++    m_focusObject = object;
+ }
+ 
+ QWaylandTextInputInterface *QWaylandInputContext::textInput() const
+diff --git a/src/plugins/platforms/wayland/qwaylandinputcontext_p.h b/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
+index 5acc026ecf9..c6cb4bbc5e0 100644
+--- a/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
++++ b/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
+@@ -75,13 +75,14 @@ private:
+     QWaylandTextInputInterface *textInput() const;
+ 
+     QWaylandDisplay *mDisplay = nullptr;
+-    QPointer<QWindow> mCurrentWindow;
++    ::wl_surface *mCurrentSurface = nullptr;
++    bool m_inputMethodEnabled = false;
++    QObject *m_focusObject = nullptr;
+ 
+ #if QT_CONFIG(xkbcommon)
+     void ensureInitialized();
+ 
+     bool m_initialized = false;
+-    QObject *m_focusObject = nullptr;
+     xkb_compose_table *m_composeTable = nullptr;
+     xkb_compose_state *m_composeState = nullptr;
+     struct xkb_context *m_XkbContext = nullptr;
+-- 
+GitLab
+

@@ -1,0 +1,166 @@
+From 479e9e9d38271c35b33ccef178d1a311c6dea2ee Mon Sep 17 00:00:00 2001
+From: Thiago Macieira <thiago.macieira@intel.com>
+Date: Fri, 4 Sep 2026 14:48:42 -0300
+Subject: [PATCH] Use QThread::isCurrentThread() instead of currentThread()
+ comparison
+
+QThread::currentThread() needs to look up the TLS storage for
+QThreadData (creating it if necessary - first call in an adopted
+thread). QThread::isCurrentThread() is much cheaper. We just have to be
+careful that QObject::thread() can return null for an object that has
+outlived its QThread, adopted or otherwise.
+
+There are ways of making this even faster, but none of these places
+seemed performance-critical to me.
+
+Change-Id: I51c7af9af2fb21fb8f34fffd8355e3cd27a5b247
+Reviewed-by: David Faure <david.faure@kdab.com>
+(cherry picked from commit e1d5d13436d1a620709ec65680237232b102e9dc)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/dbus/qdbusabstractinterface.cpp               | 2 +-
+ src/dbus/qdbusintegrator.cpp                      | 7 ++++---
+ src/gui/kernel/qopenglcontext.cpp                 | 7 ++++---
+ src/network/access/qrestaccessmanager.cpp         | 2 +-
+ src/network/socket/qsocks5socketengine.cpp        | 2 +-
+ src/plugins/platforms/wayland/qwaylanddisplay.cpp | 2 +-
+ src/sql/kernel/qsqldatabase.cpp                   | 2 +-
+ src/testlib/qtesteventloop.h                      | 3 +--
+ 8 files changed, 14 insertions(+), 13 deletions(-)
+
+diff --git a/src/dbus/qdbusabstractinterface.cpp b/src/dbus/qdbusabstractinterface.cpp
+index 4e46fc8f743..33b366fda29 100644
+--- a/src/dbus/qdbusabstractinterface.cpp
++++ b/src/dbus/qdbusabstractinterface.cpp
+@@ -495,7 +495,7 @@ QDBusMessage QDBusAbstractInterface::callWithArgumentList(QDBus::CallMode mode,
+     msg.setArguments(args);
+ 
+     QDBusMessage reply = d->connection.call(msg, mode, d->timeout);
+-    if (thread() == QThread::currentThread())
++    if (QThread *thr = thread(); !thr || thr->isCurrentThread())
+         d->lastError = QDBusError(reply);       // will clear if reply isn't an error
+ 
+     // ensure that there is at least one element
+diff --git a/src/dbus/qdbusintegrator.cpp b/src/dbus/qdbusintegrator.cpp
+index 8eb76ca55d0..7ea636972d0 100644
+--- a/src/dbus/qdbusintegrator.cpp
++++ b/src/dbus/qdbusintegrator.cpp
+@@ -1071,11 +1071,12 @@ QDBusConnectionPrivate::QDBusConnectionPrivate()
+ 
+ QDBusConnectionPrivate::~QDBusConnectionPrivate()
+ {
+-    if (thread() && thread() != QThread::currentThread())
++    if (QThread *thr = thread(); thr && !thr->isCurrentThread()) {
+         qCWarning(dbusIntegration,
+                   "QDBusConnection(name=\"%s\")'s last reference in not in its creation thread! "
+                   "Timer and socket errors will follow and the program will probably crash",
+                   qPrintable(name));
++    }
+ 
+     auto lastMode = mode; // reset on connection close
+     closeConnection();
+@@ -1579,7 +1580,7 @@ void QDBusConnectionPrivate::handleObjectCall(const QDBusMessage &msg)
+                               new QDBusActivateObjectEvent(QDBusConnection(this), this, result,
+                                                            usedLength, msg));
+             return;
+-        } else if (objThread != QThread::currentThread()) {
++        } else if (!objThread->isCurrentThread()) {
+             // looped-back message, targeting another thread:
+             // synchronize with it
+             postEventToThread(HandleObjectCallPostEventAction, result.obj,
+@@ -2607,7 +2608,7 @@ QString QDBusConnectionPrivate::getNameOwnerNoCache(const QString &serviceName)
+ 
+     QDBusPendingCallPrivate *pcall = sendWithReplyAsync(msg, nullptr, nullptr, nullptr);
+     if (pcall->replyMessage.type() == QDBusMessage::InvalidMessage) {
+-        if (thread() == QThread::currentThread()) {
++        if (QThread *thr = thread(); thr && thr->isCurrentThread()) {
+             // this function may be called in our own thread and
+             // QDBusPendingCallPrivate::waitForFinished() would deadlock there
+             q_dbus_pending_call_block(pcall->pending);
+diff --git a/src/gui/kernel/qopenglcontext.cpp b/src/gui/kernel/qopenglcontext.cpp
+index 032d4de3568..644945d9cfe 100644
+--- a/src/gui/kernel/qopenglcontext.cpp
++++ b/src/gui/kernel/qopenglcontext.cpp
+@@ -690,9 +690,10 @@ bool QOpenGLContext::makeCurrent(QSurface *surface)
+     if (!isValid())
+         return false;
+ 
+-    if (Q_UNLIKELY(!qApp->testAttribute(Qt::AA_DontCheckOpenGLContextThreadAffinity)
+-                   && thread() != QThread::currentThread())) {
+-        qFatal("Cannot make QOpenGLContext current in a different thread");
++    if (Q_UNLIKELY(!qApp->testAttribute(Qt::AA_DontCheckOpenGLContextThreadAffinity))) {
++        QThread *thr = thread();
++        if (thr && !thr->isCurrentThread())
++            qFatal("Cannot make QOpenGLContext current in a different thread");
+     }
+ 
+     if (!surface) {
+diff --git a/src/network/access/qrestaccessmanager.cpp b/src/network/access/qrestaccessmanager.cpp
+index c5ef67f439a..464dd9756bf 100644
+--- a/src/network/access/qrestaccessmanager.cpp
++++ b/src/network/access/qrestaccessmanager.cpp
+@@ -813,7 +813,7 @@ QNetworkReply *QRestAccessManagerPrivate::createActiveRequest(QNetworkReply *rep
+ void QRestAccessManagerPrivate::verifyThreadAffinity(const QObject *contextObject)
+ {
+     Q_Q(QRestAccessManager);
+-    if (QThread::currentThread() != q->thread()) {
++    if (QThread *thr = q->thread(); thr && !thr->isCurrentThread()) {
+         qCWarning(lcQrest, "QRestAccessManager can only be called in the thread it belongs to");
+         Q_ASSERT(false);
+     }
+diff --git a/src/network/socket/qsocks5socketengine.cpp b/src/network/socket/qsocks5socketengine.cpp
+index 3042b1ef63c..2c13c953df1 100644
+--- a/src/network/socket/qsocks5socketengine.cpp
++++ b/src/network/socket/qsocks5socketengine.cpp
+@@ -357,7 +357,7 @@ QSocks5BindData *QSocks5BindStore::retrieve(qintptr socketDescriptor)
+     QSocks5BindData *bindData = it.value();
+     store.erase(it);
+     if (bindData) {
+-        if (bindData->controlSocket->thread() != QThread::currentThread()) {
++        if (QThread *thr = bindData->controlSocket->thread(); thr && !thr->isCurrentThread()) {
+             qWarning("Cannot access socks5 bind data from different thread");
+             return nullptr;
+         }
+diff --git a/src/plugins/platforms/wayland/qwaylanddisplay.cpp b/src/plugins/platforms/wayland/qwaylanddisplay.cpp
+index a9760ef517c..98f147d2a12 100644
+--- a/src/plugins/platforms/wayland/qwaylanddisplay.cpp
++++ b/src/plugins/platforms/wayland/qwaylanddisplay.cpp
+@@ -210,7 +210,7 @@ protected:
+ private:
+     bool waitForReading()
+     {
+-        Q_ASSERT(QThread::currentThread() == this);
++        Q_ASSERT(isCurrentThread());
+ 
+         m_reading.storeRelease(false);
+ 
+diff --git a/src/sql/kernel/qsqldatabase.cpp b/src/sql/kernel/qsqldatabase.cpp
+index 98eec372913..4471a932303 100644
+--- a/src/sql/kernel/qsqldatabase.cpp
++++ b/src/sql/kernel/qsqldatabase.cpp
+@@ -183,7 +183,7 @@ QSqlDatabase QSqlDatabasePrivate::database(const QString& name, bool open)
+     QSqlDatabase db = s_sqlGlobals()->connection(name);
+     if (!db.isValid())
+         return db;
+-    if (db.driver()->thread() != QThread::currentThread()) {
++    if (QThread *thr = db.driver()->thread(); thr && !thr->isCurrentThread()) {
+         qCWarning(lcSqlDb, "QSqlDatabasePrivate::database: requested database does not belong to the calling thread.");
+         return QSqlDatabase();
+     }
+diff --git a/src/testlib/qtesteventloop.h b/src/testlib/qtesteventloop.h
+index ca442bd2b6d..8ec53af11d9 100644
+--- a/src/testlib/qtesteventloop.h
++++ b/src/testlib/qtesteventloop.h
+@@ -80,8 +80,7 @@ inline void QTestEventLoop::enterLoop(std::chrono::milliseconds msecs)
+ 
+ inline void QTestEventLoop::exitLoop()
+ {
+-    if (thread() != QThread::currentThread())
+-    {
++    if (QThread *thr = thread(); thr && !thr->isCurrentThread()) {
+         QMetaObject::invokeMethod(this, "exitLoop", Qt::QueuedConnection);
+         return;
+     }
+-- 
+GitLab
+

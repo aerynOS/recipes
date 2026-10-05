@@ -1,0 +1,225 @@
+From a64dfe20a4b447b33c0d482cbd926528e54d53d0 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?M=C3=A5rten=20Nordheim?= <marten.nordheim@qt.io>
+Date: Mon, 3 Aug 2026 20:37:02 +0200
+Subject: [PATCH] QCHash/openssl: Don't unload loaded providers
+
+Per openssl/openssl#32079, the double-free needs the legacy and default
+providers loaded into the same (global) library context, a fetch, and an
+unload, followed by another load of the default provider: OpenSSL then
+frees a stale provider-store entry a second time at exit. Both our EVP
+ctor and supportsAlgorithm() did exactly that. Upstream has it triaged
+as a bug across 3.0-4.0, with PR openssl/openssl#32088 proposed, so this
+can be revisited once a fixed OpenSSL is the minimum.
+
+The reason why we started using try_load in the first place was to not
+interfere with the automatic fallback loading, since it has an argument
+to keep it active.
+
+However, we also load the legacy provider, and we definitely do _not_
+want to leave it loaded forever in the global context, so we create a
+separate context to contain the legacy provider there, and delete the
+context at static destruction.
+
+In theory I think we should move QCHash entirely over to this separate
+context, but it might be unexpected for some.
+
+Amends 9a9ef2f63f6e510f0d177a4a74514fdce5f4e574, partially reverting it.
+
+Fixes: QTBUG-148575
+Pick-to: 6.11 6.8
+Change-Id: Id62ab68638a233bb6fddea894d4c886032eb5440
+Reviewed-by: Mate Barany <mate.barany@qt.io>
+(cherry picked from commit 9b1c0a74177fe014d87652d98a5d0fc0ba9ec683)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/corelib/tools/qcryptographichash.cpp      | 101 ++++++++++++------
+ .../opensslhash_before_ssl.cpp                |   8 +-
+ 2 files changed, 71 insertions(+), 38 deletions(-)
+
+diff --git a/src/corelib/tools/qcryptographichash.cpp b/src/corelib/tools/qcryptographichash.cpp
+index 3e24646d80a..996d7541ea6 100644
+--- a/src/corelib/tools/qcryptographichash.cpp
++++ b/src/corelib/tools/qcryptographichash.cpp
+@@ -115,6 +115,7 @@ QT_WARNING_POP
+ 
+ #if !defined(QT_BOOTSTRAPPED) && QT_CONFIG(openssl_hash)
+ #define USING_OPENSSL30
++#include <openssl/crypto.h>
+ #include <openssl/evp.h>
+ #include <openssl/provider.h>
+ #endif
+@@ -212,6 +213,56 @@ static constexpr const char * methodToName(QCryptographicHash::Algorithm method)
+     }
+     return nullptr;
+ }
++
++/*
++    Never unloaded: it is the unload that trips OpenSSL up, freeing a stale
++    provider-store entry a second time at exit (QTBUG-148575;
++    openssl/openssl#32079 has the exact sequence, and is where to look before
++    removing any of this). retain_fallbacks=1 leaves OpenSSL's own fallback in
++    place for everyone else in the process, e.g. the TLS backend (QTBUG-136223).
++
++    Whether the load succeeded is of no interest to the callers: the
++    EVP_MD_fetch() that follows is the actual availability test, and it can
++    still succeed from the fallback or from another provider (e.g. FIPS).
++*/
++static void ensureDefaultProviderLoaded()
++{
++    static const bool loaded = OSSL_PROVIDER_try_load(nullptr, "default", /*retain_fallbacks=*/1);
++    Q_UNUSED(loaded);
++}
++
++namespace {
++struct OSSL_LIB_CTX_deleter {
++    void operator()(OSSL_LIB_CTX *ctx) const noexcept {
++        OSSL_LIB_CTX_free(ctx);
++    }
++};
++using OSSL_LIB_CTX_ptr = std::unique_ptr<OSSL_LIB_CTX, OSSL_LIB_CTX_deleter>;
++} // unnamed namespace
++
++/*
++    MD4 only exists in OpenSSL's "legacy" provider, which we don't want loaded
++    process-wide - other OpenSSL users in the process could then fetch other,
++    deliberately-weak algorithms from it too. Give it its own context instead:
++    load it (and its config, since OSSL_LIB_CTX_new() doesn't do that on its
++    own) once and keep it alive like ensureDefaultProviderLoaded() above.
++*/
++static OSSL_LIB_CTX *legacyProviderContext()
++{
++    static const OSSL_LIB_CTX_ptr ctx = [] {
++        OSSL_LIB_CTX_ptr ctx(OSSL_LIB_CTX_new());
++        if (ctx) {
++            // Unlike the global context's automatic init, this fails when
++            // there is no readable openssl.cnf.
++            const bool configLoaded = OSSL_LIB_CTX_load_config(ctx.get(), nullptr);
++            Q_UNUSED(configLoaded);
++            if (!OSSL_PROVIDER_load(ctx.get(), "legacy"))
++                ctx.reset();
++        }
++        return ctx;
++    }();
++    return ctx.get();
++}
+ #endif // USING_OPENSSL30
+ 
+ class QCryptographicHashPrivate
+@@ -250,20 +301,11 @@ public:
+             EVP_MD_free(md);
+         }
+     };
+-    struct OSSL_PROVIDER_deleter {
+-        void operator()(OSSL_PROVIDER *provider) const noexcept {
+-            OSSL_PROVIDER_unload(provider);
+-        }
+-    };
+-
+     using EVP_MD_CTX_ptr = std::unique_ptr<EVP_MD_CTX, EVP_MD_CTX_deleter>;
+     using EVP_MD_ptr = std::unique_ptr<EVP_MD, EVP_MD_deleter>;
+-    using OSSL_PROVIDER_ptr = std::unique_ptr<OSSL_PROVIDER, OSSL_PROVIDER_deleter>;
+     struct EVP {
+         EVP_MD_ptr algorithm;
+         EVP_MD_CTX_ptr context;
+-        OSSL_PROVIDER_ptr defaultProvider;
+-        OSSL_PROVIDER_ptr legacyProvider;
+         bool initializationFailed;
+ 
+         explicit EVP(QCryptographicHash::Algorithm method);
+@@ -545,29 +587,15 @@ void QCryptographicHashPrivate::State::destroy(QCryptographicHash::Algorithm met
+ QCryptographicHashPrivate::EVP::EVP(QCryptographicHash::Algorithm method)
+     : initializationFailed{true}
+ {
++    OSSL_LIB_CTX *fetchCtx = nullptr;
+     if (method == QCryptographicHash::Md4) {
+-        /*
+-         * We need to load the legacy provider in order to have the MD4
+-         * algorithm available.
+-         */
+-        legacyProvider = OSSL_PROVIDER_ptr(OSSL_PROVIDER_try_load(nullptr, "legacy", /*retain_fallbacks=*/1));
+-
+-        if (!legacyProvider)
++        fetchCtx = legacyProviderContext();
++        if (!fetchCtx)
+             return;
++    } else {
++        ensureDefaultProviderLoaded();
+     }
+ 
+-    /*
+-     * Load with retain_fallbacks=1 so that loading these providers - and the
+-     * unload performed by OSSL_PROVIDER_deleter - does not disable OpenSSL's
+-     * fallback auto-loading of the default provider in the global library
+-     * context. Plain OSSL_PROVIDER_load() disables that fallback, which then
+-     * leaves later OpenSSL users (e.g. the TLS backend) without a default
+-     * provider once we unload, breaking RAND seeding. See QTBUG-136223.
+-     */
+-    defaultProvider = OSSL_PROVIDER_ptr(OSSL_PROVIDER_try_load(nullptr, "default", /*retain_fallbacks=*/1));
+-    if (!defaultProvider)
+-        return;
+-
+     context = EVP_MD_CTX_ptr(EVP_MD_CTX_new());
+ 
+     if (!context) {
+@@ -577,9 +605,10 @@ QCryptographicHashPrivate::EVP::EVP(QCryptographicHash::Algorithm method)
+     /*
+      * Using the "-fips" option will disable the global "fips=yes" for
+      * this one lookup and the algorithm can be fetched from any provider
+-     * that implements the algorithm (including the FIPS provider).
++     * that implements the algorithm (including the FIPS provider). For Md4
++     * that is moot: fetchCtx only ever holds the legacy provider.
+      */
+-    algorithm = EVP_MD_ptr(EVP_MD_fetch(nullptr, methodToName(method), "-fips"));
++    algorithm = EVP_MD_ptr{EVP_MD_fetch(fetchCtx, methodToName(method), "-fips")};
+     if (!algorithm) {
+         return;
+     }
+@@ -1240,8 +1269,13 @@ bool QCryptographicHashPrivate::supportsAlgorithm(QCryptographicHash::Algorithm
+     case QCryptographicHash::Blake2s_160:
+     case QCryptographicHash::Blake2s_224:
+         return true;
+-    case QCryptographicHash::Sha1:
+     case QCryptographicHash::Md4:
++        if (OSSL_LIB_CTX *legacyLibCtx = legacyProviderContext()) {
++            return EVP_MD_ptr{EVP_MD_fetch(legacyLibCtx, methodToName(method), "-fips")}
++                != nullptr;
++        }
++        return false;
++    case QCryptographicHash::Sha1:
+     case QCryptographicHash::Md5:
+     case QCryptographicHash::Sha224:
+     case QCryptographicHash::Sha256:
+@@ -1253,10 +1287,7 @@ bool QCryptographicHashPrivate::supportsAlgorithm(QCryptographicHash::Algorithm
+     case QCryptographicHash::RealSha3_512:
+     case QCryptographicHash::Blake2b_512:
+     case QCryptographicHash::Blake2s_256: {
+-    // retain_fallbacks=1: don't disable the global default-provider fallback
+-    // auto-load (see QTBUG-136223 and the EVP constructor above).
+-    auto legacyProvider = OSSL_PROVIDER_ptr(OSSL_PROVIDER_try_load(nullptr, "legacy", /*retain_fallbacks=*/1));
+-    auto defaultProvider = OSSL_PROVIDER_ptr(OSSL_PROVIDER_try_load(nullptr, "default", /*retain_fallbacks=*/1));
++    ensureDefaultProviderLoaded();
+ 
+     const char *restriction = "-fips";
+     EVP_MD_ptr algorithm = EVP_MD_ptr(EVP_MD_fetch(nullptr, methodToName(method), restriction));
+diff --git a/tests/auto/network/ssl/qsslsocket/stresstest_hash_before_ssl/opensslhash_before_ssl.cpp b/tests/auto/network/ssl/qsslsocket/stresstest_hash_before_ssl/opensslhash_before_ssl.cpp
+index 2254f97ccca..00a7edd40d0 100644
+--- a/tests/auto/network/ssl/qsslsocket/stresstest_hash_before_ssl/opensslhash_before_ssl.cpp
++++ b/tests/auto/network/ssl/qsslsocket/stresstest_hash_before_ssl/opensslhash_before_ssl.cpp
+@@ -19,9 +19,11 @@ int main(int argc, char *argv[])
+     QCoreApplication app(argc, argv);
+ 
+     // Use QCryptographicHash before any SSL API is touched.  When
+-    // openssl_hash is enabled, the destructor calls OSSL_PROVIDER_unload()
+-    // on the default provider, draining its activation count to zero.
+-    // ensureLibraryLoaded() (called below via supportsSsl()) must recover.
++    // openssl_hash is enabled, this loads the default provider into the
++    // global library context and, as of QTBUG-148575, leaves it loaded;
++    // ensureLibraryLoaded() (called below via supportsSsl()) must come up
++    // regardless.  It used to unload the provider again, draining its
++    // activation count to zero and leaving SSL without one (QTBUG-136223).
+     {
+         QCryptographicHash hash(QCryptographicHash::Sha256);
+         hash.addData("regression test for QTBUG-openssl-rand-after-hash");
+-- 
+GitLab
+
