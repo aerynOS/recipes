@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 241732
-  rss: ~
+  rss: https://github.com/rui314/mold/releases.atom
 security:
   cpe: ~ # No known CPE. Last checked 20230219
