@@ -1,0 +1,33 @@
+From bbded84997fc520a6f221ee456333da8b9fe9311 Mon Sep 17 00:00:00 2001
+From: Steven Noonan <steven@uplinklabs.net>
+Date: Wed, 17 Nov 2021 19:42:32 -0800
+Subject: [PATCH 150/209] [EXTERNALLY-MAINTAINED] x86: don't check for random
+ warps if using direct sync
+
+There's some overhead in writing/reading MSR_IA32_TSC. We try to account
+for it, but sometimes it under or over estimates the overhead, and we
+retry
+syncing, and it sees the clock "go backwards".
+
+Signed-off-by: Steven Noonan <steven@uplinklabs.net>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/x86/kernel/tsc_sync.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/x86/kernel/tsc_sync.c b/arch/x86/kernel/tsc_sync.c
+index 91d816e074ad..ec518e4310a2 100644
+--- a/arch/x86/kernel/tsc_sync.c
++++ b/arch/x86/kernel/tsc_sync.c
+@@ -399,7 +399,7 @@ static void check_tsc_sync_source(void *__cpu)
+ 		pr_debug("TSC synchronization [CPU#%d -> CPU#%u]: passed\n",
+ 			smp_processor_id(), cpu);
+ 
+-	} else if (atomic_dec_and_test(&test_runs) || random_warps) {
++	} else if (atomic_dec_and_test(&test_runs) || (random_warps && !tsc_allow_direct_sync)) {
+ 		/* Force it to 0 if random warps brought us here */
+ 		atomic_set(&test_runs, 0);
+ 
+-- 
+2.56.0
+

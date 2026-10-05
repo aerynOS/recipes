@@ -1,0 +1,44 @@
+From 7bff20ca325b9ea5af5300ce652ab9cfe12f6fb6 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Wed, 7 Oct 2026 01:27:15 -0700
+Subject: [PATCH 209/209] [NOT-FOR-UPSTREAM] HID: hid-msi: Add additional
+ logging
+
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/hid/hid-msi.c | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/hid/hid-msi.c b/drivers/hid/hid-msi.c
+index 0264a7a2bb24..6e18a338ddc6 100644
+--- a/drivers/hid/hid-msi.c
++++ b/drivers/hid/hid-msi.c
+@@ -392,8 +392,12 @@ static int claw_gamepad_mode_event(struct claw_drvdata *drvdata,
+ {
+ 	if (cmd_rep->data[0] >= ARRAY_SIZE(claw_gamepad_mode_text) ||
+ 	    !claw_gamepad_mode_text[cmd_rep->data[0]] ||
+-	    cmd_rep->data[1] >= ARRAY_SIZE(claw_mkeys_function_text))
++	    cmd_rep->data[1] >= ARRAY_SIZE(claw_mkeys_function_text)) {
++		dev_info(&drvdata->hdev->dev,
++			 "Got invalid output from gamepad mode event. Mode: %u, Function: %u",
++			 cmd_rep->data[0], cmd_rep->data[1]);
+ 		return -EINVAL;
++	}
+ 
+ 	scoped_guard(spinlock_irqsave, &drvdata->mode_lock) {
+ 		drvdata->gamepad_mode = cmd_rep->data[0];
+@@ -585,8 +589,10 @@ static int __claw_hw_output_report(struct hid_device *hdev, u8 index, u8 *data,
+ 			drvdata->orphan_ack_pending = false;
+ 	}
+ 
+-	if (header_size + len > CLAW_PACKET_SIZE)
++	if (header_size + len > CLAW_PACKET_SIZE) {
++		dev_info(&drvdata->hdev->dev, "Bad header size: %zu", header_size + len);
+ 		return -EINVAL;
++	}
+ 
+ 	/* We can't use a devm_alloc reusable buffer without side effects during suspend */
+ 	dmabuf = kzalloc(CLAW_PACKET_SIZE, GFP_KERNEL);
+-- 
+2.56.0
+

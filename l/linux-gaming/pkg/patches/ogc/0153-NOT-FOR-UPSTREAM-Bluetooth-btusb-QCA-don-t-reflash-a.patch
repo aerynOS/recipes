@@ -1,0 +1,130 @@
+From 58d12c42b946198ba3ddcc81857cfd8222d6813a Mon Sep 17 00:00:00 2001
+From: demrich <demrich@me.com>
+Date: Wed, 30 Sep 2026 11:29:12 -0700
+Subject: [PATCH 153/209] [NOT-FOR-UPSTREAM] Bluetooth: btusb: QCA: don't
+ reflash a warm controller
+
+OGC #120 reloads the QCA rampatch and NVM on every probe. On a controller
+that already runs the rampatch build (warm reboot, adapter off/on, resume
+from suspend) this makes WCN785x reset and stop answering HCI_Reset. Skip
+the rampatch download when the reported build equals the rampatch build
+and QCA_CHECK_STATUS reports it patched, and skip the NVM download only
+when the status also reports it applied.
+
+Link: https://github.com/ublue-os/bazzite/issues/5919
+---
+ drivers/bluetooth/btusb.c | 59 ++++++++++++++++++++++++++-------------
+ 1 file changed, 39 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index 91d6cce00dc5..cfabb9a896b5 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -3608,7 +3608,8 @@ static int btusb_setup_qca_download_fw(struct hci_dev *hdev,
+ 
+ static int btusb_setup_qca_load_rampatch(struct hci_dev *hdev,
+ 					 struct qca_version *ver,
+-					 const struct qca_device_info *info)
++					 const struct qca_device_info *info,
++					 u8 status)
+ {
+ 	struct qca_rampatch_version *rver;
+ 	const struct firmware *fw;
+@@ -3653,19 +3654,27 @@ static int btusb_setup_qca_load_rampatch(struct hci_dev *hdev,
+ 		    "firmware rome 0x%x build 0x%x",
+ 		    rver_rom, rver_patch, ver_rom, ver_patch);
+ 
+-	/* Allow rampatch when the patch version equals the firmware version.
+-	 * A firmware download may be aborted by a transient USB error (e.g.
+-	 * disconnect) after the controller updates version info but before
+-	 * completion.
+-	 * Allowing equal versions enables re-flashing during recovery.
+-	 */
+ 	if (rver_rom != ver_rom || rver_patch < ver_patch) {
+ 		bt_dev_err(hdev, "rampatch file version did not match with firmware");
+ 		err = -EINVAL;
+ 		goto done;
+ 	}
+ 
++	/* The controller already runs this build and reports it patched, so
++	 * it was patched since it last lost power. Re-flashing it makes WCN785x
++	 * reset itself and fail to answer HCI_Reset until power is fully
++	 * removed. Return 1 so the caller can skip the NVM download too.
++	 */
++	if (rver_patch == ver_patch && (status & QCA_PATCH_UPDATED)) {
++		bt_dev_info(hdev, "QCA: rampatch already active, skipping download");
++		err = 1;
++		goto done;
++	}
++
+ 	err = btusb_setup_qca_download_fw(hdev, fw, info->rampatch_hdr);
++	/* A header-only file leaves the control transfer's byte count in err */
++	if (err > 0)
++		err = 0;
+ 
+ done:
+ 	release_firmware(fw);
+@@ -3752,6 +3761,8 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 	const struct qca_device_info *info = NULL;
+ 	struct qca_version ver;
+ 	u32 ver_rom;
++	bool already_patched;
++	u8 status;
+ 	int i, err;
+ 
+ 	err = btusb_qca_send_vendor_req(udev, QCA_GET_TARGET_VERSION, &ver,
+@@ -3788,13 +3799,19 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 	 * AVDTP transport setup (Acquire returns Failed; A2DP audio
+ 	 * cannot stream).
+ 	 *
+-	 * Always re-apply the rampatch and NVM to guarantee a known-good
+-	 * firmware state on every probe. The cost is a few hundred
+-	 * milliseconds of firmware upload during enumeration.
++	 * So a download is only skipped when the status flags agree with the
++	 * build the controller reports. That still avoids re-flashing a
++	 * controller that already runs the rampatch build.
+ 	 */
+-	err = btusb_setup_qca_load_rampatch(hdev, &ver, info);
++	err = btusb_qca_send_vendor_req(udev, QCA_CHECK_STATUS, &status,
++					sizeof(status));
++	if (err)
++		return err;
++
++	err = btusb_setup_qca_load_rampatch(hdev, &ver, info, status);
+ 	if (err < 0)
+ 		return err;
++	already_patched = err > 0;
+ 
+ 	err = btusb_qca_send_vendor_req(udev, QCA_GET_TARGET_VERSION, &ver,
+ 					sizeof(ver));
+@@ -3806,16 +3823,18 @@ static int btusb_setup_qca(struct hci_dev *hdev)
+ 		btdata->qca_dump.controller_id = le32_to_cpu(ver.rom_version);
+ 	}
+ 
+-	err = btusb_setup_qca_load_nvm(hdev, &ver, info);
+-	if (err < 0)
+-		return err;
++	if (!already_patched || !(status & QCA_SYSCFG_UPDATED)) {
++		err = btusb_setup_qca_load_nvm(hdev, &ver, info);
++		if (err < 0)
++			return err;
+ 
+-	/* WCN6855 2.1 and later will reset to apply firmware downloaded here, so
+-	 * wait ~100ms for reset Done then go ahead, otherwise, it maybe
+-	 * cause potential enable failure.
+-	 */
+-	if (info->rom_version >= 0x00130201)
+-		msleep(QCA_BT_RESET_WAIT_MS);
++		/* WCN6855 2.1 and later will reset to apply firmware downloaded here, so
++		 * wait ~100ms for reset Done then go ahead, otherwise, it maybe
++		 * cause potential enable failure.
++		 */
++		if (info->rom_version >= 0x00130201)
++			msleep(QCA_BT_RESET_WAIT_MS);
++	}
+ 
+ 	/* Mark HCI_OP_ENHANCED_SETUP_SYNC_CONN as broken as it doesn't seem to
+ 	 * work with the likes of HSP/HFP mSBC.
+-- 
+2.56.0
+

@@ -1,0 +1,35 @@
+From b2aeddbfcc18eeebaf64ea67fb1b04ac862abfb5 Mon Sep 17 00:00:00 2001
+From: Eric Naim <dnaim@cachyos.org>
+Date: Thu, 16 Jul 2026 09:13:05 +0700
+Subject: [PATCH 152/209] [EXTERNALLY-MAINTAINED] fixup! x86: implement
+ tsc=directsync for systems without IA32_TSC_ADJUST
+
+{rd,wr}msrl were removed, switch to msrq variants which is what msrl
+points to anyway.
+
+Signed-off-by: Eric Naim <dnaim@cachyos.org>
+---
+ arch/x86/kernel/tsc_sync.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/x86/kernel/tsc_sync.c b/arch/x86/kernel/tsc_sync.c
+index 47c9c9b448d9..1ca8b601a92b 100644
+--- a/arch/x86/kernel/tsc_sync.c
++++ b/arch/x86/kernel/tsc_sync.c
+@@ -435,10 +435,10 @@ static inline cycles_t write_tsc_adjustment(s64 adjustment)
+ {
+ 	cycles_t adjval, nextval;
+ 
+-	rdmsrl(MSR_IA32_TSC, adjval);
++	rdmsrq(MSR_IA32_TSC, adjval);
+ 	adjval += adjustment;
+-	wrmsrl(MSR_IA32_TSC, adjval);
+-	rdmsrl(MSR_IA32_TSC, nextval);
++	wrmsrq(MSR_IA32_TSC, adjval);
++	rdmsrq(MSR_IA32_TSC, nextval);
+ 
+ 	/*
+ 	 * Estimated clock cycle overhead for wrmsr + rdmsr
+-- 
+2.56.0
+

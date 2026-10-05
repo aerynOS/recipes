@@ -1,0 +1,39 @@
+From d16c1816d34dc98320dd77ea33d7d59f3c7c4c91 Mon Sep 17 00:00:00 2001
+From: Steven Noonan <steven@uplinklabs.net>
+Date: Wed, 17 Nov 2021 11:58:46 -0800
+Subject: [PATCH 149/209] [EXTERNALLY-MAINTAINED] x86: only restore TSC if we
+ have IA32_TSC_ADJUST or directsync enabled
+
+Otherwise we'd only be restoring the TSC for CPU0 on resume, which would
+necessitate a TSC adjustment on other CPUs.
+
+Signed-off-by: Steven Noonan <steven@uplinklabs.net>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ arch/x86/kernel/acpi/sleep.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/kernel/acpi/sleep.c b/arch/x86/kernel/acpi/sleep.c
+index 31761a44ce59..c8c8415fb65c 100644
+--- a/arch/x86/kernel/acpi/sleep.c
++++ b/arch/x86/kernel/acpi/sleep.c
+@@ -104,11 +104,15 @@ int x86_acpi_suspend_lowlevel(void)
+ 			header->pmode_misc_en_high))
+ 		header->pmode_behavior |=
+ 			(1 << WAKEUP_BEHAVIOR_RESTORE_MISC_ENABLE);
+-	if (!rdmsr_safe(MSR_IA32_TSC,
++
++	if ((boot_cpu_has(X86_FEATURE_TSC_ADJUST) ||
++	     tsc_allow_direct_sync) &&
++	    !rdmsr_safe(MSR_IA32_TSC,
+ 	                &header->pmode_tsc_low,
+ 	                &header->pmode_tsc_high))
+ 		header->pmode_behavior |=
+ 			(1 << WAKEUP_BEHAVIOR_RESTORE_TSC);
++
+ 	header->realmode_flags = acpi_realmode_flags;
+ 	header->real_magic = 0x12345678;
+ 
+-- 
+2.56.0
+

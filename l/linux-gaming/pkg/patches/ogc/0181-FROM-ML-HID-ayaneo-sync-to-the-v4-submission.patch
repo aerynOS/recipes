@@ -1,0 +1,955 @@
+From d0bd33f771d9e8fa84a932932e78ccb46b523bbd Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Mat=C3=ADas=20Mart=C3=ADnez?= <hello@matias.me>
+Date: Fri, 25 Sep 2026 03:23:27 -0300
+Subject: [PATCH 181/209] [FROM-ML] HID: ayaneo: sync to the v4 submission
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Update the driver to the state submitted as v4: firmware LED effects
+through effect/effect_index (monocolor, breathe, rainbow) replacing
+the hw_pattern trigger and its ABI document, rumble_intensity plus an
+index attribute, transparent pass-through of the non-vendor 1c4f:0002
+interfaces with reset_resume mirrored from hid-generic, configuration
+reapply after reset, sysfs teardown ordered before the transport with
+IO kept enabled, the reply state under a spinlock, and an enforced
+minimum eject settle time.
+
+Link: https://lore.kernel.org/r/20260925061941.75121-1-hello@matias.me
+Signed-off-by: Matías Martínez <hello@matias.me>
+---
+ .../testing/sysfs-class-led-driver-hid-ayaneo |  15 -
+ .../ABI/testing/sysfs-driver-hid-ayaneo       |  53 +-
+ MAINTAINERS                                   |   1 -
+ drivers/hid/Kconfig                           |   3 +
+ drivers/hid/hid-ayaneo.c                      | 476 ++++++++++++++----
+ 5 files changed, 434 insertions(+), 114 deletions(-)
+ delete mode 100644 Documentation/ABI/testing/sysfs-class-led-driver-hid-ayaneo
+
+diff --git a/Documentation/ABI/testing/sysfs-class-led-driver-hid-ayaneo b/Documentation/ABI/testing/sysfs-class-led-driver-hid-ayaneo
+deleted file mode 100644
+index 00f100dba74e..000000000000
+--- a/Documentation/ABI/testing/sysfs-class-led-driver-hid-ayaneo
++++ /dev/null
+@@ -1,15 +0,0 @@
+-What:		/sys/class/leds/<led>/hw_pattern
+-Date:		August 2026
+-KernelVersion:	7.3
+-Contact:	Matías Martínez <hello@matias.me>
+-Description:
+-		Specify a hardware pattern for the AYANEO 3 joystick
+-		rings LED. The firmware supports a single breathing
+-		pattern, pulsing the current colour at a fixed,
+-		firmware-controlled period:
+-
+-		"0 <t> <brightness> <t>"
+-
+-		Both delta_t values are accepted but ignored, as the
+-		period is not configurable. <brightness> must be
+-		non-zero. Any other pattern is rejected.
+diff --git a/Documentation/ABI/testing/sysfs-driver-hid-ayaneo b/Documentation/ABI/testing/sysfs-driver-hid-ayaneo
+index 807c4fc9d768..525b08277f75 100644
+--- a/Documentation/ABI/testing/sysfs-driver-hid-ayaneo
++++ b/Documentation/ABI/testing/sysfs-driver-hid-ayaneo
+@@ -1,7 +1,7 @@
+ What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/module_left
+ What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/module_right
+-Date:		August 2026
+-KernelVersion:	7.3
++Date:		September 2026
++KernelVersion:	7.4
+ Contact:	Matías Martínez <hello@matias.me>
+ Description:
+ 		Reports the type of the module currently inserted in the
+@@ -14,8 +14,8 @@ Description:
+ 		take up to a second.
+ 
+ What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/eject
+-Date:		August 2026
+-KernelVersion:	7.3
++Date:		September 2026
++KernelVersion:	7.4
+ Contact:	Matías Martínez <hello@matias.me>
+ Description:
+ 		Write-only. Writing "left", "right" or "both" asks the
+@@ -24,13 +24,52 @@ Description:
+ 		the release handshake (typically a few seconds). The
+ 		module is physically released once controller power is
+ 		subsequently cut through the ayaneo-ec platform driver's
+-		controller_power attribute; that final step is left to
++		controller_power attribute. That final step is left to
+ 		userspace.
+ 
+ What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/reset
+-Date:		August 2026
+-KernelVersion:	7.3
++Date:		September 2026
++KernelVersion:	7.4
+ Contact:	Matías Martínez <hello@matias.me>
+ Description:
+ 		Write-only. Writing "1" asks the controller firmware to
+ 		perform a quick reset of the controller configuration.
++
++What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/rumble_intensity
++Date:		September 2026
++KernelVersion:	7.4
++Contact:	Matías Martínez <hello@matias.me>
++Description:
++		Controls the vibration strength of the AYANEO 3 controller
++		rumble motors. Reading returns the selected level. Supported
++		writes are the values listed by rumble_intensity_index.
++		Defaults to "medium", matching the firmware default.
++
++What:		/sys/bus/hid/drivers/hid-ayaneo/<dev>/rumble_intensity_index
++Date:		September 2026
++KernelVersion:	7.4
++Contact:	Matías Martínez <hello@matias.me>
++Description:
++		Read-only. Space-separated list of the supported
++		rumble_intensity values: "off low medium high".
++
++What:		/sys/class/leds/<dev>:rgb:joystick_rings/effect
++Date:		September 2026
++KernelVersion:	7.4
++Contact:	Matías Martínez <hello@matias.me>
++Description:
++		Controls the firmware LED effect of the joystick rings.
++
++		Values are "monocolor", "breathe" or "rainbow", as listed
++		by the effect_index attribute. "rainbow" is a
++		firmware-timed colour cycle whose hue and tempo are fixed
++		by the firmware: brightness scales its amplitude and the
++		multi_intensity values are ignored while it is selected.
++
++What:		/sys/class/leds/<dev>:rgb:joystick_rings/effect_index
++Date:		September 2026
++KernelVersion:	7.4
++Contact:	Matías Martínez <hello@matias.me>
++Description:
++		Read-only. Space-separated list of the supported effect
++		values: "monocolor breathe rainbow".
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2e4446054378..e2f46fb5bfc7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4470,7 +4470,6 @@ AYANEO 3 CONTROLLER HID DRIVER
+ M:	Matías Martínez <hello@matias.me>
+ L:	linux-input@vger.kernel.org
+ S:	Maintained
+-F:	Documentation/ABI/testing/sysfs-class-led-driver-hid-ayaneo
+ F:	Documentation/ABI/testing/sysfs-driver-hid-ayaneo
+ F:	drivers/hid/hid-ayaneo.c
+ 
+diff --git a/drivers/hid/Kconfig b/drivers/hid/Kconfig
+index a0dcace8e005..2f4a43d949ae 100644
+--- a/drivers/hid/Kconfig
++++ b/drivers/hid/Kconfig
+@@ -219,6 +219,9 @@ config HID_AYANEO
+ 
+ 	  Say Y or M here if you have an AYANEO 3.
+ 
++	  To compile this driver as a module, choose M here: the
++	  module will be called hid-ayaneo.
++
+ config HID_BELKIN
+ 	tristate "Belkin Flip KVM and Wireless keyboard"
+ 	help
+diff --git a/drivers/hid/hid-ayaneo.c b/drivers/hid/hid-ayaneo.c
+index 3a7af5918ee1..6bbfcc54af93 100644
+--- a/drivers/hid/hid-ayaneo.c
++++ b/drivers/hid/hid-ayaneo.c
+@@ -1,16 +1,21 @@
+-// SPDX-License-Identifier: GPL-2.0+
++// SPDX-License-Identifier: GPL-2.0-or-later
+ /*
+  * HID driver for the AYANEO 3 detachable controller ("Magic Modules").
+  *
+  * The AYANEO 3 controller exposes three USB HID interfaces behind
+- * VID 0x1c4f PID 0x0002 (a generic SigmaMicro ID, hence the DMI gate):
+- * a gamepad, a keyboard for the extra buttons, and a vendor interface
+- * (application usage 0xff000001) accepting 65-byte commands.
++ * VID 0x1c4f PID 0x0002 (a generic SigmaMicro ID): a gamepad, a
++ * keyboard for the extra buttons, and a vendor interface (application
++ * usage 0xff000001) accepting 65-byte commands.
+  *
+- * This driver binds the vendor interface and provides:
++ * The driver claims every interface of the shared ID because
++ * hid-generic yields any device another driver's id table matches.
++ * Interfaces other than the AYANEO 3 vendor interface are started as
++ * transparent generic devices. On the vendor interface it provides:
+  *  - module identification (which module type is inserted on each side)
+  *  - software eject of the left/right modules
+  *  - RGB control of the joystick rings as a multicolor LED class device
++ *  - rumble intensity selection
++ *  - configuration reset
+  *
+  * It complements the ayaneo-ec platform driver, which exposes module
+  * attach state and controller power. A full eject is: write to this
+@@ -34,16 +39,20 @@
+ 
+ #include <linux/build_bug.h>
+ #include <linux/cleanup.h>
++#include <linux/completion.h>
+ #include <linux/delay.h>
+ #include <linux/dmi.h>
+ #include <linux/hid.h>
+ #include <linux/led-class-multicolor.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
++#include <linux/spinlock.h>
+ #include <linux/sysfs.h>
+ #include <linux/unaligned.h>
+ #include <linux/workqueue.h>
+ 
++#include "hid-ids.h"
++
+ #define AYA3_REPORT_SIZE	65
+ #define AYA3_RESP_SIZE		64
+ 
+@@ -54,15 +63,18 @@
+  * a second to settle after a reset before it accepts a new
+  * configuration, and completes an eject handshake within a few
+  * seconds (polled below at a rate that keeps the sysfs write
+- * responsive).
++ * responsive). The firmware also wants a minimum settle time between
++ * an eject command and the subsequent power cut (value inherited from
++ * Handheld Daemon's AYA_MIN_EJECT).
+  */
+ #define AYA3_CMD_TIMEOUT_MS	300
+ #define AYA3_CMD_ATTEMPTS	3
+ #define AYA3_RESET_SETTLE_MS	500
+ #define AYA3_EJECT_POLL_MS	400
+ #define AYA3_EJECT_POLLS	20
++#define AYA3_EJECT_MIN_MS	3000
+ 
+-/* Subcommands (byte 4); byte 3 is 0x00 except for the config command */
++/* Subcommands (byte 4). Byte 3 is 0x00 except for the config command. */
+ #define AYA3_SUBCMD_CHECK	0x08
+ #define AYA3_CMD_CONFIG		0x21
+ #define AYA3_SUBCMD_CONFIG	0x09
+@@ -70,6 +82,9 @@
+ /* Bits that stay set in the eject status byte after an eject completes */
+ #define AYA3_EJECT_DONE_MASK	0x11
+ 
++/* Application usage of the vendor interface's first collection */
++#define AYA3_APP_USAGE		(HID_UP_MSVENDOR | 0x0001)
++
+ /* Config command eject/reset field */
+ #define AYA3_EJECT_LEFT		0x07
+ #define AYA3_EJECT_RIGHT	0x70
+@@ -78,6 +93,7 @@
+ /* Config command RGB modes */
+ #define AYA3_RGB_SOLID		0x01
+ #define AYA3_RGB_PULSE		0x02
++#define AYA3_RGB_RAINBOW	0x03
+ #define AYA3_RGB_OFF		0xff
+ 
+ /* Config command vibration levels, stored in the high nibble */
+@@ -88,6 +104,19 @@ enum aya3_vibration {
+ 	AYA3_VIBRATION_OFF	= 0x4,
+ };
+ 
++/* Firmware LED effects selectable through the LED "effect" attribute */
++enum aya3_effect {
++	AYA3_EFFECT_MONOCOLOR,
++	AYA3_EFFECT_BREATHE,
++	AYA3_EFFECT_RAINBOW,
++};
++
++static const char * const ayaneo_effect_names[] = {
++	[AYA3_EFFECT_MONOCOLOR]	= "monocolor",
++	[AYA3_EFFECT_BREATHE]	= "breathe",
++	[AYA3_EFFECT_RAINBOW]	= "rainbow",
++};
++
+ struct aya3_rgb {
+ 	u8 mode;
+ 	u8 r;
+@@ -97,7 +126,7 @@ struct aya3_rgb {
+ 
+ /*
+  * The 65-byte config command. The checksum is the little-endian sum of
+- * bytes 7..64; unk* fields are sent as zero.
++ * bytes 7..64. The unk* fields are sent as zero.
+  */
+ struct aya3_config {
+ 	u8 report_id;
+@@ -137,13 +166,23 @@ struct ayaneo {
+ 	u8 *xfer;
+ 	/* Serializes commands and cached-config access */
+ 	struct mutex lock;
++	/* Protects the reply-matching state shared with raw_event */
++	spinlock_t resp_lock;
+ 	struct completion resp_done;
+ 	struct aya3_resp resp;
+ 	u8 resp_expect;
+ 	bool resp_pending;
+ 
++	/*
++	 * True once a configuration was successfully applied. The driver
++	 * sends no traffic unless userspace asked, and that policy
++	 * extends across resets.
++	 */
++	bool configured;
++
+ 	u8 rgb[3];
+-	bool pulse;
++	u8 brightness;
++	u8 effect;
+ 	u8 vibration;
+ 
+ 	struct led_classdev_mc mcled;
+@@ -166,43 +205,53 @@ static int ayaneo_send(struct ayaneo *aya)
+ 
+ /**
+  * ayaneo_cmd() - send the command in aya->xfer and wait for the reply
+- * @aya: driver data; @aya->xfer holds the fully built 65-byte command
++ * @aya: driver data with the fully built 65-byte command in @aya->xfer
+  * @resp: destination for the reply, or NULL to discard it
++ * @attempts: how many times to send before giving up
+  *
+  * The device echoes the subcommand byte of the command it is answering,
+  * which ayaneo_raw_event() uses to match replies. Unanswered commands are
+- * retried up to AYA3_CMD_ATTEMPTS times.
++ * retried up to @attempts times.
+  *
+- * Context: process context; the caller must hold @aya->lock, which
++ * Context: process context. The caller must hold @aya->lock, which
+  *          protects @aya->xfer and the reply state.
+  * Return: 0 on success, -ETIMEDOUT if every attempt went unanswered, or
+  *         a negative errno if sending failed.
+  */
+-static int ayaneo_cmd(struct ayaneo *aya, struct aya3_resp *resp)
++static int ayaneo_cmd(struct ayaneo *aya, struct aya3_resp *resp, int attempts)
+ {
+ 	int attempt, ret;
+ 
+ 	lockdep_assert_held(&aya->lock);
+ 
+-	for (attempt = 0; attempt < AYA3_CMD_ATTEMPTS; attempt++) {
+-		reinit_completion(&aya->resp_done);
+-		aya->resp_expect = aya->xfer[4];
+-		WRITE_ONCE(aya->resp_pending, true);
++	for (attempt = 0; attempt < attempts; attempt++) {
++		scoped_guard(spinlock_irqsave, &aya->resp_lock) {
++			reinit_completion(&aya->resp_done);
++			aya->resp_expect = aya->xfer[4];
++			aya->resp_pending = true;
++		}
+ 
+ 		ret = ayaneo_send(aya);
+ 		if (ret) {
+-			WRITE_ONCE(aya->resp_pending, false);
++			scoped_guard(spinlock_irqsave, &aya->resp_lock)
++				aya->resp_pending = false;
+ 			return ret;
+ 		}
+ 
+ 		if (wait_for_completion_timeout(&aya->resp_done,
+ 						msecs_to_jiffies(AYA3_CMD_TIMEOUT_MS))) {
++			/*
++			 * raw_event cleared resp_pending before completing,
++			 * so nothing else writes aya->resp: the copy is
++			 * safe unlocked.
++			 */
+ 			if (resp)
+ 				memcpy(resp, &aya->resp, sizeof(*resp));
+ 			return 0;
+ 		}
+ 	}
+-	WRITE_ONCE(aya->resp_pending, false);
++	scoped_guard(spinlock_irqsave, &aya->resp_lock)
++		aya->resp_pending = false;
+ 	return -ETIMEDOUT;
+ }
+ 
+@@ -216,17 +265,18 @@ static void ayaneo_checksum(u8 *buf)
+ 	put_unaligned_le16(sum, buf + 1);
+ }
+ 
+-static int ayaneo_check(struct ayaneo *aya, struct aya3_resp *resp)
++static int ayaneo_check(struct ayaneo *aya, struct aya3_resp *resp,
++			int attempts)
+ {
+ 	memset(aya->xfer, 0, AYA3_REPORT_SIZE);
+ 	aya->xfer[4] = AYA3_SUBCMD_CHECK;
+-	return ayaneo_cmd(aya, resp);
++	return ayaneo_cmd(aya, resp, attempts);
+ }
+ 
+ /*
+  * The config command sets everything at once: RGB for both rings,
+  * vibration strength and the eject/reset field. The command can also
+- * carry joystick sensitivity; those bytes are left zero so the
++ * carry joystick sensitivity. Those bytes are left zero so the
+  * firmware setting is not clobbered on every RGB update.
+  */
+ static int ayaneo_send_config(struct ayaneo *aya, u8 eject)
+@@ -238,21 +288,42 @@ static int ayaneo_send_config(struct ayaneo *aya, u8 eject)
+ 	};
+ 	struct aya3_config *cfg = (struct aya3_config *)aya->xfer;
+ 	u8 mode = AYA3_RGB_OFF;
++	int ret;
+ 
+-	if (aya->rgb[0] || aya->rgb[1] || aya->rgb[2])
+-		mode = aya->pulse ? AYA3_RGB_PULSE : AYA3_RGB_SOLID;
++	if (aya->effect == AYA3_EFFECT_RAINBOW) {
++		if (aya->brightness)
++			mode = AYA3_RGB_RAINBOW;
++	} else if (aya->rgb[0] || aya->rgb[1] || aya->rgb[2]) {
++		mode = aya->effect == AYA3_EFFECT_BREATHE ?
++			AYA3_RGB_PULSE : AYA3_RGB_SOLID;
++	}
+ 
+ 	*cfg = template;
+ 	cfg->right.mode = mode;
+-	cfg->right.r = aya->rgb[0];
+-	cfg->right.g = aya->rgb[1];
+-	cfg->right.b = aya->rgb[2];
++	if (mode == AYA3_RGB_RAINBOW) {
++		/*
++		 * The firmware generates hue and tempo itself. The RGB
++		 * payload only scales the amplitude. Handheld Daemon
++		 * derives it as HSV(275, 100, brightness), which is
++		 * (7/12 * v, 0, v) in RGB.
++		 */
++		cfg->right.r = aya->brightness * 7 / 12;
++		cfg->right.g = 0;
++		cfg->right.b = aya->brightness;
++	} else {
++		cfg->right.r = aya->rgb[0];
++		cfg->right.g = aya->rgb[1];
++		cfg->right.b = aya->rgb[2];
++	}
+ 	cfg->left = cfg->right;
+ 	cfg->eject = eject;
+ 	cfg->vibration = aya->vibration << 4;
+ 	ayaneo_checksum(aya->xfer);
+ 
+-	return ayaneo_cmd(aya, NULL);
++	ret = ayaneo_cmd(aya, NULL, AYA3_CMD_ATTEMPTS);
++	if (!ret)
++		aya->configured = true;
++	return ret;
+ }
+ 
+ static int ayaneo_raw_event(struct hid_device *hdev, struct hid_report *report,
+@@ -261,12 +332,18 @@ static int ayaneo_raw_event(struct hid_device *hdev, struct hid_report *report,
+ 	struct ayaneo *aya = hid_get_drvdata(hdev);
+ 	const struct aya3_resp *resp = (const struct aya3_resp *)data;
+ 
+-	if (!READ_ONCE(aya->resp_pending) || size < AYA3_RESP_SIZE)
++	/* Transparent interfaces have no driver data */
++	if (!aya)
++		return 0;
++
++	guard(spinlock_irqsave)(&aya->resp_lock);
++
++	if (!aya->resp_pending || size < AYA3_RESP_SIZE)
+ 		return 0;
+ 	/*
+ 	 * Replies carry no sequence number, only the subcommand echo. A
+ 	 * late reply to a timed-out command can thus complete a newer
+-	 * command with the same subcommand; such replies are snapshots
++	 * command with the same subcommand. Such replies are snapshots
+ 	 * of the same query milliseconds apart, so this is harmless.
+ 	 * Replies to a different subcommand are dropped here.
+ 	 */
+@@ -274,7 +351,7 @@ static int ayaneo_raw_event(struct hid_device *hdev, struct hid_report *report,
+ 		return 0;
+ 
+ 	memcpy(&aya->resp, data, sizeof(aya->resp));
+-	WRITE_ONCE(aya->resp_pending, false);
++	aya->resp_pending = false;
+ 	complete(&aya->resp_done);
+ 	return 0;
+ }
+@@ -286,7 +363,7 @@ static ssize_t ayaneo_module_show(struct device *dev, char *buf, bool right)
+ 	int ret = 0;
+ 
+ 	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock)
+-		ret = ayaneo_check(aya, &resp);
++		ret = ayaneo_check(aya, &resp, AYA3_CMD_ATTEMPTS);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -326,20 +403,30 @@ static ssize_t eject_store(struct device *dev, struct device_attribute *attr,
+ 		return -EINVAL;
+ 
+ 	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
++		unsigned long deadline = jiffies +
++					 msecs_to_jiffies(AYA3_EJECT_MIN_MS);
++
+ 		ret = ayaneo_send_config(aya, eject);
+ 		if (ret)
+ 			break;
+ 
+ 		/*
+-		 * Wait for the firmware to report the eject as done.
+-		 * Userspace must then cut power through ayaneo-ec's
+-		 * controller_power for the module to be physically
+-		 * released.
++		 * Wait for the firmware to report the eject as done: no
++		 * bits outside AYA3_EJECT_DONE_MASK set, matching
++		 * Handheld Daemon's verification. The firmware reports
++		 * the in-progress state from the first poll, and the
++		 * minimum-time floor below guards the power-cut step
++		 * regardless. Userspace must then cut power through
++		 * ayaneo-ec's controller_power for the module to be
++		 * physically released.
+ 		 */
+ 		ret = -ETIMEDOUT;
+ 		for (i = 0; i < AYA3_EJECT_POLLS; i++) {
+-			msleep(AYA3_EJECT_POLL_MS);
+-			err = ayaneo_check(aya, &resp);
++			if (msleep_interruptible(AYA3_EJECT_POLL_MS)) {
++				ret = -EINTR;
++				break;
++			}
++			err = ayaneo_check(aya, &resp, 1);
+ 			if (err == -ETIMEDOUT)
+ 				continue;	/* busy mid-eject, keep polling */
+ 			if (err) {
+@@ -351,6 +438,16 @@ static ssize_t eject_store(struct device *dev, struct device_attribute *attr,
+ 				break;
+ 			}
+ 		}
++
++		/*
++		 * The firmware wants a minimum time between the eject
++		 * command and the power cut that follows this write.
++		 */
++		if (!ret && time_before(jiffies, deadline)) {
++			if (msleep_interruptible(jiffies_to_msecs(deadline -
++								  jiffies)))
++				ret = -EINTR;
++		}
+ 	}
+ 	return ret ? ret : count;
+ }
+@@ -380,14 +477,98 @@ static ssize_t reset_store(struct device *dev, struct device_attribute *attr,
+ }
+ static DEVICE_ATTR_WO(reset);
+ 
++/*
++ * Rumble intensity names, index-aligned with the wire values through
++ * ayaneo_rumble_levels below.
++ */
++static const char * const ayaneo_rumble_names[] = {
++	"off", "low", "medium", "high",
++};
++
++static const u8 ayaneo_rumble_levels[] = {
++	AYA3_VIBRATION_OFF,
++	AYA3_VIBRATION_LOW,
++	AYA3_VIBRATION_MEDIUM,
++	AYA3_VIBRATION_HIGH,
++};
++
++static ssize_t rumble_intensity_show(struct device *dev,
++				     struct device_attribute *attr, char *buf)
++{
++	struct ayaneo *aya = dev_get_drvdata(dev);
++	u8 level;
++	int i;
++
++	/*
++	 * Single-byte snapshot; writers serialize on aya->lock, and a
++	 * racing update is harmless, while taking the mutex here would
++	 * block trivial reads behind a multi-second eject.
++	 */
++	level = READ_ONCE(aya->vibration);
++
++	for (i = 0; i < ARRAY_SIZE(ayaneo_rumble_levels); i++) {
++		if (ayaneo_rumble_levels[i] == level)
++			return sysfs_emit(buf, "%s\n", ayaneo_rumble_names[i]);
++	}
++	return -EINVAL;
++}
++
++static ssize_t rumble_intensity_store(struct device *dev,
++				      struct device_attribute *attr,
++				      const char *buf, size_t count)
++{
++	struct ayaneo *aya = dev_get_drvdata(dev);
++	u8 previous;
++	int ret;
++
++	ret = sysfs_match_string(ayaneo_rumble_names, buf);
++	if (ret < 0)
++		return ret;
++
++	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
++		previous = aya->vibration;
++		aya->vibration = ayaneo_rumble_levels[ret];
++		ret = ayaneo_send_config(aya, 0);
++		if (ret) {
++			aya->vibration = previous;
++			return ret;
++		}
++	}
++	return count;
++}
++static DEVICE_ATTR_RW(rumble_intensity);
++
++static ssize_t rumble_intensity_index_show(struct device *dev,
++					   struct device_attribute *attr,
++					   char *buf)
++{
++	ssize_t count = 0;
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(ayaneo_rumble_names); i++)
++		count += sysfs_emit_at(buf, count, "%s ",
++				       ayaneo_rumble_names[i]);
++
++	if (count)
++		buf[count - 1] = '\n';
++
++	return count;
++}
++static DEVICE_ATTR_RO(rumble_intensity_index);
++
+ static struct attribute *ayaneo_attrs[] = {
+ 	&dev_attr_module_left.attr,
+ 	&dev_attr_module_right.attr,
+ 	&dev_attr_eject.attr,
+ 	&dev_attr_reset.attr,
++	&dev_attr_rumble_intensity.attr,
++	&dev_attr_rumble_intensity_index.attr,
+ 	NULL
+ };
+-ATTRIBUTE_GROUPS(ayaneo);
++
++static const struct attribute_group ayaneo_group = {
++	.attrs = ayaneo_attrs,
++};
+ 
+ static int ayaneo_led_set(struct led_classdev *cdev, enum led_brightness value)
+ {
+@@ -397,6 +578,7 @@ static int ayaneo_led_set(struct led_classdev *cdev, enum led_brightness value)
+ 
+ 	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
+ 		led_mc_calc_color_components(mc, value);
++		aya->brightness = min_t(unsigned int, value, 255);
+ 		for (i = 0; i < 3; i++)
+ 			aya->rgb[i] = min_t(unsigned int,
+ 					    aya->subleds[i].brightness, 255);
+@@ -409,50 +591,105 @@ static int ayaneo_led_set(struct led_classdev *cdev, enum led_brightness value)
+ 	return ret;
+ }
+ 
+-/*
+- * The firmware offers one fixed breathing pattern, pulsing the current
+- * colour at a period it controls. Expose it through the hw_pattern
+- * trigger ABI as the two-step pattern "0 <t> <brightness> <t>"; the
+- * delta_t values and the repeat count are accepted but not tunable
+- * (the firmware always repeats indefinitely).
+- */
+-static int ayaneo_pattern_set(struct led_classdev *cdev,
+-			      struct led_pattern *pattern, u32 len, int repeat)
++static ssize_t effect_show(struct device *dev, struct device_attribute *attr,
++			   char *buf)
+ {
+-	struct led_classdev_mc *mc = lcdev_to_mccdev(cdev);
+-	struct ayaneo *aya = container_of(mc, struct ayaneo, mcled);
+-	int ret = 0;
++	struct led_classdev *cdev = dev_get_drvdata(dev);
++	struct ayaneo *aya = container_of(lcdev_to_mccdev(cdev),
++					  struct ayaneo, mcled);
++	u8 effect;
+ 
+-	if (len != 2 || pattern[0].brightness || !pattern[1].brightness)
+-		return -EINVAL;
++	/*
++	 * Single-byte snapshot; writers serialize on aya->lock, and a
++	 * racing update is harmless, while taking the mutex here would
++	 * block trivial reads behind a multi-second eject.
++	 */
++	effect = READ_ONCE(aya->effect);
+ 
+-	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
+-		aya->pulse = true;
+-		ret = ayaneo_send_config(aya, 0);
+-	}
+-	return ret;
++	return sysfs_emit(buf, "%s\n", ayaneo_effect_names[effect]);
+ }
+ 
+-static int ayaneo_pattern_clear(struct led_classdev *cdev)
++static ssize_t effect_store(struct device *dev, struct device_attribute *attr,
++			    const char *buf, size_t count)
+ {
+-	struct led_classdev_mc *mc = lcdev_to_mccdev(cdev);
+-	struct ayaneo *aya = container_of(mc, struct ayaneo, mcled);
+-	int ret = 0;
++	struct led_classdev *cdev = dev_get_drvdata(dev);
++	struct ayaneo *aya = container_of(lcdev_to_mccdev(cdev),
++					  struct ayaneo, mcled);
++	u8 previous;
++	int ret;
++
++	ret = sysfs_match_string(ayaneo_effect_names, buf);
++	if (ret < 0)
++		return ret;
+ 
+ 	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
+-		aya->pulse = false;
++		previous = aya->effect;
++		if (previous == ret)
++			return count;
++		aya->effect = ret;
+ 		ret = ayaneo_send_config(aya, 0);
++		if (ret) {
++			aya->effect = previous;
++			return ret;
++		}
+ 	}
+-	return ret;
++	return count;
++}
++static DEVICE_ATTR_RW(effect);
++
++static ssize_t effect_index_show(struct device *dev,
++				 struct device_attribute *attr, char *buf)
++{
++	ssize_t count = 0;
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(ayaneo_effect_names); i++)
++		count += sysfs_emit_at(buf, count, "%s ",
++				       ayaneo_effect_names[i]);
++
++	if (count)
++		buf[count - 1] = '\n';
++
++	return count;
++}
++static DEVICE_ATTR_RO(effect_index);
++
++static struct attribute *ayaneo_led_attrs[] = {
++	&dev_attr_effect.attr,
++	&dev_attr_effect_index.attr,
++	NULL
++};
++
++static const struct attribute_group ayaneo_led_group = {
++	.attrs = ayaneo_led_attrs,
++};
++
++/*
++ * The final LED write issued by the unregister needs its reply. Callers
++ * guarantee IO is working: probe leaves IO started after hid_hw_open,
++ * and remove re-enables it explicitly.
++ */
++static void ayaneo_unregister_led(struct ayaneo *aya)
++{
++	led_classdev_multicolor_unregister(&aya->mcled);
++	flush_work(&aya->mcled.led_cdev.set_brightness_work);
+ }
+ 
+ static int ayaneo_register_led(struct ayaneo *aya)
+ {
+ 	struct led_classdev *cdev = &aya->mcled.led_cdev;
++	int ret, i;
+ 
+ 	aya->subleds[0].color_index = LED_COLOR_ID_RED;
+ 	aya->subleds[1].color_index = LED_COLOR_ID_GREEN;
+ 	aya->subleds[2].color_index = LED_COLOR_ID_BLUE;
++	/*
++	 * Full intensity by default so brightness writes produce light
++	 * before userspace sets multi_intensity (querying the firmware
++	 * for its value would break the no-probe-traffic policy).
++	 */
++	for (i = 0; i < 3; i++)
++		aya->subleds[i].intensity = 255;
+ 	aya->mcled.subled_info = aya->subleds;
+ 	aya->mcled.num_colors = 3;
+ 
+@@ -465,16 +702,25 @@ static int ayaneo_register_led(struct ayaneo *aya)
+ 	cdev->brightness = 0;
+ 	cdev->max_brightness = 255;
+ 	cdev->brightness_set_blocking = ayaneo_led_set;
+-	cdev->pattern_set = ayaneo_pattern_set;
+-	cdev->pattern_clear = ayaneo_pattern_clear;
+ 
+ 	/*
+ 	 * Not devm: the LED must be unregistered before hid_hw_stop() in
+ 	 * remove, or a concurrent brightness write could reach a torn
+ 	 * down transport.
+ 	 */
+-	return led_classdev_multicolor_register(&aya->hdev->dev,
+-						&aya->mcled);
++	ret = led_classdev_multicolor_register(&aya->hdev->dev, &aya->mcled);
++	if (ret)
++		return ret;
++
++	/*
++	 * The multicolor class installs its own groups during
++	 * registration, so the effect attributes are added afterwards.
++	 * They are tied to the LED device and vanish with it.
++	 */
++	ret = devm_device_add_group(cdev->dev, &ayaneo_led_group);
++	if (ret)
++		ayaneo_unregister_led(aya);
++	return ret;
+ }
+ 
+ static const struct dmi_system_id ayaneo_dmi_table[] = {
+@@ -492,21 +738,26 @@ static int ayaneo_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	struct ayaneo *aya;
+ 	int ret;
+ 
+-	/* The VID/PID is a generic SigmaMicro ID; bind on AYANEO 3 only */
+-	if (!dmi_check_system(ayaneo_dmi_table))
+-		return -ENODEV;
+-
+-	if (!hid_is_usb(hdev))
+-		return -ENODEV;
+-
+ 	ret = hid_parse(hdev);
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Bind only the vendor interface, not the gamepad/keyboard ones */
+-	if (!hdev->maxcollection ||
+-	    hdev->collection->usage != (HID_UP_MSVENDOR | 0x0001))
+-		return -ENODEV;
++	/*
++	 * The VID/PID is a generic SigmaMicro ID shared by the gamepad,
++	 * keyboard and vendor interfaces, and by unrelated devices on
++	 * other machines. Refusing those probes would strand them, as
++	 * hid-generic yields any device that another driver's id table
++	 * matches. Everything that is not the AYANEO 3 vendor interface
++	 * is therefore started as a transparent generic device, exactly
++	 * as hid-generic would have started it.
++	 */
++	if (!dmi_check_system(ayaneo_dmi_table) || !hid_is_usb(hdev) ||
++	    !hdev->maxcollection ||
++	    hdev->collection->type != HID_COLLECTION_APPLICATION ||
++	    hdev->collection->usage != AYA3_APP_USAGE) {
++		hdev->quirks |= HID_QUIRK_INPUT_PER_APP;
++		return hid_hw_start(hdev, HID_CONNECT_DEFAULT);
++	}
+ 
+ 	aya = devm_kzalloc(&hdev->dev, sizeof(*aya), GFP_KERNEL);
+ 	if (!aya)
+@@ -519,6 +770,7 @@ static int ayaneo_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	aya->hdev = hdev;
+ 	aya->vibration = AYA3_VIBRATION_MEDIUM;
+ 	init_completion(&aya->resp_done);
++	spin_lock_init(&aya->resp_lock);
+ 	ret = devm_mutex_init(&hdev->dev, &aya->lock);
+ 	if (ret)
+ 		return ret;
+@@ -532,21 +784,26 @@ static int ayaneo_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	if (ret)
+ 		goto err_stop;
+ 
+-	/* Input reports are not delivered during probe by default */
++	/*
++	 * Report delivery is off during probe by default, but the LED
++	 * and attributes go live below and their first commands need
++	 * replies. Leave IO started (the HID core supports probe
++	 * returning with IO started).
++	 */
+ 	hid_device_io_start(hdev);
+ 
+-	scoped_guard(mutex, &aya->lock)
+-		ret = ayaneo_check(aya, NULL);
+-	if (ret)
+-		hid_warn(hdev, "controller did not answer status check: %d\n",
+-			 ret);
+-
+ 	ret = ayaneo_register_led(aya);
+ 	if (ret)
+ 		goto err_close;
+ 
++	ret = sysfs_create_group(&hdev->dev.kobj, &ayaneo_group);
++	if (ret)
++		goto err_led;
++
+ 	return 0;
+ 
++err_led:
++	ayaneo_unregister_led(aya);
+ err_close:
+ 	hid_hw_close(hdev);
+ err_stop:
+@@ -558,21 +815,60 @@ static void ayaneo_remove(struct hid_device *hdev)
+ {
+ 	struct ayaneo *aya = hid_get_drvdata(hdev);
+ 
++	/* Transparent interfaces carry no driver state */
++	if (!aya) {
++		hid_hw_stop(hdev);
++		return;
++	}
++
++	/*
++	 * The HID core stops report delivery before calling remove, but
++	 * the final LED write issued by the unregister below needs its
++	 * reply, and the group removal waits for in-flight attribute
++	 * callers, which need working replies to finish promptly.
++	 * Re-enable IO for the teardown writes.
++	 */
++	hid_device_io_start(hdev);
++	sysfs_remove_group(&hdev->dev.kobj, &ayaneo_group);
+ 	led_classdev_multicolor_unregister(&aya->mcled);
+ 	/*
+ 	 * A brightness store racing with the unregister can requeue
+ 	 * set_brightness_work after the flush inside
+ 	 * led_classdev_unregister() runs but before the sysfs node is
+ 	 * removed. Flush again now that nothing can requeue it, while
+-	 * the transport is still up.
++	 * the transport is still up. This double flush papers over a
++	 * led-class ordering gap (the flush runs before
++	 * device_unregister) that affects any brightness_set_blocking
++	 * driver and deserves a core fix separately.
+ 	 */
+ 	flush_work(&aya->mcled.led_cdev.set_brightness_work);
++	hid_device_io_stop(hdev);
+ 	hid_hw_close(hdev);
+ 	hid_hw_stop(hdev);
+ }
+ 
++static int ayaneo_reset_resume(struct hid_device *hdev)
++{
++	struct ayaneo *aya = hid_get_drvdata(hdev);
++	int ret = 0;
++
++	/* Transparent interfaces resume exactly as hid-generic would */
++	if (!aya) {
++		if (hdev->claimed & HID_CLAIMED_INPUT)
++			hidinput_reset_resume(hdev);
++		return 0;
++	}
++
++	scoped_cond_guard(mutex_intr, return -EINTR, &aya->lock) {
++		if (aya->configured)
++			ret = ayaneo_send_config(aya, 0);
++	}
++	return ret;
++}
++
+ static const struct hid_device_id ayaneo_devices[] = {
+-	{ HID_USB_DEVICE(0x1c4f, 0x0002) },
++	{ HID_USB_DEVICE(USB_VENDOR_ID_SIGMA_MICRO,
++			 USB_DEVICE_ID_SIGMA_MICRO_KEYBOARD) },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(hid, ayaneo_devices);
+@@ -583,9 +879,7 @@ static struct hid_driver ayaneo_driver = {
+ 	.probe = ayaneo_probe,
+ 	.remove = ayaneo_remove,
+ 	.raw_event = ayaneo_raw_event,
+-	.driver = {
+-		.dev_groups = ayaneo_groups,
+-	},
++	.reset_resume = ayaneo_reset_resume,
+ };
+ module_hid_driver(ayaneo_driver);
+ 
+-- 
+2.56.0
+
