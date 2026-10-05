@@ -8,7 +8,7 @@ name        : libreoffice
 ##@@BEGIN_VERSION
 version     : "26.8.1.1"
 ##@@END_VERSION
-release     : 4
+release     : 5
 upstreams   :
 ##@@BEGIN_SOURCE
     - https://download.documentfoundation.org/libreoffice/src/26.8.1/libreoffice-26.8.1.1.tar.xz:
