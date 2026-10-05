@@ -1,0 +1,36 @@
+From 0e062dad8b206cf830ce1432d4aeeb850b23abc4 Mon Sep 17 00:00:00 2001
+From: Vlad Zahorodnii <vlad.zahorodnii@kde.org>
+Date: Thu, 1 Oct 2026 06:41:47 +0000
+Subject: [PATCH] plugins/screenshot: make the context current after prePaint
+
+prePaint can change the context, and changing it back can fail. The compositor
+doesn't hit this issue because it calls beginFrame on the layer after prePaint,
+which makes the context current as well.
+
+BUG: 524840
+
+
+(cherry picked from commit 3f13a0b86fbc2782e6036b811a52c3a484a3ad62)
+
+Co-authored-by: Xaver Hugl <xaver.hugl@kde.org>
+---
+ src/plugins/screenshot/screenshot.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/plugins/screenshot/screenshot.cpp b/src/plugins/screenshot/screenshot.cpp
+index c817805a2d7..7c5b7aef8a1 100644
+--- a/src/plugins/screenshot/screenshot.cpp
++++ b/src/plugins/screenshot/screenshot.cpp
+@@ -201,6 +201,9 @@ std::optional<QImage> ScreenShotManager::takeScreenShot(const Rect &area, Screen
+     sceneView.setViewport(area);
+     sceneView.setScale(scale);
+     sceneView.prePaint();
++    if (!context->makeCurrent()) {
++        return std::nullopt;
++    }
+     sceneView.paint(beginInfo->renderTarget, QPoint(), fullDamage);
+     sceneView.postPaint();
+     if (!layer.endFrame(fullDamage, fullDamage, nullptr)) {
+-- 
+GitLab
+
