@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fast-float
-version     : "8.2.10"
-release     : 9
+version     : "8.3.1"
+release     : 10
 homepage    : https://github.com/fastfloat/fast_float
 upstreams   :
-    - https://github.com/fastfloat/fast_float/archive/refs/tags/v8.2.10.tar.gz : 76f958dd97b1cf4d8862d1f0986a47d4bdfa8845252bae15ef0f40de3b95961f
+    - https://github.com/fastfloat/fast_float/archive/refs/tags/v8.3.1.tar.gz : 7ff47ad261068517561beb0a7c1d57131f71b8be19bdbac2857c6a517a2eb53c
 summary     : Fast and exact implementation of the C++ from_chars functions for number types 4x to 10x faster than strtod
 description : |
   The fast_float library provides fast header-only implementations for the C++ from_chars functions for float and double types as well as integer types. These functions convert ASCII strings representing decimal values (e.g., 1.3e10) into binary types. We provide exact rounding (including round to even). In our experience, these fast_float functions many times faster than comparable number-parsing functions from existing C++ standard libraries.
