@@ -3,7 +3,7 @@
 
 name        : openssl
 version     : "4.0.3"
-release     : 42
+release     : 43
 summary     : OpenSSL cryptography library
 license     :
     - OpenSSL
@@ -59,7 +59,7 @@ setup       : |
                 enable-zstd-dynamic \
                 no-rc4 \
                 shared \
-                zlib-dynamic \
+                zlib \
                 ${_extra_opts}
         fi
         popd
@@ -78,7 +78,7 @@ setup       : |
         enable-zstd-dynamic \
         no-rc4 \
         shared \
-        zlib-dynamic \
+        zlib \
         ${_extra_opts}
 build       : |
     if [ -d ../compat ]; then
@@ -135,7 +135,6 @@ packages    :
             Library files for %(name), typically pulled in as a dependency of another package.
         rundeps:
             # These are dlopened()
-            - soname(libz.so.1(x86_64))
             - soname(libzstd.so.1(x86_64))
         paths:
             - /usr/lib/libcrypto.so.*
@@ -147,7 +146,6 @@ packages    :
 
     - "%(name)-32bit":
         rundeps:
-            - soname(libz.so.1(386))
             - soname(libzstd.so.1(386))
     - "%(name)-docs":
         paths:
