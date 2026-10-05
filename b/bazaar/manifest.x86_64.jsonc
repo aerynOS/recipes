@@ -64,7 +64,7 @@
 				"/usr/bin/bazaar-dl-worker",
 				"/usr/bin/bge-demo",
 				"/usr/lib/libbge.so.0",
-				"/usr/lib/libbge.so.0.9.6",
+				"/usr/lib/libbge.so.0.9.7",
 				"/usr/lib/systemd/user/io.github.kolunmi.Bazaar.service",
 				"/usr/share/applications/io.github.kolunmi.Bazaar.desktop",
 				"/usr/share/dbus-1/services/io.github.kolunmi.Bazaar.SearchProvider.service",
@@ -77,12 +77,13 @@
 				"/usr/share/locale/be/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/bs/LC_MESSAGES/bazaar.mo",
+				"/usr/share/locale/ca/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/cs/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/de/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/el/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/es/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/eu/LC_MESSAGES/bazaar.mo",
-				"/usr/share/locale/fa_IR/LC_MESSAGES/bazaar.mo",
+				"/usr/share/locale/fa/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/fi/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/fr/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/ga/LC_MESSAGES/bazaar.mo",
@@ -95,6 +96,7 @@
 				"/usr/share/locale/kw/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/nb/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/bazaar.mo",
+				"/usr/share/locale/nn/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/pt/LC_MESSAGES/bazaar.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/bazaar.mo",
@@ -168,6 +170,6 @@
 		}
 	},
 	"source-name": "bazaar",
-	"source-release": "9",
-	"source-version": "0.9.6"
+	"source-release": "10",
+	"source-version": "0.9.7"
 }
