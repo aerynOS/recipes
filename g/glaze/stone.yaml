@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : glaze
-version     : "7.9.1"
+version     : "7.9.1" # Make sure hyprland builds if you update this
 release     : 13
 upstreams   :
     - https://github.com/stephenberry/glaze/archive/refs/tags/v7.9.1.tar.gz : d6dee391276f5375672c35d06058e4fd8f1f30f62bae163a004b3bd13a4e2ae3
