@@ -3,7 +3,7 @@
 
 name        : miracle-wm
 version     : "0.11.2"
-release     : 5
+release     : 6
 upstreams   :
     - https://github.com/miracle-wm-org/miracle-wm/archive/refs/tags/v0.11.2.tar.gz : 71e244ec4991c21fb875182e220bc17227cd45c361f4b674aecb9af785134d45
 homepage    : https://miracle-wm.org/
