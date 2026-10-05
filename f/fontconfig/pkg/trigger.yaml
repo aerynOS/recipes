@@ -5,7 +5,7 @@ description: |
 handlers:
     fonts:
         run: /usr/bin/fc-cache
-        args: []
+        args: ["--system-only"]
 
 paths:
     "/usr/share/fonts/**" :

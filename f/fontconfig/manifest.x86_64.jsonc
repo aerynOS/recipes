@@ -6,6 +6,7 @@
 			"build-depends": [
 				"binary(gperf)",
 				"binary(xgettext)",
+				"pkgconfig(json-c)",
 				"pkgconfig32(freetype2)",
 				"pkgconfig32(libxml-2.0)"
 			],
@@ -122,6 +123,7 @@
 			"build-depends": [
 				"binary(gperf)",
 				"binary(xgettext)",
+				"pkgconfig(json-c)",
 				"pkgconfig32(freetype2)",
 				"pkgconfig32(libxml-2.0)"
 			],
@@ -144,6 +146,7 @@
 			"build-depends": [
 				"binary(gperf)",
 				"binary(xgettext)",
+				"pkgconfig(json-c)",
 				"pkgconfig32(freetype2)",
 				"pkgconfig32(libxml-2.0)"
 			],
@@ -166,6 +169,7 @@
 			"build-depends": [
 				"binary(gperf)",
 				"binary(xgettext)",
+				"pkgconfig(json-c)",
 				"pkgconfig32(freetype2)",
 				"pkgconfig32(libxml-2.0)"
 			],
@@ -190,6 +194,6 @@
 		}
 	},
 	"source-name": "fontconfig",
-	"source-release": "21",
+	"source-release": "22",
 	"source-version": "2.18.3"
 }

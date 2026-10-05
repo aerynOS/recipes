@@ -3,7 +3,7 @@
 
 name        : fontconfig
 version     : "2.18.3"
-release     : 21
+release     : 22
 homepage    : https://www.freedesktop.org/wiki/Software/fontconfig
 upstreams   :
     - https://gitlab.freedesktop.org/api/v4/projects/890/packages/generic/fontconfig/2.18.3/fontconfig-2.18.3.tar.xz : 4f7b554a38cdf78c033f666c8871f3749e14a094f65a07f630c91ed0b43d35e3
@@ -20,12 +20,15 @@ license     : MIT
 builddeps   :
     - binary(gperf)
     - binary(xgettext)
+    - pkgconfig(json-c)
     - pkgconfig32(freetype2)
     - pkgconfig32(libxml-2.0)
     # TODO: docbook2man needed for man pages
 emul32      : true
 setup       : |
     %patch %(pkgdir)/stateless/Support-user-config.patch
+    %patch %(pkgdir)/sleep-less.patch
+    %patch %(pkgdir)/565.patch
 
     %meson \
         -Dbaseconfig-dir=%(sysconfdir)/fonts \
