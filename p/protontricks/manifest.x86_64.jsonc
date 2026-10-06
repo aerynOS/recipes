@@ -17,12 +17,12 @@
 				"/usr/bin/protontricks",
 				"/usr/bin/protontricks-desktop-install",
 				"/usr/bin/protontricks-launch",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/protontricks-1.14.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/protontricks-1.15.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/protontricks/__init__.py",
 				"/usr/lib/python3.14/site-packages/protontricks/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/protontricks/__pycache__/__init__.cpython-314.pyc",
@@ -97,6 +97,6 @@
 		}
 	},
 	"source-name": "protontricks",
-	"source-release": "6",
-	"source-version": "1.14.1"
+	"source-release": "7",
+	"source-version": "1.15.0"
 }

@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : protontricks
-version     : "1.14.1"
-release     : 6
+version     : "1.15.0"
+release     : 7
 upstreams   :
-    - https://pypi.debian.net/protontricks/protontricks-1.14.1.tar.gz : db242c0249948d3595dd33ffbd0f6850461fbd43665aff40e11ec6ea94e11bc4
+    - https://pypi.debian.net/protontricks/protontricks-1.15.0.tar.gz : f40422d4a6c98db7b451d487039070b3c4eaa14767ba7b7b193bfa5a0feed20a
 homepage    : https://github.com/Matoking/protontricks
 license     : GPL-3.0-or-later
 summary     : A simple wrapper that does winetricks things for Proton enabled games

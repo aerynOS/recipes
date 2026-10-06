@@ -27,9 +27,9 @@ index 644124c..c3c8eb3 100644
  
  import vdf
  
--from .util import lower_dict, is_steam_deck
+-from .util import is_arm64, is_steam_deck, is_steam_frame, lower_dict
 +from ._vdf import binary_loads as vendored_binary_loads
-+from .util import is_steam_deck, lower_dict
++from .util import is_arm64, is_steam_deck, is_steam_frame, lower_dict
  
  __all__ = (
      "COMMON_STEAM_DIRS", "SteamApp", "find_steam_installations",
