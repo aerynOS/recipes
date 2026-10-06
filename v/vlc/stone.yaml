@@ -3,7 +3,7 @@
 
 name        : vlc
 version     : "3.0.24"
-release     : 34
+release     : 35
 homepage    : https://www.videolan.org/
 upstreams   :
     - https://download.videolan.org/pub/videolan/vlc/3.0.24/vlc-3.0.24.tar.xz : e7cab503d1d7d5849b89d2cf0e1ee60d0ef6d012407791b644b9cfc0cc225fdf

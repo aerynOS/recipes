@@ -2926,7 +2926,7 @@
 				"soname(libm.so.6(x86_64))",
 				"soname(libmatroska.so.7(x86_64))",
 				"soname(libmtp.so.9(x86_64))",
-				"soname(libnfs.so.17(x86_64))",
+				"soname(libnfs.so.18(x86_64))",
 				"soname(libprotobuf-lite.so.36.2.0(x86_64))",
 				"soname(libsamplerate.so.0(x86_64))",
 				"soname(libsoxr.so.0(x86_64))",
@@ -3252,6 +3252,6 @@
 		}
 	},
 	"source-name": "vlc",
-	"source-release": "34",
+	"source-release": "35",
 	"source-version": "3.0.24"
 }
