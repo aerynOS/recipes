@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libglibutil
-version     : "1.0.82"
-release     : 4
+version     : "1.0.83"
+release     : 5
 homepage    : https://github.com/sailfishos/libglibutil
 upstreams   :
-    - https://github.com/sailfishos/libglibutil/archive/1.0.82/libglibutil-1.0.82.tar.gz : f05586a0b5496ecf763a268a9f78ee71096b222aada0e78013befda5e999db63
+    - https://github.com/sailfishos/libglibutil/archive/1.0.83/libglibutil-1.0.83.tar.gz : c9f8fda41c7b5eacd30d261b90e2993e4e0179b473444cc647d0730d2d2fa723
 license     : BSD-3-Clause
 summary     : Library of glib utilities
 description : |

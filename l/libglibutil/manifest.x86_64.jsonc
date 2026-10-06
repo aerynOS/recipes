@@ -14,7 +14,7 @@
 			"files": [
 				"/usr/lib/libglibutil.so.1",
 				"/usr/lib/libglibutil.so.1.0",
-				"/usr/lib/libglibutil.so.1.0.82"
+				"/usr/lib/libglibutil.so.1.0.83"
 			],
 			"name": "libglibutil",
 			"provides": [
@@ -30,6 +30,7 @@
 				"pkgconfig(glib-2.0)"
 			],
 			"files": [
+				"/usr/include/gutil/gutil_cleanup.h",
 				"/usr/include/gutil/gutil_datapack.h",
 				"/usr/include/gutil/gutil_history.h",
 				"/usr/include/gutil/gutil_idlepool.h",
@@ -57,6 +58,6 @@
 		}
 	},
 	"source-name": "libglibutil",
-	"source-release": "4",
-	"source-version": "1.0.82"
+	"source-release": "5",
+	"source-version": "1.0.83"
 }
