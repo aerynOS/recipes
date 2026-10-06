@@ -24,7 +24,7 @@
 				"/usr/bin/cec-client",
 				"/usr/bin/cecc-client",
 				"/usr/lib/libcec.so.8",
-				"/usr/lib/libcec.so.8.1.6",
+				"/usr/lib/libcec.so.8.1.7",
 				"/usr/lib/systemd/system/cec-active-source.service",
 				"/usr/lib/systemd/system/cec-active-source.timer",
 				"/usr/lib/systemd/system/cec-poweroff-tv.service"
@@ -98,6 +98,6 @@
 		}
 	},
 	"source-name": "libcec",
-	"source-release": "5",
-	"source-version": "8.1.6"
+	"source-release": "6",
+	"source-version": "8.1.7"
 }
