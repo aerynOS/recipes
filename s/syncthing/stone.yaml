@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : syncthing
-version     : "2.1.5"
-release     : 16
+version     : "2.1.6"
+release     : 17
 homepage    : https://syncthing.net
 upstreams   :
-    - https://github.com/syncthing/syncthing/releases/download/v2.1.5/syncthing-source-v2.1.5.tar.gz : 11f129cff64fb4ba7cda33f9dae3a39eab8738a60bbbe8813cadecfdc94bd13d
+    - https://github.com/syncthing/syncthing/releases/download/v2.1.6/syncthing-source-v2.1.6.tar.gz : 4927b6b0f3a5c395486bad6accf128aa7c30bfd41b43ad0e423c4f85dd6677f2
 summary     : Continuous file synchronization program
 description : |
     It synchronizes files between two or more computers in real time,
