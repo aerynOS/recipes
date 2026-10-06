@@ -28,11 +28,11 @@
 			"files": [
 				"/usr/lib/girepository-1.0/HarfBuzz-0.0.typelib",
 				"/usr/lib/libharfbuzz-gobject.so.0",
-				"/usr/lib/libharfbuzz-gobject.so.0.61451.0",
+				"/usr/lib/libharfbuzz-gobject.so.0.61460.0",
 				"/usr/lib/libharfbuzz-subset.so.0",
-				"/usr/lib/libharfbuzz-subset.so.0.61451.0",
+				"/usr/lib/libharfbuzz-subset.so.0.61460.0",
 				"/usr/lib/libharfbuzz.so.0",
-				"/usr/lib/libharfbuzz.so.0.61451.0"
+				"/usr/lib/libharfbuzz.so.0.61460.0"
 			],
 			"name": "harfbuzz",
 			"provides": [
@@ -64,7 +64,7 @@
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-cairo.so.0",
-				"/usr/lib/libharfbuzz-cairo.so.0.61451.0"
+				"/usr/lib/libharfbuzz-cairo.so.0.61460.0"
 			],
 			"name": "harfbuzz-cairo",
 			"provides": [
@@ -243,7 +243,7 @@
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-gpu.so.0",
-				"/usr/lib/libharfbuzz-gpu.so.0.61451.0"
+				"/usr/lib/libharfbuzz-gpu.so.0.61460.0"
 			],
 			"name": "harfbuzz-gpu",
 			"provides": [
@@ -272,7 +272,7 @@
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-icu.so.0",
-				"/usr/lib/libharfbuzz-icu.so.0.61451.0"
+				"/usr/lib/libharfbuzz-icu.so.0.61460.0"
 			],
 			"name": "harfbuzz-icu",
 			"provides": [
@@ -302,7 +302,7 @@
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-raster.so.0",
-				"/usr/lib/libharfbuzz-raster.so.0.61451.0"
+				"/usr/lib/libharfbuzz-raster.so.0.61460.0"
 			],
 			"name": "harfbuzz-raster",
 			"provides": [
@@ -332,7 +332,7 @@
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-vector.so.0",
-				"/usr/lib/libharfbuzz-vector.so.0.61451.0"
+				"/usr/lib/libharfbuzz-vector.so.0.61460.0"
 			],
 			"name": "harfbuzz-vector",
 			"provides": [
@@ -341,6 +341,6 @@
 		}
 	},
 	"source-name": "harfbuzz",
-	"source-release": "41",
-	"source-version": "14.5.1"
+	"source-release": "42",
+	"source-version": "14.6.0"
 }
