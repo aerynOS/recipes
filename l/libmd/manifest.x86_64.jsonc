@@ -8,7 +8,7 @@
 			],
 			"files": [
 				"/usr/lib/libmd.so.0",
-				"/usr/lib/libmd.so.0.2.0",
+				"/usr/lib/libmd.so.0.3.0",
 				"/usr/share/man/man7/libmd.7"
 			],
 			"name": "libmd",
@@ -158,6 +158,6 @@
 		}
 	},
 	"source-name": "libmd",
-	"source-release": "5",
-	"source-version": "1.2.0"
+	"source-release": "6",
+	"source-version": "1.3.0"
 }

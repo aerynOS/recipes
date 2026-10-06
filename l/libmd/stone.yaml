@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libmd
-version     : "1.2.0"
-release     : 5
+version     : "1.3.0"
+release     : 6
 upstreams   :
-    - https://libbsd.freedesktop.org/releases/libmd-1.2.0.tar.xz : ac15ffb8430502fbaccdec66c5a82ee0eab0b0f36220df56710feadfeb13d0a0
+    - https://libbsd.freedesktop.org/releases/libmd-1.3.0.tar.xz : fc0f1eb6b6766470326f2c014693809190e67dba84274a6fbae9d4912d066706
 homepage    : https://www.hadrons.org/software/libmd
 license     : BSD-3-Clause AND BSD-2-Clause
 summary     : Message Digest functions from BSD systems
