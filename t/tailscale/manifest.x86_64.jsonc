@@ -3,10 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"tailscale": {
-			"build-depends": [
-				"git",
-				"golang"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -30,6 +26,6 @@
 		}
 	},
 	"source-name": "tailscale",
-	"source-release": "20",
-	"source-version": "1.102.5"
+	"source-release": "21",
+	"source-version": "1.104.1"
 }
