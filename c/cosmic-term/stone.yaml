@@ -3,7 +3,7 @@
 
 name        : cosmic-term
 version     : "1.9.0"
-release     : 54
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-term
 upstreams   :
     - https://github.com/pop-os/cosmic-term/archive/refs/tags/epoch-1.9.0.tar.gz : 2e5ef9ff8428503024f84e9d0c9d8b0007dec0be42b398e5925d209ec91e2e19
@@ -14,6 +14,8 @@ license     : GPL-3.0
 builddeps   :
     - binary(just)
     - pkgconfig(xkbcommon)
+rundeps:
+    - cosmic-icons
 networking  : true
 setup       : |
     %cargo_fetch
