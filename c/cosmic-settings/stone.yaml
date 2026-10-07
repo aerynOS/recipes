@@ -3,7 +3,7 @@
 
 name        : cosmic-settings
 version     : "1.9.0"
-release     : 59
+release     : 60
 homepage    : https://github.com/pop-os/cosmic-settings
 upstreams   :
     - https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-1.9.0.tar.gz : 1e33fec9dc70408a85eca4055dca16afa82baadc2edb957e1400294b09f2ff27
@@ -21,6 +21,7 @@ builddeps   :
 rundeps     :
     - binary(nm-connection-editor)
     - binary(pipewire-pulse)
+    - cosmic-icons
 networking  : true
 setup       : |
     %cargo_fetch
