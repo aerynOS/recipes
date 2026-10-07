@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nvidia-open-gpu-kernel-modules
-version     : "615.71.09"
-release     : 133
+version     : "615.78.08"
+release     : 134
 homepage    : https://github.com/NVIDIA/open-gpu-kernel-modules
 upstreams   :
-    - https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-615.71.09.tar.xz:
-        hash: b038fe5d70e7c3209459a8121f231543939895145f0ad0d58d34f170e7eaf7e9
+    - https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-615.78.08.tar.xz:
+        hash: 17b4f3d195a5ab1fad9aa1f195c9d3a4ad03aceda18bb9fb68a8bd33d7a000f6
         unpack: false
         rename: nvidia.tar.xz
 summary     : NVIDIA open GPU kernel modules
@@ -42,12 +42,6 @@ environment : |
             kernels+=(${tmp})
         fi
     done
-
-    # This solves a build failure from pahole generating BTF
-    # https://codeberg.org/gentoo/gentoo/src/commit/f2c6ed05e6123477cb505eeb7cbbd00b7d347971/x11-drivers/nvidia-drivers/nvidia-drivers-610.57.04-r1.ebuild#L211
-    # │B│ Unsupported DW_TAG_atomic_type(0x47): type: 0x39dcb
-    # │B│ Error while encoding BTF.
-    export CFLAGS+=" -g0"
 
     # TODO: Fix this just rejecting all LDFLAGS
     unset LDFLAGS

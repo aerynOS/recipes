@@ -1,3 +1,2 @@
 options nvidia \
-    NVreg_UseKernelSuspendNotifiers=1 \
     NVreg_TemporaryFilePath=/var/tmp
