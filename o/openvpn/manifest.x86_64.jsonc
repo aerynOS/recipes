@@ -83,6 +83,6 @@
 		}
 	},
 	"source-name": "openvpn",
-	"source-release": "14",
-	"source-version": "2.7.7"
+	"source-release": "15",
+	"source-version": "2.7.8"
 }
