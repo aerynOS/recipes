@@ -3,7 +3,7 @@
 
 name        : steam
 version     : "1.0.0.87"
-release     : 28
+release     : 29
 homepage    : https://store.steampowered.com/
 upstreams   :
     - https://repo.steampowered.com/steam/pool/steam/s/steam/steam_1.0.0.87.tar.gz : 649375d2f9377f8009aaf3e2ff09978041eb9114897d9c5a3886f1d82e27ba1f
@@ -12,6 +12,7 @@ description : |
     steam is a digital distribution platform developed by Valve Corporation, which offers digital rights management (DRM), multiplayer gaming, video streaming and social networking services.
 license     : Distributable
 rundeps     :
+    - binary(Xwayland)
     - binary(cmp)
     - binary(lsb_release)
     - binary(lsof)
