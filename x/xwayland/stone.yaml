@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : xwayland
-version     : "24.1.13"
-release     : 18
+version     : "24.1.14"
+release     : 19
 homepage    : https://www.x.org/pub/individual/xserver
 upstreams   :
-    - https://www.x.org/pub/individual/xserver/xwayland-24.1.13.tar.xz : 173aea3d6f79609164c04528e1c8e4c9b60fcd59391c3c9dad4667297d727fb6
+    - https://www.x.org/pub/individual/xserver/xwayland-24.1.14.tar.xz : 4eb6b98d678299a4b96138d886345b294130695760345ef84596225a8224078a
 summary     : Specialised X11 server for X11 client support under wayland
 description : |
     Specialised X11 server for X11 client support under wayland
