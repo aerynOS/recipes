@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libnvidia-egl-wayland.so.1",
-				"/usr/lib/libnvidia-egl-wayland.so.1.1.23",
+				"/usr/lib/libnvidia-egl-wayland.so.1.1.24",
 				"/usr/share/egl/egl_external_platform.d/10_nvidia_wayland.json"
 			],
 			"name": "egl-wayland",
@@ -49,7 +49,7 @@
 			],
 			"files": [
 				"/usr/lib32/libnvidia-egl-wayland.so.1",
-				"/usr/lib32/libnvidia-egl-wayland.so.1.1.23"
+				"/usr/lib32/libnvidia-egl-wayland.so.1.1.24"
 			],
 			"name": "egl-wayland-32bit",
 			"provides": [
@@ -112,6 +112,6 @@
 		}
 	},
 	"source-name": "egl-wayland",
-	"source-release": "9",
-	"source-version": "1.1.23"
+	"source-release": "10",
+	"source-version": "1.1.24"
 }
