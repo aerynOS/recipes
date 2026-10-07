@@ -4,6 +4,7 @@
 	"packages": {
 		"steam": {
 			"depends": [
+				"binary(Xwayland)",
 				"binary(cmp)",
 				"binary(lsb_release)",
 				"binary(lsof)",
@@ -59,6 +60,6 @@
 		}
 	},
 	"source-name": "steam",
-	"source-release": "28",
+	"source-release": "29",
 	"source-version": "1.0.0.87"
 }
