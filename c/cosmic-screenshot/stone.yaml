@@ -3,7 +3,7 @@
 
 name        : cosmic-screenshot
 version     : "1.9.0"
-release     : 50
+release     : 51
 homepage    : https://github.com/pop-os/cosmic-screenshot
 upstreams   :
     - https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-1.9.0.tar.gz : 2f809f4e1ed8ca218b9d39975cee290d168f231b48204a4d91d75ee63f30abcb
@@ -16,6 +16,8 @@ builddeps   :
     - pkgconfig(dbus-1)
     - pkgconfig(libudev)
     - pkgconfig(xkbcommon)
+rundeps:
+    - cosmic-icons
 networking  : true
 setup       : |
     %cargo_fetch
