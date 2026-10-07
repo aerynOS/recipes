@@ -14,7 +14,6 @@
 				"pkgconfig(uuid)"
 			],
 			"depends": [
-				"binary(mkfs.btrfs)",
 				"binary(xhost)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libatkmm-1.6.so.1(x86_64))",
@@ -33,6 +32,7 @@
 				"soname(libsigc-2.0.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libuuid.so.1(x86_64))",
+				"sysbinary(mkfs.btrfs)",
 				"sysbinary(mkfs.exfat)",
 				"sysbinary(mkfs.ext4)",
 				"sysbinary(mkfs.f2fs)",
@@ -165,6 +165,6 @@
 		}
 	},
 	"source-name": "gparted",
-	"source-release": "14",
+	"source-release": "15",
 	"source-version": "1.8.1"
 }

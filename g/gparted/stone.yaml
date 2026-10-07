@@ -3,7 +3,7 @@
 
 name        : gparted
 version     : "1.8.1"
-release     : 14
+release     : 15
 homepage    : https://gparted.org/
 upstreams   :
     - https://sourceforge.net/projects/gparted/files/gparted/gparted-1.8.1/gparted-1.8.1.tar.gz : 67388ac405f9fe92a40636cb03b0e1e0bb6403ad89ccc174b2ff190ef6f32349
@@ -21,8 +21,8 @@ builddeps   :
     - pkgconfig(polkit-agent-1) # Gettext ITS rules
     - pkgconfig(uuid)
 rundeps     :
-    - binary(mkfs.btrfs)
     - binary(xhost)
+    - sysbinary(mkfs.btrfs)
     - sysbinary(mkfs.exfat)
     - sysbinary(mkfs.ext4)
     - sysbinary(mkfs.f2fs)
