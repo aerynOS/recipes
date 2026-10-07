@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pkgset-aeryn-gnome
-version     : "2025.10" # I guess let's just match the OS version for now
-release     : 8
+version     : "2026.10" # I guess let's just match the OS version for now
+release     : 9
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : pkgset virtual packages - GNOME Desktop
@@ -21,7 +21,7 @@ packages    :
         description: |
             Minimal packages for a GNOME Desktop session
         rundeps:
-            # Use only Core Gnome apps, except ptyxis
+            # Use only Core gnome apps, except the ptyxis terminal (replaces gnome-console)
             - binary(file-roller)
             - binary(gnome-calculator)
             - binary(gnome-control-center)
@@ -61,6 +61,7 @@ packages    :
             - binary(papers)
             - binary(showtime)
             - binary(snapshot)
+            - binary(sushi)
         paths:
             - /usr/share/doc/%(name)-recommended/README
 
