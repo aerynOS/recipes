@@ -9,6 +9,7 @@
 				"pkgconfig(xkbcommon)"
 			],
 			"depends": [
+				"cosmic-icons",
 				"gvfs",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
@@ -39,6 +40,6 @@
 		}
 	},
 	"source-name": "cosmic-edit",
-	"source-release": "55",
+	"source-release": "56",
 	"source-version": "1.9.0"
 }
