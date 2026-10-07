@@ -51,6 +51,7 @@
 				"binary(papers)",
 				"binary(showtime)",
 				"binary(snapshot)",
+				"binary(sushi)",
 				"pkgset-aeryn-gnome-minimal"
 			],
 			"files": [
@@ -60,6 +61,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn-gnome",
-	"source-release": "8",
-	"source-version": "2025.10"
+	"source-release": "9",
+	"source-version": "2026.10"
 }
