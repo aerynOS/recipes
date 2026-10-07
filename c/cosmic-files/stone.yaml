@@ -3,7 +3,7 @@
 
 name        : cosmic-files
 version     : "1.9.0"
-release     : 58
+release     : 59
 homepage    : https://github.com/pop-os/cosmic-files
 upstreams   :
     - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.9.0.tar.gz : c30cb40b8177112c821753a95134ba82e64dfd8230f5c371a1c89a4b0d066309
@@ -20,6 +20,7 @@ builddeps   :
     - pkgconfig(libzstd)
     - pkgconfig(xkbcommon)
 rundeps     :
+    - cosmic-icons
     # Used for file services
     - gvfs-fuse
     - gvfs-mtp
