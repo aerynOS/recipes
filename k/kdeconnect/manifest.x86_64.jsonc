@@ -946,7 +946,7 @@
 			],
 			"files": [
 				"/usr/lib/libkdeconnectcore.so.26",
-				"/usr/lib/libkdeconnectcore.so.26.08.1",
+				"/usr/lib/libkdeconnectcore.so.26.08.2",
 				"/usr/lib/qt6/plugins/kdeconnect/kdeconnect_battery.so",
 				"/usr/lib/qt6/plugins/kdeconnect/kdeconnect_clipboard.so",
 				"/usr/lib/qt6/plugins/kdeconnect/kdeconnect_connectivity_report.so",
@@ -1123,6 +1123,6 @@
 		}
 	},
 	"source-name": "kdeconnect",
-	"source-release": "25",
-	"source-version": "26.08.1"
+	"source-release": "26",
+	"source-version": "26.08.2"
 }
