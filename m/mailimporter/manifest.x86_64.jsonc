@@ -32,9 +32,9 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6MailImporter.so.6",
-				"/usr/lib/libKPim6MailImporter.so.6.8.1",
+				"/usr/lib/libKPim6MailImporter.so.6.8.2",
 				"/usr/lib/libKPim6MailImporterAkonadi.so.6",
-				"/usr/lib/libKPim6MailImporterAkonadi.so.6.8.1",
+				"/usr/lib/libKPim6MailImporterAkonadi.so.6.8.2",
 				"/usr/share/locale/af/LC_MESSAGES/libmailimporter6.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/libmailimporter6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libmailimporter6.mo",
@@ -216,6 +216,6 @@
 		}
 	},
 	"source-name": "mailimporter",
-	"source-release": "18",
-	"source-version": "26.08.1"
+	"source-release": "19",
+	"source-version": "26.08.2"
 }
