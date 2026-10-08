@@ -25,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6SMTP.so.6",
-				"/usr/lib/libKPim6SMTP.so.6.8.1",
+				"/usr/lib/libKPim6SMTP.so.6.8.2",
 				"/usr/share/locale/ar/LC_MESSAGES/libksmtp6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libksmtp6.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/libksmtp6.mo",
@@ -122,6 +122,6 @@
 		}
 	},
 	"source-name": "ksmtp",
-	"source-release": "17",
-	"source-version": "26.08.1"
+	"source-release": "18",
+	"source-version": "26.08.2"
 }
