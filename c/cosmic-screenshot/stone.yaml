@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-screenshot
-version     : "1.9.0"
-release     : 51
+version     : "1.10.0"
+release     : 52
 homepage    : https://github.com/pop-os/cosmic-screenshot
 upstreams   :
-    - https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-1.9.0.tar.gz : 2f809f4e1ed8ca218b9d39975cee290d168f231b48204a4d91d75ee63f30abcb
+    - https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-1.10.0.tar.gz : 1f74e8ac311e564dd1bac64a2bf02aa095e9c98222be832c2b3366124b3a5000
 summary     : Cosmic Screenshot Tool
 description : |
     Cosmic Screenshot Tool
