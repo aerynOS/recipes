@@ -44,9 +44,9 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6MimeTreeParserCore.so.6",
-				"/usr/lib/libKPim6MimeTreeParserCore.so.6.8.1",
+				"/usr/lib/libKPim6MimeTreeParserCore.so.6.8.2",
 				"/usr/lib/libKPim6MimeTreeParserWidgets.so.6",
-				"/usr/lib/libKPim6MimeTreeParserWidgets.so.6.8.1",
+				"/usr/lib/libKPim6MimeTreeParserWidgets.so.6.8.2",
 				"/usr/lib/qt6/qml/org/kde/pim/mimetreeparser/MailViewer.qml",
 				"/usr/lib/qt6/qml/org/kde/pim/mimetreeparser/bike.svg",
 				"/usr/lib/qt6/qml/org/kde/pim/mimetreeparser/bus.svg",
@@ -127,6 +127,7 @@
 				"/usr/share/locale/sk/LC_MESSAGES/mimetreeparser6.mo",
 				"/usr/share/locale/sl/LC_MESSAGES/mimetreeparser6.mo",
 				"/usr/share/locale/sv/LC_MESSAGES/mimetreeparser6.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/mimetreeparser6.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/mimetreeparser6.mo",
 				"/usr/share/locale/ug/LC_MESSAGES/mimetreeparser6.mo",
 				"/usr/share/locale/uk/LC_MESSAGES/mimetreeparser6.mo",
@@ -215,6 +216,6 @@
 		}
 	},
 	"source-name": "mimetreeparser",
-	"source-release": "30",
-	"source-version": "26.08.1"
+	"source-release": "31",
+	"source-version": "26.08.2"
 }
