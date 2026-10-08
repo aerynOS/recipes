@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ksmtp
-version     : "26.08.1"
-release     : 17
+version     : "26.08.2"
+release     : 18
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.1/src/ksmtp-26.08.1.tar.xz : 227c0578def79612a4cae9745445e5dff023458ffffabf305e06d953248f72a0
+    - https://download.kde.org/stable/release-service/26.08.2/src/ksmtp-26.08.2.tar.xz : 8d948815bbcd7f4f5c3f19e31651124e36771df19c2bd10cd68763023d24b1e5
 homepage    : https://kde.org
 license     : LGPL-2.1-or-later
 summary     : Job-based library to send email through an SMTP server
