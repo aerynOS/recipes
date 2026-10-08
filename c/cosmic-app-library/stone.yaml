@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : cosmic-app-library
+version     : "1.10.0"
+release     : 1
+homepage    : https://github.com/pop-os/cosmic-app-library
+upstreams   :
+    - https://github.com/pop-os/cosmic-app-library/archive/refs/tags/epoch-1.10.0.tar.gz : 43ce4f50c97d2106ac981080d8372e03c50af28660a6737400920ecbc6ce4b39
+summary     : Cosmic Desktop App Launcher
+description : |
+    Cosmic Desktop App Launcher
+license     : GPL-3.0
+builddeps   :
+    - binary(just)
+    - pkgconfig(dbus-1)
+    - pkgconfig(libudev)
+    - pkgconfig(xkbcommon)
+networking  : true
+setup       : |
+    # Install shipped desktop/metainfo from data/, and use share/metainfo
+    %patch %(pkgdir)/Install-static-desktop-and-metainfo-files.patch
+
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    CARGO_TARGET_DIR="target/%(target_triple)" just rootdir=%(installroot) install
