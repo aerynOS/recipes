@@ -286,3 +286,7 @@ NB: Each entry *must* contain all sub-packages created by the package!
 
 ### Refactored so the session files are in labwc
 - labwc-session
+
+### Renamed to cosmic-app-library
+- cosmic-applibrary
+- cosmic-applibrary-dbginfo
