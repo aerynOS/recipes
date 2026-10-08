@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tmux
-version     : "3.7c"
-release     : 10
-homepage    : https://github.com/tmux/tmux
+version     : "3.8"
+release     : 11
+homepage    : https://tmux.app/
 upstreams   :
-    - https://github.com/tmux/tmux/archive/refs/tags/3.7c.tar.gz : 5e7b0f533b66e5633e2b72a9d483f9534a343ab7011eb2621b6309dfba553daa
+    - https://github.com/tmux/tmux/archive/refs/tags/3.8.tar.gz : f873f9379c9cf30d3d66b642a955118c4fbb0019d046d13e6012340811e5dcb7
 summary     : Terminal multiplexer
 description : |
     tmux enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.
-license     :
-    - ISC
+license     : ISC
 builddeps   :
    - binary(bison)
    - pkgconfig(libevent)
