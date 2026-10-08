@@ -38,7 +38,7 @@
 				"/usr/bin/kjournaldbrowser",
 				"/usr/lib/libkjournald.so",
 				"/usr/lib/libkjournald.so.0",
-				"/usr/lib/libkjournald.so.26.08.1",
+				"/usr/lib/libkjournald.so.26.08.2",
 				"/usr/lib/qt6/qml/org/kde/kjournald/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/kjournald/kjournald.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/kjournald/kjournaldplugin.so",
@@ -95,6 +95,6 @@
 		}
 	},
 	"source-name": "kjournald",
-	"source-release": "21",
-	"source-version": "26.08.1"
+	"source-release": "22",
+	"source-version": "26.08.2"
 }
