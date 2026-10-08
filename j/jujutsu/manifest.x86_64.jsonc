@@ -47,6 +47,8 @@
 				"/usr/share/man/man1/jj-evolog.1",
 				"/usr/share/man/man1/jj-file-annotate.1",
 				"/usr/share/man/man1/jj-file-chmod.1",
+				"/usr/share/man/man1/jj-file-delete.1",
+				"/usr/share/man/man1/jj-file-edit.1",
 				"/usr/share/man/man1/jj-file-list.1",
 				"/usr/share/man/man1/jj-file-search.1",
 				"/usr/share/man/man1/jj-file-show.1",
@@ -120,6 +122,7 @@
 				"/usr/share/man/man1/jj-util-backend.1",
 				"/usr/share/man/man1/jj-util-completion.1",
 				"/usr/share/man/man1/jj-util-config-schema.1",
+				"/usr/share/man/man1/jj-util-diff.1",
 				"/usr/share/man/man1/jj-util-exec.1",
 				"/usr/share/man/man1/jj-util-gc.1",
 				"/usr/share/man/man1/jj-util-install-man-pages.1",
@@ -130,6 +133,7 @@
 				"/usr/share/man/man1/jj-workspace-add.1",
 				"/usr/share/man/man1/jj-workspace-forget.1",
 				"/usr/share/man/man1/jj-workspace-list.1",
+				"/usr/share/man/man1/jj-workspace-remove.1",
 				"/usr/share/man/man1/jj-workspace-rename.1",
 				"/usr/share/man/man1/jj-workspace-root.1",
 				"/usr/share/man/man1/jj-workspace-update-stale.1",
@@ -144,6 +148,6 @@
 		}
 	},
 	"source-name": "jujutsu",
-	"source-release": "17",
-	"source-version": "0.45.1"
+	"source-release": "18",
+	"source-version": "0.46.0"
 }
