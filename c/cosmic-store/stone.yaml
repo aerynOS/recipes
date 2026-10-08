@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-store
-version     : "1.9.0"
-release     : 51
+version     : "1.10.0"
+release     : 52
 homepage    : https://github.com/pop-os/cosmic-store
 upstreams   :
-    - https://github.com/pop-os/cosmic-store/archive/refs/tags/epoch-1.9.0.tar.gz : 4c736700bbca173ca7d06738fe6f2e74c053abbea676bf083303a72984469a09
+    - https://github.com/pop-os/cosmic-store/archive/refs/tags/epoch-1.10.0.tar.gz : 8c68dde19cb5326f129d3b84c5d8fda2e4ed4286287e847742013900bb294278
 summary     : Cosmic Desktop Store
 description : |
     Cosmic Desktop Store
