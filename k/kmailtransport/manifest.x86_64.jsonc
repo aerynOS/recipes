@@ -35,7 +35,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6MailTransport.so.6",
-				"/usr/lib/libKPim6MailTransport.so.6.8.1",
+				"/usr/lib/libKPim6MailTransport.so.6.8.2",
 				"/usr/lib/qt6/plugins/pim6/mailtransport/mailtransport_smtpplugin.so",
 				"/usr/share/config.kcfg/mailtransport.kcfg",
 				"/usr/share/locale/ar/LC_MESSAGES/libmailtransport6.mo",
@@ -167,6 +167,6 @@
 		}
 	},
 	"source-name": "kmailtransport",
-	"source-release": "17",
-	"source-version": "26.08.1"
+	"source-release": "18",
+	"source-version": "26.08.2"
 }
