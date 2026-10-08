@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-bg
-version     : "1.9.0"
-release     : 52
+version     : "1.10.0"
+release     : 53
 homepage    : https://github.com/pop-os/cosmic-bg
 summary     : Cosmic Desktop Background Service
 upstreams   :
-    - https://github.com/pop-os/cosmic-bg/archive/refs/tags/epoch-1.9.0.tar.gz :  848594cabc13d78fef20a907bc79aa2b132986e40bb042b9423779bfc081dcca
+    - https://github.com/pop-os/cosmic-bg/archive/refs/tags/epoch-1.10.0.tar.gz :  1595505815bdf96cf4cfd16736a1d235cb249d78e4a35dccd02e3c997649b357
 description : |
     Cosmic Desktop Background Service
 license     : GPL-3.0
