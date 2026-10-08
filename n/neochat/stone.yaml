@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : neochat
-version     : "26.08.1"
-release     : 27
+version     : "26.08.2"
+release     : 28
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.1/src/neochat-26.08.1.tar.xz : d745a8cd878c89d9bd3227ed027332933bcb9b5415b1d55ff2987c0587fd8182
+    - https://download.kde.org/stable/release-service/26.08.2/src/neochat-26.08.2.tar.xz : d2cc861f00b975ade4813c9f4340a3d35ff24d9bcab9d737f7688dd133727d0d
 homepage    : https://apps.kde.org/neochat/
 license     :
     - BSD-2-Clause
@@ -31,14 +31,13 @@ builddeps   :
     - cmake(KF6Kirigami)
     - cmake(KF6KirigamiAddons)
     - cmake(KF6Notifications)
-    - cmake(KF6QQC2DesktopStyle)
     - cmake(KF6Purpose)
+    - cmake(KF6QQC2DesktopStyle)
     - cmake(KF6SyntaxHighlighting)
     - cmake(KF6WindowSystem)
     - cmake(KQuickImageEditor)
     - cmake(KUnifiedPush)
     - cmake(QCoro6)
-    - cmake(QuotientQt6)
     - cmake(Qt6CorePrivate)
     - cmake(Qt6Keychain)
     - cmake(Qt6Multimedia)
@@ -46,6 +45,7 @@ builddeps   :
     - cmake(Qt6Svg)
     - cmake(Qt6TextToSpeech)
     - cmake(Qt6WebView)
+    - cmake(QuotientQt6)
     - cmake(cmark)
     - pkgconfig(icu-uc)
     - kf6-kquickcharts
