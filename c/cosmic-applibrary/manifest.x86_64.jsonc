@@ -3,33 +3,16 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"cosmic-applibrary": {
-			"build-depends": [
-				"binary(just)",
-				"pkgconfig(dbus-1)",
-				"pkgconfig(libudev)",
-				"pkgconfig(xkbcommon)"
-			],
 			"depends": [
-				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(ld-linux-x86-64.so.2(x86_64))",
-				"soname(libc.so.6(x86_64))",
-				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libm.so.6(x86_64))",
-				"soname(libxkbcommon.so.0(x86_64))"
+				"cosmic-app-library"
 			],
 			"files": [
-				"/usr/bin/cosmic-app-library",
-				"/usr/share/applications/com.system76.CosmicAppLibrary.desktop",
-				"/usr/share/icons/hicolor/scalable/apps/com.system76.CosmicAppLibrary.svg",
-				"/usr/share/metainfo/com.system76.CosmicAppLibrary.metainfo.xml"
+				"/usr/share/doc/typos/cosmic-applibrary/TRANSITION"
 			],
-			"name": "cosmic-applibrary",
-			"provides": [
-				"binary(cosmic-app-library)"
-			]
+			"name": "cosmic-applibrary"
 		}
 	},
 	"source-name": "cosmic-applibrary",
-	"source-release": "52",
-	"source-version": "1.9.0"
+	"source-release": "53",
+	"source-version": "1.10.0"
 }

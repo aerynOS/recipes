@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 377102
-  rss: https://github.com/pop-os/cosmic-applibrary/tags.atom
+  id: ~
+  rss: ~
 security:
   cpe: ~
