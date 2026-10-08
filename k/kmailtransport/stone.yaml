@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmailtransport
-version     : "26.08.1"
-release     : 17
+version     : "26.08.2"
+release     : 18
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.1/src/kmailtransport-26.08.1.tar.xz : 2a227c011a54d38b61c33e6a7d0d7b499174ed35ed4f1dd5b05ab38afda47614
+    - https://download.kde.org/stable/release-service/26.08.2/src/kmailtransport-26.08.2.tar.xz : 8dae63e06e2014f03b7e6002a8dcf9bc5323173ac0e12a66ce63cb71aafecacb
 homepage    : https://kde.org
 license     : LGPL-2.1-or-later
 summary     : Mail Transport Service
