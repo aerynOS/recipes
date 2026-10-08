@@ -1,0 +1,54 @@
+From c68e1fc11dd8b2da8f5598034f60a0145405ba84 Mon Sep 17 00:00:00 2001
+From: Laszlo Agocs <laszlo.agocs@qt.io>
+Date: Tue, 15 Sep 2026 10:06:10 +0200
+Subject: [PATCH] rhi: vulkan: Notify endFrame when beginFrame fails
+
+A QRhi::beginFrame() getting VK_ERROR_OUT_OF_DATE_KHR or
+VK_ERROR_DEVICE_LOST will currently notify the plaform vulkan
+instance beginFrame, then nothing else. The renderer will typically
+try again later so there will be another beginFrame, so if that works
+then the sequence is beginFrame - beginFrame - endFrame for both
+the QRhi API calls and the notifications towards the platform plugin
+it generates.
+
+This is not ideal, given how the Wayland platform plugin is implemented.
+A 'begin' must be followed by an 'end' there. Enable this by adding
+a scope guard and calling endFrame (the notification to the platform,
+not the QRhi function) before returning with an error.
+
+Fixes: QTBUG-150279
+Pick-to: 6.11 6.8
+Change-Id: I676a38f6615f6d28ab135adc7ec1f2fb1a9d0f3b
+Reviewed-by: Ilya Fedin <fedin-ilja2010@ya.ru>
+Reviewed-by: Andy Nichols <andy.nichols@qt.io>
+(cherry picked from commit d4be668804278722c38ba7fc55af2d1593995b0f)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/gui/rhi/qrhivulkan.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/gui/rhi/qrhivulkan.cpp b/src/gui/rhi/qrhivulkan.cpp
+index 59115fd098e..8edbc3b768c 100644
+--- a/src/gui/rhi/qrhivulkan.cpp
++++ b/src/gui/rhi/qrhivulkan.cpp
+@@ -2752,6 +2752,9 @@ QRhi::FrameOpResult QRhiVulkan::beginFrame(QRhiSwapChain *swapChain, QRhi::Begin
+     QVkSwapChain::FrameResources &frame(swapChainD->frameRes[frameResIndex]);
+ 
+     inst->handle()->beginFrame(swapChainD->window);
++    auto instEndFrameOnErrorGuard = qScopeGuard([this, swapChainD] {
++        inst->handle()->endFrame(swapChainD->window);
++    });
+ 
+     // Make sure the previous commands for the same frame slot have finished.
+     //
+@@ -2851,6 +2854,7 @@ QRhi::FrameOpResult QRhiVulkan::beginFrame(QRhiSwapChain *swapChain, QRhi::Begin
+         }
+     }
+ 
++    instEndFrameOnErrorGuard.dismiss();
+     return QRhi::FrameOpSuccess;
+ }
+ 
+-- 
+GitLab
+

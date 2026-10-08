@@ -3,7 +3,7 @@
 
 name        : qt6-base
 version     : "6.12.0"
-release     : 38
+release     : 39
 homepage    : https://www.qt.io
 upstreams   :
     - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz : a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307
@@ -36,8 +36,8 @@ builddeps   :
     - pkgconfig(libcrypto)
     - pkgconfig(libdrm)
     - pkgconfig(libinput)
-    - pkgconfig(libmariadb)
     - pkgconfig(libjpeg)
+    - pkgconfig(libmariadb)
     - pkgconfig(libpcre2-16)
     - pkgconfig(libpng)
     - pkgconfig(libpq)
@@ -82,8 +82,14 @@ setup       : |
 
     # Upstream backports
     %patch %(pkgdir)/QTBUG-146211.patch
+    %patch %(pkgdir)/QTBUG-151163.patch
     %patch %(pkgdir)/QTBUG-148575.patch
+    %patch %(pkgdir)/QTBUG-149231.patch
+    %patch %(pkgdir)/QTBUG-149921.patch
+    %patch %(pkgdir)/QTBUG-150279.patch
     %patch %(pkgdir)/QTBUG-150353.patch
+    %patch %(pkgdir)/QTBUG-150982-prereq.patch
+    %patch %(pkgdir)/QTBUG-150982.patch
     %patch %(pkgdir)/upstream-01.patch
     %patch %(pkgdir)/upstream-02.patch
     %patch %(pkgdir)/upstream-03.patch
@@ -101,7 +107,6 @@ setup       : |
         -DQT_FEATURE_libproxy=ON \
         -DQT_FEATURE_mimetype_database=OFF \
         -DQT_FEATURE_mtdev=ON \
-        -DQT_FEATURE_openssl_hash=ON \
         -DQT_FEATURE_openssl_linked=ON \
         -DQT_FEATURE_optimize_full=ON \
         -DQT_FEATURE_pcre2=ON \
