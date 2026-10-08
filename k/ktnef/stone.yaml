@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ktnef
-version     : "26.08.1"
-release     : 17
+version     : "26.08.2"
+release     : 18
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.1/src/ktnef-26.08.1.tar.xz : f044833403ac6d9352287ccaed35af4eea07a95b9d89dfb740b01061e5af48a1
+    - https://download.kde.org/stable/release-service/26.08.2/src/ktnef-26.08.2.tar.xz : 07950712fee0b4965405ce0498e66505adf9c850fd2a7463111c38a474866ad8
 homepage    : https://kde.org/
 license     : LGPL-2.1-or-later
 summary     : API for handling TNEF data
