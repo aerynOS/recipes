@@ -287,7 +287,6 @@ surface/0039-hid-multitouch-Prevent-mode-set-on-Surface-Laptop-St.patch
 
 # https://lore.kernel.org/lkml/20260826122558.2662013-1-usama.arif@linux.dev/
 # https://patchew.org/linux/20260826122558.2662013-1-usama.arif@linux.dev/
-zstd/0001-zstd-use-ZSTD_cpuSupportsBmi2-in-ZSTD_initStaticCCtx.patch
-zstd/0002-zstd-skip-the-BMI2-probe-when-dynamic-BMI2-dispatch-is-disabled.patch
-zstd/0003-zstd-probe-the-CPU-for-BMI2-support-only-once.patch
-
+# https://patchew.org/linux/20260901110850.1805747-1-usama.arif@linux.dev/
+zstd/0001-lib-zstd-add-fallback-aliases-for-disabled-BMI2-variants.patch
+zstd/0002-zstd-use-cpu_feature_enabled-for-in-kernel-BMI2-dispatch.patch
