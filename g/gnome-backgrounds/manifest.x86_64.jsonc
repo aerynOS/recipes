@@ -59,6 +59,7 @@
 				"/usr/share/gnome-background-properties/balls.xml",
 				"/usr/share/gnome-background-properties/blendpills.xml",
 				"/usr/share/gnome-background-properties/blobs.xml",
+				"/usr/share/gnome-background-properties/curvaturingster.xml",
 				"/usr/share/gnome-background-properties/curvy.xml",
 				"/usr/share/gnome-background-properties/dithered-sun.xml",
 				"/usr/share/gnome-background-properties/drool.xml",
@@ -83,6 +84,6 @@
 		}
 	},
 	"source-name": "gnome-backgrounds",
-	"source-release": "10",
-	"source-version": "51.0"
+	"source-release": "11",
+	"source-version": "51.0.1"
 }
