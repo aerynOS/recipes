@@ -39,6 +39,7 @@
 				"soname(libncursesw.so.6(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))",
 				"soname(libpangocairo-1.0.so.0(x86_64))",
+				"soname(libpixman-1.so.0(x86_64))",
 				"soname(libsodium.so.26(x86_64))",
 				"soname(libwayland-client.so.0(x86_64))",
 				"vim"
@@ -254,6 +255,7 @@
 				"soname(libgpm.so.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libncursesw.so.6(x86_64))",
+				"soname(libpixman-1.so.0(x86_64))",
 				"soname(libsodium.so.26(x86_64))",
 				"soname(libwayland-client.so.0(x86_64))",
 				"xxd"
@@ -2873,6 +2875,6 @@
 		}
 	},
 	"source-name": "vim",
-	"source-release": "33",
-	"source-version": "9.2.1152"
+	"source-release": "34",
+	"source-version": "9.2.1172"
 }
