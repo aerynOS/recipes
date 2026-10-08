@@ -25,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6IMAP.so.6",
-				"/usr/lib/libKPim6IMAP.so.6.8.1",
+				"/usr/lib/libKPim6IMAP.so.6.8.2",
 				"/usr/share/locale/ar/LC_MESSAGES/libkimap6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libkimap6.mo",
 				"/usr/share/locale/bs/LC_MESSAGES/libkimap6.mo",
@@ -242,6 +242,6 @@
 		}
 	},
 	"source-name": "kimap",
-	"source-release": "19",
-	"source-version": "26.08.1"
+	"source-release": "20",
+	"source-version": "26.08.2"
 }
