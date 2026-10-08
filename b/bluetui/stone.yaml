@@ -2,16 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bluetui
-version     : "0.8.1"
-release     : 2
+version     : "0.8.2"
+release     : 3
 homepage    : https://github.com/pythops/bluetui
 upstreams   :
-    - https://github.com/pythops/bluetui/archive/refs/tags/v0.8.1.tar.gz : 9b82b3c268a20bf04e55095cacc3341d46013ccfa7d268c4f225d4a88f9c7138
+    - https://github.com/pythops/bluetui/archive/refs/tags/v0.8.2.tar.gz : 16b5c108f7f02cb6578e5bda5eb9cf7d1e1552b2c53d88533a7e4f5e9f12969d
 summary     : TUI for managing bluetooth on Linux
 description : |
     TUI for managing bluetooth on Linux
-license     :
-    - GPL-3.0-only
+license     : GPL-3.0-only
 networking  : true
 setup       : |
     %cargo_fetch
