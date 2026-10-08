@@ -89,6 +89,10 @@
 				"/usr/share/locale/sk/LC_MESSAGES/skanlite.mo",
 				"/usr/share/locale/sl/LC_MESSAGES/skanlite.mo",
 				"/usr/share/locale/sq/LC_MESSAGES/skanlite.mo",
+				"/usr/share/locale/sr/LC_MESSAGES/skanlite.mo",
+				"/usr/share/locale/sr@ijekavian/LC_MESSAGES/skanlite.mo",
+				"/usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/skanlite.mo",
+				"/usr/share/locale/sr@latin/LC_MESSAGES/skanlite.mo",
 				"/usr/share/locale/sv/LC_MESSAGES/skanlite.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/skanlite.mo",
 				"/usr/share/locale/ug/LC_MESSAGES/skanlite.mo",
@@ -194,6 +198,6 @@
 		}
 	},
 	"source-name": "skanlite",
-	"source-release": "14",
-	"source-version": "26.08.1"
+	"source-release": "15",
+	"source-version": "26.08.2"
 }
