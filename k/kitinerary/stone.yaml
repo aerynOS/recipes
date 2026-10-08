@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kitinerary
-version     : "26.08.1"
-release     : 35
+version     : "26.08.2"
+release     : 36
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.1/src/kitinerary-26.08.1.tar.xz : 0969f558a912506d52a06a4ca10a52f3b400e8671fd1451efe1b74b2b5bec907
+    - https://download.kde.org/stable/release-service/26.08.2/src/kitinerary-26.08.2.tar.xz : 5e1f0aeec768747a8e5e93d2e0759fa220f37191c9ce1ca3ffa15898a98a1f43
 homepage    : https://invent.kde.org/pim/kitinerary
 license     : LGPL-2.1-or-later
 summary     : Data Model and Extraction System for Travel Reservation information
