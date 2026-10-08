@@ -60,7 +60,7 @@
 				"soname(libQt6Xml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgpgmepp.so.7(x86_64))",
-				"soname(libkateprivate.so.26.08.1(x86_64))",
+				"soname(libkateprivate.so.26.08.2(x86_64))",
 				"soname(libqt6keychain.so.1(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
@@ -1710,18 +1710,22 @@
 				"/usr/share/locale/ta/LC_MESSAGES/kate-replicode-plugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/kate.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katebacktracebrowserplugin.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/katebookmarksplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katebuild-plugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katecloseexceptplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katecolorpickerplugin.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/katecompilerexplorer.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/kateexternaltoolsplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katefilebrowserplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katefiletree.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/kategdbplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/kategitblameplugin.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/kategpgplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katekeyboardmacros.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katekonsoleplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/kateproject.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katesearch.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/kateshownonprintableplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katesnippetsplugin.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katesql.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/katesymbolviewer.mo",
@@ -2043,11 +2047,11 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libkateprivate.so.26.08.1"
+				"/usr/lib/libkateprivate.so.26.08.2"
 			],
 			"name": "kate-libs",
 			"provides": [
-				"soname(libkateprivate.so.26.08.1(x86_64))"
+				"soname(libkateprivate.so.26.08.2(x86_64))"
 			]
 		},
 		"kwrite": {
@@ -2079,7 +2083,7 @@
 				"soname(libQt6Gui.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libkateprivate.so.26.08.1(x86_64))"
+				"soname(libkateprivate.so.26.08.2(x86_64))"
 			],
 			"files": [
 				"/usr/bin/kwrite",
@@ -2104,6 +2108,6 @@
 		}
 	},
 	"source-name": "kate",
-	"source-release": "29",
-	"source-version": "26.08.1"
+	"source-release": "30",
+	"source-version": "26.08.2"
 }
