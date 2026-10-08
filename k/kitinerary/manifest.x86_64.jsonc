@@ -48,7 +48,7 @@
 			"files": [
 				"/usr/lib/kf6/kitinerary-extractor",
 				"/usr/lib/libKPim6Itinerary.so.6",
-				"/usr/lib/libKPim6Itinerary.so.6.8.1",
+				"/usr/lib/libKPim6Itinerary.so.6.8.2",
 				"/usr/share/locale/ar/LC_MESSAGES/kitinerary6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kitinerary6.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/kitinerary6.mo",
@@ -283,6 +283,6 @@
 		}
 	},
 	"source-name": "kitinerary",
-	"source-release": "35",
-	"source-version": "26.08.1"
+	"source-release": "36",
+	"source-version": "26.08.2"
 }
