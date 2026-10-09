@@ -15,12 +15,12 @@
 			],
 			"files": [
 				"/usr/bin/setuptools-scm",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/setuptools_scm-10.3.4.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/setuptools_scm/.git_archival.txt",
 				"/usr/lib/python3.14/site-packages/setuptools_scm/__init__.py",
 				"/usr/lib/python3.14/site-packages/setuptools_scm/__main__.py",
@@ -101,6 +101,6 @@
 		}
 	},
 	"source-name": "python-setuptools_scm",
-	"source-release": "12",
-	"source-version": "10.3.1"
+	"source-release": "13",
+	"source-version": "10.3.4"
 }
