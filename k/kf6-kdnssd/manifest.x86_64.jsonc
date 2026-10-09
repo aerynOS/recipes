@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6DNSSD.so.6",
-				"/usr/lib/libKF6DNSSD.so.6.30.0",
+				"/usr/lib/libKF6DNSSD.so.6.31.0",
 				"/usr/share/locale/af/LC_MESSAGES/kdnssd6_qt.qm",
 				"/usr/share/locale/ar/LC_MESSAGES/kdnssd6_qt.qm",
 				"/usr/share/locale/as/LC_MESSAGES/kdnssd6_qt.qm",
@@ -166,6 +166,6 @@
 		}
 	},
 	"source-name": "kf6-kdnssd",
-	"source-release": "17",
-	"source-version": "6.30.0"
+	"source-release": "18",
+	"source-version": "6.31.0"
 }
