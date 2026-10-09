@@ -25,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Runner.so.6",
-				"/usr/lib/libKF6Runner.so.6.30.0",
+				"/usr/lib/libKF6Runner.so.6.31.0",
 				"/usr/share/qlogging-categories6/krunner.categories",
 				"/usr/share/qlogging-categories6/krunner.renamecategories"
 			],
@@ -84,6 +84,6 @@
 		}
 	},
 	"source-name": "kf6-krunner",
-	"source-release": "18",
-	"source-version": "6.30.0"
+	"source-release": "19",
+	"source-version": "6.31.0"
 }
