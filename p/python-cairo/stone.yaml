@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-cairo
-version     : "1.29.1"
-release     : 4
+version     : "1.29.2"
+release     : 5
 homepage    : https://pycairo.readthedocs.io/
 upstreams   :
-    - https://github.com/pygobject/pycairo/archive/refs/tags/v1.29.1.tar.gz : 05f553dffc682bce303651e090c21c4e7120512e4fdbddcdb7521e076223a3d2
+    - https://github.com/pygobject/pycairo/archive/refs/tags/v1.29.2.tar.gz : 2195f8a4d78f3a83ea7328cb3c3db6a44b2215bcb866ae32935cc5051760a679
 summary     : Python Cairo Bindings
 description : |
     Python Cairo Bindings
