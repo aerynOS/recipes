@@ -4,17 +4,18 @@
 	"packages": {
 		"python-iniconfig": {
 			"build-depends": [
-				"python(hatch-vcs)"
+				"python(hatch-vcs)",
+				"python(pytest)"
 			],
 			"depends": [
 				"binary(python3)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/iniconfig-2.3.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/iniconfig-2.3.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/iniconfig-2.3.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/iniconfig-2.3.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/iniconfig-2.3.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/iniconfig-2.3.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/iniconfig-2.3.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/iniconfig-2.3.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/iniconfig-2.3.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/iniconfig-2.3.1.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/iniconfig/__init__.py",
 				"/usr/lib/python3.14/site-packages/iniconfig/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/iniconfig/__pycache__/__init__.cpython-314.pyc",
@@ -36,6 +37,6 @@
 		}
 	},
 	"source-name": "python-iniconfig",
-	"source-release": "6",
-	"source-version": "2.3.0"
+	"source-release": "7",
+	"source-version": "2.3.1"
 }
