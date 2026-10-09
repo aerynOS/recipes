@@ -3,7 +3,7 @@
 
 name        : kf6-syndication
 version     : "6.30.0"
-release     : 21
+release     : 22
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.30/syndication-6.30.0.tar.xz : 2d44e45b05766d342d3fe19e92d2b039c916a7a83f9e4dff0f9fa15860e140ee
 homepage    : https://community.kde.org/Frameworks
@@ -19,6 +19,8 @@ builddeps   :
     - cmake(ECM)
     - cmake(KF6Codecs)
 setup       : |
+    %patch %(pkgdir)/0001-Lazily-initialize-QCryptographicHash.patch
+
     %cmake_kf6
 build       : |
     %cmake_build

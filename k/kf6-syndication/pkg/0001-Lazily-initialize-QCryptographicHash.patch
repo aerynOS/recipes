@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Thu, 8 Oct 2026 20:57:49 -0500
+Subject: [PATCH] Lazily initialize QCryptographicHash
+
+See [this](https://github.com/aerynOS/recipes/issues/2747) aerynOS issue for full details. We updated to Qt 6.12.0 which caused an issue loading discover for a minority of users. Qt 6.12.0 enabled openssl-hash by default which replaces the built-in QCryptographicHash functionality with an implementation backed by openssl. This causes QCryptographicHash to trigger openssl initialization which attempts to dlopen() libz which causes an ABBA deadlock with libcurl in another thread also initializing openssl.
+
+While I wouldn't be surprised if qtbase, openssl, or libcurl are doing something wrong it seems like we can significantly reduce the chance of the risk happening by changing md5Machine from being statically initialized to being lazily initialized when/if it's actually needed. As a bonus this will probably marginally improve application start up times for anything linking syndication
+---
+ src/tools.cpp | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/tools.cpp b/src/tools.cpp
+index ed5a16a..75c494b 100644
+--- a/src/tools.cpp
++++ b/src/tools.cpp
+@@ -20,8 +20,6 @@
+ 
+ namespace Syndication
+ {
+-QCryptographicHash md5Machine(QCryptographicHash::Md5);
+-
+ unsigned int calcHash(const QString &str)
+ {
+     return calcHash(str.toUtf8());
+@@ -102,6 +100,7 @@ QString dateTimeToString(uint date)
+ 
+ QString calcMD5Sum(const QString &str)
+ {
++    static QCryptographicHash md5Machine(QCryptographicHash::Md5);
+     md5Machine.reset();
+     md5Machine.addData(str.toUtf8());
+     return QLatin1String(md5Machine.result().toHex().constData());
