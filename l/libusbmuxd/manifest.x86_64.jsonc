@@ -12,7 +12,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libimobiledevice-glue-1.0.so.0(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))"
+				"soname(libplist-2.0.so.12(x86_64))"
 			],
 			"files": [
 				"/usr/bin/inetcat",
@@ -52,6 +52,6 @@
 		}
 	},
 	"source-name": "libusbmuxd",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "2.1.1"
 }
