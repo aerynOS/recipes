@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pycparser
-version     : "3.0"
-release     : 6
+version     : "3.11"
+release     : 7
 homepage    : https://github.com/eliben/pycparser
 upstreams   :
-    - https://pypi.debian.net/pycparser/pycparser-3.0.tar.gz : 600f49d217304a5902ac3c37e1281c9fe94e4d0489de643a9504c5cdfdfc6b29
+    - https://pypi.debian.net/pycparser/pycparser-3.11.tar.gz : d875f09c3507d00e1aba0eecc6dcadc1352f30fff09dc6bff2f1c2935e97c2bc
 summary     : C parser and AST generator written in Python
 description : |
     C parser and AST generator written in Python

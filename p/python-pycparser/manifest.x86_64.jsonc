@@ -11,11 +11,11 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pycparser-3.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pycparser-3.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pycparser-3.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pycparser-3.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/pycparser-3.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pycparser-3.11.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pycparser-3.11.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pycparser-3.11.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pycparser-3.11.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pycparser-3.11.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/pycparser/__init__.py",
 				"/usr/lib/python3.14/site-packages/pycparser/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pycparser/__pycache__/__init__.cpython-314.pyc",
@@ -46,6 +46,6 @@
 		}
 	},
 	"source-name": "python-pycparser",
-	"source-release": "6",
-	"source-version": "3.0"
+	"source-release": "7",
+	"source-version": "3.11"
 }
