@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-ksvg
-version     : "6.30.0"
-release     : 25
+version     : "6.31.0"
+release     : 26
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.30/ksvg-6.30.0.tar.xz : 7b7aba4e9baa88bfb303977e139e8a105b5cd243443029ee773954307b51eb91
+    - https://download.kde.org/stable/frameworks/6.31/ksvg-6.31.0.tar.xz : 1cacfe9660cdb564edc4c0bf69578776a54001b114ae6fb2a4fa77da25fca2d1
 homepage    : https://community.kde.org/Frameworks
 license     :
     - GPL-2.0-or-later
@@ -17,15 +17,15 @@ description : |
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
-    - cmake(Qt6CorePrivate)
-    - cmake(Qt6Quick)
-    - cmake(Qt6Svg)
     - cmake(KF6Archive)
     - cmake(KF6ColorScheme)
     - cmake(KF6Config)
     - cmake(KF6CoreAddons)
     - cmake(KF6GuiAddons)
     - cmake(KF6KirigamiPlatform)
+    - cmake(Qt6CorePrivate)
+    - cmake(Qt6Quick)
+    - cmake(Qt6Svg)
 setup       : |
     %cmake_kf6
 build       : |
