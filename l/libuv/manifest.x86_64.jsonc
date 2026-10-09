@@ -50,6 +50,6 @@
 		}
 	},
 	"source-name": "libuv",
-	"source-release": "9",
-	"source-version": "1.52.1"
+	"source-release": "10",
+	"source-version": "1.53.0"
 }
