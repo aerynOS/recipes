@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Pty.so.6",
-				"/usr/lib/libKF6Pty.so.6.30.0",
+				"/usr/lib/libKF6Pty.so.6.31.0",
 				"/usr/share/locale/af/LC_MESSAGES/kpty6.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kpty6.mo",
 				"/usr/share/locale/as/LC_MESSAGES/kpty6.mo",
@@ -161,6 +161,6 @@
 		}
 	},
 	"source-name": "kf6-kpty",
-	"source-release": "21",
-	"source-version": "6.30.0"
+	"source-release": "22",
+	"source-version": "6.31.0"
 }
