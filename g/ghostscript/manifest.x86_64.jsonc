@@ -196,7 +196,7 @@
 			],
 			"files": [
 				"/usr/lib/libgs.so.10",
-				"/usr/lib/libgs.so.10.07",
+				"/usr/lib/libgs.so.10.08",
 				"/usr/share/ghostscript/Resource/CIDFSubst/DroidSansFallback.ttf",
 				"/usr/share/ghostscript/Resource/CIDFont/ArtifexBullet",
 				"/usr/share/ghostscript/Resource/CMap",
@@ -256,7 +256,6 @@
 				"/usr/share/ghostscript/Resource/IdiomSet/PPI_CUtils",
 				"/usr/share/ghostscript/Resource/IdiomSet/Pscript5Idiom",
 				"/usr/share/ghostscript/Resource/Init/FAPIcidfmap",
-				"/usr/share/ghostscript/Resource/Init/FAPIconfig",
 				"/usr/share/ghostscript/Resource/Init/FAPIfontmap",
 				"/usr/share/ghostscript/Resource/Init/FCOfontmap-PCLPS2",
 				"/usr/share/ghostscript/Resource/Init/Fontmap",
@@ -274,7 +273,6 @@
 				"/usr/share/ghostscript/Resource/Init/gs_cmap.ps",
 				"/usr/share/ghostscript/Resource/Init/gs_cspace.ps",
 				"/usr/share/ghostscript/Resource/Init/gs_dbt_e.ps",
-				"/usr/share/ghostscript/Resource/Init/gs_diskn.ps",
 				"/usr/share/ghostscript/Resource/Init/gs_dps1.ps",
 				"/usr/share/ghostscript/Resource/Init/gs_dps2.ps",
 				"/usr/share/ghostscript/Resource/Init/gs_dscp.ps",
@@ -528,6 +526,6 @@
 		}
 	},
 	"source-name": "ghostscript",
-	"source-release": "11",
-	"source-version": "10.07.1"
+	"source-release": "12",
+	"source-version": "10.08.0"
 }
