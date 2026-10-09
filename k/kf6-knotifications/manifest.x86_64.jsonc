@@ -22,7 +22,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Notifications.so.6",
-				"/usr/lib/libKF6Notifications.so.6.30.0",
+				"/usr/lib/libKF6Notifications.so.6.31.0",
 				"/usr/lib/qt6/qml/org/kde/notification/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/notification/knotificationqmlplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/notification/libknotificationqmlplugin.so",
@@ -73,6 +73,6 @@
 		}
 	},
 	"source-name": "kf6-knotifications",
-	"source-release": "31",
-	"source-version": "6.30.0"
+	"source-release": "32",
+	"source-version": "6.31.0"
 }
