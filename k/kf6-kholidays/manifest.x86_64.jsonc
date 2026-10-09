@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Holidays.so.6",
-				"/usr/lib/libKF6Holidays.so.6.30.0",
+				"/usr/lib/libKF6Holidays.so.6.31.0",
 				"/usr/lib/qt6/qml/org/kde/kholidays/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/kholidays/kholidaysdeclarativeplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/kholidays/libkholidaysdeclarativeplugin.so",
@@ -153,6 +153,6 @@
 		}
 	},
 	"source-name": "kf6-kholidays",
-	"source-release": "25",
-	"source-version": "6.30.0"
+	"source-release": "26",
+	"source-version": "6.31.0"
 }
