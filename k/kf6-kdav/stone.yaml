@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kdav
-version     : "6.30.0"
-release     : 16
+version     : "6.31.0"
+release     : 17
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.30/kdav-6.30.0.tar.xz : 08d95cf546c941dbe21a76fbc8b88a466f276ab29e866600994f4f60d604c7f4
+    - https://download.kde.org/stable/frameworks/6.31/kdav-6.31.0.tar.xz : da8e92d3201c5566b9318cf52788a4e9e034fbe556ea1e7a6ca8ee7de03df4d0
 homepage    : https://community.kde.org/Frameworks
 license     :
     - GPL-2.0-or-later
