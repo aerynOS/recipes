@@ -27,7 +27,7 @@
 				"/usr/lib/kf6/kdesu_stub",
 				"/usr/lib/kf6/kdesud",
 				"/usr/lib/libKF6Su.so.6",
-				"/usr/lib/libKF6Su.so.6.30.0",
+				"/usr/lib/libKF6Su.so.6.31.0",
 				"/usr/share/locale/ar/LC_MESSAGES/kdesud6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kdesud6.mo",
 				"/usr/share/locale/az/LC_MESSAGES/kdesud6.mo",
@@ -137,6 +137,6 @@
 		}
 	},
 	"source-name": "kf6-kdesu",
-	"source-release": "16",
-	"source-version": "6.30.0"
+	"source-release": "17",
+	"source-version": "6.31.0"
 }
