@@ -14,7 +14,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Attica.so.6",
-				"/usr/lib/libKF6Attica.so.6.30.0",
+				"/usr/lib/libKF6Attica.so.6.31.0",
 				"/usr/share/qlogging-categories6/attica.categories",
 				"/usr/share/qlogging-categories6/attica.renamecategories"
 			],
@@ -132,6 +132,6 @@
 		}
 	},
 	"source-name": "kf6-attica",
-	"source-release": "21",
-	"source-version": "6.30.0"
+	"source-release": "22",
+	"source-version": "6.31.0"
 }
