@@ -99,6 +99,7 @@
 				"/usr/share/locale/sv/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/faugus-launcher.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/metainfo/io.github.Faugus.faugus-launcher.metainfo.xml"
@@ -110,6 +111,6 @@
 		}
 	},
 	"source-name": "faugus-launcher",
-	"source-release": "22",
-	"source-version": "2.4.2"
+	"source-release": "23",
+	"source-version": "2.4.4"
 }
