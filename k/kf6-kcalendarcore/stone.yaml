@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kcalendarcore
-version     : "6.30.0"
-release     : 25
+version     : "6.31.0"
+release     : 26
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.30/kcalendarcore-6.30.0.tar.xz : e8bf60e398e2f8098a4db7db44c5475d70540ad8f8948a123c8bc109dc4db776
+    - https://download.kde.org/stable/frameworks/6.31/kcalendarcore-6.31.0.tar.xz : dd09650c406ef60ddb3e3fe55dd4faca819a500175197f88f8f2279ebb4fe16e
 homepage    : https://community.kde.org/Frameworks
 license     : LGPL-2.0-or-later
 summary     : Provides access to and handling of calendar data
