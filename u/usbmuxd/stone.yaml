@@ -3,7 +3,7 @@
 
 name        : usbmuxd
 version     : "1.1.1"
-release     : 5
+release     : 6
 homepage    : https://github.com/libimobiledevice/usbmuxd
 upstreams   :
     - git|https://github.com/libimobiledevice/usbmuxd.git : 0b1b233b57d581515978a09e5a4394bfa4ee4962
