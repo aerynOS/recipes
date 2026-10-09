@@ -454,6 +454,7 @@
 				"/usr/lib/firmware/intel/sof-tplg/sof-cht-rt5645.tplg",
 				"/usr/lib/firmware/intel/sof-tplg/sof-cht-rt5651.tplg",
 				"/usr/lib/firmware/intel/sof-tplg/sof-cht-rt5670.tplg",
+				"/usr/lib/firmware/intel/sof-tplg/sof-cht-rt5677.tplg",
 				"/usr/lib/firmware/intel/sof-tplg/sof-cht-rt5682.tplg",
 				"/usr/lib/firmware/intel/sof-tplg/sof-cml-da7219-max98357a.tplg",
 				"/usr/lib/firmware/intel/sof-tplg/sof-cml-da7219-max98390.tplg",
@@ -727,6 +728,6 @@
 		}
 	},
 	"source-name": "sof-bin",
-	"source-release": "6",
-	"source-version": "2026.09.1"
+	"source-release": "7",
+	"source-version": "2026.09.2"
 }

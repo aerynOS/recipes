@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sof-bin
-version     : "2026.09.1"
-release     : 6
+version     : "2026.09.2"
+release     : 7
 upstreams   :
-    - https://github.com/thesofproject/sof-bin/releases/download/v2026.09.1/sof-bin-2026.09.1.tar.gz : 42ce40ec98f366365eab8e046d779b416d80b6ff2513b8f6be2a61a88e679b73
+    - https://github.com/thesofproject/sof-bin/releases/download/v2026.09.2/sof-bin-2026.09.2.tar.gz : 5f7bc30b2b5c1e6b0da55a33fc44e2b7f56ae9b06952edcde614f51ef6b943e1
 homepage    : https://www.sofproject.org
 license     :
     - BSD-3-Clause
