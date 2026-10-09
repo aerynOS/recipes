@@ -40,6 +40,6 @@
 		}
 	},
 	"source-name": "tree-sitter",
-	"source-release": "6",
-	"source-version": "0.27.0"
+	"source-release": "7",
+	"source-version": "0.27.1"
 }
