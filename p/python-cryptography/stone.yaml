@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-cryptography
-version     : "50.0.1"
-release     : 16
+version     : "50.0.2"
+release     : 17
 homepage    : https://cryptography.io
 upstreams   :
-    - https://pypi.debian.net/cryptography/cryptography-50.0.1.tar.gz : 5dd9bda1c12b4162f6ff568eeb5e0ff956c28d14406e875cfe8a63a2d414ff20
+    - https://pypi.debian.net/cryptography/cryptography-50.0.2.tar.gz : 7b46165bb56eb4704e2eaaf86f3c940d19154535d9b0ca7d6d590b04060e00d5
 summary     : A package designed to expose cryptographic recipes and primitives to Python developers
 description : |
     A package designed to expose cryptographic recipes and primitives to Python developers

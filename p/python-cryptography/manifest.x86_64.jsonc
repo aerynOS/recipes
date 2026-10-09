@@ -20,13 +20,13 @@
 				"soname(libssl.so.4(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/licenses/LICENSE.APACHE",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/licenses/LICENSE.BSD",
-				"/usr/lib/python3.14/site-packages/cryptography-50.0.1.dist-info/sboms/cryptography-rust.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD",
+				"/usr/lib/python3.14/site-packages/cryptography-50.0.2.dist-info/sboms/cryptography-rust.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/cryptography/__about__.py",
 				"/usr/lib/python3.14/site-packages/cryptography/__init__.py",
 				"/usr/lib/python3.14/site-packages/cryptography/__pycache__/__about__.cpython-314.opt-1.pyc",
@@ -304,6 +304,6 @@
 		}
 	},
 	"source-name": "python-cryptography",
-	"source-release": "16",
-	"source-version": "50.0.1"
+	"source-release": "17",
+	"source-version": "50.0.2"
 }
