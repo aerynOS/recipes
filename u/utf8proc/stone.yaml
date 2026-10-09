@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : utf8proc
-version     : "2.11.3"
-release     : 2
+version     : "2.12.0"
+release     : 3
 homepage    : https://github.com/JuliaStrings/utf8proc
 upstreams   :
-    - https://github.com/JuliaStrings/utf8proc/releases/download/v2.11.3/utf8proc-2.11.3.tar.gz : 415189fd2c85cd6ee5ff26af500fa387de9ada1e3e316e93f7338551481d557d
+    - https://github.com/JuliaStrings/utf8proc/releases/download/v2.12.0/utf8proc-2.12.0.tar.gz : a393fbef160835fb315bc3e91ba8d86f7a73a7cec9e6198b6c60b848b498bfeb
 summary     : a clean C library for processing UTF-8 Unicode data 
 description : |
     utf8proc is a small, clean C library that provides Unicode normalization, case-folding, and other operations for data in the UTF-8 encoding.
