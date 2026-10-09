@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-markupsafe
-version     : "3.0.3"
-release     : 10
-summary     : Implements a XML/HTML/XHTML Markup safe string for Python
-license     : BSD-3-Clause
+version     : "3.0.4"
+release     : 11
 homepage    : https://palletsprojects.com/p/markupsafe/
+upstreams   :
+    - https://pypi.debian.net/MarkupSafe/markupsafe-3.0.4.tar.gz : 2e9ad7dd851bf45fab9f75cbff4cb493fee9979e8d8c7c9c3ee119022518edd6
+summary     : Implements a XML/HTML/XHTML Markup safe string for Python
 description : |
     MarkupSafe implements a text object that escapes characters so it is safe to use in HTML and XML. Characters that have special meanings are replaced so that they display as the actual characters. This mitigates injection attacks, meaning untrusted user input can safely be displayed on a page. Escaping is implemented in C so it is as efficient as possible.
-upstreams   :
-    - https://pypi.debian.net/MarkupSafe/markupsafe-3.0.3.tar.gz: 722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698
-builddeps     :
+license     : BSD-3-Clause
+builddeps   :
     - pkgconfig(python3)
     - python(setuptools)
 # checkdeps   :
