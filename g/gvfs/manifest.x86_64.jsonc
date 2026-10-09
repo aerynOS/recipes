@@ -174,7 +174,7 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libimobiledevice-1.0.so.6(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))"
+				"soname(libplist-2.0.so.12(x86_64))"
 			],
 			"files": [
 				"/usr/lib/gvfs/gvfs-afc-volume-monitor",
@@ -775,6 +775,6 @@
 		}
 	},
 	"source-name": "gvfs",
-	"source-release": "29",
+	"source-release": "30",
 	"source-version": "1.62.0"
 }
