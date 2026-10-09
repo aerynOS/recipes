@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kpackage
-version     : "6.30.0"
-release     : 21
+version     : "6.31.0"
+release     : 22
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.30/kpackage-6.30.0.tar.xz : 58939af0c553f24963652e10d248e2f8f2b2ca2b87dc26d3220675ed0cf33019
+    - https://download.kde.org/stable/frameworks/6.31/kpackage-6.31.0.tar.xz : cdfdc95ccc31f753f30d62918c8098d8544b08c10b70835628839198671c13a3
 homepage    : https://community.kde.org/Frameworks
 license     :
     - GPL-2.0-or-later
