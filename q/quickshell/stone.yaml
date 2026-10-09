@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : quickshell
-version     : "0.3.1"
-release     : 11
+version     : "0.3.2"
+release     : 12
 homepage    : https://quickshell.org/
 upstreams   :
-    - https://github.com/quickshell-mirror/quickshell/archive/refs/tags/v0.3.1.tar.gz : 218f6327293928bcb1f9b25728b336c4ab125f67fe1babd7d47313f890a16c99
+    - https://github.com/quickshell-mirror/quickshell/archive/refs/tags/v0.3.2.tar.gz : 946a27e2a276917a03c1079e5c60971af84ece73088c3661dee455d92eb420f7
 summary     : Flexible QtQuick based desktop shell toolkit
 description : |
     Quickshell is a toolkit for building status bars, widgets, lockscreens, and other desktop components using QtQuick. It can be used alongside your wayland compositor or window manager to build a complete desktop environment.
@@ -35,10 +35,6 @@ rundeps     :
     - power-profiles-daemon
     - upower
 setup       : |
-    %patch %(pkgdir)/0001-services-pipewire-fix-PwNodeIface-metatype-registrat.patch
-    %patch %(pkgdir)/0002-hyprland-ipc-fix-QObject-pointer-metatypes.patch
-    %patch %(pkgdir)/0003-i3-ipc-fix-QObject-pointer-metatypes.patch
-
     %cmake \
         -DCRASH_REPORTER=OFF \
         -DDISTRIBUTOR="AerynOS" \
