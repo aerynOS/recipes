@@ -11,7 +11,7 @@
 			],
 			"files": [
 				"/usr/lib/libeconf.so.0",
-				"/usr/lib/libeconf.so.0.8.4"
+				"/usr/lib/libeconf.so.0.8.5"
 			],
 			"name": "libeconf",
 			"provides": [
@@ -28,7 +28,7 @@
 			],
 			"files": [
 				"/usr/lib32/libeconf.so.0",
-				"/usr/lib32/libeconf.so.0.8.4"
+				"/usr/lib32/libeconf.so.0.8.5"
 			],
 			"name": "libeconf-32bit",
 			"provides": [
@@ -151,6 +151,6 @@
 		}
 	},
 	"source-name": "libeconf",
-	"source-release": "8",
-	"source-version": "0.8.4"
+	"source-release": "9",
+	"source-version": "0.8.5"
 }
