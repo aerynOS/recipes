@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libgbinder
-version     : "1.1.53"
-release     : 11
+version     : "1.1.54"
+release     : 12
 homepage    : https://github.com/mer-hybris/libgbinder
 upstreams   :
-    - https://github.com/mer-hybris/libgbinder/archive/1.1.53/libgbinder-1.1.53.tar.gz : 20cd50ba75ebb6a0a078f72169bee510cac075fc30c3687dcd8c475947aa2b9d
+    - https://github.com/mer-hybris/libgbinder/archive/1.1.54/libgbinder-1.1.54.tar.gz : 8fae2c3d94ceef5e3026d5d058daff1b298c18d3b68a66e1c2da10bffa80299b
 license     : BSD-3-Clause
 summary     : GLib-style interface to binder
 description : |

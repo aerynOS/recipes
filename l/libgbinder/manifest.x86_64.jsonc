@@ -17,7 +17,7 @@
 			"files": [
 				"/usr/lib/libgbinder.so.1",
 				"/usr/lib/libgbinder.so.1.1",
-				"/usr/lib/libgbinder.so.1.1.53"
+				"/usr/lib/libgbinder.so.1.1.54"
 			],
 			"name": "libgbinder",
 			"provides": [
@@ -63,6 +63,6 @@
 		}
 	},
 	"source-name": "libgbinder",
-	"source-release": "11",
-	"source-version": "1.1.53"
+	"source-release": "12",
+	"source-version": "1.1.54"
 }
