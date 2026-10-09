@@ -23,7 +23,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6CoreAddons.so.6",
-				"/usr/lib/libKF6CoreAddons.so.6.30.0",
+				"/usr/lib/libKF6CoreAddons.so.6.31.0",
 				"/usr/lib/qt6/qml/org/kde/coreaddons/kcoreaddonsplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/coreaddons/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/coreaddons/libkcoreaddonsplugin.so",
@@ -192,6 +192,7 @@
 				"/usr/include/KF6/KCoreAddons/KProcessList",
 				"/usr/include/KF6/KCoreAddons/KRandom",
 				"/usr/include/KF6/KCoreAddons/KRuntimePlatform",
+				"/usr/include/KF6/KCoreAddons/KSafeStringError",
 				"/usr/include/KF6/KCoreAddons/KSandbox",
 				"/usr/include/KF6/KCoreAddons/KSharedDataCache",
 				"/usr/include/KF6/KCoreAddons/KShell",
@@ -229,6 +230,7 @@
 				"/usr/include/KF6/KCoreAddons/kprocesslist.h",
 				"/usr/include/KF6/KCoreAddons/krandom.h",
 				"/usr/include/KF6/KCoreAddons/kruntimeplatform.h",
+				"/usr/include/KF6/KCoreAddons/ksafestringerror.h",
 				"/usr/include/KF6/KCoreAddons/ksandbox.h",
 				"/usr/include/KF6/KCoreAddons/kshareddatacache.h",
 				"/usr/include/KF6/KCoreAddons/kshell.h",
@@ -255,6 +257,6 @@
 		}
 	},
 	"source-name": "kf6-kcoreaddons",
-	"source-release": "31",
-	"source-version": "6.30.0"
+	"source-release": "32",
+	"source-version": "6.31.0"
 }
