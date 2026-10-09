@@ -12,12 +12,12 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/sentry_sdk-2.70.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/sentry_sdk-2.71.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__init__.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/__pycache__/__init__.cpython-314.pyc",
@@ -283,6 +283,8 @@
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/trytond.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/typer.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/typer.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/typesafe.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/typesafe.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/unleash.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/unleash.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/__pycache__/unraisablehook.cpython-314.opt-1.pyc",
@@ -569,6 +571,7 @@
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/tornado.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/trytond.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/typer.py",
+				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/typesafe.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/unleash.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/unraisablehook.py",
 				"/usr/lib/python3.14/site-packages/sentry_sdk/integrations/wsgi.py",
@@ -609,6 +612,6 @@
 		}
 	},
 	"source-name": "python-sentry-sdk",
-	"source-release": "13",
-	"source-version": "2.70.0"
+	"source-release": "14",
+	"source-version": "2.71.0"
 }
