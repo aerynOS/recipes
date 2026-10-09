@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6TextTemplate.so.6",
-				"/usr/lib/libKF6TextTemplate.so.6.30.0",
+				"/usr/lib/libKF6TextTemplate.so.6.31.0",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaultfilters.so",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_defaulttags.so",
 				"/usr/lib/qt6/plugins/kf6/ktexttemplate/ktexttemplate_i18ntags.so",
@@ -106,6 +106,6 @@
 		}
 	},
 	"source-name": "kf6-ktexttemplate",
-	"source-release": "16",
-	"source-version": "6.30.0"
+	"source-release": "17",
+	"source-version": "6.31.0"
 }
