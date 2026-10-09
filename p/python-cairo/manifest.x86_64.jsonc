@@ -19,7 +19,7 @@
 				"/usr/lib/python3.14/site-packages/cairo/_cairo.cpython-314-x86_64-linux-gnu.so",
 				"/usr/lib/python3.14/site-packages/cairo/include/py3cairo.h",
 				"/usr/lib/python3.14/site-packages/cairo/py.typed",
-				"/usr/lib/python3.14/site-packages/pycairo-1.29.1.dist-info/METADATA"
+				"/usr/lib/python3.14/site-packages/pycairo-1.29.2.dist-info/METADATA"
 			],
 			"name": "python-cairo",
 			"provides": [
@@ -48,6 +48,6 @@
 		}
 	},
 	"source-name": "python-cairo",
-	"source-release": "4",
-	"source-version": "1.29.1"
+	"source-release": "5",
+	"source-version": "1.29.2"
 }
