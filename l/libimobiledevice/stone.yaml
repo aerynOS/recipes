@@ -3,7 +3,7 @@
 
 name        : libimobiledevice
 version     : "1.4.0"
-release     : 5
+release     : 6
 homepage    : https://github.com/libimobiledevice/libimobiledevice
 upstreams   :
     - https://github.com/libimobiledevice/libimobiledevice/releases/download/1.4.0/libimobiledevice-1.4.0.tar.bz2 : 23cc0077e221c7d991bd0eb02150a0d49199bcca1ddf059edccee9ffd914939d

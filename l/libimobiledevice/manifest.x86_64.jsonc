@@ -15,7 +15,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libcrypto.so.4(x86_64))",
 				"soname(libimobiledevice-glue-1.0.so.0(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))",
+				"soname(libplist-2.0.so.12(x86_64))",
 				"soname(libssl.so.4(x86_64))",
 				"soname(libusbmuxd-2.0.so.7(x86_64))"
 			],
@@ -95,7 +95,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libimobiledevice-1.0.so.6(x86_64))",
 				"soname(libimobiledevice-glue-1.0.so.0(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))",
+				"soname(libplist-2.0.so.12(x86_64))",
 				"soname(libtatsu.so.0(x86_64))",
 				"soname(libusbmuxd-2.0.so.7(x86_64))"
 			],
@@ -170,6 +170,6 @@
 		}
 	},
 	"source-name": "libimobiledevice",
-	"source-release": "5",
+	"source-release": "6",
 	"source-version": "1.4.0"
 }
