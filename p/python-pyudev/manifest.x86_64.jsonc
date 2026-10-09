@@ -10,11 +10,11 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pyudev-0.24.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pyudev-0.24.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pyudev-0.24.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pyudev-0.24.4.dist-info/licenses/COPYING",
-				"/usr/lib/python3.14/site-packages/pyudev-0.24.4.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pyudev-0.24.5.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pyudev-0.24.5.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pyudev-0.24.5.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pyudev-0.24.5.dist-info/licenses/COPYING",
+				"/usr/lib/python3.14/site-packages/pyudev-0.24.5.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/pyudev/__init__.py",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/__init__.cpython-314.pyc",
@@ -32,8 +32,6 @@
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/glib.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/monitor.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/monitor.cpython-314.pyc",
-				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/pyqt4.cpython-314.opt-1.pyc",
-				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/pyqt4.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/pyqt5.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/pyqt5.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyudev/__pycache__/pyside.cpython-314.opt-1.pyc",
@@ -81,7 +79,6 @@
 				"/usr/lib/python3.14/site-packages/pyudev/discover.py",
 				"/usr/lib/python3.14/site-packages/pyudev/glib.py",
 				"/usr/lib/python3.14/site-packages/pyudev/monitor.py",
-				"/usr/lib/python3.14/site-packages/pyudev/pyqt4.py",
 				"/usr/lib/python3.14/site-packages/pyudev/pyqt5.py",
 				"/usr/lib/python3.14/site-packages/pyudev/pyside.py",
 				"/usr/lib/python3.14/site-packages/pyudev/pyside6.py",
@@ -95,6 +92,6 @@
 		}
 	},
 	"source-name": "python-pyudev",
-	"source-release": "4",
-	"source-version": "0.24.4"
+	"source-release": "5",
+	"source-version": "0.24.5"
 }

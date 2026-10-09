@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyudev
-version     : "0.24.4"
-release     : 4
-upstreams   :
-    - https://github.com/pyudev/pyudev/archive/refs/tags/v0.24.4.tar.gz : 7f2e9f14151c314b0c252313e933138a4901baa25505e20c71e77080ee8a90f7
+version     : "0.24.5"
+release     : 5
 homepage    : https://pyudev.readthedocs.io/
-license     : LGPL-2.1-or-later
+upstreams   :
+    - https://github.com/pyudev/pyudev/archive/refs/tags/v0.24.5.tar.gz : 2a5de2783e4b875d663494489aa4d251f10ec8057a70fd574a9ef2dba12edc06
 summary     : pyudev is a LGPL licensed, pure Python binding for libudev
 description : |
     pyudev is a LGPL licensed, pure Python binding for libudev
+license     : LGPL-2.1-or-later
 builddeps   :
     - python(setuptools)
 rundeps     :
