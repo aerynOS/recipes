@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Crash.so.6",
-				"/usr/lib/libKF6Crash.so.6.30.0",
+				"/usr/lib/libKF6Crash.so.6.31.0",
 				"/usr/share/qlogging-categories6/kcrash.categories",
 				"/usr/share/qlogging-categories6/kcrash.renamecategories"
 			],
@@ -55,6 +55,6 @@
 		}
 	},
 	"source-name": "kf6-kcrash",
-	"source-release": "21",
-	"source-version": "6.30.0"
+	"source-release": "22",
+	"source-version": "6.31.0"
 }
