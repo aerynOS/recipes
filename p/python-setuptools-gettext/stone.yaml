@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-setuptools-gettext
-version     : "0.1.18"
-release     : 1
+version     : "0.1.19"
+release     : 2
 homepage    : https://github.com/breezy-team/setuptools-gettext
 upstreams   :
-    - https://pypi.debian.net/setuptools-gettext/setuptools_gettext-0.1.18.tar.gz : c92b0ae486def502686cd944f16559819e42f8dc0b9d683cf62e7415397f2b35
+    - https://pypi.debian.net/setuptools-gettext/setuptools_gettext-0.1.19.tar.gz : 233779932b1d0270027b4644f7ccfaba3005a3732bb083b55ea052d14524c8b0
 summary     : Setuptools gettext extension plugin
 description : |
     Setuptools plugin that compiles gettext .po files to .mo files during the build.
