@@ -42,6 +42,7 @@
 				"/usr/lib/qt6/qml/org/kde/desktop/Dial.qml",
 				"/usr/lib/qt6/qml/org/kde/desktop/Dialog.qml",
 				"/usr/lib/qt6/qml/org/kde/desktop/DialogButtonBox.qml",
+				"/usr/lib/qt6/qml/org/kde/desktop/DoubleSpinBox.qml",
 				"/usr/lib/qt6/qml/org/kde/desktop/Drawer.qml",
 				"/usr/lib/qt6/qml/org/kde/desktop/Frame.qml",
 				"/usr/lib/qt6/qml/org/kde/desktop/GroupBox.qml",
@@ -180,6 +181,6 @@
 		}
 	},
 	"source-name": "kf6-qqc2-desktop-style",
-	"source-release": "27",
-	"source-version": "6.30.0"
+	"source-release": "28",
+	"source-version": "6.31.0"
 }
