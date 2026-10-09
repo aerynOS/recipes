@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pdm-backend
-version     : "2.4.9"
-release     : 5
+version     : "2.5.0"
+release     : 6
 homepage    : https://github.com/pdm-project/pdm-backend
 upstreams   :
-    - https://pypi.debian.net/pdm-backend/pdm_backend-2.4.9.tar.gz : c41a852ccbf4b567b033db9b2ae78660d7a4ea49307719959ab88a01f0aabb2e
+    - https://pypi.debian.net/pdm-backend/pdm_backend-2.5.0.tar.gz : 7953b994563d3151755e3364b9d0cfe817ed0eaecdf27c8f777f412d26bcd98a
 summary     : The build backend used by PDM
 description : |
     The build backend used by PDM
