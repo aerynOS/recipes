@@ -25,7 +25,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Contacts.so.6",
-				"/usr/lib/libKF6Contacts.so.6.30.0",
+				"/usr/lib/libKF6Contacts.so.6.31.0",
 				"/usr/lib/qt6/qml/org/kde/contacts/kcontactsqml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/contacts/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/contacts/libkcontactsqml.so",
@@ -200,6 +200,6 @@
 		}
 	},
 	"source-name": "kf6-kcontacts",
-	"source-release": "25",
-	"source-version": "6.30.0"
+	"source-release": "26",
+	"source-version": "6.31.0"
 }
