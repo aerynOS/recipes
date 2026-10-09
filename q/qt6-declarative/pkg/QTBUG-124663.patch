@@ -1,0 +1,577 @@
+From b72792f3fb2c6869fc787e66a26b748cb1bca48d Mon Sep 17 00:00:00 2001
+From: Shawn Rutledge <shawn.rutledge@qt.io>
+Date: Wed, 12 Aug 2026 17:44:25 +0200
+Subject: [PATCH] Handle the dragged item being destroyed during a native drag
+
+Drag.dragType: Drag.Automatic goes through QDrag::exec(), which blocks in a
+nested event loop. Anything happening inside that loop can destroy the item the
+Drag attached object belongs to -- a ListView recycling the delegate that is
+being dragged is enough, which is what auto-scrolling during a drag does. Both
+the QQuickDragAttached and the QDrag are QObject children of that item, so they
+are deleted with it, and every line after exec() in startDrag() then runs on
+freed memory: the reported crash is in the dragFinished() emission.
+
+~QQuickItem notifies its change listeners before ~QObject deletes its children,
+so that is the last point at which the drag can still be wound down by an object
+that is still alive. Listen for Destroyed for the duration of a native drag and
+do it from there: cancel the platform drag, which unwinds the nested loop and
+delivers the drag leave that the drop target is waiting for, then report the
+drag as finished and inactive. Guard the QDrag and the attached object itself
+across exec() for whatever gets there first.
+
+Nothing here knows about item views, so it covers TableView, PathView, Repeater
+and plain delegate models as well, and any route to the item's destruction
+rather than only recycling. It does not try to keep the item alive; an
+application that wants the drag to survive can still use
+ListView.delayRemove: Drag.active.
+
+The new test drives the nested event loop, which needs a QPlatformDrag that runs
+in-process. It therefore runs on the offscreen platform, and skips if that
+platform's drag implementation is a stub.
+
+Fixes: QTBUG-124663
+Change-Id: I51c6719bcc9ea0e381a314f68f2f335caa96e616
+Reviewed-by: Oliver Eftevaag <oliver.eftevaag@qt.io>
+(cherry picked from commit 14872f4a7b60aff711b64da2ae672ef28750b514)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/quick/items/qquickdrag.cpp                |  74 ++++-
+ src/quick/items/qquickdrag_p_p.h              |   6 +
+ tests/auto/quick/CMakeLists.txt               |   1 +
+ .../quick/qquicknativedrag/CMakeLists.txt     |  49 +++
+ .../data/listViewDelegateDrag.qml             |  41 +++
+ .../qquicknativedrag/tst_qquicknativedrag.cpp | 278 ++++++++++++++++++
+ 6 files changed, 447 insertions(+), 2 deletions(-)
+ create mode 100644 tests/auto/quick/qquicknativedrag/CMakeLists.txt
+ create mode 100644 tests/auto/quick/qquicknativedrag/data/listViewDelegateDrag.qml
+ create mode 100644 tests/auto/quick/qquicknativedrag/tst_qquicknativedrag.cpp
+
+diff --git a/src/quick/items/qquickdrag.cpp b/src/quick/items/qquickdrag.cpp
+index 4babd17497..8d15d35a9c 100644
+--- a/src/quick/items/qquickdrag.cpp
++++ b/src/quick/items/qquickdrag.cpp
+@@ -84,6 +84,58 @@ void QQuickDragAttachedPrivate::itemParentChanged(QQuickItem *, QQuickItem *)
+         updatePosition();
+ }
+ 
++/*!
++    \internal
++    Called while the item this is attached to is being destroyed. If that happens during
++    a native drag, everything after QDrag::exec() in startDrag() is unreachable: we are a
++    QObject child of that item, so ~QObject is about to delete us. ~QQuickItem notifies
++    its change listeners before deleting its children, though, so this is the last point
++    at which the drag can still be wound down properly.
++*/
++void QQuickDragAttachedPrivate::itemDestroyed(QQuickItem *item)
++{
++    Q_Q(QQuickDragAttached);
++
++    listenForAttachedItemDestruction(false);
++    if (!executingNativeDrag)
++        return;
++
++    Q_ASSERT(item == attachedItem);
++    Q_UNUSED(item);
++
++    // Stop the platform delivering drag events to a scene that no longer has anything to
++    // drag, and unwind exec()'s nested event loop. This is also what delivers the drag
++    // leave that the drop target is waiting for. ~QDrag would end up cancelling too,
++    // since the QDrag is a child of the same item, but the order in which the item
++    // deletes its children is not ours to rely on. executingNativeDrag stays set for the
++    // duration, so that a handler reacting to the leave cannot re-enter setActive().
++    if (QPlatformDrag *platformDrag = QGuiApplicationPrivate::platformIntegration()->drag())
++        platformDrag->cancelDrag();
++
++    executingNativeDrag = false;
++    deliverLeaveEvent();
++    if (target) {
++        target = nullptr;
++        emit q->targetChanged();
++    }
++    emit q->dragFinished(Qt::IgnoreAction);
++    active = false;
++    emit q->activeChanged();
++}
++
++void QQuickDragAttachedPrivate::listenForAttachedItemDestruction(bool listen)
++{
++    if (listen == listeningForDestruction || !attachedItem)
++        return;
++
++    auto *itemPrivate = QQuickItemPrivate::get(attachedItem);
++    if (listen)
++        itemPrivate->addItemChangeListener(this, QQuickItemPrivate::Destroyed);
++    else
++        itemPrivate->removeItemChangeListener(this, QQuickItemPrivate::Destroyed);
++    listeningForDestruction = listen;
++}
++
+ void QQuickDragAttachedPrivate::updatePosition()
+ {
+     Q_Q(QQuickDragAttached);
+@@ -881,14 +933,32 @@ Qt::DropAction QQuickDragAttachedPrivate::startDrag(Qt::DropActions supportedAct
+         drag->setPixmap(QPixmap::fromImage(pixmapLoader.image()));
+ 
+     drag->setHotSpot(hotSpot.toPoint());
++
++    // exec() below blocks in a nested event loop, during which the item we are attached
++    // to can be destroyed -- a view recycling the delegate that is being dragged is
++    // enough (QTBUG-124663). Both this attached object and the QDrag are QObject
++    // children of that item, so they would go with it, leaving nothing to run the code
++    // after exec(). Listen for it, so that itemDestroyed() can wind the drag down while
++    // we are still alive, and guard what we touch afterwards.
++    listenForAttachedItemDestruction(true);
++    QPointer<QQuickDragAttached> self(q);
++    QPointer<QDrag> dragGuard(drag);
++
+     emit q->dragStarted();
+ 
+     executingNativeDrag = true;
+     Qt::DropAction dropAction = drag->exec(supportedActions);
++    if (!self) {
++        // itemDestroyed() has already delivered the leave event and reset the state.
++        return Qt::IgnoreAction;
++    }
+     executingNativeDrag = false;
++    listenForAttachedItemDestruction(false);
+ 
+-    if (!QGuiApplicationPrivate::platformIntegration()->drag()->ownsDragObject())
+-        drag->deleteLater();
++    if (dragGuard
++        && !QGuiApplicationPrivate::platformIntegration()->drag()->ownsDragObject()) {
++        dragGuard->deleteLater();
++    }
+ 
+     deliverLeaveEvent();
+ 
+diff --git a/src/quick/items/qquickdrag_p_p.h b/src/quick/items/qquickdrag_p_p.h
+index b9af86f634..5fa3cdad7e 100644
+--- a/src/quick/items/qquickdrag_p_p.h
++++ b/src/quick/items/qquickdrag_p_p.h
+@@ -54,12 +54,15 @@ public:
+         , itemMoved(false)
+         , eventQueued(false)
+         , overrideActions(false)
++        , listeningForDestruction(false)
+         , dragType(QQuickDrag::Internal)
+     {
+     }
+ 
+     void itemGeometryChanged(QQuickItem *, QQuickGeometryChange, const QRectF &) override;
+     void itemParentChanged(QQuickItem *, QQuickItem *parent) override;
++    void itemDestroyed(QQuickItem *item) override;
++    void listenForAttachedItemDestruction(bool listen);
+     void updatePosition();
+     void restartDrag();
+     void deliverEnterEvent();
+@@ -89,6 +92,9 @@ public:
+     bool itemMoved : 1;
+     bool eventQueued : 1;
+     bool overrideActions : 1;
++    // Whether we are registered as a Destroyed change listener on attachedItem, which
++    // we only are for the duration of a native drag.
++    bool listeningForDestruction : 1;
+     QPointF hotSpot;
+     QUrl imageSource;
+     QSize imageSourceSize;
+diff --git a/tests/auto/quick/CMakeLists.txt b/tests/auto/quick/CMakeLists.txt
+index 035f960010..18ef46d300 100644
+--- a/tests/auto/quick/CMakeLists.txt
++++ b/tests/auto/quick/CMakeLists.txt
+@@ -43,6 +43,7 @@ if(QT_FEATURE_private_tests)
+     endif()
+     add_subdirectory(qquickdrag)
+     add_subdirectory(qquickdragattached)
++    add_subdirectory(qquicknativedrag)
+     add_subdirectory(qquickdroparea)
+     add_subdirectory(qquickdynamicpropertyanimation)
+     add_subdirectory(qquickflickable)
+diff --git a/tests/auto/quick/qquicknativedrag/CMakeLists.txt b/tests/auto/quick/qquicknativedrag/CMakeLists.txt
+new file mode 100644
+index 0000000000..1f1006d02b
+--- /dev/null
++++ b/tests/auto/quick/qquicknativedrag/CMakeLists.txt
+@@ -0,0 +1,49 @@
++# Copyright (C) 2026 The Qt Company Ltd.
++# SPDX-License-Identifier: BSD-3-Clause
++
++#####################################################################
++## tst_qquicknativedrag Test:
++#####################################################################
++
++if(NOT QT_BUILD_STANDALONE_TESTS AND NOT QT_BUILDING_QT)
++    cmake_minimum_required(VERSION 3.16)
++    project(tst_qquicknativedrag LANGUAGES CXX)
++    find_package(Qt6BuildInternals REQUIRED COMPONENTS STANDALONE_TEST)
++endif()
++
++qt_internal_add_test(tst_qquicknativedrag
++    SOURCES
++        tst_qquicknativedrag.cpp
++    LIBRARIES
++        Qt::CorePrivate
++        Qt::Gui
++        Qt::GuiPrivate
++        Qt::Qml
++        Qt::QmlPrivate
++        Qt::Quick
++        Qt::QuickPrivate
++        Qt::QuickTestUtilsPrivate
++    TESTDATA ${test_data}
++)
++
++## Scopes:
++#####################################################################
++
++qt_internal_extend_target(tst_qquicknativedrag CONDITION ANDROID OR IOS
++    DEFINES
++        QT_QMLTEST_DATADIR=":/data"
++)
++
++qt_internal_extend_target(tst_qquicknativedrag CONDITION NOT ANDROID AND NOT IOS
++    DEFINES
++        QT_QMLTEST_DATADIR="${CMAKE_CURRENT_SOURCE_DIR}/data"
++)
++
++# Drag.dragType: Drag.Automatic goes through QDrag::exec(), which runs a nested event
++# loop that only an in-process QPlatformDrag lets synthetic input terminate. The
++# offscreen platform provides one, and implements QCursor::setPos(), which
++# QSimpleDrag::startDrag() needs to resolve the source window. The tests QSKIP
++# elsewhere, so running the binary directly on another platform is still safe.
++set_property(TEST tst_qquicknativedrag APPEND PROPERTY ENVIRONMENT
++    "QT_QPA_PLATFORM=offscreen"
++)
+diff --git a/tests/auto/quick/qquicknativedrag/data/listViewDelegateDrag.qml b/tests/auto/quick/qquicknativedrag/data/listViewDelegateDrag.qml
+new file mode 100644
+index 0000000000..dffbd61c16
+--- /dev/null
++++ b/tests/auto/quick/qquicknativedrag/data/listViewDelegateDrag.qml
+@@ -0,0 +1,41 @@
++// Copyright (C) 2026 The Qt Company Ltd.
++// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
++
++import QtQuick
++
++Rectangle {
++    width: 200
++    height: 200
++    color: "black"
++
++    // Receives the drag events that QSimpleDrag feeds back into this process.
++    DropArea {
++        objectName: "dropArea"
++        anchors.fill: parent
++    }
++
++    ListView {
++        id: list
++        objectName: "list"
++        anchors.fill: parent
++        model: 100
++        cacheBuffer: 0
++        boundsBehavior: Flickable.StopAtBounds
++        clip: true
++        // The view keeps currentItem alive outside visibleItems, so with the default
++        // currentIndex of 0 the first delegate would never be released when it scrolls
++        // out of view -- and the test needs it to be.
++        currentIndex: -1
++
++        delegate: Rectangle {
++            objectName: "delegate" + index
++            width: list.width
++            height: 50
++            color: "white"
++
++            Drag.dragType: Drag.Automatic
++            Drag.supportedActions: Qt.MoveAction
++            Drag.mimeData: { "text/plain": "" + index }
++        }
++    }
++}
+diff --git a/tests/auto/quick/qquicknativedrag/tst_qquicknativedrag.cpp b/tests/auto/quick/qquicknativedrag/tst_qquicknativedrag.cpp
+new file mode 100644
+index 0000000000..4b5f1bee1a
+--- /dev/null
++++ b/tests/auto/quick/qquicknativedrag/tst_qquicknativedrag.cpp
+@@ -0,0 +1,278 @@
++// Copyright (C) 2026 The Qt Company Ltd.
++// SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
++
++// Exercises Drag.dragType: Drag.Automatic, i.e. the QDrag::exec() path. tst_qquickdrag
++// deliberately covers only Drag.Internal and Drag.None, because exec() runs a nested
++// event loop; this test drives that loop instead of avoiding it.
++
++#include <QtCore/qpointer.h>
++#include <QtCore/qregularexpression.h>
++#include <QtCore/qtimer.h>
++#include <QtGui/qcursor.h>
++#include <QtGui/qguiapplication.h>
++#include <QtGui/private/qguiapplication_p.h>
++#include <QtQml/qqmlcontext.h>
++#include <QtQml/qqmlexpression.h>
++#include <QtQuick/qquickitem.h>
++#include <QtQuick/qquickview.h>
++#include <QtQuick/private/qquickdrag_p.h>
++#include <QtTest/qsignalspy.h>
++#include <QtTest/qtest.h>
++
++#include <QtQuick/private/qquickitemview_p.h>
++
++#include <QtQuickTestUtils/private/qmlutils_p.h>
++#include <QtQuickTestUtils/private/viewtestutils_p.h>
++#include <QtQuickTestUtils/private/visualtestutils_p.h>
++
++#include <qpa/qplatformdrag.h>
++#include <qpa/qplatformintegration.h>
++#include <qpa/qwindowsysteminterface.h>
++
++#include <functional>
++
++using namespace Qt::StringLiterals;
++using namespace std::chrono_literals;
++
++// QDrag::exec() runs a nested event loop that, on most platforms, only a real user can
++// terminate. The offscreen platform installs the in-process QSimpleDrag, which drives
++// itself from ordinary mouse and key events, and implements QCursor::setPos(), which
++// QSimpleDrag::startDrag() needs to resolve the source window. The CMakeLists.txt for
++// this test selects it; "minimal" is not a substitute, as it has no QPlatformCursor.
++static bool haveInProcessDrag()
++{
++    if (QGuiApplication::platformName() != "offscreen"_L1)
++        return false;
++    // QBasicDrag, which QSimpleDrag derives from, is a QObject: it installs itself as an
++    // application event filter to track the mouse. A stub implementation that returns
++    // Qt::IgnoreAction without running an event loop is not, so this also skips rather
++    // than fails when built against a Qt version whose offscreen plugin still has one.
++    return dynamic_cast<QObject *>(QGuiApplicationPrivate::platformIntegration()->drag());
++}
++
++#define SKIP_IF_NO_IN_PROCESS_DRAG() \
++    do { \
++        if (!haveInProcessDrag()) \
++            QSKIP("Needs the in-process QSimpleDrag; run with -platform offscreen"); \
++    } while (false)
++
++// Input is posted rather than delivered with QTest::mouse*(), which is not usable from
++// inside a drag: those go through qt_handleMouseEvent(), which delivers synchronously
++// and then calls qApp->processEvents(). That nested processEvents() clears the event
++// dispatcher's interrupt flag and drains its wakeup pipe, so if the event ended the
++// drag, the QEventLoop::exit() it triggered is swallowed and the drag loop blocks until
++// something else happens to wake it. Posting lets the drag's own loop drain the queue.
++static void postMouseMove(QWindow *window, const QPoint &local)
++{
++    QWindowSystemInterface::handleMouseEvent(window, local, window->mapToGlobal(local),
++                                            Qt::LeftButton, Qt::NoButton, QEvent::MouseMove);
++}
++
++static void postMouseRelease(QWindow *window, const QPoint &local)
++{
++    QWindowSystemInterface::handleMouseEvent(window, local, window->mapToGlobal(local),
++                                            Qt::NoButton, Qt::LeftButton,
++                                            QEvent::MouseButtonRelease);
++}
++
++class tst_QQuickNativeDrag : public QQmlDataTest
++{
++    Q_OBJECT
++public:
++    tst_QQuickNativeDrag() : QQmlDataTest(QT_QMLTEST_DATADIR) {}
++
++private slots:
++    void init() override;
++
++    void completes();
++    void delegateDestroyedWhileDragging_data();
++    void delegateDestroyedWhileDragging();
++
++private:
++    // Starts a native drag on item, invoking insideLoop from within QDrag::exec()'s
++    // nested event loop.
++    static void runDrag(QQuickView *window, QQuickItem *item, QQuickDragAttached *attached,
++                        std::function<void()> insideLoop);
++    static QQuickDragAttached *dragAttached(QQuickItem *item)
++    {
++        return qobject_cast<QQuickDragAttached *>(
++                qmlAttachedPropertiesObject<QQuickDrag>(item, /*create*/ true));
++    }
++    static void evaluate(QObject *scope, const QString &expression)
++    {
++        QQmlExpression expr(qmlContext(scope), scope, expression);
++        const QVariant result = expr.evaluate();
++        Q_UNUSED(result);
++        QVERIFY2(!expr.hasError(), qPrintable(expr.error().toString()));
++    }
++};
++
++void tst_QQuickNativeDrag::init()
++{
++    QQmlDataTest::init();
++    // runDrag() warns when its watchdog has to break into a stuck nested event loop.
++    QTest::failOnWarning(QRegularExpression(u"^watchdog:"_s));
++}
++
++void tst_QQuickNativeDrag::runDrag(QQuickView *window, QQuickItem *item,
++                                   QQuickDragAttached *attached,
++                                   std::function<void()> insideLoop)
++{
++    const QPoint pressPos = item->mapToScene(QPointF(10, 10)).toPoint();
++
++    // QSimpleDrag::startDrag() resolves the source window from QCursor::pos() rather
++    // than from the last mouse event, so this is needed before the drag starts. On
++    // offscreen it takes effect immediately, with no round trip to a compositor.
++    QCursor::setPos(window->mapToGlobal(pressPos));
++    QCoreApplication::processEvents();
++    QCOMPARE(QCursor::pos(), window->mapToGlobal(pressPos));
++
++    postMouseMove(window, pressPos);
++    QWindowSystemInterface::handleMouseEvent(window, pressPos, window->mapToGlobal(pressPos),
++                                            Qt::LeftButton, Qt::LeftButton,
++                                            QEvent::MouseButtonPress);
++    QCoreApplication::processEvents();
++
++    // dragStarted() is emitted from QQuickDragAttachedPrivate::startDrag() just before
++    // QDrag::exec(), so a queued call from it is delivered inside the nested loop --
++    // by which time QBasicDrag has installed the event filter that makes posted input
++    // drive the drag.
++    if (insideLoop) {
++        QObject::connect(attached, &QQuickDragAttached::dragStarted, attached,
++                         std::move(insideLoop), Qt::QueuedConnection);
++    }
++
++    // Fail rather than hang if nothing terminates the loop.
++    QTimer watchdog;
++    watchdog.setSingleShot(true);
++    watchdog.setInterval(5s);
++    QObject::connect(&watchdog, &QTimer::timeout, &watchdog, [] {
++        qWarning("watchdog: nested drag event loop did not terminate");
++        if (QPlatformDrag *pd = QGuiApplicationPrivate::platformIntegration()->drag())
++            pd->cancelDrag();
++    });
++    watchdog.start();
++
++    QPointer<QQuickDragAttached> guard(attached);
++    evaluate(item, u"Drag.active = true"_s);
++    // setActive() defers startDrag() to the event loop, and exec() then blocks until the
++    // input posted by insideLoop ends the drag -- so spinning here runs the whole thing.
++    // The attached object may not survive it, hence the guard.
++    QTRY_VERIFY(!guard || !guard->isActive());
++}
++
++// Baseline: a native drag from a delegate starts, is seen by the DropArea, and finishes.
++void tst_QQuickNativeDrag::completes()
++{
++    SKIP_IF_NO_IN_PROCESS_DRAG();
++
++    QQuickView window;
++    QVERIFY(QQuickTest::showView(window, testFileUrl(u"listViewDelegateDrag.qml"_s)));
++    QQuickItemView *view = window.rootObject()->findChild<QQuickItemView *>();
++    QVERIFY(view);
++    QQuickItem *delegate = QQuickVisualTestUtils::findViewDelegateItem(view, 0);
++    QVERIFY(delegate);
++    QQuickDragAttached *attached = dragAttached(delegate);
++    QVERIFY(attached);
++    const QQuickItem *dropArea = window.rootObject()->findChild<QQuickItem *>(u"dropArea"_s);
++    QVERIFY(dropArea);
++
++    QSignalSpy startedSpy(attached, SIGNAL(dragStarted()));
++    QSignalSpy finishedSpy(attached, SIGNAL(dragFinished(Qt::DropAction)));
++
++    const QPoint dropPos = delegate->mapToScene(QPointF(10, 120)).toPoint();
++    runDrag(&window, delegate, attached, [&] {
++        postMouseMove(&window, dropPos);
++        postMouseRelease(&window, dropPos);
++    });
++
++    QCOMPARE(startedSpy.size(), 1);
++    QTRY_COMPARE(finishedSpy.size(), 1);
++    QVERIFY(!attached->isActive());
++    QVERIFY(!attached->target());
++}
++
++void tst_QQuickNativeDrag::delegateDestroyedWhileDragging_data()
++{
++    QTest::addColumn<QString>("destroyExpression");
++    // The delegate scrolls out of the visible area, and with cacheBuffer 0 the view
++    // releases it immediately. This is what QTBUG-124663 does by auto-scrolling.
++    QTest::newRow("recycled") << u"list.contentY = 50 * 40"_s;
++    // The model rows backing every delegate go away. Nothing item-view-specific is
++    // needed to reproduce this -- any delegate model teardown will do.
++    QTest::newRow("model reset") << u"list.model = 0"_s;
++}
++
++// QTBUG-124663: the delegate that owns the QQuickDragAttached -- and that the QDrag is
++// parented to -- is destroyed inside QDrag::exec()'s nested event loop. Must not crash,
++// must not leave the drag active, and must not leave the DropArea entered.
++void tst_QQuickNativeDrag::delegateDestroyedWhileDragging()
++{
++    SKIP_IF_NO_IN_PROCESS_DRAG();
++    QFETCH(const QString, destroyExpression);
++
++    QQuickView window;
++    QVERIFY(QQuickTest::showView(window, testFileUrl(u"listViewDelegateDrag.qml"_s)));
++    QQuickItemView *view = window.rootObject()->findChild<QQuickItemView *>();
++    QVERIFY(view);
++    QQuickItem *delegate = QQuickVisualTestUtils::findViewDelegateItem(view, 0);
++    QVERIFY(delegate);
++    QPointer<QQuickItem> delegateGuard(delegate);
++    QPointer<QQuickDragAttached> attached(dragAttached(delegate));
++    QVERIFY(attached);
++    const QQuickItem *dropArea = window.rootObject()->findChild<QQuickItem *>(u"dropArea"_s);
++    QVERIFY(dropArea);
++
++    QSignalSpy startedSpy(attached, SIGNAL(dragStarted()));
++    QSignalSpy finishedSpy(attached, SIGNAL(dragFinished(Qt::DropAction)));
++    QSignalSpy enteredSpy(dropArea, SIGNAL(entered(QQuickDragEvent*)));
++    QSignalSpy exitedSpy(dropArea, SIGNAL(exited()));
++
++    QObject *root = window.rootObject();
++    runDrag(&window, delegate, attached, [&] {
++        // We are inside QDrag::exec() here.
++        evaluate(root, destroyExpression);
++        // The view releases the delegate on its next polish, and the delegate model then
++        // queues a deferred delete. Let both happen, still inside the nested loop, which
++        // is what the stack trace in the bug report shows. Stop as soon as the delegate
++        // is gone: processEvents() after the drag has ended would clear the event
++        // dispatcher interrupt that unwinds exec().
++        for (int i = 0; i < 10 && !delegateGuard.isNull(); ++i) {
++            QCoreApplication::processEvents();
++            QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
++        }
++    });
++
++    QVERIFY(delegateGuard.isNull());
++    QCOMPARE(startedSpy.size(), 1);
++
++    // The attached object is a QObject child of the delegate, so it is gone too -- but
++    // it must have reported the drag as finished on the way out, and the DropArea must
++    // not be left thinking a drag is still in progress.
++    QCOMPARE(finishedSpy.size(), 1);
++    QTRY_COMPARE(exitedSpy.size(), enteredSpy.size());
++
++    // The reported symptom is that the drag is "internally still active" afterwards.
++    // Prove the state machine recovered by running a second, uneventful drag. Undo
++    // whatever this data row did first, so that there is a delegate to drag again.
++    evaluate(root, u"list.model = 100"_s);
++    evaluate(root, u"list.contentY = 0"_s);
++    QQuickItem *next = nullptr;
++    QTRY_VERIFY((next = QQuickVisualTestUtils::findViewDelegateItem(view, 1)));
++    QQuickDragAttached *nextAttached = dragAttached(next);
++    QVERIFY(nextAttached);
++    QSignalSpy secondFinished(nextAttached, SIGNAL(dragFinished(Qt::DropAction)));
++
++    const QPoint dropPos = next->mapToScene(QPointF(10, 30)).toPoint();
++    runDrag(&window, next, nextAttached, [&] {
++        postMouseMove(&window, dropPos);
++        postMouseRelease(&window, dropPos);
++    });
++
++    QTRY_COMPARE(secondFinished.size(), 1);
++    QVERIFY(!nextAttached->isActive());
++}
++
++QTEST_MAIN(tst_QQuickNativeDrag)
++
++#include "tst_qquicknativedrag.moc"
+-- 
+GitLab
+

@@ -1,0 +1,47 @@
+From b4cd6e5060b66a09eb634371f177c7674de39e8d Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Robert=20L=C3=B6hning?= <robert.loehning@qt.io>
+Date: Mon, 21 Sep 2026 17:51:45 +0200
+Subject: [PATCH] Replace another call to QSvgNode::document()
+
+It was slow and should be removed altogether.
+
+All other calls were already replaced in
+b10cd4252550b7471b264b83e8ffaa7b07f67613,
+but while that was still being prepared,
+cbdacc91486bbaad2b66669ed7cd69020f68e1ab,
+introduced another one.
+
+Change-Id: I2577a97546e4ce7cec37e82c0d56987a3f6364e5
+Reviewed-by: Hatem ElKharashy <hatem.elkharashy@qt.io>
+(cherry picked from commit fdfae22bc7fa939eefe53a818ef94350d99c91fd)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/quickvectorimage/generator/qsvgvisitorimpl.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/quickvectorimage/generator/qsvgvisitorimpl.cpp b/src/quickvectorimage/generator/qsvgvisitorimpl.cpp
+index b6dff1720a..5820135f36 100644
+--- a/src/quickvectorimage/generator/qsvgvisitorimpl.cpp
++++ b/src/quickvectorimage/generator/qsvgvisitorimpl.cpp
+@@ -32,6 +32,7 @@
+ #include <QtCore/qscopedvaluerollback.h>
+ #include <QtCore/qxmlstream.h>
+ 
++#include <QtSvg/private/qsvgdocument_p.h>
+ #include <QtSvg/private/qsvgstyle_p.h>
+ #include <QtSvg/private/qsvgfilter_p.h>
+ 
+@@ -819,8 +820,9 @@ void QSvgVisitorImpl::visitTextNode(const QSvgText *node)
+     QSvgFont *svgFont = nullptr;
+     QString svgFontFamily;
+     if (fontStyle) {
++        Q_ASSERT(m_doc);
+         svgFontFamily = fontStyle->qfont().family();
+-        svgFont = node->document()->svgFont(svgFontFamily);
++        svgFont = m_doc->svgFont(svgFontFamily);
+     }
+ 
+     QFontEngine *fontEngine = nullptr;
+-- 
+GitLab
+

@@ -1,0 +1,95 @@
+From 0c762488b695d3aa375478be59463c570ae2bdfc Mon Sep 17 00:00:00 2001
+From: Ulf Hermann <ulf.hermann@qt.io>
+Date: Mon, 5 Oct 2026 12:24:45 +0200
+Subject: [PATCH] QtQml: Have Binding check for folded enums
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+We can now fold enum values into the compilation unit with qmlcachegen.
+Account for this case when resolving them using QQmlBind.
+
+Amends commit f6a87112b6cb9713e3903a04a968645817633adf.
+
+Fixes: QTBUG-151092
+Pick-to: 6.8
+Change-Id: I1681e1dd00026f65615d9fbcda6114edff3843b2
+Reviewed-by: Olivier De Cannière <olivier.decanniere@qt.io>
+Reviewed-by: Sami Shalayel <sami.shalayel@qt.io>
+(cherry picked from commit e25cd8a7ba956170a6cb14f545d63b33e9319ae4)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/qmlmeta/types/qqmlbind.cpp                       |  2 +-
+ .../auto/qml/qqmlbinding/data/resolvedEnumValue.qml  |  9 +++++++++
+ tests/auto/qml/qqmlbinding/tst_qqmlbinding.cpp       | 12 ++++++++++++
+ 3 files changed, 22 insertions(+), 1 deletion(-)
+ create mode 100644 tests/auto/qml/qqmlbinding/data/resolvedEnumValue.qml
+
+diff --git a/src/qmlmeta/types/qqmlbind.cpp b/src/qmlmeta/types/qqmlbind.cpp
+index 055cf3dec9..c40d668c06 100644
+--- a/src/qmlmeta/types/qqmlbind.cpp
++++ b/src/qmlmeta/types/qqmlbind.cpp
+@@ -1145,7 +1145,7 @@ void QQmlBindPrivate::decodeBinding(
+     case QV4::CompiledData::Binding::Type_Number:
+         setVariant(QV4::PersistentValue(
+                 compilationUnit->engine,
+-                compilationUnit->constants[binding->value.constantValueIndex].asReturnedValue()));
++                QV4::Encode(compilationUnit->bindingValueAsNumber(binding))));
+         break;
+     case QV4::CompiledData::Binding::Type_Boolean:
+         setVariant(QV4::PersistentValue(compilationUnit->engine, QV4::Encode(binding->value.b)));
+diff --git a/tests/auto/qml/qqmlbinding/data/resolvedEnumValue.qml b/tests/auto/qml/qqmlbinding/data/resolvedEnumValue.qml
+new file mode 100644
+index 0000000000..2d1444182f
+--- /dev/null
++++ b/tests/auto/qml/qqmlbinding/data/resolvedEnumValue.qml
+@@ -0,0 +1,9 @@
++import QtQuick
++
++Item {
++    id: root
++
++    Binding {
++        root.transformOrigin: Item.TopLeft
++    }
++}
+diff --git a/tests/auto/qml/qqmlbinding/tst_qqmlbinding.cpp b/tests/auto/qml/qqmlbinding/tst_qqmlbinding.cpp
+index 2f1f6d491c..caa6208eb0 100644
+--- a/tests/auto/qml/qqmlbinding/tst_qqmlbinding.cpp
++++ b/tests/auto/qml/qqmlbinding/tst_qqmlbinding.cpp
+@@ -12,6 +12,7 @@
+ #include <private/qqmlinstantiator_p.h>
+ #include <private/qqmlpropertytopropertybinding_p.h>
+ #include <private/qquickrectangle_p.h>
++#include <QtQuick/qquickitem.h>
+ 
+ #include <QtTest/qtest.h>
+ 
+@@ -60,6 +61,7 @@ private slots:
+     void deleteStashedObject();
+     void multiValueTypeBinding();
+     void objectBindingToId();
++    void resolvedEnumValue();
+     void setFunction();
+ 
+ private:
+@@ -994,6 +996,16 @@ void tst_qqmlbinding::objectBindingToId()
+     QCOMPARE_NE(root->property("background").value<QObject *>(), nullptr);
+ }
+ 
++void tst_qqmlbinding::resolvedEnumValue()
++{
++    QQmlEngine engine;
++    QQmlComponent component(&engine, testFileUrl("resolvedEnumValue.qml"));
++    QVERIFY2(component.isReady(), qPrintable(component.errorString()));
++    QScopedPointer<QQuickItem> root(qobject_cast<QQuickItem *>(component.create()));
++    QVERIFY(root);
++    QCOMPARE(root->transformOrigin(), QQuickItem::TopLeft);
++}
++
+ void tst_qqmlbinding::setFunction()
+ {
+     QObject obj;
+-- 
+GitLab
+
