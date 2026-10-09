@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6CalendarCore.so.6",
-				"/usr/lib/libKF6CalendarCore.so.6.30.0",
+				"/usr/lib/libKF6CalendarCore.so.6.31.0",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kcalendarcoreqml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/libkcalendarcoreqml.so",
@@ -37,13 +37,17 @@
 				"/usr/share/locale/he/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/it/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/ka/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/ko/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/nl/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/pl/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/sk/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/sl/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/tr/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/ug/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/uk/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/qlogging-categories6/kcalendarcore.categories",
 				"/usr/share/qlogging-categories6/kcalendarcore.renamecategories"
 			],
@@ -155,6 +159,6 @@
 		}
 	},
 	"source-name": "kf6-kcalendarcore",
-	"source-release": "25",
-	"source-version": "6.30.0"
+	"source-release": "26",
+	"source-version": "6.31.0"
 }
