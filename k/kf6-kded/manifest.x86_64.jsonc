@@ -34,12 +34,14 @@
 				"/usr/share/dbus-1/services/org.kde.kded6.service",
 				"/usr/share/man/ca/man8/kded6.8",
 				"/usr/share/man/ca@valencia/man8/kded6.8",
+				"/usr/share/man/de/man8/kded6.8",
 				"/usr/share/man/es/man8/kded6.8",
 				"/usr/share/man/fr/man8/kded6.8",
 				"/usr/share/man/it/man8/kded6.8",
 				"/usr/share/man/man8/kded6.8",
 				"/usr/share/man/nl/man8/kded6.8",
 				"/usr/share/man/pt_BR/man8/kded6.8",
+				"/usr/share/man/ru/man8/kded6.8",
 				"/usr/share/man/sl/man8/kded6.8",
 				"/usr/share/man/tr/man8/kded6.8",
 				"/usr/share/man/uk/man8/kded6.8",
@@ -75,6 +77,6 @@
 		}
 	},
 	"source-name": "kf6-kded",
-	"source-release": "21",
-	"source-version": "6.30.0"
+	"source-release": "22",
+	"source-version": "6.31.0"
 }
