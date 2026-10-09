@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libphonenumber
-version     : "9.0.39"
-release     : 17
+version     : "9.0.41"
+release     : 18
 homepage    : https://github.com/googlei18n/libphonenumber
 upstreams   :
-    - https://github.com/google/libphonenumber/archive/refs/tags/v9.0.39.tar.gz : e30c2aea5b66f53821d1eb971f81b9be1350e4b04a4577c8283803a1c8c5210b
+    - https://github.com/google/libphonenumber/archive/refs/tags/v9.0.41.tar.gz : 5a5021295990c7ec36c639ab1b0e24ef54faa5571ba1cabcd59fa034563aad4d
 summary     : library for working with international phone numbers
 description : |
     Google's common library for parsing, formatting, and validating international phone numbers
