@@ -3,7 +3,7 @@
 
 name        : upower
 version     : "1.91.5"
-release     : 15
+release     : 16
 homepage    : https://upower.freedesktop.org/
 upstreams   :
     - https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.5/upower-v1.91.5.tar.gz : d900f175e39fbc0dfd8632f7c70606e10f79903ee4171d199aa777dfa3a396e2

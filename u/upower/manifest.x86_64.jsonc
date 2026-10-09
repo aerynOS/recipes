@@ -26,7 +26,7 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgudev-1.0.so.0(x86_64))",
 				"soname(libimobiledevice-1.0.so.6(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))",
+				"soname(libplist-2.0.so.12(x86_64))",
 				"soname(libpolkit-gobject-1.so.0(x86_64))"
 			],
 			"files": [
@@ -163,6 +163,6 @@
 		}
 	},
 	"source-name": "upower",
-	"source-release": "15",
+	"source-release": "16",
 	"source-version": "1.91.5"
 }
