@@ -1,0 +1,64 @@
+From 45df0ed09d694a61fda4c4b0314828f060c2adc8 Mon Sep 17 00:00:00 2001
+From: David Edmundson <davidedmundson@kde.org>
+Date: Mon, 5 Oct 2026 22:44:41 +0100
+Subject: [PATCH] wayland: Avoid TextInput using a dangling raw pointer
+
+e26d5a8eee0078c24e6a2a741b7a0df18824281a converted a QPointer<QWindow>
+to a raw pointer. If a surface is destroyed before Qt has updated the
+focus object we then try to disable a now deleted surface.
+
+Fixes: QTBUG-151163
+Change-Id: I2ec1eed05eaf4686783f85128f0366c20afe2681
+Reviewed-by: Inho Lee <inho.lee@qt.io>
+Reviewed-by: David Redondo <qt@david-redondo.de>
+(cherry picked from commit b4dd5276867ebfecec5da044c4916af6bc804fb9)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ .../platforms/wayland/qwaylandinputcontext.cpp  | 17 ++++++++---------
+ .../platforms/wayland/qwaylandinputcontext_p.h  |  3 +--
+ 2 files changed, 9 insertions(+), 11 deletions(-)
+
+diff --git a/src/plugins/platforms/wayland/qwaylandinputcontext.cpp b/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
+index dbaf9bc5527..217289982c6 100644
+--- a/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
++++ b/src/plugins/platforms/wayland/qwaylandinputcontext.cpp
+@@ -176,17 +176,16 @@ void QWaylandInputContext::setFocusObject(QObject *object)
+     if (m_focusObject == object)
+         return;
+
+-    if (m_inputMethodEnabled) {
+-        inputInterface->disableSurface(mCurrentSurface);
+-        mCurrentSurface = nullptr;
+-        m_inputMethodEnabled = false;
++    if (mCurrentWindow) {
++        if (auto currentSurface = surfaceForWindow(mCurrentWindow))
++            inputInterface->disableSurface(currentSurface);
++        mCurrentWindow.clear();
+     }
++
+     if (object && inputMethodAccepted()) {
+-        QWindow *window = QGuiApplication::focusWindow();
+-        mCurrentSurface = surfaceForWindow(window);
+-        if (mCurrentSurface) {
+-            inputInterface->enableSurface(mCurrentSurface);
+-            m_inputMethodEnabled = true;
++        mCurrentWindow = QGuiApplication::focusWindow();
++        if (auto currentSurface = surfaceForWindow(mCurrentWindow)) {
++            inputInterface->enableSurface(currentSurface);
+             inputInterface->updateState(Qt::ImQueryAll, QWaylandTextInputInterface::update_state_enter);
+         }
+     }
+diff --git a/src/plugins/platforms/wayland/qwaylandinputcontext_p.h b/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
+index c6cb4bbc5e0..3335f8a36e3 100644
+--- a/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
++++ b/src/plugins/platforms/wayland/qwaylandinputcontext_p.h
+@@ -75,8 +75,7 @@ class QWaylandInputContext : public QPlatformInputContext
+     QWaylandTextInputInterface *textInput() const;
+
+     QWaylandDisplay *mDisplay = nullptr;
+-    ::wl_surface *mCurrentSurface = nullptr;
+-    bool m_inputMethodEnabled = false;
++    QPointer<QWindow> mCurrentWindow;
+     QObject *m_focusObject = nullptr;
+
+ #if QT_CONFIG(xkbcommon)

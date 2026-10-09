@@ -1,0 +1,242 @@
+From ec49e23877b321869050beda7478122aecd0bf3a Mon Sep 17 00:00:00 2001
+From: Jianquan Ren <renjianquan@kylinos.cn>
+Date: Mon, 17 Aug 2026 17:57:17 +0800
+Subject: [PATCH] Avoid libdbus abort/corrupt message when cross-marshalling a
+ Unix fd
+
+Appending a DBUS_TYPE_UNIX_FD value dup()s the descriptor inside
+libdbus and can fail when the process has hit its fd limit
+(EMFILE). The return value of q_dbus_message_iter_append_basic() was
+ignored, so libdbus was left with its type writer missing the expected
+typecode. QDBusMarshaller::close() then still closed the
+partially-written container, which made libdbus trip an assertion and
+abort the process (or, on builds without that check, emit a corrupt
+message).
+
+Fix by checking the append return value for the fd case and
+propagating the error via error(): error() clears the marshaller's
+'ok' flag, and close() now guards the container close with (parent &&
+ok), so a partially-written container is left unclosed and the message
+is discarded instead of crashing. The error is also propagated from
+appendVariantInternal so any cross-marshalling failure is handled
+uniformly.
+
+The new test registers a receiver whose argument is a container
+(QList<QDBusUnixFileDescriptor>) carrying a Unix fd and emits a signal
+carrying those same arguments, so re-marshalling goes through
+appendCrossMarshalling(). To make the dup() fail deterministically the
+test exhausts the descriptor table (EMFILE) before sending, and
+verifies that send() returns false, showing the the message was
+discarded, instead of sending a corrupt message.
+
+[ChangeLog][QtDBus][QDBusMarshaller] Fixed a crash (libdbus assertion)
+or corrupt message when cross-marshalling a QDBusArgument carrying a
+unix file descriptor whose dup() fails: the send now fails with a
+D-Bus error instead of aborting the process.
+
+Fixes: QTBUG-149231
+Change-Id: I372d6c47448b60d655526262a9e79946bb45caa2
+Reviewed-by: Thiago Macieira <thiago.macieira@intel.com>
+(cherry picked from commit f418aa33ba174a57f18b836390feb3a65af378b1)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/dbus/qdbusmarshaller.cpp                  |  25 +++-
+ .../dbus/qdbusmarshall/tst_qdbusmarshall.cpp  | 109 ++++++++++++++++++
+ 2 files changed, 131 insertions(+), 3 deletions(-)
+
+diff --git a/src/dbus/qdbusmarshaller.cpp b/src/dbus/qdbusmarshaller.cpp
+index 22a67153a41..5fe12d1aabf 100644
+--- a/src/dbus/qdbusmarshaller.cpp
++++ b/src/dbus/qdbusmarshaller.cpp
+@@ -328,7 +328,9 @@ void QDBusMarshaller::close()
+     if (ba) {
+         if (!skipSignature && closeCode)
+             *ba += closeCode;
+-    } else if (parent) {
++    } else if (parent && ok) {
++        // On error the whole message is discarded anyway (see toDBusMessage);
++        // closing a partially-written container would make libdbus abort.
+         q_dbus_message_iter_close_container(&parent->iterator, &iterator);
+     }
+ }
+@@ -370,7 +372,10 @@ bool QDBusMarshaller::appendVariantInternal(const QVariant &arg)
+                 return false;   // error!
+         }
+ 
+-        return appendCrossMarshalling(&demarshaller);
++        bool ok = appendCrossMarshalling(&demarshaller);
++        if (!ok)
++            error("Failed to cross-marshal argument"_L1);
++        return ok;
+     }
+ 
+     const char *signature = QDBusMetaType::typeToSignature(id);
+@@ -499,7 +504,21 @@ bool QDBusMarshaller::appendCrossMarshalling(QDBusDemarshaller *demarshaller)
+         qlonglong value;
+         q_dbus_message_iter_get_basic(&demarshaller->iterator, &value);
+         q_dbus_message_iter_next(&demarshaller->iterator);
+-        q_dbus_message_iter_append_basic(&iterator, code, &value);
++
++        if (code == DBUS_TYPE_UNIX_FD) {
++            // An fd is not a plain value: libdbus dups() it and can fail for
++            // a stale descriptor, leaving the writer without its typecode.
++            // Propagate the failure instead of crashing later in close().
++            int fd = int(value);
++            if (!q_dbus_message_iter_append_basic(&iterator, DBUS_TYPE_UNIX_FD, &fd)) {
++                qWarning("QDBusMarshaller: cannot append unix file descriptor %d "
++                         "while cross-marshalling; discarding the message", fd);
++                error("Failed to append unix file descriptor"_L1);
++                return false;
++            }
++        } else {
++            q_dbus_message_iter_append_basic(&iterator, code, &value);
++        }
+         return true;
+     }
+ 
+diff --git a/tests/auto/dbus/qdbusmarshall/tst_qdbusmarshall.cpp b/tests/auto/dbus/qdbusmarshall/tst_qdbusmarshall.cpp
+index fcdc0619e06..b4dfed11f68 100644
+--- a/tests/auto/dbus/qdbusmarshall/tst_qdbusmarshall.cpp
++++ b/tests/auto/dbus/qdbusmarshall/tst_qdbusmarshall.cpp
+@@ -8,9 +8,19 @@
+ 
+ #include "common.h"
+ #include <limits>
++#include <vector>
++#ifdef Q_OS_UNIX
++#include <unistd.h>
++#include <fcntl.h>
++#endif
++
++#include <QtDBus/QDBusVirtualObject>
++#include <QAtomicInt>
++#include <QtCore/private/quniquehandle_types_p.h>
+ 
+ #include <QtDBus/private/qdbusutil_p.h>
+ #include <QtDBus/private/qdbusconnection_p.h>
++#include <QtDBus/private/qdbusmessage_p.h>
+ #include <QtDBus/private/qdbus_symbols_p.h>
+ 
+ #ifndef DBUS_TYPE_UNIX_FD
+@@ -22,6 +32,52 @@ static const char serviceName[] = "org.qtproject.autotests.qpong";
+ static const char objectPath[] = "/org/qtproject/qpong";
+ static const char *interfaceName = serviceName;
+ 
++// Relay object for crossMarshallingWithInvalidFd: it receives a message and sends a fresh one
++// carrying the received arguments, which re-marshals a contained unix fd through
++// appendCrossMarshalling. Exhausts the fd table first so the dup() fails, and records send()'s
++// result for the test to assert on.
++class FdRelayObject : public QDBusVirtualObject
++{
++    Q_OBJECT
++public:
++    FdRelayObject(QObject *parent = nullptr) : QDBusVirtualObject(parent) {}
++    bool handleMessage(const QDBusMessage &message, const QDBusConnection &connection) override
++    {
++#ifdef Q_OS_UNIX
++        // Exhaust the fd table so the dup() performed while re-marshalling the unix fd below
++        // is guaranteed to fail. The descriptors are owned so they are released on any early return.
++        std::vector<QUniqueFileDescriptorHandle> held;
++        for (;;) {
++            QUniqueFileDescriptorHandle fd(::open("/dev/null", O_RDONLY));
++            if (!fd.isValid())
++                break;
++            held.push_back(std::move(fd));
++        }
++#endif
++        // Send a fresh message with the received (still undemarshalled) arguments; libdbus dup()s
++        // the fd while re-marshalling it via appendCrossMarshalling, which fails with the fd table exhausted.
++        QDBusMessage out = QDBusMessage::createSignal(message.path(), message.interface(),
++                                                     "relay");
++        out.setArguments(message.arguments());
++        const bool ok = connection.send(out);
++        m_sendResult = ok;
++        m_delivered = true;
++        emit done();
++        return ok;
++    }
++    QString introspect(const QString &) const override { return QString(); }
++
++    bool delivered() const { return m_delivered; }
++    bool sendResult() const { return m_sendResult; }
++
++signals:
++    void done();
++
++private:
++    bool m_delivered = false;
++    bool m_sendResult = false;
++};
++
+ class tst_QDBusMarshall: public QObject
+ {
+     Q_OBJECT
+@@ -62,6 +118,8 @@ private slots:
+     void receiveUnknownType_data();
+     void receiveUnknownType();
+ 
++    void crossMarshallingWithInvalidFd();
++
+     void demarshallPrimitives_data();
+     void demarshallPrimitives();
+ 
+@@ -1545,5 +1603,56 @@ void tst_QDBusMarshall::demarshallInvalidByteArray()
+     QVERIFY(receiveArg.atEnd());
+ }
+ 
++void tst_QDBusMarshall::crossMarshallingWithInvalidFd()
++{
++#ifdef Q_OS_UNIX
++    // Re-marshalling a unix fd internally dup()s it; if that dup() fails (e.g. EMFILE, fd table
++    // exhausted) the old code ignored the error and emitted a corrupt message (or aborted). The
++    // FdRelayObject receives a message whose argument is a container carrying a unix fd and sends a
++    // fresh message carrying those same arguments, forcing Qt to re-marshal the fd. We exhaust
++    // the fd table first so the dup() is guaranteed to fail.
++    QDBusConnection con = QDBusConnection::sessionBus();
++    QVERIFY(con.isConnected());
++
++    if (!(con.connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing))
++        QSKIP("Session bus does not support Unix file descriptor passing");
++
++    FdRelayObject relay;
++    const QString relayPath = "/fdRelay";
++    QVERIFY(con.registerVirtualObject(relayPath, &relay));
++
++    // Put the fd inside a container so re-marshalling exercises appendCrossMarshalling.
++    QTemporaryFile tf;
++    tf.setFileTemplate(QDir::tempPath() + "/qdbusmarshallfdXXXXXX.tmp");
++    QVERIFY(tf.open());
++    QDBusUnixFileDescriptor desc(tf.handle());
++    QList<QDBusUnixFileDescriptor> list;
++    list.append(desc);
++    QDBusMessage msg = QDBusMessage::createMethodCall(con.baseService(), relayPath,
++                                                      interfaceName, "ping");
++    msg.setArguments(QVariantList() << QVariant::fromValue(list));
++    tf.close();
++
++    QObject::connect(&relay, &FdRelayObject::done, &QTestEventLoop::instance(),
++                     &QTestEventLoop::exitLoop);
++    QVERIFY(con.send(msg));
++
++    // handleMessage() is normally run from the event loop, but may also be invoked
++    // synchronously by send(); only enter the loop if it hasn't run yet.
++    if (!relay.delivered()) {
++        QTestEventLoop::instance().enterLoop(2);
++        QVERIFY(!QTestEventLoop::instance().timeout());
++    }
++
++    // With the fix the failed dup() is reported and send() returns false instead of emitting
++    // a corrupt message (or aborting on stricter libdbus builds).
++    QVERIFY(!relay.sendResult());
++
++    con.unregisterObject(relayPath);
++#else
++    QSKIP("Unix-only test");
++#endif
++}
++
+ QTEST_MAIN(tst_QDBusMarshall)
+ #include "tst_qdbusmarshall.moc"
+-- 
+GitLab
+

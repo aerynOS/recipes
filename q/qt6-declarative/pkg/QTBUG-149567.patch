@@ -1,0 +1,150 @@
+From 1671f484d572b17a450ab2ba91fa2318b12d1b2e Mon Sep 17 00:00:00 2001
+From: Kun Zhang <zhangkun2@uniontech.com>
+Date: Thu, 27 Aug 2026 16:39:32 +0800
+Subject: [PATCH] Flickable: keep using pixelDelta on touchpads with rounded
+ deltas
+
+QQuickFlickable::wheelEvent falls back to the angleDelta code path
+whenever QWheelEvent::pixelDelta() is null. On a touchpad that reports a
+scroll phase, that condition is met in the middle of an ongoing gesture:
+while the fingers move slowly, the platform rounds the accumulated
+sub-pixel motion down to (0, 0) for individual updates, but angleDelta()
+stays non-null because it is derived from the same continuous deltas.
+The Wayland QPA does it in
+QWaylandInputDevice::Pointer::FrameData::pixelDeltaAndError(); cocoa
+does it by truncating [NSEvent scrollingDeltaX] to int while angleDelta
+is that value scaled by pixelsToDegrees.
+
+Those events then take the mouse-wheel path, which computes a velocity
+and calls flickX()/flickY() while the drag started by ScrollBegin is
+still in progress. The flick animation fights with the subsequent drag
+updates, so the content stops following the fingers and, with a low
+QT_QUICK_FLICKABLE_WHEEL_DECELERATION, visibly overshoots and springs
+back when the fingers are lifted.
+
+Keep such an update on the pixelDelta path instead. Dragging by its
+(0, 0) delta holds the content still until the platform's accumulated
+rounding error produces the next whole pixel, which is exactly what the
+fingers did.
+
+The three existing conditions are unchanged for every other event, so
+the only events that change behaviour are touchpad updates that have an
+angleDelta but no pixelDelta:
+
+- NoScrollPhase still always takes the angleDelta path, so physical
+  mouse wheels are unaffected everywhere. This includes a mouse wheel on
+  Wayland, where every pointer event is tagged with
+  QPointingDevice::primaryPointingDevice() - the registered "touchpad"
+  when no mouse is present - because axis_source_wheel is not
+  definitely terminated, so no ScrollBegin is sent and the phase stays
+  NoScrollPhase. xcb and windows never pass a phase at all.
+- MouseEventNotSynthesized still always takes the angleDelta path. That
+  keeps the Wayland phase boundaries there, where they are a no-op;
+  starting a drag from their zero delta would initialize
+  hData/vData.dragStartOffset too early and shift the whole gesture by
+  one delta. It also keeps a real wheel click delivered mid-gesture, by
+  a mouse sharing the seat with the touchpad, on the wheel path, and
+  leaves a "dumb" touchpad that reports a phase but never a pixelDelta
+  untouched.
+
+[ChangeLog][QtQuick][Flickable] Flickable no longer starts a wheel
+flick in the middle of a touchpad gesture when individual updates
+report a pixelDelta that rounded down to (0, 0).
+
+Fixes: QTBUG-149567
+Pick-to: 6.8
+Change-Id: Icf22370653a410274c8930e05767da76c937353f
+Reviewed-by: Oliver Eftevaag <oliver.eftevaag@qt.io>
+(cherry picked from commit 281a769a15ad73fad04058f50c11e85063eeb071)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/quick/items/qquickflickable.cpp           | 10 ++++-
+ .../qquickflickable/tst_qquickflickable.cpp   | 44 +++++++++++++++++++
+ 2 files changed, 53 insertions(+), 1 deletion(-)
+
+diff --git a/src/quick/items/qquickflickable.cpp b/src/quick/items/qquickflickable.cpp
+index 6a66084d66..d19ae1874d 100644
+--- a/src/quick/items/qquickflickable.cpp
++++ b/src/quick/items/qquickflickable.cpp
+@@ -1768,7 +1768,15 @@ void QQuickFlickable::wheelEvent(QWheelEvent *event)
+         return;
+     }
+ 
+-    if (event->source() == Qt::MouseEventNotSynthesized || event->pixelDelta().isNull() || event->phase() == Qt::NoScrollPhase) {
++    // Within a touchpad gesture, pixelDelta rounds down to (0, 0) whenever the fingers
++    // moved less than one pixel since the previous frame. Keep such a frame on the
++    // pixelDelta path: falling back to angleDelta would start a wheel flick in the
++    // middle of the ongoing drag.
++    const bool isTouchpadFrameWithLostPixelDelta =
++            event->deviceType() == QInputDevice::DeviceType::TouchPad
++            && !event->angleDelta().isNull();
++    if (event->source() == Qt::MouseEventNotSynthesized || event->phase() == Qt::NoScrollPhase
++        || (event->pixelDelta().isNull() && !isTouchpadFrameWithLostPixelDelta)) {
+         // no pixel delta (physical mouse wheel, or "dumb" touchpad), so use angleDelta
+         int xDelta = event->angleDelta().x();
+         int yDelta = event->angleDelta().y();
+diff --git a/tests/auto/quick/qquickflickable/tst_qquickflickable.cpp b/tests/auto/quick/qquickflickable/tst_qquickflickable.cpp
+index a0fc35217d..4db59ac53c 100644
+--- a/tests/auto/quick/qquickflickable/tst_qquickflickable.cpp
++++ b/tests/auto/quick/qquickflickable/tst_qquickflickable.cpp
+@@ -179,6 +179,7 @@ private slots:
+     void wheel();
+     void wheelBackwards();
+     void trackpad();
++    void nativeTrackpadUsesPixelDelta();
+     void nestedTrackpad();
+     void nestedSameDirectionTrackpad();
+     void movingAndFlicking();
+@@ -1044,6 +1045,49 @@ void tst_qquickflickable::trackpad()
+     QCOMPARE(flick->property("movementsAfterEnd").value<int>(), 0); // QTBUG-55886
+ }
+ 
++void tst_qquickflickable::nativeTrackpadUsesPixelDelta()
++{
++    QQuickView window;
++    QVERIFY(QQuickTest::showView(window, testFileUrl("wheel.qml")));
++
++    auto *flick = window.rootObject()->findChild<QQuickFlickable *>("flick");
++    QVERIFY(flick);
++    QSignalSpy flickStartedSpy(flick, &QQuickFlickable::flickStarted);
++
++    const QPoint pos(200, 200);
++    quint64 timestamp = 10;
++    const auto sendWheelEvent = [&](const QPoint &pixelDelta, const QPoint &angleDelta,
++                                    Qt::ScrollPhase phase, Qt::MouseEventSource source) {
++        QWheelEvent event(pos, window.mapToGlobal(pos), pixelDelta, angleDelta,
++                          Qt::NoButton, Qt::NoModifier, phase, false, source,
++                          touchpad.get());
++        event.setTimestamp(timestamp);
++        timestamp += 16;
++        QGuiApplication::sendEvent(&window, &event);
++    };
++
++    // One slow two-finger scroll, in which every third update has its pixelDelta
++    // rounded down to (0, 0) while angleDelta stays non-null.
++    sendWheelEvent(QPoint(), QPoint(), Qt::ScrollBegin, Qt::MouseEventNotSynthesized);
++    for (int i = 0; i < 8; ++i) {
++        const bool pixelDeltaRoundedToZero = (i % 3 == 1);
++        sendWheelEvent(pixelDeltaRoundedToZero ? QPoint() : QPoint(-4, 0),
++                       pixelDeltaRoundedToZero ? QPoint(-4, 0) : QPoint(-24, 0),
++                       Qt::ScrollUpdate, Qt::MouseEventSynthesizedBySystem);
++    }
++
++    QVERIFY(flick->contentX() > 0);
++    QVERIFY(flick->isDragging());
++    QCOMPARE(flickStartedSpy.size(), 0);
++
++    // The content followed the fingers, so lifting them must not add inertia.
++    const qreal contentXWhenFingersLifted = flick->contentX();
++    sendWheelEvent(QPoint(), QPoint(), Qt::ScrollEnd, Qt::MouseEventNotSynthesized);
++    QTRY_VERIFY(!flick->isMoving());
++    QCOMPARE(flick->contentX(), contentXWhenFingersLifted);
++    QCOMPARE(flickStartedSpy.size(), 0);
++}
++
+ void tst_qquickflickable::nestedTrackpad()
+ {
+     QQuickView window;
+-- 
+GitLab
+

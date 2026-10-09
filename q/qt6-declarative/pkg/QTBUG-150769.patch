@@ -1,0 +1,125 @@
+From d6f5246394d8fee96a1fc91cf2fb79c21173f658 Mon Sep 17 00:00:00 2001
+From: Vladimir Belyavsky <belyavskyv@gmail.com>
+Date: Thu, 24 Sep 2026 12:06:00 +0300
+Subject: [PATCH] QQuickItemView: don't leave dangling entries in
+ unrequestedItems
+
+b0b1c1de68a1cc15f6304bb85d0c57a49499f866 ("QQuickItemView: register
+Destroyed listener when storing an item") added a loop at the end of
+~QQuickItemView that walks unrequestedItems and dereferences the stored
+raw pointers to remove our Destroyed listener from each item. This is
+only safe while every entry points at a live item. The listener is what
+keeps that true: when the item is deleted, it calls itemDestroyed(),
+which removes the entry from the hash.
+
+releaseItem() can break that invariant. An item stored with isClearing
+== false gets both the entry and the listener. Releasing it again while
+the view is being cleared (isClearing == true) removes the listener but
+leaves the entry, so itemDestroyed() never runs for it and the entry is
+never dropped. Once the item is freed, the destructor loop dereferences
+a dangling pointer, causing a use-after-free crash.
+
+For instance, deactivating a Loader that hosts a ListView invalidates
+the delegate contexts synchronously while the deferred delete is still
+pending: the delegate ends up in unrequestedItems, and its
+currentItem/visibleItems twin is released again during clear(true).
+
+Remove the entry from unrequestedItems whenever the listener is removed,
+keeping the two in sync so the destructor never walks a freed pointer.
+
+Fixes: QTBUG-150769
+Change-Id: Ide32473f3fea373749197c969eaff6d13869c32d
+Reviewed-by: Mitch Curtis <mitch.curtis@qt.io>
+Reviewed-by: Richard Moe Gustavsen <richard.gustavsen@qt.io>
+(cherry picked from commit 83d091dcb160d3f0c4a8bc9df8b8a9a934ac82a1)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/quick/items/qquickitemview.cpp            |  4 ++-
+ .../data/destroyWithInvalidatedContexts.qml   | 28 +++++++++++++++++++
+ .../qquicklistview/tst_qquicklistview.cpp     | 12 ++++++++
+ 3 files changed, 43 insertions(+), 1 deletion(-)
+ create mode 100644 tests/auto/quick/qquicklistview/data/destroyWithInvalidatedContexts.qml
+
+diff --git a/src/quick/items/qquickitemview.cpp b/src/quick/items/qquickitemview.cpp
+index 956b4a46b4..cf4475e00a 100644
+--- a/src/quick/items/qquickitemview.cpp
++++ b/src/quick/items/qquickitemview.cpp
+@@ -2681,8 +2681,10 @@ bool QQuickItemViewPrivate::releaseItem(FxViewItem *item, QQmlInstanceModel::Reu
+             }
+         }
+ 
+-        if (removeItemChangeListener)
++        if (removeItemChangeListener) {
++            unrequestedItems.remove(quickItem);
+             QQuickItemPrivate::get(quickItem)->removeItemChangeListener(this, itemChangeListenerTypes);
++        }
+ #if QT_CONFIG(quick_viewtransitions)
+         delete item->transitionableItem;
+         item->transitionableItem = nullptr;
+diff --git a/tests/auto/quick/qquicklistview/data/destroyWithInvalidatedContexts.qml b/tests/auto/quick/qquicklistview/data/destroyWithInvalidatedContexts.qml
+new file mode 100644
+index 0000000000..a2b86444a9
+--- /dev/null
++++ b/tests/auto/quick/qquicklistview/data/destroyWithInvalidatedContexts.qml
+@@ -0,0 +1,28 @@
++import QtQuick
++
++Item {
++    id: root
++    width: 320
++    height: 240
++
++    // Set to true once the deactivated Loader subtree has been deleted, i.e.
++    // after ~QQuickItemView has run.
++    property bool viewDestroyed: false
++
++    Loader {
++        id: loader
++        anchors.fill: parent
++
++        sourceComponent: ListView {
++            model: 40
++            delegate: Item { height: 24 }
++            Component.onDestruction: root.viewDestroyed = true
++        }
++    }
++
++    Component.onCompleted: {
++        const view = loader.item;
++        loader.active = false;
++        view.contentY = 1000;
++    }
++}
+diff --git a/tests/auto/quick/qquicklistview/tst_qquicklistview.cpp b/tests/auto/quick/qquicklistview/tst_qquicklistview.cpp
+index ee90b5451b..c30f5e5660 100644
+--- a/tests/auto/quick/qquicklistview/tst_qquicklistview.cpp
++++ b/tests/auto/quick/qquicklistview/tst_qquicklistview.cpp
+@@ -266,6 +266,7 @@ private slots:
+     void QTBUG_66163_setModelViewPortSizeChange();
+     void itemFiltered();
+     void releaseItems();
++    void destroyWithInvalidatedContexts();
+ 
+     void QTBUG_34576_velocityZero();
+     void QTBUG_61537_modelChangesAsync();
+@@ -9789,6 +9790,17 @@ void tst_QQuickListView::releaseItems()
+     listview->setModel(123);
+ }
+ 
++void tst_QQuickListView::destroyWithInvalidatedContexts()
++{
++    QScopedPointer<QQuickView> window(createView());
++    window->setSource(testFileUrl("destroyWithInvalidatedContexts.qml"));
++
++    // Wait for the deactivated Loader subtree's deferred delete to be delivered.
++    // Once the ListView is gone its ~QQuickItemView has run; it must not have
++    // dereferenced a freed delegate left in unrequestedItems (don't crash).
++    QTRY_VERIFY(window->rootObject()->property("viewDestroyed").toBool());
++}
++
+ void tst_QQuickListView::QTBUG_34576_velocityZero()
+ {
+     QScopedPointer<QQuickView> window(new QQuickView(nullptr));
+-- 
+GitLab
+

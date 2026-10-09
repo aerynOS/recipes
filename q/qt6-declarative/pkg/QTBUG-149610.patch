@@ -1,0 +1,182 @@
+From bcbfae6761016974d9185cecee333b5f7aaf0442 Mon Sep 17 00:00:00 2001
+From: Will Rose <williamdanrose@gmail.com>
+Date: Sat, 29 Aug 2026 02:51:23 -0600
+Subject: [PATCH] QQuickTextInput: don't call QMimeData::text() for canPaste
+
+QQuickTextInput::canPaste() and q_canPasteChanged() call
+QMimeData::text() to reject an advertised text format whose payload is
+empty. Calling text() can require synchronous IPC with another
+process and block when the clipboard owner is slow or unresponsive.
+
+Use QMimeData::hasText() in both paths, as QQuickTextEdit already does
+through format checks in QQuickTextControl. This keeps the existing cache
+and canPasteChanged() signal semantics without requesting the advertised
+text payload from either the property getter or clipboard-change handler.
+
+This restores the formats-only behavior that preceded 580715fe58 and
+6c07e2a762. A provider that advertises text but returns an empty payload
+is therefore considered pasteable; an actually empty clipboard remains
+unpasteable.
+
+Add a regression test that counts QMimeData::retrieveData() calls and
+covers the initial property read, clipboard changes, unchanged
+availability, and the advertised-empty-payload case.
+
+[ChangeLog][QtQuick][TextInput] canPaste now reflects whether the
+clipboard advertises a text format without calling QMimeData::text() to
+inspect the payload. A provider that advertises text but returns an empty
+payload is therefore considered pasteable.
+
+Fixes: QTBUG-149610
+Task-number: QTBUG-121594
+Pick-to: 6.11
+Change-Id: I7af2e0e6ebc9df257c809002cab5005e392b1d47
+Reviewed-by: David Edmundson <davidedmundson@kde.org>
+Reviewed-by: Shawn Rutledge <shawn.rutledge@qt.io>
+(cherry picked from commit ef692a52e3a2fe133b64384076435ed212c14658)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/quick/items/qquicktextinput.cpp           |  4 +-
+ .../qquicktextinput/tst_qquicktextinput.cpp   | 90 +++++++++++++++++++
+ 2 files changed, 92 insertions(+), 2 deletions(-)
+
+diff --git a/src/quick/items/qquicktextinput.cpp b/src/quick/items/qquicktextinput.cpp
+index 10f81372b2..486bbf8ced 100644
+--- a/src/quick/items/qquicktextinput.cpp
++++ b/src/quick/items/qquicktextinput.cpp
+@@ -2573,7 +2573,7 @@ bool QQuickTextInput::canPaste() const
+         bool canPaste = false;
+         if (!d->m_readOnly) {
+             if (const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData())
+-                canPaste = mimeData->hasText() && !mimeData->text().isEmpty();
++                canPaste = mimeData->hasText();
+         }
+         const_cast<QQuickTextInputPrivate *>(d)->canPaste = canPaste;
+         const_cast<QQuickTextInputPrivate *>(d)->canPasteValid = true;
+@@ -3006,7 +3006,7 @@ void QQuickTextInput::q_canPasteChanged()
+     bool canPaste = false;
+     if (!d->m_readOnly) {
+         if (const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData())
+-            canPaste = mimeData->hasText() && !mimeData->text().isEmpty();
++            canPaste = mimeData->hasText();
+     }
+     d->canPaste = canPaste;
+ #endif
+diff --git a/tests/auto/quick/qquicktextinput/tst_qquicktextinput.cpp b/tests/auto/quick/qquicktextinput/tst_qquicktextinput.cpp
+index 5d4e826828..ca44b96cdb 100644
+--- a/tests/auto/quick/qquicktextinput/tst_qquicktextinput.cpp
++++ b/tests/auto/quick/qquicktextinput/tst_qquicktextinput.cpp
+@@ -3,6 +3,8 @@
+ 
+ #include <qtest.h>
+ #include <QtTest/QSignalSpy>
++#include <QtCore/qmimedata.h>
++#include <QtCore/qpointer.h>
+ #include <QtQuickTest/quicktest.h>
+ #include <QtQuickTestUtils/private/qmlutils_p.h>
+ #include <QtQuickTestUtils/private/testhttpserver_p.h>
+@@ -118,6 +120,7 @@ private slots:
+ #if QT_CONFIG(clipboard) && QT_CONFIG(shortcut)
+     void copyAndPaste();
+     void copyAndPasteKeySequence();
++    void canPasteDoesNotRetrieveData();
+     void canPasteEmpty();
+     void canPaste();
+     void middleClickPaste();
+@@ -2783,6 +2786,93 @@ void tst_qquicktextinput::copyAndPasteKeySequence()
+ }
+ #endif
+ 
++#if QT_CONFIG(clipboard) && QT_CONFIG(shortcut)
++namespace {
++// QMimeData that counts how often its *contents* are requested, as opposed to its formats.
++class CountingMimeData : public QMimeData
++{
++public:
++    explicit CountingMimeData(const QString &text)
++    {
++        setText(text);
++        // Avoid platform setters retrieving one text format to synthesize the other.
++        setData(QStringLiteral("text/plain;charset=utf-8"), text.toUtf8());
++    }
++    mutable int retrieveCount = 0;
++
++protected:
++    QVariant retrieveData(const QString &mimeType, QMetaType type) const override
++    {
++        ++retrieveCount;
++        return QMimeData::retrieveData(mimeType, type);
++    }
++};
++} // namespace
++
++// Checking whether paste is available must not retrieve the clipboard contents.
++void tst_qquicktextinput::canPasteDoesNotRetrieveData()
++{
++    if (!PlatformQuirks::isClipboardAvailable())
++        QSKIP("This machine has no clipboard support.");
++
++    QClipboard *clipboard = QGuiApplication::clipboard();
++    // Relies on the platform clipboard handing back the QMimeData that was set
++    // (true for the default QPlatformClipboard used by offscreen/minimal).
++    QPointer<CountingMimeData> data = new CountingMimeData(QStringLiteral("some text"));
++    clipboard->setMimeData(data.data());
++    if (!data || clipboard->mimeData() != data.data())
++        QSKIP("Platform clipboard does not return the QMimeData that was set.");
++    if (data->retrieveCount != 0)
++        QSKIP("Platform clipboard retrieves the data when setting it.");
++
++    // Direct evaluation only checks the advertised formats.
++    QQuickTextInput textInput;
++    QVERIFY(textInput.canPaste());
++    if (!data || clipboard->mimeData() != data.data())
++        QSKIP("Clipboard data changed while running the test.");
++    QCOMPARE(data->retrieveCount, 0);
++    QSignalSpy spy(&textInput, &QQuickTextInput::canPasteChanged);
++    // Some platform clipboards notify asynchronously. Invoke the signal directly
++    // so the test does not process events and allow an external clipboard consumer
++    // to retrieve the data.
++    const auto notifyDataChanged = [clipboard] {
++        return QMetaObject::invokeMethod(clipboard, "dataChanged", Qt::DirectConnection);
++    };
++
++    // A clipboard change with the same availability does not emit a change signal.
++    QPointer<CountingMimeData> more = new CountingMimeData(QStringLiteral("more text"));
++    clipboard->setMimeData(more.data());
++    if (!more || clipboard->mimeData() != more.data())
++        QSKIP("Platform clipboard does not return the QMimeData that was set.");
++    QVERIFY(notifyDataChanged());
++    if (!more || clipboard->mimeData() != more.data())
++        QSKIP("Clipboard data changed while running the test.");
++    QCOMPARE(spy.size(), 0);
++    QVERIFY(textInput.canPaste());
++    QCOMPARE(more->retrieveCount, 0);
++
++    clipboard->clear();
++    QVERIFY(notifyDataChanged());
++    QCOMPARE(spy.size(), 1);
++    QVERIFY(!textInput.canPaste());
++
++    // An advertised text format is sufficient, even if retrieving it would return empty data.
++    QPointer<CountingMimeData> empty = new CountingMimeData(QString());
++    QVERIFY(empty->hasText());
++    clipboard->setMimeData(empty.data());
++    if (!empty || clipboard->mimeData() != empty.data())
++        QSKIP("Platform clipboard does not return the QMimeData that was set.");
++    QVERIFY(notifyDataChanged());
++    if (!empty || clipboard->mimeData() != empty.data())
++        QSKIP("Clipboard data changed while running the test.");
++    QCOMPARE(spy.size(), 2);
++    QVERIFY(textInput.canPaste());
++    QCOMPARE(empty->retrieveCount, 0);
++
++    clipboard->clear();
++}
++#endif
++
+ #if QT_CONFIG(clipboard) && QT_CONFIG(shortcut)
+ void tst_qquicktextinput::canPasteEmpty()
+ {
+-- 
+GitLab
+

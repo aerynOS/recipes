@@ -1,0 +1,51 @@
+From 006b2ebbdaf2c04789d2a2ac2353b70eda087d9f Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Robert=20L=C3=B6hning?= <robert.loehning@qt.io>
+Date: Wed, 9 Sep 2026 16:14:26 +0200
+Subject: [PATCH] Return from startElement() after parsing <style> node
+
+<style> nodes used to be handled by setting a flag in startElement(),
+then processing the node's contents in characters() and resetting the
+flag in endElement(). In addition, an item was pushed to m_skipNodes in
+startElement() and popped in endElement().
+
+This was simplified by 696599659ebd90753888240573e5c5ca5c90b053. After
+that change, QXmlStreamReader::readElementText() was called from
+startElement() to process the entire node in one pass. The mistake with
+that was that after handling the node, startElement() still proceeded to
+push an item to m_skipNodes which wasn't popped anymore because
+endElement() was not called for this node anymore. That broke rendering
+some files.
+
+This patch here returns from startElement() immediately after processing
+the <style> node.
+
+Fixes: QTBUG-150174
+Change-Id: I50e77f9ac5fc979a1183d260c07a342b7544e5f3
+Reviewed-by: Hatem ElKharashy <hatem.elkharashy@qt.io>
+(cherry picked from commit 71b565b6aab4986a2462e05d25513be2403cfde6)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/svg/qsvghandler.cpp | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/svg/qsvghandler.cpp b/src/svg/qsvghandler.cpp
+index 7e4eda62..ba222190 100644
+--- a/src/svg/qsvghandler.cpp
++++ b/src/svg/qsvghandler.cpp
+@@ -3960,8 +3960,12 @@ bool QSvgHandler::startElement(const QStringView localName,
+         }
+     } else if (ParseMethod method = findUtilFactory(localName, options())) {
+         Q_ASSERT(!m_nodes.isEmpty());
+-        if (!method(m_nodes.top(), attributes, this))
++        if (method(m_nodes.top(), attributes, this)) {
++            if (method == parseStyleNode)
++                return true;
++        } else {
+             qCWarning(lcSvgHandler, "%s", msgProblemParsing(localName, xml).constData());
++        }
+     } else if (FontFactoryMethod method = findFontFactoryMethod(localName)) {
+         QSvgFontPtr font = method(attributes, this);
+         if (font) {
+-- 
+GitLab
+

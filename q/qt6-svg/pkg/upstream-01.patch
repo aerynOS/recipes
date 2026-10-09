@@ -1,0 +1,145 @@
+From dcbacc17e60adb47deb1fd072c3488566378e701 Mon Sep 17 00:00:00 2001
+From: Hatem ElKharashy <hatem.elkharashy@qt.io>
+Date: Mon, 18 May 2026 14:02:35 +0300
+Subject: [PATCH] Simplify parsing by removing m_inStyle logic
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Remove the setter, getter, and the flag in favor of using
+QXmlStreamReader::readElementText() and simpler logic.
+
+Change-Id: Ia5b7b86d4c8a7f84ed7c07901fe72a5c8b1a83e4
+Reviewed-by: Robert Löhning <robert.loehning@qt.io>
+(cherry picked from commit 696599659ebd90753888240573e5c5ca5c90b053)
+Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
+---
+ src/svg/qsvghandler.cpp | 44 +++++++++++------------------------------
+ src/svg/qsvghandler_p.h |  5 +----
+ 2 files changed, 13 insertions(+), 36 deletions(-)
+
+diff --git a/src/svg/qsvghandler.cpp b/src/svg/qsvghandler.cpp
+index 208e8e71..4fc7d1cc 100644
+--- a/src/svg/qsvghandler.cpp
++++ b/src/svg/qsvghandler.cpp
+@@ -3067,14 +3067,10 @@ static bool parseStyleNode(QSvgNode *parent,
+                            QSvgHandler *handler)
+ {
+     Q_UNUSED(parent);
+-#ifdef QT_NO_CSSPARSER
+-    Q_UNUSED(attributes);
+-    Q_UNUSED(handler);
+-#else
++
+     const QStringView type = attributes.value(QLatin1String("type"));
+     if (type.compare(QLatin1String("text/css"), Qt::CaseInsensitive) == 0 || type.isNull())
+-        handler->setInStyle(true);
+-#endif
++        handler->readStyle();
+ 
+     return true;
+ }
+@@ -3755,9 +3751,6 @@ static const int unfinishedElementsLimit = 2048;
+ void QSvgHandler::parse()
+ {
+     xml->setNamespaceProcessing(false);
+-#ifndef QT_NO_CSSPARSER
+-    m_inStyle = false;
+-#endif
+     bool done = false;
+     int remainingUnfinishedElements = unfinishedElementsLimit;
+     while (!xml->atEnd() && !done) {
+@@ -4026,13 +4019,6 @@ bool QSvgHandler::endElement(const QStringView localName)
+     if (node == Unknown)
+         return false;
+ 
+-#ifdef QT_NO_CSSPARSER
+-    Q_UNUSED(localName);
+-#else
+-    if (m_inStyle && localName == QLatin1String("style"))
+-        m_inStyle = false;
+-#endif
+-
+     if (node == Graphics)
+         m_nodes.pop();
+ 
+@@ -4125,12 +4111,6 @@ void QSvgHandler::resolveNodes()
+ 
+ bool QSvgHandler::characters(const QStringView str)
+ {
+-#ifndef QT_NO_CSSPARSER
+-    if (m_inStyle) {
+-        m_cssHandler.parseStyleSheet(str);
+-        return true;
+-    }
+-#endif
+     if (m_skipNodes.isEmpty() || m_skipNodes.top() == Unknown || m_nodes.isEmpty())
+         return true;
+ 
+@@ -4212,16 +4192,6 @@ void QSvgHandler::setCurrentSvgFontFamily(QStringView family)
+ 
+ #ifndef QT_NO_CSSPARSER
+ 
+-void QSvgHandler::setInStyle(bool b)
+-{
+-    m_inStyle = b;
+-}
+-
+-bool QSvgHandler::inStyle() const
+-{
+-    return m_inStyle;
+-}
+-
+ QSvgCssHandler &QSvgHandler::cssHandler()
+ {
+     return m_cssHandler;
+@@ -4272,6 +4242,16 @@ bool QSvgHandler::processingInstruction(const QStringView target, const QStringV
+     return true;
+ }
+ 
++void QSvgHandler::readStyle()
++{
++#ifndef QT_NO_CSSPARSER
++    QString css = xml->readElementText();
++    m_cssHandler.parseStyleSheet(css);
++#else
++    xml->skipCurrentElement();
++#endif
++}
++
+ void QSvgHandler::setAnimPeriod(int start, int end)
+ {
+     Q_UNUSED(start);
+diff --git a/src/svg/qsvghandler_p.h b/src/svg/qsvghandler_p.h
+index cff9eff5..40e8a72d 100644
+--- a/src/svg/qsvghandler_p.h
++++ b/src/svg/qsvghandler_p.h
+@@ -82,9 +82,6 @@ public:
+     void setCurrentSvgFontFamily(QStringView family);
+ 
+ #ifndef QT_NO_CSSPARSER
+-    void setInStyle(bool b);
+-    bool inStyle() const;
+-
+     QSvgCssHandler &cssHandler();
+ #endif
+ 
+@@ -103,6 +100,7 @@ public:
+     bool endElement(const QStringView localName);
+     bool characters(const QStringView str);
+     bool processingInstruction(const QStringView target, const QStringView data);
++    void readStyle();
+ 
+ private:
+     void init();
+@@ -160,7 +158,6 @@ private:
+ 
+     QXmlStreamReader *const xml;
+ #ifndef QT_NO_CSSPARSER
+-    bool m_inStyle;
+     QSvgCssHandler m_cssHandler;
+ #endif
+     void parse();
+-- 
+GitLab
+
