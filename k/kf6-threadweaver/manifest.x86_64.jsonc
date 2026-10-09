@@ -14,7 +14,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6ThreadWeaver.so.6",
-				"/usr/lib/libKF6ThreadWeaver.so.6.30.0"
+				"/usr/lib/libKF6ThreadWeaver.so.6.31.0"
 			],
 			"name": "kf6-threadweaver",
 			"provides": [
@@ -110,6 +110,6 @@
 		}
 	},
 	"source-name": "kf6-threadweaver",
-	"source-release": "17",
-	"source-version": "6.30.0"
+	"source-release": "18",
+	"source-version": "6.31.0"
 }
