@@ -72,7 +72,7 @@
 				"soname(libimobiledevice-1.0.so.6(x86_64))",
 				"soname(libkdsoap-qt6.so.2(x86_64))",
 				"soname(libmtp.so.9(x86_64))",
-				"soname(libplist-2.0.so.4(x86_64))",
+				"soname(libplist-2.0.so.12(x86_64))",
 				"soname(libproxy.so.1(x86_64))",
 				"soname(libsmbclient.so.0(x86_64))",
 				"soname(libssh.so.4(x86_64))",
@@ -1905,6 +1905,6 @@
 		}
 	},
 	"source-name": "kio-extras",
-	"source-release": "22",
+	"source-release": "23",
 	"source-version": "26.08.2"
 }
