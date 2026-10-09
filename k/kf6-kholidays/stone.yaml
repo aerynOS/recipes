@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kholidays
-version     : "6.30.0"
-release     : 25
+version     : "6.31.0"
+release     : 26
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.30/kholidays-6.30.0.tar.xz : 02bfbc33296fe86b364491f6d5cad9d83360bb4fdd2923386a325b309eac0b9b
+    - https://download.kde.org/stable/frameworks/6.31/kholidays-6.31.0.tar.xz : bdbbe8b1ae6ad6af2116e3ca2c986a317e00f215f58ad32000e2aae2b9d7d612
 homepage    : https://community.kde.org/Frameworks
 license     :
     - BSD-2-Clause
@@ -20,8 +20,8 @@ builddeps   :
     - binary(flex)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
-    - cmake(Qt6Qml)
     - cmake(Qt6CorePrivate)
+    - cmake(Qt6Qml)
 setup       : |
     %cmake_kf6
 build       : |
