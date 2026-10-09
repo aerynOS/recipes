@@ -13,12 +13,12 @@
 				"soname(libgcc_s.so.1(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/licenses/crates/LICENSE",
-				"/usr/lib/python3.14/site-packages/ast_serialize-0.11.2.dist-info/sboms/mypy_parser.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/licenses/crates/LICENSE",
+				"/usr/lib/python3.14/site-packages/ast_serialize-0.12.1.dist-info/sboms/mypy_parser.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/ast_serialize/__init__.py",
 				"/usr/lib/python3.14/site-packages/ast_serialize/__init__.pyi",
 				"/usr/lib/python3.14/site-packages/ast_serialize/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -34,6 +34,6 @@
 		}
 	},
 	"source-name": "python-ast-serialize",
-	"source-release": "3",
-	"source-version": "0.11.2"
+	"source-release": "4",
+	"source-version": "0.12.1"
 }
