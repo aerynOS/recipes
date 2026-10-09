@@ -20,11 +20,11 @@
 			],
 			"files": [
 				"/usr/bin/hatchling",
-				"/usr/lib/python3.14/site-packages/hatchling-1.32.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/hatchling-1.32.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/hatchling-1.32.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/hatchling-1.32.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/hatchling-1.32.0.dist-info/licenses/LICENSE.txt",
+				"/usr/lib/python3.14/site-packages/hatchling-1.32.4.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/hatchling-1.32.4.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/hatchling-1.32.4.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/hatchling-1.32.4.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/hatchling-1.32.4.dist-info/licenses/LICENSE.txt",
 				"/usr/lib/python3.14/site-packages/hatchling/__about__.py",
 				"/usr/lib/python3.14/site-packages/hatchling/__init__.py",
 				"/usr/lib/python3.14/site-packages/hatchling/__main__.py",
@@ -236,6 +236,6 @@
 		}
 	},
 	"source-name": "python-hatchling",
-	"source-release": "11",
-	"source-version": "1.32.0"
+	"source-release": "12",
+	"source-version": "1.32.4"
 }
