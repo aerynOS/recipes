@@ -3,7 +3,7 @@
 
 name        : kf6-solid
 version     : "6.30.0"
-release     : 33
+release     : 34
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.30/solid-6.30.0.tar.xz : bdbfdc9f26b87e12b951097825af2956f2dee3f14c701d780277b69701f2c74e
 homepage    : https://community.kde.org/Frameworks
