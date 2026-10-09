@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-sentry-sdk
-version     : "2.70.0"
-release     : 13
+version     : "2.71.0"
+release     : 14
 homepage    : https://sentry.io/for/python
 upstreams   :
-    - https://pypi.debian.net/sentry-sdk/sentry_sdk-2.70.0.tar.gz : 27e4b512f47be93136645dbe8f02d430473ee73a389ce430b2b7104baa66cf75
+    - https://pypi.debian.net/sentry-sdk/sentry_sdk-2.71.0.tar.gz : 7beb27a22f06396f3a05510c3da6ea10e1c79e02e859993c27ce4ff074e296d6
 summary     : The official Python SDK for Sentry.io
 description : |
     The official Python SDK for Sentry.io
