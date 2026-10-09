@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-poetry-core
-version     : "2.4.1"
-release     : 6
+version     : "2.5.0"
+release     : 7
 homepage    : https://github.com/python-poetry/poetry-core
 upstreams   :
-    - https://pypi.debian.net/poetry-core/poetry_core-2.4.1.tar.gz : 89dceb6c10e9c6d8650a16183400e3c9ff9ddee13b0a81023b5575334a2b3744
+    - https://pypi.debian.net/poetry-core/poetry_core-2.5.0.tar.gz : 81d04c9253b19d0604718268d781867c8f7b2128e5b25bbf1e84141eec6b89c4
 summary     : Poetry PEP 517 Build Backend & Core Utilities
 description : |
   Poetry PEP 517 Build Backend & Core Utilities

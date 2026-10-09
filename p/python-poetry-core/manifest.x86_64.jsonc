@@ -27,6 +27,8 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/draft06.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/draft07.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/draft07.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/draft2019.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/draft2019.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/exceptions.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/exceptions.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/__pycache__/generator.cpython-314.opt-1.pyc",
@@ -40,6 +42,7 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/draft04.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/draft06.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/draft07.py",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/draft2019.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/exceptions.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/generator.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/fastjsonschema/indent.py",
@@ -170,6 +173,8 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_musllinux.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_parser.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_parser.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_ranges.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_ranges.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_structures.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_structures.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/_tokenizer.cpython-314.opt-1.pyc",
@@ -186,6 +191,8 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/metadata.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/pylock.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/pylock.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/ranges.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/ranges.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/requirements.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/requirements.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/__pycache__/specifiers.cpython-314.opt-1.pyc",
@@ -200,6 +207,7 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_manylinux.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_musllinux.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_parser.py",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_ranges.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_structures.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/_tokenizer.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/dependency_groups.py",
@@ -215,6 +223,7 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/metadata.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/py.typed",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/pylock.py",
+				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/ranges.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/requirements.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/specifiers.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/_vendor/packaging/tags.py",
@@ -466,10 +475,10 @@
 				"/usr/lib/python3.14/site-packages/poetry/core/version/pep440/segments.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/version/pep440/version.py",
 				"/usr/lib/python3.14/site-packages/poetry/core/version/requirements.py",
-				"/usr/lib/python3.14/site-packages/poetry_core-2.4.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/poetry_core-2.4.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/poetry_core-2.4.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/poetry_core-2.4.1.dist-info/licenses/LICENSE"
+				"/usr/lib/python3.14/site-packages/poetry_core-2.5.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/poetry_core-2.5.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/poetry_core-2.5.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/poetry_core-2.5.0.dist-info/licenses/LICENSE"
 			],
 			"name": "python-poetry-core",
 			"provides": [
@@ -478,6 +487,6 @@
 		}
 	},
 	"source-name": "python-poetry-core",
-	"source-release": "6",
-	"source-version": "2.4.1"
+	"source-release": "7",
+	"source-version": "2.5.0"
 }
