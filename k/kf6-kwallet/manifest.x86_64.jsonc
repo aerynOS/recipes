@@ -281,9 +281,9 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Wallet.so.6",
-				"/usr/lib/libKF6Wallet.so.6.30.0",
+				"/usr/lib/libKF6Wallet.so.6.31.0",
 				"/usr/lib/libKF6WalletBackend.so.6",
-				"/usr/lib/libKF6WalletBackend.so.6.30.0"
+				"/usr/lib/libKF6WalletBackend.so.6.31.0"
 			],
 			"name": "kf6-kwallet-libs",
 			"provides": [
@@ -293,6 +293,6 @@
 		}
 	},
 	"source-name": "kf6-kwallet",
-	"source-release": "25",
-	"source-version": "6.30.0"
+	"source-release": "26",
+	"source-version": "6.31.0"
 }
