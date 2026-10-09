@@ -3,29 +3,38 @@ From: Reilly Brogan <reilly@reillybrogan.com>
 Date: Thu, 24 Sep 2026 12:51:22 -0500
 Subject: [PATCH] stateless
 
----
- meson.build               |  2 +-
- src/config/parse_config.c | 14 ++++++++++++++
- 2 files changed, 15 insertions(+), 1 deletion(-)
+Install the default mango configuration to %(datadir)/defaults/mango instead of
+/etc/mango, and teach the config loader to fall back to that location.
 
-diff --git a/meson.build b/meson.build
-index 9367c18d..bea3f2ef 100644
+This keeps the shipped defaults in /usr (stateless) so they are owned by the
+package and are not treated as administrator-editable state. Users can still
+override them in ~/.config/mango, and administrators in /etc/mango, both of
+which continue to take precedence over the vendor defaults.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-10-09
+---
+ meson.build               |  4 ++--
+ src/config/load.c         | 12 ++++++++++++
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
 --- a/meson.build
 +++ b/meson.build
-@@ -178,7 +178,7 @@ desktop_install_dir = join_paths(prefix, 'share/wayland-sessions')
+@@ -235,8 +235,8 @@
  portal_install_dir = join_paths(prefix, 'share/xdg-desktop-portal')
  install_data('assets/mango.desktop', install_dir : desktop_install_dir)
  install_data('assets/mango-portals.conf', install_dir : portal_install_dir)
 -install_data('assets/config.conf', install_dir : join_paths(sysconfdir, 'mango'))
+-install_data('assets/config.toml', install_dir : join_paths(sysconfdir, 'mango'))
 +install_data('assets/config.conf', install_dir : join_paths('/usr/share/defaults', 'mango'))
++install_data('assets/config.toml', install_dir : join_paths('/usr/share/defaults', 'mango'))
  
  # Ship mango-session.target so that systemd user services declaring
  # WantedBy=graphical-session.target (portals, panels, ...) are started together
-diff --git a/src/config/parse_config.c b/src/config/parse_config.c
-index 60050075..9b48fcb0 100644
---- a/src/config/parse_config.c
-+++ b/src/config/parse_config.c
-@@ -39,9 +39,19 @@
+--- a/src/config/load.c
++++ b/src/config/load.c
+@@ -47,6 +47,10 @@
  #define SYSCONFDIR "/etc"
  #endif
  
@@ -33,24 +42,19 @@ index 60050075..9b48fcb0 100644
 +#define VENDORDIR "/usr/share/defaults"
 +#endif
 +
- /* Global config instance. */
  Config config;
  
-+// 整数版本 - 截断小数部分
-+#define CLAMP_INT(x, min, max)                                                 \
-+	((int32_t)(x) < (int32_t)(min)                                             \
-+		 ? (int32_t)(min)                                                      \
-+		 : ((int32_t)(x) > (int32_t)(max) ? (int32_t)(max) : (int32_t)(x)))
-+
- /* Default jump-label character sequence (used when jump_labels is not
-  * configured). */
  const char default_jump_labels[] = "HJKLASDFGQWERTYUIOPZXCVBNM";
-@@ -4411,6 +4421,10 @@ bool parse_config(void) {
- 			// Uses /etc/mango/config.conf when the file does not exist.
- 			snprintf(filename, sizeof(filename), "%s/mango/config.conf",
- 					 SYSCONFDIR);
+@@ -402,6 +406,14 @@
+ 				snprintf(filename, sizeof(filename), "%s/mango/config.toml",
+ 						 SYSCONFDIR);
+ 			}
 +			if (access(filename, F_OK) != 0) {
 +				snprintf(filename, sizeof(filename), "%s/mango/config.conf",
++						 VENDORDIR);
++			}
++			if (access(filename, F_OK) != 0) {
++				snprintf(filename, sizeof(filename), "%s/mango/config.toml",
 +						 VENDORDIR);
 +			}
  		}

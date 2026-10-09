@@ -25,6 +25,7 @@
 				"soname(libpcre2-8.so.0(x86_64))",
 				"soname(libpixman-1.so.0(x86_64))",
 				"soname(libscenefx-0.5.so(x86_64))",
+				"soname(libwayland-client.so.0(x86_64))",
 				"soname(libwayland-server.so.0(x86_64))",
 				"soname(libwlroots-0.20.so(x86_64))",
 				"soname(libxcb-icccm.so.4(x86_64))",
@@ -34,9 +35,12 @@
 			],
 			"files": [
 				"/usr/bin/mango",
+				"/usr/bin/mangonag",
 				"/usr/bin/mmsg",
 				"/usr/lib/systemd/user/mango-session.target",
 				"/usr/share/defaults/mango/config.conf",
+				"/usr/share/defaults/mango/config.toml",
+				"/usr/share/man/man1/mangonag.1",
 				"/usr/share/man/man1/mmsg.1",
 				"/usr/share/wayland-sessions/mango.desktop",
 				"/usr/share/xdg-desktop-portal/mango-portals.conf"
@@ -44,11 +48,12 @@
 			"name": "mangowm",
 			"provides": [
 				"binary(mango)",
+				"binary(mangonag)",
 				"binary(mmsg)"
 			]
 		}
 	},
 	"source-name": "mangowm",
-	"source-release": "9",
-	"source-version": "0.17.5"
+	"source-release": "10",
+	"source-version": "0.18.0"
 }
