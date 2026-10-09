@@ -19,10 +19,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/meson_python-0.22.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/meson_python-0.22.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/meson_python-0.22.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/meson_python-0.22.0.dist-info/licenses/LICENSES/MIT.txt",
+				"/usr/lib/python3.14/site-packages/meson_python-0.22.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/meson_python-0.22.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/meson_python-0.22.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/meson_python-0.22.1.dist-info/licenses/LICENSES/MIT.txt",
 				"/usr/lib/python3.14/site-packages/mesonpy/__init__.py",
 				"/usr/lib/python3.14/site-packages/mesonpy/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/mesonpy/__pycache__/__init__.cpython-314.pyc",
@@ -49,6 +49,6 @@
 		}
 	},
 	"source-name": "python-meson-python",
-	"source-release": "5",
-	"source-version": "0.22.0"
+	"source-release": "6",
+	"source-version": "0.22.1"
 }
