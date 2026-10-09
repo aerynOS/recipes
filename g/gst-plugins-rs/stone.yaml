@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gst-plugins-rs
-version     : "1.28.7"
-release     : 23
+version     : "1.28.8"
+release     : 24
 homepage    : https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 upstreams   :
-    - https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.7/gst-plugins-rs-gstreamer-1.28.7.tar.gz : 68c71e71858ae4feb8f7e995d466509f0c9181ba8a42e63464a48841e75ec7b0
+    - https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.8/gst-plugins-rs-gstreamer-1.28.8.tar.gz : 949ce5a2c78660fff7862995c1918c2114decf914e1e6e928eca61c7f1e1edb9
 summary     : GStreamer plugins written in Rust.
 description : |
     These plugins can be used by applications written in other programming languages as well of course, they are just like any other GStreamer plugins available on the system.
