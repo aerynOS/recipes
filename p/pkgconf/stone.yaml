@@ -2,16 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pkgconf
-version     : "3.0.7"
-release     : 15
+version     : "3.0.8"
+release     : 16
 summary     : Package compiler and linker metadata toolkit
 license     : ISC
 homepage    : https://gitea.treehouse.systems/ariadne/pkgconf
 description : |
     Package compiler and linker metadata toolkit
 upstreams   :
-    - https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.7.tar.gz: 028889796fd6d556e019d35b8e8d68d321cbb5cf9827d3ea7653625629641345
+    - https://distfiles.ariadne.space/pkgconf/pkgconf-3.0.8.tar.gz: 154b255abcd6d337f497e60707cbfaa3f33e165202a231a5cb958a8167d5b4a0
 setup       : |
+    # 3.0.8 dist tarball is missing tests/api/test-util.c, which breaks meson setup.
+    # Remove this patch when updating to 3.0.9 (or later with a fixed tarball).
+    %patch %(pkgdir)/0001-meson-drop-broken-api-util-test.patch
+
     %meson
 build       : |
     %meson_build
