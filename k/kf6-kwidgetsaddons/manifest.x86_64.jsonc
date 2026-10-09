@@ -15,7 +15,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6WidgetsAddons.so.6",
-				"/usr/lib/libKF6WidgetsAddons.so.6.30.0",
+				"/usr/lib/libKF6WidgetsAddons.so.6.31.0",
 				"/usr/share/locale/af/LC_MESSAGES/kwidgetsaddons6_qt.qm",
 				"/usr/share/locale/ar/LC_MESSAGES/kwidgetsaddons6_qt.qm",
 				"/usr/share/locale/as/LC_MESSAGES/kwidgetsaddons6_qt.qm",
@@ -322,6 +322,6 @@
 		}
 	},
 	"source-name": "kf6-kwidgetsaddons",
-	"source-release": "22",
-	"source-version": "6.30.0"
+	"source-release": "23",
+	"source-version": "6.31.0"
 }
