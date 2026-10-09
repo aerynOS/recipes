@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-dotenv
-version     : "1.2.3"
-release     : 3
+version     : "1.2.4"
+release     : 4
 homepage    : https://github.com/theskumar/python-dotenv
 upstreams   :
-    - https://github.com/theskumar/python-dotenv/archive/refs/tags/v1.2.3.tar.gz : 9eb0d71fb09f8bae3b604508751a37bd8ae478d0d27457e3bd2e7479558a2a0e
+    - https://github.com/theskumar/python-dotenv/archive/refs/tags/v1.2.4.tar.gz : 5ce3633ec9607b8a949aa457f0c7e8438af50d01d4bcc0784f679bc5171711c4
 summary     : Reads key-value pairs from a .env file and can set them as environment variables.
 description : |
     python-dotenv reads key-value pairs from a .env file and can set them as environment variables. It helps in the development of applications following the 12-factor principles.
