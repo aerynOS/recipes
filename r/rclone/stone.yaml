@@ -2,23 +2,21 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : rclone
-version     : "1.75.1"
-release     : 6
+version     : "1.75.2"
+release     : 7
 homepage    : https://rclone.org/
 upstreams   :
-    - https://github.com/rclone/rclone/archive/refs/tags/v1.75.1.tar.gz : fcc9351ab3976c73b4824cf7919f98f911f2442a606e2910fc2bd562111da220
+    - https://github.com/rclone/rclone/archive/refs/tags/v1.75.2.tar.gz : 68afd7f68c84bd978966feae2116339aa7bf454b39c573910c462e87c3774d5a
 summary     : Sync files to and from many cloud storage providers
 description : |
     Rclone is a command line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces and supports more than 70 cloud storage products including S3 object stores, business & consumer file storage services, as well as standard transfer protocols.
-license     :
-    - MIT
+license     : MIT
 networking  : true
 setup       : |
     %go_mod
 build       : |
-    export GOFLAGS+=" -ldflags=-X=github.com/rclone/rclone/fs.Version=v%(version)"
-    go build -v -tags noselfupdate
-    
+    %make TAG=v%(version) GOTAGS=noselfupdate
+
     ./rclone genautocomplete bash rclone.bash_completion
     ./rclone genautocomplete zsh rclone.zsh_completion
     ./rclone genautocomplete fish rclone.fish_completion
