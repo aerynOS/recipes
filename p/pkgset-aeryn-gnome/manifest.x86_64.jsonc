@@ -27,8 +27,7 @@
 				"gnome-desktop-defaults",
 				"gst-thumbnailers",
 				"networkmanager-openvpn-gnome",
-				"pkgset-aeryn-base-desktop",
-				"sysbinary(gdm)"
+				"pkgset-aeryn-base-desktop"
 			],
 			"files": [
 				"/usr/share/doc/pkgset-aeryn-gnome-minimal/README"
@@ -61,6 +60,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn-gnome",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "2026.10"
 }

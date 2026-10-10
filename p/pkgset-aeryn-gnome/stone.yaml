@@ -3,7 +3,7 @@
 
 name        : pkgset-aeryn-gnome
 version     : "2026.10" # I guess let's just match the OS version for now
-release     : 9
+release     : 10
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : pkgset virtual packages - GNOME Desktop
@@ -34,7 +34,6 @@ packages    :
             - gnome-desktop-defaults
             - gst-thumbnailers
             - pkgset-aeryn-base-desktop
-            - sysbinary(gdm)
             # Required for display of OpenVPN settings in gnome-control-center
             - networkmanager-openvpn-gnome
         paths:
