@@ -1,0 +1,5 @@
+releases:
+  id: 369944
+  rss: https://github.com/ProtonVPN/python-proton-vpn-api-core/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-08-19)

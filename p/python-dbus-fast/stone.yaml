@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : dbus_fast
+version     : "5.0.22"
+release     : 1
+homepage    : https://files.pythonhosted.org/packages/source/d/dbus_fast
+upstreams   :
+    - https://files.pythonhosted.org/packages/source/d/dbus_fast/dbus_fast-5.0.22.tar.gz : 34dc67d7d21a12399828dd13e63b352750580beea54ea7c729e708f2d2905fef
+summary     : A faster version of dbus-next
+description : |
+    A faster version of dbus-next
+license     : MIT
+builddeps   :
+    - binary(cython)
+    - pkgconfig(python3)
+    - python(build)
+    - python(installer)
+    - python(setuptools)
+    - python(wheel)
+build       : |
+    %python_setup
+install     : |
+    %python_install
