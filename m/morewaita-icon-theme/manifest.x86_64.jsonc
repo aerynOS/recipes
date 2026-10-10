@@ -113,8 +113,8 @@
 				"/usr/share/icons/MoreWaita/16x16/places/folder-mega.svg",
 				"/usr/share/icons/MoreWaita/16x16/places/folder-money-legacy.svg",
 				"/usr/share/icons/MoreWaita/16x16/places/folder-money.svg",
-				"/usr/share/icons/MoreWaita/16x16/places/folder-musecore-legacy.svg",
-				"/usr/share/icons/MoreWaita/16x16/places/folder-musecore.svg",
+				"/usr/share/icons/MoreWaita/16x16/places/folder-musescore-legacy.svg",
+				"/usr/share/icons/MoreWaita/16x16/places/folder-musescore.svg",
 				"/usr/share/icons/MoreWaita/16x16/places/folder-neovim-legacy.svg",
 				"/usr/share/icons/MoreWaita/16x16/places/folder-neovim.svg",
 				"/usr/share/icons/MoreWaita/16x16/places/folder-nextcloud-legacy.svg",
@@ -4090,6 +4090,6 @@
 		}
 	},
 	"source-name": "morewaita-icon-theme",
-	"source-release": "12",
-	"source-version": "50"
+	"source-release": "13",
+	"source-version": "50.1"
 }
