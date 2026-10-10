@@ -12,7 +12,7 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libtcl9.0.so(x86_64))"
+				"soname(libtcl9.1.so(x86_64))"
 			],
 			"files": [
 				"/usr/bin/autoexpect",
@@ -31,7 +31,7 @@
 				"/usr/bin/weather",
 				"/usr/bin/xkibitz",
 				"/usr/lib/libexpect5.45.4.so",
-				"/usr/lib/tcl9.0/expect5.45.4/pkgIndex.tcl",
+				"/usr/lib/tcl9.1/expect5.45.4/pkgIndex.tcl",
 				"/usr/share/man/man1/autoexpect.1",
 				"/usr/share/man/man1/dislocate.1",
 				"/usr/share/man/man1/expect.1",
@@ -106,6 +106,6 @@
 		}
 	},
 	"source-name": "expect",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "5.45.4"
 }
