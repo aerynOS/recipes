@@ -3,7 +3,7 @@
 
 name        : system76-scheduler
 version     : "2.0.2"
-release     : 6
+release     : 7
 homepage    : https://github.com/pop-os/system76-scheduler
 upstreams   :
     - https://github.com/pop-os/system76-scheduler/archive/refs/tags/2.0.2.tar.gz : 8fc1845136fd2b346617599d3e01df32584d6d1974381ce36c8e33338d1a2867
@@ -22,6 +22,7 @@ rundeps     :
 setup       : |
     %patch %(pkgdir)/0001-aerynos-execsnoop.patch
     %patch %(pkgdir)/126.patch
+    %patch %(pkgdir)/129.patch
 
     %cargo_fetch
 build       : |
