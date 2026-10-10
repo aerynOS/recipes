@@ -1,0 +1,101 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"kf6-kirigami-app-components": {
+			"build-depends": [
+				"cmake(ECM)",
+				"cmake(KF6Config)",
+				"cmake(KF6GuiAddons)",
+				"cmake(KF6I18n)",
+				"cmake(KF6KirigamiPlatform)",
+				"cmake(Qt6Quick)"
+			],
+			"depends": [
+				"soname(libKF6ConfigCore.so.6(x86_64))",
+				"soname(libKF6ConfigGui.so.6(x86_64))",
+				"soname(libKF6GuiAddons.so.6(x86_64))",
+				"soname(libKF6I18n.so.6(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Qml.so.6(x86_64))",
+				"soname(libQt6Quick.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libKirigamiActionCollection.so.1.1.1",
+				"/usr/lib/libKirigamiActionCollection.so.6",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/ActionCollectionManager.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/ActionsExplorer.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/KeySequenceItem.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/KirigamiActionCollection.qmltypes",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/ShortcutsEditor.qml",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/kde-qmlmodule.version",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/libKirigamiActionCollectionplugin.so",
+				"/usr/lib/qt6/qml/org/kde/kirigami/actioncollection/qmldir",
+				"/usr/share/locale/ar/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/ca/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/ca@valencia/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/de/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/es/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/eu/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/fi/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/fr/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/he/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/it/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/ka/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/ko/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/lt/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/nl/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/nn/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/pt_BR/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/sk/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/sl/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/ta/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/tr/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/uk/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/zh_CN/LC_MESSAGES/kirigami-app-components.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/kirigami-app-components.mo"
+			],
+			"name": "kf6-kirigami-app-components",
+			"provides": [
+				"soname(libKirigamiActionCollection.so.6(x86_64))",
+				"soname(qt6/qml/org/kde/kirigami/actioncollection/libKirigamiActionCollectionplugin.so(x86_64))"
+			]
+		},
+		"kf6-kirigami-app-components-devel": {
+			"build-depends": [
+				"cmake(ECM)",
+				"cmake(KF6Config)",
+				"cmake(KF6GuiAddons)",
+				"cmake(KF6I18n)",
+				"cmake(KF6KirigamiPlatform)",
+				"cmake(Qt6Quick)"
+			],
+			"depends": [
+				"kf6-kirigami-app-components"
+			],
+			"files": [
+				"/usr/include/KF6/Kirigami/ActionCollection/ActionCollection",
+				"/usr/include/KF6/Kirigami/ActionCollection/ActionCollections",
+				"/usr/include/KF6/Kirigami/ActionCollection/actioncollection.h",
+				"/usr/include/KF6/Kirigami/ActionCollection/actioncollections.h",
+				"/usr/include/KF6/Kirigami/ActionCollection/kirigamiactioncollection_export.h",
+				"/usr/include/KF6/Kirigami/ActionCollection/kirigamiactioncollection_version.h",
+				"/usr/lib/cmake/KF6KirigamiAppComponents/KF6KirigamiAppComponentsConfig.cmake",
+				"/usr/lib/cmake/KF6KirigamiAppComponents/KF6KirigamiAppComponentsConfigVersion.cmake",
+				"/usr/lib/cmake/KF6KirigamiAppComponents/KirigamiAppComponentsTargets-release.cmake",
+				"/usr/lib/cmake/KF6KirigamiAppComponents/KirigamiAppComponentsTargets.cmake",
+				"/usr/lib/libKirigamiActionCollection.so"
+			],
+			"name": "kf6-kirigami-app-components-devel",
+			"provides": [
+				"cmake(KF6KirigamiAppComponents)"
+			]
+		}
+	},
+	"source-name": "kf6-kirigami-app-components",
+	"source-release": "1",
+	"source-version": "1.1.1"
+}
