@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : aom
-version     : "3.15.1"
-release     : 13
+version     : "3.15.2"
+release     : 14
 homepage    : https://aomedia.googlesource.com/aom/
 upstreams   :
-    - git|https://aomedia.googlesource.com/aom.git : 07a36fde37aaab02f00e210c4c5035310b94213d # v3.15.1
+    - git|https://aomedia.googlesource.com/aom.git : c9b4080ed2904c633cba35c9fe7d4abf2338deb6 # v3.15.2
 summary     : AV1 codec
 description : |
     The Alliance for Open Media's focus is to deliver a next-generation video format that is:

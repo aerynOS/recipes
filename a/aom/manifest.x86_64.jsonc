@@ -19,7 +19,7 @@
 				"/usr/bin/aomdec",
 				"/usr/bin/aomenc",
 				"/usr/lib/libaom.so.3",
-				"/usr/lib/libaom.so.3.15.1"
+				"/usr/lib/libaom.so.3.15.2"
 			],
 			"name": "aom",
 			"provides": [
@@ -65,6 +65,6 @@
 		}
 	},
 	"source-name": "aom",
-	"source-release": "13",
-	"source-version": "3.15.1"
+	"source-release": "14",
+	"source-version": "3.15.2"
 }
