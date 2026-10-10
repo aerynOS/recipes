@@ -20,6 +20,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libdbus-1.so.3(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
 				"soname(libgio-2.0.so.0(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
@@ -37,6 +38,6 @@
 		}
 	},
 	"source-name": "riftbar",
-	"source-release": "3",
-	"source-version": "0.1.8"
+	"source-release": "4",
+	"source-version": "0.2.7"
 }
