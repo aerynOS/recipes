@@ -3,7 +3,7 @@
 
 name        : systemd
 version     : "261.3"
-release     : 100
+release     : 101
 summary     : A System and Service Manager
 license     :
     - GPL-2.0-or-later
@@ -27,7 +27,6 @@ builddeps   :
     - pkgconfig(dbus-1)
     - pkgconfig(fdisk)
     - pkgconfig(glib-2.0)
-    # - pkgconfig(gpg-error)
     - pkgconfig(libacl)
     - pkgconfig(libarchive)
     - pkgconfig(libattr)
@@ -89,6 +88,7 @@ setup       : |
     %patch %(pkgdir)/patches/downstream/0001-Don-t-build-32bit-EFI-stub.patch
 
     # Upstream patches
+    %patch %(pkgdir)/patches/upstream/0001-nss-systemd-copy-PASSWORD_SEE_SHADOW-into-the-group-.patch
 
     _IS_64BIT_BOOL="true"
     _IS_64BIT_FEAT="enabled"
