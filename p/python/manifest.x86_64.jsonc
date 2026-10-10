@@ -3453,8 +3453,8 @@
 			"depends": [
 				"python",
 				"soname(libc.so.6(x86_64))",
-				"soname(libtcl9.0.so(x86_64))",
-				"soname(libtcl9tk9.0.so(x86_64))"
+				"soname(libtcl9.1.so(x86_64))",
+				"soname(libtcl9tk9.1.so(x86_64))"
 			],
 			"files": [
 				"/usr/lib/python3.14/__pycache__/turtle.cpython-314.opt-1.pyc",
@@ -3607,6 +3607,6 @@
 		}
 	},
 	"source-name": "python",
-	"source-release": "27",
+	"source-release": "28",
 	"source-version": "3.14.8"
 }
