@@ -25,6 +25,6 @@
 		}
 	},
 	"source-name": "rclone",
-	"source-release": "6",
-	"source-version": "1.75.1"
+	"source-release": "7",
+	"source-version": "1.75.2"
 }
