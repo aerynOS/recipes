@@ -2,23 +2,24 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tk
-version     : "9.0.4"
-release     : 4
-upstreams   :
-    - http://download.sourceforge.net/sourceforge/tcl/tk9.0.4-src.tar.gz : d7a146d2917eb8b5cc95276dbf0e3d03c7464d2b19c1675357857c989301dbb4
+version     : "9.1.0"
+release     : 5
 homepage    : https://tcl.sourceforge.net
-license     : TCL AND HPND-Pbmplus AND CC-BY-SA-3.0 AND MIT-open-group AND MIT
+upstreams   :
+    - http://download.sourceforge.net/sourceforge/tcl/tk9.1.0-src.tar.gz : 772ce7a97c07c2db4c957c93af7ab4dff4bd3037772836b6afbcd0974023b3d6
 summary     : The graphical toolkit for the Tcl scripting language
 description : |
     When paired with the Tcl scripting language, Tk provides a fast and powerful
     way to create cross-platform GUI applications.
+license     : TCL AND HPND-Pbmplus AND CC-BY-SA-3.0 AND MIT-open-group AND MIT
 builddeps   :
     - pkgconfig(cups)
+    - pkgconfig(harfbuzz)
     - pkgconfig(tcl)
     - pkgconfig(x11)
     - pkgconfig(xext)
-    - pkgconfig(xscrnsaver)
     - pkgconfig(xft)
+    - pkgconfig(xscrnsaver)
 environment : |
     _version_major=$(echo %(version) | cut -d. -f1)
     _version_major_minor=$(echo %(version) | cut -d. -f1-2)
