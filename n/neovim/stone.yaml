@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : neovim
-version     : "0.12.5"
-release     : 5
+version     : "0.12.6"
+release     : 6
 homepage    : https://neovim.io/
 upstreams   :
-    - https://github.com/neovim/neovim/archive/refs/tags/v0.12.5.tar.gz : a810c95332317bd0017e1ca07e376a8472c79075cbed00fa3737d190a8a0a45a
+    - https://github.com/neovim/neovim/archive/refs/tags/v0.12.6.tar.gz : 8629fdc5eb951daf89a76f68cad12f2f1e03fab0d539150ba3fe6d177d254b7f
 summary     : Vim-fork focused on extensibility and usability
 description : |
     Neovim is a project that seeks to aggressively refactor Vim.
