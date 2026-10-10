@@ -1,0 +1,7 @@
+releases:
+  id: 9463
+  rss: https://github.com/OSGeo/PROJ/releases.atom
+security:
+  cpe:
+  - vendor: proj_project
+    product: proj

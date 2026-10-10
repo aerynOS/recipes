@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : proj
+version     : "9.8.1"
+release     : 1
+homepage    : https://github.com/OSGeo/PROJ
+upstreams   :
+    - https://github.com/OSGeo/PROJ/releases/download/9.8.1/proj-9.8.1.tar.gz : af5b731c145c1d13c4e3b4eeb7d167e94e845e440f71e3496b4ed8dae0291960
+summary     : Cartographic Projections and Coordinate Transformations Library
+description : |
+    Cartographic Projections and Coordinate Transformations Library
+license     : MIT
+rundeps     :
+    - curl
+    - libtiff
+    - sqlite
+builddeps   :
+    - cmake
+    - curl-devel
+    - git
+    - libglib-testing
+    - libtiff-devel
+    - sqlite-devel
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+    %install_file COPYING -t %(installroot)%(datadir)/licenses/%(name)/
+check     : |
+    %cmake_test
