@@ -3,6 +3,6 @@
 
 releases:
   id: 388475
-  rss: https://github.com/BinaryHarbinger/riftbar/releases.atom
+  rss: https://codeberg.org/sorashii/riftbar/tags.rss
 security:
   cpe: ~ # No CPE found, last checked (2026-02-21)
