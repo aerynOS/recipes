@@ -19,7 +19,7 @@
 			"files": [
 				"/usr/bin/sqlite3",
 				"/usr/lib/libsqlite3.so.0",
-				"/usr/lib/libsqlite3.so.3.53.4",
+				"/usr/lib/libsqlite3.so.3.54.0",
 				"/usr/share/man/man1/sqlite3.1"
 			],
 			"name": "sqlite",
@@ -42,7 +42,7 @@
 			],
 			"files": [
 				"/usr/lib32/libsqlite3.so.0",
-				"/usr/lib32/libsqlite3.so.3.53.4"
+				"/usr/lib32/libsqlite3.so.3.54.0"
 			],
 			"name": "sqlite-32bit",
 			"provides": [
@@ -90,6 +90,6 @@
 		}
 	},
 	"source-name": "sqlite",
-	"source-release": "23",
-	"source-version": "3.53.4"
+	"source-release": "24",
+	"source-version": "3.54.0"
 }
