@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : maven
-version     : 3.9.16
-release     : 4
+version     : "3.10.0"
+release     : 5
 homepage    : https://maven.apache.org
 upstreams   :
-    - https://dlcdn.apache.org/maven/maven-3/3.9.16/source/apache-maven-3.9.16-src.tar.gz:
-        hash: f7031b091ad75a226a06a0c092cbf05860dcfc16d140e6da997e6c6b62dbd03c
+    - https://dlcdn.apache.org/maven/maven-3/3.10.0/source/apache-maven-3.10.0-src.tar.gz:
+        hash: aa4d8ff3b71b636e6826b91695062d909ea6949a27e3442dd2762d8459439df9
         unpackdir: "maven"
 
     # Comment out this section if bootstrapping isn't necessary
@@ -35,7 +35,10 @@ environment : |
         export PATH="%(workdir)/bootstrap/bin:$PATH"
     fi
 setup       : |
-    mvn dependency:go-offline
+    # org.eclipse.m2e:lifecycle-mapping is an m2e IDE-only artifact that is not
+    # published to Maven Central; exclude it so dependency:go-offline succeeds
+    mvn dependency:go-offline \
+        -DexcludeGroupIds=org.eclipse.m2e
 build       : |
     mvn compile \
         -DdistributionTargetDir="%(installroot)${_maven_dir}" \
@@ -46,6 +49,10 @@ install     : |
         -DdistributionTargetDir="%(installroot)${_maven_dir}" \
         -Drat.skip=true \
         -DskipTests
+
+    # Only keep the Linux x86_64 JLine native library
+    rm -rf %(installroot)${_maven_dir}/lib/jline-native/{FreeBSD,Windows} \
+           %(installroot)${_maven_dir}/lib/jline-native/Linux/{arm,arm64,armv6,armv7,ppc64,x86}
 
     %install_dir %(installroot)/usr/bin
     ln -srv %(installroot)${_maven_dir}/bin/mvn %(installroot)%(bindir)/mvn
