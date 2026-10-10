@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : passt
-version     : "2026_06_11.a9c61ff"
-release     : 4
+version     : "2026_10_02.cba3570"
+release     : 5
 homepage    : https://passt.top/passt/about/
 upstreams   :
-    - https://passt.top/passt/snapshot/passt-2026_06_11.a9c61ff.tar.zst : 9df3815aaf17c4cbc9862115e8bc15664e2794b54a3a8d584bba6b9021748a02
+    - https://passt.top/passt/snapshot/passt-2026_10_02.cba3570.tar.zst : e56b9695239eae3675ba461a4d70bdf3840599f82e5cefe0f1a1fe185f1f128d
 summary     : User-mode networking daemons for virtual machines and namespaces
 description : |
     passt implements a translation layer between a Layer-2 network interface and

@@ -14,14 +14,12 @@
 				"/usr/bin/pasta",
 				"/usr/bin/pasta.avx2",
 				"/usr/bin/pesto",
-				"/usr/bin/qrap",
 				"/usr/share/doc/passt/README.md",
 				"/usr/share/doc/passt/demo.sh",
 				"/usr/share/man/man1/passt-repair.1",
 				"/usr/share/man/man1/passt.1",
 				"/usr/share/man/man1/pasta.1",
-				"/usr/share/man/man1/pesto.1",
-				"/usr/share/man/man1/qrap.1"
+				"/usr/share/man/man1/pesto.1"
 			],
 			"name": "passt",
 			"provides": [
@@ -30,12 +28,11 @@
 				"binary(passt.avx2)",
 				"binary(pasta)",
 				"binary(pasta.avx2)",
-				"binary(pesto)",
-				"binary(qrap)"
+				"binary(pesto)"
 			]
 		}
 	},
 	"source-name": "passt",
-	"source-release": "4",
-	"source-version": "2026_06_11.a9c61ff"
+	"source-release": "5",
+	"source-version": "2026_10_02.cba3570"
 }
