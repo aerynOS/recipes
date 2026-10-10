@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : rage
+version     : "0.12.1"
+release     : 1
+homepage    : https://github.com/str4d/rage
+upstreams   :
+    - https://github.com/str4d/rage/archive/refs/tags/v0.12.1.tar.gz : 3684e7e269a677180db116cb8115b008ea462dbb6f223f6983dd6750a863afaa
+summary     : File encryption tool
+description : |
+    A simple and featureful file encryption tool based on Age/v1 protocol and UNIX-style composability
+license     : 
+    - Apache-2.0
+    - MIT
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+check       : |
+    %cargo_test
