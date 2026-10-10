@@ -1,0 +1,4 @@
+solver:
+  ignore:
+  - libcap #: { auxdep: "It doesn't make sense for libcap-ng to induce a rebuild of brotli"}
+  - cryptsetup #: { auxdep: "It doesn't make sense for cryptsetup to induce a rebuild of brotli"}

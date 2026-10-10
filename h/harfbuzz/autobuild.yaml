@@ -1,0 +1,3 @@
+solver:
+  ignore:
+  - freetype #: { auxdep: "It doesn't make sense for freetype to induce a rebuild of harfbuzz"}
