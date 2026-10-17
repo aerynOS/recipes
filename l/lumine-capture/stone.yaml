@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lumine-capture
-version     : "0.2.0"
-release     : 1
+version     : "0.3.0"
+release     : 2
 homepage    : https://github.com/Netflate/LumineCapture
 upstreams   :
-    - https://github.com/Netflate/LumineCapture/archive/refs/tags/v0.2.0.tar.gz : 23d96d3adbc43429f42322afd72ae608327da255e8ed570222e858e22d52754c
+    - https://github.com/Netflate/LumineCapture/archive/refs/tags/v0.3.0.tar.gz : 190ff87948213767d1636be82f70fda1521daf6970f083ef05d3a259aedb5b7c
 summary     : Fast, lightweight Wayland screenshot tool
 description : |
     Screenshot and annotation tool for Wayland with built-in OCR (OCR models are downloaded at runtime)
