@@ -38,6 +38,7 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+    %install_file %(pkgdir)/50-udisks2.rules -t %(installroot)%(vendordir)/polkit-1/rules.d/
 packages    :
     - "%(name)-libs":
         summary: "Library files for %(name)"
