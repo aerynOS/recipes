@@ -1,0 +1,55 @@
+From ef2b064e72cb9b71f5aa11cf7ce2dd67bce2033c Mon Sep 17 00:00:00 2001
+From: Joshua Strobl <me@joshuastrobl.com>
+Date: Wed, 14 Oct 2026 10:17:43 +0300
+Subject: [PATCH 1/1] screencast: Fall back to slurp when no dmenu chooser is
+ available
+
+The default chooser list skips slurp unless the request is for monitors
+only. When the compositor supports toplevel capture, clients such as OBS
+request MONITOR | WINDOW, so on a system without any of the dmenu-style
+choosers the request failed even though slurp was installed.
+
+Keep the dmenu choosers first for mixed requests, since slurp cannot
+select toplevels, and try slurp for outputs once all of them have failed
+to run.
+
+Signed-off-by: Joshua Strobl <me@joshuastrobl.com>
+---
+ src/screencast/chooser.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/src/screencast/chooser.c b/src/screencast/chooser.c
+index 7d66898..cb2ff25 100644
+--- a/src/screencast/chooser.c
++++ b/src/screencast/chooser.c
+@@ -232,9 +232,15 @@ static bool wlr_chooser_default(struct xdpw_screencast_context *ctx, struct xdpw
+ 
+ 	size_t N = sizeof(default_chooser)/sizeof(default_chooser[0]);
+ 	bool ret;
++	const struct xdpw_chooser *fallback = NULL;
+ 	for (size_t i = 0; i<N; i++) {
+ 		const struct xdpw_chooser *chooser = &default_chooser[i];
++		// Simple choosers can only select outputs, so when toplevels are also requested,
++		// defer them until every dmenu chooser has failed
+ 		if (chooser->type == XDPW_CHOOSER_SIMPLE && type_mask != MONITOR) {
++			if (!fallback && (type_mask & MONITOR)) {
++				fallback = chooser;
++			}
+ 			continue;
+ 		}
+ 		ret = wlr_chooser(chooser, ctx, target, type_mask);
+@@ -245,6 +251,11 @@ static bool wlr_chooser_default(struct xdpw_screencast_context *ctx, struct xdpw
+ 		}
+ 		return target->output || target->toplevel;
+ 	}
++
++	// If a dmenu chooser isn't available for toplevels, then try a simple loader to get monitors
++	if (fallback && wlr_chooser(fallback, ctx, target, MONITOR)) {
++		return target->output || target->toplevel;
++	}
+ 	return false;
+ }
+ 
+-- 
+2.56.0
+
