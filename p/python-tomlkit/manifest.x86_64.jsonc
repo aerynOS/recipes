@@ -11,10 +11,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/tomlkit-0.15.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/tomlkit-0.15.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/tomlkit-0.15.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/tomlkit-0.15.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/tomlkit-0.15.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/tomlkit-0.15.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/tomlkit-0.15.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/tomlkit-0.15.2.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/tomlkit/__init__.py",
 				"/usr/lib/python3.14/site-packages/tomlkit/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/tomlkit/__pycache__/__init__.cpython-314.pyc",
@@ -60,6 +60,6 @@
 		}
 	},
 	"source-name": "python-tomlkit",
-	"source-release": "1",
-	"source-version": "0.15.1"
+	"source-release": "2",
+	"source-version": "0.15.2"
 }

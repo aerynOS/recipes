@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-platformdirs
-version     : "4.13.0"
-release     : 11
-homepage    : https://github.com/tox-dev/platformdirs
+version     : "4.13.4"
+release     : 12
+homepage    : https://platformdirs.readthedocs.io/en/latest/
 upstreams   :
-    - https://pypi.debian.net/platformdirs/platformdirs-4.13.0.tar.gz : 1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0
+    - https://pypi.debian.net/platformdirs/platformdirs-4.13.4.tar.gz : dd96496961684a7f42041923f842ec7494e09f5e87aded99117e1109cd40570e
 summary     : A library to determine platform-specific system directories
 description : |
     A library to determine platform-specific system directories

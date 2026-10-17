@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-distlib
-version     : "0.4.3"
-release     : 4
+version     : "0.4.4"
+release     : 5
 homepage    : https://github.com/pypa/distlib
 upstreams   :
-  - https://pypi.debian.net/distlib/distlib-0.4.3.tar.gz: f152097224a0ae24be5a0f6bae1b9359af82133bce63f98a95f86cae1aede9ed
+  - https://pypi.debian.net/distlib/distlib-0.4.4.tar.gz: ca4175b4ac7f71223cc30ed7248c45d2b38c2439d8ee6e498ab67ed63cf3508d
 license     : PSF-2.0
 summary     : Low-level components of distutils2/packaging
 description : |

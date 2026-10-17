@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-virtualenv
-version     : "21.14.7"
-release     : 12
+version     : "21.14.10"
+release     : 13
 homepage    : https://virtualenv.pypa.io/
 upstreams:
-  - https://pypi.debian.net/virtualenv/virtualenv-21.14.7.tar.gz: 5f427d56f39eb7e7447d641dd4b7ab1e9c92793f498f35f26da2e4972c5546ae
+  - https://pypi.debian.net/virtualenv/virtualenv-21.14.10.tar.gz: f733501a49404c91b5bb1d34d107073b8f4b93a9a1ddb7e9a950eb8ce60f38ad
 license     : MIT
 summary     : Tool to create isolated 'virtual' python environments
 description : |

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pluggy
-version     : "1.6.0"
-release     : 7
-homepage    : https://pypi.org/project/pluggy
+version     : "1.7.0"
+release     : 8
+homepage    : https://pluggy.readthedocs.io/en/latest/index.html
 upstreams   :
-    - https://pypi.debian.net/pluggy/pluggy-1.6.0.tar.gz : 7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3
+    - https://pypi.debian.net/pluggy/pluggy-1.7.0.tar.gz : d1eaa46ebb595891b860ab086b4d09c8588af65ebd4361b8e8f4bb8920b90ba8
 summary     : This is the core framework used by the pytest, tox, and devpi projects.
 description : |
     This is the core framework used by the pytest, tox, and devpi projects.

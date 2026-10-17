@@ -13,11 +13,11 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pybind11-3.0.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pybind11-3.0.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pybind11-3.0.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pybind11-3.0.4.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/pybind11-3.0.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pybind11-3.1.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pybind11-3.1.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pybind11-3.1.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pybind11-3.1.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/pybind11-3.1.0.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/pybind11/__init__.py",
 				"/usr/lib/python3.14/site-packages/pybind11/__main__.py",
 				"/usr/lib/python3.14/site-packages/pybind11/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -51,6 +51,7 @@
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/dynamic_raw_ptr_cast_if_possible.h",
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/exception_translation.h",
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/function_record_pyobject.h",
+				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/function_ref.h",
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/holder_caster_foreign_helpers.h",
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/init.h",
 				"/usr/lib/python3.14/site-packages/pybind11/include/pybind11/detail/internals.h",
@@ -140,6 +141,7 @@
 				"/usr/include/pybind11/detail/dynamic_raw_ptr_cast_if_possible.h",
 				"/usr/include/pybind11/detail/exception_translation.h",
 				"/usr/include/pybind11/detail/function_record_pyobject.h",
+				"/usr/include/pybind11/detail/function_ref.h",
 				"/usr/include/pybind11/detail/holder_caster_foreign_helpers.h",
 				"/usr/include/pybind11/detail/init.h",
 				"/usr/include/pybind11/detail/internals.h",
@@ -194,6 +196,6 @@
 		}
 	},
 	"source-name": "pybind11",
-	"source-release": "5",
-	"source-version": "3.0.4"
+	"source-release": "6",
+	"source-version": "3.1.0"
 }

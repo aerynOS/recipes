@@ -11,10 +11,10 @@
 				"python(filelock)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.2.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.2.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.2.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.2.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.6.3.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.6.3.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.6.3.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.6.3.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/python_discovery/__init__.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.pyc",
@@ -60,6 +60,6 @@
 		}
 	},
 	"source-name": "python-discovery",
-	"source-release": "10",
-	"source-version": "1.6.2"
+	"source-release": "11",
+	"source-version": "1.6.3"
 }

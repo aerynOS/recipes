@@ -93,14 +93,14 @@ diff --git a/src/virtualenv/seed/embed/pip_invoke.py b/src/virtualenv/seed/embed
 index fb44229..d516697 100644
 --- a/src/virtualenv/seed/embed/pip_invoke.py
 +++ b/src/virtualenv/seed/embed/pip_invoke.py
-@@ -26,6 +26,7 @@ class PipInvoke(BaseEmbed):
+@@ -38,6 +38,7 @@ class PipInvoke(BaseEmbed):
      def run(self, creator: Creator) -> None:
          if not self.enabled:
              return
 +        self.insert_system_wheels_paths(creator)
-         for_py_version = creator.interpreter.version_release_str
-         with self.get_pip_install_cmd(creator.exe, for_py_version) as cmd:
-             env = pip_wheel_env_run(self.extra_search_dir, self.app_data, self.env)
+         with self.get_pip_install_cmd(creator.exe, creator.interpreter.version_release_str) as cmd:
+             self._detach_links(creator)
+             self._execute(cmd, pip_wheel_env_run(self.extra_search_dir, self.app_data, self.env))
 diff --git a/src/virtualenv/seed/embed/via_app_data/via_app_data.py b/src/virtualenv/seed/embed/via_app_data/via_app_data.py
 index 48f2767..8c02fac 100644
 --- a/src/virtualenv/seed/embed/via_app_data/via_app_data.py

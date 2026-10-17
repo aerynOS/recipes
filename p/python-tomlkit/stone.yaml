@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-tomlkit
-version     : "0.15.1"
-release     : 1
-homepage    : https://kislyuk.github.io/argcomplete/
+version     : "0.15.2"
+release     : 2
+homepage    : https://github.com/python-poetry/tomlkit
 upstreams   :
-    - https://pypi.debian.net/tomlkit/tomlkit-0.15.1.tar.gz : e25bbf38843005246210a12982776f27f99cb9be67160e14434d0c0d21ee1e97
+    - https://pypi.debian.net/tomlkit/tomlkit-0.15.2.tar.gz : 83e32755ba1d20d9340bd069ee97e9f6232ba2346b63ffcba425de01f7e327a6
 summary     : Style-preserving TOML library for Python
 description : |
     TOML Kit is a 1.0.0-compliant TOML library. It includes a parser that preserves all comments, indentations, whitespace and internal element ordering, and makes them accessible and editable via an intuitive API.
