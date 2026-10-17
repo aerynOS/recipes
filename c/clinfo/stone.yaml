@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : clinfo
-version     : "3.0.25.02.14"
-release     : 2
-upstreams   :
-    - https://github.com/Oblomov/clinfo/archive/refs/tags/3.0.25.02.14.tar.gz : 48b77dc33315e6f760791a2984f98ea4bff28504ff37d460d8291585f49fcd3a
+version     : "3.1.26.09.26"
+release     : 3
 homepage    : https://github.com/Oblomov/clinfo/
-license     : CC0-1.0
+upstreams   :
+    - https://github.com/Oblomov/clinfo/archive/refs/tags/3.1.26.09.26.tar.gz : e944132329c6613b686ba0fcd373b15ebb553c367a01a734af8519ddb095c01f
 summary     : Tool that enumerates all system OpenCL platform and device properties
 description : |
     A simple OpenCL application that enumerates all possible platform and device properties on the system. Inspired by AMD's program of the same name, it is coded in pure C99 and it tries to output all possible information, including that provided by platform-specific extensions, and not to crash on platform-unsupported properties (e.g. 1.2 properties on 1.1 platforms).
+license     : CC0-1.0
 builddeps   :
     - pkgconfig(OpenCL)
 build       : |
     %make PREFIX=%(prefix)
 install     : |
-    %make_install PREFIX=%(prefix)
+    %make_install PREFIX=%(prefix) MANDIR=%(mandir)

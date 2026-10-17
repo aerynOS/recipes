@@ -13,7 +13,7 @@
 			],
 			"files": [
 				"/usr/bin/clinfo",
-				"/usr/man/man1/clinfo.1"
+				"/usr/share/man/man1/clinfo.1"
 			],
 			"name": "clinfo",
 			"provides": [
@@ -22,6 +22,6 @@
 		}
 	},
 	"source-name": "clinfo",
-	"source-release": "2",
-	"source-version": "3.0.25.02.14"
+	"source-release": "3",
+	"source-version": "3.1.26.09.26"
 }
