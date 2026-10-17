@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-panel
+version     : "4.21.3"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfce4-panel/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfce4-panel/4.21/xfce4-panel-4.21.3.tar.xz : daa277162735e024552586dac0df24bf9e0ed3fdcaa3bc4210b97c0679013db3
+summary     : Panel for the Xfce desktop environment
+description : |
+    Panel for the Xfce desktop environment
+license     : LGPL-2.1-only
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(garcon-1)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(libxfce4session-client-1)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(libxfce4windowing-0)
+    - pkgconfig(gtk-layer-shell-0)
+setup       : |
+    %meson \
+       -Dgtk-layer-shell=enabled
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)
