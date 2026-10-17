@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : catch2
-version     : "3.15.3"
-release     : 10
+version     : "3.16.1"
+release     : 11
 homepage    : https://github.com/catchorg/Catch2
 upstreams   :
-    - https://github.com/catchorg/Catch2/archive/refs/tags/v3.15.3.tar.gz : b0299ae552918220a7a6e21e7de5b714777f4e8c883fb70c4bb23fe01df8c6e3
+    - https://github.com/catchorg/Catch2/archive/refs/tags/v3.16.1.tar.gz : d16bd1b8b2364918bd472cb216394acb93bde6784890df0d91bccfb3f28d777d
 summary     : A modern, C++-native, test framework for unit-tests, TDD and BDD
 description : |
     Catch2 is mainly a unit testing framework for C++, but it also provides basic micro-benchmarking features, and simple BDD macros.
