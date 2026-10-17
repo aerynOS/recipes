@@ -1,0 +1,48 @@
+#
+# SPDX-FileCopyrightText: © 2025- AerynOS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : swayfx
+version     : "0.5.2"
+release     : 1
+homepage    : https://github.com/WillPower3309/swayfx
+upstreams   :
+    - https://github.com/WillPower3309/swayfx/archive/refs/tags/0.5.2.tar.gz : 075e1a9577f96a71154c61997355dce569816fff05a2c535ec15b252a9acbbe1
+summary     : Sway, but with eye candy!
+description : |
+    This fork replaces the simple wlr_renderer with our fx_renderer, capable of rendering with fancy GLES2 effects, including blur, anti-aliased rounded corners, shadows, dim unfocused windows. The scratchpad is treated as minimize.
+license     : 
+    - CC0-1.0
+    - JSON
+    - MIT
+    - X11-distribute-modifications-variant
+    - Xnet
+builddeps   :
+    - pkgconfig(cairo)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(json-c)
+    - pkgconfig(libdrm)
+    - pkgconfig(libevdev)
+    - pkgconfig(libinput)
+    - pkgconfig(libpcre2-8)
+    - pkgconfig(libudev)
+    - pkgconfig(pango)
+    - pkgconfig(pangocairo)
+    - pkgconfig(pixman-1)
+    - pkgconfig(scdoc)
+    - pkgconfig(scenefx-0.4)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-cursor)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wayland-server)
+    - pkgconfig(wlroots-0.19)
+    - pkgconfig(xcb)
+    - pkgconfig(xcb-icccm)
+    - pkgconfig(xkbcommon)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
