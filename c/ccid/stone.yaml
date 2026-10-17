@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ccid
-version     : "1.8.2"
-release     : 3
+version     : "1.8.4"
+release     : 4
 homepage    : https://ccid.apdu.fr/files
 upstreams   :
-    - https://ccid.apdu.fr/files/ccid-1.8.2.tar.xz : d74294e23d436546c3e719c95a4da180b17f5e7ffdd36efca53f75351cb0de75
+    - https://ccid.apdu.fr/files/ccid-1.8.4.tar.xz : 4ff98151a7feb828a711e2f9d68c6b6065a97c597a81c2cbbd11d7f7edcfe743
 summary     : CCID driver
 description : |
     This package provides the source code for a generic USB CCID (Chip/Smart Card Interface Devices) and ICCD (Integrated Circuit(s) Card Devices) driver. See the USB CCID [1] and ICCD [2] specifications from the USB working group.
