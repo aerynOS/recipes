@@ -1,0 +1,42 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"waypipe": {
+			"build-depends": [
+				"binary(bindgen)",
+				"binary(glslc)",
+				"binary(scdoc)",
+				"pkgconfig(gbm)",
+				"pkgconfig(libavcodec)",
+				"pkgconfig(libavutil)",
+				"pkgconfig(liblz4)",
+				"pkgconfig(libzstd)",
+				"pkgconfig(vulkan)"
+			],
+			"depends": [
+				"binary(ssh)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libavcodec.so.63(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgbm.so.1(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(liblz4.so.1(x86_64))",
+				"soname(libvulkan.so.1(x86_64))",
+				"soname(libzstd.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/waypipe",
+				"/usr/share/man/man1/waypipe.1"
+			],
+			"name": "waypipe",
+			"provides": [
+				"binary(waypipe)"
+			]
+		}
+	},
+	"source-name": "waypipe",
+	"source-release": "1",
+	"source-version": "0.11.3"
+}

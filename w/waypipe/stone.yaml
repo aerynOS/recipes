@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : waypipe
+version     : "0.11.3"
+release     : 1
+homepage    : https://gitlab.freedesktop.org/mstoeckl/waypipe
+upstreams   :
+    - https://gitlab.freedesktop.org/mstoeckl/waypipe/-/archive/v0.11.3/waypipe-v0.11.3.tar.bz2 : 2d4093903d444fda39c9b7db0a0b826f450a64d4302a03c9c9e3dbe480e8bb03
+summary     : Network transparency with Wayland
+description : |
+    waypipe is a proxy for Wayland clients. It forwards Wayland messages and
+    serializes changes to shared memory buffers over a single socket. This makes
+    application forwarding similar to ssh -X feasible.
+license     : GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - binary(bindgen)
+    - binary(glslc)
+    - binary(scdoc)
+    - pkgconfig(gbm)
+    - pkgconfig(libavcodec)
+    - pkgconfig(libavutil)
+    - pkgconfig(liblz4)
+    - pkgconfig(libzstd)
+    - pkgconfig(vulkan)
+rundeps:
+    - binary(ssh)
+    # Loaded at runtime, not linked. 
+    - soname(libavcodec.so.63(x86_64))
+    - soname(libgbm.so.1(x86_64))
+    - soname(libvulkan.so.1(x86_64))
+setup       : |
+    %cargo_fetch
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+check       : |
+    %meson_test
