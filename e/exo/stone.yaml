@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : exo
+version     : "4.21.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/exo/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/exo/4.21/exo-4.21.0.tar.bz2 : 26f85ca2db3bcf99d8b8af28b0d565b0186ccc3d2ed4a5ba315f6a589b8bc2c9
+summary     : Application library for the Xfce desktop environment
+description : |
+    Application library for the Xfce desktop environment
+license     : |
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
+builddeps   :
+    - pkgconfig(libxfce4ui-2)
+setup       : |
+    %configure
+build       : |
+    %make
+install     : |
+    %make_install

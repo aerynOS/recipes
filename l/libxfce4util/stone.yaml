@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libxfce4util
+version     : "4.21.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/libxfce4util/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/libxfce4util/4.21/libxfce4util-4.21.0.tar.xz : 205677cb96b778e5079eeac80f3a636d2a909b08fcf2aa05bfe4513c69c27f29
+summary     : Basic utility non-GUI functions for Xfce
+description : |
+    Basic utility non-GUI functions for Xfce
+license     : GPL-2.0-only
+builddeps   :
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(glib-2.0)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

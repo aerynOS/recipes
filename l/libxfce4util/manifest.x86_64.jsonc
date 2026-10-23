@@ -1,0 +1,71 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libxfce4util": {
+			"build-depends": [
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(gobject-introspection-1.0)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/girepository-1.0/Libxfce4util-1.0.typelib",
+				"/usr/lib/libxfce4util.so.7",
+				"/usr/lib/libxfce4util.so.7.0.0",
+				"/usr/sbin/xfce4-kiosk-query"
+			],
+			"name": "libxfce4util",
+			"provides": [
+				"soname(libxfce4util.so.7(x86_64))",
+				"sysbinary(xfce4-kiosk-query)"
+			]
+		},
+		"libxfce4util-devel": {
+			"build-depends": [
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(gobject-introspection-1.0)"
+			],
+			"depends": [
+				"libxfce4util",
+				"pkgconfig(gio-2.0)",
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(gobject-2.0)"
+			],
+			"files": [
+				"/usr/include/xfce4/libxfce4util/libxfce4util-config.h",
+				"/usr/include/xfce4/libxfce4util/libxfce4util.h",
+				"/usr/include/xfce4/libxfce4util/xfce-consolekit.h",
+				"/usr/include/xfce4/libxfce4util/xfce-debug.h",
+				"/usr/include/xfce4/libxfce4util/xfce-fileutils.h",
+				"/usr/include/xfce4/libxfce4util/xfce-generics.h",
+				"/usr/include/xfce4/libxfce4util/xfce-gio-extensions.h",
+				"/usr/include/xfce4/libxfce4util/xfce-i18n.h",
+				"/usr/include/xfce4/libxfce4util/xfce-kiosk.h",
+				"/usr/include/xfce4/libxfce4util/xfce-license.h",
+				"/usr/include/xfce4/libxfce4util/xfce-miscutils.h",
+				"/usr/include/xfce4/libxfce4util/xfce-posix-signal-handler.h",
+				"/usr/include/xfce4/libxfce4util/xfce-rc.h",
+				"/usr/include/xfce4/libxfce4util/xfce-resource.h",
+				"/usr/include/xfce4/libxfce4util/xfce-string.h",
+				"/usr/include/xfce4/libxfce4util/xfce-systemd.h",
+				"/usr/include/xfce4/libxfce4util/xfce-utf8.h",
+				"/usr/lib/libxfce4util.so",
+				"/usr/lib/pkgconfig/libxfce4util-1.0.pc",
+				"/usr/share/gir-1.0/Libxfce4util-1.0.gir"
+			],
+			"name": "libxfce4util-devel",
+			"provides": [
+				"pkgconfig(libxfce4util-1.0)"
+			]
+		}
+	},
+	"source-name": "libxfce4util",
+	"source-release": "1",
+	"source-version": "4.21.0"
+}

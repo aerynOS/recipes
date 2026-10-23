@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-appfinder
+version     : "4.21.1"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfce4-appfinder/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfce4-appfinder/4.21/xfce4-appfinder-4.21.1.tar.xz : 62fba13ec05066e73200f5a34c2fa1e7a1a7c4dbefffbaf29af9e9e97bb4a7c9
+summary     : Application launcher and finder
+description : |
+    Application launcher and finder
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(garcon-1)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

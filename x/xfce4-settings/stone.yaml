@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-settings
+version     : "4.21.3"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfce4-settings/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfce4-settings/4.21/xfce4-settings-4.21.3.tar.xz : 2f620939359dc9737800adfcb88fa86cad89b02d83f182ad1704bbebcd86b609
+summary     : Xfce's Configuration System
+description : |
+    Xfce's Configuration System
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(garcon-1)
+setup       : |
+    %meson \
+      -Dx11=disabled
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)
