@@ -1,0 +1,5 @@
+releases:
+  id: 390217
+  rss: https://github.com/CachyOS/ananicy-rules/releases.atom
+security:
+  cpe: ~
