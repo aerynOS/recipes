@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : noctalia-greeter
+version     : "1.2.1"
+release     : 1
+homepage    : https://github.com/noctalia-dev/noctalia-greeter
+upstreams   :
+    - https://github.com/noctalia-dev/noctalia-greeter/archive/refs/tags/v1.2.1.tar.gz : 1d1c43494b74e75f4f18c5c0d2f5326b9b3b30f337156c05c45d4511a9a587e1
+summary     : Minimal greetd login greeter with a bundled wlroots compositor
+description : |
+    A minimal login greeter for greetd that matches the look and feel of Noctalia Shell.
+license     : MIT
+builddeps   :
+    - binary(wayland-scanner)
+    - pkgconfig(cairo)
+    - pkgconfig(dbus-1)
+    - pkgconfig(fontconfig)
+    - pkgconfig(freetype2)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(libglvnd)
+    - pkgconfig(librsvg-2.0)
+    - pkgconfig(libwebp)
+    - pkgconfig(nlohmann_json)
+    - pkgconfig(pango)
+    - pkgconfig(tomlplusplus)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wlroots-0.20)
+    - stb
+rundeps     :
+    - binary(greetd)
+setup       : |
+    CXXFLAGS+=" -Wno-unused-result"
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+
+    rm -f %(installroot)%(tmpfilesdir)/noctalia-greeter.conf
+    %tmpfiles 'd /var/lib/noctalia-greeter 0750 greetd greetd -'
+
+    # systemd bits
+    %install_file %(pkgdir)/noctalia-greeter.service %(installroot)%(libdir)/systemd/system/noctalia-greeter.service
+    %install_file %(pkgdir)/noctalia-greeter.toml %(installroot)%(datadir)/greetd/noctalia-greeter.toml
+
+    %install_file LICENSE %(installroot)%(datadir)/licenses/%(name)/LICENSE
+    %install_file README.md %(installroot)%(datadir)/doc/%(name)/README.md
