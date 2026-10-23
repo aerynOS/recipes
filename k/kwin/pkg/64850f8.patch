@@ -1,0 +1,31 @@
+From 64850f81e1cc6d67235fcb58ff4b1be4cac349bf Mon Sep 17 00:00:00 2001
+From: Xaver Hugl <xaver.hugl@kde.org>
+Date: Thu, 22 Oct 2026 16:26:45 +0200
+Subject: [PATCH] multigpuswapchain: fix synchronization with EGL copy
+
+The sync file was passed to the function... but not actually imported into the
+EGL context.
+
+BUG: 527591
+(cherry picked from commit 1973be323e4bc31d0435bf5b1a53a6f20bf287b7)
+---
+ src/multigpuswapchain.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/multigpuswapchain.cpp b/src/multigpuswapchain.cpp
+index f61fecfb3c1..e8b8a96f009 100644
+--- a/src/multigpuswapchain.cpp
++++ b/src/multigpuswapchain.cpp
+@@ -803,6 +803,9 @@ std::optional<MultiGpuSwapchain::Ret> EglMultiGpuCopy::copy(GraphicsBuffer *buff
+ 
+     const auto &context = m_swapchain->context();
+ 
++    EGLNativeFence importFence = EGLNativeFence::importFence(context->displayObject(), std::move(sync));
++    importFence.waitSync();
++
+     std::unique_ptr<GLRenderTimeQuery> renderTime;
+     if (frame) {
+         renderTime = GLRenderTimeQuery::begin(context);
+-- 
+GitLab
+
