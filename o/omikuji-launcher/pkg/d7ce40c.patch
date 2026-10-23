@@ -1,0 +1,37 @@
+From d7ce40ce829c01a54d0e7dffe92843d51dfead93 Mon Sep 17 00:00:00 2001
+From: reakjra <reakjra@proton.me>
+Date: Fri, 16 Oct 2026 00:14:22 +0200
+Subject: [PATCH] qml: adjust dropdown cap + update pkgbuild-bin
+
+im a retard
+---
+ crates/omikuji/qml/components/controls/M3Dropdown.qml | 2 +-
+ packaging/PKGBUILD-bin                                | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/crates/omikuji/qml/components/controls/M3Dropdown.qml b/crates/omikuji/qml/components/controls/M3Dropdown.qml
+index 50e7b84..2a3ed53 100644
+--- a/crates/omikuji/qml/components/controls/M3Dropdown.qml
++++ b/crates/omikuji/qml/components/controls/M3Dropdown.qml
+@@ -223,7 +223,7 @@ Item {
+             var top = win ? button.mapToItem(win.contentItem, 0, 0).y : 0
+             var below = win ? win.height - top - button.height - 16 : wanted
+             var above = top - 16
+-            var up = below < Math.min(wanted, 4 * root._optionHeight + 16) && above > below
++            var up = below < Math.min(wanted, 2 * root._optionHeight) && above > below
+             popup.fitHeight = Math.round(Math.max(0, Math.min(wanted, up ? above : below)))
+             var pos = button.mapToItem(popup.parent, 0, up ? -4 - popup.fitHeight : button.height + 4)
+             popup.x = Math.round(pos.x)
+diff --git a/packaging/PKGBUILD-bin b/packaging/PKGBUILD-bin
+index 13da17c..86d46b0 100644
+--- a/packaging/PKGBUILD-bin
++++ b/packaging/PKGBUILD-bin
+@@ -7,7 +7,7 @@ pkgdesc='Qt/QML based wine apps launcher for Linux'
+ arch=('x86_64')
+ url='https://github.com/omikuji-launcher/omikuji'
+ license=('GPL-3.0-or-later')
+-depends=('qt6-base' 'qt6-declarative' 'qt6-svg' 'qt6-wayland'
++depends=('qt6-base>=6.12' 'qt6-base<6.13' 'qt6-declarative>=6.12' 'qt6-declarative<6.13' 'qt6-svg' 'qt6-wayland'
+          'openssl' 'xz' 'systemd-libs' 'gcc-libs' 'glibc'
+          'hicolor-icon-theme')
+ optdepends=('plasma-integration: KDE Plasma theme integration'

@@ -1,0 +1,49 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"omikuji-launcher": {
+			"build-depends": [
+				"binary(protoc)",
+				"cmake(Qt6GuiPrivate)",
+				"cmake(Qt6Qml)",
+				"cmake(Qt6ShaderTools)",
+				"cmake(Qt6Svg)",
+				"cmake(Qt6Tools)",
+				"pkgconfig(libudev)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6DBus.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libQt6Qml.so.6(x86_64))",
+				"soname(libQt6Quick.so.6(x86_64))",
+				"soname(libQt6Widgets.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcrypto.so.4(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libssl.so.4(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libudev.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/omikuji",
+				"/usr/share/applications/io.github.reakjra.omikuji.desktop",
+				"/usr/share/icons/hicolor/512x512/apps/io.github.reakjra.omikuji.png",
+				"/usr/share/licenses/omikuji-launcher/LICENSE",
+				"/usr/share/metainfo/io.github.reakjra.omikuji.metainfo.xml"
+			],
+			"name": "omikuji-launcher",
+			"provides": [
+				"binary(omikuji)"
+			]
+		}
+	},
+	"source-name": "omikuji-launcher",
+	"source-release": "1",
+	"source-version": "0.20.6"
+}

@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : omikuji-launcher
+version     : "0.20.6"
+release     : 1
+homepage    : https://github.com/omikuji-launcher/omikuji
+upstreams   :
+    - https://github.com/omikuji-launcher/omikuji/archive/refs/tags/v0.20.6.tar.gz : 30ccef0a2446cafe3844abec1ce35a562c29a14556616faa3fa45aaa8916c44b
+summary     : A Qt/QML based games and apps launcher for Linux
+description : |
+    A Qt/QML based games and apps launcher for Linux with wine/flatpak/native runners, Epic Games (Legendary), GOG (gogdl) and Gacha stores.
+license     : GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - binary(protoc)
+    - cmake(Qt6GuiPrivate)
+    - cmake(Qt6Qml)
+    - cmake(Qt6ShaderTools)
+    - cmake(Qt6Svg)
+    - cmake(Qt6Tools)
+    - pkgconfig(libudev)
+    - pkgconfig(openssl)
+setup       : |
+    %patch %(pkgdir)/d7ce40c.patch
+    %patch %(pkgdir)/update-openssl.patch
+    %cargo_fetch #--target x86_64-unknown-linux-gnu
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install omikuji
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
+
+    cd packaging
+    %install_file io.github.reakjra.omikuji.desktop.in \
+        %(installroot)%(datadir)/applications/io.github.reakjra.omikuji.desktop
+    %install_file io.github.reakjra.omikuji.metainfo.xml -t %(installroot)%(datadir)/metainfo/
+    %install_file io.github.reakjra.omikuji.png -t %(installroot)%(datadir)/icons/hicolor/512x512/apps/
