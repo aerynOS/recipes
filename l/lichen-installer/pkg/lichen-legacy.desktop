@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install aerynOS (legacy)
+GenericName=Install aerynOS (legacy)
+Comment=Install aerynOS on your system (legacy installer)
+Icon=system-software-install
+Exec=lichen-legacy
+Terminal=true
+Categories=X-GNOME-Settings-Panel;GTK;System;ConsoleOnly;Settings;
+Keywords=Install;SystemSettings;

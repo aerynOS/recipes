@@ -1,0 +1,19 @@
+// -*- mode: js -*-
+// Polkit rules for lichen-installer
+//
+// Allow wheel group members to perform destructive insaller actions
+// without password prompt in active local sessions.
+
+// Destructive installer actions
+polkit.addRule(function(action, subject) {
+  if ((action.id == "com.aerynos.lichen.install.write-model" ||
+       action.id == "com.aerynos.lichen.install.system" ||
+       action.id == "com.aerynos.lichen.provisioner.apply" ||
+       action.id == "com.aerynos.lichen.locales.set-keymap") &&
+     subject.active == true &&
+     subject.local == true  &&
+     subject.isInGroup("wheel")) {
+     return polkit.Result.YES;
+   }
+   return polkit.Result.NOT_HANDLED;
+});

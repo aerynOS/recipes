@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD polkit Policy Configuration 1.0//EN"
+"http://www.freedesktop.org/software/polkit/policyconfig-1.dtd">
+<policyconfig>
+  <vendor>AerynOS</vendor>
+  <vendor_url>https://aerynos.com</vendor_url>
+
+    <!-- Non-destructive actions -->
+    <action id="com.aerynos.lichen.disks.list">
+      <description>List disk devices</description>
+      <message>Authentication is not required to list disks</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.system.status">
+      <description>Get system status</description>
+      <message>Authentication is not required to check system status</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.provisioner.try">
+      <description>Test partitioning strategy (dry-run)</description>
+      <message>Authentication is not required to test partitioning</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+      <action id="com.aerynos.lichen.install.discover">
+      <description>Discover existing installations</description>
+      <message>Authentication is not required to discover installations</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.install.fetch-model">
+      <description>Fetch installation model</description>
+      <message>Authentication is not required to fetch installation model</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.locales.list-locales">
+      <description>List the system locales</description>
+      <message>Authentication is not required to fetch system locales</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.locales.get-locale">
+      <description>Get the locale details for a specific locale</description>
+      <message>Authentication is not required to get locale details</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.locales.list-keymaps">
+      <description>Get the keyboard layouts a target can be configured with</description>
+      <message>Authentication is not required to get the keyboard layouts</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.locales.get-keymap">
+      <description>Resolve a single layout code</description>
+      <message>Authentication is not required to get a keyboard layout code</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.network.status">
+      <description>Read network status</description>
+      <message>Authentication is required to read the network configuration</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.network.scan">
+      <description>Scan for wireless networks</description>
+      <message>Authentication is required to scan for wireless networks</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.network.connect">
+      <description>Connect to a wireless network</description>
+      <message>Authentication is required to connect to a wireless network</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+
+    <action id="com.aerynos.lichen.system.shutdown">
+      <description>Shutdown the installer backend</description>
+      <message>Authentication is required to shutdown the installer backend</message>
+      <defaults>
+        <allow_any>yes</allow_any>
+        <allow_inactive>yes</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <!-- Destructive actions; require admin authentication, cached per session -->
+    <action id="com.aerynos.lichen.install.write-model">
+      <description>Write installation model to disk</description>
+      <message>Authentication is required to write the install-model.kdl to disk</message>
+      <defaults>
+        <allow_any>no</allow_any>
+        <allow_inactive>no</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.install.system">
+      <description>Install aerynOS to disk</description>
+      <message>Authentication is required to install aerynOS</message>
+      <defaults>
+        <allow_any>no</allow_any>
+        <allow_inactive>no</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.provisioner.apply">
+      <description>Apply partitioning strategy to disk</description>
+      <message>Authentication is required to partition disks</message>
+      <defaults>
+        <allow_any>no</allow_any>
+        <allow_inactive>no</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.locales.set-keymap">
+      <description>Set the keyboard layout</description>
+      <message>Authentication required to change the keyboard layout</message>
+      <defaults>
+        <allow_any>no</allow_any>
+        <allow_inactive>no</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+    <action id="com.aerynos.lichen.system.reboot">
+      <description>Reboot the machine after installation</description>
+      <message>Authentication is required to reboot this machine</message>
+      <defaults>
+        <allow_any>no</allow_any>
+        <allow_inactive>no</allow_inactive>
+        <allow_active>yes</allow_active>
+      </defaults>
+    </action>
+
+</policyconfig>

@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Develoeprs
+# SPDX-License-Identifier: GPL-3.0-only
+
+name        : lichen-installer
+version     : "0.1.7~git.14791ea"
+release     : 1
+homepage    : https://github.com/aerynos/lichen-installer
+upstreams   :
+    - git|https://github.com/aerynos/lichen-installer.git:
+        ref: 14791ea79c10ea0b25599593bc5a5863006225ec
+summary     : aerynOS Installer
+description : |
+    aerynOS installer
+license     : GPL-3.0-only
+networking  : true
+builddeps   :
+    - binary(cargo)
+    - pkgconfig(protobuf)
+rundeps     :
+    - binary(moss)
+    - sysbinary(mkfs.btrfs)
+    - sysbinary(mkfs.ext4)
+    - sysbinary(mkfs.f2fs)
+    - sysbinary(mkfs.vfat)
+    - sysbinary(mkfs.xfs)
+    - iso-codes
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install lichen_tui
+    mv %(installroot)%(bindir)/lichen_tui %(installroot)%(bindir)/lichen-tui
+    # the old lichen installer is now lichen-legacy
+    ln -sr %(installroot)%(bindir)/lichen-tui %(installroot)%(bindir)/lichen
+    %cargo_install lichen_backend
+    %install_file %(pkgdir)/lichen-installer.desktop -t %(installroot)/%(datadir)/applications/
+    %install_file %(pkgdir)/com.aerynos.lichen.policy -t %(installroot)/%(datadir)/polkit-1/actions/
+    %install_file %(pkgdir)/50-lichen.rules -t %(installroot)/%(datadir)/polkit-1/rules.d/
+
