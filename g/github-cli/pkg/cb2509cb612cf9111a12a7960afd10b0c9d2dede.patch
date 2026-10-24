@@ -3,20 +3,22 @@ From: William Martin <williammartin@github.com>
 Date: Wed, 22 Apr 2026 14:09:27 +0200
 Subject: [PATCH] Add build flag for no telemetry
 
+Refreshed against v2.103.2 so the script/build.go comment matches
+upstream's GO_BUILDTAGS documentation.
+
 ---
  internal/config/config.go             |  2 +-
  internal/config/telemetry_disabled.go | 13 +++++++++++++
  internal/config/telemetry_enabled.go  | 10 ++++++++++
- script/build.go                       |  3 +++
- 4 files changed, 27 insertions(+), 1 deletion(-)
+ script/build.go                       |  5 ++++-
+ 4 files changed, 28 insertions(+), 2 deletions(-)
  create mode 100644 internal/config/telemetry_disabled.go
  create mode 100644 internal/config/telemetry_enabled.go
 
 diff --git a/internal/config/config.go b/internal/config/config.go
-index a694ca65461..8f2513cde54 100644
 --- a/internal/config/config.go
 +++ b/internal/config/config.go
-@@ -691,7 +691,7 @@ var Options = []ConfigOption{
+@@ -949,7 +949,7 @@ var Options = []ConfigOption{
  	{
  		Key:           telemetryKey,
  		Description:   "whether telemetry is enabled, disabled, or logging",
@@ -27,7 +29,6 @@ index a694ca65461..8f2513cde54 100644
  			return c.Telemetry().Value
 diff --git a/internal/config/telemetry_disabled.go b/internal/config/telemetry_disabled.go
 new file mode 100644
-index 00000000000..7300f072097
 --- /dev/null
 +++ b/internal/config/telemetry_disabled.go
 @@ -0,0 +1,13 @@
@@ -46,7 +47,6 @@ index 00000000000..7300f072097
 +var defaultTelemetryState = "disabled"
 diff --git a/internal/config/telemetry_enabled.go b/internal/config/telemetry_enabled.go
 new file mode 100644
-index 00000000000..35732ddb9ee
 --- /dev/null
 +++ b/internal/config/telemetry_enabled.go
 @@ -0,0 +1,10 @@
@@ -61,14 +61,15 @@ index 00000000000..35732ddb9ee
 +// See internal/config/telemetry_disabled.go and script/build.go.
 +var defaultTelemetryState = "enabled"
 diff --git a/script/build.go b/script/build.go
-index 2ea0088af97..47751dce9bf 100644
 --- a/script/build.go
 +++ b/script/build.go
-@@ -12,6 +12,9 @@
+@@ -12,7 +12,10 @@
  //     - GH_OAUTH_CLIENT_SECRET
  //     - SOURCE_DATE_EPOCH: enables reproducible builds
  //     - GO_LDFLAGS
-+//     - GO_BUILDTAGS: comma-separated build tags; known tags include:
+-//     - GO_BUILDTAGS: rebuilds an up to date binary if it was built with different tags
++//     - GO_BUILDTAGS: rebuilds an up to date binary if it was built with different tags.
++//       Known tags include:
 +//       - "updateable": enable update notifications (used by Homebrew)
 +//       - "notelemetry": telemetry disabled by default (users can still opt in)
  //
