@@ -1,0 +1,19 @@
+diff --git a/plugins/CMakeLists.txt b/plugins/CMakeLists.txt
+index 397b703cc..19c7a75d9 100644
+--- a/plugins/CMakeLists.txt
++++ b/plugins/CMakeLists.txt
+@@ -84,7 +84,6 @@ add_core_module(mac-videotoolbox PLATFORMS MACOS)
+ add_core_module(mac-virtualcam PLATFORMS MACOS)
+ add_core_module(nv-filters PLATFORMS WINDOWS)
+ 
+-check_obs_browser()
+ 
+ add_core_module(obs-ffmpeg)
+ add_core_module(obs-filters)
+@@ -117,4 +116,6 @@ add_core_module(win-capture PLATFORMS WINDOWS)
+ add_core_module(win-dshow PLATFORMS WINDOWS)
+ add_core_module(win-wasapi PLATFORMS WINDOWS)
+ 
++check_obs_browser()
++
+ set_obs_core_modules()

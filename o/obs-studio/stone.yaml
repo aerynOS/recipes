@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : obs-studio
-version     : "32.2.2"
-release     : 4
+version     : "33.0.0"
+release     : 5
 homepage    : https://github.com/obsproject/obs-studio
 upstreams   :
-    - https://github.com/obsproject/obs-studio/releases/download/32.2.2/OBS-Studio-32.2.2-Sources.tar.gz:
-        hash: ec81fb66b03e75ddb3076b576f62679c39262e0e9960cef3e17a40dc5d68e6b4
+    - https://github.com/obsproject/obs-studio/releases/download/33.0.0/OBS-Studio-33.0.0-Sources.tar.gz:
+        hash: c1ae3c98c1bb70ebdced33e894a526fcbbbda9bfd95806970a3fc31f74b08f6c
         unpackdir: obs
     # Check for bundled version of CEF in 'build-aux/com.obsproject.Studio.json'
-    # Example for v32.2.2: https://github.com/obsproject/obs-studio/blob/ba2f32b/build-aux/com.obsproject.Studio.json#L123
-    - https://cdn-fastly.obsproject.com/downloads/cef_binary_6533_linux_x86_64_v6.tar.xz:
-        hash: 7963335519a19ccdc5233f7334c5ab023026e2f3e9a0cc417007c09d86608146
+    # Example for v33.0.0: https://github.com/obsproject/obs-studio/blob/72e8665/build-aux/com.obsproject.Studio.json#L124
+    - https://cdn-fastly.obsproject.com/downloads/cef_binary_7871_linux_x86_64.tar.xz:
+        hash: 8ffc64d06ea74da613eeda7f2aa5d4e98661af6fa3ed8c68724c9a6e4e89ea8e
         unpackdir: cef
 summary     : Free and open source software for live streaming and screen recording
 description : |
@@ -70,6 +70,11 @@ tuning      :
 setup       : |
     %patch %(pkgdir)/0001-load-distro-crlset.patch
 
+    # failing to load a core module stops the rest of
+    # the modules from loading. keep obs-browser last
+    # since it may or may not exist
+    %patch %(pkgdir)/0002-load-obs-browser-last.patch
+
     # Must rebuild libcef_dll_wrapper, using the prebuilt wrapper
     # causes obs to segfault whenever a browser source is added
     cmake \
@@ -92,7 +97,7 @@ build       : |
 install     : |
     %cmake_install
 
-    %install_file %(pkgdir)/crlset -t %(installroot)%(datadir)/obs/obs-plugins/obs-browser
+    %install_file %(pkgdir)/crlset -t %(installroot)%(datadir)/obs/obs-modules/core/obs-browser
 packages    :
     - "%(name)-plugin-browser":
         summary: Open Broadcaster Software Studio - CEF-based browser plugin
@@ -101,17 +106,16 @@ packages    :
             - "%(name)"
         # To update this list build with -DENABLE_BROWSER=OFF and see what files disappear
         paths:
-            - /usr/lib/obs-plugins/chrome-sandbox
-            - /usr/lib/obs-plugins/*.pak
-            - /usr/lib/obs-plugins/icudtl.dat
-            - /usr/lib/obs-plugins/libEGL.so
-            - /usr/lib/obs-plugins/libGLESv2.so
-            - /usr/lib/obs-plugins/libcef.so
-            - /usr/lib/obs-plugins/libvk_swiftshader.so
-            - /usr/lib/obs-plugins/libvulkan.so.1
-            - /usr/lib/obs-plugins/locales/*.pak
-            - /usr/lib/obs-plugins/obs-browser-page
-            - /usr/lib/obs-plugins/obs-browser.so
-            - /usr/lib/obs-plugins/v8_context_snapshot.bin
-            - /usr/lib/obs-plugins/vk_swiftshader_icd.json
-            - /usr/share/obs/obs-plugins/obs-browser/
+            - /usr/lib/obs-modules/core/**/*.pak
+            - /usr/lib/obs-modules/core/chrome-sandbox
+            - /usr/lib/obs-modules/core/icudtl.dat
+            - /usr/lib/obs-modules/core/libEGL.so
+            - /usr/lib/obs-modules/core/libGLESv2.so
+            - /usr/lib/obs-modules/core/libcef.so
+            - /usr/lib/obs-modules/core/libvk_swiftshader.so
+            - /usr/lib/obs-modules/core/libvulkan.so.1
+            - /usr/lib/obs-modules/core/obs-browser-page
+            - /usr/lib/obs-modules/core/obs-browser.so
+            - /usr/lib/obs-modules/core/v8_context_snapshot.bin
+            - /usr/lib/obs-modules/core/vk_swiftshader_icd.json
+            - /usr/share/obs/obs-modules/core/obs-browser/
