@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-player
 version     : "1.11.0"
-release     : 44
+release     : 45
 homepage    : https://github.com/pop-os/cosmic-player
 upstreams   :
     - https://github.com/pop-os/cosmic-player/archive/refs/tags/epoch-1.11.0.tar.gz : 25a9edfdaaa0b6b46a03315d1cae0b7590e2827e4172801688db4b7a2ff96f1f
@@ -11,15 +11,17 @@ summary     : COSMIC media player
 description : |
     Cosmic Desktop Media Player
 license     : GPL-3.0
+networking  : true
 builddeps   :
     - binary(just)
     - pkgconfig(gstreamer-1.0)
     - pkgconfig(gstreamer-plugins-base-1.0)
     - pkgconfig(xkbcommon)
 rundeps     :
-    # Moss upgrade bug
+    # Needed to play video and audio. Not linked, so Moss will not pull them in.
+    - gstreamer-plugin-libav
+    - gstreamer-plugin-pipewire
     - gstreamer-plugins-good
-networking  : true
 setup       : |
     %cargo_fetch
 build       : |
