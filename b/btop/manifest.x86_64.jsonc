@@ -3,6 +3,9 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"btop": {
+			"build-depends": [
+				"cmake(GTest)"
+			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -63,6 +66,6 @@
 		}
 	},
 	"source-name": "btop",
-	"source-release": "5",
-	"source-version": "1.4.7"
+	"source-release": "6",
+	"source-version": "1.4.8"
 }
