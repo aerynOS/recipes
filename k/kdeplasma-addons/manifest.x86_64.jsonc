@@ -78,8 +78,8 @@
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libudev.so.1(x86_64))"
@@ -2354,6 +2354,6 @@
 		}
 	},
 	"source-name": "kdeplasma-addons",
-	"source-release": "34",
+	"source-release": "35",
 	"source-version": "6.8.1"
 }
