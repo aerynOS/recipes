@@ -3,7 +3,7 @@
 
 name        : vte
 version     : "0.84.1"
-release     : 28
+release     : 29
 homepage    : https://gitlab.gnome.org/GNOME/vte
 upstreams   :
     - https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz : aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8
