@@ -52,8 +52,8 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-3.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libnspr4.so(x86_64))",
 				"soname(libnss3.so(x86_64))",
@@ -562,6 +562,6 @@
 		}
 	},
 	"source-name": "mailspring",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "1.26.2"
 }

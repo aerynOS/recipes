@@ -3,7 +3,7 @@
 
 name        : mailspring
 version     : "1.26.2"
-release     : 3
+release     : 4
 homepage    : https://getmailspring.com/
 upstreams   :
     - git|https://github.com/Foundry376/Mailspring.git :
