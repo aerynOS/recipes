@@ -3,7 +3,7 @@
 
 name        : webkitgtk
 version     : "2.54.2"
-release     : 20
+release     : 21
 upstreams   :
     - https://webkitgtk.org/releases/webkitgtk-2.54.2.tar.xz : a76345b391bef6211fb5ab6cfab2e86b285d18cda17cbb9ade595f1252b86065
 homepage    : https://webkitgtk.org
