@@ -16,7 +16,7 @@
 				"soname(libQt6Quick.so.6(x86_64))",
 				"soname(libQt6ShaderTools.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
@@ -211,6 +211,6 @@
 		}
 	},
 	"source-name": "qt6-5compat",
-	"source-release": "16",
+	"source-release": "17",
 	"source-version": "6.12.0"
 }
