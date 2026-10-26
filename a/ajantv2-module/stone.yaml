@@ -3,7 +3,7 @@
 
 name        : ajantv2-module
 version     : "18.0.0"
-release     : 3
+release     : 4
 homepage    : https://github.com/aja-video/libajantv2
 upstreams   :
     - https://github.com/aja-video/libajantv2/archive/refs/tags/ntv2_18_0_0.tar.gz:
