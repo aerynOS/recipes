@@ -3,7 +3,7 @@
 
 name        : firefox
 version     : "158.0.1"
-release     : 92
+release     : 93
 homepage    : https://www.mozilla.org/
 upstreams   :
     - https://releases.mozilla.org/pub/firefox/releases/158.0.1/source/firefox-158.0.1.source.tar.xz:
