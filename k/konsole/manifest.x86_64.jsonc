@@ -233,7 +233,7 @@
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libQt6Xml.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libssh.so.4(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
@@ -257,6 +257,6 @@
 		}
 	},
 	"source-name": "konsole",
-	"source-release": "26",
+	"source-release": "27",
 	"source-version": "26.08.2"
 }
