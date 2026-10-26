@@ -3,7 +3,7 @@
 
 name        : nodejs-22
 version     : "22.23.4"
-release     : 18
+release     : 19
 homepage    : https://nodejs.org/
 upstreams   :
     - https://nodejs.org/dist/v22.23.4/node-v22.23.4.tar.gz : 4dd79de8cdc85d65cb32f48a75aee1067bf00bf94b96ecc8e4c2f82f6f0272c2
@@ -33,6 +33,10 @@ environment : |
     NODEJS_PRIVATE_SITELIB=%(libdir)/node_modules_$NODEJS_MAJOR
 setup       : |
     %patch %(pkgdir)/ftbfs-openssl-4-2.patch
+
+    # patch taken from Homebrew, adapted for nodejs-22
+    # https://github.com/Homebrew/homebrew-core/blob/master/Patches/node/icu4c-79.patch
+    %patch %(pkgdir)/ftbfs-icu4c-79.patch
 
     python configure.py \
         --ninja \
