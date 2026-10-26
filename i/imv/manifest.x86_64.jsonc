@@ -38,7 +38,7 @@
 				"soname(libcairo.so.2(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libheif.so.1(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libinih.so.0(x86_64))",
 				"soname(libjxl.so.0.12(x86_64))",
 				"soname(libm.so.6(x86_64))",
@@ -75,6 +75,6 @@
 		}
 	},
 	"source-name": "imv",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "5.0.1"
 }

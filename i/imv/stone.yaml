@@ -3,7 +3,7 @@
 
 name        : imv
 version     : "5.0.1"
-release     : 2
+release     : 3
 homepage    : https://sr.ht/~exec64/imv
 upstreams   :
     - https://git.sr.ht/~exec64/imv/archive/v5.0.1.tar.gz : 8949c1df4b933b1d324e02ce49f1834a4b73dd25fa8103579e0ed105149e080e
