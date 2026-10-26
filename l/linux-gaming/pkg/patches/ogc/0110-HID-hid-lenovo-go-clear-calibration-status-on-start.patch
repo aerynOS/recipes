@@ -1,7 +1,7 @@
 From 7342eb90be125c5d9f0de498bbac2efc2bbd4fb4 Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:08 +0530
-Subject: [PATCH 110/212] HID: hid-lenovo-go: clear calibration status on start
+Subject: [PATCH 110/219] HID: hid-lenovo-go: clear calibration status on start
 
 A completed calibration leaves success or failure in its status file. If
 the next calibration has the same result, userspace sees no change and

@@ -1,7 +1,7 @@
 From 407f573a05316e83ea3687afa00c227ef433e61a Mon Sep 17 00:00:00 2001
 From: Oder Chiou <oder_chiou@realtek.com>
 Date: Fri, 11 Sep 2026 16:45:46 +0800
-Subject: [PATCH 039/212] [FROM-ML] ASoC: rt721: Use the function_status check
+Subject: [PATCH 039/219] [FROM-ML] ASoC: rt721: Use the function_status check
  to avoid duplicate presets
 
 This patch adds the function_status check to avoid duplicate presets. The

@@ -1,7 +1,7 @@
 From 813ca5ee8bd661cbf4225900f1bb457baec0b511 Mon Sep 17 00:00:00 2001
 From: Lukas Wunner <lukas@wunner.de>
 Date: Fri, 14 Aug 2026 11:06:50 +0200
-Subject: [PATCH 137/212] [FROM-ML] PCI: Add quirk for ID mutation of MSI Claw
+Subject: [PATCH 137/219] [FROM-ML] PCI: Add quirk for ID mutation of MSI Claw
  A8 cardreader
 
 Derek reports a lockup on resume of the MSI Claw A8 if a card is inserted

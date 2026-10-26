@@ -1,7 +1,7 @@
 From 69af401f1acdb4a7a558527410dc6c8a574e0a9f Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:53:03 -0700
-Subject: [PATCH 103/212] HID: hid-lenovo-go-s: Use devm_kzalloc for drvdata
+Subject: [PATCH 103/219] HID: hid-lenovo-go-s: Use devm_kzalloc for drvdata
 
 Changes drvdata from static global to devm allocation per device.
 

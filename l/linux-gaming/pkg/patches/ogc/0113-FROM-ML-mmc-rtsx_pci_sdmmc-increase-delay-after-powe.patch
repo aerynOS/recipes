@@ -1,7 +1,7 @@
 From 73256c6eda51c36bea2cb87c60e33dc5cf61acb9 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Sat, 20 Dec 2025 19:49:24 -0800
-Subject: [PATCH 113/212] [FROM-ML] mmc: rtsx_pci_sdmmc: increase delay after
+Subject: [PATCH 113/219] [FROM-ML] mmc: rtsx_pci_sdmmc: increase delay after
  power on for SD cards
 
 An mdelay of 1 leads to unreliable SD card initialization on some cards,

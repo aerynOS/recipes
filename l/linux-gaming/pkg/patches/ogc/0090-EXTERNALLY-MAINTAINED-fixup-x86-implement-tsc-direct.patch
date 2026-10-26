@@ -1,7 +1,7 @@
 From a349bde0b3d5735c82621e88ad01d1151fcc9de7 Mon Sep 17 00:00:00 2001
 From: Eric Naim <dnaim@cachyos.org>
 Date: Thu, 16 Jul 2026 09:13:05 +0700
-Subject: [PATCH 090/212] [EXTERNALLY-MAINTAINED] fixup! x86: implement
+Subject: [PATCH 090/219] [EXTERNALLY-MAINTAINED] fixup! x86: implement
  tsc=directsync for systems without IA32_TSC_ADJUST
 
 {rd,wr}msrl were removed, switch to msrq variants which is what msrl

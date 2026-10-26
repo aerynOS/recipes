@@ -1,7 +1,7 @@
 From 848611d6345a6408e64db12846c8e9040544e397 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 20 Sep 2026 20:57:59 +0200
-Subject: [PATCH 066/212] [FROM-ML] platform/x86: ayaneo-ec: Add AYANEO 2S
+Subject: [PATCH 066/219] [FROM-ML] platform/x86: ayaneo-ec: Add AYANEO 2S
  charge control
 
 The AYANEO 2S uses the same EC fan interface as the AYANEO 2 and

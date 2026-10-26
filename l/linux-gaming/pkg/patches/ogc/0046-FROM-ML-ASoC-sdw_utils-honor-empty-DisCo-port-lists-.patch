@@ -1,7 +1,7 @@
 From 82c066c6e8ff0f9c7e04620a9ca8c353849a0a34 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 15 Oct 2026 19:39:15 -0700
-Subject: [PATCH 046/212] [FROM-ML] ASoC: sdw_utils: honor empty DisCo port
+Subject: [PATCH 046/219] [FROM-ML] ASoC: sdw_utils: honor empty DisCo port
  lists when creating DAI links
 
 The codec_info tables give each DAI a fixed direction, so a TAS2783

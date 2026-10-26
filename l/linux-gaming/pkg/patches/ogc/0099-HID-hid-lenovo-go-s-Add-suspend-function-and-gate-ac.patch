@@ -1,7 +1,7 @@
 From 2f339933cf366710718b2c15ec2105bf7e59197b Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:52:59 -0700
-Subject: [PATCH 099/212] HID: hid-lenovo-go-s: Add suspend function and gate
+Subject: [PATCH 099/219] HID: hid-lenovo-go-s: Add suspend function and gate
  access under bool.
 
 Currently a device can suspend while delayed work is pending or

@@ -1,7 +1,7 @@
 From f35311108fe256ea63e90979684842638b528291 Mon Sep 17 00:00:00 2001
 From: Vishal Badole <Vishal.Badole@amd.com>
 Date: Wed, 26 Aug 2026 22:45:37 +0530
-Subject: [PATCH 079/212] [FROM-ML] lib/group_cpus: Snapshot cluster masks to
+Subject: [PATCH 079/219] [FROM-ML] lib/group_cpus: Snapshot cluster masks to
  keep grouping hotplug invariant
 
 group_cpus_evenly() builds the managed-IRQ affinity spread used by

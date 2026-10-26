@@ -1,7 +1,7 @@
 From 7b37a287c64005fc18cac9dbdedc8bcb0c6bce01 Mon Sep 17 00:00:00 2001
 From: Andrey Golovko <andrey.golovko@gmail.com>
 Date: Thu, 13 Aug 2026 19:40:00 +0300
-Subject: [PATCH 032/212] [FROM-ML] ASoC: sdw_utils: prepare the stream again
+Subject: [PATCH 032/219] [FROM-ML] ASoC: sdw_utils: prepare the stream again
  when resuming
 
 A peripheral loses its Data Port configuration when the controller is

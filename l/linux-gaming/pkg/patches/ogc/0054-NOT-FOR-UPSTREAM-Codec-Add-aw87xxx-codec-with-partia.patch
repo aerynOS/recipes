@@ -1,7 +1,7 @@
 From 7dcc64b1ad586a7159ab9de58078c71820154de4 Mon Sep 17 00:00:00 2001
 From: Matthew Anderson <ruinairas1992@gmail.com>
 Date: Thu, 25 Apr 2024 09:39:40 -0500
-Subject: [PATCH 054/212] [NOT-FOR-UPSTREAM] Codec: Add aw87xxx codec with
+Subject: [PATCH 054/219] [NOT-FOR-UPSTREAM] Codec: Add aw87xxx codec with
  partial acpi implementation Contribution by CVMagic
  (https://github.com/CVMagic)
 

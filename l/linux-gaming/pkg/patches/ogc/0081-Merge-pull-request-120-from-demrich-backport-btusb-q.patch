@@ -1,7 +1,7 @@
 From 4dd80ade68f44e93accd77712d8f1361f599d104 Mon Sep 17 00:00:00 2001
 From: Kyle Gospodnetich <me@kylegospodneti.ch>
 Date: Fri, 18 Sep 2026 14:21:05 -0700
-Subject: [PATCH 081/212] Merge pull request #120 from
+Subject: [PATCH 081/219] Merge pull request #120 from
  demrich/backport/btusb-qca-wcn785x-firmware-reload
 
 [Backport] Bluetooth: btusb: always reload QCA rampatch/NVM on WCN785x (0489:e10a)

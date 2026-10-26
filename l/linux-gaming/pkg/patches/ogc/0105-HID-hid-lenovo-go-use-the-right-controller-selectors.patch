@@ -1,7 +1,7 @@
 From e30f0faaad5783686fe6cca5ee66b0cb607d6b00 Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:03 +0530
-Subject: [PATCH 105/212] HID: hid-lenovo-go: use the right controller
+Subject: [PATCH 105/219] HID: hid-lenovo-go: use the right controller
  selectors
 
 The right imu_enabled attribute selects FEATURE_IMU_BYPASS, and the right

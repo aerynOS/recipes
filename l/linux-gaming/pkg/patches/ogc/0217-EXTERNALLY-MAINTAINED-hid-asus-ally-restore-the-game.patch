@@ -1,0 +1,54 @@
+From d4c4eb64036d1329998e6bec725ba79d1273effd Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Sun, 18 Oct 2026 17:10:18 -0700
+Subject: [PATCH 217/219] [EXTERNALLY-MAINTAINED] hid-asus-ally: restore the
+ gamepad mode on resume
+
+On the ROG Xbox Ally X20 (RC74XA, MCU firmware RC74XA.322), the MCU
+sometimes comes back from s2idle in its default desktop mode: the sticks
+drive the N-Key mouse interface, the gamepad reports are all neutral and
+the QAM buttons arrive as F1/F8 instead of vendor reports. The USB
+device is neither reset nor re-enumerated, so reset_resume and a reprobe
+never run, and gamepad_mode still reads back the cached value.
+
+Runtime-suspending the MCU and then evaluating Display Off followed by
+Sleep Entry on \_SB.PEP, the order s2idle uses, reproduced the mode loss
+in about half of the attempts. It was not observed with the USB link
+active, and setting mcu_powersave to 0 did not avoid it. Repeating the
+sequence with the link active restored gamepad mode, which may explain
+why a second suspend usually fixes the issue.
+
+The resume path already re-applies the button mapping, deadzones and
+response curves through _gamepad_apply_all(), but never the mode
+itself. Send the recorded mode with _gamepad_set_mode() instead, which
+then re-applies the same settings.
+
+With this change, 6 out of 6 attempts of the reproducer came back in
+gamepad mode, 3 of which were in desktop mode until the mode was
+restored.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/hid/hid-asus-ally.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/hid/hid-asus-ally.c b/drivers/hid/hid-asus-ally.c
+index 657ad2cb831a..0dbf6d28caf4 100644
+--- a/drivers/hid/hid-asus-ally.c
++++ b/drivers/hid/hid-asus-ally.c
+@@ -2245,7 +2245,11 @@ static int ally_hid_resume(struct hid_device *hdev)
+ 	if (!ally_cfg || ep != ROG_ALLY_CFG_INTF_IN)
+ 		return 0;
+ 
+-	err = _gamepad_apply_all(hdev, ally_cfg);
++	/*
++	 * The MCU can lose its mode across s2idle without a USB reset.
++	 * Restore the cached mode and reapply the mappings and axis settings.
++	 */
++	err = _gamepad_set_mode(hdev, ally_cfg, ally_cfg->mode);
+ 	if (err)
+ 		return err;
+ 
+-- 
+2.56.0
+

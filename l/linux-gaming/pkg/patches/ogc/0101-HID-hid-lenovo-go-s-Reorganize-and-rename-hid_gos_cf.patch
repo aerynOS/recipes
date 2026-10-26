@@ -1,7 +1,7 @@
 From 48ff7414e299745b128d9eccc9bfd878ac6a5e8a Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:53:01 -0700
-Subject: [PATCH 101/212] HID: hid-lenovo-go-s: Reorganize and rename
+Subject: [PATCH 101/219] HID: hid-lenovo-go-s: Reorganize and rename
  hid_gos_cfg
 
 Renames hid_gos_cfg struct to gos_cfg_drvdata in preparation for later

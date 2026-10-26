@@ -1,7 +1,7 @@
 From c0ba1562ad1acfb7be2953f0ab11c5d57ca3feb9 Mon Sep 17 00:00:00 2001
 From: NaKyle <nakyle.wright@gmail.com>
 Date: Thu, 5 Dec 2024 17:45:18 -0800
-Subject: [PATCH 192/212] [EXTERNALLY-MAINTAINED] cec: cros-ec: update dmi
+Subject: [PATCH 192/219] [EXTERNALLY-MAINTAINED] cec: cros-ec: update dmi
  match table to support newer bios releases
 
 Signed-off-by: NaKyle <nakyle.wright@gmail.com>

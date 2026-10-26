@@ -1,7 +1,7 @@
 From 0a30d86f2b28b640d9afebbea2169020c62763aa Mon Sep 17 00:00:00 2001
 From: xino <xinomarix@protom.me>
 Date: Mon, 23 Feb 2026 15:44:40 +0900
-Subject: [PATCH 074/212] [EXTERNALLY-MAINTAINED] drm/amd/display: fix DSC RC
+Subject: [PATCH 074/219] [EXTERNALLY-MAINTAINED] drm/amd/display: fix DSC RC
  parameter tables per VESA DSC 1.1 Table E-5
 
 Correct DSC RC parameter tables to match VESA DSC 1.1 Table E-5

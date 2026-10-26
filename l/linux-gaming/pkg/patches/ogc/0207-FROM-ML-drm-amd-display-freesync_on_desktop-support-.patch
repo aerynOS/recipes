@@ -1,7 +1,7 @@
 From 65a4552f5e59276ace2787945d38e011024d5a00 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Tomasz=20Paku=C5=82a?= <tomasz.pakula.oficjalny@gmail.com>
 Date: Mon, 16 Feb 2026 17:45:11 +0100
-Subject: [PATCH 207/212] [FROM-ML] drm/amd/display: freesync_on_desktop
+Subject: [PATCH 207/219] [FROM-ML] drm/amd/display: freesync_on_desktop
  support for HDMI VRR
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

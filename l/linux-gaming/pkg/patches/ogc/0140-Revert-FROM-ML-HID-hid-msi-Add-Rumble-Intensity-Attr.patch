@@ -1,7 +1,7 @@
 From a6825becbd0f361d0efad592535e136c301f127a Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Wed, 26 Aug 2026 01:56:20 +0000
-Subject: [PATCH 140/212] Revert "[FROM-ML] HID: hid-msi: Add Rumble Intensity
+Subject: [PATCH 140/219] Revert "[FROM-ML] HID: hid-msi: Add Rumble Intensity
  Attributes"
 
 This reverts commit d7587f830c78b0366cf9702ded1064b57b5b6664.

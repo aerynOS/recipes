@@ -1,7 +1,7 @@
 From 11fcf1bb7e2733abe57632adc4a88bc9b33f7eb7 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:43 +0100
-Subject: [PATCH 163/212] [FROM-ML] drm: panel-orientation-quirks: Add Zeenix
+Subject: [PATCH 163/219] [FROM-ML] drm: panel-orientation-quirks: Add Zeenix
  Lite and Pro
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

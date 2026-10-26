@@ -1,7 +1,7 @@
 From 13a8a434b181b67f7e8b480fa62dc6462a08046f Mon Sep 17 00:00:00 2001
 From: Fangzhi Zuo <Jerry.Zuo@amd.com>
 Date: Fri, 28 Aug 2026 14:32:27 +0000
-Subject: [PATCH 206/212] [FROM-ML] drm/amd/display: Emit VTEM for HF-VSDB VRR
+Subject: [PATCH 206/219] [FROM-ML] drm/amd/display: Emit VTEM for HF-VSDB VRR
  on TMDS links
 
 HDMI-Forum VRR metadata is carried in the Video Timing Extended Metadata

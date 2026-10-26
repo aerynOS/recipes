@@ -1,7 +1,7 @@
 From b0d502f36ba374574bef8689ec48324742245fb0 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:52:55 -0700
-Subject: [PATCH 095/212] HID: hid-lenovo-go-s: Bound stale reply window before
+Subject: [PATCH 095/219] HID: hid-lenovo-go-s: Bound stale reply window before
  reusing send_cmd_complete
 
 mcu_property_out() reinits send_cmd_complete immediately after a

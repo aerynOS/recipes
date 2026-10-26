@@ -1,7 +1,7 @@
 From 21bda4b4faeabe5cc4b74f1195adb42b10d3ea01 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:42 +0100
-Subject: [PATCH 162/212] [FROM-ML] drm: panel-orientation-quirks: Add GPD
+Subject: [PATCH 162/219] [FROM-ML] drm: panel-orientation-quirks: Add GPD
  Pocket 4
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

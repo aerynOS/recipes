@@ -1,7 +1,7 @@
 From 6e3d8cd6bd0e22b0635f9edcf86f782191fde00a Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Thu, 18 Jun 2026 12:23:07 -0700
-Subject: [PATCH 169/212] [FOR-UPSTREAM] drm/panel_orientation_quirks: Add
+Subject: [PATCH 169/219] [FOR-UPSTREAM] drm/panel_orientation_quirks: Add
  missing OneXPlayer devices
 
 Adds Missing OneXPlayer devices.

@@ -1,7 +1,7 @@
 From 0d651a2a7e073a975069df2683fb471e17f4c688 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Mat=C3=ADas=20Mart=C3=ADnez?= <hello@matias.me>
 Date: Thu, 17 Sep 2026 13:10:28 -0300
-Subject: [PATCH 064/212] [FROM-ML] HID: ayaneo: Add AYANEO 3 detachable
+Subject: [PATCH 064/219] [FROM-ML] HID: ayaneo: Add AYANEO 3 detachable
  controller driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

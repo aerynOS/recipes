@@ -1,7 +1,7 @@
 From 38ddd67985b97c8d5d416796791c3668e52ddc85 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Wed, 26 Aug 2026 01:56:07 +0000
-Subject: [PATCH 139/212] Revert "[NOT-FOR-UPSTREAM] HID: hid-msi: Report RGB
+Subject: [PATCH 139/219] Revert "[NOT-FOR-UPSTREAM] HID: hid-msi: Report RGB
  LED under the Legion Go name"
 
 This reverts commit 54ef0293719b8443cb0d981e2caad14a62e7793f.

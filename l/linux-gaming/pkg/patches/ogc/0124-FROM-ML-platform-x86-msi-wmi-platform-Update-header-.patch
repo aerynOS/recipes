@@ -1,7 +1,7 @@
 From 271f2af1e8f9050d5337ca75ab18d022562e7be0 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 11 May 2025 22:44:26 +0200
-Subject: [PATCH 124/212] [FROM-ML] platform/x86: msi-wmi-platform: Update
+Subject: [PATCH 124/219] [FROM-ML] platform/x86: msi-wmi-platform: Update
  header text
 
 Update copyright information in the header and specify

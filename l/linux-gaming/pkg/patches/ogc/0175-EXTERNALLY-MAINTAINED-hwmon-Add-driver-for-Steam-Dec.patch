@@ -1,7 +1,7 @@
 From 7b54a2d5a4920a3130cfe7a959357255ff760420 Mon Sep 17 00:00:00 2001
 From: Andrey Smirnov <andrew.smirnov@gmail.com>
 Date: Sat, 19 Feb 2022 16:09:45 -0800
-Subject: [PATCH 175/212] [EXTERNALLY-MAINTAINED] hwmon: Add driver for Steam
+Subject: [PATCH 175/219] [EXTERNALLY-MAINTAINED] hwmon: Add driver for Steam
  Deck's EC sensors
 
 Add driver for sensors exposed by EC firmware on Steam Deck hardware.

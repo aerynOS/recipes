@@ -1,7 +1,7 @@
 From bb7aa95768766cbcc3295d8c49598f5f3c5d7c05 Mon Sep 17 00:00:00 2001
 From: Philip Mueller <philm@manjaro.org>
 Date: Fri, 31 Jul 2026 21:53:24 +0200
-Subject: [PATCH 077/212] [FROM-ML] iio: imu: bmi270: add BOSC0160 PNP ID for
+Subject: [PATCH 077/219] [FROM-ML] iio: imu: bmi270: add BOSC0160 PNP ID for
  gaming handhelds
 
 Adding BOSC0160 as PNP ID will enable more gaming

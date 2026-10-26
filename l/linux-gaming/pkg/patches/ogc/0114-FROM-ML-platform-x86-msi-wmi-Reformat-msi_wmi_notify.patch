@@ -1,7 +1,7 @@
 From ddbbf9685b34efb8f4fed700970c30b9e0fa5922 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Fri, 12 Jun 2026 19:16:53 -0700
-Subject: [PATCH 114/212] [FROM-ML] platform/x86: msi-wmi: Reformat
+Subject: [PATCH 114/219] [FROM-ML] platform/x86: msi-wmi: Reformat
  msi_wmi_notify()
 
 Reformats msi_wmi_notify() to use a switch statement that reduces nesting

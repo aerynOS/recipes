@@ -1,7 +1,7 @@
 From 0df222006981a32347ccb9b881dda350069702aa Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:53:02 -0700
-Subject: [PATCH 102/212] HID: hid-lenovo-go-s: Move static led_classdev_mc to
+Subject: [PATCH 102/219] HID: hid-lenovo-go-s: Move static led_classdev_mc to
  drvdata struct
 
 In the next patch I will switch drvdata from static global to a

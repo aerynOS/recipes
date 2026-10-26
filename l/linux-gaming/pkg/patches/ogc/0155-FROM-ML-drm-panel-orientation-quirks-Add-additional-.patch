@@ -1,7 +1,7 @@
 From 66b53005323125686db4e5f8247ddd223ab20039 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:35 +0100
-Subject: [PATCH 155/212] [FROM-ML] drm: panel-orientation-quirks: Add
+Subject: [PATCH 155/219] [FROM-ML] drm: panel-orientation-quirks: Add
  additional ID for Ayaneo 2021
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

@@ -1,7 +1,7 @@
 From 6635a50bbf891339598fc0ab786efe85ab82cbe2 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 20 Jul 2026 03:15:49 +0000
-Subject: [PATCH 147/212] [FROM-UPSTREAM] HID: hid-msi: Add Rumble Intensity
+Subject: [PATCH 147/219] [FROM-UPSTREAM] HID: hid-msi: Add Rumble Intensity
  Attributes
 
 Adds intensity adjustment for the left and right rumble motors.

@@ -1,7 +1,7 @@
 From e5e3ba2c4534498c5b4ce81c667d0a72f0cce4fc Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Sun, 18 Oct 2026 09:06:03 -0700
-Subject: [PATCH 048/212] [FROM-ML] platform/x86: asus-armoury: Add XBOX ROG
+Subject: [PATCH 048/219] [FROM-ML] platform/x86: asus-armoury: Add XBOX ROG
  Ally X 20 Tunables
 
 Adds Tunable table for XBOX ROG Ally X 20.

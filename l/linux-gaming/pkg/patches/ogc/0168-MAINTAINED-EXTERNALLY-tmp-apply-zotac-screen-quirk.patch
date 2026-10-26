@@ -1,7 +1,7 @@
 From a0f7d9a293aca0c40079f98f0d8fbdc5d752a00b Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Sat, 12 Apr 2025 14:20:08 +1200
-Subject: [PATCH 168/212] [MAINTAINED-EXTERNALLY] tmp: apply zotac screen quirk
+Subject: [PATCH 168/219] [MAINTAINED-EXTERNALLY] tmp: apply zotac screen quirk
 
 (cherry picked from commit 40f6d2aceb0d438af58090c9b535f7829ad4e495)
 ---

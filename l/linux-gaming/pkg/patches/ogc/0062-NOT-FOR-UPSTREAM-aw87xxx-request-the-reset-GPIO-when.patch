@@ -1,7 +1,7 @@
 From c6d1727de7340785f6cc2fbf429761426d77c110 Mon Sep 17 00:00:00 2001
 From: Hijae Song <hijae@naver.com>
 Date: Tue, 1 Sep 2026 22:59:35 +0900
-Subject: [PATCH 062/212] [NOT-FOR-UPSTREAM] aw87xxx: request the reset GPIO
+Subject: [PATCH 062/219] [NOT-FOR-UPSTREAM] aw87xxx: request the reset GPIO
  when valid
 
 The valid-GPIO branch fell through without ever requesting the

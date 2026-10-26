@@ -1,7 +1,7 @@
 From c80a20c39c92bfacb5e0abfe20bfae0b96d89c6c Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 3 Aug 2026 15:16:10 -0700
-Subject: [PATCH 132/212] [FROM-ML] platform/x86: msi-wmi-platform: fix: Remove
+Subject: [PATCH 132/219] [FROM-ML] platform/x86: msi-wmi-platform: fix: Remove
  unused err
 
 msi_wmi_platform_profile_setup() declares int err and leaves it

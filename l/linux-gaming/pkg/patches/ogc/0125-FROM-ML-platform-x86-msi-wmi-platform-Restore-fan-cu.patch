@@ -1,7 +1,7 @@
 From 6114f77f143c96289e05c1924356c6b232905958 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 11 May 2025 22:44:27 +0200
-Subject: [PATCH 125/212] [FROM-ML] platform/x86: msi-wmi-platform: Restore fan
+Subject: [PATCH 125/219] [FROM-ML] platform/x86: msi-wmi-platform: Restore fan
  curves on PWM disable and unload
 
 MSI software is a bit weird in that even when the manual fan curve is

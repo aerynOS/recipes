@@ -1,7 +1,7 @@
 From 7b6f19bf1bfe9f61ee8f7ffdc89ac40fbc7d02ab Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:02 +0530
-Subject: [PATCH 104/212] HID: hid-lenovo-go: use the correct calibration
+Subject: [PATCH 104/219] HID: hid-lenovo-go: use the correct calibration
  commands
 
 The calibration attributes pass the calibration operation as the command

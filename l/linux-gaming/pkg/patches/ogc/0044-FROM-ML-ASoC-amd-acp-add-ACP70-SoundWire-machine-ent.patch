@@ -1,7 +1,7 @@
 From 471b8211d093b6bd0f16c9349fe601f431495759 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 15 Oct 2026 17:10:59 -0700
-Subject: [PATCH 044/212] [FROM-ML] ASoC: amd: acp: add ACP70 SoundWire machine
+Subject: [PATCH 044/219] [FROM-ML] ASoC: amd: acp: add ACP70 SoundWire machine
  entry for ASUS RC74XA
 
 The ROG Xbox Ally X20 (RC74XA) has two TAS2783 amps on link 0 with

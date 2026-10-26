@@ -1,7 +1,7 @@
 From eb120c3fd6cb9be3f5f21d64f1ce32474cf6dcb6 Mon Sep 17 00:00:00 2001
 From: Andrey Golovko <andrey.golovko@gmail.com>
 Date: Sat, 15 Aug 2026 14:40:00 +0300
-Subject: [PATCH 035/212] [FROM-ML] ASoC: tas2783-sdw: do not cache read-only
+Subject: [PATCH 035/219] [FROM-ML] ASoC: tas2783-sdw: do not cache read-only
  Controls
 
 The read-only SDCA Controls are readings of device state, but the regmap

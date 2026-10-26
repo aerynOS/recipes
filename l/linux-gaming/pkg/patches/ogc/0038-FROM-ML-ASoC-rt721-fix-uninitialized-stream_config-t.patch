@@ -1,7 +1,7 @@
 From 3da764061e20b50c2a22acc659c1c4051d3cc001 Mon Sep 17 00:00:00 2001
 From: Shuming Fan <shumingf@realtek.com>
 Date: Fri, 4 Sep 2026 15:58:26 +0800
-Subject: [PATCH 038/212] [FROM-ML] ASoC: rt721: fix uninitialized
+Subject: [PATCH 038/219] [FROM-ML] ASoC: rt721: fix uninitialized
  stream_config->type
 
 The stream_config variable was not initialized before being passed to

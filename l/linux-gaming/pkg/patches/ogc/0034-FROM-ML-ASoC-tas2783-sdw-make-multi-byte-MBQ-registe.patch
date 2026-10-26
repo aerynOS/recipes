@@ -1,7 +1,7 @@
 From f957e8b0aec30dfe0284a960b08c1540ec8bfd23 Mon Sep 17 00:00:00 2001
 From: Andrey Golovko <andrey.golovko@gmail.com>
 Date: Sat, 15 Aug 2026 14:40:00 +0300
-Subject: [PATCH 034/212] [FROM-ML] ASoC: tas2783-sdw: make multi-byte MBQ
+Subject: [PATCH 034/219] [FROM-ML] ASoC: tas2783-sdw: make multi-byte MBQ
  registers reachable
 
 tas2783_sdca_mbq_size() declares registers of one, two and four bytes,

@@ -1,7 +1,7 @@
 From 6c21688e1e878e002faf1a460807300b37e05ce4 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 20 Jul 2026 03:15:48 +0000
-Subject: [PATCH 146/212] [FROM-UPSTREAM] HID: hid-msi: Add RGB control
+Subject: [PATCH 146/219] [FROM-UPSTREAM] HID: hid-msi: Add RGB control
  interface
 
 Adds RGB control interface for MSI Claw devices. The MSI Claw uses a

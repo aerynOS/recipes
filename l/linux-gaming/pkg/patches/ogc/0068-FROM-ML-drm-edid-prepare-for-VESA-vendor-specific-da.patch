@@ -1,7 +1,7 @@
 From 1e8b1090639ad58ce0438889040a6f6499814dfe Mon Sep 17 00:00:00 2001
 From: Yaroslav Bolyukin <iam@lach.pw>
 Date: Tue, 2 Dec 2025 12:02:13 +0100
-Subject: [PATCH 068/212] [FROM-ML] drm/edid: prepare for VESA vendor-specific
+Subject: [PATCH 068/219] [FROM-ML] drm/edid: prepare for VESA vendor-specific
  data block extension
 
 Current VESA vendor-specific block parsing expects real block size to be

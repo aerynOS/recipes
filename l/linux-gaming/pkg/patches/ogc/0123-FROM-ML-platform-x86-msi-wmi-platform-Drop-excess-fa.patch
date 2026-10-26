@@ -1,7 +1,7 @@
 From a294d5e69f569fa01cb3ccd3cd9428c37c082d7a Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 11 May 2025 22:44:25 +0200
-Subject: [PATCH 123/212] [FROM-ML] platform/x86: msi-wmi-platform: Drop excess
+Subject: [PATCH 123/219] [FROM-ML] platform/x86: msi-wmi-platform: Drop excess
  fans in dual fan devices
 
 Currently, the platform driver always exposes 4 fans, since the

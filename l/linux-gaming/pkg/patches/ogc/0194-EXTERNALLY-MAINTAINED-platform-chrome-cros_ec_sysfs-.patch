@@ -1,7 +1,7 @@
 From 74a6abfaacf1e409751e723ec3c29604f714e468 Mon Sep 17 00:00:00 2001
 From: NaKyle <nakyle.wright@gmail.com>
 Date: Thu, 4 Dec 2025 14:56:40 -0800
-Subject: [PATCH 194/212] [EXTERNALLY-MAINTAINED] platform/chrome:
+Subject: [PATCH 194/219] [EXTERNALLY-MAINTAINED] platform/chrome:
  cros_ec_sysfs: expose CEC wake enable and phys addr settings
 
 Signed-off-by: NaKyle <nakyle.wright@gmail.com>

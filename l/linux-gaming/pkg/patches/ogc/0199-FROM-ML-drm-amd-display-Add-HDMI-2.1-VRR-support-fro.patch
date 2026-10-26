@@ -1,7 +1,7 @@
 From 551de42d58f5ccfa00a908a4ad3ea8b1630226a6 Mon Sep 17 00:00:00 2001
 From: Fangzhi Zuo <jerry.zuo@amd.com>
 Date: Fri, 14 Aug 2026 12:43:43 -0400
-Subject: [PATCH 199/212] [FROM-ML] drm/amd/display: Add HDMI 2.1 VRR support
+Subject: [PATCH 199/219] [FROM-ML] drm/amd/display: Add HDMI 2.1 VRR support
  from HF-VSDB
 
 why:

@@ -1,7 +1,7 @@
 From 1991a764c4fac1b49500fb3fa510137b45fd79a5 Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Tue, 6 Oct 2026 09:03:02 -0700
-Subject: [PATCH 211/212] [EXTERNALLY-MAINTAINED] xpad: gate the zotac-zone PID
+Subject: [PATCH 211/219] [EXTERNALLY-MAINTAINED] xpad: gate the zotac-zone PID
  behind #if !IS_REACHABLE(CONFIG_ZOTAC_ZONE_HID)
 
 (cherry picked from commit ebc231439d9465c78bd1e3b6b6ee3dfe05c589de)

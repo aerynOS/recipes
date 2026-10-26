@@ -1,7 +1,7 @@
 From 69c775d5f6ae5ae710a9a7ffdd21132b9f5bfb2b Mon Sep 17 00:00:00 2001
 From: CVMagic <546352+CVMagic@users.noreply.github.com>
 Date: Wed, 22 May 2024 02:42:40 +0000
-Subject: [PATCH 057/212] [NOT-FOR-UPSTREAM] Updated AW87xxx driver to
+Subject: [PATCH 057/219] [NOT-FOR-UPSTREAM] Updated AW87xxx driver to
  implement Suspend and Resume.
 
 This is deliberately an OGC-carried patch and must not be sent upstream.

@@ -1,7 +1,7 @@
 From af6a257548cdf064cb09b4a89aae3bef4feed7b1 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Fri, 27 Mar 2026 11:49:02 -0700
-Subject: [PATCH 023/212] [MAINTAINED-EXTERNALLY] hid-asus-ally: Separate
+Subject: [PATCH 023/219] [MAINTAINED-EXTERNALLY] hid-asus-ally: Separate
  trigger rumble from main rumble
 
 The driver copies main rumble values into additional rumble fields, which

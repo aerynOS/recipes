@@ -1,7 +1,7 @@
 From 8513f9b8c6b7aa5553630e6149e1f58bb548e028 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Fri, 12 Jun 2026 19:16:54 -0700
-Subject: [PATCH 115/212] [FROM-ML] platform/x86: msi-wmi: Add MSI Claw
+Subject: [PATCH 115/219] [FROM-ML] platform/x86: msi-wmi: Add MSI Claw
  M-Center keys
 
 MSI Claw devices produce WMI events through the MSI WMI hotkeys GUID for

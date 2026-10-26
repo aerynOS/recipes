@@ -1,7 +1,7 @@
 From 711c9e20a91f7db7b3cab4bb0e612a1b9de7b437 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:52:58 -0700
-Subject: [PATCH 098/212] HID: hid-lenovo-go-s: Add kobject_uevent notify
+Subject: [PATCH 098/219] HID: hid-lenovo-go-s: Add kobject_uevent notify
  during reset-resume
 
 Adds kobject_uevent notification after setting os_mode attribute on resume.

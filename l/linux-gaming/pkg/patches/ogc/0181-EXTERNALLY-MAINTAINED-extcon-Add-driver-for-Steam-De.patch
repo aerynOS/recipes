@@ -1,7 +1,7 @@
 From 99bce205cfb0f4ae1d1fb628e0a2aa7535d513dc Mon Sep 17 00:00:00 2001
 From: Andrey Smirnov <andrew.smirnov@gmail.com>
 Date: Sun, 27 Feb 2022 14:46:08 -0800
-Subject: [PATCH 181/212] [EXTERNALLY-MAINTAINED] extcon: Add driver for Steam
+Subject: [PATCH 181/219] [EXTERNALLY-MAINTAINED] extcon: Add driver for Steam
  Deck
 
 (cherry picked from commit f9f2eddae582ae39d5f89c1218448fc259b90aa8)

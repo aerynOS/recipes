@@ -1,7 +1,7 @@
 From 28fdb6d1e4112929159e49d3d0f0e0a8c28be737 Mon Sep 17 00:00:00 2001
 From: Hijae Song <hijae@naver.com>
 Date: Tue, 1 Sep 2026 22:48:23 +0900
-Subject: [PATCH 060/212] [NOT-FOR-UPSTREAM] aw87xxx: drop unused
+Subject: [PATCH 060/219] [NOT-FOR-UPSTREAM] aw87xxx: drop unused
  linux/of_gpio.h include
 
 linux/of_gpio.h has been removed from the tree. None of these

@@ -1,7 +1,7 @@
 From e056adb871ecacd70ddee11f6a5afcf66cf9f391 Mon Sep 17 00:00:00 2001
 From: Kyle Gospodnetich <me@kylegospodneti.ch>
 Date: Wed, 7 Oct 2026 01:27:15 -0700
-Subject: [PATCH 149/212] [NOT-FOR-UPSTREAM] HID: hid-msi: Add additional
+Subject: [PATCH 149/219] [NOT-FOR-UPSTREAM] HID: hid-msi: Add additional
  logging
 
 Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>

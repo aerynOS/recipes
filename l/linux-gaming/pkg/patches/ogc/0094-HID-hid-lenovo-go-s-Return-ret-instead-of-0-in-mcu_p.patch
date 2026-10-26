@@ -1,7 +1,7 @@
 From 80c7dca780a8a375debbb841dc026444f1564357 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:52:54 -0700
-Subject: [PATCH 094/212] HID: hid-lenovo-go-s: Return ret instead of 0 in
+Subject: [PATCH 094/219] HID: hid-lenovo-go-s: Return ret instead of 0 in
  mcu_property_out()
 
 Currently mcu_property_out() blanket returns 0, discarding the ret

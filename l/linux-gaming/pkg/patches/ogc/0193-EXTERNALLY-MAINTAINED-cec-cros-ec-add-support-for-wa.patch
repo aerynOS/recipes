@@ -1,7 +1,7 @@
 From 86ea0af7b64ec2235167a8da632017c7fa3ea131 Mon Sep 17 00:00:00 2001
 From: NaKyle <nakyle.wright@gmail.com>
 Date: Tue, 2 Dec 2025 14:43:31 -0800
-Subject: [PATCH 193/212] [EXTERNALLY-MAINTAINED] cec: cros-ec: add support for
+Subject: [PATCH 193/219] [EXTERNALLY-MAINTAINED] cec: cros-ec: add support for
  wake enable and set pa host commands
 
 Signed-off-by: NaKyle <nakyle.wright@gmail.com>

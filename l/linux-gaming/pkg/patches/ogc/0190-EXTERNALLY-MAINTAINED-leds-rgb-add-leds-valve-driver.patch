@@ -1,7 +1,7 @@
 From 2366fc4dd91b85a3473597ce8ace850896eedc99 Mon Sep 17 00:00:00 2001
 From: Robert Beckett <bob.beckett@collabora.com>
 Date: Sun, 12 Jul 2026 15:42:32 -0400
-Subject: [PATCH 190/212] [EXTERNALLY-MAINTAINED] leds: rgb: add leds-valve
+Subject: [PATCH 190/219] [EXTERNALLY-MAINTAINED] leds: rgb: add leds-valve
  driver
 
 Add initial support for Valve LED strip on Valve Fremont (2026 Steam

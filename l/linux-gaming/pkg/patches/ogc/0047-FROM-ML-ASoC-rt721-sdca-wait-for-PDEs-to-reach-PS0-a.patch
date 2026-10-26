@@ -1,7 +1,7 @@
 From 70a8d50c1b29b3f4dc23aa94eed9f363f5b5d0b5 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 15 Oct 2026 23:25:33 -0700
-Subject: [PATCH 047/212] [FROM-ML] ASoC: rt721-sdca: wait for PDEs to reach
+Subject: [PATCH 047/219] [FROM-ML] ASoC: rt721-sdca: wait for PDEs to reach
  PS0 after powering them up
 
 The PDE event handlers write REQUESTED_PS and return, so DAPM unmutes

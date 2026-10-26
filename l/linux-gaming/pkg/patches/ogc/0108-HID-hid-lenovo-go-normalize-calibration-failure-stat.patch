@@ -1,7 +1,7 @@
 From 782c8a49ece5284fdaa7ad5352c38fd1c23adf11 Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:06 +0530
-Subject: [PATCH 108/212] HID: hid-lenovo-go: normalize calibration failure
+Subject: [PATCH 108/219] HID: hid-lenovo-go: normalize calibration failure
  status
 
 The driver stores the firmware result byte as an index into the

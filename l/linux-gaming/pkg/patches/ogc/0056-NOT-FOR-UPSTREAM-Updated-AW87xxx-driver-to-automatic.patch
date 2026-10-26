@@ -1,7 +1,7 @@
 From 36feb080cf2457ab4d06e6f645d258559e7f5244 Mon Sep 17 00:00:00 2001
 From: CVMagic <546352+CVMagic@users.noreply.github.com>
 Date: Sun, 19 May 2024 21:37:37 +0200
-Subject: [PATCH 056/212] [NOT-FOR-UPSTREAM] Updated AW87xxx driver to
+Subject: [PATCH 056/219] [NOT-FOR-UPSTREAM] Updated AW87xxx driver to
  automatically enumerate a second I2C chip if specified in ACPI
 
 This is deliberately an OGC-carried patch and must not be sent upstream.

@@ -1,7 +1,7 @@
 From de51ff1a1e5f80f6ca1d8c7bb98d79c29e84fb5d Mon Sep 17 00:00:00 2001
 From: Steven Noonan <steven@uplinklabs.net>
 Date: Wed, 17 Nov 2021 00:25:26 -0800
-Subject: [PATCH 084/212] [EXTERNALLY-MAINTAINED] x86: implement tsc=directsync
+Subject: [PATCH 084/219] [EXTERNALLY-MAINTAINED] x86: implement tsc=directsync
  for systems without IA32_TSC_ADJUST
 
 Signed-off-by: Steven Noonan <steven@uplinklabs.net>

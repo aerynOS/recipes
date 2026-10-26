@@ -1,7 +1,7 @@
 From 17bfb085fd43164b8b6ee1f54e1631aab8b77570 Mon Sep 17 00:00:00 2001
 From: demrich <demrich@me.com>
 Date: Wed, 30 Sep 2026 11:29:12 -0700
-Subject: [PATCH 091/212] [NOT-FOR-UPSTREAM] Bluetooth: btusb: QCA: don't
+Subject: [PATCH 091/219] [NOT-FOR-UPSTREAM] Bluetooth: btusb: QCA: don't
  reflash a warm controller
 
 OGC #120 reloads the QCA rampatch and NVM on every probe. On a controller

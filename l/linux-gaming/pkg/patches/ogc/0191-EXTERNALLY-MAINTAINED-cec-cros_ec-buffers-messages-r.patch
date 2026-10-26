@@ -1,7 +1,7 @@
 From 091b76aae1e434cb9d0940f3539f7dc541ed6e46 Mon Sep 17 00:00:00 2001
 From: NaKyle <nakyle.wright@gmail.com>
 Date: Mon, 23 Dec 2024 20:24:49 -0800
-Subject: [PATCH 191/212] [EXTERNALLY-MAINTAINED] cec: cros_ec buffers
+Subject: [PATCH 191/219] [EXTERNALLY-MAINTAINED] cec: cros_ec buffers
  messages, read all available rather than just 1.
 
 (cherry picked from commit 2ae417bcf7c0c0818cbdfe053e836790440e8129)

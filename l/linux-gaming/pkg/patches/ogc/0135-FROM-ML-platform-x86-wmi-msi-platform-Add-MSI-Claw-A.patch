@@ -1,7 +1,7 @@
 From 2470fccb45bd2209026307839bbde25d89790d7d Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 3 Aug 2026 15:16:13 -0700
-Subject: [PATCH 135/212] [FROM-ML] platform/x86: wmi-msi-platform: Add MSI
+Subject: [PATCH 135/219] [FROM-ML] platform/x86: wmi-msi-platform: Add MSI
  Claw A8 support
 
 Adds MSI Claw A8 BZ2EM support.

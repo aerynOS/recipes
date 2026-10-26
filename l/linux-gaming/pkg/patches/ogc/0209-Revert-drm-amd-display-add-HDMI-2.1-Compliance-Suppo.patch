@@ -1,7 +1,7 @@
 From a2db550156deee635ff200ebceadf82528e82fcd Mon Sep 17 00:00:00 2001
 From: Kyle Gospodnetich <me@kylegospodneti.ch>
 Date: Wed, 9 Sep 2026 14:37:01 -0700
-Subject: [PATCH 209/212] Revert "drm/amd/display: add HDMI 2.1 Compliance
+Subject: [PATCH 209/219] Revert "drm/amd/display: add HDMI 2.1 Compliance
  Support"
 
 This reverts commit 7e5760f084d06ca57e46e4dbf7ef08f03f857be8.

@@ -1,7 +1,7 @@
 From ba161363ab624a110a5b26f28f050b1db3a84019 Mon Sep 17 00:00:00 2001
 From: Fan Wu <fanwu01@zju.edu.cn>
 Date: Tue, 29 Sep 2026 06:13:49 +0000
-Subject: [PATCH 042/212] [FROM-ML] ASoC: amd: ps: fix snd_acp63_remove()
+Subject: [PATCH 042/219] [FROM-ML] ASoC: amd: ps: fix snd_acp63_remove()
  teardown ordering
 
 The ACP IRQ handlers dereference the SoundWire, SoundWire DMA, and PDM

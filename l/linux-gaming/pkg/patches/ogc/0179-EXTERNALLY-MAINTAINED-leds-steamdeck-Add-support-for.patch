@@ -1,7 +1,7 @@
 From b98812e3e66026ba95f6f733e91cf844c3e2d740 Mon Sep 17 00:00:00 2001
 From: Andrey Smirnov <andrew.smirnov@gmail.com>
 Date: Sun, 27 Feb 2022 12:58:05 -0800
-Subject: [PATCH 179/212] [EXTERNALLY-MAINTAINED] leds: steamdeck: Add support
+Subject: [PATCH 179/219] [EXTERNALLY-MAINTAINED] leds: steamdeck: Add support
  for Steam Deck LED
 
 (cherry picked from commit 85a86d19aa7022ff0555023d53aef78323a42d0c)

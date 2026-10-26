@@ -1,7 +1,7 @@
 From f7fc17bd3301a658f5a289140da83d028b4232f6 Mon Sep 17 00:00:00 2001
 From: Kyle Gospodnetich <me@kylegospodneti.ch>
 Date: Sun, 18 Oct 2026 19:36:20 -0700
-Subject: [PATCH 212/212] [NOT-FOR-UPSTREAM] Revert "drm/amd/display: map PWM
+Subject: [PATCH 212/219] [NOT-FOR-UPSTREAM] Revert "drm/amd/display: map PWM
  brightness through custom backlight curve"
 
 This reverts commit d422a66847a9ca45b7cd6dfddefe71156f403114.

@@ -1,7 +1,7 @@
 From 0ae1759acbaaaca9e41f44d93d2698dabe50a038 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:40 +0100
-Subject: [PATCH 160/212] [FROM-ML] drm: panel-orientation-quirks: Add
+Subject: [PATCH 160/219] [FROM-ML] drm: panel-orientation-quirks: Add
  OneXPlayer G1 variants
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

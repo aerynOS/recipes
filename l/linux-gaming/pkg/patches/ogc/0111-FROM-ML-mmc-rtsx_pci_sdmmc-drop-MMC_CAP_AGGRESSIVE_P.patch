@@ -1,7 +1,7 @@
 From 9ffd4ec045853a06cc1c3203f7053a62c98c71fc Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Sat, 20 Dec 2025 19:57:41 -0800
-Subject: [PATCH 111/212] [FROM-ML] mmc: rtsx_pci_sdmmc: drop
+Subject: [PATCH 111/219] [FROM-ML] mmc: rtsx_pci_sdmmc: drop
  MMC_CAP_AGGRESSIVE_PM for RTS525A
 
 Using MMC_CAP_AGGRESSIVE_PM on RTS525A card readers causes game

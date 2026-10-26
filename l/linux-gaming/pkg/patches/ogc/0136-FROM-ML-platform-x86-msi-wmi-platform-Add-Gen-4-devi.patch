@@ -1,7 +1,7 @@
 From 84447fb0ce055acb302844eba5342a6d676b1ab8 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 3 Aug 2026 15:16:14 -0700
-Subject: [PATCH 136/212] [FROM-ML] platform-x86: msi-wmi-platform: Add Gen 4
+Subject: [PATCH 136/219] [FROM-ML] platform-x86: msi-wmi-platform: Add Gen 4
  device
 
 Adds support for the MSI Claw 8 EX AI+. This device uses a unique new

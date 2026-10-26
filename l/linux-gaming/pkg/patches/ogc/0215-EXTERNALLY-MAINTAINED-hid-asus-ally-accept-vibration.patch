@@ -1,0 +1,33 @@
+From e7e5b1ede2d5c471b5a46ea14870d75627361d28 Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Fri, 16 Oct 2026 18:15:16 -0700
+Subject: [PATCH 215/219] [EXTERNALLY-MAINTAINED] hid-asus-ally: accept
+ vibration intensity up to 100
+
+gamepad_vibration_intensity_store() rejects values above 64, but the
+MCU intensity range is 0-100 and the driver defaults both motors to
+0x64. Once lowered, the intensity can never be set back to the default.
+
+Accept values up to 100, as the upstream hid-asus Ally driver does.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/hid/hid-asus-ally.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/hid/hid-asus-ally.c b/drivers/hid/hid-asus-ally.c
+index bef616b6142c..5b40e76ef69a 100644
+--- a/drivers/hid/hid-asus-ally.c
++++ b/drivers/hid/hid-asus-ally.c
+@@ -597,7 +597,7 @@ static ssize_t gamepad_vibration_intensity_store(struct device *dev,
+ 	if (sscanf(buf, "%d %d", &left, &right) != 2)
+ 		return -EINVAL;
+ 
+-	if (left > 64 || right > 64)
++	if (left > 100 || right > 100)
+ 		return -EINVAL;
+ 
+ 	ally_cfg->vibration_intensity[0] = left;
+-- 
+2.56.0
+

@@ -1,7 +1,7 @@
 From 7d45fa2f613f37fe36bc267bb3e98b1083be6038 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 3 Aug 2026 15:16:12 -0700
-Subject: [PATCH 134/212] [FROM-ML] platform/x86: msi-wmi-platform: Clean up
+Subject: [PATCH 134/219] [FROM-ML] platform/x86: msi-wmi-platform: Clean up
  devices
 
 The current driver has multiple minor mistakes. Fix them all in one

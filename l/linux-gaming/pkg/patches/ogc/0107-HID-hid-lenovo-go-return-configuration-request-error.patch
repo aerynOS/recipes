@@ -1,7 +1,7 @@
 From 75e81111a088b831441031f94b96bd2b1ce06dfc Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:05 +0530
-Subject: [PATCH 107/212] HID: hid-lenovo-go: return configuration request
+Subject: [PATCH 107/219] HID: hid-lenovo-go: return configuration request
  errors
 
 Any decoded configuration reply completes the shared completion. The driver

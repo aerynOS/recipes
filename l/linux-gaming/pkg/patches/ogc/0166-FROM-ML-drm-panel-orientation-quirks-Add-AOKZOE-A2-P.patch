@@ -1,7 +1,7 @@
 From 0dd0a09f92660f0082de9a200ec65872df29a99d Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:46 +0100
-Subject: [PATCH 166/212] [FROM-ML] drm: panel-orientation-quirks: Add AOKZOE
+Subject: [PATCH 166/219] [FROM-ML] drm: panel-orientation-quirks: Add AOKZOE
  A2 Pro
 
 We are missing a quirk for this older device, so add it.

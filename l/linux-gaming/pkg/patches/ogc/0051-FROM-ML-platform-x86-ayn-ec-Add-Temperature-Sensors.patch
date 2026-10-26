@@ -1,7 +1,7 @@
 From 35373ee2421ba49ffd0c3978a1cbe9ce6a5e76de Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Sat, 26 Jul 2025 13:40:39 -0700
-Subject: [PATCH 051/212] [FROM-ML] platform/x86: (ayn-ec) Add Temperature
+Subject: [PATCH 051/219] [FROM-ML] platform/x86: (ayn-ec) Add Temperature
  Sensors
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

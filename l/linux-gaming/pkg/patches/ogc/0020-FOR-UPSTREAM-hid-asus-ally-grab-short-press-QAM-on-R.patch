@@ -1,7 +1,7 @@
 From b1c8898ffbc70bc3c82de8e7d48f9ac25e701bc4 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Sun, 26 Oct 2025 22:03:22 -0700
-Subject: [PATCH 020/212] [FOR-UPSTREAM] hid-asus-ally: grab short press QAM on
+Subject: [PATCH 020/219] [FOR-UPSTREAM] hid-asus-ally: grab short press QAM on
  ROG Xbox Ally X
 
 The hid report for the QAM button changed on the ASUS ROG Xbox Ally X,

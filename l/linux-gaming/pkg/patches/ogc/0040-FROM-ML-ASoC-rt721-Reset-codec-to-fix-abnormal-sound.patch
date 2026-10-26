@@ -1,7 +1,7 @@
 From a84f68436cbd3132867fc00323490ee31ddd93c5 Mon Sep 17 00:00:00 2001
 From: Oder Chiou <oder_chiou@realtek.com>
 Date: Wed, 16 Sep 2026 18:18:03 +0800
-Subject: [PATCH 040/212] [FROM-ML] ASoC: rt721: Reset codec to fix abnormal
+Subject: [PATCH 040/219] [FROM-ML] ASoC: rt721: Reset codec to fix abnormal
  sound
 
 The audio output may become abnormal after a warm reboot from Windows.

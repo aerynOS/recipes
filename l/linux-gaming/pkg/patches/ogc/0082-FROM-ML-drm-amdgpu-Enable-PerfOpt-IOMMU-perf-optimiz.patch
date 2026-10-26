@@ -1,7 +1,7 @@
 From c8218368afb41cc282e803404aa64ab704fcee18 Mon Sep 17 00:00:00 2001
 From: Mario Limonciello <mario.limonciello@amd.com>
 Date: Mon, 7 Sep 2026 23:12:07 -0500
-Subject: [PATCH 082/212] [FROM-ML] drm/amdgpu: Enable PerfOpt IOMMU perf
+Subject: [PATCH 082/219] [FROM-ML] drm/amdgpu: Enable PerfOpt IOMMU perf
  optimization when GPU in identity domain
 
 Enable PerfOpt via amd_iommu_enable_perfopt() when the GPU's

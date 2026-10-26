@@ -1,7 +1,7 @@
 From f88f1c63545b2994186535503341c22ff997997a Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 15 Oct 2026 17:44:37 -0700
-Subject: [PATCH 043/212] [FROM-ML] ASoC: amd: acp-config: force SoundWire
+Subject: [PATCH 043/219] [FROM-ML] ASoC: amd: acp-config: force SoundWire
  probe on ASUS RC74XA
 
 The ROG Xbox Ally X20 (RC74XA) BIOS reports acp-audio-config-flag 0x10

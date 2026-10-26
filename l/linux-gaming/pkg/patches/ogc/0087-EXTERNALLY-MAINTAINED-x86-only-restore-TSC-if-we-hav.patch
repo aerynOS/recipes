@@ -1,7 +1,7 @@
 From 4b8a4c3de77a2c2b8c0ec134bb3efd4156bc664a Mon Sep 17 00:00:00 2001
 From: Steven Noonan <steven@uplinklabs.net>
 Date: Wed, 17 Nov 2021 11:58:46 -0800
-Subject: [PATCH 087/212] [EXTERNALLY-MAINTAINED] x86: only restore TSC if we
+Subject: [PATCH 087/219] [EXTERNALLY-MAINTAINED] x86: only restore TSC if we
  have IA32_TSC_ADJUST or directsync enabled
 
 Otherwise we'd only be restoring the TSC for CPU0 on resume, which would

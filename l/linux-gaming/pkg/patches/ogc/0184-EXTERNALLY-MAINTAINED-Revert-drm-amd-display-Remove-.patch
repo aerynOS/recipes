@@ -1,7 +1,7 @@
 From 002057abe4d8e2d96617aa48a6fa3894b504bf05 Mon Sep 17 00:00:00 2001
 From: Melissa Wen <mwen@igalia.com>
 Date: Thu, 22 Jan 2026 18:05:13 -0100
-Subject: [PATCH 184/212] [EXTERNALLY-MAINTAINED] Revert "drm/amd/display:
+Subject: [PATCH 184/219] [EXTERNALLY-MAINTAINED] Revert "drm/amd/display:
  Remove unused cm3_helper_translate_curve_to_degamma_hw_format"
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

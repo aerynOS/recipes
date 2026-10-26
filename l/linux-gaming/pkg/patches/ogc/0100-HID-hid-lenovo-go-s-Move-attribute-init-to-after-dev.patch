@@ -1,7 +1,7 @@
 From 12034145aba545cd2a168e3fd0e48117299c8269 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:53:00 -0700
-Subject: [PATCH 100/212] HID: hid-lenovo-go-s: Move attribute init to after
+Subject: [PATCH 100/219] HID: hid-lenovo-go-s: Move attribute init to after
  device query
 
 Currently this driver registers attributes before the MCU is ready to

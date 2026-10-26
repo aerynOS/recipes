@@ -1,7 +1,7 @@
 From 2db3449110d09a18d1eef5a64c314efcfd6ba4b4 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 11 May 2025 22:44:22 +0200
-Subject: [PATCH 120/212] [FROM-ML] platform/x86: msi-wmi-platform: Add
+Subject: [PATCH 120/219] [FROM-ML] platform/x86: msi-wmi-platform: Add
  platform profile through shift mode
 
 MSI's version of platform profile in Windows is called shift mode.

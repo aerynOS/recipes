@@ -1,7 +1,7 @@
 From 0d3542f3230df9087ef337ddf3a872f72bd97e81 Mon Sep 17 00:00:00 2001
 From: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
 Date: Sun, 11 Oct 2026 00:35:41 +0530
-Subject: [PATCH 001/212] [FROM-ML] platform/x86/amd/wmi: Add AMD Overclocking
+Subject: [PATCH 001/219] [FROM-ML] platform/x86/amd/wmi: Add AMD Overclocking
  (AOD) WMI driver
 
 AMD Ryzen platforms implement the AMD Overclocking (AOD) interface in the

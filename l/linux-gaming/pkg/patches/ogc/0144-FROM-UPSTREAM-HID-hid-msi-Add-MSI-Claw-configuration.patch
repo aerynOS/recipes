@@ -1,7 +1,7 @@
 From 4eff0d9b986173ed4d39545e969e53ec2da97b02 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 20 Jul 2026 03:15:46 +0000
-Subject: [PATCH 144/212] [FROM-UPSTREAM] HID: hid-msi: Add MSI Claw
+Subject: [PATCH 144/219] [FROM-UPSTREAM] HID: hid-msi: Add MSI Claw
  configuration driver
 
 Adds configuration HID driver for the MSI Claw series of handheld PC's.

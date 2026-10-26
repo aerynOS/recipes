@@ -1,7 +1,7 @@
 From c50c3fc296ab1cd63d5c4002a23205e0b37f7515 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Sun, 11 May 2025 22:44:23 +0200
-Subject: [PATCH 121/212] [FROM-ML] platform/x86: msi-wmi-platform: Add PL1/PL2
+Subject: [PATCH 121/219] [FROM-ML] platform/x86: msi-wmi-platform: Add PL1/PL2
  support via firmware attributes
 
 Adds PL1, and PL2 support through the firmware attributes interface.

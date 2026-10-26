@@ -1,7 +1,7 @@
 From 249a9a6170451882a828b092998772b37bcab994 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Tomasz=20Paku=C5=82a?= <tomasz.pakula.oficjalny@gmail.com>
 Date: Fri, 14 Aug 2026 12:43:42 -0400
-Subject: [PATCH 198/212] [FROM-ML] drm/edid: parse HDMI 2.1 gaming (ALLM/VRR)
+Subject: [PATCH 198/219] [FROM-ML] drm/edid: parse HDMI 2.1 gaming (ALLM/VRR)
  capabilities from HF-VSDB
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

@@ -1,7 +1,7 @@
 From c8ad2d786851a43d1ef74d0096b547222af8a0f0 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Tomasz=20Paku=C5=82a?= <tomasz.pakula.oficjalny@gmail.com>
 Date: Tue, 1 Sep 2026 15:12:49 -0400
-Subject: [PATCH 203/212] [FROM-ML] drm: Add passive_vrr properties for
+Subject: [PATCH 203/219] [FROM-ML] drm: Add passive_vrr properties for
  passive/desktop VRR
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

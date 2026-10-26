@@ -1,7 +1,7 @@
 From dde79d056cf9e264a72ad249e9c96f483add85a6 Mon Sep 17 00:00:00 2001
 From: Steven Noonan <steven@uplinklabs.net>
 Date: Wed, 17 Nov 2021 19:42:32 -0800
-Subject: [PATCH 088/212] [EXTERNALLY-MAINTAINED] x86: don't check for random
+Subject: [PATCH 088/219] [EXTERNALLY-MAINTAINED] x86: don't check for random
  warps if using direct sync
 
 There's some overhead in writing/reading MSR_IA32_TSC. We try to account

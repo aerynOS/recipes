@@ -1,7 +1,7 @@
 From f604fd39533f340cc3e287770ea12bba3959ba8f Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Mat=C3=ADas=20Mart=C3=ADnez?= <hello@matias.me>
 Date: Fri, 25 Sep 2026 03:23:27 -0300
-Subject: [PATCH 065/212] [FROM-ML] HID: ayaneo: sync to the v4 submission
+Subject: [PATCH 065/219] [FROM-ML] HID: ayaneo: sync to the v4 submission
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

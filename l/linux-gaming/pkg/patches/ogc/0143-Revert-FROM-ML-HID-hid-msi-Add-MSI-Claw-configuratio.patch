@@ -1,7 +1,7 @@
 From 89c1375286c230b86c385e68037b24470dc40b1a Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Wed, 26 Aug 2026 01:56:25 +0000
-Subject: [PATCH 143/212] Revert "[FROM-ML] HID: hid-msi: Add MSI Claw
+Subject: [PATCH 143/219] Revert "[FROM-ML] HID: hid-msi: Add MSI Claw
  configuration driver"
 
 This reverts commit c652e9ef43274c9e267327bc32f74d82c61e8c39.

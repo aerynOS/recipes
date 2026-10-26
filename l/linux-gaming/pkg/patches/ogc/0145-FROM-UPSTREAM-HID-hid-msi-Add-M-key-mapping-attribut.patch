@@ -1,7 +1,7 @@
 From 59e809da437363383d7a3ad0195162f7655411d3 Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 20 Jul 2026 03:15:47 +0000
-Subject: [PATCH 145/212] [FROM-UPSTREAM] HID: hid-msi: Add M-key mapping
+Subject: [PATCH 145/219] [FROM-UPSTREAM] HID: hid-msi: Add M-key mapping
  attributes
 
 Adds attributes that allow for remapping the M-keys with up to 5 values

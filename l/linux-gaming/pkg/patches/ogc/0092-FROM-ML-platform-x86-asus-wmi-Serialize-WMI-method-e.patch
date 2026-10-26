@@ -1,7 +1,7 @@
 From b267a8fe465da1847d34d22906be5548d72142ec Mon Sep 17 00:00:00 2001
 From: Marco Scardovi <scardracs@disroot.org>
 Date: Fri, 18 Sep 2026 11:14:59 +0200
-Subject: [PATCH 092/212] [FROM-ML] platform/x86: asus-wmi: Serialize WMI
+Subject: [PATCH 092/219] [FROM-ML] platform/x86: asus-wmi: Serialize WMI
  method evaluations with a mutex
 
 Concurrent evaluations of ASUS WMI management methods (from ACPI notify,

@@ -223,7 +223,15 @@ ogc/0209-Revert-drm-amd-display-add-HDMI-2.1-Compliance-Suppo.patch
 ogc/0210-EXTERNALLY-MAINTAINED-zotac-zone-hid-initial-impl.patch
 ogc/0211-EXTERNALLY-MAINTAINED-xpad-gate-the-zotac-zone-PID-b.patch
 ogc/0212-NOT-FOR-UPSTREAM-Revert-drm-amd-display-map-PWM-brig.patch
+ogc/0213-EXTERNALLY-MAINTAINED-hid-asus-ally-remap-QAM-and-AC.patch
+ogc/0214-EXTERNALLY-MAINTAINED-hid-asus-ally-scale-Ally-X-rum.patch
+ogc/0215-EXTERNALLY-MAINTAINED-hid-asus-ally-accept-vibration.patch
+ogc/0216-EXTERNALLY-MAINTAINED-hid-asus-ally-reconfigure-the-.patch
+ogc/0217-EXTERNALLY-MAINTAINED-hid-asus-ally-restore-the-game.patch
+ogc/0218-EXTERNALLY-MAINTAINED-hid-asus-ally-propagate-ready-.patch
+ogc/0219-FROM-ML-PCI-Disable-D3cold-for-Killer-BE200-family-W.patch
 
+# https://github.com/OpenGamingCollective/linux/tree/features/scheduler
 ogc/scheduler/0001-FROM-ML-sched-fair-Add-cgroup_mode-switch.patch
 ogc/scheduler/0002-FROM-ML-sched-fair-Add-cgroup_mode-up.patch
 ogc/scheduler/0003-FROM-ML-sched-fair-Add-cgroup_mode-max.patch

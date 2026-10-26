@@ -1,7 +1,7 @@
 From 8e6e7cb50f8977bef7454608a84e1952884eed0e Mon Sep 17 00:00:00 2001
 From: Sean Wang <sean.wang@mediatek.com>
 Date: Fri, 4 Sep 2026 20:44:11 +0800
-Subject: [PATCH 080/212] [FROM-UPSTREAM] Bluetooth: btusb: Add new VID/PID
+Subject: [PATCH 080/219] [FROM-UPSTREAM] Bluetooth: btusb: Add new VID/PID
  0x0489/0xe156 for MT7902
 
 Add VID 0489 & PID e156 for MediaTek MT7902 USB Bluetooth chip.

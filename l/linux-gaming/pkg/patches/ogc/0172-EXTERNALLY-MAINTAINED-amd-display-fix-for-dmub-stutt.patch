@@ -1,7 +1,7 @@
 From c05f75a21aadfb04065fcf720b6c8ed5135e32e7 Mon Sep 17 00:00:00 2001
 From: Sung Joon Kim <sungkim@amd.com>
 Date: Fri, 7 Oct 2022 13:48:56 -0400
-Subject: [PATCH 172/212] [EXTERNALLY-MAINTAINED] amd/display: fix for dmub
+Subject: [PATCH 172/219] [EXTERNALLY-MAINTAINED] amd/display: fix for dmub
  stuttering
 
 (cherry picked from commit 505617021bba482d204bcde6e1a444ac743c77fb)

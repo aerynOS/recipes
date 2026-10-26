@@ -1,7 +1,7 @@
 From ecd444374a387d8259d4ab2a764cf0227c1bb196 Mon Sep 17 00:00:00 2001
 From: fewtarius <fewtarius@steamfork.org>
 Date: Tue, 1 Sep 2026 22:49:18 +0900
-Subject: [PATCH 063/212] [NOT-FOR-UPSTREAM] ALSA: hda/realtek: Add Ayaneo Air
+Subject: [PATCH 063/219] [NOT-FOR-UPSTREAM] ALSA: hda/realtek: Add Ayaneo Air
  1S audio quirk
 
 The ALC269VB codec's internal speaker pin isn't configured

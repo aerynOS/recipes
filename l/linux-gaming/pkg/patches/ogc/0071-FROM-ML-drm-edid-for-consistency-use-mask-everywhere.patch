@@ -1,7 +1,7 @@
 From a3bc3a9742609aeb3eaaaed67421cc6c92e0fe2f Mon Sep 17 00:00:00 2001
 From: Yaroslav Bolyukin <iam@lach.pw>
 Date: Tue, 2 Dec 2025 12:02:16 +0100
-Subject: [PATCH 071/212] [FROM-ML] drm/edid: for consistency, use mask
+Subject: [PATCH 071/219] [FROM-ML] drm/edid: for consistency, use mask
  everywhere for block rev parsing
 
 Other usages of block.rev bitfields were refactored to use FIELD_GET

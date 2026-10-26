@@ -1,7 +1,7 @@
 From 73a13d359d17ce687b2bdd8d90aff380b2bc0dda Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:04 +0530
-Subject: [PATCH 106/212] HID: hid-lenovo-go: initialize command completion
+Subject: [PATCH 106/219] HID: hid-lenovo-go: initialize command completion
  before hardware
 
 The configuration interface initializes its command completion in

@@ -1,7 +1,7 @@
 From e2ca26817336ef562666e8cc9234364a0b1fdcbc Mon Sep 17 00:00:00 2001
 From: "Derek J. Clark" <derekjohn.clark@gmail.com>
 Date: Mon, 14 Sep 2026 15:52:57 -0700
-Subject: [PATCH 097/212] HID: hid-lenovo-go-s: Use pm_ptr for reset_resume
+Subject: [PATCH 097/219] HID: hid-lenovo-go-s: Use pm_ptr for reset_resume
  callback
 
 Adds missing pm_ptr to the .reset_resume callback for hid-lenovo-go-s

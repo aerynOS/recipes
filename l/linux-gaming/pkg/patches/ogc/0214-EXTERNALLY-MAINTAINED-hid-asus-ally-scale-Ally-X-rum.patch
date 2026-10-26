@@ -1,0 +1,47 @@
+From 74d25a3671ae7825db7ed2858dcd9f30df181aab Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Fri, 16 Oct 2026 18:00:33 -0700
+Subject: [PATCH 214/219] [EXTERNALLY-MAINTAINED] hid-asus-ally: scale Ally X
+ rumble to the MCU range
+
+ally_x_play_effect() divides the 16-bit rumble magnitude by 512, giving
+0-127, but the MCU takes a 0-100 intensity. The ROG Xbox Ally X handles
+values above 100, but the ROG Xbox Ally X20 MCU drives its motors much
+weaker above 100 and makes an audible noise near 127. Steam keyboard
+clicks request 80% magnitude, sent as 102, and are barely felt.
+
+Scale the magnitude to 0-100, as the upstream hid-asus Ally driver does.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/hid/hid-asus-ally.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/hid/hid-asus-ally.c b/drivers/hid/hid-asus-ally.c
+index 50e01ef3234f..bef616b6142c 100644
+--- a/drivers/hid/hid-asus-ally.c
++++ b/drivers/hid/hid-asus-ally.c
+@@ -32,6 +32,7 @@
+ #define FEATURE_ROG_ALLY_REPORT_SIZE 64
+ #define ALLY_X_INPUT_REPORT_USB 0x0B
+ #define ALLY_X_INPUT_REPORT_USB_SIZE 16
++#define ALLY_X_FF_MAX_INTENSITY 100
+ 
+ #define ROG_ALLY_REPORT_SIZE 64
+ #define ROG_ALLY_X_MIN_MCU 313
+@@ -1525,8 +1526,10 @@ static int ally_x_play_effect(struct input_dev *idev, void *data, struct ff_effe
+ 		return 0;
+ 
+ 	spin_lock_irqsave(&ally_x->lock, flags);
+-	ally_x->ff_packet->ff.magnitude_strong = effect->u.rumble.strong_magnitude / 512;
+-	ally_x->ff_packet->ff.magnitude_weak = effect->u.rumble.weak_magnitude / 512;
++	ally_x->ff_packet->ff.magnitude_strong =
++		effect->u.rumble.strong_magnitude * ALLY_X_FF_MAX_INTENSITY / U16_MAX;
++	ally_x->ff_packet->ff.magnitude_weak =
++		effect->u.rumble.weak_magnitude * ALLY_X_FF_MAX_INTENSITY / U16_MAX;
+ 	ally_x->update_ff = true;
+ 	spin_unlock_irqrestore(&ally_x->lock, flags);
+ 
+-- 
+2.56.0
+

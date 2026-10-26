@@ -1,7 +1,7 @@
 From fb85d8a100317b1ea0fd777ba8b83ecc8976b9d7 Mon Sep 17 00:00:00 2001
 From: Melissa Wen <mwen@igalia.com>
 Date: Sun, 1 Feb 2026 22:43:55 -0100
-Subject: [PATCH 185/212] [EXTERNALLY-MAINTAINED] drm/amd/display: use a
+Subject: [PATCH 185/219] [EXTERNALLY-MAINTAINED] drm/amd/display: use a
  separate helper to translate degamma curves
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8

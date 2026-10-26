@@ -1,7 +1,7 @@
 From 3ff1c0d5c02c1380cc35a4878454c1c179c97e13 Mon Sep 17 00:00:00 2001
 From: Joshua Ashton <joshua@froggi.es>
 Date: Tue, 13 Feb 2024 18:28:41 +0000
-Subject: [PATCH 174/212] [EXTERNALLY-MAINTAINED] drm/amd/display: Enable 3
+Subject: [PATCH 174/219] [EXTERNALLY-MAINTAINED] drm/amd/display: Enable 3
  overlay planes for Steam Deck
 
 (cherry picked from commit 3fddb71726d5b6040660b00fc0bb5319457a4d84)

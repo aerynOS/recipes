@@ -40,10 +40,10 @@ diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
 index b09f27f7846f..54e7d744f3f8 100644
 --- a/drivers/pci/quirks.c
 +++ b/drivers/pci/quirks.c
-@@ -6415,3 +6415,39 @@ static void pci_mask_replay_timer_timeout(struct pci_dev *pdev)
- DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_GLI, 0x9750, pci_mask_replay_timer_timeout);
- DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_GLI, 0x9755, pci_mask_replay_timer_timeout);
- #endif
+@@ -6455,3 +6455,39 @@ static void quirk_msi_claw_be200_d3cold(
+ 	pci_info(pdev, "disabling D3cold: slot power removal during s2idle prevents resume on this system");
+ }
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x272b, quirk_msi_claw_be200_d3cold);
 +
 +static const struct dmi_system_id no_shutdown_dmi_table[] = {
 +	/*

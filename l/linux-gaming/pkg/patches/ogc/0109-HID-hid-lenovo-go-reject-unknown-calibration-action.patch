@@ -1,7 +1,7 @@
 From 3ff72912280e74b8928ef8cc741f9b2778a200a4 Mon Sep 17 00:00:00 2001
 From: Aditya Dash <mradityadash@gmail.com>
 Date: Tue, 1 Sep 2026 12:06:07 +0530
-Subject: [PATCH 109/212] HID: hid-lenovo-go: reject unknown calibration action
+Subject: [PATCH 109/219] HID: hid-lenovo-go: reject unknown calibration action
 
 The calibration action table includes 'unknown' at index zero. The options
 attribute skips that entry and lists only 'start' and 'stop', but the store

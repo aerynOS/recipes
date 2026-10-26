@@ -1,7 +1,7 @@
 From f233830af991a3dca100f194d5d542814556dc49 Mon Sep 17 00:00:00 2001
 From: Antheas Kapenekakis <lkml@antheas.dev>
 Date: Mon, 16 Feb 2026 21:45:45 +0100
-Subject: [PATCH 165/212] [FROM-ML] drm: panel-orientation-quirks: Add
+Subject: [PATCH 165/219] [FROM-ML] drm: panel-orientation-quirks: Add
  OneXPlayer X1z
 
 Different variant of the OneXPlayer X1 AMD edition with an 8840U.

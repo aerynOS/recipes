@@ -1,7 +1,7 @@
 From ea0313b298b594b4df05150db91e01aa062ec529 Mon Sep 17 00:00:00 2001
 From: Marco Scardovi <scardracs@disroot.org>
 Date: Fri, 18 Sep 2026 11:15:00 +0200
-Subject: [PATCH 093/212] [FROM-ML] platform/x86: asus-wmi: Remove redundant
+Subject: [PATCH 093/219] [FROM-ML] platform/x86: asus-wmi: Remove redundant
  per-device wmi_lock and duplicate rfkill ops
 
 With all WMI method evaluations serialized globally by asus_wmi_eval_lock

@@ -1,7 +1,7 @@
 From 889094b550a911da36441f5f86e3de18b491f7fd Mon Sep 17 00:00:00 2001
 From: Yaroslav Bolyukin <iam@lach.pw>
 Date: Tue, 2 Dec 2025 12:02:15 +0100
-Subject: [PATCH 070/212] [FROM-ML] drm/edid: parse DSC DPP passthru support
+Subject: [PATCH 070/219] [FROM-ML] drm/edid: parse DSC DPP passthru support
  flag for mode VII timings
 
 For timings v7 block revision >=1, revision field also contains a bit
