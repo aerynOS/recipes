@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : icu
-version     : "78.3"
-release     : 15
+version     : "79.1"
+release     : 16
 homepage    : https://icu.unicode.org/
 upstreams   :
-    - https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz:
-        hash: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
+    - https://github.com/unicode-org/icu/releases/download/release-79.1/icu4c-79.1-sources.tgz:
+        hash: 06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99
         unpackdir: current
 
     # Don't delete this section, just comment it out if it's not needed. The build recipe accounts for it possibly not existing
-    # - https://github.com/unicode-org/icu/releases/download/release-77-1/icu4c-77_1-src.tgz:
-    #     hash: 588e431f77327c39031ffbb8843c0e3bc122c211374485fa87dc5f3faff24061
-    #     unpackdir: compat
+    - https://github.com/unicode-org/icu/releases/download/release-78.3/icu4c-78.3-sources.tgz:
+        hash: 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
+        unpackdir: compat
 summary     : International Components for Unicode
 description : |
     The International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries providing Unicode and Globalization support for software applications. ICU is widely portable and gives applications the same results on all platforms.

@@ -12,10 +12,10 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuio.so.78(x86_64))",
-				"soname(libicutu.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuio.so.79(x86_64))",
+				"soname(libicutu.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -85,25 +85,43 @@
 			"files": [
 				"/usr/lib32/libicudata.so.78",
 				"/usr/lib32/libicudata.so.78.3",
+				"/usr/lib32/libicudata.so.79",
+				"/usr/lib32/libicudata.so.79.1",
 				"/usr/lib32/libicui18n.so.78",
 				"/usr/lib32/libicui18n.so.78.3",
+				"/usr/lib32/libicui18n.so.79",
+				"/usr/lib32/libicui18n.so.79.1",
 				"/usr/lib32/libicuio.so.78",
 				"/usr/lib32/libicuio.so.78.3",
+				"/usr/lib32/libicuio.so.79",
+				"/usr/lib32/libicuio.so.79.1",
 				"/usr/lib32/libicutest.so.78",
 				"/usr/lib32/libicutest.so.78.3",
+				"/usr/lib32/libicutest.so.79",
+				"/usr/lib32/libicutest.so.79.1",
 				"/usr/lib32/libicutu.so.78",
 				"/usr/lib32/libicutu.so.78.3",
+				"/usr/lib32/libicutu.so.79",
+				"/usr/lib32/libicutu.so.79.1",
 				"/usr/lib32/libicuuc.so.78",
-				"/usr/lib32/libicuuc.so.78.3"
+				"/usr/lib32/libicuuc.so.78.3",
+				"/usr/lib32/libicuuc.so.79",
+				"/usr/lib32/libicuuc.so.79.1"
 			],
 			"name": "icu-32bit",
 			"provides": [
 				"soname(libicudata.so.78(386))",
+				"soname(libicudata.so.79(386))",
 				"soname(libicui18n.so.78(386))",
+				"soname(libicui18n.so.79(386))",
 				"soname(libicuio.so.78(386))",
+				"soname(libicuio.so.79(386))",
 				"soname(libicutest.so.78(386))",
+				"soname(libicutest.so.79(386))",
 				"soname(libicutu.so.78(386))",
-				"soname(libicuuc.so.78(386))"
+				"soname(libicutu.so.79(386))",
+				"soname(libicuuc.so.78(386))",
+				"soname(libicuuc.so.79(386))"
 			]
 		},
 		"icu-32bit-devel": {
@@ -116,8 +134,8 @@
 				"icu-devel"
 			],
 			"files": [
-				"/usr/lib32/icu/78.3/Makefile.inc",
-				"/usr/lib32/icu/78.3/pkgdata.inc",
+				"/usr/lib32/icu/79.1/Makefile.inc",
+				"/usr/lib32/icu/79.1/pkgdata.inc",
 				"/usr/lib32/icu/Makefile.inc",
 				"/usr/lib32/icu/current",
 				"/usr/lib32/icu/pkgdata.inc",
@@ -147,8 +165,8 @@
 				"icu",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libicutu.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))"
+				"soname(libicutu.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))"
 			],
 			"files": [
 				"/usr/bin/icu-config",
@@ -358,8 +376,8 @@
 				"/usr/include/unicode/uvernum.h",
 				"/usr/include/unicode/uversion.h",
 				"/usr/include/unicode/vtzone.h",
-				"/usr/lib/icu/78.3/Makefile.inc",
-				"/usr/lib/icu/78.3/pkgdata.inc",
+				"/usr/lib/icu/79.1/Makefile.inc",
+				"/usr/lib/icu/79.1/pkgdata.inc",
 				"/usr/lib/icu/Makefile.inc",
 				"/usr/lib/icu/current",
 				"/usr/lib/icu/pkgdata.inc",
@@ -372,10 +390,10 @@
 				"/usr/lib/pkgconfig/icu-i18n.pc",
 				"/usr/lib/pkgconfig/icu-io.pc",
 				"/usr/lib/pkgconfig/icu-uc.pc",
-				"/usr/share/icu/78.3/LICENSE",
-				"/usr/share/icu/78.3/config/mh-linux",
-				"/usr/share/icu/78.3/install-sh",
-				"/usr/share/icu/78.3/mkinstalldirs",
+				"/usr/share/icu/79.1/LICENSE",
+				"/usr/share/icu/79.1/config/mh-linux",
+				"/usr/share/icu/79.1/install-sh",
+				"/usr/share/icu/79.1/mkinstalldirs",
 				"/usr/share/man/man1/icu-config.1"
 			],
 			"name": "icu-devel",
@@ -401,25 +419,43 @@
 			"files": [
 				"/usr/lib/libicudata.so.78",
 				"/usr/lib/libicudata.so.78.3",
+				"/usr/lib/libicudata.so.79",
+				"/usr/lib/libicudata.so.79.1",
 				"/usr/lib/libicui18n.so.78",
 				"/usr/lib/libicui18n.so.78.3",
+				"/usr/lib/libicui18n.so.79",
+				"/usr/lib/libicui18n.so.79.1",
 				"/usr/lib/libicuio.so.78",
 				"/usr/lib/libicuio.so.78.3",
+				"/usr/lib/libicuio.so.79",
+				"/usr/lib/libicuio.so.79.1",
 				"/usr/lib/libicutest.so.78",
 				"/usr/lib/libicutest.so.78.3",
+				"/usr/lib/libicutest.so.79",
+				"/usr/lib/libicutest.so.79.1",
 				"/usr/lib/libicutu.so.78",
 				"/usr/lib/libicutu.so.78.3",
+				"/usr/lib/libicutu.so.79",
+				"/usr/lib/libicutu.so.79.1",
 				"/usr/lib/libicuuc.so.78",
-				"/usr/lib/libicuuc.so.78.3"
+				"/usr/lib/libicuuc.so.78.3",
+				"/usr/lib/libicuuc.so.79",
+				"/usr/lib/libicuuc.so.79.1"
 			],
 			"name": "icu-libs",
 			"provides": [
 				"soname(libicudata.so.78(x86_64))",
+				"soname(libicudata.so.79(x86_64))",
 				"soname(libicui18n.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
 				"soname(libicuio.so.78(x86_64))",
+				"soname(libicuio.so.79(x86_64))",
 				"soname(libicutest.so.78(x86_64))",
+				"soname(libicutest.so.79(x86_64))",
 				"soname(libicutu.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))"
+				"soname(libicutu.so.79(x86_64))",
+				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))"
 			]
 		},
 		"icu-static": {
@@ -442,6 +478,6 @@
 		}
 	},
 	"source-name": "icu",
-	"source-release": "15",
-	"source-version": "78.3"
+	"source-release": "16",
+	"source-version": "79.1"
 }
