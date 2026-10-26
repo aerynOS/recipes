@@ -86,7 +86,7 @@
 				"soname(libQuotientQt6.so.0.9(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libcmark.so.0.31.2(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libqt6keychain.so.1(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
@@ -171,6 +171,6 @@
 		}
 	},
 	"source-name": "neochat",
-	"source-release": "28",
+	"source-release": "29",
 	"source-version": "26.08.2"
 }
