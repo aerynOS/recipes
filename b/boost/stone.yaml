@@ -3,7 +3,7 @@
 
 name        : boost
 version     : "1.92.0"
-release     : 12
+release     : 13
 homepage    : https://boost.org
 upstreams   :
     - https://archives.boost.io/release/1.92.0/source/boost_1_92_0.tar.gz: c4a3b310ddd2472416e091067166b0713be97c63f38c212c484ada022fd296ce
