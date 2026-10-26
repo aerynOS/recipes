@@ -3,7 +3,7 @@
 
 name        : libxml2
 version     : "2.15.4"
-release     : 24
+release     : 25
 summary     : XML parsing library
 license     : MIT
 homepage    : http://www.xmlsoft.org/

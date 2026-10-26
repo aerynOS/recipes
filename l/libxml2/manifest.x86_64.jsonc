@@ -16,7 +16,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libreadline.so.8(x86_64))",
 				"soname(libz.so.1(x86_64))"
@@ -514,6 +514,6 @@
 		}
 	},
 	"source-name": "libxml2",
-	"source-release": "24",
+	"source-release": "25",
 	"source-version": "2.15.4"
 }
