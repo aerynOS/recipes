@@ -20,7 +20,7 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-3.so.0(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))"
 			],
 			"files": [
@@ -138,6 +138,6 @@
 		}
 	},
 	"source-name": "gspell",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "1.14.5"
 }

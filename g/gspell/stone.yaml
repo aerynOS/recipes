@@ -3,7 +3,7 @@
 
 name        : gspell
 version     : "1.14.5"
-release     : 3
+release     : 4
 homepage    : https://gitlab.gnome.org/GNOME/gspell
 upstreams   :
     - https://download.gnome.org/sources/gspell/1.14/gspell-1.14.5.tar.xz : 788783b56fc3d03283b3aa29302d0b958aeca88835e10b1ec61f19e0efc7e8a4
