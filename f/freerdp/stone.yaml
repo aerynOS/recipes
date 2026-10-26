@@ -3,7 +3,7 @@
 
 name        : freerdp
 version     : "3.32.2"
-release     : 41
+release     : 42
 homepage    : https://www.freerdp.com
 upstreams   :
     # TODO: Switch back to source archive
