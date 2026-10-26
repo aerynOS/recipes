@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bazaar
-version     : "0.9.9"
-release     : 11
+version     : "0.9.10"
+release     : 12
 homepage    : https://gitlab.gnome.org/World/bazaar
 upstreams   :
-    - https://gitlab.gnome.org/World/bazaar/-/archive/v0.9.9/bazaar-v0.9.9.tar.gz : 29dba253f590e2f886e52d280b6c67a5efb2285cb4f5af034825481dd133fba6
+    - https://gitlab.gnome.org/World/bazaar/-/archive/v0.9.10/bazaar-v0.9.10.tar.gz : cc9d62b7fc2b1008f3096da29c6fdeb48126d419fc5d4bed067cf72a107db7ac
 summary     : New App Store for GNOME
 description : |
     Bazaar is a new app store for GNOME with a focus on discovering and installing applications and add-ons from Flatpak remotes, particularly Flathub.

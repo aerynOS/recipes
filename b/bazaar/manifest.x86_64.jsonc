@@ -66,7 +66,7 @@
 				"/usr/bin/bge-demo",
 				"/usr/lib/bazaar/libbazaar-login-page.so",
 				"/usr/lib/libbge.so.0",
-				"/usr/lib/libbge.so.0.9.9",
+				"/usr/lib/libbge.so.0.9.10",
 				"/usr/lib/systemd/user/io.github.kolunmi.Bazaar.service",
 				"/usr/share/applications/io.github.kolunmi.Bazaar.desktop",
 				"/usr/share/dbus-1/services/io.github.kolunmi.Bazaar.SearchProvider.service",
@@ -157,11 +157,8 @@
 			"files": [
 				"/usr/include/bge/bge-animation.h",
 				"/usr/include/bge/bge-carousel.h",
-				"/usr/include/bge/bge-easing.h",
 				"/usr/include/bge/bge-version-macros.h",
 				"/usr/include/bge/bge-version.h",
-				"/usr/include/bge/bge-wdgt-renderer.h",
-				"/usr/include/bge/bge-wdgt-spec.h",
 				"/usr/include/bge/bge.h",
 				"/usr/lib/libbge.so",
 				"/usr/lib/pkgconfig/bge.pc"
@@ -173,6 +170,6 @@
 		}
 	},
 	"source-name": "bazaar",
-	"source-release": "11",
-	"source-version": "0.9.9"
+	"source-release": "12",
+	"source-version": "0.9.10"
 }
