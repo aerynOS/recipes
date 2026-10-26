@@ -3,7 +3,7 @@
 
 name        : nautilus
 version     : "51.1"
-release     : 29
+release     : 30
 homepage    : https://apps.gnome.org/Nautilus/
 upstreams   :
     - https://download.gnome.org/sources/nautilus/51/nautilus-51.1.tar.xz : a703bc152d18d161d9dab957e2390a36e6246bb5c24de7b15c9624fcfa2f2816
