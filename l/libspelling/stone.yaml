@@ -3,7 +3,7 @@
 
 name        : libspelling
 version     : "0.4.10"
-release     : 9
+release     : 10
 homepage    : https://gitlab.gnome.org/GNOME/libspelling
 upstreams   :
     - https://download.gnome.org/sources/libspelling/0.4/libspelling-0.4.10.tar.xz : 56e3f01a3a18b575beea4c34349f99cdaba316e1f7c271b1231f7bcf5d9af73b

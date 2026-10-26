@@ -22,7 +22,7 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-4.so.1(x86_64))",
 				"soname(libgtksourceview-5.so.0(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))"
 			],
 			"files": [
@@ -133,6 +133,6 @@
 		}
 	},
 	"source-name": "libspelling",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "0.4.10"
 }
