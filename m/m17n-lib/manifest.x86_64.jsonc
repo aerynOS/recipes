@@ -33,8 +33,8 @@
 				"soname(libfreetype.so.6(x86_64))",
 				"soname(libfribidi.so.0(x86_64))",
 				"soname(libgd.so.3(x86_64))",
-				"soname(libicudata.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicudata.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libotf.so.1(x86_64))",
 				"soname(libthai.so.0(x86_64))",
@@ -126,6 +126,6 @@
 		}
 	},
 	"source-name": "m17n-lib",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "1.8.6"
 }

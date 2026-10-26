@@ -3,7 +3,7 @@
 
 name        : m17n-lib
 version     : "1.8.6"
-release     : 1
+release     : 2
 homepage    : https://www.nongnu.org/m17n/
 upstreams   :
     - https://download.savannah.nongnu.org/releases/m17n/m17n-lib-1.8.6.tar.gz : 7129fe3b7ad500f88b8af8605ef07b96c87a75ec986a695fffc0a409f44a7c86
