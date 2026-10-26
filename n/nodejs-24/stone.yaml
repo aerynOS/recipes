@@ -3,7 +3,7 @@
 
 name        : nodejs-24
 version     : "24.22.1"
-release     : 16
+release     : 17
 homepage    : https://nodejs.org/
 upstreams   :
     - https://nodejs.org/dist/v24.22.1/node-v24.22.1.tar.gz : 001773d9bd53fbd27a25efd42aa6a9693ebfe500998ca9bec635e9b6ee79bc91
@@ -34,6 +34,10 @@ environment : |
     NODEJS_SONAME=137
     NODEJS_PRIVATE_SITELIB=%(libdir)/node_modules_$NODEJS_MAJOR
 setup       : |
+    # patch taken from Homebrew
+    # https://github.com/Homebrew/homebrew-core/blob/master/Patches/node/icu4c-79.patch
+    %patch %(pkgdir)/ftbfs-icu4c-79.patch -d deps/v8
+
     python configure.py \
         --ninja \
         --enable-lto \
