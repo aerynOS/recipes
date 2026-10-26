@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"moss": {
-			"build-depends": [
-				"binary(cargo)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"layout",
@@ -69,6 +66,6 @@
 		}
 	},
 	"source-name": "moss",
-	"source-release": "135",
-	"source-version": "0.26.10~git.632816b"
+	"source-release": "136",
+	"source-version": "0.26.10~git.8f75fd4"
 }

@@ -2,18 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : moss
-version     : "0.26.10~git.632816b"
-release     : 135
-summary     : AerynOS package & system state manager
-license     : MPL-2.0
+version     : "0.26.10~git.8f75fd4"
+release     : 136
 homepage    : https://github.com/AerynOS/os-tools
 upstreams   :
     - git|https://github.com/aerynOS/os-tools.git :
-        ref : 632816b99d374a3007785a9b7d391b29500b2700
+        ref : 8f75fd41aaed4961e32f66a4e278432896ebb925
+summary     : AerynOS package & system state manager
 description : |
     Advanced package & system state manager with atomic transactions, content deduplication and declarative system-model support.
-builddeps   :
-    - binary(cargo)
+license     : MPL-2.0
 networking  : true
 tuning      :
     - optimize: size
@@ -23,8 +21,6 @@ rundeps     :
     - os-info
 environment : |
     export RUSTFLAGS="$RUSTFLAGS -C codegen-units=1"
-check       : |
-    %cargo_test --features moss/testing
 setup       : |
     %cargo_fetch
 build       : |
@@ -58,3 +54,5 @@ install     : |
     %install_file boot/module/module-setup.sh -t %(installroot)%(libdir)/dracut/modules.d/90moss/
     %install_file boot/moss-fstx.service -t %(installroot)%(libdir)/systemd/system/
     %install_exe boot/moss-fstx.sh -t %(installroot)%(libdir)/moss/
+check       : |
+    %cargo_test --features moss/testing
