@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : linux-stable
-version     : "7.2.12"
-release     : 69
+version     : "7.2.13"
+release     : 70
 homepage    : https://kernel.org/
 upstreams   :
-        - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.12.tar.xz : bb18468a8dc8978aa00caa6446e753f7b6da3fee56b6b7f38b16f9430ba02d4f
+        - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.2.13.tar.xz : 08e7b0c4f2dd1971f972da274b5e589a98989390ac56acd7a1a5af922363ea6c
 summary     : The Linux Kernel - Stable
 description : |
     The Linux Kernel - Stable
