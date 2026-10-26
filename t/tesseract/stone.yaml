@@ -3,7 +3,7 @@
 
 name        : tesseract
 version     : "5.5.3"
-release     : 2
+release     : 3
 upstreams   :
     - https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.3.tar.gz : 9218e62793116d42a9f6d14cd9348518b27f382096eea3d0f2d1a24616bb5884
 homepage    : https://github.com/tesseract-ocr/tesseract

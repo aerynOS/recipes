@@ -210,8 +210,8 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libharfbuzz.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libleptonica.so.6(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))",
@@ -274,6 +274,6 @@
 		}
 	},
 	"source-name": "tesseract",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "5.5.3"
 }
