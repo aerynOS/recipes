@@ -65,8 +65,8 @@
 				"soname(libgstpbutils-1.0.so.0(x86_64))",
 				"soname(libgstreamer-1.0.so.0(x86_64))",
 				"soname(libgsttag-1.0.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libkdsingleapplication-qt6.so.1.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmtp.so.9(x86_64))",
@@ -93,6 +93,6 @@
 		}
 	},
 	"source-name": "strawberry",
-	"source-release": "17",
+	"source-release": "18",
 	"source-version": "1.2.31"
 }
