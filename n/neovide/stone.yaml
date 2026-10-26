@@ -3,7 +3,7 @@
 
 name        : neovide
 version     : "0.16.2"
-release     : 3
+release     : 4
 upstreams   :
     - https://github.com/neovide/neovide/archive/refs/tags/0.16.2.tar.gz : a2016cceab3cba50b6a8b2f6787ae9017a85923575e89a83ebb9d428e8f80ca9
 homepage    : https://neovide.dev/
