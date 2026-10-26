@@ -3,7 +3,7 @@
 
 name        : libical
 version     : "4.0.7"
-release     : 14
+release     : 15
 homepage    : https://github.com/libical/libical
 upstreams   :
     - https://github.com/libical/libical/releases/download/v4.0.7/libical-4.0.7.tar.gz : 47c05bc96e41416578cf1803bb2ba3f8d292cb17d5ac2fca539dee922bae8a94

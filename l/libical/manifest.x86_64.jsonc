@@ -18,8 +18,8 @@
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
@@ -2338,6 +2338,6 @@
 		}
 	},
 	"source-name": "libical",
-	"source-release": "14",
+	"source-release": "15",
 	"source-version": "4.0.7"
 }
