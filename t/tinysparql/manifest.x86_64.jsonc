@@ -37,8 +37,8 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgmodule-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjson-glib-1.0.so.0(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libsoup-3.0.so.0(x86_64))",
@@ -552,6 +552,6 @@
 		}
 	},
 	"source-name": "tinysparql",
-	"source-release": "18",
+	"source-release": "19",
 	"source-version": "3.12.0"
 }
