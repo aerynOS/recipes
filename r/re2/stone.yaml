@@ -3,7 +3,7 @@
 
 name        : re2
 version     : "2025-11-05"
-release     : 15
+release     : 16
 upstreams   :
     - https://github.com/google/re2/releases/download/2025-11-05/re2-2025-11-05.tar.gz : 87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67
 license     : BSD-3-Clause
