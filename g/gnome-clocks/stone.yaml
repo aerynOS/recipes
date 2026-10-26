@@ -3,7 +3,7 @@
 
 name        : gnome-clocks
 version     : "51.0"
-release     : 7
+release     : 8
 homepage    : https://apps.gnome.org/Clocks/
 upstreams   :
     - https://download.gnome.org/sources/gnome-clocks/51/gnome-clocks-51.0.tar.xz : 4bdf9c0481a83037da1d0fa26d2c2c6a80cb736458fd18fde14acaf7924874c6
