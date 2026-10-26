@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : noctalia
-version     : "5.3.0"
-release     : 10
+version     : "5.4.0"
+release     : 11
 homepage    : https://github.com/noctalia-dev/noctalia
 upstreams   :
-    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.3.0.tar.gz : 7677b5d7da80cf89c7a8232de26d25380aa5fcaf34fb38abddd4fe7cb676161a
+    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.4.0.tar.gz : 47130d9cf1cdd637f5fe6f88f1706e7be900faa3e62c83390499d3daef32de59
 summary     : A sleek and minimal desktop shell thoughtfully crafted for Wayland
 description : |
     Noctalia is a native Wayland desktop shell providing the shell layer around
@@ -57,3 +57,12 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+
+    # Shell completions
+    for shell in bash fish zsh; do
+        %(installroot)%(bindir)/noctalia completions "${shell}" > "${shell}-completions"
+    done
+
+    %install_file bash-completions %(installroot)%(bashcompletionsdir)/noctalia
+    %install_file zsh-completions  %(installroot)%(zshcompletionsdir)/_noctalia
+    %install_file fish-completions %(installroot)%(fishcompletionsdir)/noctalia.fish

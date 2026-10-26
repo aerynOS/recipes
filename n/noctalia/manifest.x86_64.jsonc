@@ -80,7 +80,10 @@
 			],
 			"files": [
 				"/usr/bin/noctalia",
+				"/usr/share/applications/dev.noctalia.Noctalia.Annotator.desktop",
 				"/usr/share/applications/dev.noctalia.Noctalia.desktop",
+				"/usr/share/bash-completion/completions/noctalia",
+				"/usr/share/fish/vendor_completions.d/noctalia.fish",
 				"/usr/share/icons/hicolor/scalable/apps/noctalia.svg",
 				"/usr/share/noctalia/assets/emoji.json",
 				"/usr/share/noctalia/assets/firefox_theme/css/userChrome.css",
@@ -141,9 +144,6 @@
 				"/usr/share/noctalia/assets/templates/scroll/apply.sh",
 				"/usr/share/noctalia/assets/templates/scroll/scroll",
 				"/usr/share/noctalia/assets/templates/scroll/undo.sh",
-				"/usr/share/noctalia/assets/templates/starship/apply.sh",
-				"/usr/share/noctalia/assets/templates/starship/starship.toml",
-				"/usr/share/noctalia/assets/templates/starship/undo.sh",
 				"/usr/share/noctalia/assets/templates/sway/apply.sh",
 				"/usr/share/noctalia/assets/templates/sway/sway",
 				"/usr/share/noctalia/assets/templates/sway/undo.sh",
@@ -159,6 +159,7 @@
 				"/usr/share/noctalia/assets/translations/ca.json",
 				"/usr/share/noctalia/assets/translations/cs.json",
 				"/usr/share/noctalia/assets/translations/de.json",
+				"/usr/share/noctalia/assets/translations/en-GB.json",
 				"/usr/share/noctalia/assets/translations/en.json",
 				"/usr/share/noctalia/assets/translations/es.json",
 				"/usr/share/noctalia/assets/translations/fr.json",
@@ -179,7 +180,8 @@
 				"/usr/share/noctalia/assets/translations/uk-UA.json",
 				"/usr/share/noctalia/assets/translations/vi.json",
 				"/usr/share/noctalia/assets/translations/zh-Hans.json",
-				"/usr/share/noctalia/assets/translations/zh-Hant.json"
+				"/usr/share/noctalia/assets/translations/zh-Hant.json",
+				"/usr/share/zsh/site-functions/_noctalia"
 			],
 			"name": "noctalia",
 			"provides": [
@@ -188,6 +190,6 @@
 		}
 	},
 	"source-name": "noctalia",
-	"source-release": "10",
-	"source-version": "5.3.0"
+	"source-release": "11",
+	"source-version": "5.4.0"
 }
