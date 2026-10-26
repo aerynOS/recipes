@@ -3,7 +3,7 @@
 
 name        : hyprlauncher
 version     : "0.1.7"
-release     : 6
+release     : 7
 upstreams   :
     - https://github.com/hyprwm/hyprlauncher/archive/refs/tags/v0.1.7.tar.gz : 66a8b893c13fbf6c523bdf2974ef65101a0ca94f25e020f4f53f043470418340
 homepage    : https://github.com/hyprwm/hyprlauncher

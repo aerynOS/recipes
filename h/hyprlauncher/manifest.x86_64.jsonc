@@ -24,7 +24,7 @@
 				"soname(libhyprtoolkit.so.6(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libhyprwire.so.3(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libqalculate.so.23(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
@@ -39,6 +39,6 @@
 		}
 	},
 	"source-name": "hyprlauncher",
-	"source-release": "6",
+	"source-release": "7",
 	"source-version": "0.1.7"
 }
