@@ -19,7 +19,7 @@
 				"soname(libcurl.so.4(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libgmp.so.10(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmpfr.so.6(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
@@ -379,6 +379,6 @@
 		}
 	},
 	"source-name": "libqalculate",
-	"source-release": "13",
+	"source-release": "14",
 	"source-version": "5.13.1"
 }
