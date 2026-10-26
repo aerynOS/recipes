@@ -3,7 +3,7 @@
 
 name        : libphonenumber
 version     : "9.0.41"
-release     : 18
+release     : 19
 homepage    : https://github.com/googlei18n/libphonenumber
 upstreams   :
     - https://github.com/google/libphonenumber/archive/refs/tags/v9.0.41.tar.gz : 5a5021295990c7ec36c639ab1b0e24ef54faa5571ba1cabcd59fa034563aad4d
