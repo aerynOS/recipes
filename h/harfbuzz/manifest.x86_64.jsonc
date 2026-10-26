@@ -268,7 +268,7 @@
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"soname(libharfbuzz.so.0(x86_64))",
-				"soname(libicuuc.so.78(x86_64))"
+				"soname(libicuuc.so.79(x86_64))"
 			],
 			"files": [
 				"/usr/lib/libharfbuzz-icu.so.0",
@@ -341,6 +341,6 @@
 		}
 	},
 	"source-name": "harfbuzz",
-	"source-release": "43",
+	"source-release": "44",
 	"source-version": "15.0.0"
 }

@@ -3,7 +3,7 @@
 
 name        : harfbuzz
 version     : "15.0.0"
-release     : 43
+release     : 44
 homepage    : https://harfbuzz.github.io/
 upstreams   :
     - https://github.com/harfbuzz/harfbuzz/releases/download/15.0.0/harfbuzz-15.0.0.tar.xz : 968536e9abd782f07f7954044c0c4020199fcdd39b41d221ec42d2a3be4a44df
