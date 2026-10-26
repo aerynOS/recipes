@@ -3,7 +3,7 @@
 
 name        : thunderbird
 version     : "158.0.1"
-release     : 59
+release     : 60
 homepage    : https://www.thunderbird.net/
 upstreams   :
     - https://releases.mozilla.org/pub/thunderbird/releases/158.0.1/source/thunderbird-158.0.1.source.tar.xz : 3a1a9af721332779481cba4e498468a2c7a56a4f1094b0f84474b76538c2f055

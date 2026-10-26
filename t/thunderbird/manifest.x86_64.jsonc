@@ -57,8 +57,8 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-3.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libnspr4.so(x86_64))",
@@ -153,6 +153,6 @@
 		}
 	},
 	"source-name": "thunderbird",
-	"source-release": "59",
+	"source-release": "60",
 	"source-version": "158.0.1"
 }
