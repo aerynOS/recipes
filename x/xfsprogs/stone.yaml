@@ -3,7 +3,7 @@
 
 name        : xfsprogs
 version     : "7.2.1"
-release     : 20
+release     : 21
 homepage    : https://xfs.wiki.kernel.org/
 upstreams   :
     - https://mirrors.edge.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-7.2.1.tar.xz : c45f5fd81fdebcdae61938fcfdff86c9960b39fc89a06df633730d93876cd27d
