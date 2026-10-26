@@ -145,8 +145,8 @@
 				"soname(libharfbuzz.so.0(x86_64))",
 				"soname(libhunspell-1.7.so.0(x86_64))",
 				"soname(libhyphen.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(libldap.so.2(x86_64))",
@@ -5136,6 +5136,6 @@
 		}
 	},
 	"source-name": "libreoffice",
-	"source-release": "6",
+	"source-release": "7",
 	"source-version": "26.8.1.1"
 }
