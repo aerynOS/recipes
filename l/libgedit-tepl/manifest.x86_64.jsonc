@@ -26,8 +26,8 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-3.so.0(x86_64))",
 				"soname(libhandy-1.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))"
 			],
 			"files": [
@@ -267,6 +267,6 @@
 		}
 	},
 	"source-name": "libgedit-tepl",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "6.15.0"
 }
