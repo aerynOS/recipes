@@ -73,8 +73,8 @@
 				"soname(libatomic.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libopenjp2.so.7(x86_64))",
 				"soname(libpng16.so.16(x86_64))",
@@ -520,8 +520,8 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libharfbuzz-subset.so.0(x86_64))",
 				"soname(libharfbuzz.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
@@ -1211,6 +1211,6 @@
 		}
 	},
 	"source-name": "qt6-webengine",
-	"source-release": "37",
+	"source-release": "38",
 	"source-version": "6.140.0"
 }

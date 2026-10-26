@@ -3,7 +3,7 @@
 
 name        : qt6-webengine
 version     : "6.140.0"
-release     : 37
+release     : 38
 homepage    : https://www.qt.io
 upstreams   :
     - https://download.qt.io/development_releases/qtwebengine/6.140.0-rc/qtwebengine-everywhere-src-6.140.0-rc.tar.xz: 61257967afd9803a1db6403e86ea25c4efff8fad479bda365a9d81bfd709f621
@@ -91,6 +91,11 @@ setup       : |
 
     # 3rdparty patches
     %patch %(pkgdir)/qtwebengine-link-pipewire.patch -d src/3rdparty
+
+    # https://chromium-review.googlesource.com/c/v8/v8/+/8548134
+    # https://github.com/v8/v8/commit/f607706
+    # https://github.com/Homebrew/homebrew-core/blob/main/Patches/node/icu4c-79.patch
+    %patch %(pkgdir)/icu4c-79.patch -d src/3rdparty/chromium/v8
 
     # backports
 
