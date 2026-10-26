@@ -3,7 +3,7 @@
 
 name        : evolution-data-server
 version     : "3.62.1"
-release     : 31
+release     : 32
 homepage    : https://gitlab.gnome.org/GNOME/evolution-data-server
 upstreams   :
     - https://download.gnome.org/sources/evolution-data-server/3.62/evolution-data-server-3.62.1.tar.xz : b75c823445d7d30bca797eee929809e8d389abbb8d471f68ae2af60972779f26

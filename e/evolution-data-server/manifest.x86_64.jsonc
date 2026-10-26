@@ -50,8 +50,8 @@
 				"soname(libgweather-4.so.0(x86_64))",
 				"soname(libical-glib.so.4.0(x86_64))",
 				"soname(libical.so.4.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjson-glib-1.0.so.0(x86_64))",
 				"soname(liblber.so.2(x86_64))",
 				"soname(libldap.so.2(x86_64))",
@@ -808,6 +808,6 @@
 		}
 	},
 	"source-name": "evolution-data-server",
-	"source-release": "31",
+	"source-release": "32",
 	"source-version": "3.62.1"
 }
