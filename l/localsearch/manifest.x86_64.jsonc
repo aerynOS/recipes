@@ -49,7 +49,7 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgstreamer-1.0.so.0(x86_64))",
 				"soname(libgsttag-1.0.so.0(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libosinfo-1.0.so.0(x86_64))",
@@ -264,6 +264,6 @@
 		}
 	},
 	"source-name": "localsearch",
-	"source-release": "23",
+	"source-release": "24",
 	"source-version": "3.12.0"
 }
