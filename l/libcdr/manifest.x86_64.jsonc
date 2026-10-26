@@ -16,8 +16,8 @@
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libicui18n.so.78(x86_64))",
-				"soname(libicuuc.so.78(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(liblcms2_fast_float.so.2(x86_64))",
 				"soname(liblcms2_threaded.so.2(x86_64))",
@@ -427,6 +427,6 @@
 		}
 	},
 	"source-name": "libcdr",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.1.9"
 }
