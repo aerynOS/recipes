@@ -162,6 +162,7 @@
 				"/usr/include/python3.14/frameobject.h",
 				"/usr/include/python3.14/genericaliasobject.h",
 				"/usr/include/python3.14/import.h",
+				"/usr/include/python3.14/internal/mimalloc/mimalloc-stats.h",
 				"/usr/include/python3.14/internal/mimalloc/mimalloc.h",
 				"/usr/include/python3.14/internal/mimalloc/mimalloc/atomic.h",
 				"/usr/include/python3.14/internal/mimalloc/mimalloc/internal.h",
@@ -3607,6 +3608,6 @@
 		}
 	},
 	"source-name": "python",
-	"source-release": "29",
-	"source-version": "3.14.9"
+	"source-release": "30",
+	"source-version": "3.14.10"
 }
