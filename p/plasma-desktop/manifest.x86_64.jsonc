@@ -172,7 +172,7 @@
 				"/usr/lib/kf6/kimpanel-ibus-panel",
 				"/usr/lib/kf6/kimpanel-ibus-panel-launcher",
 				"/usr/lib/libkglobalaccelmodel.so.6",
-				"/usr/lib/libkglobalaccelmodel.so.6.8.1",
+				"/usr/lib/libkglobalaccelmodel.so.6.8.2",
 				"/usr/lib/qt6/plugins/attica_kde.so",
 				"/usr/lib/qt6/plugins/kf6/kded/device_automounter.so",
 				"/usr/lib/qt6/plugins/kf6/kded/screenreader.so",
@@ -885,6 +885,7 @@
 				"/usr/share/locale/el/LC_MESSAGES/plasma-desktop-sddm-theme.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.desktopcontainment.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.panel.mo",
+				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.dwellclicker.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.keyboardlayout.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.kicker.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.kickoff.mo",
@@ -895,6 +896,7 @@
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.taskmanager.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.trash.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_applet_org.kde.plasma.windowlist.mo",
+				"/usr/share/locale/el/LC_MESSAGES/plasma_runner_keys.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_runner_kwin.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_runner_plasma-desktop.mo",
 				"/usr/share/locale/el/LC_MESSAGES/plasma_shell_org.kde.plasma.desktop.mo",
@@ -1745,6 +1747,7 @@
 				"/usr/share/locale/ja/LC_MESSAGES/plasma-desktop-sddm-theme.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.desktopcontainment.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.panel.mo",
+				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.plasma.dwellclicker.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.plasma.keyboardlayout.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.plasma.kicker.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/plasma_applet_org.kde.plasma.kickoff.mo",
@@ -4510,6 +4513,6 @@
 		}
 	},
 	"source-name": "plasma-desktop",
-	"source-release": "41",
-	"source-version": "6.8.1"
+	"source-release": "42",
+	"source-version": "6.8.2"
 }
