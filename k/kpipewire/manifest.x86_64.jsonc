@@ -42,13 +42,13 @@
 			],
 			"files": [
 				"/usr/lib/libKPipeWire.so.6",
-				"/usr/lib/libKPipeWire.so.6.8.1",
+				"/usr/lib/libKPipeWire.so.6.8.2",
 				"/usr/lib/libKPipeWireDmaBuf.so.6",
-				"/usr/lib/libKPipeWireDmaBuf.so.6.8.1",
+				"/usr/lib/libKPipeWireDmaBuf.so.6.8.2",
 				"/usr/lib/libKPipeWireMonitor.so.6",
-				"/usr/lib/libKPipeWireMonitor.so.6.8.1",
+				"/usr/lib/libKPipeWireMonitor.so.6.8.2",
 				"/usr/lib/libKPipeWireRecord.so.6",
-				"/usr/lib/libKPipeWireRecord.so.6.8.1",
+				"/usr/lib/libKPipeWireRecord.so.6.8.2",
 				"/usr/lib/qt6/qml/org/kde/pipewire/KPipeWire.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/pipewire/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/pipewire/libKPipeWireplugin.so",
@@ -180,6 +180,6 @@
 		}
 	},
 	"source-name": "kpipewire",
-	"source-release": "35",
-	"source-version": "6.8.1"
+	"source-release": "36",
+	"source-version": "6.8.2"
 }
