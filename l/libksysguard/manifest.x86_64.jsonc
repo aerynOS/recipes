@@ -52,15 +52,15 @@
 				"/usr/lib/kf6/kauth/ksysguardprocesslist_helper",
 				"/usr/lib/kf6/ksysguard/ksgrd_network_helper",
 				"/usr/lib/libKSysGuardFormatter.so.2",
-				"/usr/lib/libKSysGuardFormatter.so.6.8.1",
+				"/usr/lib/libKSysGuardFormatter.so.6.8.2",
 				"/usr/lib/libKSysGuardSensorFaces.so.2",
-				"/usr/lib/libKSysGuardSensorFaces.so.6.8.1",
+				"/usr/lib/libKSysGuardSensorFaces.so.6.8.2",
 				"/usr/lib/libKSysGuardSensors.so.2",
-				"/usr/lib/libKSysGuardSensors.so.6.8.1",
+				"/usr/lib/libKSysGuardSensors.so.6.8.2",
 				"/usr/lib/libKSysGuardSystemStats.so.2",
-				"/usr/lib/libKSysGuardSystemStats.so.6.8.1",
+				"/usr/lib/libKSysGuardSystemStats.so.6.8.2",
 				"/usr/lib/libprocesscore.so.11",
-				"/usr/lib/libprocesscore.so.6.8.1",
+				"/usr/lib/libprocesscore.so.6.8.2",
 				"/usr/lib/qt6/plugins/kf6/packagestructure/ksysguard_sensorface.so",
 				"/usr/lib/qt6/plugins/ksysguard/process/ksysguard_plugin_gpu.so",
 				"/usr/lib/qt6/plugins/ksysguard/process/ksysguard_plugin_network.so",
@@ -853,6 +853,6 @@
 		}
 	},
 	"source-name": "libksysguard",
-	"source-release": "35",
-	"source-version": "6.8.1"
+	"source-release": "36",
+	"source-version": "6.8.2"
 }
