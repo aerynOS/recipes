@@ -61,7 +61,7 @@
 				"/usr/lib/kf6/kscreenlocker_greet",
 				"/usr/lib/kf6/kscreenlocker_worker",
 				"/usr/lib/libKScreenLocker.so.6",
-				"/usr/lib/libKScreenLocker.so.6.8.1",
+				"/usr/lib/libKScreenLocker.so.6.8.2",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_screenlocker.so",
 				"/usr/lib/qt6/qml/org/kde/kscreenlocker/kscreenlocker_greet.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/kscreenlocker/qmldir",
@@ -303,6 +303,6 @@
 		}
 	},
 	"source-name": "kscreenlocker",
-	"source-release": "31",
-	"source-version": "6.8.1"
+	"source-release": "32",
+	"source-version": "6.8.2"
 }
