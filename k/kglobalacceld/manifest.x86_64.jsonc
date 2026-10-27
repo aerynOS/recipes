@@ -28,7 +28,7 @@
 			],
 			"files": [
 				"/usr/lib/libKGlobalAccelD.so.0",
-				"/usr/lib/libKGlobalAccelD.so.6.8.1",
+				"/usr/lib/libKGlobalAccelD.so.6.8.2",
 				"/usr/share/qlogging-categories6/kglobalacceld.categories"
 			],
 			"name": "kglobalacceld",
@@ -65,6 +65,6 @@
 		}
 	},
 	"source-name": "kglobalacceld",
-	"source-release": "33",
-	"source-version": "6.8.1"
+	"source-release": "34",
+	"source-version": "6.8.2"
 }
