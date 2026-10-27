@@ -28,7 +28,7 @@
 			"files": [
 				"/usr/lib/kf6/knighttimed",
 				"/usr/lib/libKNightTime.so.0",
-				"/usr/lib/libKNightTime.so.6.8.1",
+				"/usr/lib/libKNightTime.so.6.8.2",
 				"/usr/lib/systemd/user/plasma-knighttimed.service",
 				"/usr/share/applications/org.kde.knighttimed.desktop",
 				"/usr/share/dbus-1/services/org.kde.NightTime.service",
@@ -72,6 +72,6 @@
 		}
 	},
 	"source-name": "knighttime",
-	"source-release": "21",
-	"source-version": "6.8.1"
+	"source-release": "22",
+	"source-version": "6.8.2"
 }
