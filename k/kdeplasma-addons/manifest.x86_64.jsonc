@@ -90,9 +90,9 @@
 				"/usr/lib/libplasmapotdprovidercore.so.2",
 				"/usr/lib/libplasmapotdprovidercore.so.2.0.0",
 				"/usr/lib/libplasmaweatherdata.so.6",
-				"/usr/lib/libplasmaweatherdata.so.6.8.1",
+				"/usr/lib/libplasmaweatherdata.so.6.8.2",
 				"/usr/lib/libplasmaweatherion.so.6",
-				"/usr/lib/libplasmaweatherion.so.6.8.1",
+				"/usr/lib/libplasmaweatherion.so.6.8.2",
 				"/usr/lib/qt6/plugins/kf6/kded/kameleon.so",
 				"/usr/lib/qt6/plugins/kf6/krunner/kcms/kcm_krunner_charrunner.so",
 				"/usr/lib/qt6/plugins/kf6/krunner/kcms/kcm_krunner_dictionary.so",
@@ -2354,6 +2354,6 @@
 		}
 	},
 	"source-name": "kdeplasma-addons",
-	"source-release": "35",
-	"source-version": "6.8.1"
+	"source-release": "36",
+	"source-version": "6.8.2"
 }
