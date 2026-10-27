@@ -78,6 +78,7 @@
 				"/usr/share/locale/cs/LC_MESSAGES/plasma-welcome.mo",
 				"/usr/share/locale/da/LC_MESSAGES/plasma-welcome.mo",
 				"/usr/share/locale/de/LC_MESSAGES/plasma-welcome.mo",
+				"/usr/share/locale/el/LC_MESSAGES/plasma-welcome.mo",
 				"/usr/share/locale/en_GB/LC_MESSAGES/plasma-welcome.mo",
 				"/usr/share/locale/eo/LC_MESSAGES/plasma-welcome.mo",
 				"/usr/share/locale/es/LC_MESSAGES/plasma-welcome.mo",
@@ -131,6 +132,6 @@
 		}
 	},
 	"source-name": "plasma-welcome",
-	"source-release": "34",
-	"source-version": "6.8.1"
+	"source-release": "35",
+	"source-version": "6.8.2"
 }
