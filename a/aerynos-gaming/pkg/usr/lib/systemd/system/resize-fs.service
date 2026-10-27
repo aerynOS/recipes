@@ -1,0 +1,9 @@
+[Unit]
+Description=AerynOS Resize-FS
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/resize-fs
+
+[Install]
+WantedBy=default.target

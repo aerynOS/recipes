@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Steam Gaming Mode
+Comment=Switch to Steam Gaming Mode (Non Plus)
+Icon=/usr/share/icons/hicolor/64x64/apps/deck-return.svg
+Exec=serpentos-session-select steam

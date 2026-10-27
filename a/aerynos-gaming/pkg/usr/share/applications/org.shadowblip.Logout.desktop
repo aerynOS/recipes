@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Gaming Mode
+Comment=Switch to Gaming Mode
+Icon=opengamepadui
+Exec=serpentos-session-select opengamepadui
+Path=
+Terminal=false
+StartupNotify=false

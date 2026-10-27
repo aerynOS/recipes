@@ -1,0 +1,120 @@
+#! /usr/bin/env bash
+
+die () {
+	 echo -e "$*"
+	 exit 1
+}
+
+# Root check
+if [[ "${UID}" -ne 0 ]]; then
+	 die "\nThis script MUST be run as root.\n"
+fi
+
+# Set common variables and tweakables
+declare branch=''
+declare -r source_file='/tmp/moss-sync.log'
+declare -r logfile='/var/log/steamos-update.log'
+
+# Get update branch if configured
+#
+# If the branch file exists load it, remove whitespaces
+[[ -f /etc/aerynos-branch ]] && branch=$(cat /etc/aerynos-branch | xargs)
+
+# If branch file was empty or not configured properly default to unstable
+if [[ ! $branch =~ ^(Unstable|Volatile)$ ]]; then
+	branch='unstable'
+fi
+
+# If branch is 'Volatile' enable that repo
+if [[ $branch == 'Volatile' ]]; then
+	moss repo enable volatile
+else
+	moss repo disable volatile
+fi
+printf "steamos-update: Activated repositories:\n" >> $logfile
+moss repo list >> $logfile
+
+# Check if an update is available
+check_for_update () {
+	pkg_count_legacy=$(moss repo update >/dev/null 2>&1 && moss list sync 2>&1 |wc -l |tail -n1)
+	pkg_count=$(moss repo update >/dev/null 2>&1 && moss pkg list --sync 2>&1 |wc -l |tail -n1)
+	# Report to Steam if update is available
+	if [[ $pkg_count -ge 1 ]] || [[ $pkg_count_legacy -ge 1 ]]; then
+		printf "steamos-update: Update available\n" >> $logfile
+		printf "Update available\n"
+	else
+		printf 'steamos-update: No update available\n' >> $logfile
+		printf 'No update available\n'
+		exit 7
+	fi
+}
+
+# Shared error and skip function
+error_and_skip () {
+	printf "steamos-update: $1\n" >> $logfile
+	exit 7
+}
+
+# Shared error and quit function
+error_and_quit () {
+	printf "steamos-update: $1\n" >> $logfile
+	exit 1
+}
+
+# Clean ouptput for Steam progressbar
+clean_progress() {
+	local scale=$1
+	local postfix=$2
+	local last_value=$scale
+	while IFS= read -r line; do
+		value=$(( ${line}*${scale}/100 ))
+		if [ "$last_value" != "$value" ]; then
+			echo ${value}${postfix}
+			last_value=$value
+		fi
+	done
+}
+
+# Trigger script behavior based provided params
+if [[ $1 == 'check' ]]; then
+	check_for_update
+elif [[ $1 == '--supports-duplicate-detection'  ]]; then
+	printf 'steamos-update: No update available, duplicate detection\n' >> $logfile
+	printf 'No update available\n'
+	exit 7
+else
+	# Get data needed to perform update
+	check_for_update
+
+	# FIXME: Workaround to get "empty" file
+	echo '{}' > $source_file
+	moss sync -y --log info:json:$source_file >/dev/null 2>&1 &
+
+	count_hundred=0
+	while IFS= read -r progress_item
+	do
+		i=$(echo $progress_item | jq -r '"\(.fields.progress),\(.fields.current),\(.fields.total),\(.span.phase)"')
+		[[ ! -z $(echo $progress_item | grep "transaction-scope-triggers") ]] && phase="transaction-scope-triggers"
+		[[ ! -z $(echo $progress_item | grep "system-scope-triggers") ]] && phase="system-scope-triggers"
+		var="$(echo $i | cut -d, -f1)";
+		initial_result=$(echo $(awk '{print $1*$2}' <<<"${var} 100") | cut -d. -f1)
+		[[ $initial_result == 100 ]] && count_hundred=$(($count_hundred+1)) && continue
+		echo "Pure: ${initial_result}%"
+		if [[ $count_hundred < 1 ]]; then
+			 result=$(echo $initial_result | clean_progress 10)
+			 phase="$(printf $i | cut -d, -f4)"
+		fi
+		if [[ $count_hundred > 1 ]]; then
+			 result=$(echo $(($initial_result+10)) | clean_progress 20)
+			 phase="transaction-scope-triggers"
+		fi
+		if [[ $count_hundred > 3 ]]; then
+			 result=$initial_result
+			 phase="$(printf $i | cut -d, -f4)"
+		fi
+		echo "Phase: $phase"
+		[[ ! -z ${result} ]] && echo "Calculated: ${result}%"
+		[[ ! -z ${result} ]] && echo "${result}%"
+	done < <( timeout 40 tail -f $source_file )
+	echo '100%'
+fi

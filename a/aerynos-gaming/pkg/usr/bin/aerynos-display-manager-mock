@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+#https://github.com/flathub/com.valvesoftware.Steam/issues/1072#issuecomment-3898393858
+import dbus
+import dbus.service
+import dbus.mainloop.glib
+from gi.repository import GLib
+import subprocess
+import sys
+import signal
+
+class MockServices(dbus.service.Object):
+    def __init__(self, bus):
+        self.bus = bus
+        # Claim DisplayManager (For "Switch to Desktop")
+        # Note: We use the same object instance for simplicity, mapping paths manually would be cleaner
+        # but registering the name is the critical part for permissions.
+        try:
+            print(f"Warning: Trying to claim DisplayManager") 
+            dm_name = dbus.service.BusName('org.freedesktop.DisplayManager', bus=bus)
+            # We register a second object path for the DM logic
+            self.dm_object = MockDisplayManagerObject(bus, dm_name)
+        except Exception as e:
+            print(f"Warning: Could not claim DisplayManager: {e}")
+
+class MockDisplayManagerObject(dbus.service.Object):
+    def __init__(self, bus, bus_name):
+        # Steam calls methods on this specific path
+        print("Switching to Desktop: init")
+        dbus.service.Object.__init__(self, bus_name, '/org/freedesktop/DisplayManager/Seat0')
+
+    # --- DisplayManager Methods ---
+    @dbus.service.method('org.freedesktop.DisplayManager.Seat', in_signature='ss', out_signature='')
+    def SwitchToUser(self, user, session):
+        print(f"[AerynOS] SwitchToUser called (User: {user}, Session: {session})")
+        print("[AerynOS] Switching to Desktop...")
+        
+        # LOGIC: We will call sddm-plasma and switch to the Desktop       
+        subprocess.run(["/usr/bin/sddm-plasma"])
+
+def signal_handler(sig, frame):
+    sys.exit(0)
+
+if __name__ == '__main__':
+    sys.stdout.reconfigure(line_buffering=True)
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+    
+    dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+    system_bus = dbus.SystemBus()
+    services = MockServices(system_bus)
+    
+    loop = GLib.MainLoop()
+    print("Mock Service (DisplayManager) Ready.")
+    loop.run()

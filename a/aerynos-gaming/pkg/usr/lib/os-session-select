@@ -1,0 +1,105 @@
+#! /usr/bin/env bash
+
+set -e
+
+die() { echo >&2 "!! $*"; exit 1; }
+
+# FIXME Purge old files and use this one
+
+# File this script will modify, in addition to (potentially) the per-user sentinel file
+CONF_FILE="/etc/sddm.conf.d/zz-aerynos-autologin.conf"
+
+SENTINEL_FILE="aerynos-session-select"
+
+# For sanity this shipped file must be present, to ensure we're still on a normal-looking setup.
+CHECK_FILE="/etc/sddm.conf.d/aerynos-handheld.conf"
+
+session="${1:-gamescope}"
+
+session_launcher=""
+create_sentinel=""
+session_uses_x11=""
+
+case "$session" in
+  desktop|plasma)
+    steamosctl switch-to-desktop-mode
+    exit 0
+  ;;
+  plasma-wayland-persistent|plasma-wayland)
+    session_launcher="plasma.desktop"
+  ;;
+  plasma-session-oneshot)
+    session_launcher="plasma-oneshot-wayland.desktop"
+    create_sentinel=1
+    if (systemctl -q is-active inputplumber.service); then
+      sudo systemctl restart inputplumber || true
+    fi
+  ;;
+  gamescope-session)
+    session_launcher="gamescope-session.desktop"
+    create_sentinel=1
+  ;;
+  steam|gamescope-session-steam)
+    session_launcher="gamescope-session-steam.desktop"
+    create_sentinel=1
+  ;;
+  gamescope|steam-plus|gamescope-session-steam-plus)
+    session_launcher="gamescope-session-steam-plus.desktop"
+    create_sentinel=1
+  ;;
+  opengamepadui|opengamepadui-session)
+    session_launcher="opengamepadui-session.desktop"
+    create_sentinel=1
+  ;;
+  *)
+    echo >&2 "!! Unrecognized session '$session'"
+    exit 1
+  ;;
+esac
+
+if [[ "$2" == "--sentinel-created" ]]; then
+    SENTINEL_CREATED=1
+fi
+
+# Update config sentinel
+if [[ -z $SENTINEL_CREATED ]]; then
+  [[ -n ${HOME+x} ]] || die "No \$HOME variable"
+  config_dir="${XDG_CONF_DIR:-"$HOME/.config"}"
+  (
+    cd "$HOME"
+    mkdir -p "$config_dir"
+    cd "$config_dir"
+    echo "$session_launcher" > "$SENTINEL_FILE"
+  )
+
+  # If we were executed as a session user and then re-execute as root below, we don't want to set root's sentinel too
+  export SENTINEL_CREATED=1
+  echo "Updated user selected session to $session_launcher"
+fi
+
+# Become root
+if [[ $EUID != 0 ]]; then
+  exec pkexec "$(realpath $0)" "$session" --sentinel-created
+  exit 1
+fi
+
+{
+  if [[ -n $session_uses_x11 ]]; then
+    # Default is Wayland
+    echo "[General]"
+    echo "DisplayServer=X11"
+  fi
+  echo "[Autologin]"
+  echo "Session=$session_launcher"
+} > "$CONF_FILE"
+
+echo "Updated system autologin session to $session_launcher"
+systemctl reset-failed sddm
+systemctl restart sddm
+echo "Restarted SDDM"
+
+if [[ -e /dev/input/.hidden ]]; then
+    echo "Unhide hidden controller devices as needed"
+    pkexec mv /dev/input/.hidden/* /dev/input
+    pkexec rm -r /dev/input/.hidden
+fi

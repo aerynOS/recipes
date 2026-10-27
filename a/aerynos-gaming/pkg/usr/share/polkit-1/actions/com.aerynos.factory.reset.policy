@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>AerynOS Linux</vendor>
+  <vendor_url>https://aerynos.com</vendor_url>
+  <action id="com.aerynos.policykit.aerynos.pkexec.run-aerynos-factory-reset-config">
+    <description>Run the aerynos factory reset helper</description>
+    <icon_name>package-x-generic</icon_name> 
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/aerynos-factory-reset-config</annotate>
+  </action>
+  <action id="com.aerynos.policykit.aerynos.pkexec.run-aerynos-reset-tool">
+    <description>Run the aerynos factory reset tool</description>
+    <icon_name>package-x-generic</icon_name> 
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/aerynos-reset-tool</annotate>
+  </action>
+  <action id="org.freedesktop.systemd1.reload-daemon">
+    <description gettext-domain="systemd">Reload the systemd state</description>
+    <message gettext-domain="systemd">Authentication is required to reload the systemd state.</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+  </action>
+  <action id="org.freedesktop.systemd1.manage-unit-files">
+    <description gettext-domain="systemd">Manage system service or unit files</description>
+    <message gettext-domain="systemd">Authentication is required to manage system service or unit files.</message>
+    <defaults>
+      <allow_any>yes</allow_any>
+      <allow_inactive>yes</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.imply">org.freedesktop.systemd1.reload-daemon org.freedesktop.systemd1.manage-units</annotate>
+  </action>
+</policyconfig>

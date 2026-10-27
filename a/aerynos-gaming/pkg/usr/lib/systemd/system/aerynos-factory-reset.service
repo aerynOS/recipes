@@ -1,0 +1,12 @@
+[Unit]
+Description=Factory Reset.
+Before=shutdown.target reboot.target halt.target umount.target
+
+[Service]
+Type=oneshot
+TimeoutStopSec=infinity
+ExecStop=/usr/bin/aerynos-factory-reset-delete
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
