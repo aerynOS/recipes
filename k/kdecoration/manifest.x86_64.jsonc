@@ -16,9 +16,9 @@
 			],
 			"files": [
 				"/usr/lib/libkdecorations3.so.6",
-				"/usr/lib/libkdecorations3.so.6.8.1",
+				"/usr/lib/libkdecorations3.so.6.8.2",
 				"/usr/lib/libkdecorations3private.so.2",
-				"/usr/lib/libkdecorations3private.so.6.8.1",
+				"/usr/lib/libkdecorations3private.so.6.8.2",
 				"/usr/share/locale/ar/LC_MESSAGES/kdecoration.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kdecoration.mo",
 				"/usr/share/locale/az/LC_MESSAGES/kdecoration.mo",
@@ -130,6 +130,6 @@
 		}
 	},
 	"source-name": "kdecoration",
-	"source-release": "27",
-	"source-version": "6.8.1"
+	"source-release": "28",
+	"source-version": "6.8.2"
 }
