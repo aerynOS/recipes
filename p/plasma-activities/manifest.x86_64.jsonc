@@ -24,7 +24,7 @@
 			],
 			"files": [
 				"/usr/bin/plasma-activities-cli6",
-				"/usr/lib/libPlasmaActivities.so.6.8.1",
+				"/usr/lib/libPlasmaActivities.so.6.8.2",
 				"/usr/lib/libPlasmaActivities.so.7",
 				"/usr/lib/qt6/qml/org/kde/activities/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/activities/libplasmaactivitiesextensionplugin.so",
@@ -83,6 +83,6 @@
 		}
 	},
 	"source-name": "plasma-activities",
-	"source-release": "34",
-	"source-version": "6.8.1"
+	"source-release": "35",
+	"source-version": "6.8.2"
 }
