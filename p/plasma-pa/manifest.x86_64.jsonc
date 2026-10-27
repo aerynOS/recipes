@@ -60,7 +60,7 @@
 			],
 			"files": [
 				"/usr/lib/libplasma-volume.so.6",
-				"/usr/lib/libplasma-volume.so.6.8.1",
+				"/usr/lib/libplasma-volume.so.6.8.2",
 				"/usr/lib/qt6/plugins/kf6/kded/audioshortcutsservice.so",
 				"/usr/lib/qt6/plugins/plasma/applets/org.kde.plasma.volume.so",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_pulseaudio.so",
@@ -252,6 +252,6 @@
 		}
 	},
 	"source-name": "plasma-pa",
-	"source-release": "35",
-	"source-version": "6.8.1"
+	"source-release": "36",
+	"source-version": "6.8.2"
 }
