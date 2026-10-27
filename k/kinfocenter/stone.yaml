@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kinfocenter
-version     : "6.8.1"
-release     : 37
+version     : "6.8.2"
+release     : 38
 upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.1/kinfocenter-6.8.1.tar.xz : c1c5fa8dd9a03f2af774935076af2301849f315ac84309016d479cf6a654f03b
+    - https://download.kde.org/stable/plasma/6.8.2/kinfocenter-6.8.2.tar.xz : 2782ff66388124529a5dc4ecff28b4c69f2dec4c7658a35c205932cd64e06716
 homepage    : https://kde.org/plasma-desktop/
 license     :
     - GFDL-1.2-only
