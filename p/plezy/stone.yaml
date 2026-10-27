@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plezy
-version     : "2.24.0"
-release     : 17
+version     : "2.25.0"
+release     : 18
 homepage    : https://plezy.app/
 upstreams   :
-    - https://github.com/edde746/plezy/archive/refs/tags/2.24.0.tar.gz:
-        hash: ac5a9f5806aee56266c26ef91364af32fae164f3e7dc4d259be4795d449d252f
+    - https://github.com/edde746/plezy/archive/refs/tags/2.25.0.tar.gz:
+        hash: 9fb81ac5b2aa5f702b1c44ffef573ad19250ea3992ac18432673c12a1884343a
         unpackdir: plezy
     # https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
-    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.7-stable.tar.xz:
-        hash: af7455f540df951184c7953fbe3cf884766e7541dacf8571f9f582db03dd6230
+    - https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.47.8-stable.tar.xz:
+        hash: baf7dcc5a3dbba60fe863bf493a6cf203195621f7786eaa5a1bba02cd0d87dd2
         unpackdir: plezy/flutter
 summary     : Modern cross-platform Plex & Jellyfin client built with Flutter
 description : |

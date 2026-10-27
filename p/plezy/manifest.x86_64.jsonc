@@ -87,6 +87,7 @@
 				"/usr/share/plezy/flutter_assets/assets/app_icons/previews/titanium.webp",
 				"/usr/share/plezy/flutter_assets/assets/app_icons/previews/ultraviolet.webp",
 				"/usr/share/plezy/flutter_assets/assets/app_icons/previews/vhs.webp",
+				"/usr/share/plezy/flutter_assets/assets/chapter_marker_model.bin",
 				"/usr/share/plezy/flutter_assets/assets/emby_icon.svg",
 				"/usr/share/plezy/flutter_assets/assets/go-noto-current-regular.ttf",
 				"/usr/share/plezy/flutter_assets/assets/go-noto-kurrent-hangul.ttf",
@@ -100,6 +101,7 @@
 				"/usr/share/plezy/flutter_assets/assets/player_icons/just_player.png",
 				"/usr/share/plezy/flutter_assets/assets/player_icons/mpv.svg",
 				"/usr/share/plezy/flutter_assets/assets/player_icons/mx_player.svg",
+				"/usr/share/plezy/flutter_assets/assets/player_icons/outplayer.png",
 				"/usr/share/plezy/flutter_assets/assets/player_icons/potplayer.png",
 				"/usr/share/plezy/flutter_assets/assets/player_icons/vlc.svg",
 				"/usr/share/plezy/flutter_assets/assets/plex_chevron.svg",
@@ -156,6 +158,6 @@
 		}
 	},
 	"source-name": "plezy",
-	"source-release": "17",
-	"source-version": "2.24.0"
+	"source-release": "18",
+	"source-version": "2.25.0"
 }
