@@ -1,0 +1,44 @@
+#! /usr/bin/env bash
+set -e
+
+BRANCH_PATH="/etc/aerynos-branch"
+
+if [[ $# -eq 1 ]]; then
+  case "$1" in
+    "-c")
+      # Get update branch if configured
+      #
+      # If the branch file exists load it, remove whitespaces
+      [[ -f "$BRANCH_PATH" ]] && branch=$(cat "$BRANCH_PATH" | xargs)
+
+      # If branch file was empty or not configured properly default to Unstable
+      if [[ ! $branch =~ ^(Unstable|Volatile)$ ]]; then
+            branch='Unstable'
+      fi
+      case "$branch" in
+        "Unstable" | "Volatile")
+          echo "$branch"
+          exit 0
+          ;;
+        *)
+          # This can happen on CI builds or when downgrading from a newer build that knows of more branches.  The update
+          # path should decide how to handle it.
+          echo >&2 "Warning: Unrecognized currently selected branch name '$branch', updates may not succeed."
+          echo "$branch"
+          exit 0
+          ;;
+      esac
+      ;;
+    "-l")
+      echo Unstable
+      echo Volatile
+      exit 0
+      ;;
+    "Unstable" | "Volatile")
+      echo "$1" > "$BRANCH_PATH"
+      exit 0
+      ;;
+  esac
+fi
+
+echo "Usage: aerynos-select-branch <-Unstable|Volatile>" 1>&2

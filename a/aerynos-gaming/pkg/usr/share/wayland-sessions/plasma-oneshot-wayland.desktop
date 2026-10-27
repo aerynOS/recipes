@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/usr/bin/startplasma-oneshot-wayland
+TryExec=/usr/bin/startplasma-oneshot-wayland
+DesktopNames=KDE Wayland (One-Time Launch)
+Name=Plasma Wayland (One-Time Launch)
+Comment=Plasma by KDE - One Time Launch Redirect for SteamOS Sessions

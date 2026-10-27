@@ -1,0 +1,47 @@
+#! /usr/bin/env bash
+
+# Get device and partition numbers/names
+ # Root Partition
+  PART_DEV=`findmnt / -o source -n | cut -f1 -d"["`
+ 
+ # Remove '/dev/' from the name 
+  PART_NAME=`echo $PART_DEV | cut -d "/" -f 3`
+ 
+ # Set just the name of the device, usually mmcblk0
+  DEV_NAME=`echo /sys/block/*/${PART_NAME} | cut -d "/" -f 4`
+
+ # Add /dev/ to device name
+  DEV="/dev/${DEV_NAME}"
+
+ # Get Number of device as single digit integer
+  PART_NUM=`cat /sys/block/${DEV_NAME}/${PART_NAME}/partition`
+
+ # Get size of SDCard (final sector)
+  SECTOR_SIZE=`cat /sys/block/${DEV_NAME}/size`
+
+ # Set the ending sector that the partition should be resized too
+  END_SECTOR=`expr $SECTOR_SIZE - 1`
+
+
+  echo "PART_DEV: $PART_DEV"
+  echo "PART_NAME: $PART_NAME"
+  echo "DEV_NAME: $DEV_NAME"
+  echo "PART_NUM: $PART_NUM"
+
+
+#growpartfs $PART_DEV
+
+# resize the partition
+# parted command disabled for now. Using sfdisk instead
+#parted -m $DEV u s resizepart $PART_NUM yes $END_SECTOR
+echo ", +" | sfdisk --no-reread -N $PART_NUM $DEV
+
+# reload the partitions in the kernel
+#partprobe
+partx -u $DEV
+
+# resize
+#resize2fs $PART_DEV
+xfs_growfs $PART_DEV
+
+rm /etc/systemd/system/default.target.wants/resize-fs.service

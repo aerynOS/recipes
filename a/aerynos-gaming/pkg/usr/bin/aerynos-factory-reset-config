@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+# -*- mode: sh; indent-tabs-mode: nil; sh-basic-offset: 4; -*-
+# vim: et sts=4 sw=4
+
+#  SPDX-License-Identifier: LGPL-2.1+
+#
+#  Copyright © 2024 Philip Mueller
+#
+#  aerynos-factory-reset is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation; either version 2.1 of the License,
+#  or (at your option) any later version.
+
+set -e
+set -u
+
+systemctl daemon-reload
+systemctl enable aerynos-factory-reset --now
+
+aerynos-factory-reset-delete

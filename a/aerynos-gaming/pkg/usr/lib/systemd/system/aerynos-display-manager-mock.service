@@ -1,0 +1,18 @@
+[Unit]
+Description=Switch to Plasma with
+After=dbus.service
+Requires=dbus.service
+
+[Service]
+ExecStart=/usr/bin/aerynos-display-manager-mock
+Restart=on-failure
+RestartSec=5
+
+# Security hardening (optional but recommended)
+ProtectSystem=full
+ProtectHome=yes
+# To enable config writing via /usr/bin/sddm-plasma
+ReadWritePaths=/etc/sddm.conf.d
+
+[Install]
+WantedBy=multi-user.target

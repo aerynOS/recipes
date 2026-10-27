@@ -1,0 +1,61 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+# SPDX-FileCopyrightText: © 2025-2026 AerynOS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : aerynos-gaming
+version     : "2026.10"
+release     : 1
+summary     : AerynOS Gaming config files
+license     : LGPL-2.1-or-later
+homepage    : https://github.com/aerynOS/recipes/tree/main/a/aerynos-gaming
+description : |
+    Default Gaming config files for AerynOS
+install     : |
+    mkdir -p %(installroot)/
+    cp -r %(pkgdir)/* %(installroot)/
+    %install_file %(pkgdir)/96-aerynos-handheld.preset -t %(installroot)/%(libdir)/systemd/system-preset/
+    %install_file %(pkgdir)/98-steamos-compat.preset -t %(installroot)/%(libdir)/systemd/system-preset/
+packages    :
+    - "os-session-select-plasma":
+        summary: OS Session-Select (Plasma)
+        description: Plasma as default session
+        rundeps:
+            - binary(steamosctl)
+        paths:
+            - /usr/lib/os-session-select
+
+    - "steamos-compat":
+        summary: Compatible files to mimic SteamOS
+        description: Mimic SteamOS functionality
+        rundeps:
+            - aerynos-gaming
+            - python(dbus-python)
+        paths:
+            - /usr/bin/steamos-factory-reset
+            - /usr/bin/steamos-factory-reset-config
+            - /usr/bin/steamos-update
+            - /usr/bin/steamos-polkit-helpers/steamos-priv-write
+            - /usr/bin/steamos-polkit-helpers/steamos-set-hostname
+            - /usr/bin/steamos-polkit-helpers/steamos-set-timezone
+            # https://github.com/flathub/com.valvesoftware.Steam/issues/1072#issuecomment-3898393858
+            - /usr/share/dbus-1/system.d/org.freedesktop.MockDisplayManager.conf
+            - /usr/bin/aerynos-display-manager-mock
+            - /usr/bin/sddm-plasma
+            - /usr/lib/systemd/system/aerynos-display-manager-mock.service
+            - /usr/lib/systemd/system-preset/98-steamos-compat.preset
+
+    - "wayland-session-oneshot-gnome":
+        summary: Oneshot Wayland-Session GNOME
+        description: GNOME as oneshot Wayland-Session
+        paths:
+            - /usr/bin/gnome-session-oneshot
+            - /usr/share/wayland-sessions/gnome-session-oneshot.desktop
+
+    - "wayland-session-oneshot-plasma":
+        summary: Oneshot Wayland-Session Plasma
+        description: Plasma as oneshot Wayland-Session
+        paths:
+            - /usr/bin/startplasma-oneshot-wayland
+            - /usr/share/wayland-sessions/plasma-oneshot-wayland.desktop

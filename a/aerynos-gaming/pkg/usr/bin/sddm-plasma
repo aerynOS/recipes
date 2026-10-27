@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+CONF_FILE="/etc/sddm.conf.d/zz-aerynos-autologin.conf"
+
+{
+  if [[ -n $session_uses_x11 ]]; then
+    # Default is Wayland
+    echo "[General]"
+    echo "DisplayServer=X11"
+  fi
+  echo "[Autologin]"
+  echo "Session=plasma.desktop"
+} > "$CONF_FILE"
+
+echo "Updated system autologin session to plasma.desktop"
+#echo "$(date +%y%m%d-%H:%M) Systemctl with $@" >> /tmp/steamos-session-select.log
+systemctl reset-failed sddm
+systemctl restart sddm
+echo "Restarted SDDM"

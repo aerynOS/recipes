@@ -1,0 +1,103 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"aerynos-gaming": {
+			"files": [
+				"/usr/bin/aerynos-factory-reset",
+				"/usr/bin/aerynos-factory-reset-config",
+				"/usr/bin/aerynos-reset-tool",
+				"/usr/bin/aerynos-session-select",
+				"/usr/bin/aerynos-update",
+				"/usr/bin/aeyrnos-factory-reset-delete",
+				"/usr/bin/gamescope-wayland-teardown-workaround",
+				"/usr/bin/resize-fs",
+				"/usr/lib/os-branch-select",
+				"/usr/lib/systemd/system-preset/96-aerynos-handheld.preset",
+				"/usr/lib/systemd/system/aerynos-factory-reset.service",
+				"/usr/lib/systemd/system/resize-fs.service",
+				"/usr/share/applications/com.steampowered.Logout.desktop",
+				"/usr/share/applications/com.steampowered.Logout.nonplus.desktop",
+				"/usr/share/applications/org.shadowblip.Logout.desktop",
+				"/usr/share/icons/hicolor/64x64/apps/deck-return.svg",
+				"/usr/share/polkit-1/actions/com.aerynos.factory.reset.policy",
+				"/usr/share/polkit-1/actions/com.aerynos.host.policy",
+				"/usr/share/polkit-1/actions/com.aerynos.priv.write.policy",
+				"/usr/share/polkit-1/actions/com.aerynos.session.select.policy"
+			],
+			"name": "aerynos-gaming",
+			"provides": [
+				"binary(aerynos-factory-reset)",
+				"binary(aerynos-factory-reset-config)",
+				"binary(aerynos-reset-tool)",
+				"binary(aerynos-session-select)",
+				"binary(aerynos-update)",
+				"binary(aeyrnos-factory-reset-delete)",
+				"binary(gamescope-wayland-teardown-workaround)",
+				"binary(resize-fs)"
+			]
+		},
+		"os-session-select-plasma": {
+			"depends": [
+				"binary(steamosctl)"
+			],
+			"files": [
+				"/usr/lib/os-session-select"
+			],
+			"name": "os-session-select-plasma"
+		},
+		"steamos-compat": {
+			"depends": [
+				"aerynos-gaming",
+				"python(dbus-python)"
+			],
+			"files": [
+				"/usr/bin/aerynos-display-manager-mock",
+				"/usr/bin/sddm-plasma",
+				"/usr/bin/steamos-factory-reset",
+				"/usr/bin/steamos-factory-reset-config",
+				"/usr/bin/steamos-polkit-helpers/steamos-priv-write",
+				"/usr/bin/steamos-polkit-helpers/steamos-set-hostname",
+				"/usr/bin/steamos-polkit-helpers/steamos-set-timezone",
+				"/usr/bin/steamos-update",
+				"/usr/lib/systemd/system-preset/98-steamos-compat.preset",
+				"/usr/lib/systemd/system/aerynos-display-manager-mock.service",
+				"/usr/share/dbus-1/system.d/org.freedesktop.MockDisplayManager.conf"
+			],
+			"name": "steamos-compat",
+			"provides": [
+				"binary(aerynos-display-manager-mock)",
+				"binary(sddm-plasma)",
+				"binary(steamos-factory-reset)",
+				"binary(steamos-factory-reset-config)",
+				"binary(steamos-priv-write)",
+				"binary(steamos-set-hostname)",
+				"binary(steamos-set-timezone)",
+				"binary(steamos-update)"
+			]
+		},
+		"wayland-session-oneshot-gnome": {
+			"files": [
+				"/usr/bin/gnome-session-oneshot",
+				"/usr/share/wayland-sessions/gnome-session-oneshot.desktop"
+			],
+			"name": "wayland-session-oneshot-gnome",
+			"provides": [
+				"binary(gnome-session-oneshot)"
+			]
+		},
+		"wayland-session-oneshot-plasma": {
+			"files": [
+				"/usr/bin/startplasma-oneshot-wayland",
+				"/usr/share/wayland-sessions/plasma-oneshot-wayland.desktop"
+			],
+			"name": "wayland-session-oneshot-plasma",
+			"provides": [
+				"binary(startplasma-oneshot-wayland)"
+			]
+		}
+	},
+	"source-name": "aerynos-gaming",
+	"source-release": "1",
+	"source-version": "2026.10"
+}
