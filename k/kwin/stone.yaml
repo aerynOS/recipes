@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwin
-version     : "6.8.1"
-release     : 45
+version     : "6.8.2"
+release     : 46
 upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.1/kwin-6.8.1.tar.xz : f3d725f81061c1ba97fdef8aeb2101a5c5e03c77f11e9a2abaa1dfed4489d3b6
+    - https://download.kde.org/stable/plasma/6.8.2/kwin-6.8.2.tar.xz : ea5e68d957c7d70abed97222a592d4445fda29129e20942658badd224ee138b4
 homepage    : https://kde.org/plasma-desktop/
 license     :
     - GFDL-1.2-only
@@ -86,10 +86,6 @@ tuning      :
     - optimize: speed
 setup       : |
     %patch %(pkgdir)/revert-cap-sys-nice.patch
-    # Fix glitches on NVIDIA
-    # https://invent.kde.org/plasma/kwin/-/merge_requests/10209
-    %patch %(pkgdir)/64850f8.patch
-    %patch %(pkgdir)/83ad326.patch
 
     %cmake_kf6
 build       : |

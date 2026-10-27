@@ -1255,8 +1255,7 @@
 				"/usr/share/locale/zh_TW/LC_MESSAGES/kcmkwincommon.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/kcmkwinscreenedges.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/kcmkwm.mo",
-				"/usr/share/locale/zh_TW/LC_MESSAGES/kwin.mo",
-				"/usr/share/xdg/kwinrulesrc"
+				"/usr/share/locale/zh_TW/LC_MESSAGES/kwin.mo"
 			],
 			"name": "kwin",
 			"provides": [
@@ -1550,10 +1549,9 @@
 				"/usr/include/kwin/utils/realtime.h",
 				"/usr/include/kwin/utils/resource.h",
 				"/usr/include/kwin/utils/serial.h",
-				"/usr/include/kwin/utils/softwarevsyncmonitor.h",
 				"/usr/include/kwin/utils/udev.h",
 				"/usr/include/kwin/utils/version.h",
-				"/usr/include/kwin/utils/vsyncmonitor.h",
+				"/usr/include/kwin/utils/vsyncsource.h",
 				"/usr/include/kwin/utils/xcbutils.h",
 				"/usr/include/kwin/virtualdesktops.h",
 				"/usr/include/kwin/virtualdesktopsdbustypes.h",
@@ -1837,9 +1835,9 @@
 			],
 			"files": [
 				"/usr/lib/libkcmkwincommon.so.6",
-				"/usr/lib/libkcmkwincommon.so.6.8.1",
+				"/usr/lib/libkcmkwincommon.so.6.8.2",
 				"/usr/lib/libkwin.so.6",
-				"/usr/lib/libkwin.so.6.8.1",
+				"/usr/lib/libkwin.so.6.8.2",
 				"/usr/share/qlogging-categories6/org_kde_kwin.categories"
 			],
 			"name": "kwin-libs",
@@ -1850,6 +1848,6 @@
 		}
 	},
 	"source-name": "kwin",
-	"source-release": "45",
-	"source-version": "6.8.1"
+	"source-release": "46",
+	"source-version": "6.8.2"
 }
