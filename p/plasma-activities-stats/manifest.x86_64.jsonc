@@ -19,7 +19,7 @@
 			],
 			"files": [
 				"/usr/lib/libPlasmaActivitiesStats.so.1",
-				"/usr/lib/libPlasmaActivitiesStats.so.6.8.1",
+				"/usr/lib/libPlasmaActivitiesStats.so.6.8.2",
 				"/usr/share/qlogging-categories6/plasma-activities-stats.categories",
 				"/usr/share/qlogging-categories6/plasma-activities-stats.renamecategories"
 			],
@@ -71,6 +71,6 @@
 		}
 	},
 	"source-name": "plasma-activities-stats",
-	"source-release": "25",
-	"source-version": "6.8.1"
+	"source-release": "26",
+	"source-version": "6.8.2"
 }
