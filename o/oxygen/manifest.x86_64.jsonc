@@ -52,9 +52,9 @@
 				"/usr/bin/oxygen-demo6",
 				"/usr/bin/oxygen-settings6",
 				"/usr/lib/liboxygenstyle6.so.6",
-				"/usr/lib/liboxygenstyle6.so.6.8.1",
+				"/usr/lib/liboxygenstyle6.so.6.8.2",
 				"/usr/lib/liboxygenstyleconfig6.so.6",
-				"/usr/lib/liboxygenstyleconfig6.so.6.8.1",
+				"/usr/lib/liboxygenstyleconfig6.so.6.8.2",
 				"/usr/lib/qt6/plugins/kstyle_config/kstyle_oxygen_config.so",
 				"/usr/lib/qt6/plugins/org.kde.kdecoration3.kcm/kcm_oxygendecoration.so",
 				"/usr/lib/qt6/plugins/org.kde.kdecoration3/org.kde.oxygen.so",
@@ -2090,6 +2090,6 @@
 		}
 	},
 	"source-name": "oxygen",
-	"source-release": "7",
-	"source-version": "6.8.1"
+	"source-release": "8",
+	"source-version": "6.8.2"
 }
