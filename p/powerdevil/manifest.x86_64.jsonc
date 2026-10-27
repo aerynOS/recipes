@@ -82,7 +82,7 @@
 				"/usr/lib/kf6/org_kde_powerdevil",
 				"/usr/lib/libpowerdevilcore.so",
 				"/usr/lib/libpowerdevilcore.so.2",
-				"/usr/lib/libpowerdevilcore.so.6.8.1",
+				"/usr/lib/libpowerdevilcore.so.6.8.2",
 				"/usr/lib/qt6/plugins/kf6/krunner/krunner_powerdevil.so",
 				"/usr/lib/qt6/plugins/plasma/applets/org.kde.plasma.battery.so",
 				"/usr/lib/qt6/plugins/plasma/applets/org.kde.plasma.brightness.so",
@@ -636,6 +636,6 @@
 		}
 	},
 	"source-name": "powerdevil",
-	"source-release": "36",
-	"source-version": "6.8.1"
+	"source-release": "37",
+	"source-version": "6.8.2"
 }
