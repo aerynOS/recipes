@@ -5,39 +5,47 @@
 		"tclap": {
 			"files": [
 				"/usr/include/tclap/Arg.h",
+				"/usr/include/tclap/ArgContainer.h",
 				"/usr/include/tclap/ArgException.h",
+				"/usr/include/tclap/ArgGroup.h",
 				"/usr/include/tclap/ArgTraits.h",
 				"/usr/include/tclap/CmdLine.h",
 				"/usr/include/tclap/CmdLineInterface.h",
 				"/usr/include/tclap/CmdLineOutput.h",
+				"/usr/include/tclap/ComparisonConstraint.h",
 				"/usr/include/tclap/Constraint.h",
+				"/usr/include/tclap/DeferDelete.h",
 				"/usr/include/tclap/DocBookOutput.h",
 				"/usr/include/tclap/HelpVisitor.h",
 				"/usr/include/tclap/IgnoreRestVisitor.h",
 				"/usr/include/tclap/MultiArg.h",
 				"/usr/include/tclap/MultiSwitchArg.h",
 				"/usr/include/tclap/OptionalUnlabeledTracker.h",
+				"/usr/include/tclap/PredicateConstraint.h",
+				"/usr/include/tclap/RangeConstraint.h",
 				"/usr/include/tclap/StandardTraits.h",
 				"/usr/include/tclap/StdOutput.h",
 				"/usr/include/tclap/SwitchArg.h",
+				"/usr/include/tclap/TCLAPConfig.h",
 				"/usr/include/tclap/UnlabeledMultiArg.h",
 				"/usr/include/tclap/UnlabeledValueArg.h",
 				"/usr/include/tclap/ValueArg.h",
 				"/usr/include/tclap/ValuesConstraint.h",
 				"/usr/include/tclap/VersionVisitor.h",
 				"/usr/include/tclap/Visitor.h",
-				"/usr/include/tclap/XorHandler.h",
-				"/usr/include/tclap/ZshCompletionOutput.h",
 				"/usr/include/tclap/sstream.h",
+				"/usr/lib/cmake/TCLAP/TCLAPConfig-version.cmake",
+				"/usr/lib/cmake/TCLAP/TCLAPConfig.cmake",
 				"/usr/lib/pkgconfig/tclap.pc"
 			],
 			"name": "tclap",
 			"provides": [
+				"cmake(TCLAP)",
 				"pkgconfig(tclap)"
 			]
 		}
 	},
 	"source-name": "tclap",
-	"source-release": "2",
-	"source-version": "1.2.5"
+	"source-release": "3",
+	"source-version": "1.6.0"
 }
