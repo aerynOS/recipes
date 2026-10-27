@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libLayerShellQtInterface.so.6",
-				"/usr/lib/libLayerShellQtInterface.so.6.8.1",
+				"/usr/lib/libLayerShellQtInterface.so.6.8.2",
 				"/usr/lib/qt6/plugins/wayland-shell-integration/liblayer-shell.so",
 				"/usr/lib/qt6/qml/org/kde/layershell/LayerShellQtQml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/layershell/kde-qmlmodule.version",
@@ -65,6 +65,6 @@
 		}
 	},
 	"source-name": "layer-shell-qt",
-	"source-release": "33",
-	"source-version": "6.8.1"
+	"source-release": "34",
+	"source-version": "6.8.2"
 }
