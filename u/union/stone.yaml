@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : union
-version     : "6.8.1"
-release     : 6
+version     : "6.8.2"
+release     : 7
 upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.1/union-6.8.1.tar.xz : abea413c79fe9a52337a9b8a50ee8fb29be7ed38bd764eb7555d724e99b39f00
+    - https://download.kde.org/stable/plasma/6.8.2/union-6.8.2.tar.xz : a87b6cd9e04c7941d631cb0f243277aa84795738383e5153750a0ad1659e0353
 homepage    : https://kde.org/plasma-desktop/
 license     :
     - LGPL-2.1-only
