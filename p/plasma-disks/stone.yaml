@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-disks
-version     : "6.8.1"
-release     : 25
+version     : "6.8.2"
+release     : 26
 upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.1/plasma-disks-6.8.1.tar.xz : b4aaf0c4a7a8e230058b870652b73c016451f6c902ff19d17ef5d6e56ac08687
+    - https://download.kde.org/stable/plasma/6.8.2/plasma-disks-6.8.2.tar.xz : 3432198413c86745e0fdf551361c55b26684b580ce5116a05d9cf973beb92a28
 homepage    : https://kde.org/plasma-desktop/
 license     :
     - BSD-3-Clause
