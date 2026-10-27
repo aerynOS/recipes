@@ -22,9 +22,9 @@
 			],
 			"files": [
 				"/usr/bin/kscreen-doctor",
-				"/usr/lib/libKF6Screen.so.6.8.1",
+				"/usr/lib/libKF6Screen.so.6.8.2",
 				"/usr/lib/libKF6Screen.so.8",
-				"/usr/lib/libKF6ScreenDpms.so.6.8.1",
+				"/usr/lib/libKF6ScreenDpms.so.6.8.2",
 				"/usr/lib/libKF6ScreenDpms.so.8",
 				"/usr/share/locale/ar/LC_MESSAGES/libkscreen6_qt.qm",
 				"/usr/share/locale/ast/LC_MESSAGES/libkscreen6_qt.qm",
@@ -138,6 +138,6 @@
 		}
 	},
 	"source-name": "libkscreen",
-	"source-release": "33",
-	"source-version": "6.8.1"
+	"source-release": "34",
+	"source-version": "6.8.2"
 }
