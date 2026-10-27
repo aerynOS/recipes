@@ -54,9 +54,9 @@
 			],
 			"files": [
 				"/usr/lib/libPlasma5Support.so.6",
-				"/usr/lib/libPlasma5Support.so.6.8.1",
+				"/usr/lib/libPlasma5Support.so.6.8.2",
 				"/usr/lib/libplasma-geolocation-interface.so.6",
-				"/usr/lib/libplasma-geolocation-interface.so.6.8.1",
+				"/usr/lib/libplasma-geolocation-interface.so.6.8.2",
 				"/usr/lib/libweather_ion.so.7",
 				"/usr/lib/libweather_ion.so.7.0.0",
 				"/usr/lib/qt6/plugins/plasma5support/dataengine/plasma_engine_activities.so",
@@ -696,6 +696,6 @@
 		}
 	},
 	"source-name": "plasma5support",
-	"source-release": "33",
-	"source-version": "6.8.1"
+	"source-release": "34",
+	"source-version": "6.8.2"
 }
