@@ -65,9 +65,9 @@
 				"soname(libwayland-client.so.0(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libPlasma.so.6.8.1",
+				"/usr/lib/libPlasma.so.6.8.2",
 				"/usr/lib/libPlasma.so.8",
-				"/usr/lib/libPlasmaQuick.so.6.8.1",
+				"/usr/lib/libPlasmaQuick.so.6.8.2",
 				"/usr/lib/libPlasmaQuick.so.8",
 				"/usr/lib/qt6/plugins/kf6/kirigami/platform/KirigamiPlasmaStyle.so",
 				"/usr/lib/qt6/plugins/kf6/packagestructure/plasma_applet.so",
@@ -494,6 +494,6 @@
 		}
 	},
 	"source-name": "libplasma",
-	"source-release": "37",
-	"source-version": "6.8.1"
+	"source-release": "38",
+	"source-version": "6.8.2"
 }
