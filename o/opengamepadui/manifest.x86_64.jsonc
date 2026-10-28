@@ -28,6 +28,7 @@
 				"/usr/bin/opengamepadui",
 				"/usr/lib/systemd/user/ogui-overlay-mode.service",
 				"/usr/lib/systemd/user/systemd-sysext-updater.service",
+				"/usr/lib/udev/rules.d/70-ayaneo-modules.rules",
 				"/usr/share/applications/opengamepadui.desktop",
 				"/usr/share/icons/hicolor/scalable/apps/opengamepadui.svg",
 				"/usr/share/opengamepadui/libopengamepadui-core.linux.template_release.x86_64.so",
@@ -48,6 +49,6 @@
 		}
 	},
 	"source-name": "opengamepadui",
-	"source-release": "31",
-	"source-version": "0.46.1"
+	"source-release": "32",
+	"source-version": "0.46.1~git.0db5812"
 }

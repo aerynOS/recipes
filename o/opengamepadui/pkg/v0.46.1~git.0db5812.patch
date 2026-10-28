@@ -1,0 +1,1277 @@
+From bdbcbca3715356454819497d85838ea92c4e930e Mon Sep 17 00:00:00 2001
+From: William Edwards <shadowapex@gmail.com>
+Date: Thu, 1 Oct 2026 18:09:12 -0700
+Subject: [PATCH 01/10] chore(CI): use manual dispatch for releases instead of
+ on merge to main
+
+---
+ .github/workflows/release.yaml | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
+
+diff --git a/.github/workflows/release.yaml b/.github/workflows/release.yaml
+index 60199514e..64c9382a6 100644
+--- a/.github/workflows/release.yaml
++++ b/.github/workflows/release.yaml
+@@ -1,16 +1,9 @@
+ # Build and publish a release of OpenGamepadUI using semantic-release whenever
+-# changes are merged into main.
++# this job is run manually.
+ name: "🎉 Release"
+ 
+ on:
+-  push:
+-    branches:
+-      - main
+-      - v0.x
+-      - v1.x
+-    paths-ignore:
+-      - README.md
+-      - "docs/**"
++  workflow_dispatch:
+ 
+ env:
+   IMAGE_NAME: ghcr.io/shadowblip/opengamepadui-builder
+
+From ce6f371f5b79ca3ae468a0475c439fc950dd6e59 Mon Sep 17 00:00:00 2001
+From: Jamal <jamalkamaladdin@gmail.com>
+Date: Wed, 9 Sep 2026 21:58:38 +0400
+Subject: [PATCH 02/10] feat(l10n): add Azerbaijani translation
+
+---
+ assets/locale/Makefile     |   2 +-
+ assets/locale/az_AZ.po     | 646 +++++++++++++++++++++++++++++++++++++
+ assets/locale/messages.pot |   3 +
+ project.godot              |   2 +-
+ 4 files changed, 651 insertions(+), 2 deletions(-)
+ create mode 100644 assets/locale/az_AZ.po
+
+diff --git a/assets/locale/Makefile b/assets/locale/Makefile
+index acaa529ef..a06721949 100644
+--- a/assets/locale/Makefile
++++ b/assets/locale/Makefile
+@@ -1,6 +1,6 @@
+ # https://weblate.org/en/
+ 
+-ALL_LOCALES := en_US.po el_GR.po es_MX.po fr_FR.po pt_BR.po ru_RU.po zh_CH.po
++ALL_LOCALES := en_US.po az_AZ.po el_GR.po es_MX.po fr_FR.po pt_BR.po ru_RU.po zh_CH.po
+ 
+ # Update all locales from the 'messages.pot' template
+ .PHONY: all
+diff --git a/assets/locale/az_AZ.po b/assets/locale/az_AZ.po
+new file mode 100644
+index 000000000..b1ad08b8d
+--- /dev/null
++++ b/assets/locale/az_AZ.po
+@@ -0,0 +1,646 @@
++msgid ""
++msgstr ""
++"Project-Id-Version: \n"
++"POT-Creation-Date: \n"
++"PO-Revision-Date: \n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Language: az_AZ\n"
++"Plural-Forms: nplurals=2; plural=(n != 1);\n"
++
++# LANGUAGE translation for OpenGamepadUI
++#
++# William Edwards <shadowapex@gmail.com>, 2023.
++#
++msgid "PROJECT DESCRIPTION"
++msgstr ""
++"Project-Id-Version: Open Gamepad UI\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8-bit\n"
++
++# Main Menu Messages
++msgid "Home"
++msgstr "Ana səhifə"
++
++msgid "Library"
++msgstr "Kitabxana"
++
++msgid "Settings"
++msgstr "Parametrlər"
++
++msgid "Power"
++msgstr "Enerji"
++
++# General messages
++msgid "Accept"
++msgstr "Qəbul et"
++
++msgid "Back"
++msgstr "Geri"
++
++msgid "Cancel"
++msgstr "Ləğv et"
++
++msgid "Exit"
++msgstr "Çıx"
++
++msgid "Submit"
++msgstr "Göndər"
++
++msgid "Quick Bar Menu"
++msgstr "Sürətli panel menyusu"
++
++# Help Menu Messages
++msgid "Help"
++msgstr "Kömək"
++
++msgid "Menu Shortcuts"
++msgstr "Menyu qısayolları"
++
++msgid "Open Main Menu"
++msgstr "Əsas menyunu aç"
++
++msgid "Open Quick Bar Menu"
++msgstr "Sürətli panel menyusunu aç"
++
++msgid "Open On-Screen Keyboard"
++msgstr "Ekran klaviaturasını aç"
++
++msgid "Scroll container"
++msgstr "Məzmunu sürüşdür"
++
++msgid "Switch to left tab"
++msgstr "Sol vərəqə keç"
++
++msgid "Switch to right tab"
++msgstr "Sağ vərəqə keç"
++
++msgid "On-Screen Keyboard Shortcuts"
++msgstr "Ekran klaviaturasının qısayolları"
++
++msgid "Backspace"
++msgstr "Əvvəlki simvolu sil"
++
++msgid "Close keyboard"
++msgstr "Klaviaturanı bağla"
++
++msgid "Toggle Shift"
++msgstr "Shift rejimini dəyiş"
++
++msgid "Enter"
++msgstr "Daxil et"
++
++msgid "Steam Deck"
++msgstr "Steam Deck"
++
++msgid "Global"
++msgstr "Ümumi"
++
++msgid "Unable to save gamepad profile"
++msgstr "Oyun pultunun profilini yadda saxlamaq mümkün deyil"
++
++msgid "Failed to save gamepad profile"
++msgstr "Oyun pultunun profilini yadda saxlamaq alınmadı"
++
++msgid "Gamepad profile saved"
++msgstr "Oyun pultunun profili yadda saxlanıldı"
++
++msgid "Play Now"
++msgstr "İndi oyna"
++
++msgid "Install"
++msgstr "Quraşdır"
++
++msgid "Resume"
++msgstr "Davam et"
++
++msgid "Queued"
++msgstr "Növbədədir"
++
++msgid "Installing"
++msgstr "Quraşdırılır"
++
++msgid "Quick Access Menu"
++msgstr "Sürətli giriş menyusu"
++
++msgid "Game Name"
++msgstr "Oyunun adı"
++
++# Game Launch Settings Menu
++msgid "Launch"
++msgstr "Başlat"
++
++msgid "Boxart"
++msgstr "Üz qabığı"
++
++msgid "Launch Provider"
++msgstr "Başlatma təminatçısı"
++
++msgid "Library provider to launch this game with"
++msgstr "Bu oyunu başlatmaq üçün kitabxana təminatçısı"
++
++msgid "Launch Settings"
++msgstr "Başlatma parametrləri"
++
++msgid "Command"
++msgstr "Əmr"
++
++msgid "Command to use to launch the game"
++msgstr "Oyunu başlatmaq üçün istifadə ediləcək əmr"
++
++msgid "Arguments"
++msgstr "Arqumentlər"
++
++msgid "Command-line arguments to pass to the game"
++msgstr "Oyuna ötürüləcək əmr sətri arqumentləri"
++
++msgid "Launch Directory"
++msgstr "Başlatma qovluğu"
++
++msgid "Directory to launch the game from"
++msgstr "Oyunun başladılacağı qovluq"
++
++msgid "Environment Variables"
++msgstr "Mühit dəyişənləri"
++
++msgid "Environment variables to use when launching the game"
++msgstr "Oyunu başladarkən istifadə ediləcək mühit dəyişənləri"
++
++msgid "Sandbox Settings"
++msgstr "Təcrid olunmuş mühitin parametrləri"
++
++msgid "Use sandboxing"
++msgstr "Təcrid olunmuş mühitdən istifadə et"
++
++msgid "Launch the game in a sandbox"
++msgstr "Oyunu təcrid olunmuş mühitdə başlat"
++
++# Boxart Settings Menu
++msgid "Boxart Provider"
++msgstr "Üz qabığı təminatçısı"
++
++msgid "Provider to fetch artwork for this game"
++msgstr "Bu oyunun təsvirlərini əldə etmək üçün təminatçı"
++
++msgid "Images"
++msgstr "Şəkillər"
++
++msgid "Banner"
++msgstr "Baner"
++
++msgid "Logo"
++msgstr "Loqo"
++
++msgid "Grids"
++msgstr "Torlar"
++
++# Game library menu
++msgid "Hidden in library"
++msgstr "Kitabxanada gizlidir"
++
++msgid "Prevent this item from showing up in your library"
++msgstr "Bu elementin kitabxananızda görünməsinə mane ol"
++
++# Settings Menu
++msgid "General"
++msgstr "Ümumi"
++
++msgid "Display"
++msgstr "Ekran"
++
++msgid "Network"
++msgstr "Şəbəkə"
++
++msgid "Bluetooth"
++msgstr "Bluetooth"
++
++msgid "Plugins"
++msgstr "Qoşmalar"
++
++msgid "Disks"
++msgstr "Disklər"
++
++msgid "Plugin Store"
++msgstr "Qoşma mağazası"
++
++msgid "Processes"
++msgstr "Proseslər"
++
++msgid "Logging"
++msgstr "Jurnala yazma"
++
++msgid "Controllers"
++msgstr "Oyun pultları"
++
++msgid "Windows"
++msgstr "Pəncərələr"
++
++# General Settings Menu
++msgid "Updates"
++msgstr "Yeniləmələr"
++
++msgid "Automatic Updates"
++msgstr "Avtomatik yeniləmələr"
++
++msgid ""
++"Automatically download and apply updates in the background when they are "
++"available"
++msgstr ""
++"Yeniləmələr mövcud olduqda onları arxa planda avtomatik endir və tətbiq et"
++
++msgid "Check for updates"
++msgstr "Yeniləmələri yoxla"
++
++msgid "Install Updates"
++msgstr "Yeniləmələri quraşdır"
++
++msgid "Update"
++msgstr "Yenilə"
++
++msgid "Appearance"
++msgstr "Görünüş"
++
++msgid "Language"
++msgstr "Dil"
++
++msgid "System language"
++msgstr "Sistem dili"
++
++msgid "English"
++msgstr "İngilis dili"
++
++msgid "Spanish"
++msgstr "İspan dili"
++
++msgid "French"
++msgstr "Fransız dili"
++
++msgid "Chinese"
++msgstr "Çin dili"
++
++msgid "Portuguese"
++msgstr "Portuqal dili"
++
++msgid "Russian"
++msgstr "Rus dili"
++
++msgid "Greek"
++msgstr "Yunan dili"
++
++msgid "Azerbaijani"
++msgstr "Azərbaycan dili"
++
++msgid "Theme"
++msgstr "Tema"
++
++msgid "System Information"
++msgstr "Sistem məlumatları"
++
++msgid "Platform"
++msgstr "Platforma"
++
++msgid "Client Version"
++msgstr "Müştəri versiyası"
++
++msgid "Engine Version"
++msgstr "Mühərrik versiyası"
++
++msgid "Plugin API Version"
++msgstr "Qoşma API versiyası"
++
++msgid "OS"
++msgstr "OS"
++
++msgid "Kernel Version"
++msgstr "Nüvə versiyası"
++
++msgid "Vendor"
++msgstr "İstehsalçı"
++
++msgid "Product"
++msgstr "Məhsul"
++
++msgid "BIOS Version"
++msgstr "BIOS versiyası"
++
++msgid "CPU Model"
++msgstr "CPU modeli"
++
++msgid "GPU Model"
++msgstr "GPU modeli"
++
++msgid "Driver Version"
++msgstr "Sürücü versiyası"
++
++# Library settings menu
++msgid "Maximum Recent Apps"
++msgstr "Son tətbiqlərin maksimum sayı"
++
++msgid "Refresh Library"
++msgstr "Kitabxananı yenilə"
++
++msgid "Trigger reloading your library"
++msgstr "Kitabxananın yenidən yüklənməsini başlat"
++
++msgid "Refresh"
++msgstr "Yenilə"
++
++msgid "Hidden Library Items"
++msgstr "Gizli kitabxana elementləri"
++
++msgid "No hidden library items"
++msgstr "Gizli kitabxana elementləri yoxdur"
++
++# Display Menu
++msgid "Scale"
++msgstr "Miqyas"
++
++msgid "Overlay"
++msgstr "Üst qat"
++
++msgid "Blur"
++msgstr "Bulanıqlıq"
++
++msgid "Blur background game when overlay is open"
++msgstr "Üst qat açıq olduqda arxa plandakı oyunu bulanıqlaşdır"
++
++# Network Menu
++msgid "Network dependencies not found"
++msgstr "Şəbəkə üçün tələb olunan komponentlər tapılmadı"
++
++msgid "Enable Wireless"
++msgstr "Simsiz şəbəkəni aktivləşdir"
++
++msgid "Wireless Network"
++msgstr "Simsiz şəbəkə"
++
++msgid "Visible Networks"
++msgstr "Görünən şəbəkələr"
++
++msgid "Refresh Networks"
++msgstr "Şəbəkələri yenilə"
++
++msgid "Wired Network"
++msgstr "Simli şəbəkə"
++
++msgid "Password"
++msgstr "Parol"
++
++msgid "Enter the password for this network"
++msgstr "Bu şəbəkənin parolunu daxil et"
++
++msgid "Connection Details"
++msgstr "Əlaqə təfərrüatları"
++
++msgid "IP Address"
++msgstr "IP ünvanı"
++
++msgid "Subnet Prefix"
++msgstr "Alt şəbəkə prefiksi"
++
++msgid "Gateway"
++msgstr "Şəbəkə keçidi"
++
++# Bluetooth Menu
++msgid "Bluetooth service unavailable"
++msgstr "Bluetooth xidməti əlçatan deyil"
++
++msgid "Enabled"
++msgstr "Aktiv"
++
++msgid "Enable Discovery"
++msgstr "Aşkarlanmanı aktivləşdir"
++
++# Audio Menu
++msgid "Audio"
++msgstr "Səs"
++
++msgid "Volume"
++msgstr "Səs səviyyəsi"
++
++msgid "Output Device"
++msgstr "Çıxış cihazı"
++
++msgid "Input Device"
++msgstr "Giriş cihazı"
++
++msgid "Microphone"
++msgstr "Mikrofon"
++
++# Disk Menu
++msgid ""
++"No formattable drives available\n"
++"Verify your media device is plugged in and that it is not mounted to a "
++"protected mount point"
++msgstr ""
++"Formatlana bilən disk yoxdur\n"
++"Yaddaş cihazının qoşulduğunu və qorunan qoşulma nöqtəsinə "
++"qoşulmadığını yoxla"
++
++# Plugins Menu
++msgid "No plugins found"
++msgstr "Qoşmalar tapılmadı"
++
++# Processes Menu
++msgid "Kill"
++msgstr "Məcburi dayandır"
++
++# Log Menu
++msgid "Global Log Level"
++msgstr "Ümumi jurnal səviyyəsi"
++
++msgid "Set the log level for all systems"
++msgstr "Sistemlərin hamısı üçün jurnal səviyyəsini təyin et"
++
++msgid "Per-system Logging"
++msgstr "Hər sistem üzrə jurnala yazma"
++
++# General Controller Settings Menu
++msgid "Gamepad Settings"
++msgstr "Oyun pultunun parametrləri"
++
++msgid "SDL HIDAPI Enabled"
++msgstr "SDL HIDAPI aktivdir"
++
++msgid ""
++"Alternate input system that can cause double input. Some games use SDL for "
++"gyro controls or all input. Requires restart."
++msgstr ""
++"Girişin iki dəfə qeydə alınmasına səbəb ola bilən alternativ giriş sistemi. "
++"Bəzi oyunlar giroskopla idarəetmə və ya bütün girişlər üçün SDL-dən istifadə edir. "
++"Yenidən başlatmaq tələb olunur."
++
++msgid "InputPlumber service not available"
++msgstr "InputPlumber xidməti əlçatan deyil"
++
++# Gamepad Settings Menu
++msgid "Profile Name"
++msgstr "Profil adı"
++
++msgid "Buttons"
++msgstr "Düymələr"
++
++# (plural of "axis", not the wood chopping thing)
++msgid "Axes"
++msgstr "Oxlar"
++
++# Gamepad Mapper Menu
++msgid "Change Input"
++msgstr "Girişi dəyiş"
++
++msgid "Keyboard"
++msgstr "Klaviatura"
++
++msgid "Mouse"
++msgstr "Siçan"
++
++msgid "Gamepad"
++msgstr "Oyun pultu"
++
++msgid "Clear"
++msgstr "Təmizlə"
++
++msgid "Left Click"
++msgstr "Sol klik"
++
++msgid "Right Click"
++msgstr "Sağ klik"
++
++msgid "Mouse Motion"
++msgstr "Siçanın hərəkəti"
++
++msgid "Wheel Up"
++msgstr "Təkər yuxarı"
++
++msgid "Wheel Down"
++msgstr "Təkər aşağı"
++
++msgid "Middle Click"
++msgstr "Orta klik"
++
++# First Boot Menu
++msgid "Welcome"
++msgstr "Xoş gəlmisiniz"
++
++msgid "Select a language"
++msgstr "Dil seç"
++
++msgid "Connect to your network"
++msgstr "Şəbəkənə qoşul"
++
++msgid "Next"
++msgstr "İrəli"
++
++msgid "Install plugins"
++msgstr "Qoşmaları quraşdır"
++
++msgid "Configure your plugins"
++msgstr "Qoşmaların parametrlərini təyin et"
++
++msgid "Finished"
++msgstr "Tamamlandı"
++
++msgid "You're ready to go"
++msgstr "Başlamağa hazırsınız"
++
++msgid "Start playing"
++msgstr "Oynamağa başla"
++
++# Search Bar
++msgid "What should you play?"
++msgstr "Nə oynamaq istəyirsiniz?"
++
++msgid "Installed"
++msgstr "Quraşdırılıb"
++
++msgid "All Games"
++msgstr "Oyunların hamısı"
++
++msgid "Favorites"
++msgstr "Sevimlilər"
++
++msgid "Collections"
++msgstr "Kolleksiyalar"
++
++# Quick Settings
++msgid "Quick Settings"
++msgstr "Sürətli parametrlər"
++
++msgid "Performance"
++msgstr "Məhsuldarlıq"
++
++msgid "Advanced Mode"
++msgstr "Qabaqcıl rejim"
++
++msgid "Power Tools"
++msgstr "Enerji alətləri"
++
++msgid "Brightness"
++msgstr "Parlaqlıq"
++
++msgid "Saturation"
++msgstr "Doyma"
++
++# Performance Menu
++msgid "Performance Overlay"
++msgstr "Məhsuldarlıq üst qatı"
++
++msgid "FPS Limit"
++msgstr "FPS həddi"
++
++msgid "Refresh Rate"
++msgstr "Yenilənmə tezliyi"
++
++# Power Tools Menu
++msgid "Waiting for PowerStation service..."
++msgstr "PowerStation xidməti gözlənilir..."
++
++msgid "CPU Settings"
++msgstr "CPU parametrləri"
++
++msgid "CPU Boost"
++msgstr "CPU-nun sürətləndirilməsi"
++
++msgid "SMT Enabled"
++msgstr "SMT aktivdir"
++
++msgid "CPU Cores"
++msgstr "CPU nüvələri"
++
++msgid "GPU Settings"
++msgstr "GPU parametrləri"
++
++msgid "TDP Boost"
++msgstr "TDP-nin artırılması"
++
++msgid "Manual Freq"
++msgstr "Əl ilə tezlik təyini"
++
++msgid "Min Freq"
++msgstr "Minimum tezlik"
++
++msgid "Max Freq"
++msgstr "Maksimum tezlik"
++
++msgid "GPU Temp Limit"
++msgstr "GPU temperatur həddi"
++
++msgid "Power Profile"
++msgstr "Enerji profili"
++
++msgid "Thermal Throttle Profile"
++msgstr "İstiliyə görə sürət məhdudlaşdırma profili"
++
++# Power Menu
++msgid "Suspend"
++msgstr "Yuxu rejiminə keçir"
++
++msgid "Reboot"
++msgstr "Yenidən başlat"
++
++msgid "Shutdown"
++msgstr "Söndür"
+diff --git a/assets/locale/messages.pot b/assets/locale/messages.pot
+index b2c589000..a2adda3bd 100644
+--- a/assets/locale/messages.pot
++++ b/assets/locale/messages.pot
+@@ -288,6 +288,9 @@ msgstr ""
+ msgid "Greek"
+ msgstr ""
+ 
++msgid "Azerbaijani"
++msgstr ""
++
+ msgid "Theme"
+ msgstr ""
+ 
+diff --git a/project.godot b/project.godot
+index 29834fcf6..ce1757aa6 100644
+--- a/project.godot
++++ b/project.godot
+@@ -297,7 +297,7 @@ pointing/emulate_touch_from_mouse=true
+ 
+ [internationalization]
+ 
+-locale/translations=PackedStringArray("res://assets/locale/en_US.po", "res://assets/locale/el_GR.po", "res://assets/locale/es_MX.po", "res://assets/locale/fr_FR.po", "res://assets/locale/pt_BR.po", "res://assets/locale/ru_RU.po", "res://assets/locale/zh_CH.po")
++locale/translations=PackedStringArray("res://assets/locale/en_US.po", "res://assets/locale/az_AZ.po", "res://assets/locale/el_GR.po", "res://assets/locale/es_MX.po", "res://assets/locale/fr_FR.po", "res://assets/locale/pt_BR.po", "res://assets/locale/ru_RU.po", "res://assets/locale/zh_CH.po")
+ locale/fallback="en_US"
+ 
+ [network]
+
+From 3a2b6c9af4702676dfb02cd9cd6608884a6f46e7 Mon Sep 17 00:00:00 2001
+From: Kyle Gospodnetich <me@kylegospodneti.ch>
+Date: Mon, 14 Sep 2026 23:13:55 -0700
+Subject: [PATCH 03/10] fix: Add guards against crashing in the plugin loader
+ if the network isn't available and avoid null references
+
+---
+ core/global/plugin_loader.gd                  | 38 ++++++++++++++-----
+ core/ui/card_ui/settings/plugin_store_menu.gd | 10 ++++-
+ 2 files changed, 38 insertions(+), 10 deletions(-)
+
+diff --git a/core/global/plugin_loader.gd b/core/global/plugin_loader.gd
+index 93578ba4b..7dd739e75 100644
+--- a/core/global/plugin_loader.gd
++++ b/core/global/plugin_loader.gd
+@@ -93,23 +93,35 @@ func disable_plugin(plugin_id: String) -> void:
+ 	SettingsManager.set_value("plugins.enabled", plugin_id, false)
+ 
+ 
+-## Returns the parsed dictionary of plugin store items. Returns null if there
+-## is a failure.
+-func get_plugin_store_items() -> Variant:
++## Returns the parsed dictionary of plugin store items. Returns an empty
++## dictionary if there is a failure.
++func get_plugin_store_items() -> Dictionary:
+ 	if not parent:
+ 		logger.error("Plugin loader has not been initialized!")
+-		return
++		return {}
+ 	var http: HTTPRequest = HTTPRequest.new()
+ 	parent.add_child.call_deferred(http)
+ 	await http.ready
++
++	# Bail out before touching any freed objects.
++	if not is_instance_valid(parent) or not is_instance_valid(http):
++		return {}
++
+ 	if http.request(PLUGIN_STORE_URL) != OK:
+ 		logger.error("Error making http request to plugin store")
+-		parent.remove_child(http)
++		if is_instance_valid(parent) and is_instance_valid(http):
++			parent.remove_child(http)
+ 		http.queue_free()
+-		return null
++		return {}
+ 
+ 	# Wait for the request signal to complete
+ 	var args: Array = await http.request_completed
++
++	# Guard against the request node having been freed while we were
++	# awaiting the response.
++	if not is_instance_valid(http):
++		return {}
++
+ 	var result: int = args[0]
+ 	var response_code: int = args[1]
+ 	var headers: PackedStringArray = args[2]
+@@ -117,12 +129,20 @@ func get_plugin_store_items() -> Variant:
+ 
+ 	if result != HTTPRequest.RESULT_SUCCESS:
+ 		logger.error("Plugin store http request failed")
+-		parent.remove_child(http)
++		if is_instance_valid(parent):
++			parent.remove_child(http)
+ 		http.queue_free()
+-		return null
++		return {}
++
++	if is_instance_valid(parent):
++		parent.remove_child(http)
++	http.queue_free()
+ 
+ 	# Parse the results
+-	var items: Dictionary = JSON.parse_string(body.get_string_from_utf8())
++	var items: Variant = JSON.parse_string(body.get_string_from_utf8())
++	if items == null or not items is Dictionary:
++		logger.error("Unable to parse plugin store response")
++		return {}
+ 
+ 	return items
+ 
+diff --git a/core/ui/card_ui/settings/plugin_store_menu.gd b/core/ui/card_ui/settings/plugin_store_menu.gd
+index 631b49b0c..51696d636 100644
+--- a/core/ui/card_ui/settings/plugin_store_menu.gd
++++ b/core/ui/card_ui/settings/plugin_store_menu.gd
+@@ -24,7 +24,12 @@ func _ready() -> void:
+ # signal with the loaded items
+ func load_plugin_store_items():
+ 	# Fetch available plugins from the plugin store
+-	var plugin_items = await plugin_loader.get_plugin_store_items()
++	var plugin_items := await plugin_loader.get_plugin_store_items()
++
++	# Bail out early if the node was freed while waiting
++	if not is_instance_valid(self):
++		return
++
+ 	plugin_store_loaded.emit(plugin_items)
+ 
+ 
+@@ -96,6 +101,9 @@ func _populate_plugin_store_item(grid: Container, plugin_id: String, plugin: Dic
+ 	# Load the plugin image
+ 	if len(plugin["store.images"]) > 0:
+ 		var image = await http_image.fetch(plugin["store.images"][0])
++		# Bail out before touching any freed objects to avoid a crash.
++		if not is_instance_valid(self) or not is_instance_valid(store_item):
++			return
+ 		if image != null:
+ 			store_item.plugin_texture.texture = image
+ 	
+
+From fc711f058fec1747ec3ab1108361af32872321fb Mon Sep 17 00:00:00 2001
+From: Philippe Simons <simons.philippe@gmail.com>
+Date: Sat, 3 Oct 2026 22:39:45 +0200
+Subject: [PATCH 04/10] fix(HardwareManager): don't crash on devicetree boards
+ without DMI
+
+ARM handhelds (e.g. Snapdragon SM8250/SM8550/SM8650) boot from devicetree
+and have no SMBIOS, so /sys/devices/virtual/dmi/id/* does not exist.
+_read_sys() called get_length() on the null FileAccess, which crashes a
+release build with SIGSEGV a few seconds into every start.
+
+Return an empty string when the file cannot be opened, and fall back to
+/sys/firmware/devicetree/base/model for the product name. Devicetree
+properties are NUL-terminated, so cut the buffer at the first NUL instead
+of decoding it (which logs a Unicode warning and leaves a U+FFFD).
+
+Fixes #542
+---
+ core/systems/hardware/hardware_manager.gd | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/core/systems/hardware/hardware_manager.gd b/core/systems/hardware/hardware_manager.gd
+index 3336d6708..9a777e765 100644
+--- a/core/systems/hardware/hardware_manager.gd
++++ b/core/systems/hardware/hardware_manager.gd
+@@ -36,7 +36,14 @@ func get_bios_version() -> String:
+ 
+ ## Returns the hardware product name
+ func get_product_name() -> String:
+-	return _read_sys("/sys/devices/virtual/dmi/id/product_name")
++	var path := "/sys/devices/virtual/dmi/id/product_name"
++	match Engine.get_architecture_name():
++		"arm64", "arm32":
++			path = "/sys/firmware/devicetree/base/model"
++	var product := _read_sys(path)
++	if product.is_empty():
++		return "Unknown"
++	return product
+ 
+ 
+ ## Returns the hardware vendor name
+@@ -406,8 +413,14 @@ func _exec(command: String, args: PackedStringArray = []) -> Array:
+ ## Used to read values from sysfs
+ func _read_sys(path: String) -> String:
+ 	var file := FileAccess.open(path, FileAccess.READ)
++	if not file:
++		return ""
+ 	var length := file.get_length()
+ 	var bytes := file.get_buffer(length)
++	# Avoid Unicode warnings by removing any NUL terminators.
++	var nul := bytes.find(0)
++	if nul >= 0:
++		bytes = bytes.slice(0, nul)
+ 	return bytes.get_string_from_utf8().strip_escapes()
+ 
+ 
+
+From 961c137d1986a914cc419c100b0d4441e5e7aa72 Mon Sep 17 00:00:00 2001
+From: Philippe Simons <simons.philippe@gmail.com>
+Date: Sat, 3 Oct 2026 22:39:45 +0200
+Subject: [PATCH 05/10] fix(Install Dialogs): rename custom_maximum_size, now a
+ native Control property
+
+Godot 4.7 added a native Control.custom_maximum_size, so the exported
+variable of the same name in install_location_dialog.gd and
+install_options_dialog.gd fails to parse ("Member redefined"), and the
+game launch menu that uses these dialogs breaks.
+
+Rename it to scroll_maximum_size (it caps the scroll container) in both
+scripts and their scenes.
+
+Fixes #540
+---
+ core/ui/components/install_location_dialog.gd   | 16 ++++++++--------
+ core/ui/components/install_location_dialog.tscn |  2 +-
+ core/ui/components/install_options_dialog.gd    | 16 ++++++++--------
+ core/ui/components/install_options_dialog.tscn  |  2 +-
+ 4 files changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/core/ui/components/install_location_dialog.gd b/core/ui/components/install_location_dialog.gd
+index fd4a80c5d..6bc05e0ed 100644
+--- a/core/ui/components/install_location_dialog.gd
++++ b/core/ui/components/install_location_dialog.gd
+@@ -31,9 +31,9 @@ signal choice_selected(accepted: bool, location: Library.InstallLocation)
+ ## Close the dialog when the user selects an option
+ @export var close_on_selected := true
+ ## Maximum size that the scroll container can grow to
+-@export var custom_maximum_size: Vector2i:
++@export var scroll_maximum_size: Vector2i:
+ 	set(v):
+-		custom_maximum_size = v
++		scroll_maximum_size = v
+ 		if scroll_container:
+ 			_recalculate_minimum_size()
+ 
+@@ -61,11 +61,11 @@ func _on_selected(accepted: bool, choice: Library.InstallLocation) -> void:
+ 	_return_node = null
+ 
+ 
+-## Updates the minimum size of the scroll container up to the custom_maximum_size.
++## Updates the minimum size of the scroll container up to the scroll_maximum_size.
+ ## This will allow the scroll container to dynamically grow based on the content
+ ## inside the scroll container up to a maximum size.
+ func _recalculate_minimum_size() -> void:
+-	if custom_maximum_size == Vector2i.ZERO:
++	if scroll_maximum_size == Vector2i.ZERO:
+ 		return
+ 	if scroll_container.get_child_count() < 1:
+ 		return
+@@ -78,13 +78,13 @@ func _recalculate_minimum_size() -> void:
+ 
+ 	# Check the size of the child to see if the max size has been reached. If not,
+ 	# adjust the size of the scroll container based on the content.
+-	if custom_maximum_size.x != 0.0 and child_size.x > custom_maximum_size.x:
+-		scroll_container.custom_minimum_size.x = custom_maximum_size.x
++	if scroll_maximum_size.x != 0.0 and child_size.x > scroll_maximum_size.x:
++		scroll_container.custom_minimum_size.x = scroll_maximum_size.x
+ 	else:
+ 		scroll_container.custom_minimum_size.x = child_size.x
+ 
+-	if custom_maximum_size.y != 0.0 and child_size.y > custom_maximum_size.y:
+-		scroll_container.custom_minimum_size.y = custom_maximum_size.y
++	if scroll_maximum_size.y != 0.0 and child_size.y > scroll_maximum_size.y:
++		scroll_container.custom_minimum_size.y = scroll_maximum_size.y
+ 	else:
+ 		scroll_container.custom_minimum_size.y = child_size.y
+ 
+diff --git a/core/ui/components/install_location_dialog.tscn b/core/ui/components/install_location_dialog.tscn
+index 498ef7512..ba6fdfc83 100644
+--- a/core/ui/components/install_location_dialog.tscn
++++ b/core/ui/components/install_location_dialog.tscn
+@@ -17,7 +17,7 @@ anchor_bottom = 0.5
+ grow_horizontal = 2
+ grow_vertical = 2
+ script = ExtResource("1_op1tk")
+-custom_maximum_size = Vector2i(0, 600)
++scroll_maximum_size = Vector2i(0, 600)
+ 
+ [node name="FadeEffect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_gwl35")]
+ unique_name_in_owner = true
+diff --git a/core/ui/components/install_options_dialog.gd b/core/ui/components/install_options_dialog.gd
+index 56edf3add..5db7ba821 100644
+--- a/core/ui/components/install_options_dialog.gd
++++ b/core/ui/components/install_options_dialog.gd
+@@ -30,9 +30,9 @@ signal choice_selected(accepted: bool, choices: Dictionary)
+ ## Close the dialog when the user selects an option
+ @export var close_on_selected := true
+ ## Maximum size that the scroll container can grow to
+-@export var custom_maximum_size: Vector2i:
++@export var scroll_maximum_size: Vector2i:
+ 	set(v):
+-		custom_maximum_size = v
++		scroll_maximum_size = v
+ 		if scroll_container:
+ 			_recalculate_minimum_size()
+ 
+@@ -140,11 +140,11 @@ func _create_option_node(option: Library.InstallOption) -> Control:
+ 	return option_node
+ 
+ 
+-## Updates the minimum size of the scroll container up to the custom_maximum_size.
++## Updates the minimum size of the scroll container up to the scroll_maximum_size.
+ ## This will allow the scroll container to dynamically grow based on the content
+ ## inside the scroll container up to a maximum size.
+ func _recalculate_minimum_size() -> void:
+-	if custom_maximum_size == Vector2i.ZERO:
++	if scroll_maximum_size == Vector2i.ZERO:
+ 		return
+ 	if scroll_container.get_child_count() < 1:
+ 		return
+@@ -157,13 +157,13 @@ func _recalculate_minimum_size() -> void:
+ 
+ 	# Check the size of the child to see if the max size has been reached. If not,
+ 	# adjust the size of the scroll container based on the content.
+-	if custom_maximum_size.x != 0.0 and child_size.x > custom_maximum_size.x:
+-		scroll_container.custom_minimum_size.x = custom_maximum_size.x
++	if scroll_maximum_size.x != 0.0 and child_size.x > scroll_maximum_size.x:
++		scroll_container.custom_minimum_size.x = scroll_maximum_size.x
+ 	else:
+ 		scroll_container.custom_minimum_size.x = child_size.x
+ 
+-	if custom_maximum_size.y != 0.0 and child_size.y > custom_maximum_size.y:
+-		scroll_container.custom_minimum_size.y = custom_maximum_size.y
++	if scroll_maximum_size.y != 0.0 and child_size.y > scroll_maximum_size.y:
++		scroll_container.custom_minimum_size.y = scroll_maximum_size.y
+ 	else:
+ 		scroll_container.custom_minimum_size.y = child_size.y
+ 
+diff --git a/core/ui/components/install_options_dialog.tscn b/core/ui/components/install_options_dialog.tscn
+index a13275a21..2e73f6486 100644
+--- a/core/ui/components/install_options_dialog.tscn
++++ b/core/ui/components/install_options_dialog.tscn
+@@ -18,7 +18,7 @@ grow_horizontal = 2
+ grow_vertical = 2
+ script = ExtResource("1_khr1a")
+ text = "Select a location to install"
+-custom_maximum_size = Vector2i(0, 600)
++scroll_maximum_size = Vector2i(0, 600)
+ 
+ [node name="FadeEffect" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_2dmlt")]
+ unique_name_in_owner = true
+
+From 0c7de5f93d9ffdb60cedc46370cf5fc3ab3140a8 Mon Sep 17 00:00:00 2001
+From: Philippe Simons <simons.philippe@gmail.com>
+Date: Sat, 3 Oct 2026 12:34:36 +0200
+Subject: [PATCH 06/10] fix(Performance Menu): hide TDP, thermal and power
+ profile controls the GPU does not have
+
+On a GPU the APU database does not know (any SoC GPU, e.g. Adreno on a
+Snapdragon handheld) the TDP sliders, the thermal throttle slider and the
+power profile dropdown were shown anyway, with ranges of -1 and writes to
+properties PowerStation does not export for that card.
+
+Show each only when HardwareManager says the GPU has it (tdp_capable,
+tj_temp_capable, power_profile_capable). AMD and Intel APUs found in the
+database are unchanged.
+
+Such a GPU also has no power profiles, which the menu assumed it always
+had: the apply timer indexed the empty profile list (aborting, so no
+setting was ever applied or saved), and the default profile for the
+mode toggle came back null and was dereferenced. Treat an empty list as
+"no power profile" instead.
+---
+ core/ui/common/quick_bar/performance_menu.gd | 48 +++++++++++---------
+ 1 file changed, 26 insertions(+), 22 deletions(-)
+
+diff --git a/core/ui/common/quick_bar/performance_menu.gd b/core/ui/common/quick_bar/performance_menu.gd
+index 211b324ed..c88924789 100644
+--- a/core/ui/common/quick_bar/performance_menu.gd
++++ b/core/ui/common/quick_bar/performance_menu.gd
+@@ -151,8 +151,10 @@ func _on_apply_timer_timeout() -> void:
+ 	logger.debug("Applying and saving profile")
+ 
+ 	# Update the profile based on the currently set values
+-	var power_profile := _profiles_available[power_profile_dropdown.selected]
+-	_current_profile.gpu_power_profile = power_profile
++	# Avoid error when power profiles are empty
++	var selected := power_profile_dropdown.selected
++	if selected >= 0 and selected < _profiles_available.size():
++		_current_profile.gpu_power_profile = _profiles_available[selected]
+ 	_current_profile.cpu_boost_enabled = cpu_boost_button.button_pressed
+ 	_current_profile.cpu_smt_enabled = smt_button.button_pressed
+ 	_current_profile.cpu_core_count_current = int(cpu_cores_slider.value)
+@@ -269,16 +271,22 @@ func _setup_interface() -> void:
+ 
+ 	gpu_label.visible = is_advanced
+ 
+-	tdp_slider.visible = is_advanced
+-	tdp_slider.min_value = round(_hardware_manager.gpu.tdp_min)
+-	tdp_slider.max_value = round(_hardware_manager.gpu.tdp_max)
++	# Avoid showing TDP controls when not supported
++	var gpu_info := _hardware_manager.gpu
++	var tdp_capable := gpu_info != null and gpu_info.tdp_capable
++	var temp_capable := gpu_info != null and gpu_info.tj_temp_capable
++	var profile_capable := gpu_info != null and gpu_info.power_profile_capable
+ 
+-	tdp_boost_slider.visible = is_advanced
+-	tdp_boost_slider.max_value = round(_hardware_manager.gpu.max_boost)
++	tdp_slider.visible = is_advanced and tdp_capable
++	tdp_boost_slider.visible = is_advanced and tdp_capable
++	if tdp_capable:
++		tdp_slider.min_value = round(gpu_info.tdp_min)
++		tdp_slider.max_value = round(gpu_info.tdp_max)
++		tdp_boost_slider.max_value = round(gpu_info.max_boost)
+ 
+ 	gpu_freq_enable.visible = is_advanced
+ 
+-	power_profile_dropdown.visible = not is_advanced
++	power_profile_dropdown.visible = not is_advanced and profile_capable
+ 
+ 	gpu_freq_min_slider.visible = card.manual_clock and is_advanced
+ 	gpu_freq_min_slider.min_value = round(card.clock_limit_mhz_min)
+@@ -288,7 +296,7 @@ func _setup_interface() -> void:
+ 	gpu_freq_max_slider.min_value = round(card.clock_limit_mhz_min)
+ 	gpu_freq_max_slider.max_value = round(card.clock_limit_mhz_max)
+ 
+-	gpu_temp_slider.visible = is_advanced
++	gpu_temp_slider.visible = is_advanced and temp_capable
+ 
+ 
+ ## Returns the primary integrated GPU instance
+@@ -331,21 +339,17 @@ func _create_performance_profile(is_advanced: bool) -> PerformanceProfile:
+ 
+ 	# GPU Settings
+ 	var profiles := _performance_manager.get_power_profiles_available() as PackedStringArray
+-	if profiles.is_empty():
+-		logger.error("No _platform profiles available. Unable to assume sane performance defaults.")
+-		return null
+ 	if "custom" in profiles:
+ 		profiles.remove_at(profiles.find("custom"))
+-	if not "max-performance" in profiles and not "performance" in profiles:
+-		logger.error("Performance profile not found. Unable to assume sane performance defaults.")
+-		return null
+-	var profile_idx := profiles.find("max-performance")
+-	if  profile_idx == -1:
+-		profile_idx = profiles.find("performance")
+-	if profile_idx == -1:
+-		logger.error("Performance profile not found. Unable to assume sane performance defaults.")
+-		return null
+-	new_profile.gpu_power_profile = profiles[profile_idx]
++	# Avoid showing power profiles when not supported
++	if not profiles.is_empty():
++		if not "max-performance" in profiles and not "performance" in profiles:
++			logger.error("Performance profile not found. Unable to assume sane performance defaults.")
++			return null
++		var profile_idx := profiles.find("max-performance")
++		if  profile_idx == -1:
++			profile_idx = profiles.find("performance")
++		new_profile.gpu_power_profile = profiles[profile_idx]
+ 	new_profile.gpu_freq_max_current = gpu_freq_max_slider.max_value
+ 	new_profile.gpu_freq_min_current = gpu_freq_min_slider.min_value
+ 	new_profile.gpu_manual_enabled = false 
+
+From 3fae966238c221121a2d80ec8ec60de129915c70 Mon Sep 17 00:00:00 2001
+From: taffroi <alexandre.tachau@tutamail.com>
+Date: Sat, 22 Aug 2026 01:20:49 +0200
+Subject: [PATCH 07/10] ui: Add easing to game card animation
+
+This PR adds a simple tween transition (TRANS_QUAD) to raise_effect.gd
+
+This makes game navigation look less clunky by having more natural movement.
+---
+ core/systems/effects/raise_effect.gd | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/systems/effects/raise_effect.gd b/core/systems/effects/raise_effect.gd
+index ee6e63edc..2f37484dd 100644
+--- a/core/systems/effects/raise_effect.gd
++++ b/core/systems/effects/raise_effect.gd
+@@ -45,7 +45,7 @@ func raise() -> void:
+ 		return
+ 	if tween:
+ 		tween.kill()
+-	tween = tree.create_tween()
++	tween = tree.create_tween().set_trans(Tween.TRANS_QUINT)
+ 	tween.tween_property(target, "scale", scale_on_raised, raise_speed)
+ 	tween.parallel().tween_property(target, "position", raise_to_position, raise_speed)
+ 	if shadow:
+@@ -59,7 +59,7 @@ func lower() -> void:
+ 		return
+ 	if tween:
+ 		tween.kill()
+-	tween = tree.create_tween()
++	tween = tree.create_tween().set_trans(Tween.TRANS_QUINT)
+ 	tween.tween_property(target, "scale", Vector2(1, 1), raise_speed)
+ 	tween.parallel().tween_property(target, "position", Vector2(0, 0), raise_speed)
+ 	if shadow:
+
+From fcbdad9dff7a8a0b7bd487ed82a903ea3c6998fb Mon Sep 17 00:00:00 2001
+From: addmix <38119387+addmix@users.noreply.github.com>
+Date: Mon, 13 Jul 2026 00:23:00 -0600
+Subject: [PATCH 08/10] Disable `window/energy_saving/keep_screen_on` in
+ ProjectSettings
+
+To prevent OpenGamepadUI from inhibiting sleep
+---
+ project.godot | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/project.godot b/project.godot
+index ce1757aa6..25887c64b 100644
+--- a/project.godot
++++ b/project.godot
+@@ -46,6 +46,7 @@ window/size/mode=2
+ window/size/borderless=true
+ window/size/always_on_top=true
+ window/size/transparent=true
++window/energy_saving/keep_screen_on=false
+ window/stretch/mode="canvas_items"
+ window/stretch/aspect="expand"
+ window/per_pixel_transparency/allowed=true
+
+From 83db394c2b07a329b8bc45c18261c9945744c8f2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Mat=C3=ADas=20Mart=C3=ADnez?= <hello@matias.me>
+Date: Wed, 30 Sep 2026 13:28:59 -0300
+Subject: [PATCH 09/10] rootfs: install the AYANEO 3 udev rule in the install
+ target
+
+70-ayaneo-modules.rules has been in the tree since #536 but the install
+target never installs it, so make install (and packages built from it)
+ship without it. Add it to install/uninstall, matching the systemd user
+unit pattern, so the AYANEO 3 plugin's eject/reset/controller_power sysfs
+attributes are writable out of the box.
+---
+ rootfs/Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rootfs/Makefile b/rootfs/Makefile
+index c7a8bfade..b33eafc62 100644
+--- a/rootfs/Makefile
++++ b/rootfs/Makefile
+@@ -47,6 +47,8 @@ install: ## Install OpenGamepadUI (default: ~/.local)
+ 		$(PREFIX)/lib/systemd/user/systemd-sysext-updater.service
+ 	install -Dm644 usr/lib/systemd/user/ogui-overlay-mode.service \
+ 		$(PREFIX)/lib/systemd/user/ogui-overlay-mode.service
++	install -Dm644 usr/lib/udev/rules.d/70-ayaneo-modules.rules \
++		$(PREFIX)/lib/udev/rules.d/70-ayaneo-modules.rules
+ 	@echo "Installation complete"
+ 
+ .PHONY: uninstall
+@@ -60,4 +62,5 @@ uninstall: ## Uninstall OpenGamepadUI
+ 	rm -rf $(PREFIX)/share/opengamepadui/*.so
+ 	rm -rf $(PREFIX)/lib/systemd/user/systemd-sysext-updater.service
+ 	rm -rf $(PREFIX)/lib/systemd/user/ogui-overlay-mode.service
++	rm -rf $(PREFIX)/lib/udev/rules.d/70-ayaneo-modules.rules
+ 	@echo "Uninstall complete"
+
+From 0db5812f21e98d0a5ac70bb1b5a674f2f369c22c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Mati=CC=81as=20Marti=CC=81nez?= <hello@matias.me>
+Date: Mon, 5 Oct 2026 23:36:49 -0300
+Subject: [PATCH 10/10] rpm: package the AYANEO 3 udev rule in %files
+
+---
+ package/rpm/opengamepadui.spec | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/package/rpm/opengamepadui.spec b/package/rpm/opengamepadui.spec
+index 26749cd5d..a79d58966 100644
+--- a/package/rpm/opengamepadui.spec
++++ b/package/rpm/opengamepadui.spec
+@@ -36,6 +36,7 @@ make install PREFIX=%{buildroot}%{_prefix} INSTALL_PREFIX=%{_prefix} ARCH=%{_arc
+ /usr/share/icons/hicolor/scalable/apps/opengamepadui.svg
+ /usr/share/polkit-1/actions/*
+ /usr/lib/systemd/user/*
++/usr/lib/udev/rules.d/70-ayaneo-modules.rules
+ 
+ %changelog
+ %autochangelog

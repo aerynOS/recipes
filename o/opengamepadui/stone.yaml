@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : opengamepadui
-version     : "0.46.1"
-release     : 31
+version     : "0.46.1~git.0db5812"
+release     : 32
 homepage    : https://github.com/ShadowBlip/OpenGamepadUI
 upstreams   :
     - https://github.com/ShadowBlip/OpenGamepadUI/archive/refs/tags/v0.46.1.tar.gz : 64a36fd6ebf37fb71530ef2aca277d6392cb11355ca702baa016d6e62e0ae264
-    - https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip :
-        hash: c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba
+    - https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip :
+        hash: cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4
         rename: godot.zip
         unpack: false 
 summary     : Open source gamepad-native game launcher and overlay
@@ -50,6 +50,8 @@ setup       : |
     # Additionally we enable more options in overlaymode to compensate missing features
     # of GamepadUI which SteamDeck mode would provide.
     %patch %(pkgdir)/aerynos.patch
+
+    %patch %(pkgdir)/v0.46.1~git.0db5812.patch
 
     cd extensions
     %cargo_fetch
