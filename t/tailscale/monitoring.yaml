@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 141585
-  rss: ~
+  rss: https://github.com/tailscale/tailscale/releases.atom
 security:
   cpe:
   - vendor: tailscale

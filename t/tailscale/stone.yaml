@@ -1,17 +1,20 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tailscale
-version     : "1.104.2"
-release     : 23
+version     : "1.104.4"
+release     : 24
 homepage    : https://tailscale.com/
 upstreams   :
-    - https://github.com/tailscale/tailscale/archive/refs/tags/v1.104.2.tar.gz : 4c1c806e16507414a1459afcdc399f6a1323c21a1ac90f07bea0465fd8fd7e1d
+    - https://github.com/tailscale/tailscale/archive/refs/tags/v1.104.4.tar.gz : 862f12b3177d5e961f2a86cf82fb1ff3551786afcaf95f2dc9a8318889f98732
 summary     :  Private WireGuard® networks made easy
 description : |
     The easiest, most secure way to use WireGuard and 2FA.
 license     : BSD-3-Clause
 networking  : true
+builddeps   :
+    - git
+    - golang
 rundeps     :
     - sysbinary(iptables)
     - ca-certificates
@@ -25,12 +28,9 @@ environment: |
 setup       : |
    %patch %(pkgdir)/defaults.patch
    %patch %(pkgdir)/0001-remove-baked-ca-roots.patch
-   %go_mod
 build       : |
-   export CGO_ENABLED=1
-   ldflags="-linkmode=external -X tailscale.com/version.longStamp=${VERSION_LONG} -X tailscale.com/version.shortStamp=${VERSION_SHORT}"
-   go build -tags="${TAGS}" -ldflags="${ldflags}" -o tailscale ./cmd/tailscale
-   go build -tags="${TAGS}" -ldflags="${ldflags}" -o tailscaled ./cmd/tailscaled
+   ./build_dist.sh tailscale.com/cmd/tailscale
+   ./build_dist.sh tailscale.com/cmd/tailscaled
 install     : |
    %install_exe %(workdir)/tailscale %(installroot)%(bindir)/tailscale
    %install_exe %(workdir)/tailscaled %(installroot)%(sbindir)/tailscaled
