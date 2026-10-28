@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 13871
-  rss: https://codeberg.org/ziglang/zig/tags.atom
+  id: ~
+  rss: ~
 security:
   cpe: ~ # No CPE found, last checked (2026-01-12)

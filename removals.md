@@ -300,3 +300,7 @@ NB: Each entry *must* contain all sub-packages created by the package!
 - dsearch-dbginfo
 - dankcalendar
 - dankcalendar-dbginfo
+
+### Replaced by zig 0.17
+- zig-0.15
+- zig-0.15-dbginfo
