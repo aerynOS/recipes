@@ -1,0 +1,60 @@
+From 7214a32024be080099ad05c596ee778623ed66d8 Mon Sep 17 00:00:00 2001
+From: David Edmundson <davidedmundson@kde.org>
+Date: Thu, 01 Oct 2026 13:35:58 +0100
+Subject: [PATCH] Fix teardown hang with QuickPixmapReader
+
+QQuickPixmapReader is a QThread subclass that encapsulates the thread
+usage in the constructor/destructor.
+
+The current code is broken if the QQmlEngine (and thus
+QuickPixmapReader) are deleted as children of the QCoreApplication. At
+this point no new events are posted and the deleteLater doesn't reach
+the relevant thread. We then hang forever waiting on a thread that will
+never quit.
+
+The eventloop_hack was added in 2010
+(ff983ee8257b79143911ca58ebedc49b1660a0c4 before Qt split) with the
+comment that QThread::quit was not thread safe. Current docs say it is.
+
+Pick-to: 6.12
+Change-Id: I0ae1f6c5cf269dfe5cb7b96c682f50692b210da1
+Reviewed-by: Marco Martin <mart@kde.org>
+Reviewed-by: Ulf Hermann <ulf.hermann@qt.io>
+Reviewed-by: Shawn Rutledge <shawn.rutledge@qt.io>
+---
+
+diff --git a/src/quick/util/qquickpixmapcache.cpp b/src/quick/util/qquickpixmapcache.cpp
+index 7e693a6..2d370c7 100644
+--- a/src/quick/util/qquickpixmapcache.cpp
++++ b/src/quick/util/qquickpixmapcache.cpp
+@@ -261,7 +261,6 @@
+     {
+         return runLoopReaderThreadExecutionEnforcer;
+     }
+-    QObject *eventLoopQuitHack;
+     QMutex mutex;
+     ReaderThreadExecutionEnforcer *runLoopReaderThreadExecutionEnforcer = nullptr;
+ #else
+@@ -606,9 +605,6 @@
+ 
+     Q_DETACH_THREAD_AFFINITY_MARKER(m_readerThreadAffinityMarker);
+ #if QT_CONFIG(quick_pixmap_cache_threaded_download)
+-    eventLoopQuitHack = new QObject;
+-    eventLoopQuitHack->moveToThread(this);
+-    QObject::connect(eventLoopQuitHack, &QObject::destroyed, this, &QThread::quit, Qt::DirectConnection);
+     start(QThread::LowestPriority);
+ #else
+     run(); // Call nonblocking run for ourselves.
+@@ -656,11 +652,7 @@
+     }
+ 
+ #if QT_CONFIG(quick_pixmap_cache_threaded_download)
+-    // ... schedule stopping of this thread via the eventLoopQuitHack (processJobs scheduled above
+-    // will run first) ...
+-    eventLoopQuitHack->deleteLater();
+-    // ... and wait() for it all to finish, as the thread will only quit after eventLoopQuitHack
+-    // has been deleted.
++    quit();
+     wait();
+ #endif
+ 
