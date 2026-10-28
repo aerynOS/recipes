@@ -1,0 +1,18 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"zig-0.16": {
+			"depends": [
+				"zig"
+			],
+			"files": [
+				"/usr/share/doc/zig-0.16/README"
+			],
+			"name": "zig-0.16"
+		}
+	},
+	"source-name": "zig-0.16",
+	"source-release": "2",
+	"source-version": "0.16.0"
+}

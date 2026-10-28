@@ -304,3 +304,4 @@ NB: Each entry *must* contain all sub-packages created by the package!
 ### Replaced by zig 0.17
 - zig-0.15
 - zig-0.15-dbginfo
+- zig-0.16
