@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tesseract
-version     : "5.5.3"
-release     : 3
+version     : "5.5.4"
+release     : 4
+homepage    : https://tesseract-ocr.github.io/
 upstreams   :
-    - https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.3.tar.gz : 9218e62793116d42a9f6d14cd9348518b27f382096eea3d0f2d1a24616bb5884
-homepage    : https://github.com/tesseract-ocr/tesseract
-license     : Apache-2.0
+    - https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.5.4.tar.gz : a8dbf8b8c8ee427ff6ad1d99116502feaf59440af1adb893caf60a6576826cf4
 summary     : Raw OCR Engine
 description : |
     Raw OCR Engine
+license     : Apache-2.0
 builddeps   :
     - binary(asciidoc)
     - binary(xsltproc)
@@ -46,9 +46,8 @@ build       : |
 install     : |
     %cmake_install
 
-    %install_dir %(installroot)%(mandir)/{man1,man5}
-    cp -a doc/*.1 %(installroot)%(mandir)/man1/
-    cp -a doc/*.5 %(installroot)%(mandir)/man5/
+    %install_file -t %(installroot)%(mandir)/man1 doc/*.1
+    %install_file -t %(installroot)%(mandir)/man5 doc/*.5
 packages    :
     - "%(name)-libs":
         summary: "Library files for %(name)"

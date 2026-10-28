@@ -176,7 +176,7 @@
 			],
 			"files": [
 				"/usr/lib/libtesseract.so.5.5",
-				"/usr/lib/libtesseract.so.5.5.3"
+				"/usr/lib/libtesseract.so.5.5.4"
 			],
 			"name": "tesseract-libs",
 			"provides": [
@@ -274,6 +274,6 @@
 		}
 	},
 	"source-name": "tesseract",
-	"source-release": "3",
-	"source-version": "5.5.3"
+	"source-release": "4",
+	"source-version": "5.5.4"
 }
