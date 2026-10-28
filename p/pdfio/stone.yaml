@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pdfio
-version     : "1.6.5"
-release     : 4
-upstreams   :
-    - https://github.com/michaelrsweet/pdfio/releases/download/v1.6.5/pdfio-1.6.5.tar.gz : 2b9e1db7c4a72cbc896098a6682a1e51fc2bfb979f00bec8bb515ee79c338084
+version     : "1.6.6"
+release     : 5
 homepage    : https://www.msweet.org/pdfio
-license     : Apache-2.0
+upstreams   :
+    - https://github.com/michaelrsweet/pdfio/releases/download/v1.6.6/pdfio-1.6.6.tar.gz : be9790ff2e9f0b7052fca8e96f2fdb6ebac903910e7ed8e2d1de4b1e55a40a23
 summary     : A simple C library for reading and writing PDF files
 description : |
     A simple C library for reading and writing PDF files
+license     : Apache-2.0
 builddeps   :
     - pkgconfig(libpng)
     - pkgconfig(zlib)
