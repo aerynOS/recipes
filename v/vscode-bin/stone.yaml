@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vscode-bin
-version     : "1.143.1"
-release     : 50
+version     : "1.144.0"
+release     : 51
 homepage    : https://code.visualstudio.com/
 upstreams   :
-    - https://vscode.download.prss.microsoft.com/dbazure/download/stable/e646868227c3e3a9e3f24277c8c7220be42c0be7/code-stable-x64-1792691793.tar.gz : 48f658052e54e020a1c1be7b37ac0f9ae39f07e8ccda805c63f053cfda72b2be
-    - https://raw.githubusercontent.com/microsoft/vscode/e646868227c3e3a9e3f24277c8c7220be42c0be7/resources/linux/code.desktop:
+    - https://vscode.download.prss.microsoft.com/dbazure/download/stable/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/code-stable-x64-1793133762.tar.gz : 17b72a7e6f40a5b5dce9850f10eea13ce734a63052b67fa021cc01e715ad4cf1
+    - https://raw.githubusercontent.com/microsoft/vscode/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/resources/linux/code.desktop:
         hash: 2b36d3a8c70fcead5258dd0855be0782305b23a00448f0eef11ee4ea462193a0
         unpack: false
-    - https://raw.githubusercontent.com/microsoft/vscode/e646868227c3e3a9e3f24277c8c7220be42c0be7/resources/linux/code-url-handler.desktop:
+    - https://raw.githubusercontent.com/microsoft/vscode/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/resources/linux/code-url-handler.desktop:
         hash: c361efa7e02fcad759ed80d2fbab67877f33219b981578af6fffaf18aeb12d9b
         unpack: false
-    - https://raw.githubusercontent.com/microsoft/vscode/e646868227c3e3a9e3f24277c8c7220be42c0be7/resources/linux/code-workspace.xml:
+    - https://raw.githubusercontent.com/microsoft/vscode/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/resources/linux/code-workspace.xml:
         hash: 3af748dd6578a1775e8eb7248ba397b7e11840df2ea6ee234ff76fee3dc306cf
         unpack: false
 summary     : Visual Studio Code (vscode) - Editor for building and debugging modern web and cloud applications (official binary version)
