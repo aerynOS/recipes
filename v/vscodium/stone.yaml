@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vscodium
-version     : "1.143.17183"
-release     : 15
+version     : "1.143.17232"
+release     : 16
 homepage    : https://vscodium.com/
 upstreams   :
-    - https://github.com/VSCodium/vscodium/releases/download/1.143.17183/VSCodium-linux-x64-1.143.17183.tar.gz:
-        hash: b113c7cc55624f0779fe194169bb6c049785bfaac2033c84b8a4da68445d72af
-    - https://raw.githubusercontent.com/vscodium/vscodium/1.143.17183/src/stable/resources/linux/code.desktop:
+    - https://github.com/VSCodium/vscodium/releases/download/1.143.17232/VSCodium-linux-x64-1.143.17232.tar.gz:
+        hash: ca1895aa040bd91a09c709d79eac7862d8c1aa0237fdc25b503deeb8bcd87efd
+    - https://raw.githubusercontent.com/vscodium/vscodium/1.143.17232/src/stable/resources/linux/code.desktop:
         hash: 8a6102fddc1a472345589c2eb2e32e9734df9539b421055c8039d82fa0ce5423
         unpack: false
         rename: codium.desktop
-    - https://raw.githubusercontent.com/vscodium/vscodium/1.143.17183/src/stable/resources/linux/code-url-handler.desktop:
+    - https://raw.githubusercontent.com/vscodium/vscodium/1.143.17232/src/stable/resources/linux/code-url-handler.desktop:
         hash: 50cecb7af4e7aaff14fb4d4b1a9caad707367003ee0ebc304ffd31762c4f7e20
         unpack: false
         rename: codium-url-handler.desktop
