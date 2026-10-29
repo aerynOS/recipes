@@ -1,0 +1,18 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"catatonit": {
+			"files": [
+				"/usr/bin/catatonit"
+			],
+			"name": "catatonit",
+			"provides": [
+				"binary(catatonit)"
+			]
+		}
+	},
+	"source-name": "catatonit",
+	"source-release": "1",
+	"source-version": "0.2.1"
+}
