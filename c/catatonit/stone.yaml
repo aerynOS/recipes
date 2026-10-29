@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : catatonit
+version     : "0.2.1"
+release     : 1
+homepage    : https://github.com/openSUSE/catatonit
+upstreams   :
+    - https://github.com/openSUSE/catatonit/archive/refs/tags/v0.2.1.tar.gz : 771385049516fdd561fbb9164eddf376075c4c7de3900a8b18654660172748f1
+summary     : A container init that is so simple it's effectively brain-dead.
+description : |
+    This is a rewrite of initrs in C, because we found that it is not possible to statically compile Rust binaries without using musl. That was, in turn, a reimplementation of other container inits like tini and dumb-init.
+license     : 
+    - GPL-2.0-or-later
+setup       : |
+    %autogen
+build       : |
+    %make
+install     : |
+    %make_install
