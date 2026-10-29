@@ -3,7 +3,7 @@
 
 name        : zig-0.15
 version     : "0.15.2"
-release     : 3
+release     : 4
 homepage    : https://ziglang.org
 # upstreams   :
 #     - https://ziglang.org/download/0.15.2/zig-0.15.2.tar.xz : d9b30c7aa983fcff5eed2084d54ae83eaafe7ff3a84d8fb754d854165a6e521c
