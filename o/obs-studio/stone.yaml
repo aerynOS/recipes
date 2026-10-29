@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : obs-studio
-version     : "33.0.0"
-release     : 5
+version     : "33.0.1"
+release     : 6
 homepage    : https://github.com/obsproject/obs-studio
 upstreams   :
-    - https://github.com/obsproject/obs-studio/releases/download/33.0.0/OBS-Studio-33.0.0-Sources.tar.gz:
-        hash: c1ae3c98c1bb70ebdced33e894a526fcbbbda9bfd95806970a3fc31f74b08f6c
+    - https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Sources.tar.gz:
+        hash: c8d3a8f69a0f17970ac0a8f2a2462f1bc4dacd324f6da0c4b408d442d4798913
         unpackdir: obs
     # Check for bundled version of CEF in 'build-aux/com.obsproject.Studio.json'
     # Example for v33.0.0: https://github.com/obsproject/obs-studio/blob/72e8665/build-aux/com.obsproject.Studio.json#L124
