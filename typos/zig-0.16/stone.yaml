@@ -3,7 +3,7 @@
 
 name        : zig-0.16
 version     : "0.16.0"
-release     : 2
+release     : 3
 homepage    : https://ziglang.org
 # upstreams   :
 #     - https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz : 43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf
