@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86_64 6.18.59-46.lts Kernel Configuration
+# Linux/x86_64 6.18.60-47.lts Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="clang version 23.1.4 (AerynOS)"
 CONFIG_GCC_VERSION=0
