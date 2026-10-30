@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : xdg-desktop-portal-wlr
-version     : "0.8.4"
-release     : 7
+version     : "0.8.5"
+release     : 8
 homepage    : https://github.com/emersion/xdg-desktop-portal-wlr
 upstreams   :
-    - https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.8.4/xdg-desktop-portal-wlr-0.8.4.tar.gz : 41b9683acae9415005d7b62d801e34946cb95da5eaaa83528c7085759a635187
+    - https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.8.5/xdg-desktop-portal-wlr-0.8.5.tar.gz : 5d36f3c031d9c750f83a17a9468770df12f1ddc9d9d60eea81ad4062f7d71614
 summary     : xdg-desktop-portal backend for wlroots
 description : |
     xdg-desktop-portal backend for wlroots
