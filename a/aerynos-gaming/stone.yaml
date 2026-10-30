@@ -13,8 +13,8 @@ homepage    : https://github.com/aerynOS/recipes/tree/main/a/aerynos-gaming
 description : |
     Default Gaming config files for AerynOS
 install     : |
-    mkdir -p %(installroot)/
-    cp -r %(pkgdir)/* %(installroot)/
+    mkdir -p %(installroot)/usr/
+    cp -r %(pkgdir)/usr/* %(installroot)/usr/
     %install_file %(pkgdir)/96-aerynos-handheld.preset -t %(installroot)/%(libdir)/systemd/system-preset/
     %install_file %(pkgdir)/98-steamos-compat.preset -t %(installroot)/%(libdir)/systemd/system-preset/
 packages    :
