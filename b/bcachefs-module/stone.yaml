@@ -3,7 +3,7 @@
 
 name        : bcachefs-module
 version     : "1.39.7"
-release     : 65
+release     : 66
 homepage    : https://bcachefs.org
 upstreams   :
     - https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-vendored-1.39.7.tar.zst : 5d6927d7b88578518209c92f1510161dbec6e523221dac1cec54c57272d11293
