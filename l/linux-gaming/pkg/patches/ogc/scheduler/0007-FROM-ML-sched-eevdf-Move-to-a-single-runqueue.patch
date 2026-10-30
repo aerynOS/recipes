@@ -588,18 +588,20 @@ index 5a2f034cc8ea..99cd4359be97 100644
  		struct sched_entity *curr = cfs_rq->curr;
  		long load, weight;
  
-@@ -6242,9 +6263,9 @@ place_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
+@@ -6284,11 +6284,11 @@ place_entity(struct cfs_rq *cfs_rq, stru
  		 */
  		load = cfs_rq->sum_weight;
  		if (curr && curr->on_rq)
 -			load += avg_vruntime_weight(cfs_rq, curr->load.weight);
 +			load += avg_vruntime_weight(cfs_rq, curr->h_load.weight);
+ 		if (WARN_ON_ONCE(!load))
+ 			load = 1;
  
 -		weight = avg_vruntime_weight(cfs_rq, se->load.weight);
 +		weight = avg_vruntime_weight(cfs_rq, se->h_load.weight);
- 		lag *= load + weight;
- 		if (WARN_ON_ONCE(!load))
- 			load = 1;
+ 
+ 		/*
+ 		 * Rewrite, because the product (W + w_i)*vl'_i might
 @@ -6302,23 +6323,9 @@ place_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
  static void check_enqueue_throttle(struct cfs_rq *cfs_rq);
  static inline int cfs_rq_throttled(struct cfs_rq *cfs_rq);
