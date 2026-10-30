@@ -313,7 +313,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/Wp-0.5.typelib",
 				"/usr/lib/libwireplumber-0.5.so.0",
-				"/usr/lib/libwireplumber-0.5.so.0.518.0",
+				"/usr/lib/libwireplumber-0.5.so.0.519.0",
 				"/usr/lib/wireplumber-0.5/libwireplumber-module-dbus-connection.so",
 				"/usr/lib/wireplumber-0.5/libwireplumber-module-default-nodes-api.so",
 				"/usr/lib/wireplumber-0.5/libwireplumber-module-file-monitor-api.so",
@@ -356,6 +356,6 @@
 		}
 	},
 	"source-name": "wireplumber",
-	"source-release": "19",
-	"source-version": "0.5.18"
+	"source-release": "20",
+	"source-version": "0.5.19"
 }

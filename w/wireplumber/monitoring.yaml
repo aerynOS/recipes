@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 235056
-  rss: ~
+  rss: https://gitlab.freedesktop.org/pipewire/wireplumber/-/tags?format=atom
 security:
+  # No known CPE, last checked 2026-10-30
   cpe: ~

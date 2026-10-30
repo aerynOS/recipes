@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wireplumber
-version     : "0.5.18"
-release     : 19
+version     : "0.5.19"
+release     : 20
 homepage    : https://gitlab.freedesktop.org/pipewire/wireplumber/
 upstreams   :
-    - https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.18/wireplumber-0.5.18.tar.gz : 8c8a326a5b2a570681c1503c83f1fce0cc54ba862019815604b2bc92a7d483a1
+    - https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.19/wireplumber-0.5.19.tar.gz : f9454eae3a5a6ca903c05ead2a7e47d7d3957fb0ffac3ebb11d92842603ae80f
 summary     : Session / policy manager implementation for PipeWire
 description : |
     Session / policy manager implementation for PipeWire
@@ -34,8 +34,6 @@ rundeps     :
 setup       : |
     #https://github.com/ValveSoftware/steam-for-linux/issues/11901
     %patch %(pkgdir)/block_steam_clear_default.patch
-    # Backport, drop once in a release
-    %patch %(pkgdir)/upstream-01.patch
 
     %meson \
         -Dsystem-lua=true
