@@ -93,6 +93,7 @@
 				"/usr/share/locale/cs/LC_MESSAGES/easyeffects.mo",
 				"/usr/share/locale/da/LC_MESSAGES/easyeffects.mo",
 				"/usr/share/locale/de/LC_MESSAGES/easyeffects.mo",
+				"/usr/share/locale/el/LC_MESSAGES/easyeffects.mo",
 				"/usr/share/locale/es/LC_MESSAGES/easyeffects.mo",
 				"/usr/share/locale/es_CO/LC_MESSAGES/easyeffects.mo",
 				"/usr/share/locale/es_MX/LC_MESSAGES/easyeffects.mo",
@@ -138,6 +139,6 @@
 		}
 	},
 	"source-name": "easyeffects",
-	"source-release": "34",
-	"source-version": "8.3.0"
+	"source-release": "35",
+	"source-version": "8.3.1"
 }
