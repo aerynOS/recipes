@@ -4,7 +4,6 @@
 	"packages": {
 		"haruna": {
 			"build-depends": [
-				"binary(patchelf)",
 				"cmake(Breeze)",
 				"cmake(ECM)",
 				"cmake(KDSingleApplication-qt6)",
@@ -44,6 +43,7 @@
 				"soname(libKF6Crash.so.6(x86_64))",
 				"soname(libKF6FileMetaData.so.3(x86_64))",
 				"soname(libKF6I18n.so.6(x86_64))",
+				"soname(libKF6I18nQml.so.6(x86_64))",
 				"soname(libKF6KIOCore.so.6(x86_64))",
 				"soname(libKF6KIOGui.so.6(x86_64))",
 				"soname(libKF6KIOWidgets.so.6(x86_64))",
@@ -65,7 +65,8 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libkdsingleapplication-qt6.so.1.2(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
-				"soname(libswscale.so.10(x86_64))"
+				"soname(libswscale.so.10(x86_64))",
+				"yt-dlp"
 			],
 			"files": [
 				"/usr/bin/haruna",
@@ -115,6 +116,7 @@
 				"/usr/share/locale/sv/LC_MESSAGES/haruna.mo",
 				"/usr/share/locale/ta/LC_MESSAGES/haruna.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/haruna.mo",
+				"/usr/share/locale/ug/LC_MESSAGES/haruna.mo",
 				"/usr/share/locale/uk/LC_MESSAGES/haruna.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/haruna.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/haruna.mo",
@@ -127,6 +129,6 @@
 		}
 	},
 	"source-name": "haruna",
-	"source-release": "20",
-	"source-version": "1.8.1"
+	"source-release": "21",
+	"source-version": "1.9.0"
 }

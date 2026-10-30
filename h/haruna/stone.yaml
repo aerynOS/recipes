@@ -1,29 +1,28 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : haruna
-version     : "1.8.1"
-release     : 20
-upstreams   :
-    - https://download.kde.org/stable/haruna/1.8.1/haruna-1.8.1.tar.xz : 01f154e3161292da606899c3017f863362e00bb2402a2796be5e8d6849fc4b4b
+version     : "1.9.0"
+release     : 21
 homepage    : https://invent.kde.org/multimedia/haruna/
+upstreams   :
+    - https://download.kde.org/stable/haruna/1.9.0/haruna-1.9.0.tar.xz : cb8b2a58ff394379d3d60d9b24f30e192df4b850bd9b2449df3a4333403da647
+summary     : Video player built with Qt/QML on top of libmpv
+description : |
+    Video player built with Qt/QML on top of libmpv
 license     :
     - BSD-3-Clause
     - CC-BY-4.0
     - CC-BY-SA-4.0
     - GPL-2.0-or-later
     - GPL-3.0-or-later
-summary     : Video player built with Qt/QML on top of libmpv
-description : |
-    Video player built with Qt/QML on top of libmpv
 builddeps   :
-    - binary(patchelf)
     - cmake(Breeze)
     - cmake(ECM)
     - cmake(KDSingleApplication-qt6)
     - cmake(KF6ColorScheme)
-    - cmake(KF6CoreAddons)
     - cmake(KF6Config)
+    - cmake(KF6CoreAddons)
     - cmake(KF6Crash)
     - cmake(KF6FileMetaData)
     - cmake(KF6I18n)
@@ -37,30 +36,28 @@ builddeps   :
     - cmake(Qt6Qml)
     - cmake(Qt6ShaderTools)
     - pkgconfig(libavcodec)
+    - pkgconfig(libavdevice)
     - pkgconfig(libavfilter)
     - pkgconfig(libavformat)
-    - pkgconfig(libavdevice)
     - pkgconfig(libavutil)
     - pkgconfig(libswscale)
-    # Ytdlp
 rundeps     :
     - breeze-icons # Default icon theme
     - kf6-kirigami # QML dep
     - kf6-kitemmodels # QML dep
     - kf6-qqc2-desktop-style # QML dep
     - qt6-wayland
+    - yt-dlp # Online video playback
 tuning      :
     - lto: full
     - optimize: speed
 setup       : |
-    %cmake
+    %cmake \
+        -DCMAKE_SKIP_INSTALL_RPATH=ON
 build       : |
     %cmake_build
 install     : |
     %cmake_install
-
-    # Where does rpath even come from here?
-    patchelf --remove-rpath %(installroot)/%(bindir)/haruna
 
     # Cleaning icons with non-standard resolution
     for i in 44 150 310; do
