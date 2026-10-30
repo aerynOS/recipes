@@ -7,8 +7,9 @@
 
 Suggested update order for the Podman stack (dependencies first):
 
-- crun
+- catatonit
 - conmon
+- crun
 - passt
 - aardvark-dns
 - netavark
@@ -17,6 +18,6 @@ Suggested update order for the Podman stack (dependencies first):
 - buildah
 - podman
 
-`crun`, `conmon`, and `passt` are independent leaves and can be updated in any order among themselves.
+`catatonit`, `conmon`, `crun`, and `passt` are independent leaves and can be updated in any order among themselves.
 
 Netavark v2 drops iptables (nftables only) and changes default network isolation. Update aardvark-dns alongside netavark on the same minor.
