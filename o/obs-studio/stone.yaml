@@ -3,7 +3,7 @@
 
 name        : obs-studio
 version     : "33.0.1"
-release     : 6
+release     : 7
 homepage    : https://github.com/obsproject/obs-studio
 upstreams   :
     - https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Sources.tar.gz:
@@ -70,10 +70,12 @@ tuning      :
 setup       : |
     %patch %(pkgdir)/0001-load-distro-crlset.patch
 
-    # failing to load a core module stops the rest of
-    # the modules from loading. keep obs-browser last
-    # since it may or may not exist
+    # failing to load a core module stops all subsequent modules from
+    # loading in. keep obs-browser last since it may or may not exist
     %patch %(pkgdir)/0002-load-obs-browser-last.patch
+
+    # from tytan's aur
+    %patch %(pkgdir)/0003-display-distro-branding.patch
 
     # Must rebuild libcef_dll_wrapper, using the prebuilt wrapper
     # causes obs to segfault whenever a browser source is added
