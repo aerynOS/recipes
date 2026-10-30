@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : os-info
-version     : "2026.08"
-release     : 20
+version     : "2026.11"
+release     : 21
 summary     : Operating System Information
 license     : MPL-2.0
 homepage    : https://aerynos.com/

@@ -7,7 +7,7 @@
       "id": "aerynos",
       "id_like": "linux",
       "name": "AerynOS",
-      "display": "AerynOS 2026.08",
+      "display": "AerynOS 2026.11",
       "ansi_color": "0;32",
       "former_identities": [
         {
@@ -37,10 +37,10 @@
       ]
     },
     "version": {
-      "full": "2026.08",
-      "short": "2026.08",
-      "build_id": "2026.08",
-      "released": "2026-08-02T12:00:00Z"
+      "full": "2026.11",
+      "short": "2026.11",
+      "build_id": "2026.11",
+      "released": "2026-11-01T12:00:00Z"
     }
   },
   "system": {
