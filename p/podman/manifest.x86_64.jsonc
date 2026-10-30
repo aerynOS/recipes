@@ -12,6 +12,7 @@
 				"pkgconfig(systemd)"
 			],
 			"depends": [
+				"binary(catatonit)",
 				"binary(crun)",
 				"binary(pasta)",
 				"ca-certificates",
@@ -314,6 +315,6 @@
 		}
 	},
 	"source-name": "podman",
-	"source-release": "10",
+	"source-release": "11",
 	"source-version": "6.1.4"
 }
