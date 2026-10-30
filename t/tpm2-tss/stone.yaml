@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tpm2-tss
-version     : "4.2.0"
-release     : 7
+version     : "4.2.1"
+release     : 8
 homepage    : https://tpm2-software.github.io
 upstreams   :
-    - https://github.com/tpm2-software/tpm2-tss/releases/download/4.2.0/tpm2-tss-4.2.0.tar.gz : b53f0c5c8c4ce17f05701a410ca9688f725ca380c9bc4640eacd0eadb1fea124
+    - https://github.com/tpm2-software/tpm2-tss/releases/download/4.2.1/tpm2-tss-4.2.1.tar.gz : d4aadbc1610876385a370494bbfd7d994356f446dff60cd09eea5933befb1471
 summary     : OSS implementation of the TCG TPM2 Software Stack
 description : |
     %(name) is an OSS implementation of the TCG TPM2 Software Stack.
