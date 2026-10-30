@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 1517
-  rss: ~
+  rss: https://github.com/kmod-project/kmod/releases.atom
 security:
+  # Last checked 2026-10-30
   cpe:
   - vendor: kernel
     product: kmod

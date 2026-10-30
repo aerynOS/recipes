@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmod
-version     : "34.2"
-release     : 12
+version     : "34.3"
+release     : 13
 homepage    : https://github.com/kmod-project/kmod
 upstreams   :
-    - https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.2.tar.xz : 5a5d5073070cc7e0c7a7a3c6ec2a0e1780850c8b47b3e3892226b93ffcb9cb54
+    - https://mirrors.edge.kernel.org/pub/linux/utils/kernel/kmod/kmod-34.3.tar.xz : 985554de49c21a58abd68c6cda2251384e1e5bb08b3b14c7f02b51f4c90c2958
 summary     : Linux kernel module handling
 description : |
     kmod is a set of tools to handle common tasks with Linux kernel modules like insert, remove, list, check properties, resolve dependencies and aliases.
