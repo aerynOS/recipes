@@ -3,7 +3,7 @@
 
 name        : podman
 version     : "6.1.4"
-release     : 10
+release     : 11
 homepage    : https://podman.io/
 upstreams   :
     - https://github.com/containers/podman/archive/refs/tags/v6.1.4.tar.gz : 200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8
@@ -19,6 +19,7 @@ builddeps   :
     - pkgconfig(sqlite3)
     - pkgconfig(systemd)
 rundeps     :
+    - binary(catatonit)  # used by default by podman quadlets
     - binary(crun)
     - binary(pasta)
     - ca-certificates
