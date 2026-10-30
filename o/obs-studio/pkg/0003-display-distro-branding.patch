@@ -1,0 +1,13 @@
+diff --git a/frontend/OBSApp.cpp b/frontend/OBSApp.cpp
+index 72f1bd1..ec8f5f9 100644
+--- a/frontend/OBSApp.cpp
++++ b/frontend/OBSApp.cpp
+@@ -1372,7 +1372,7 @@ string OBSApp::GetVersionString(bool platform) const
+ {
+ 	stringstream ver;
+ 
+-	ver << obs_get_version_string();
++	ver << obs_get_version_string() << "-aerynOS";
+ 
+ 	if (platform) {
+ 		ver << " (";
