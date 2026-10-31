@@ -1,7 +1,7 @@
-From 93dc8792b0a93c740b204b60980be1870cfe10e9 Mon Sep 17 00:00:00 2001
+From 7466691b85b4e0956616488de803159498bdb884 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Wed, 2 Oct 2024 23:32:46 +1300
-Subject: [PATCH 007/219] [FOR-UPSTREAM] hid-asus-ally: initial Ally-X gamepad
+Subject: [PATCH 007/252] [FOR-UPSTREAM] hid-asus-ally: initial Ally-X gamepad
  bringup
 
 Enable use of the new gamepad device created by the MCU.

@@ -1,0 +1,49 @@
+From d8e2943bf7c7c84c90a164abbdf4406d446494b8 Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Tue, 27 Oct 2026 19:01:47 -0700
+Subject: [PATCH 249/252] [FROM-ML] drm/panel: chipwealth-ch13726a: Fix dark
+ grays rendering green at 120 Hz
+
+The init sequence writes 0xf0 0x50 followed by 0xb9 0x00. The panel
+configuration in the Thor's stock Android firmware (decompiled from its
+devicetree overlay, dtbo.img) has two runtime command sequences that
+differ only in the 0xb9 value, both "display off; f0 50; b9 xx; display
+on":
+
+  qcom,mdss-dsi-ram-command:        b9 11
+  qcom,mdss-dsi-bypass-ram-command: b9 00
+
+With 0x00, in the 120 Hz mode, a full-screen gray ramp from black to
+white, shown with identity color management, renders black as green and
+the darkest grays as bright green, both at maximum and at reduced
+brightness, and the tint is more noticeable at lower brightness. The
+60 Hz mode renders it correctly. With 0x11 the ramp renders correctly in
+both modes and the panel dims without a color shift.
+
+Use 0x11, the value from the vendor's ram-command sequence, instead.
+
+Fixes: 3ee01b8647b5 ("drm/panel: Add panel driver for ChipWealth CH13726A based panels")
+Reported-by: Aaron Kling <webgeek1234@gmail.com>
+Link: https://lore.kernel.org/all/20260727-ch13726a-washout-v1-1-bf869ddfc5cf@gmail.com/
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/gpu/drm/panel/panel-chipwealth-ch13726a.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/panel/panel-chipwealth-ch13726a.c b/drivers/gpu/drm/panel/panel-chipwealth-ch13726a.c
+index be76bc825c3f..cab093857ecc 100644
+--- a/drivers/gpu/drm/panel/panel-chipwealth-ch13726a.c
++++ b/drivers/gpu/drm/panel/panel-chipwealth-ch13726a.c
+@@ -64,7 +64,8 @@ static int ch13726a_on(struct ch13726a_panel *ctx)
+ 	ctx->dsi->mode_flags |= MIPI_DSI_MODE_LPM;
+ 
+ 	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xf0, 0x50);
+-	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xb9, 0x00);
++	/* 0x00 (the vendor "bypass ram" sequence) renders near-black as green */
++	mipi_dsi_generic_write_seq_multi(&dsi_ctx, 0xb9, 0x11);
+ 
+ 	mipi_dsi_dcs_exit_sleep_mode_multi(&dsi_ctx);
+ 
+-- 
+2.56.0
+
