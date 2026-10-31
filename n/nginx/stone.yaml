@@ -1,0 +1,230 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : nginx
+version     : "1.30.6"
+release     : 2
+homepage    : https://nginx.org/
+upstreams   :
+    - https://nginx.org/download/nginx-1.30.6.tar.gz : 3cf46f5ed7504d460125866b7bea99fb357f31d887e2e63b35503310e9b8b6c8
+    - git|https://github.com/leev/ngx_http_geoip2_module.git : 445df24ef3781e488cee3dfe8a1e111997fc1dfe
+    - git|https://github.com/nginx/nginx-tests.git : 4d1de3f357afeb91865d024b27516d6b67aad86e
+summary     : Lightweight HTTP server and IMAP/POP3 proxy server
+description : |
+    NGINX is the world's most popular Web Server, high performance Load Balancer, Reverse Proxy, API Gateway and Content Cache.
+license     : BSD-2-Clause
+builddeps   :
+    - pkgconfig(gdlib)
+    - pkgconfig(libmaxminddb)
+    - pkgconfig(libpcre2-8)
+    - pkgconfig(libxcrypt)
+    - pkgconfig(libxml-2.0)
+    - pkgconfig(libxslt)
+    - pkgconfig(openssl)
+    - perl-devel
+checkdeps   :
+    - binary(ffmpeg)
+    - binary(which)
+setup       : |
+    ./configure \
+        --prefix="%(prefix)" \
+        --sbin-path="%(bindir)/nginx" \
+        --modules-path="%(libdir)/nginx/modules" \
+        --conf-path="%(sysconfdir)/nginx/nginx.conf" \
+        --pid-path="%(runstatedir)/nginx.pid" \
+        --lock-path="%(runstatedir)/lock/nginx.lock" \
+        --user=nginx \
+        --group=nginx \
+        --error-log-path="%(localstatedir)/log/nginx/error.log" \
+        --http-log-path="%(localstatedir)/log/nginx/access.log" \
+        --http-client-body-temp-path="%(sharedstatedir)/nginx/client-body" \
+        --http-proxy-temp-path="%(sharedstatedir)/nginx/proxy" \
+        --http-fastcgi-temp-path="%(sharedstatedir)/nginx/fastcgi" \
+        --http-scgi-temp-path="%(sharedstatedir)/nginx/scgi" \
+        --http-uwsgi-temp-path="%(sharedstatedir)/nginx/uwsgi" \
+        --add-dynamic-module=%(workdir)/../ngx_http_geoip2_module.git \
+        --with-compat \
+        --with-debug \
+        --with-file-aio \
+        --with-http_addition_module \
+        --with-http_auth_request_module \
+        --with-http_dav_module \
+        --with-http_degradation_module \
+        --with-http_flv_module \
+        --with-http_gunzip_module \
+        --with-http_gzip_static_module \
+        --with-http_image_filter_module=dynamic \
+        --with-http_mp4_module \
+        --with-http_perl_module=dynamic \
+        --with-http_random_index_module \
+        --with-http_realip_module \
+        --with-http_secure_link_module \
+        --with-http_slice_module \
+        --with-http_ssl_module \
+        --with-http_stub_status_module \
+        --with-http_sub_module \
+        --with-http_v2_module \
+        --with-http_v3_module \
+        --with-http_xslt_module=dynamic \
+        --with-mail=dynamic \
+        --with-mail_ssl_module \
+        --with-pcre-jit \
+        --with-stream=dynamic \
+        --with-stream_realip_module \
+        --with-stream_ssl_module \
+        --with-stream_ssl_preread_module \
+        --with-threads
+build       : |
+    # override perl going to /usr/local
+    export PERL_MM_OPT="INSTALLDIRS=vendor"
+    %make
+install     : |
+    %make_install
+
+    # stateless
+    %install_dir %(installroot)%(vendordir)
+    mv %(installroot)%(sysconfdir)/nginx %(installroot)%(vendordir)/nginx
+    rmdir -v %(installroot)%(sysconfdir)
+    rm -v %(installroot)%(vendordir)/nginx/*.default
+    rm -rfv %(installroot){%(runstatedir),%(localstatedir),%(prefix)/logs}
+
+    # Symlink each config file one by one so we don't overwrite the user config
+    %tmpfiles "d %(sysconfdir)/nginx 0755 root root -"
+    %tmpfiles "d %(sysconfdir)/nginx/conf.d 0755 root root -"
+    for f in %(installroot)%(vendordir)/nginx/*; do
+        [ -f "$f" ] || continue
+        f="${f##*/}"
+        %tmpfiles "L? %(sysconfdir)/nginx/$f - - - - %(vendordir)/nginx/$f"
+    done
+    %tmpfiles ""
+    %tmpfiles "# Directories for runtime state"
+    %tmpfiles "d %(localstatedir)/log/nginx 0755 root root -"
+    %tmpfiles "d %(sharedstatedir)/nginx 0755 root root -"
+    %tmpfiles "d %(sharedstatedir)/nginx/client-body 0700 nginx nginx -"
+    %tmpfiles "d %(sharedstatedir)/nginx/proxy 0700 nginx nginx -"
+    %tmpfiles "d %(sharedstatedir)/nginx/fastcgi 0700 nginx nginx -"
+    %tmpfiles "d %(sharedstatedir)/nginx/scgi 0700 nginx nginx -"
+    %tmpfiles "d %(sharedstatedir)/nginx/uwsgi 0700 nginx nginx -"
+
+    %sysusers "# nginx web server"
+    %sysusers 'u nginx - "nginx web server" -'
+
+    %install_file %(pkgdir)/nginx.service -t %(installroot)%(libdir)/systemd/system
+
+    # split the modules
+    %install_dir %(installroot)%(vendordir)/nginx/modules.d
+    load_module_conf() {
+        echo "load_module \"%(libdir)/nginx/modules/$1.so\";" \
+            > "%(installroot)%(vendordir)/nginx/modules.d/$2.conf"
+    }
+    load_module_conf ngx_stream_module             10-stream
+    load_module_conf ngx_mail_module               20-mail
+    load_module_conf ngx_http_image_filter_module  20-image-filter
+    load_module_conf ngx_http_xslt_filter_module   20-xslt
+    load_module_conf ngx_http_perl_module          20-perl
+    load_module_conf ngx_http_geoip2_module        20-geoip2
+    load_module_conf ngx_stream_geoip2_module      20-stream-geoip2
+
+    # "make install" generates the man page but does not install it
+    %install_file %(workdir)/objs/nginx.8 -t %(installroot)%(mandir)/man8
+
+    # mv from /usr/html (from Arch)
+    %install_dir %(installroot)%(datadir)/nginx
+    sed -e 's|\<user\s\+\w\+;|user nginx;|g' \
+        -e '/^\s\+root/s|html|%(datadir)/nginx/html|' \
+        -e '/^events {/ i # Load all installed modules\ninclude %(vendordir)/nginx/modules.d/*.conf;\ninclude %(sysconfdir)/nginx/modules.d/*.conf;\n' \
+        -e '/^    server {/ i \    # Load the user configs\n    include %(sysconfdir)/nginx/conf.d/*.conf;\n' \
+        -i %(installroot)%(vendordir)/nginx/nginx.conf
+    mv %(installroot)%(prefix)/html %(installroot)%(datadir)/nginx/html
+
+    # vim (also from Arch)
+    for i in ftdetect ftplugin indent syntax; do
+        %install_file contrib/vim/$i/nginx.vim %(installroot)%(datadir)/vim/vimfiles/$i/nginx.vim
+    done
+
+    # LICENSE
+    %install_file LICENSE %(installroot)%(datadir)/licenses/%(name)/LICENSE
+
+    # nginx-full is a metapackage, but packages can't be empty yet
+    %install_dir %(installroot)%(docdir)/%(name)-full
+    echo "This file will disappear when virtual packages are introduced" > %(installroot)%(docdir)/%(name)-full/README
+
+    # Don't need the .packlist and perllocal.pod
+    find %(installroot)%(prefix) \( -name perllocal.pod -o -name .packlist \) -delete
+check       : |
+    cd %(workdir)/../nginx-tests.git
+
+    export TEST_NGINX_BINARY="%(workdir)/objs/nginx"
+    # boulder runs as root, so override the default "nginx"
+    export TEST_NGINX_GLOBALS="user root;"
+    # nginx: [emerg] "user" directive is duplicate
+    rm -fv proxy_bind_transparent.t
+
+    prove -j %(jobs) .
+
+packages    :
+    - "%(name)-full":
+        summary: All the modules for nginx
+        rundeps:
+            - "%(name)-mod-geoip2"
+            - "%(name)-mod-image-filter"
+            - "%(name)-mod-mail"
+            - "%(name)-mod-perl"
+            - "%(name)-mod-stream"
+            - "%(name)-mod-xslt"
+        paths:
+            - /usr/share/doc/%(name)-full/README
+
+    - "%(name)-mod-geoip2":
+        summary: MaxMind GeoIP2 modules for nginx
+        rundeps:
+            - "%(name)"
+            - "%(name)-mod-stream"
+        paths:
+            - /usr/lib/nginx/modules/ngx_http_geoip2_module.so
+            - /usr/lib/nginx/modules/ngx_stream_geoip2_module.so
+            - /usr/share/defaults/nginx/modules.d/20-geoip2.conf
+            - /usr/share/defaults/nginx/modules.d/20-stream-geoip2.conf
+
+    - "%(name)-mod-image-filter":
+        summary: Image filter module for nginx
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/nginx/modules/ngx_http_image_filter_module.so
+            - /usr/share/defaults/nginx/modules.d/20-image-filter.conf
+
+    - "%(name)-mod-mail":
+        summary: Mail proxy module for nginx
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/nginx/modules/ngx_mail_module.so
+            - /usr/share/defaults/nginx/modules.d/20-mail.conf
+
+    - "%(name)-mod-perl":
+        summary: Embedded perl module for nginx
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/nginx/modules/ngx_http_perl_module.so
+            - /usr/lib/perl5/vendor_perl/
+            - /usr/share/defaults/nginx/modules.d/20-perl.conf
+            - /usr/share/man/man3/nginx.3
+
+    - "%(name)-mod-stream":
+        summary: TCP/UDP stream proxy module for nginx
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/nginx/modules/ngx_stream_module.so
+            - /usr/share/defaults/nginx/modules.d/10-stream.conf
+
+    - "%(name)-mod-xslt":
+        summary: XSLT module for nginx
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/nginx/modules/ngx_http_xslt_filter_module.so
+            - /usr/share/defaults/nginx/modules.d/20-xslt.conf
+
