@@ -1,7 +1,7 @@
-From a8785cdd11bb231720b332250468bbf93e92afe3 Mon Sep 17 00:00:00 2001
+From d995c6aa48a136f4a6918e9680f9fecd20698ff1 Mon Sep 17 00:00:00 2001
 From: Baojun Xu <baojun.xu@ti.com>
 Date: Mon, 21 Sep 2026 19:19:30 +0800
-Subject: [PATCH 041/219] [FROM-ML] ASoC: tas2783-sdw: add firmware download
+Subject: [PATCH 041/248] [FROM-ML] ASoC: tas2783-sdw: add firmware download
  status check
 
 Currently, firmware download during system resume from suspend introduces

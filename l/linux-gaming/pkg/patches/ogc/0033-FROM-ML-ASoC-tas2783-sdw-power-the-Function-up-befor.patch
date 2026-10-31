@@ -1,7 +1,7 @@
-From 2e40ffbef239c045945c940374aa6a11d2a71877 Mon Sep 17 00:00:00 2001
+From 92172c0157d0902d788c9991080cbeac9367f3ec Mon Sep 17 00:00:00 2001
 From: Andrey Golovko <andrey.golovko@gmail.com>
 Date: Thu, 13 Aug 2026 19:40:00 +0300
-Subject: [PATCH 033/219] [FROM-ML] ASoC: tas2783-sdw: power the Function up
+Subject: [PATCH 033/248] [FROM-ML] ASoC: tas2783-sdw: power the Function up
  before preparing the port
 
 A Data Port cannot complete channel preparation while the SDCA Function

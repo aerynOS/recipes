@@ -1,0 +1,53 @@
+From a8f99d7f37474c30ce1348755ef520455bb24ccf Mon Sep 17 00:00:00 2001
+From: Aditya Dash <mradityadash@gmail.com>
+Date: Tue, 1 Sep 2026 12:06:07 +0530
+Subject: [PATCH 115/248] HID: hid-lenovo-go: reject unknown calibration action
+
+The calibration action table includes 'unknown' at index zero. The options
+attribute skips that entry and lists only 'start' and 'stop', but the store
+searches the full table. Writing 'unknown' sends a request without an
+action byte.
+
+Reject CAL_UNKNOWN before building the request. Start and Stop both use a
+one-byte action, so pass that size directly.
+
+Fixes: 995887a10da1 ("HID: hid-lenovo-go: Add Calibration Settings")
+Assisted-by: Pi:gpt-5.6-sol
+Signed-off-by: Aditya Dash <mradityadash@gmail.com>
+Link: https://patch.msgid.link/0c37a763177a5b8b45e94ac678094165cd965bf1.1788222001.git.mradityadash@gmail.com
+---
+ drivers/hid/hid-lenovo-go.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/hid/hid-lenovo-go.c b/drivers/hid/hid-lenovo-go.c
+index 59b457683357..a6dec5490d17 100644
+--- a/drivers/hid/hid-lenovo-go.c
++++ b/drivers/hid/hid-lenovo-go.c
+@@ -1412,20 +1412,18 @@ static ssize_t calibrate_config_store(struct device *dev,
+ 				      const char *buf, u8 cmd, u8 sub_cmd,
+ 				      size_t count, enum dev_type device_type)
+ {
+-	size_t size = 1;
+-	u8 val = 0;
++	u8 val;
+ 	int ret;
+ 
+ 	ret = sysfs_match_string(cal_enabled_text, buf);
+ 	if (ret < 0)
+ 		return ret;
++	if (ret == CAL_UNKNOWN)
++		return -EINVAL;
+ 
+ 	val = ret;
+-	if (!val)
+-		size = 0;
+-
+ 	ret = mcu_property_out(drvdata.hdev, MCU_CONFIG_DATA, cmd, sub_cmd,
+-			       device_type, &val, size);
++			       device_type, &val, sizeof(val));
+ 	if (ret < 0)
+ 		return ret;
+ 
+-- 
+2.56.0
+

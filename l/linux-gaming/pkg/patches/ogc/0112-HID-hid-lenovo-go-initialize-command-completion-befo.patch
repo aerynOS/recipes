@@ -1,0 +1,57 @@
+From def9425aef0bdaa0e502253f5d55cd78a27515ef Mon Sep 17 00:00:00 2001
+From: Aditya Dash <mradityadash@gmail.com>
+Date: Tue, 1 Sep 2026 12:06:04 +0530
+Subject: [PATCH 112/248] HID: hid-lenovo-go: initialize command completion
+ before hardware
+
+The configuration interface initializes its command completion in
+cfg_probe(). The hardware starts and opens before this call. Keep the
+completion ready before hardware I/O becomes available.
+
+Identify the interface after parsing it. Initialize the completion for the
+configuration interface before starting and opening HID hardware. Keep the
+remaining configuration setup in cfg_probe().
+
+Fixes: d69ccfcbc955 ("HID: hid-lenovo-go: Add Lenovo Legion Go Series HID Driver")
+Assisted-by: Pi:gpt-5.6-sol
+Signed-off-by: Aditya Dash <mradityadash@gmail.com>
+Link: https://patch.msgid.link/2421c0ebbe4a487acb20317d03e581b3438e4471.1788222001.git.mradityadash@gmail.com
+---
+ drivers/hid/hid-lenovo-go.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/hid/hid-lenovo-go.c b/drivers/hid/hid-lenovo-go.c
+index b937d11dd6f6..51e3112780e1 100644
+--- a/drivers/hid/hid-lenovo-go.c
++++ b/drivers/hid/hid-lenovo-go.c
+@@ -2388,8 +2388,6 @@ static int hid_go_cfg_probe(struct hid_device *hdev,
+ 
+ 	drvdata.led_cdev = &go_cdev_rgb.led_cdev;
+ 
+-	init_completion(&drvdata.send_cmd_complete);
+-
+ 	/* Executing calls prior to returning from probe will lock the MCU. Schedule
+ 	 * initial data call after probe has completed and MCU can accept calls.
+ 	 */
+@@ -2436,6 +2434,10 @@ static int hid_go_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 		return ret;
+ 	}
+ 
++	ep = get_endpoint_address(hdev);
++	if (ep == GO_GP_INTF_IN)
++		init_completion(&drvdata.send_cmd_complete);
++
+ 	ret = hid_hw_start(hdev, HID_CONNECT_DEFAULT);
+ 	if (ret) {
+ 		hid_err(hdev, "Failed to start HID device\n");
+@@ -2449,7 +2451,6 @@ static int hid_go_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 		return ret;
+ 	}
+ 
+-	ep = get_endpoint_address(hdev);
+ 	if (ep != GO_GP_INTF_IN) {
+ 		dev_dbg(&hdev->dev, "Started interface %x as generic HID device\n", ep);
+ 		return 0;
+-- 
+2.56.0
+

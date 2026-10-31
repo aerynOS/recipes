@@ -1,7 +1,7 @@
-From 31a63670d5e492c3fa294786cebc19b311a63912 Mon Sep 17 00:00:00 2001
+From 329fd267dca23e5dbcd5b089c0b459d846513bf1 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Wed, 23 Sep 2026 18:56:15 -0700
-Subject: [PATCH 049/219] [EXTERNALLY-MAINTAINED] platform/x86: asus-wmi: pin
+Subject: [PATCH 049/248] [EXTERNALLY-MAINTAINED] platform/x86: asus-wmi: pin
  fan curves across suspend on ROG XBOX Ally X
 
 The ASUS ROG XBOX Ally X (RC73XA) EC carries its automatic fan duty

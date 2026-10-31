@@ -1,7 +1,7 @@
-From e7eae02a6ebedd59bcebaa556976f34bd0d8510f Mon Sep 17 00:00:00 2001
+From 312ecc1e6b5268944890bfecfad9811fed04c568 Mon Sep 17 00:00:00 2001
 From: Antoine Monnet <antoine@montane.tech>
 Date: Sat, 15 Aug 2026 14:50:00 +0300
-Subject: [PATCH 036/219] [FROM-ML] ASoC: tas2783-sdw: split a stereo stream
+Subject: [PATCH 036/248] [FROM-ML] ASoC: tas2783-sdw: split a stereo stream
  across the two mono amps
 
 A board with two TAS2783 aggregated on one link renders mono: the two

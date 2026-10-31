@@ -1,7 +1,7 @@
-From 86f80b4ce7ef784b99c2a8bd09ceeb4e98e71c9d Mon Sep 17 00:00:00 2001
+From 508c04fe35c30bd2a6ec7ad906800f12bb4355ff Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 15 Oct 2026 17:11:00 -0700
-Subject: [PATCH 045/219] [FROM-ML] ASoC: tas2783-sdw: use the BIOS speaker ID
+Subject: [PATCH 045/248] [FROM-ML] ASoC: tas2783-sdw: use the BIOS speaker ID
  in the firmware name
 
 Some boards have TAS2783 firmware in linux-firmware named

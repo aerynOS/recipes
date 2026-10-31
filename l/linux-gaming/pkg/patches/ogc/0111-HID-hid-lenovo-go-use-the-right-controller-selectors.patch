@@ -1,0 +1,45 @@
+From 1b3d770ffcd77195415870bc9ce24a03d6485328 Mon Sep 17 00:00:00 2001
+From: Aditya Dash <mradityadash@gmail.com>
+Date: Tue, 1 Sep 2026 12:06:03 +0530
+Subject: [PATCH 111/248] HID: hid-lenovo-go: use the right controller
+ selectors
+
+The right imu_enabled attribute selects FEATURE_IMU_BYPASS, and the right
+reset attribute targets the left controller.
+
+Select FEATURE_IMU_ENABLE for the right imu_enabled attribute. Target the
+right controller for a right reset.
+
+Fixes: 82cd9bc866e1 ("HID: hid-lenovo-go: Add Feature Status Attributes")
+Assisted-by: Pi:gpt-5.6-sol
+Signed-off-by: Aditya Dash <mradityadash@gmail.com>
+Reviewed-by: Derek J. Clark <derekjohn.clark@gmail.com>
+Tested-by: Derek J. Clark <derekjohn.clark@gmail.com>
+Link: https://patch.msgid.link/ec070d00bfb9c9a83b2883ccee62cba7da62028b.1788222001.git.mradityadash@gmail.com
+---
+ drivers/hid/hid-lenovo-go.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/hid/hid-lenovo-go.c b/drivers/hid/hid-lenovo-go.c
+index b8248bf8965c..b937d11dd6f6 100644
+--- a/drivers/hid/hid-lenovo-go.c
++++ b/drivers/hid/hid-lenovo-go.c
+@@ -1999,13 +1999,13 @@ LEGO_DEVICE_ATTR_RW(imu_bypass_right, "imu_bypass_enabled", RIGHT_CONTROLLER,
+ 		    index, feature_status);
+ static DEVICE_ATTR_RO_NAMED(imu_bypass_right_index, "imu_bypass_enabled_index");
+ 
+-static struct go_cfg_attr imu_enabled_right = { FEATURE_IMU_BYPASS };
++static struct go_cfg_attr imu_enabled_right = { FEATURE_IMU_ENABLE };
+ LEGO_DEVICE_ATTR_RW(imu_enabled_right, "imu_enabled", RIGHT_CONTROLLER, index,
+ 		    feature_status);
+ static DEVICE_ATTR_RO_NAMED(imu_enabled_right_index, "imu_enabled_index");
+ 
+ static struct go_cfg_attr reset_right = { FEATURE_RESET_GAMEPAD };
+-LEGO_DEVICE_ATTR_WO(reset_right, "reset", LEFT_CONTROLLER, feature_status);
++LEGO_DEVICE_ATTR_WO(reset_right, "reset", RIGHT_CONTROLLER, feature_status);
+ 
+ static struct go_cfg_attr rumble_mode_right = { RUMBLE_MODE };
+ LEGO_DEVICE_ATTR_RW(rumble_mode_right, "rumble_mode", RIGHT_CONTROLLER, index,
+-- 
+2.56.0
+

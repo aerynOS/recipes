@@ -1,7 +1,7 @@
-From f6541f3ac772c1b54c5c51379db722dfaa4bdeeb Mon Sep 17 00:00:00 2001
+From 76ed1421c9084a3fe3898ef6260d7afd23e89dd8 Mon Sep 17 00:00:00 2001
 From: Jack Yu <jack.yu@realtek.com>
 Date: Tue, 1 Sep 2026 17:37:51 +0800
-Subject: [PATCH 037/219] [FROM-ML] ASoC: rt721-sdca: Adjust latency control to
+Subject: [PATCH 037/248] [FROM-ML] ASoC: rt721-sdca: Adjust latency control to
  fix no-sound issue
 
 Adjust latency control in speaker preset to fix no-sound issue.

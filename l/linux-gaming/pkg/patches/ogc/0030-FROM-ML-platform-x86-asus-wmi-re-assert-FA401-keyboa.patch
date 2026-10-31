@@ -1,7 +1,7 @@
-From 5b9e5675675ac0677b207da332e320de0a56d39c Mon Sep 17 00:00:00 2001
+From 30df054fc68bc253b179caf81bdea54694557bc8 Mon Sep 17 00:00:00 2001
 From: Idotoho Reimon Simanjuntak <idotohors@gmail.com>
 Date: Thu, 3 Sep 2026 00:47:18 +0700
-Subject: [PATCH 030/219] [FROM-ML] platform/x86: asus-wmi: re-assert FA401
+Subject: [PATCH 030/248] [FROM-ML] platform/x86: asus-wmi: re-assert FA401
  keyboard state before S0ix
 
 On ASUS TUF Gaming FA401 laptops, the display server or graphics driver

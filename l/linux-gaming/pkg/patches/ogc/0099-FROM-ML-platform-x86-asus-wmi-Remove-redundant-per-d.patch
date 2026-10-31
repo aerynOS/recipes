@@ -1,0 +1,104 @@
+From cf30fd5176810d428485ee874ef1f7f7f1f97a5b Mon Sep 17 00:00:00 2001
+From: Marco Scardovi <scardracs@disroot.org>
+Date: Fri, 18 Sep 2026 11:15:00 +0200
+Subject: [PATCH 099/248] [FROM-ML] platform/x86: asus-wmi: Remove redundant
+ per-device wmi_lock and duplicate rfkill ops
+
+With all WMI method evaluations serialized globally by asus_wmi_eval_lock
+in asus_wmi_evaluate_method_locked(), the per-device wmi_lock in struct
+asus_wmi is completely redundant.
+
+Remove wmi_lock from struct asus_wmi, its initialization in
+asus_wmi_rfkill_init(), and its manual locking in asus_rfkill_hotplug().
+
+Consequently, asus_rfkill_wlan_set() becomes a simple pass-through to
+asus_rfkill_set(), rendering asus_rfkill_wlan_ops identical to
+asus_rfkill_ops. Drop asus_rfkill_wlan_set() and asus_rfkill_wlan_ops,
+allocating WLAN rfkill devices with &asus_rfkill_ops directly.
+
+Signed-off-by: Marco Scardovi <scardracs@disroot.org>
+Reviewed-by: Denis Benato <denis.benato@linux.dev>
+---
+ drivers/platform/x86/asus-wmi.c | 37 ++-------------------------------
+ 1 file changed, 2 insertions(+), 35 deletions(-)
+
+diff --git a/drivers/platform/x86/asus-wmi.c b/drivers/platform/x86/asus-wmi.c
+index c3e2937d3b2e..f62a8c35972b 100644
+--- a/drivers/platform/x86/asus-wmi.c
++++ b/drivers/platform/x86/asus-wmi.c
+@@ -332,7 +332,6 @@ struct asus_wmi {
+ 
+ 	struct hotplug_slot hotplug_slot;
+ 	struct mutex hotplug_lock;
+-	struct mutex wmi_lock;
+ 	struct workqueue_struct *hotplug_workqueue;
+ 	struct work_struct hotplug_work;
+ 
+@@ -2245,9 +2244,7 @@ static void asus_rfkill_hotplug(struct asus_wmi *asus)
+ 	bool absent;
+ 	u32 l;
+ 
+-	mutex_lock(&asus->wmi_lock);
+ 	blocked = asus_wlan_rfkill_blocked(asus);
+-	mutex_unlock(&asus->wmi_lock);
+ 
+ 	mutex_lock(&asus->hotplug_lock);
+ 	pci_lock_rescan_remove();
+@@ -2449,30 +2446,6 @@ static void asus_rfkill_query(struct rfkill *rfkill, void *data)
+ 	rfkill_set_sw_state(priv->rfkill, !result);
+ }
+ 
+-static int asus_rfkill_wlan_set(void *data, bool blocked)
+-{
+-	struct asus_rfkill *priv = data;
+-	struct asus_wmi *asus = priv->asus;
+-	int ret;
+-
+-	/*
+-	 * This handler is enabled only if hotplug is enabled.
+-	 * In this case, the asus_wmi_set_devstate() will
+-	 * trigger a wmi notification and we need to wait
+-	 * this call to finish before being able to call
+-	 * any wmi method
+-	 */
+-	mutex_lock(&asus->wmi_lock);
+-	ret = asus_rfkill_set(data, blocked);
+-	mutex_unlock(&asus->wmi_lock);
+-	return ret;
+-}
+-
+-static const struct rfkill_ops asus_rfkill_wlan_ops = {
+-	.set_block = asus_rfkill_wlan_set,
+-	.query = asus_rfkill_query,
+-};
+-
+ static const struct rfkill_ops asus_rfkill_ops = {
+ 	.set_block = asus_rfkill_set,
+ 	.query = asus_rfkill_query,
+@@ -2491,13 +2464,8 @@ static int asus_new_rfkill(struct asus_wmi *asus,
+ 	arfkill->dev_id = dev_id;
+ 	arfkill->asus = asus;
+ 
+-	if (dev_id == ASUS_WMI_DEVID_WLAN &&
+-	    asus->driver->quirks->hotplug_wireless)
+-		*rfkill = rfkill_alloc(name, &asus->platform_device->dev, type,
+-				       &asus_rfkill_wlan_ops, arfkill);
+-	else
+-		*rfkill = rfkill_alloc(name, &asus->platform_device->dev, type,
+-				       &asus_rfkill_ops, arfkill);
++	*rfkill = rfkill_alloc(name, &asus->platform_device->dev, type,
++			       &asus_rfkill_ops, arfkill);
+ 
+ 	if (!*rfkill)
+ 		return -EINVAL;
+@@ -2571,7 +2539,6 @@ static int asus_wmi_rfkill_init(struct asus_wmi *asus)
+ 	int result = 0;
+ 
+ 	mutex_init(&asus->hotplug_lock);
+-	mutex_init(&asus->wmi_lock);
+ 
+ 	result = asus_new_rfkill(asus, &asus->wlan, "asus-wlan",
+ 				 RFKILL_TYPE_WLAN, ASUS_WMI_DEVID_WLAN);
+-- 
+2.56.0
+
