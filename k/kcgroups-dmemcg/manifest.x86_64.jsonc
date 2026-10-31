@@ -1,0 +1,66 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"kcgroups-dmemcg": {
+			"build-depends": [
+				"binary(cmake)",
+				"binary(qdbus6)",
+				"cmake(ECM)",
+				"cmake(Qt6)"
+			],
+			"depends": [
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6DBus.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libKF5CGroups.so.5",
+				"/usr/lib/libKF5CGroups.so.5.73.0",
+				"/usr/share/qlogging-categories6/kcgroups.categories",
+				"/usr/share/qlogging-categories6/kcgroups.renamecategories"
+			],
+			"name": "kcgroups-dmemcg",
+			"provides": [
+				"soname(libKF5CGroups.so.5(x86_64))"
+			]
+		},
+		"kcgroups-dmemcg-devel": {
+			"build-depends": [
+				"binary(cmake)",
+				"binary(qdbus6)",
+				"cmake(ECM)",
+				"cmake(Qt6)"
+			],
+			"depends": [
+				"kcgroups-dmemcg"
+			],
+			"files": [
+				"/usr/include/KF6/KCGroups/KApplicationScope",
+				"/usr/include/KF6/KCGroups/KApplicationScopeListModel",
+				"/usr/include/KF6/KCGroups/KApplicationScopeLister",
+				"/usr/include/KF6/KCGroups/kapplicationscope.h",
+				"/usr/include/KF6/KCGroups/kapplicationscopelister.h",
+				"/usr/include/KF6/KCGroups/kapplicationscopelistmodel.h",
+				"/usr/include/KF6/KCGroups/kcgroups_export.h",
+				"/usr/include/KF6/KCGroups/optional.h",
+				"/usr/include/KF6/KCGroups/optionalgadget.h",
+				"/usr/include/KF6/kcgroups_version.h",
+				"/usr/lib/cmake/KF5CGroups/KF5CGroupsConfig.cmake",
+				"/usr/lib/cmake/KF5CGroups/KF5CGroupsConfigVersion.cmake",
+				"/usr/lib/cmake/KF5CGroups/KF5CGroupsTargets-relwithdebinfo.cmake",
+				"/usr/lib/cmake/KF5CGroups/KF5CGroupsTargets.cmake",
+				"/usr/lib/libKF5CGroups.so",
+				"/usr/lib/qt6/mkspecs/modules/qt_KCGroups.pri"
+			],
+			"name": "kcgroups-dmemcg-devel",
+			"provides": [
+				"cmake(KF5CGroups)"
+			]
+		}
+	},
+	"source-name": "kcgroups-dmemcg",
+	"source-release": "1",
+	"source-version": "0.0.experimental"
+}

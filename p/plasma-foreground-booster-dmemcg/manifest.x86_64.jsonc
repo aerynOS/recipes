@@ -1,0 +1,42 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"plasma-foreground-booster-dmemcg": {
+			"build-depends": [
+				"cmake(ECM)",
+				"cmake(KF5CGroups)",
+				"cmake(KF6Config)",
+				"cmake(KF6DBusAddons)",
+				"cmake(LibTaskManager)"
+			],
+			"depends": [
+				"binary(dmemcg-booster)",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libKF5CGroups.so.5(x86_64))",
+				"soname(libKF6ConfigCore.so.6(x86_64))",
+				"soname(libKF6ConfigGui.so.6(x86_64))",
+				"soname(libKF6DBusAddons.so.6(x86_64))",
+				"soname(libQt6Core.so.6(x86_64))",
+				"soname(libQt6Gui.so.6(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libtaskmanager.so.6(x86_64))",
+				"tzdata"
+			],
+			"files": [
+				"/usr/bin/foreground_booster",
+				"/usr/lib/systemd/user/plasma-foreground-booster.service",
+				"/usr/share/applications/org.kde.foreground-booster.desktop",
+				"/usr/share/xdg/autostart/org.kde.foreground-booster.desktop"
+			],
+			"name": "plasma-foreground-booster-dmemcg",
+			"provides": [
+				"binary(foreground_booster)"
+			]
+		}
+	},
+	"source-name": "plasma-foreground-booster-dmemcg",
+	"source-release": "1",
+	"source-version": "0.0.experimental"
+}
