@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thermald
+version     : "2.5.13"
+release     : 1
+homepage    : https://github.com/intel/thermal_daemon
+upstreams   :
+    - https://github.com/intel/thermal_daemon/releases/download/v2.5.13/thermal_daemon-2.5.13.tar.gz : 5456f60aed52e9a14f88dde9b2e2875e5e3d0cc3d1e7bf742d7ea4b22ff6a995
+summary     : Thermal daemon
+description : |
+    Enhances thermal function of CPU by listening to various drivers, tuning per them and applying DPTF/DTT tables
+license     : GPL-2.0-only
+builddeps   :
+    - pkgconfig(gtk-doc)
+    - pkgconfig(libevdev)
+    - pkgconfig(libxml-2.0)
+    - pkgconfig(upower-glib)
+    - autoconf-archive
+setup       : |
+    %autogen \
+        prefix="%(prefix)"
+build       : |
+    %make
+install     : |
+    %make_install \
+        tdconfigdir="%(vendordir)/%(name)"
