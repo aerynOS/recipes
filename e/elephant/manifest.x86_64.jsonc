@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"elephant": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"ca-certificates",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -13,66 +10,119 @@
 			],
 			"files": [
 				"/usr/bin/elephant",
-				"/usr/lib/elephant/1password.so",
-				"/usr/lib/elephant/aptpackages.so",
-				"/usr/lib/elephant/archlinuxpkgs.so",
-				"/usr/lib/elephant/bitwarden.so",
-				"/usr/lib/elephant/bluetooth.so",
-				"/usr/lib/elephant/bookmarks.so",
-				"/usr/lib/elephant/calc.so",
-				"/usr/lib/elephant/clipboard.so",
-				"/usr/lib/elephant/dnfpackages.so",
-				"/usr/lib/elephant/files.so",
-				"/usr/lib/elephant/menus.so",
-				"/usr/lib/elephant/niriactions.so",
-				"/usr/lib/elephant/nirisessions.so",
-				"/usr/lib/elephant/playerctl.so",
-				"/usr/lib/elephant/protonpass.so",
-				"/usr/lib/elephant/providerlist.so",
-				"/usr/lib/elephant/runner.so",
-				"/usr/lib/elephant/snippets.so",
-				"/usr/lib/elephant/symbols.so",
-				"/usr/lib/elephant/todo.so",
-				"/usr/lib/elephant/unicode.so",
-				"/usr/lib/elephant/websearch.so",
-				"/usr/lib/elephant/windows.so",
-				"/usr/lib/elephant/wireplumber.so",
-				"/usr/lib/systemd/system/elephant.service",
+				"/usr/lib/systemd/user/elephant.service",
 				"/usr/share/licenses/elephant/LICENSE"
 			],
 			"name": "elephant",
 			"provides": [
-				"binary(elephant)",
-				"soname(elephant/1password.so(x86_64))",
-				"soname(elephant/aptpackages.so(x86_64))",
-				"soname(elephant/archlinuxpkgs.so(x86_64))",
-				"soname(elephant/bitwarden.so(x86_64))",
-				"soname(elephant/bluetooth.so(x86_64))",
-				"soname(elephant/bookmarks.so(x86_64))",
-				"soname(elephant/calc.so(x86_64))",
-				"soname(elephant/clipboard.so(x86_64))",
-				"soname(elephant/dnfpackages.so(x86_64))",
-				"soname(elephant/files.so(x86_64))",
-				"soname(elephant/menus.so(x86_64))",
-				"soname(elephant/niriactions.so(x86_64))",
-				"soname(elephant/nirisessions.so(x86_64))",
-				"soname(elephant/playerctl.so(x86_64))",
-				"soname(elephant/protonpass.so(x86_64))",
-				"soname(elephant/providerlist.so(x86_64))",
-				"soname(elephant/runner.so(x86_64))",
-				"soname(elephant/snippets.so(x86_64))",
-				"soname(elephant/symbols.so(x86_64))",
-				"soname(elephant/todo.so(x86_64))",
-				"soname(elephant/unicode.so(x86_64))",
-				"soname(elephant/websearch.so(x86_64))",
-				"soname(elephant/windows.so(x86_64))",
-				"soname(elephant/wireplumber.so(x86_64))"
+				"binary(elephant)"
+			]
+		},
+		"elephant-1password": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/1password.so"
+			],
+			"name": "elephant-1password",
+			"provides": [
+				"soname(elephant/1password.so(x86_64))"
+			]
+		},
+		"elephant-aptpackages": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/aptpackages.so"
+			],
+			"name": "elephant-aptpackages",
+			"provides": [
+				"soname(elephant/aptpackages.so(x86_64))"
+			]
+		},
+		"elephant-archlinuxpkgs": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/archlinuxpkgs.so"
+			],
+			"name": "elephant-archlinuxpkgs",
+			"provides": [
+				"soname(elephant/archlinuxpkgs.so(x86_64))"
+			]
+		},
+		"elephant-bitwarden": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/bitwarden.so"
+			],
+			"name": "elephant-bitwarden",
+			"provides": [
+				"soname(elephant/bitwarden.so(x86_64))"
+			]
+		},
+		"elephant-bluetooth": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/bluetooth.so"
+			],
+			"name": "elephant-bluetooth",
+			"provides": [
+				"soname(elephant/bluetooth.so(x86_64))"
+			]
+		},
+		"elephant-bookmarks": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/bookmarks.so"
+			],
+			"name": "elephant-bookmarks",
+			"provides": [
+				"soname(elephant/bookmarks.so(x86_64))"
+			]
+		},
+		"elephant-calc": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/calc.so"
+			],
+			"name": "elephant-calc",
+			"provides": [
+				"soname(elephant/calc.so(x86_64))"
+			]
+		},
+		"elephant-clipboard": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/clipboard.so"
+			],
+			"name": "elephant-clipboard",
+			"provides": [
+				"soname(elephant/clipboard.so(x86_64))"
 			]
 		},
 		"elephant-desktopapplications": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"elephant",
 				"soname(libc.so.6(x86_64))"
@@ -84,9 +134,250 @@
 			"provides": [
 				"soname(elephant/desktopapplications.so(x86_64))"
 			]
+		},
+		"elephant-dnfpackages": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/dnfpackages.so"
+			],
+			"name": "elephant-dnfpackages",
+			"provides": [
+				"soname(elephant/dnfpackages.so(x86_64))"
+			]
+		},
+		"elephant-files": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/files.so"
+			],
+			"name": "elephant-files",
+			"provides": [
+				"soname(elephant/files.so(x86_64))"
+			]
+		},
+		"elephant-menus": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/menus.so"
+			],
+			"name": "elephant-menus",
+			"provides": [
+				"soname(elephant/menus.so(x86_64))"
+			]
+		},
+		"elephant-niriactions": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/niriactions.so"
+			],
+			"name": "elephant-niriactions",
+			"provides": [
+				"soname(elephant/niriactions.so(x86_64))"
+			]
+		},
+		"elephant-nirisessions": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/nirisessions.so"
+			],
+			"name": "elephant-nirisessions",
+			"provides": [
+				"soname(elephant/nirisessions.so(x86_64))"
+			]
+		},
+		"elephant-playerctl": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/playerctl.so"
+			],
+			"name": "elephant-playerctl",
+			"provides": [
+				"soname(elephant/playerctl.so(x86_64))"
+			]
+		},
+		"elephant-protonpass": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/protonpass.so"
+			],
+			"name": "elephant-protonpass",
+			"provides": [
+				"soname(elephant/protonpass.so(x86_64))"
+			]
+		},
+		"elephant-providerlist": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/providerlist.so"
+			],
+			"name": "elephant-providerlist",
+			"provides": [
+				"soname(elephant/providerlist.so(x86_64))"
+			]
+		},
+		"elephant-providers": {
+			"depends": [
+				"elephant-1password",
+				"elephant-aptpackages",
+				"elephant-archlinuxpkgs",
+				"elephant-bitwarden",
+				"elephant-bluetooth",
+				"elephant-bookmarks",
+				"elephant-calc",
+				"elephant-clipboard",
+				"elephant-desktopapplications",
+				"elephant-dnfpackages",
+				"elephant-files",
+				"elephant-menus",
+				"elephant-niriactions",
+				"elephant-nirisessions",
+				"elephant-playerctl",
+				"elephant-protonpass",
+				"elephant-providerlist",
+				"elephant-runner",
+				"elephant-snippets",
+				"elephant-symbols",
+				"elephant-todo",
+				"elephant-unicode",
+				"elephant-websearch",
+				"elephant-windows",
+				"elephant-wireplumber"
+			],
+			"files": [
+				"/usr/share/doc/elephant-providers/README"
+			],
+			"name": "elephant-providers"
+		},
+		"elephant-runner": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/runner.so"
+			],
+			"name": "elephant-runner",
+			"provides": [
+				"soname(elephant/runner.so(x86_64))"
+			]
+		},
+		"elephant-snippets": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/snippets.so"
+			],
+			"name": "elephant-snippets",
+			"provides": [
+				"soname(elephant/snippets.so(x86_64))"
+			]
+		},
+		"elephant-symbols": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/symbols.so"
+			],
+			"name": "elephant-symbols",
+			"provides": [
+				"soname(elephant/symbols.so(x86_64))"
+			]
+		},
+		"elephant-todo": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/todo.so"
+			],
+			"name": "elephant-todo",
+			"provides": [
+				"soname(elephant/todo.so(x86_64))"
+			]
+		},
+		"elephant-unicode": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/unicode.so"
+			],
+			"name": "elephant-unicode",
+			"provides": [
+				"soname(elephant/unicode.so(x86_64))"
+			]
+		},
+		"elephant-websearch": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/websearch.so"
+			],
+			"name": "elephant-websearch",
+			"provides": [
+				"soname(elephant/websearch.so(x86_64))"
+			]
+		},
+		"elephant-windows": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/windows.so"
+			],
+			"name": "elephant-windows",
+			"provides": [
+				"soname(elephant/windows.so(x86_64))"
+			]
+		},
+		"elephant-wireplumber": {
+			"depends": [
+				"elephant",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/elephant/wireplumber.so"
+			],
+			"name": "elephant-wireplumber",
+			"provides": [
+				"soname(elephant/wireplumber.so(x86_64))"
+			]
 		}
 	},
 	"source-name": "elephant",
 	"source-release": "5",
-	"source-version": "2.22.0"
+	"source-version": "2.22.1"
 }
