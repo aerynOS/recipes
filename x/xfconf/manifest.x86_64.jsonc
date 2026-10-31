@@ -1,0 +1,68 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"xfconf": {
+			"build-depends": [
+				"pkgconfig(gobject-introspection-1.0)",
+				"pkgconfig(libxfce4util-1.0)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libxfce4util.so.7(x86_64))"
+			],
+			"files": [
+				"/usr/bin/xfconf-query",
+				"/usr/lib/gio/modules/libxfconfgsettingsbackend.so",
+				"/usr/lib/girepository-1.0/Xfconf-0.typelib",
+				"/usr/lib/libxfconf-0.so.3",
+				"/usr/lib/libxfconf-0.so.3.0.0",
+				"/usr/lib/systemd/user/xfconfd.service",
+				"/usr/lib/xfce4/xfconf/xfconfd",
+				"/usr/share/bash-completion/completions/xfconf-query",
+				"/usr/share/dbus-1/services/org.xfce.Xfconf.service"
+			],
+			"name": "xfconf",
+			"provides": [
+				"binary(xfconf-query)",
+				"soname(gio/modules/libxfconfgsettingsbackend.so(x86_64))",
+				"soname(libxfconf-0.so.3(x86_64))"
+			]
+		},
+		"xfconf-devel": {
+			"build-depends": [
+				"pkgconfig(gobject-introspection-1.0)",
+				"pkgconfig(libxfce4util-1.0)"
+			],
+			"depends": [
+				"pkgconfig(gio-2.0)",
+				"pkgconfig(gio-unix-2.0)",
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(gthread-2.0)",
+				"pkgconfig(libxfce4util-1.0)",
+				"xfconf"
+			],
+			"files": [
+				"/usr/include/xfce4/xfconf-0/xfconf/xfconf-binding.h",
+				"/usr/include/xfce4/xfconf-0/xfconf/xfconf-channel.h",
+				"/usr/include/xfce4/xfconf-0/xfconf/xfconf-errors.h",
+				"/usr/include/xfce4/xfconf-0/xfconf/xfconf-types.h",
+				"/usr/include/xfce4/xfconf-0/xfconf/xfconf.h",
+				"/usr/lib/libxfconf-0.so",
+				"/usr/lib/pkgconfig/libxfconf-0.pc",
+				"/usr/share/gir-1.0/Xfconf-0.gir"
+			],
+			"name": "xfconf-devel",
+			"provides": [
+				"pkgconfig(libxfconf-0)"
+			]
+		}
+	},
+	"source-name": "xfconf",
+	"source-release": "1",
+	"source-version": "4.21.2"
+}

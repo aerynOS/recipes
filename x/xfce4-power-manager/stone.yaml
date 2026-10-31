@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-power-manager
+version     : "4.21.1"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfce4-power-manager/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfce4-power-manager/4.21/xfce4-power-manager-4.21.1.tar.xz : bb89be7b1be431b29e765e2c632e98fb20a688e495e4ef18495bd70c1524767a
+summary     : Power Manager for Xfce
+description : |
+    Power Manager for Xfce
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(libnotify)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(upower-glib)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(libxfconf-0)
+    - pkgconfig(wayland-protocols)
+setup       : |
+    %meson \
+      -Dx11=disabled
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)

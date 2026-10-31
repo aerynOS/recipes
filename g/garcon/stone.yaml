@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : garcon
+version     : "4.21.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/garcon/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/garcon/4.21/garcon-4.21.0.tar.xz : 3acc3f6b81059199f4e6646da7b6ca39edf84ea90dd3ff87088ffca6aa108269
+summary     : Freedesktop.org compliant menu library
+description : |
+    Freedesktop.org compliant menu library
+license     : GPL-2.0-only
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(libxfce4ui-2)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)
