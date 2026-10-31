@@ -3,7 +3,7 @@
 
 name        : libcupsfilters
 version     : "2.2.1"
-release     : 13
+release     : 14
 homepage    : https://github.com/OpenPrinting/libcupsfilters
 upstreams   :
     - https://github.com/OpenPrinting/libcupsfilters/releases/download/2.2.1/libcupsfilters-2.2.1.tar.xz : 0a22b849d5068c4c86b20fbb4192d3faa3dabcc9ee844c8fd73710ed821d4860
@@ -29,7 +29,7 @@ builddeps   :
 setup       : |
     # Backports from post-2.2.1 master; drop when 2.2.2 (or later) ships
     %patch %(pkgdir)/0001-fix-printing-error-pdfio-output-missing-root-object-167.patch
-    %patch %(pkgdir)/0002-honor-data-copies-in-cffilterpdftopdf.patch
+    # %patch %(pkgdir)/0002-honor-data-copies-in-cffilterpdftopdf.patch
     %patch %(pkgdir)/0003-libcupsfilters-pc-add-pdfio-as-public-requires-dependency.patch
     %patch %(pkgdir)/0004-cap-png-dimensions-to-avoid-memory-exhaustion-ocu-01-016.patch
     %patch %(pkgdir)/0005-pdftopdf-assume-print-scaling-auto-by-default-fixes-237-238.patch
