@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : uv
-version     : "0.13.5"
-release     : 14
+version     : "0.13.6"
+release     : 15
 homepage    : https://docs.astral.sh/uv/
 upstreams   :
-    - https://github.com/astral-sh/uv/releases/download/0.13.5/source.tar.gz : 1af98369e94f841426a673323760155d7507119c05c55456bdecbcb151eaaea4
+    - https://github.com/astral-sh/uv/releases/download/0.13.6/source.tar.gz : 37af57c31f780488bce798b73fcd382949faef72e7a98a7e73fe0f24874ed924
 summary     : An extremely fast Python package and project manager, written in Rust.
 description : |
     An extremely fast Python package and project manager, written in Rust.
@@ -14,36 +14,30 @@ license     : Apache-2.0
 builddeps   :
     - binary(make)
     - binary(maturin)
-    - binary(python3)
-    - python(installer)
 networking  : true
 setup       : |
     %patch %(pkgdir)/downstream-bin.patch
 
     %cargo_fetch
 build       : |
-    maturin build --locked --release --target "%(target_triple)" --compatibility linux
-    maturin build --locked --release --target "%(target_triple)" --compatibility linux -m crates/uv-build/Cargo.toml
+    maturin build %(options_cargo_release) --compatibility linux --out dist
+    maturin build %(options_cargo_release) --compatibility linux --out dist -m crates/uv-build/Cargo.toml
 
     mkdir completions
-    _uv="target/%(target_triple)/release/uv"
+    _uv="%(cargo_target_dir)/uv"
 
     $_uv --generate-shell-completion bash > completions/uv
     $_uv --generate-shell-completion zsh > completions/_uv
     $_uv --generate-shell-completion fish > completions/uv.fish
 install     : |
-    # Install python libs
-    python3 -m installer --destdir="%(installroot)" target/wheels/uv-*.whl
-    python3 -m installer --destdir="%(installroot)" target/wheels/uv_build-*.whl
+    # Install python libs & binaries
+    %pyproject_install
+    %cargo_install uv uvx
 
     # Completions
     %install_file completions/uv -t %(installroot)%(bashcompletionsdir)
     %install_file completions/_uv -t %(installroot)%(zshcompletionsdir)
     %install_file completions/uv.fish -t %(installroot)%(fishcompletionsdir)
-
-    # Ensure the correct binaries are installed
-    %install_bin target/%(target_triple)/release/uv
-    %install_bin target/%(target_triple)/release/uvx
 packages    :
     - "python-%(name)":
         rundeps:
