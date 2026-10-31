@@ -1,0 +1,38 @@
+From f6857d4bfd614b90302903490796ef376be0a67d Mon Sep 17 00:00:00 2001
+From: Jiajun Leng <adolphpi@outlook.com>
+Date: Sat, 31 Oct 2026 20:19:32 +0800
+Subject: [PATCH 252/252] platform/x86: oxpec: add OneXPlayer X2 Mini (G3E) DMI
+ entry
+
+The OneXPlayer X2 Mini (G3E) is the Intel variant and reports DMI board
+name "ONEXPLAYER X2Mini". Map it to oxp_g1_i, the Intel profile already
+used by the ONEXPLAYER G1 i in this tree; upstream additionally maps the
+ONEXPLAYER 3 to the same profile. Fan reading, manual PWM and charging
+control work.
+
+Signed-off-by: Jiajun Leng <adolphpi@outlook.com>
+---
+ drivers/platform/x86/oxpec.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/platform/x86/oxpec.c b/drivers/platform/x86/oxpec.c
+index 5680c3bcd604..08b42a38c4c1 100644
+--- a/drivers/platform/x86/oxpec.c
++++ b/drivers/platform/x86/oxpec.c
+@@ -294,6 +294,13 @@ static const struct dmi_system_id dmi_table[] = {
+ 		},
+ 		.driver_data = (void *)oxp_x1,
+ 	},
++	{
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "ONE-NETBOOK"),
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "ONEXPLAYER X2Mini"),
++		},
++		.driver_data = (void *)oxp_g1_i,
++	},
+ 	{
+ 		.matches = {
+ 			DMI_MATCH(DMI_BOARD_VENDOR, "ONE-NETBOOK"),
+-- 
+2.56.0
+
