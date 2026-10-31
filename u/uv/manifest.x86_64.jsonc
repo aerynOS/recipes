@@ -5,21 +5,19 @@
 		"python-uv": {
 			"build-depends": [
 				"binary(make)",
-				"binary(maturin)",
-				"binary(python3)",
-				"python(installer)"
+				"binary(maturin)"
 			],
 			"depends": [
 				"python-libs",
 				"uv"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/licenses/LICENSE-APACHE",
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/licenses/LICENSE-MIT",
-				"/usr/lib/python3.14/site-packages/uv-0.13.5.dist-info/sboms/uv.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/licenses/LICENSE-APACHE",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/licenses/LICENSE-MIT",
+				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/sboms/uv.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/uv/__init__.py",
 				"/usr/lib/python3.14/site-packages/uv/__main__.py",
 				"/usr/lib/python3.14/site-packages/uv/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -39,9 +37,7 @@
 		"python-uv-build": {
 			"build-depends": [
 				"binary(make)",
-				"binary(maturin)",
-				"binary(python3)",
-				"python(installer)"
+				"binary(maturin)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -52,12 +48,12 @@
 			],
 			"files": [
 				"/usr/bin/uv-build",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/licenses/LICENSE-APACHE",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/licenses/LICENSE-MIT",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.5.dist-info/sboms/uv-build.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/licenses/LICENSE-APACHE",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/licenses/LICENSE-MIT",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/sboms/uv-build.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/uv_build/__init__.py",
 				"/usr/lib/python3.14/site-packages/uv_build/__main__.py",
 				"/usr/lib/python3.14/site-packages/uv_build/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -75,9 +71,7 @@
 		"uv": {
 			"build-depends": [
 				"binary(make)",
-				"binary(maturin)",
-				"binary(python3)",
-				"python(installer)"
+				"binary(maturin)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -101,6 +95,6 @@
 		}
 	},
 	"source-name": "uv",
-	"source-release": "14",
-	"source-version": "0.13.5"
+	"source-release": "15",
+	"source-version": "0.13.6"
 }
