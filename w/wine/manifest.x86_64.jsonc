@@ -429,6 +429,7 @@
 				"/usr/lib/wine/i386-windows/mfplay.dll",
 				"/usr/lib/wine/i386-windows/mfreadwrite.dll",
 				"/usr/lib/wine/i386-windows/mfsrcsnk.dll",
+				"/usr/lib/wine/i386-windows/mfwmaaec.dll",
 				"/usr/lib/wine/i386-windows/mgmtapi.dll",
 				"/usr/lib/wine/i386-windows/midimap.dll",
 				"/usr/lib/wine/i386-windows/mlang.dll",
@@ -1274,6 +1275,7 @@
 				"/usr/lib/wine/x86_64-windows/mfplay.dll",
 				"/usr/lib/wine/x86_64-windows/mfreadwrite.dll",
 				"/usr/lib/wine/x86_64-windows/mfsrcsnk.dll",
+				"/usr/lib/wine/x86_64-windows/mfwmaaec.dll",
 				"/usr/lib/wine/x86_64-windows/mgmtapi.dll",
 				"/usr/lib/wine/x86_64-windows/midimap.dll",
 				"/usr/lib/wine/x86_64-windows/mlang.dll",
@@ -4141,6 +4143,6 @@
 		}
 	},
 	"source-name": "wine",
-	"source-release": "41",
-	"source-version": "11.20"
+	"source-release": "42",
+	"source-version": "11.21"
 }
