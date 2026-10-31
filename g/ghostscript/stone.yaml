@@ -42,7 +42,7 @@ setup       : |
     rm -r tesseract leptonica
 
     # Remove internal CMaps (CMaps from poppler-data are used instead)
-    rm -rf Resource/CMap
+    # rm -rf Resource/CMap
 
     %configure \
         --with-system-libtiff \
@@ -65,7 +65,7 @@ install     : |
     rm -rv %(installroot)%(bindir)/{lprsetup.sh,unix-lpr.sh}
 
     # Use the cMaps from poppler-data
-    ln -srv %(installroot)%(datadir)/poppler/cMap %(installroot)%(datadir)/ghostscript/Resource/CMap
+    # ln -srv %(installroot)%(datadir)/poppler/cMap %(installroot)%(datadir)/ghostscript/Resource/CMap
 
     %install_dir %(installroot)%(docdir)/%(name)-devel
     echo "DEPRECATED" > %(installroot)%(docdir)/%(name)-devel/README
