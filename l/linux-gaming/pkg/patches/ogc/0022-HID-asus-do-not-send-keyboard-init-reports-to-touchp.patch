@@ -1,7 +1,7 @@
-From 28603fff661d1bb9ceff487972f10c186fd87d39 Mon Sep 17 00:00:00 2001
+From bbed0f68fa9bd2e84389ea0d5a2eafcba0225135 Mon Sep 17 00:00:00 2001
 From: Panz Dev <panz.development@gmail.com>
 Date: Tue, 18 Aug 2026 17:14:31 +0200
-Subject: [PATCH 022/219] HID: asus: do not send keyboard init reports to
+Subject: [PATCH 022/248] HID: asus: do not send keyboard init reports to
  touchpads
 
 Commit 0919db9f3583 ("HID: asus: always fully initialize devices") added a

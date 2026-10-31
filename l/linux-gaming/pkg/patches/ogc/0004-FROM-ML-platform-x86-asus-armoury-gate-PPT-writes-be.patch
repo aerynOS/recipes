@@ -1,7 +1,7 @@
-From 36a150efcace3f617adab31759e9656d4fa263c9 Mon Sep 17 00:00:00 2001
+From 7abfb5caf19d5c11af2ab6c5d038bcee3fbe063c Mon Sep 17 00:00:00 2001
 From: Ahmed Yaseen <yaseen@ghoul.dev>
 Date: Mon, 11 May 2026 00:12:13 +0500
-Subject: [PATCH 004/219] [FROM-ML] platform/x86: asus-armoury: gate PPT writes
+Subject: [PATCH 004/248] [FROM-ML] platform/x86: asus-armoury: gate PPT writes
  behind active fan curve
 
 On models flagged with requires_fan_curve in the DMI power_data table

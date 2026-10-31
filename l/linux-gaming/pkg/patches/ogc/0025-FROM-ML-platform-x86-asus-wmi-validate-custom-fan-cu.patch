@@ -1,7 +1,7 @@
-From 1f8d3dfad3d92997fd7da125d8fbd8ff3eebe862 Mon Sep 17 00:00:00 2001
+From b2d8c04a1a627c321b992305355a70759d88e6b6 Mon Sep 17 00:00:00 2001
 From: Ahmed Yaseen <yaseen@ghoul.dev>
 Date: Fri, 28 Aug 2026 16:07:51 +0000
-Subject: [PATCH 025/219] [FROM-ML] platform/x86: asus-wmi: validate custom fan
+Subject: [PATCH 025/248] [FROM-ML] platform/x86: asus-wmi: validate custom fan
  curves on enable
 
 Custom fan curves reach firmware unchecked, so a curve whose temperature

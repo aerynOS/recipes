@@ -1,7 +1,7 @@
-From 17592cf8728ba9d039f446db9cb9bef14bc7a89b Mon Sep 17 00:00:00 2001
+From 25e31af73fa5014dd4d7ad405ed18aab8cc04afe Mon Sep 17 00:00:00 2001
 From: Andrey Golovko <andrey.golovko@gmail.com>
 Date: Fri, 14 Aug 2026 09:40:00 +0300
-Subject: [PATCH 031/219] [FROM-ML] ASoC: tas2783-sdw: do not treat read-only
+Subject: [PATCH 031/248] [FROM-ML] ASoC: tas2783-sdw: do not treat read-only
  Controls as writable
 
 The regmap has no writeable_reg callback, so regmap considers every

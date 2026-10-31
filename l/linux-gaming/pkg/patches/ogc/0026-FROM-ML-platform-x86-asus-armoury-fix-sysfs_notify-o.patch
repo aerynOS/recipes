@@ -1,7 +1,7 @@
-From 5468caa8413d354bb4fd62fa37df530878dc0c08 Mon Sep 17 00:00:00 2001
+From 3e2d651714431e09509099907294d4dbbdd2dedb Mon Sep 17 00:00:00 2001
 From: Ahmed Yaseen <yaseen@ghoul.dev>
 Date: Fri, 28 Aug 2026 11:12:49 +0000
-Subject: [PATCH 026/219] [FROM-ML] platform/x86: asus-armoury: fix
+Subject: [PATCH 026/248] [FROM-ML] platform/x86: asus-armoury: fix
  sysfs_notify() of grouped attributes
 
 The store handlers call sysfs_notify(kobj, NULL, attr->attr.name), but

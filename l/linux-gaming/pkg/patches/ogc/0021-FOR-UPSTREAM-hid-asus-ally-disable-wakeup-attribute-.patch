@@ -1,7 +1,7 @@
-From 64269263315817f30abb0f43e1b6f2eb374a30ae Mon Sep 17 00:00:00 2001
+From 5b9e668195ea60eeb869e80db7be3d7a3ef4ebf1 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Sat, 6 Sep 2025 21:02:30 -0700
-Subject: [PATCH 021/219] [FOR-UPSTREAM] hid-asus-ally: disable wakeup
+Subject: [PATCH 021/248] [FOR-UPSTREAM] hid-asus-ally: disable wakeup
  attribute on N-Key device
 
 With the current ROG Ally patchset, the MCU will send spurious events

@@ -1,0 +1,37 @@
+From 6baa5f4991d62f4eff2189c354dced294a048c1c Mon Sep 17 00:00:00 2001
+From: Antheas Kapenekakis <lkml@antheas.dev>
+Date: Sun, 20 Sep 2026 20:57:59 +0200
+Subject: [PATCH 072/248] [FROM-ML] platform/x86: ayaneo-ec: Add AYANEO 2S
+ charge control
+
+The AYANEO 2S uses the same EC fan interface as the AYANEO 2 and
+additionally supports charge limiting. Add an exact match ahead of the
+broader AYANEO 2 match so the charge-control quirk is selected.
+
+Reported-by: Tiago Silva <tiago.paulo@live.com>
+Signed-off-by: Antheas Kapenekakis <lkml@antheas.dev>
+---
+ drivers/platform/x86/ayaneo-ec.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/platform/x86/ayaneo-ec.c b/drivers/platform/x86/ayaneo-ec.c
+index 41a24e091248..81dac81262e7 100644
+--- a/drivers/platform/x86/ayaneo-ec.c
++++ b/drivers/platform/x86/ayaneo-ec.c
+@@ -76,6 +76,13 @@ static const struct ayaneo_ec_quirk quirk_ayaneo3 = {
+ };
+ 
+ static const struct dmi_system_id dmi_table[] = {
++	{
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "AYANEO"),
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "AYANEO 2S"),
++		},
++		.driver_data = (void *)&quirk_charge_limit,
++	},
+ 	{
+ 		.matches = {
+ 			DMI_MATCH(DMI_BOARD_VENDOR, "AYANEO"),
+-- 
+2.56.0
+

@@ -1,0 +1,124 @@
+From 8c13b75417f2ed7a0a0d00beb3feebede8552e46 Mon Sep 17 00:00:00 2001
+From: Aditya Dash <mradityadash@gmail.com>
+Date: Tue, 1 Sep 2026 12:06:08 +0530
+Subject: [PATCH 116/248] HID: hid-lenovo-go: clear calibration status on start
+
+A completed calibration leaves success or failure in its status file. If
+the next calibration has the same result, userspace sees no change and
+cannot tell when the new attempt starts or finishes.
+
+Link each calibration action attribute to its status field. Set only that
+field to unknown before submitting Start. Stop leaves the status unchanged,
+and the next firmware result replaces unknown with success or failure.
+
+Fixes: 995887a10da1 ("HID: hid-lenovo-go: Add Calibration Settings")
+Assisted-by: Pi:gpt-5.6-sol
+Signed-off-by: Aditya Dash <mradityadash@gmail.com>
+Link: https://patch.msgid.link/7d100dad9edf6fd6b161e361053372a732b32eb4.1788222001.git.mradityadash@gmail.com
+---
+ drivers/hid/hid-lenovo-go.c | 38 +++++++++++++++++++++++++++++--------
+ 1 file changed, 30 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/hid/hid-lenovo-go.c b/drivers/hid/hid-lenovo-go.c
+index a6dec5490d17..749536e19d2d 100644
+--- a/drivers/hid/hid-lenovo-go.c
++++ b/drivers/hid/hid-lenovo-go.c
+@@ -111,6 +111,11 @@ struct go_cfg_attr {
+ 	u8 index;
+ };
+ 
++struct go_cal_cfg_attr {
++	u8 index;
++	u8 *status;
++};
++
+ struct command_report {
+ 	u8 report_id;
+ 	u8 id;
+@@ -1410,7 +1415,8 @@ static ssize_t device_status_show(struct device *dev,
+ static ssize_t calibrate_config_store(struct device *dev,
+ 				      struct device_attribute *attr,
+ 				      const char *buf, u8 cmd, u8 sub_cmd,
+-				      size_t count, enum dev_type device_type)
++				      size_t count, enum dev_type device_type,
++				      u8 *cal_status)
+ {
+ 	u8 val;
+ 	int ret;
+@@ -1422,6 +1428,9 @@ static ssize_t calibrate_config_store(struct device *dev,
+ 		return -EINVAL;
+ 
+ 	val = ret;
++	if (val == CAL_START)
++		*cal_status = CAL_STAT_UNKNOWN;
++
+ 	ret = mcu_property_out(drvdata.hdev, MCU_CONFIG_DATA, cmd, sub_cmd,
+ 			       device_type, &val, sizeof(val));
+ 	if (ret < 0)
+@@ -1818,7 +1827,8 @@ static void hid_go_brightness_set(struct led_classdev *led_cdev,
+ 				     const char *buf, size_t count)           \
+ 	{                                                                     \
+ 		return calibrate_config_store(dev, attr, buf, _name.index,    \
+-					      _scmd, count, _dtype);          \
++					      _scmd, count, _dtype,           \
++					      _name.status);                   \
+ 	}                                                                     \
+ 	static ssize_t _name##_##_rtype##_show(                               \
+ 		struct device *dev, struct device_attribute *attr, char *buf) \
+@@ -1978,17 +1988,23 @@ LEGO_DEVICE_ATTR_RW(rumble_notification_left, "rumble_notification",
+ static DEVICE_ATTR_RO_NAMED(rumble_notification_left_index,
+ 			    "rumble_notification_index");
+ 
+-static struct go_cfg_attr cal_trigg_left = { SET_TRIGGER_CFG };
++static struct go_cal_cfg_attr cal_trigg_left = {
++	SET_TRIGGER_CFG, &drvdata.gp_left_trigg_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_trigg_left, "calibrate_trigger", TRIGGER_CALIBRATE,
+ 		     LEFT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_trigg_left_index, "calibrate_trigger_index");
+ 
+-static struct go_cfg_attr cal_joy_left = { SET_JOYSTICK_CFG };
++static struct go_cal_cfg_attr cal_joy_left = {
++	SET_JOYSTICK_CFG, &drvdata.gp_left_joy_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_joy_left, "calibrate_joystick", JOYSTICK_CALIBRATE,
+ 		     LEFT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_joy_left_index, "calibrate_joystick_index");
+ 
+-static struct go_cfg_attr cal_gyro_left = { SET_GYRO_CFG };
++static struct go_cal_cfg_attr cal_gyro_left = {
++	SET_GYRO_CFG, &drvdata.gp_left_gyro_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_gyro_left, "calibrate_gyro", GYRO_CALIBRATE,
+ 		     LEFT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_gyro_left_index, "calibrate_gyro_index");
+@@ -2085,17 +2101,23 @@ LEGO_DEVICE_ATTR_RW(rumble_notification_right, "rumble_notification",
+ static DEVICE_ATTR_RO_NAMED(rumble_notification_right_index,
+ 			    "rumble_notification_index");
+ 
+-static struct go_cfg_attr cal_trigg_right = { SET_TRIGGER_CFG };
++static struct go_cal_cfg_attr cal_trigg_right = {
++	SET_TRIGGER_CFG, &drvdata.gp_right_trigg_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_trigg_right, "calibrate_trigger", TRIGGER_CALIBRATE,
+ 		     RIGHT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_trigg_right_index, "calibrate_trigger_index");
+ 
+-static struct go_cfg_attr cal_joy_right = { SET_JOYSTICK_CFG };
++static struct go_cal_cfg_attr cal_joy_right = {
++	SET_JOYSTICK_CFG, &drvdata.gp_right_joy_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_joy_right, "calibrate_joystick", JOYSTICK_CALIBRATE,
+ 		     RIGHT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_joy_right_index, "calibrate_joystick_index");
+ 
+-static struct go_cfg_attr cal_gyro_right = { SET_GYRO_CFG };
++static struct go_cal_cfg_attr cal_gyro_right = {
++	SET_GYRO_CFG, &drvdata.gp_right_gyro_cal_status
++};
+ LEGO_CAL_DEVICE_ATTR(cal_gyro_right, "calibrate_gyro", GYRO_CALIBRATE,
+ 		     RIGHT_CONTROLLER, index);
+ static DEVICE_ATTR_RO_NAMED(cal_gyro_right_index, "calibrate_gyro_index");
+-- 
+2.56.0
+

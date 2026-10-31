@@ -1,0 +1,58 @@
+From 702d51465c9ba490012f9bd55dca9454c3d8b61c Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Sun, 18 Oct 2026 17:17:21 -0700
+Subject: [PATCH 055/248] [EXTERNALLY-MAINTAINED] hid-asus-ally: propagate
+ ready check transport errors
+
+ally_gamepad_check_ready() overwrites the result of the GET_REPORT with
+the outcome of the ready comparison, so it returns 1 or 0 and never a
+negative error. Its callers only bail out on a negative return, so a
+failing USB transport goes unnoticed and every command is sent anyway.
+
+Return the error from the last GET_REPORT attempt instead, and 0
+otherwise. An MCU that answers but never reports ready is still not
+treated as an error: callers keep sending their command, as before,
+since the MCU may accept it anyway and failing here would, for example,
+skip restoring the gamepad mode on resume.
+
+All callers only check for a negative return, and overwrite it before
+returning, so returning 0 instead of 1 on success does not change them.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/hid/hid-asus-ally.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/hid/hid-asus-ally.c b/drivers/hid/hid-asus-ally.c
+index 0dbf6d28caf4..93ea8163f94c 100644
+--- a/drivers/hid/hid-asus-ally.c
++++ b/drivers/hid/hid-asus-ally.c
+@@ -513,17 +513,22 @@ static int ally_gamepad_check_ready(struct hid_device *hdev)
+ 		ret = asus_dev_get_report(hdev, hidbuf, FEATURE_ROG_ALLY_REPORT_SIZE);
+ 		if (ret < 0)
+ 			hid_dbg(hdev, "ROG Ally check failed get report: %d\n", ret);
+-
+-		ret = hidbuf[2] == xpad_cmd_check_ready;
+-		if (ret)
++		else if (hidbuf[2] == xpad_cmd_check_ready)
+ 			break;
+ 		usleep_range(
+ 			1000,
+ 			2000); /* don't spam the entire loop in less than USB response time */
+ 	}
+ 
++	/*
++	 * Return a transport error from the last attempt, but not an MCU that is
++	 * merely slow to report ready: callers still send their command, as the
++	 * MCU may accept it anyway.
++	 */
+ 	if (count == READY_MAX_TRIES)
+ 		hid_warn(hdev, "ROG Ally never responded with a ready\n");
++	if (ret > 0)
++		ret = 0;
+ 
+ 	kfree(hidbuf);
+ 	return ret;
+-- 
+2.56.0
+
