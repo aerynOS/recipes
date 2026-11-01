@@ -16,7 +16,7 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.2.14-48.gaming/extra/wireless/wl.ko.zst"
+				"/usr/lib/modules/7.2.15-49.gaming/extra/wireless/wl.ko.zst"
 			],
 			"name": "broadcom-sta-module-gaming"
 		},
@@ -65,12 +65,12 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.2.14-71.stable/extra/wireless/wl.ko.zst"
+				"/usr/lib/modules/7.2.15-72.stable/extra/wireless/wl.ko.zst"
 			],
 			"name": "broadcom-sta-module-stable"
 		}
 	},
 	"source-name": "broadcom-sta-module",
-	"source-release": "27",
+	"source-release": "28",
 	"source-version": "6.30.223.271"
 }
