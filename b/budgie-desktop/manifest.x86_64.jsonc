@@ -243,6 +243,7 @@
 				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.budgie-desktop.raven.widget.SoundOutput.gschema.xml",
 				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.budgie-desktop.raven.widget.UsageMonitor.gschema.xml",
 				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.budgie-desktop.screenshot.gschema.xml",
+				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.budgie-locker.gschema.xml",
 				"/usr/share/glib-2.0/schemas/org.buddiesofbudgie.settings-daemon.plugins.media-keys.gschema.xml",
 				"/usr/share/gnome-session/sessions/org.buddiesofbudgie.BudgieDesktop.session",
 				"/usr/share/icons/hicolor/scalable/actions/budgie-menu-symbolic.svg",
@@ -513,6 +514,6 @@
 		}
 	},
 	"source-name": "budgie-desktop",
-	"source-release": "2",
-	"source-version": "10.10.3"
+	"source-release": "3",
+	"source-version": "10.10.4"
 }
