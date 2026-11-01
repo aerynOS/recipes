@@ -1,14 +1,14 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bottom
-version     : "0.14.9"
-release     : 16
+version     : "0.15.0"
+release     : 17
 homepage    : https://clementtsang.github.io/bottom
 upstreams   :
-    - https://github.com/ClementTsang/bottom/archive/refs/tags/0.14.9.tar.gz : 1dbb940c763fb583b7e1c7dfa165b73ed9a0ba712e72cc97311c5b1c098d5b72
-    - https://github.com/ClementTsang/bottom/releases/download/0.14.8/completion.tar.gz : bf36ef7909703b15e035041f7f9b3c9e91809176f8aa7f72d0ad430a7f32fad3
-    - https://github.com/ClementTsang/bottom/releases/download/0.14.8/manpage.tar.gz : ad8c9eb29922c1a61a13816c2a5d5c99294d7d6b159d01ba3183853cd0e27144
+    - https://github.com/ClementTsang/bottom/archive/refs/tags/0.15.0.tar.gz : 9b38fd551ef9e67bb8dc09a658e7c9594913fc5c43154f264d5b776416ad1c4d
+    - https://github.com/ClementTsang/bottom/releases/download/0.15.0/completion.tar.gz : a257001464e30b51c426b24f371f94fa6dd7f8b35ad66fa04b7203122bf24cdb
+    - https://github.com/ClementTsang/bottom/releases/download/0.15.0/manpage.tar.gz : 25b5df33a5c91ef885c8ea4f1e4890d0e6dcb3240cf36e5de3cc77aedc679159
 summary     : Yet another cross-platform graphical process/system monitor
 description : |
     A customizable cross-platform graphical process/system monitor for the terminal. Supports Linux, macOS, and Windows. Inspired by gtop, gotop, and htop.
