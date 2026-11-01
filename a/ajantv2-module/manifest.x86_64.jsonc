@@ -15,8 +15,8 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.2.14-48.gaming/extra/drivers/aja/ajantv2.ko.zst",
-				"/usr/lib/modules/7.2.14-48.gaming/extra/drivers/aja/ajardma.ko.zst"
+				"/usr/lib/modules/7.2.15-49.gaming/extra/drivers/aja/ajantv2.ko.zst",
+				"/usr/lib/modules/7.2.15-49.gaming/extra/drivers/aja/ajardma.ko.zst"
 			],
 			"name": "ajantv2-module-gaming"
 		},
@@ -51,13 +51,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.2.14-71.stable/extra/drivers/aja/ajantv2.ko.zst",
-				"/usr/lib/modules/7.2.14-71.stable/extra/drivers/aja/ajardma.ko.zst"
+				"/usr/lib/modules/7.2.15-72.stable/extra/drivers/aja/ajantv2.ko.zst",
+				"/usr/lib/modules/7.2.15-72.stable/extra/drivers/aja/ajardma.ko.zst"
 			],
 			"name": "ajantv2-module-stable"
 		}
 	},
 	"source-name": "ajantv2-module",
-	"source-release": "5",
+	"source-release": "6",
 	"source-version": "18.0.0"
 }
