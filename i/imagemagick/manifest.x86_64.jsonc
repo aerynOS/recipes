@@ -610,6 +610,7 @@
 				"/usr/share/doc/ImageMagick-7/www/image/wizard.jpg",
 				"/usr/share/doc/ImageMagick-7/www/image/wizard.png",
 				"/usr/share/doc/ImageMagick-7/www/import/index.html",
+				"/usr/share/doc/ImageMagick-7/www/index-2.html",
 				"/usr/share/doc/ImageMagick-7/www/index.html",
 				"/usr/share/doc/ImageMagick-7/www/install-source/index.html",
 				"/usr/share/doc/ImageMagick-7/www/jp2/index.html",
@@ -1258,6 +1259,6 @@
 		}
 	},
 	"source-name": "imagemagick",
-	"source-release": "29",
-	"source-version": "7.1.2-34"
+	"source-release": "30",
+	"source-version": "7.1.2-35"
 }
