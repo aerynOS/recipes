@@ -1,0 +1,117 @@
+From 6e3e9cba557259b7ca19c16d6980a026ae1f34e2 Mon Sep 17 00:00:00 2001
+From: Nicolas Fella <nicolas.fella@gmx.de>
+Date: Fri, 24 Jul 2026 12:02:25 +0200
+Subject: [PATCH] Clean up config handling
+
+Define the config file name in the kcfg file instead of manually passing it in
+
+Signed-off-by: Joshua Strobl <me@joshuastrobl.com>
+---
+ autotests/localfilelistingtest.cpp        | 1 -
+ autotests/manageaudioplayertest.cpp       | 1 -
+ autotests/mediaplaylistproxymodeltest.cpp | 1 -
+ autotests/viewmanagertest.cpp             | 1 -
+ src/elisa_core.kcfg                       | 2 +-
+ src/elisaapplication.cpp                  | 5 +----
+ src/elisaimport.cpp                       | 6 ------
+ 7 files changed, 2 insertions(+), 15 deletions(-)
+
+diff --git a/autotests/localfilelistingtest.cpp b/autotests/localfilelistingtest.cpp
+index b47b4857..81e129a1 100644
+--- a/autotests/localfilelistingtest.cpp
++++ b/autotests/localfilelistingtest.cpp
+@@ -42,7 +42,6 @@ private Q_SLOTS:
+         qRegisterMetaType<QList<qlonglong>>("QList<qlonglong>");
+         qRegisterMetaType<QHash<qlonglong,int>>("QHash<qlonglong,int>");
+         qRegisterMetaType<QList<QUrl>>("QList<QUrl>");
+-        Elisa::ElisaConfiguration::instance(QStringLiteral("scanAtStartupFeature"));
+     }
+ 
+     void initialTestWithNoTrack()
+diff --git a/autotests/manageaudioplayertest.cpp b/autotests/manageaudioplayertest.cpp
+index ef0478e5..a8dae71b 100644
+--- a/autotests/manageaudioplayertest.cpp
++++ b/autotests/manageaudioplayertest.cpp
+@@ -23,7 +23,6 @@ ManageAudioPlayerTest::ManageAudioPlayerTest(QObject *parent) : QObject(parent)
+ void ManageAudioPlayerTest::initTestCase()
+ {
+     QStandardPaths::setTestModeEnabled(true);
+-    Elisa::ElisaConfiguration::instance(QStringLiteral("testfoo"));
+ }
+ 
+ void ManageAudioPlayerTest::simpleInitialCase()
+diff --git a/autotests/mediaplaylistproxymodeltest.cpp b/autotests/mediaplaylistproxymodeltest.cpp
+index 5468cbaa..849d2667 100644
+--- a/autotests/mediaplaylistproxymodeltest.cpp
++++ b/autotests/mediaplaylistproxymodeltest.cpp
+@@ -64,7 +64,6 @@ void MediaPlayListProxyModelTest::initTestCase()
+     qRegisterMetaType<QList<qlonglong>>("QList<qlonglong>");
+     qRegisterMetaType<QHash<qlonglong,int>>("QHash<qlonglong,int>");
+     qRegisterMetaType<ElisaUtils::PlayListEntryType>("PlayListEntryType");
+-    Elisa::ElisaConfiguration::instance(QStringLiteral("testfoo"));
+ }
+ 
+ void MediaPlayListProxyModelTest::init()
+diff --git a/autotests/viewmanagertest.cpp b/autotests/viewmanagertest.cpp
+index 0a455715..7698648e 100644
+--- a/autotests/viewmanagertest.cpp
++++ b/autotests/viewmanagertest.cpp
+@@ -39,7 +39,6 @@ private Q_SLOTS:
+         qRegisterMetaType<QAbstractProxyModel*>("QAbstractProxyModel*");
+         qRegisterMetaType<DataTypes::DataType>("DataTypes::DataType");
+         QStandardPaths::setTestModeEnabled(true);
+-        Elisa::ElisaConfiguration::instance(QStringLiteral("testfoo"));
+     }
+ 
+     void openAlbumViewTest()
+diff --git a/src/elisa_core.kcfg b/src/elisa_core.kcfg
+index 48009e04..78a35f31 100644
+--- a/src/elisa_core.kcfg
++++ b/src/elisa_core.kcfg
+@@ -5,7 +5,7 @@
+       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <include>QDir</include>
+  <include>QStandardPaths</include>
+- <kcfgfile arg="true" />
++ <kcfgfile name="elisarc" />
+  <group name="ElisaFileIndexer">
+   <entry key="RootPath" type="PathList" >
+   </entry>
+diff --git a/src/elisaapplication.cpp b/src/elisaapplication.cpp
+index 8bb05143..8584e998 100644
+--- a/src/elisaapplication.cpp
++++ b/src/elisaapplication.cpp
+@@ -94,12 +94,9 @@ ElisaApplication::ElisaApplication(QObject *parent) : QObject(parent), d(std::ma
+ {
+     auto configurationFileName = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+     configurationFileName += QStringLiteral("/elisarc");
+-    Elisa::ElisaConfiguration::instance(configurationFileName);
+-    Elisa::ElisaConfiguration::self()->load();
+-    Elisa::ElisaConfiguration::self()->save();
+     d->mSchemes = KColorSchemeManager::instance();
+ 
+-    d->mConfigFileWatcher.addPath(Elisa::ElisaConfiguration::self()->config()->name());
++    d->mConfigFileWatcher.addPath(configurationFileName);
+ 
+     connect(Elisa::ElisaConfiguration::self(), &Elisa::ElisaConfiguration::configChanged,
+             this, &ElisaApplication::configChanged);
+diff --git a/src/elisaimport.cpp b/src/elisaimport.cpp
+index 07316c36..a39f257c 100644
+--- a/src/elisaimport.cpp
++++ b/src/elisaimport.cpp
+@@ -31,12 +31,6 @@ int main(int argc, char *argv[])
+     parser.addVersionOption();
+     parser.process(app);
+ 
+-    auto configurationFileName = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+-    configurationFileName += QStringLiteral("/elisarc");
+-    Elisa::ElisaConfiguration::instance(configurationFileName);
+-    Elisa::ElisaConfiguration::self()->load();
+-    Elisa::ElisaConfiguration::self()->save();
+-
+     MusicListenersManager myMusicManager;
+     ElisaImportApplication myApplication;
+ 
+-- 
+2.56.0
+
