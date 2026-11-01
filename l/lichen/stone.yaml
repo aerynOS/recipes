@@ -2,14 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lichen
-version     : "0.1.0+git.2014408"
-release     : 55
+version     : "0.1.0+git.0e0910a"
+release     : 56
 summary     : OS installer
 license     : MPL-2.0
 homepage    : https://github.com/AerynOS/lichen
 upstreams   :
     - git|https://github.com/AerynOS/lichen.git :
-        ref : 2014408cc8ffaf8b5ae463a3c1b530e36f6f4564
+        ref : 0e0910aebbc8aab8ba883fb1bcec85c6fd89d9f2
 description : |
     Experimental OS installer
 builddeps   :
@@ -31,3 +31,5 @@ install     : |
     %install_file %(pkgdir)/lichen-legacy.desktop -t %(installroot)%(datadir)/applications/
     %install_file %(pkgdir)/org.freedesktop.policykit.pkexec.lichen-legacy.policy -t %(installroot)%(datadir)/polkit-1/actions/
     %install_exe %(pkgdir)/lichen-legacy.sh %(installroot)%(bindir)/lichen-legacy
+    # Until lichen-installer is ready to take over ownership of `lichen`
+    ln -srv %(installroot)%(bindir)/lichen-legacy %(installroot)%(bindir)/lichen

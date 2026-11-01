@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=Install aerynOS (legacy)
-GenericName=Install aerynOS (legacy)
+Name=Legacy aerynOS installer
+GenericName=Legacy aerynOS installer
 Comment=Install aerynOS on your system (legacy installer)
 Icon=system-software-install
 Exec=lichen-legacy
