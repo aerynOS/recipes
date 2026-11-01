@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : budgie-desktop
-version     : "10.10.3"
-release     : 2
+version     : "10.10.4"
+release     : 3
 homepage    : https://buddiesofbudgie.org
 upstreams   :
-    - https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v10.10.3/budgie-desktop-v10.10.3.tar.xz : 5dae4e311bc95ad982b6256265537c2c6e2bcd19dd35efd19bdbb33633516b74
+    - https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v10.10.4/budgie-desktop-v10.10.4.tar.xz : 0b2d480186d306d21427d5fbf11d47bc6e8e401ceb68940eed3b1d1fce92b32b
 summary     : A feature-rich, modern desktop designed to keep out the way of the user
 description : |
     A feature-rich, modern desktop designed to keep out the way of the user.
@@ -86,13 +86,6 @@ rundeps     :
     - xdg-desktop-portal-gtk
     - xdg-desktop-portal-wlr
 setup       : |
-    %patch %(pkgdir)/patches/0001-fix-bridges-stop-left-click-on-the-desktop-opening-t.patch
-    %patch %(pkgdir)/patches/0002-fix-panel-stop-aborting-when-a-panel-has-no-stored-l.patch
-    %patch %(pkgdir)/patches/0003-fix-panel-store-a-new-panel-s-edge-before-it-is-show.patch
-    %patch %(pkgdir)/patches/0004-feat-appindexer-share-one-list-of-installed-apps-acr.patch
-    %patch %(pkgdir)/patches/0005-fix-session-dont-force-qpa-wayland-platform-fallback.patch
-    %patch %(pkgdir)/patches/0006-fix-panel-stop-identifying-applet-plugins-by-their-t.patch
-
     %meson \
       -Dbudgie-session-libexecdir=%(libdir)/budgie-session \
       -Dgsd-components-excluded=DiskUtilityNotify,UsbProtection \
