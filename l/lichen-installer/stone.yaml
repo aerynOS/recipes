@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 name        : lichen-installer
-version     : "0.1.7~git.14791ea"
-release     : 1
+version     : "0.1.7~git.df1b607"
+release     : 2
 homepage    : https://github.com/aerynos/lichen-installer
 upstreams   :
     - git|https://github.com/aerynos/lichen-installer.git:
-        ref: 14791ea79c10ea0b25599593bc5a5863006225ec
+        ref: df1b60719752550d990ef0edb66477727de14d16
 summary     : aerynOS Installer
 description : |
     aerynOS installer
@@ -31,8 +31,8 @@ build       : |
 install     : |
     %cargo_install lichen_tui
     mv %(installroot)%(bindir)/lichen_tui %(installroot)%(bindir)/lichen-tui
-    # the old lichen installer is now lichen-legacy
-    ln -sr %(installroot)%(bindir)/lichen-tui %(installroot)%(bindir)/lichen
+    # For when the old installer becomes lichen-legacy
+    # ln -sr %(installroot)%(bindir)/lichen-tui %(installroot)%(bindir)/lichen
     %cargo_install lichen_backend
     %install_file %(pkgdir)/lichen-installer.desktop -t %(installroot)/%(datadir)/applications/
     %install_file %(pkgdir)/com.aerynos.lichen.policy -t %(installroot)/%(datadir)/polkit-1/actions/

@@ -22,7 +22,6 @@
 				"sysbinary(mkfs.xfs)"
 			],
 			"files": [
-				"/usr/bin/lichen",
 				"/usr/bin/lichen-tui",
 				"/usr/bin/lichen_backend",
 				"/usr/share/applications/lichen-installer.desktop",
@@ -31,13 +30,12 @@
 			],
 			"name": "lichen-installer",
 			"provides": [
-				"binary(lichen)",
 				"binary(lichen-tui)",
 				"binary(lichen_backend)"
 			]
 		}
 	},
 	"source-name": "lichen-installer",
-	"source-release": "1",
-	"source-version": "0.1.7~git.14791ea"
+	"source-release": "2",
+	"source-version": "0.1.7~git.df1b607"
 }
