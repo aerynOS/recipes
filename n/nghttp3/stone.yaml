@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nghttp3
-version     : "1.18.0"
-release     : 8
+version     : "1.19.0"
+release     : 9
 upstreams   :
-    - https://github.com/ngtcp2/nghttp3/releases/download/v1.18.0/nghttp3-1.18.0.tar.gz : 2812e9c06583fa24c8dc46bdb5291310a69196352ceaca8fbe98106ff36ae7d8
+    - https://github.com/ngtcp2/nghttp3/releases/download/v1.19.0/nghttp3-1.19.0.tar.gz : 0dc9a55d38ca04c282524bfecdc5e31d393a4bb430200263dd06a87801a150af
 homepage    : https://nghttp2.org/nghttp3/
 license     : MIT
 summary     : HTTP/3 C Library

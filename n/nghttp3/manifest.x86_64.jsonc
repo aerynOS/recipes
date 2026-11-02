@@ -8,7 +8,7 @@
 			],
 			"files": [
 				"/usr/lib/libnghttp3.so.9",
-				"/usr/lib/libnghttp3.so.9.9.0",
+				"/usr/lib/libnghttp3.so.9.9.1",
 				"/usr/share/doc/nghttp3/README.rst"
 			],
 			"name": "nghttp3",
@@ -38,6 +38,6 @@
 		}
 	},
 	"source-name": "nghttp3",
-	"source-release": "8",
-	"source-version": "1.18.0"
+	"source-release": "9",
+	"source-version": "1.19.0"
 }
