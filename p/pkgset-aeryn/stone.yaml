@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pkgset-aeryn
-version     : "2026.07" # I guess let's just match the OS version for now
-release     : 26
+version     : "2026.11" # I guess let's just match the OS version for now
+release     : 27
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : pkgset virtual packages
@@ -62,6 +62,7 @@ packages    :
             - binary(grep)
             - binary(less)
             - binary(lspci)
+            - binary(man)
             - binary(nano)
             - binary(ping)
             - binary(ps)

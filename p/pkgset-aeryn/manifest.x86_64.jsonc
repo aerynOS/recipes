@@ -66,6 +66,7 @@
 				"binary(grep)",
 				"binary(less)",
 				"binary(lspci)",
+				"binary(man)",
 				"binary(nano)",
 				"binary(ping)",
 				"binary(ps)",
@@ -94,6 +95,6 @@
 		}
 	},
 	"source-name": "pkgset-aeryn",
-	"source-release": "26",
-	"source-version": "2026.07"
+	"source-release": "27",
+	"source-version": "2026.11"
 }
