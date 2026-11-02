@@ -3,7 +3,7 @@
 
 name        : hyprland
 version     : "0.57.0"
-release     : 16
+release     : 17
 homepage    : https://hypr.land/
 upstreams   :
     - https://github.com/hyprwm/Hyprland/releases/download/v0.57.0/source-v0.57.0.tar.gz : 82d006ba9264fe67266c7d583c16f1a6c64d51424dbdc472c3e9c9d5ddfcd559
