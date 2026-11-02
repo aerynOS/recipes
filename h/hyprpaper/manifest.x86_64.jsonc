@@ -20,7 +20,7 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libhyprgraphics.so.4(x86_64))",
+				"soname(libhyprgraphics.so.5(x86_64))",
 				"soname(libhyprlang.so.2(x86_64))",
 				"soname(libhyprtoolkit.so.6(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
@@ -41,6 +41,6 @@
 		}
 	},
 	"source-name": "hyprpaper",
-	"source-release": "4",
-	"source-version": "0.8.4"
+	"source-release": "5",
+	"source-version": "0.8.5"
 }

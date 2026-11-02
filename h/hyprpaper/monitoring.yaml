@@ -5,5 +5,5 @@ releases:
   id: 374424
   rss: https://github.com/hyprwm/hyprpaper/releases.atom
 security:
-  # No known CPE, checked 2024-09-14
+  # No known CPE, checked 2026-11-02
   cpe: ~
