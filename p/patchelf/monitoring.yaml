@@ -1,8 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 2598
   rss: ~
 security:
-  cpe: ~ # last checked 24/08/01
+  # Last checked 2026-11-02
+  cpe:
+  - vendor: nixos
+    product: patchelf

@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : patchelf
-version     : "0.19.2"
-release     : 6
+version     : "0.19.3"
+release     : 7
 homepage    : https://github.com/NixOS/patchelf
 upstreams   :
-    - https://github.com/NixOS/patchelf/releases/download/0.19.2/patchelf-0.19.2.tar.gz : 78cb26bda2b89fababfe189c2f6507240340f1aa45dec2eb49a39473a50ceea1
+    - https://github.com/NixOS/patchelf/releases/download/0.19.3/patchelf-0.19.3.tar.gz : fac76a3c0b730e8d53ea1d10cd6015322d78c9900af91736f2cca51d5837b612
 summary     : A small utility to modify the dynamic linker and RPATH of ELF executables
 description : |
     PatchELF is a simple utility for modifying existing ELF executables and libraries.
