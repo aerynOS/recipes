@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 270207
   rss: https://github.com/neovide/neovide/releases.atom
 security:
-  # No CVE Found, last checked 2026-06-17
+  # No known CPE. Last checked 2026-11-02
   cpe: ~

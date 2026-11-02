@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : neovide
-version     : "0.16.2"
-release     : 4
+version     : "0.17.1"
+release     : 5
 upstreams   :
-    - https://github.com/neovide/neovide/archive/refs/tags/0.16.2.tar.gz : a2016cceab3cba50b6a8b2f6787ae9017a85923575e89a83ebb9d428e8f80ca9
+    - https://github.com/neovide/neovide/archive/refs/tags/0.17.1.tar.gz : fe78df79ac62123a720dbd324d3be564e52f0fe8052850dde58283dd4cb1b07d
 homepage    : https://neovide.dev/
 license     :
     - MIT
