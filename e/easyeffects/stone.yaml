@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : easyeffects
-version     : "8.3.1"
-release     : 35
+version     : "8.3.2"
+release     : 36
 homepage    : https://wwmm.github.io/easyeffects/
 upstreams   :
-    - https://github.com/wwmm/easyeffects/archive/refs/tags/v8.3.1.tar.gz : e59a1125bf9c8a28a6007b778493de2e080d4ae5b9f4c1e31716ff595473ae23
+    - https://github.com/wwmm/easyeffects/archive/refs/tags/v8.3.2.tar.gz : d2add92beea6a0e242b2227da5c081c5160b3fe73e681186618dac57207c6037
 summary     : Audio effects for PipeWire applications
 description : |
     Limiter, compressor, convolver, equalizer and auto volume and many other plugins for PipeWire applications
