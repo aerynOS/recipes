@@ -223,7 +223,7 @@
 				"/usr/lib/gstreamer-1.0/libgstlsp-plugins-trigger-midi-stereo.so",
 				"/usr/lib/gstreamer-1.0/libgstlsp-plugins-trigger-mono.so",
 				"/usr/lib/gstreamer-1.0/libgstlsp-plugins-trigger-stereo.so",
-				"/usr/lib/lsp-plugins/liblsp-plugins-gstreamer-1.2.35.so"
+				"/usr/lib/lsp-plugins/liblsp-plugins-gstreamer-1.2.37.so"
 			],
 			"name": "lsp-plugins-gstreamer",
 			"provides": [
@@ -425,7 +425,7 @@
 				"soname(gstreamer-1.0/libgstlsp-plugins-trigger-midi-stereo.so(x86_64))",
 				"soname(gstreamer-1.0/libgstlsp-plugins-trigger-mono.so(x86_64))",
 				"soname(gstreamer-1.0/libgstlsp-plugins-trigger-stereo.so(x86_64))",
-				"soname(lsp-plugins/liblsp-plugins-gstreamer-1.2.35.so(x86_64))"
+				"soname(lsp-plugins/liblsp-plugins-gstreamer-1.2.37.so(x86_64))"
 			]
 		},
 		"lsp-plugins-lv2": {
@@ -915,13 +915,13 @@
 				"/usr/bin/lsp-plugins-trigger-midi-stereo",
 				"/usr/bin/lsp-plugins-trigger-mono",
 				"/usr/bin/lsp-plugins-trigger-stereo",
-				"/usr/lib/liblsp-audio-jack-lib-1.0.2.so",
+				"/usr/lib/liblsp-audio-jack-lib-1.0.3.so",
 				"/usr/lib/liblsp-audio-jack-lib.so",
-				"/usr/lib/liblsp-audio-pipewire-lib-1.0.3.so",
+				"/usr/lib/liblsp-audio-pipewire-lib-1.0.4.so",
 				"/usr/lib/liblsp-audio-pipewire-lib.so",
-				"/usr/lib/liblsp-r3d-glx-lib-1.0.31.so",
+				"/usr/lib/liblsp-r3d-glx-lib-1.0.32.so",
 				"/usr/lib/liblsp-r3d-glx-lib.so",
-				"/usr/lib/lsp-plugins/liblsp-plugins-standalone-1.2.35.so",
+				"/usr/lib/lsp-plugins/liblsp-plugins-standalone-1.2.37.so",
 				"/usr/share/applications/lsp-plugins.desktop",
 				"/usr/share/icons/hicolor/128x128/apps/lsp-plugins.png",
 				"/usr/share/icons/hicolor/16x16/apps/lsp-plugins.png",
@@ -1134,14 +1134,14 @@
 				"binary(lsp-plugins-trigger-midi-stereo)",
 				"binary(lsp-plugins-trigger-mono)",
 				"binary(lsp-plugins-trigger-stereo)",
-				"soname(liblsp-audio-jack-lib-1.0.2.so(x86_64))",
-				"soname(liblsp-audio-pipewire-lib-1.0.3.so(x86_64))",
-				"soname(liblsp-r3d-glx-lib-1.0.31.so(x86_64))",
-				"soname(lsp-plugins/liblsp-plugins-standalone-1.2.35.so(x86_64))"
+				"soname(liblsp-audio-jack-lib-1.0.3.so(x86_64))",
+				"soname(liblsp-audio-pipewire-lib-1.0.4.so(x86_64))",
+				"soname(liblsp-r3d-glx-lib-1.0.32.so(x86_64))",
+				"soname(lsp-plugins/liblsp-plugins-standalone-1.2.37.so(x86_64))"
 			]
 		}
 	},
 	"source-name": "lsp-plugins",
-	"source-release": "14",
-	"source-version": "1.2.35"
+	"source-release": "15",
+	"source-version": "1.2.37"
 }
