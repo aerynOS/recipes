@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openssh
 version     : "10.6p1"
-release     : 26
+release     : 28
 summary     : OpenSSH (OpenBSD Secure Shell)
 license     :
     - BSD-2-Clause
@@ -48,7 +48,9 @@ build       : |
 install     : |
     %make_install
 
-    # TODO ssh-copy-id, pass COLORTERM variable
+    # ssh-copy-id is not part of the default install target
+    %install_bin contrib/ssh-copy-id
+    %install_file contrib/ssh-copy-id.1 -t %(installroot)%(mandir)/man1
 
     # systemd unit files (enabled by default)
     %install_file %(pkgdir)/sshd*.service -t %(installroot)/%(libdir)/systemd/system/

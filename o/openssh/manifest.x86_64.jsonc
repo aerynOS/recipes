@@ -31,6 +31,7 @@
 				"/usr/bin/ssh",
 				"/usr/bin/ssh-add",
 				"/usr/bin/ssh-agent",
+				"/usr/bin/ssh-copy-id",
 				"/usr/bin/ssh-keygen",
 				"/usr/bin/ssh-keyscan",
 				"/usr/lib/openssh/ssh-keysign",
@@ -45,6 +46,7 @@
 				"/usr/share/man/man1/sftp.1",
 				"/usr/share/man/man1/ssh-add.1",
 				"/usr/share/man/man1/ssh-agent.1",
+				"/usr/share/man/man1/ssh-copy-id.1",
 				"/usr/share/man/man1/ssh-keygen.1",
 				"/usr/share/man/man1/ssh-keyscan.1",
 				"/usr/share/man/man1/ssh.1",
@@ -61,6 +63,7 @@
 				"binary(ssh)",
 				"binary(ssh-add)",
 				"binary(ssh-agent)",
+				"binary(ssh-copy-id)",
 				"binary(ssh-keygen)",
 				"binary(ssh-keyscan)"
 			]
@@ -132,6 +135,6 @@
 		}
 	},
 	"source-name": "openssh",
-	"source-release": "26",
+	"source-release": "28",
 	"source-version": "10.6p1"
 }
