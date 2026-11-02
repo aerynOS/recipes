@@ -89,8 +89,26 @@ clean: (_clean build_file)
 
 # Init git hooks
 _init target:
+    #!/usr/bin/env bash
     ln -sfv ../../tools/prepare-commit-msg.py $(git rev-parse --git-path hooks)/prepare-commit-msg
     ln -sfv ../../tools/pre-commit.py $(git rev-parse --git-path hooks)/pre-commit
+    gitconfig="$(git rev-parse --git-path config)"
+    grep -q '\[diff "moss"\]' "$gitconfig" || {
+        echo 'Enabling binary diff for manifest.*.bin files in' "${gitconfig}"
+        cat <<'EOT' | tee -a "$gitconfig"
+    [diff "moss"]
+    	textconv = moss inspect
+    	binary = true
+    EOT
+    }
+
+    grep -Pzq '\[alias\]\n\s*gone =' "$gitconfig" || {
+        echo -e '\nEnabling "git gone" alias in' "${gitconfig}"
+        cat <<'EOT' | tee -a "$gitconfig"
+    [alias]
+    	gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+    EOT
+    }
 init: (_init build_file)
 
 [confirm('This will delete ALL .stones in your local repo -- continue?')]
