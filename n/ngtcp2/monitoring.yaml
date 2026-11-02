@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 370247
   rss: https://github.com/ngtcp2/ngtcp2/releases.atom
 security:
+  # Last checked 2026-11-02
   cpe:
-  - vendor: ngtcp2
+  - vendor: tatsuhiro-t
     product: ngtcp2

@@ -15,9 +15,9 @@
 			],
 			"files": [
 				"/usr/lib/libngtcp2.so.16",
-				"/usr/lib/libngtcp2.so.16.11.0",
+				"/usr/lib/libngtcp2.so.16.12.0",
 				"/usr/lib/libngtcp2_crypto_ossl.so.0",
-				"/usr/lib/libngtcp2_crypto_ossl.so.0.3.1",
+				"/usr/lib/libngtcp2_crypto_ossl.so.0.3.2",
 				"/usr/share/doc/ngtcp2/README.rst"
 			],
 			"name": "ngtcp2",
@@ -39,7 +39,7 @@
 			],
 			"files": [
 				"/usr/lib/libngtcp2_crypto_gnutls.so.8",
-				"/usr/lib/libngtcp2_crypto_gnutls.so.8.4.1"
+				"/usr/lib/libngtcp2_crypto_gnutls.so.8.4.2"
 			],
 			"name": "ngtcp2-crypto-gnutls",
 			"provides": [
@@ -80,6 +80,6 @@
 		}
 	},
 	"source-name": "ngtcp2",
-	"source-release": "5",
-	"source-version": "1.25.0"
+	"source-release": "6",
+	"source-version": "1.26.0"
 }
