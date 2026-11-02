@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprtoolkit
 version     : "0.6.0"
-release     : 9
+release     : 10
 upstreams   :
     - https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v0.6.0.tar.gz : 53c41be72af97d9ede274a63c9c1034c58726d862905763ed6e5a564ae42ba6b
 homepage    : https://github.com/hyprwm/hyprtoolkit
