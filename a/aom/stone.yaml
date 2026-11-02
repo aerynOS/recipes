@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : aom
-version     : "3.15.2"
-release     : 14
+version     : "3.15.3"
+release     : 15
 homepage    : https://aomedia.googlesource.com/aom/
 upstreams   :
-    - git|https://aomedia.googlesource.com/aom.git : c9b4080ed2904c633cba35c9fe7d4abf2338deb6 # v3.15.2
+    - git|https://aomedia.googlesource.com/aom.git : 19d472d7b445d7013445ffbaff925a6fc3cda0eb # v3.15.3
 summary     : AV1 codec
 description : |
     The Alliance for Open Media's focus is to deliver a next-generation video format that is:
