@@ -94,13 +94,13 @@
 				"/usr/lib/libnss_libvirt.so.2",
 				"/usr/lib/libnss_libvirt_guest.so.2",
 				"/usr/lib/libvirt-admin.so.0",
-				"/usr/lib/libvirt-admin.so.0.12008.0",
+				"/usr/lib/libvirt-admin.so.0.12009.0",
 				"/usr/lib/libvirt-lxc.so.0",
-				"/usr/lib/libvirt-lxc.so.0.12008.0",
+				"/usr/lib/libvirt-lxc.so.0.12009.0",
 				"/usr/lib/libvirt-qemu.so.0",
-				"/usr/lib/libvirt-qemu.so.0.12008.0",
+				"/usr/lib/libvirt-qemu.so.0.12009.0",
 				"/usr/lib/libvirt.so.0",
-				"/usr/lib/libvirt.so.0.12008.0",
+				"/usr/lib/libvirt.so.0.12009.0",
 				"/usr/lib/libvirt/connection-driver/libvirt_driver_ch.so",
 				"/usr/lib/libvirt/connection-driver/libvirt_driver_interface.so",
 				"/usr/lib/libvirt/connection-driver/libvirt_driver_lxc.so",
@@ -1049,6 +1049,6 @@
 		}
 	},
 	"source-name": "libvirt",
-	"source-release": "22",
-	"source-version": "12.8.0"
+	"source-release": "23",
+	"source-version": "12.9.0"
 }
