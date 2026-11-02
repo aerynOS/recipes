@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : stow
+version     : "2.4.1"
+release     : 1
+homepage    : https://www.gnu.org/software/stow/
+upstreams   :
+    - https://ftp.gnu.org/gnu/stow/stow-2.4.1.tar.gz : 2a671e75fc207303bfe86a9a7223169c7669df0a8108ebdf1a7fe8cd2b88780b
+summary     : GNU symlink farm manager
+description : |
+    GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
+    For example, /usr/local/bin could contain symlinks to files within /usr/local/stow/emacs/bin, /usr/local/stow/perl/bin etc., and likewise recursively for any other subdirectories such as .../share, .../man, and so on.
+license     : GPL-3.0-or-later
+builddeps   :
+    - perl
+rundeps     :
+    - perl
+setup       : |
+    %configure \
+        --with-pmdir="$(perl -MConfig -e 'print $Config{installvendorlib}')"
+build       : |
+    %make
+install     : |
+    %make_install
+    rm -f %(installroot)%(datadir)/info/dir
