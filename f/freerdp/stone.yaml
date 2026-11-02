@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : freerdp
-version     : "3.32.2"
-release     : 42
+version     : "3.33.0"
+release     : 43
 homepage    : https://www.freerdp.com
 upstreams   :
     # TODO: Switch back to source archive
-    - https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.32.2.tar.gz : 9ccb8357bf0188044a460de775c7ea289ca7d2a2a917eca0f0a7c4dc9c8b08ea
+    - https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.33.0.tar.gz : 3b5e7733e667ad66f54e0db51d952268c9d08b2e71a4fade44c716ab29dd5657
 summary     : FreeRDP is a free remote desktop protocol library and clients
 description : |
     FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released
@@ -35,6 +35,7 @@ builddeps   :
     - pkgconfig(mit-krb5)
     - pkgconfig(openssl)
     - pkgconfig(sdl3-ttf)
+    - pkgconfig(sndio)
     - pkgconfig(wayland-scanner)
     - pkgconfig(x11)
     - pkgconfig(xcursor)
@@ -54,13 +55,13 @@ setup       : |
       -DWITH_DSP_FFMPEG=ON \
       -DWITH_FDK_AAC=ON \
       -DWITH_FFMPEG=ON \
+      -DWITH_FFMPEG_HWACCEL=ON \
       -DWITH_INTERNAL_RC4=ON \
       -DWITH_MANPAGES=ON \
       -DWITH_PCSC=ON \
       -DWITH_PULSE=ON \
       -DWITH_SERVER=ON \
       -DWITH_SWSCALE=ON \
-      -DWITH_VAAPI=ON \
       -DWITH_WAYLAND=ON
 build       : |
     %cmake_build
