@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 382157
   rss: https://github.com/flamegraph-rs/flamegraph/releases.atom
 security:
-  cpe: ~ # Last checked 2025-08-09
+  # No known CPE. Last checked 2026-11-02
+  cpe: ~
