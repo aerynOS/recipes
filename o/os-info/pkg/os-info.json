@@ -6,8 +6,8 @@
     "identity": {
       "id": "aerynos",
       "id_like": "linux",
-      "name": "AerynOS",
-      "display": "AerynOS 2026.11",
+      "name": "aerynOS",
+      "display": "aerynOS 2026.11",
       "ansi_color": "0;32",
       "former_identities": [
         {
@@ -95,27 +95,27 @@
         "scope": "home"
       },
       "support": {
-        "url": "https://github.com/orgs/AerynOS/discussions",
+        "url": "https://aerynos.discourse.group/",
         "display_name": "Community Discussions",
         "scope": "support"
       },
       "bugs": {
-        "url": "https://github.com/orgs/AerynOS/discussions",
+        "url": "https://aerynos.discourse.group/c/feedback/bug-reports/11",
         "display_name": "Issue Tracker",
         "scope": "bug-tracker"
       },
       "source": {
-        "url": "https://github.com/AerynOS",
-        "display_name": "AerynOS repositories",
+        "url": "https://github.com/aerynOS",
+        "display_name": "aerynOS repositories",
         "scope": "developer"
       },
       "documentation": {
-        "url": "https://aerynos.dev/",
+        "url": "https://aerynos.com/aerynos/",
         "display_name": "User Documentation",
         "scope": "documentation"
       },
       "packaging_docs": {
-        "url": "https://aerynos.dev/packaging/",
+        "url": "https://aerynos.com/packaging/",
         "display_name": "Packaging Documentation",
         "scope": "developer-docs"
       },
