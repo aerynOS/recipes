@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zig
-version     : "0.17.0"
-release     : 6
+version     : "0.17.1"
+release     : 7
 homepage    : https://ziglang.org
 upstreams   :
-    - https://ziglang.org/download/0.17.0/zig-0.17.0.tar.xz : b6c7f1728f043700d6529bac980800792f824256a9d2f1839b3d62beed0b8abd
+    - https://ziglang.org/download/0.17.1/zig-0.17.1.tar.xz : 1e89bf06610b769a8c77676c6c8d54b093a0db60f4891f2f91014829012f0e24
 summary     : General-purpose programming language and toolchain for maintaining robust, optimal, and reusable software
 description : |
     A general-purpose programming language and toolchain for maintaining robust, optimal, and reusable software.
