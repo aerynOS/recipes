@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprgraphics
-version     : "0.5.1"
-release     : 5
+version     : "0.6.0"
+release     : 6
 upstreams   :
-    - https://github.com/hyprwm/hyprgraphics/archive/refs/tags/v0.5.1.tar.gz : 861ecaad872835922dd5745a612d7a4cc7bfc4babb1d06bc92bc63c2ac013b74
+    - https://github.com/hyprwm/hyprgraphics/archive/refs/tags/v0.6.0.tar.gz : 27e9e19ff59ba75a2963d72c3dcb5c0840b266b90d7fca6d5df7cac105419b08
 homepage    : https://github.com/hyprwm/hyprgraphics
 license     : BSD-3-Clause
 summary     : Hyprland graphics / resource utilities
@@ -30,7 +30,3 @@ build       : |
     %cmake_build
 install     : |
     %cmake_install
-packages    :
-    - "%(name)-devel":
-        rundeps:
-            - pkgconfig(cairo)

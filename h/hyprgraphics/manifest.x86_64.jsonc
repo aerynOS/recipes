@@ -38,12 +38,12 @@
 				"soname(libwebp.so.7(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libhyprgraphics.so.0.5.1",
-				"/usr/lib/libhyprgraphics.so.4"
+				"/usr/lib/libhyprgraphics.so.0.6.0",
+				"/usr/lib/libhyprgraphics.so.5"
 			],
 			"name": "hyprgraphics",
 			"provides": [
-				"soname(libhyprgraphics.so.4(x86_64))"
+				"soname(libhyprgraphics.so.5(x86_64))"
 			]
 		},
 		"hyprgraphics-devel": {
@@ -63,7 +63,21 @@
 			],
 			"depends": [
 				"hyprgraphics",
-				"pkgconfig(cairo)"
+				"pkgconfig(cairo)",
+				"pkgconfig(glesv2)",
+				"pkgconfig(hyprutils)",
+				"pkgconfig(libdrm)",
+				"pkgconfig(libheif)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libjxl)",
+				"pkgconfig(libjxl_cms)",
+				"pkgconfig(libjxl_threads)",
+				"pkgconfig(libmagic)",
+				"pkgconfig(libpng)",
+				"pkgconfig(librsvg-2.0)",
+				"pkgconfig(libwebp)",
+				"pkgconfig(pangocairo)",
+				"pkgconfig(pixman-1)"
 			],
 			"files": [
 				"/usr/include/hyprgraphics/cairo/CairoSurface.hpp",
@@ -85,6 +99,6 @@
 		}
 	},
 	"source-name": "hyprgraphics",
-	"source-release": "5",
-	"source-version": "0.5.1"
+	"source-release": "6",
+	"source-version": "0.6.0"
 }
