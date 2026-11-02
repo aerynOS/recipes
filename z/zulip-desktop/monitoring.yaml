@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 374790
   rss: https://github.com/zulip/zulip-desktop/releases.atom
 security:
+  # Last checked 2026-11-02
   cpe:
   - vendor: zulipchat
     product: zulip_desktop

@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zulip-desktop
-version     : "5.13.2"
-release     : 7
+version     : "5.14.2"
+release     : 8
 homepage    : https://zulipchat.com
 upstreams   :
-    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.13.2.tar.gz : 88018db9d0019d8a4ff1ad5f67741115d0abed8f9a0d0387eed75cdc00a1cfbb
+    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.14.2.tar.gz : 9be427a5e7e2218c9ebcbefc9decad9c3ed2b3815598ab78db233d3d6ca1dd52
 summary     : Desktop client for Zulip
 description : |
     Real-time team chat based on the email threading model
@@ -18,7 +18,6 @@ rundeps     :
     - binary(xdg-open)
 setup       : |
     %patch %(pkgdir)/0001-Disable-auto-update.patch
-    %patch %(pkgdir)/0001-linux-Fix-Wayland-app-ID.patch
 
     pnpm install
 build       : |
