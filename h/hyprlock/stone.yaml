@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprlock
-version     : "0.9.6"
-release     : 5
+version     : "0.9.7"
+release     : 6
 upstreams   :
-    - https://github.com/hyprwm/hyprlock/archive/refs/tags/v0.9.6.tar.gz : 7f653b87765bcfff7c1f8e04af326a7e73bbcacd1fb7d4436f6a16624a2247bb
+    - https://github.com/hyprwm/hyprlock/archive/refs/tags/v0.9.7.tar.gz : 01145790570ffabd31e9b528c517bdccae76f36e72d733f00c2696d9c3bf2c88
 homepage    : https://github.com/hyprwm/hyprlock
 license     : BSD-3-Clause
 summary     : Hyprland's simple, yet multi-threaded and GPU-accelerated screen locking utility.

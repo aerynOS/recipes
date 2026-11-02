@@ -29,7 +29,7 @@
 				"soname(libdrm.so.2(x86_64))",
 				"soname(libgbm.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libhyprgraphics.so.4(x86_64))",
+				"soname(libhyprgraphics.so.5(x86_64))",
 				"soname(libhyprlang.so.2(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libm.so.6(x86_64))",
@@ -52,6 +52,6 @@
 		}
 	},
 	"source-name": "hyprlock",
-	"source-release": "5",
-	"source-version": "0.9.6"
+	"source-release": "6",
+	"source-version": "0.9.7"
 }
