@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bpf-linker
-version     : "0.12.0"
-release     : 3
+version     : "0.13.0"
+release     : 4
 upstreams   :
-    - https://github.com/aya-rs/bpf-linker/archive/refs/tags/v0.12.0.tar.gz: b338f41fb9bb690693eaa9021bb1c28e6dfe894ad5ff60385a0343aa269c0c02
+    - https://github.com/aya-rs/bpf-linker/archive/refs/tags/v0.13.0.tar.gz: c2d0cdd32b6566301b93a8a8c44030330c2fdce85edc0ee3e6c5bef35f2a2186
 homepage    : https://github.com/aya-rs/bpf-linker
 license     :
     - Apache-2.0
