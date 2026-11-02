@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 name        : lichen-installer
-version     : "0.1.7~git.df1b607"
-release     : 2
+version     : "0.1.7~git.18e1f1d"
+release     : 3
 homepage    : https://github.com/aerynos/lichen-installer
 upstreams   :
     - git|https://github.com/aerynos/lichen-installer.git:
-        ref: df1b60719752550d990ef0edb66477727de14d16
+        ref: 18e1f1de70bf0a9976169e1cdc237ee3459b0576
 summary     : aerynOS Installer
 description : |
     aerynOS installer
