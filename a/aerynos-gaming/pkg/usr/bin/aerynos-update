@@ -36,8 +36,8 @@ moss repo list >> $logfile
 
 # Check if an update is available
 check_for_update () {
-	pkg_count_legacy=$(moss repo update >/dev/null 2>&1 && moss list sync 2>&1 |wc -l |tail -n1)
-	pkg_count=$(moss repo update >/dev/null 2>&1 && moss pkg list --sync 2>&1 |wc -l |tail -n1)
+	pkg_count_legacy=$(moss repo update >/dev/null 2>&1 && moss list sync 2>/dev/null |wc -l |tail -n1)
+	pkg_count=$(moss repo update >/dev/null 2>&1 && moss pkg list --sync 2>/dev/null |wc -l |tail -n1)
 	# Report to Steam if update is available
 	if [[ $pkg_count -ge 1 ]] || [[ $pkg_count_legacy -ge 1 ]]; then
 		printf "steamos-update: Update available\n" >> $logfile
