@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 39008
   rss: https://gitlab.com/libvirt/libvirt-python/-/tags?format=atom
 security:
-  cpe: ~ # Last checked 2025-01-06
+  # No known CPE. Last checked 2026-11-02
+  cpe: ~

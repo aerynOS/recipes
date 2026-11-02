@@ -26,11 +26,11 @@
 				"/usr/lib/python3.14/site-packages/__pycache__/libvirtaio.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/libvirt.py",
 				"/usr/lib/python3.14/site-packages/libvirt_lxc.py",
-				"/usr/lib/python3.14/site-packages/libvirt_python-12.8.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/libvirt_python-12.8.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/libvirt_python-12.8.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/libvirt_python-12.8.0.dist-info/licenses/COPYING",
-				"/usr/lib/python3.14/site-packages/libvirt_python-12.8.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/libvirt_python-12.9.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/libvirt_python-12.9.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/libvirt_python-12.9.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/libvirt_python-12.9.0.dist-info/licenses/COPYING",
+				"/usr/lib/python3.14/site-packages/libvirt_python-12.9.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/libvirt_qemu.py",
 				"/usr/lib/python3.14/site-packages/libvirtaio.py",
 				"/usr/lib/python3.14/site-packages/libvirtmod.cpython-314-x86_64-linux-gnu.so",
@@ -47,6 +47,6 @@
 		}
 	},
 	"source-name": "libvirt-python",
-	"source-release": "11",
-	"source-version": "12.8.0"
+	"source-release": "12",
+	"source-version": "12.9.0"
 }
