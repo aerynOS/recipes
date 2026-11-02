@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : aquamarine
-version     : "0.15.1"
-release     : 9
+version     : "0.16.0"
+release     : 10
 upstreams   :
-    - https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.15.1.tar.gz : 2f9de98c0bd1b7b1b09c576e390a2fef436449762fb334163c414f0c300296f2
+    - https://github.com/hyprwm/aquamarine/archive/refs/tags/v0.16.0.tar.gz : 42339c3096c9de6582c0d71bc86b7e63334a3faf6a2b917d385ad093caf66c3c
 homepage    : https://github.com/hyprwm/aquamarine
 license     : BSD-3-Clause
 summary     : A very light linux rendering backend library
