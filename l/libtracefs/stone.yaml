@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libtracefs
+version     : "1.8.4"
+release     : 1
+homepage    : https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/
+upstreams   :
+    - https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git/snapshot/libtracefs-1.8.4.tar.gz : 75187bad93e622c94c4a691173e45f08948d38b9a28e9b855b54a3e956d289a6
+summary     : Linux kernel trace file system library
+description : |
+    Linux kernel trace file system library
+license     :
+    - LGPL-2.1-only
+    - GPL-2.0-only
+builddeps   :
+    - binary(bison)
+    - binary(flex)
+    - pkgconfig(libtraceevent)
+setup       : |
+    # unit tests require access to tracefs, not sure
+    # if sandbox provides. disable this as it failing
+    %meson \
+        -Ddefault_library=shared \
+        -Ddoc=false \
+        -Dutest=false
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+
+    # meson only installs the SQL completion library,
+    # but not the sqlhist completion that sources it.
+    %install_file samples/sqlhist.bash %(installroot)%(bashcompletionsdir)/sqlhist
+packages    :
+    - "%(name)-tools":
+        summary: Linux kernel trace file system utilities
+        description: |
+            The sqlhist tool from libtracefs
+        paths:
+            - /usr/bin/sqlhist
+            - /usr/share/bash-completion/

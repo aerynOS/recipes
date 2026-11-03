@@ -1,0 +1,70 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libtracefs": {
+			"build-depends": [
+				"binary(bison)",
+				"binary(flex)",
+				"pkgconfig(libtraceevent)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libtraceevent.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libtracefs.so.1",
+				"/usr/lib/libtracefs.so.1.8.4"
+			],
+			"name": "libtracefs",
+			"provides": [
+				"soname(libtracefs.so.1(x86_64))"
+			]
+		},
+		"libtracefs-devel": {
+			"build-depends": [
+				"binary(bison)",
+				"binary(flex)",
+				"pkgconfig(libtraceevent)"
+			],
+			"depends": [
+				"libtracefs",
+				"pkgconfig(libtraceevent)"
+			],
+			"files": [
+				"/usr/include/libtracefs/tracefs.h",
+				"/usr/lib/libtracefs.so",
+				"/usr/lib/pkgconfig/libtracefs.pc"
+			],
+			"name": "libtracefs-devel",
+			"provides": [
+				"pkgconfig(libtracefs)"
+			]
+		},
+		"libtracefs-tools": {
+			"build-depends": [
+				"binary(bison)",
+				"binary(flex)",
+				"pkgconfig(libtraceevent)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libtraceevent.so.1(x86_64))",
+				"soname(libtracefs.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/sqlhist",
+				"/usr/share/bash-completion/completions/sqlhist",
+				"/usr/share/bash-completion/completions/tracefs_sql.bash"
+			],
+			"name": "libtracefs-tools",
+			"provides": [
+				"binary(sqlhist)"
+			]
+		}
+	},
+	"source-name": "libtracefs",
+	"source-release": "1",
+	"source-version": "1.8.4"
+}
