@@ -1,22 +1,40 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : poppler-data
 version     : "0.4.12"
-release     : 3
+release     : 4
 homepage    : https://poppler.freedesktop.org
 upstreams   :
     - https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz : c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74
+
+    # Identity CMaps: poppler synthesises these in code, ghostscript needs the files.
+    - https://dev.gentoo.org/~sam/distfiles/app-text/poppler-data/poppler-data-0.4.11-2-extra.tar.xz :
+        hash: 2f62dc1d20e1646e9c92e6fc35ba26f7d12b7cacee3577e5fd4a85511bfc6603
+        rename: poppler-data-extra.tar.xz
 summary     : Encoding files for use with poppler
 description : |
     This package consists of encoding files for use with poppler.  The
     encoding files are optional and poppler will automatically read them
     if they are present.  When installed, the encoding files enables
     poppler to correctly render CJK and Cyrillic properly.
-license     : GPL-3.0-or-later
+license     :
+    - AGPL-3.0-or-later # Identity-UTF16-H (Artifex)
+    - GPL-3.0-or-later
 setup       : |
+    mkdir -p extra
+    bsdtar-static -xf %(sourcedir)/poppler-data-extra.tar.xz -C extra --strip-components=1
+
     %cmake
 build       : |
     %cmake_build
 install     : |
     %cmake_install
+
+    # Ghostscript looks CMaps up flat, so flatten cMap/Adobe-*/ to the top level.
+    # Must run before the Identity install below, or the links collide.
+    pushd %(installroot)%(datadir)/poppler/cMap
+        find ../cMap -type f -exec ln -s {} . \;
+    popd
+
+    %install_file extra/Identity-* %(installroot)%(datadir)/poppler/cMap/
