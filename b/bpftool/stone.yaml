@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bpftool
-version     : "7.7.0"
-release     : 9
+version     : "7.8.1"
+release     : 10
 upstreams   :
-    - https://github.com/libbpf/bpftool/releases/download/v7.7.0/bpftool-libbpf-v7.7.0-sources.tar.gz: 7d46a381f607432bdb5201a08b889924b6a4883bf09e8efca82a86a7d122cc97
+    - https://github.com/libbpf/bpftool/releases/download/v7.8.1/bpftool-libbpf-v7.8.1-sources.tar.gz: fed76b7acb54d810cc3982eb6394726010114977542fd146695887a7d904b60c
 homepage    : https://github.com/libbpf/bpftool
 license     :
     - GPL-2.0-only
