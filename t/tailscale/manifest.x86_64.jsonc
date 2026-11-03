@@ -4,8 +4,8 @@
 	"packages": {
 		"tailscale": {
 			"build-depends": [
-				"git",
-				"golang"
+				"binary(git)",
+				"binary(go)"
 			],
 			"depends": [
 				"ca-certificates",
@@ -31,6 +31,6 @@
 		}
 	},
 	"source-name": "tailscale",
-	"source-release": "24",
-	"source-version": "1.104.4"
+	"source-release": "25",
+	"source-version": "1.104.5"
 }
