@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : inih
-version     : "62"
-release     : 8
+version     : "63"
+release     : 9
 homepage    : https://github.com/benhoyt/inih
 upstreams   :
-    - https://github.com/benhoyt/inih/archive/refs/tags/r62.tar.gz : 9c15fa751bb8093d042dae1b9f125eb45198c32c6704cd5481ccde460d4f8151
+    - https://github.com/benhoyt/inih/archive/refs/tags/r63.tar.gz : 5d7967de62c5bfdc4f9f5ab06ce44c9e498bae021c7dac5792c0696e76aa9963
 summary     : inih is a simple .INI file parser written in C
 description : |
     inih is a simple .INI file parser written in C
