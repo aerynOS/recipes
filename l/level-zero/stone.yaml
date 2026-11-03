@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : level-zero
-version     : "1.33.1"
-release     : 5
+version     : "1.34.0"
+release     : 6
 homepage    : https://github.com/oneapi-src/level-zero
 upstreams   :
-    - https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.33.1.tar.gz : e0274918e10d788041aa79e166699d0975de9adf1b0b650ee02c123f81f0533f
+    - https://github.com/oneapi-src/level-zero/archive/refs/tags/v1.34.0.tar.gz : 5856f6ff3ad465f8ea5dc7b7dc4f8b3d436d826f2751f91896d204b638fdc0d9
 summary     : oneAPI Level Zero Specification Headers and Loader
 description : |
     The oneAPI Level Zero (Level Zero) provides low-level direct-to-metal interfaces that are tailored to the devices in a oneAPI platform. This package includes the Level Zero headers, loader, and validation layer
@@ -16,6 +16,7 @@ builddeps   :
 checkdeps   :
     - cmake(GTest)
 setup       : |
+    # TODO: remove in next update after 1.35.0
     %patch %(pkgdir)/use-system-GTest.patch
 
     %cmake \
