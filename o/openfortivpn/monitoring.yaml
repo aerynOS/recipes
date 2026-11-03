@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 7491
+  rss: https://github.com/adrienverge/openfortivpn/releases.atom
+security:
+  cpe:
+  - vendor: openfortivpn_project
+    product: openfortivpn

@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : openfortivpn
+version     : "1.24.1"
+release     : 1
+homepage    : https://github.com/adrienverge/openfortivpn
+upstreams   :
+    - https://github.com/adrienverge/openfortivpn/archive/refs/tags/v1.24.1.tar.gz : c40d33acd97b89c2e943bfd839c19b69e5a7a5997052e2fc9a595602745c0465
+summary     : Client for Fortinet PPP+TLS VPN tunnel services
+description : |
+    openfortivpn is a client for PPP+TLS VPN tunnel services. It spawns
+    a pppd process and operates the communication between the gateway
+    and this process. It is compatible with Fortinet VPNs.
+license     : 
+    - GPL-3.0-or-later
+builddeps   :
+  - pkgconfig(libssl)
+rundeps     :
+  - sysbinary(pppd)
+setup       : |
+    %patch %(pkgdir)/0001-Fall-back-to-stateless-directory.patch
+    %autogen
+build       : |
+    %make
+install     : |
+    %make_install
+
+    # Stateless
+    %install_dir %(installroot)/usr/share/defaults/openfortivpn
+    mv -v %(installroot)/etc/openfortivpn/config %(installroot)/usr/share/defaults/openfortivpn
+    rmdir -v %(installroot)/etc/openfortivpn \
+             %(installroot)/etc
