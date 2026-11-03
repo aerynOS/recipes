@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name: 🚨 Request build support
@@ -17,7 +17,7 @@ body:
     id: search
     attributes:
       label: Existing reports?
-      description: Before opening a new issue, please search the [open issues](https://github.com/AerynOS/recipes/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22package%3A%20build%20failure%22) to ensure there is not already an open package build failure report for the problem.
+      description: Before opening a new issue, please search the [open issues](https://github.com/aerynOS/recipes/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22package%3A%20build%20failure%22) to ensure there is not already an open package build failure report for the problem.
       options:
         - label: I have searched open package build failure reports for this issue
           required: true
