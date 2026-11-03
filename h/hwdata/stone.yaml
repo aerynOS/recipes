@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hwdata
-version     : "0.412"
-release     : 28
+version     : "0.413"
+release     : 29
 homepage    : https://github.com/vcrhonek/hwdata
 upstreams   :
-    - https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.412.tar.gz : f0c64cd7e31d70a5fb3a52e53ab50a61e74c0421a6381eaa45114eec3bde5fe7
+    - https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.413.tar.gz : 5a71ab7a48c668ef912fcfdbec046949087019f8dd7fb967445d36fbeb778350
 summary     : Hardware identification + configuration data
 description : |
     hwdata contains various hardware identification and configuration data, such as the pci.ids and usb.ids databases.
