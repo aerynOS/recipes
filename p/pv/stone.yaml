@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pv
-version     : "1.12.0"
-release     : 8
+version     : "1.12.7"
+release     : 9
 homepage    : https://www.ivarch.com/programs/pv.shtml
 upstreams   :
-    - https://www.ivarch.com/programs/sources/pv-1.12.0.tar.gz : 31fdbdb449c7143cd2968567bef7599e9f031950e6158ee7bb76e40aebf6ffb8
+    - https://www.ivarch.com/programs/sources/pv-1.12.7.tar.gz : 5326ed7ee95ef18039390c0b17891ac28985ac7c7a4235070fab767c1fe37bd8
 summary     : Pipe Viewer
 description : |
     pv (Pipe Viewer) allows a user to see the progress of data through a pipeline, by giving information such as time elapsed, percentage completed (with progress bar), current throughput rate, total data transferred, and ETA.
@@ -20,3 +20,5 @@ build       : |
 install     : |
     %make_install
     %install_file docs/COPYING -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    %make check
