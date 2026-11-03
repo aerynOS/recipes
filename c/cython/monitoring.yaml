@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 36699
   rss: https://github.com/cython/cython/tags.atom
-# No known CPE, checked 2024-03-27
 security:
+  # No known CPE. Last checked 2026-11-03
   cpe: ~

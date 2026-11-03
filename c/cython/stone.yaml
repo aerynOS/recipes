@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cython
-version     : "3.3.0"
-release     : 14
+version     : "3.3.1"
+release     : 15
 homepage    : https://cython.org/
 upstreams   :
-    - https://pypi.debian.net/Cython/cython-3.3.0.tar.gz: eed0d93fbca7087f143b42c34b05a825849bdf17f101572c2105acfa49aa88b8
+    - https://pypi.debian.net/Cython/cython-3.3.1.tar.gz: e0e45989e821bef6aa9ae15c7d583ab5e055f7406c4b3624e49e06d24e90375a
 summary     : C-Extensions for Python
 description : |
     C-Extensions for Python

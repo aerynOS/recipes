@@ -14,12 +14,12 @@
 				"/usr/bin/cygdb",
 				"/usr/bin/cython",
 				"/usr/bin/cythonize",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/PKG-INFO",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/SOURCES.txt",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/dependency_links.txt",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/not-zip-safe",
-				"/usr/lib/python3.14/site-packages/Cython-3.3.0-py3.14.egg-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/PKG-INFO",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/SOURCES.txt",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/dependency_links.txt",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/not-zip-safe",
+				"/usr/lib/python3.14/site-packages/Cython-3.3.1-py3.14.egg-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/Cython/Build/BuildExecutable.py",
 				"/usr/lib/python3.14/site-packages/Cython/Build/Cache.py",
 				"/usr/lib/python3.14/site-packages/Cython/Build/Cythonize.py",
@@ -286,6 +286,7 @@
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/math.pxd",
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/setjmp.pxd",
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/signal.pxd",
+				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/stdbool.pxd",
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/stddef.pxd",
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/stdint.pxd",
 				"/usr/lib/python3.14/site-packages/Cython/Includes/libc/stdio.pxd",
@@ -512,6 +513,6 @@
 		}
 	},
 	"source-name": "cython",
-	"source-release": "14",
-	"source-version": "3.3.0"
+	"source-release": "15",
+	"source-version": "3.3.1"
 }
