@@ -14,6 +14,7 @@
 			"files": [
 				"/usr/bin/pv",
 				"/usr/share/doc/pv/ACKNOWLEDGEMENTS.md",
+				"/usr/share/doc/pv/CONTRIBUTING.md",
 				"/usr/share/doc/pv/COPYING",
 				"/usr/share/doc/pv/DEVELOPERS.md",
 				"/usr/share/doc/pv/INSTALL",
@@ -41,6 +42,6 @@
 		}
 	},
 	"source-name": "pv",
-	"source-release": "8",
-	"source-version": "1.12.0"
+	"source-release": "9",
+	"source-version": "1.12.7"
 }
