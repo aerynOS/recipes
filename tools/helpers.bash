@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 BOLD='\033[1m'
@@ -75,7 +75,7 @@ function cpesearch() {
     fi
 }
 
-# Goes to the root directory of the AerynOS recipes
+# Goes to the root directory of the aerynOS recipes
 # git repository from anywhere on the filesystem.
 # This function will only work if this script is sourced
 # by your bash shell.

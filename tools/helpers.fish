@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 function checkupdate -d "Check relaese-monitoring.org for a newer recipe version"
@@ -62,7 +62,7 @@ function cpesearch -d "Search for known CPE entries for a program or library"
     end
 end
 
-function gotoaosrepo -d "Go to the root of the AerynOS recipes repository"
+function gotoaosrepo -d "Go to the root of the aerynOS recipes repository"
     cd (__aos_repo_dir)
 end
 
