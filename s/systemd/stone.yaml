@@ -3,7 +3,7 @@
 
 name        : systemd
 version     : "261.4"
-release     : 106
+release     : 107
 summary     : A System and Service Manager
 license     :
     - GPL-2.0-or-later
@@ -83,10 +83,9 @@ setup       : |
     %patch %(pkgdir)/patches/downstream/0001-tmpfiles-Don-t-create-etc-nsswitch.conf.patch
     %patch %(pkgdir)/patches/downstream/0001-gpt-auto-generate-Stop-automounting-xbootldr-and-esp.patch
     %patch %(pkgdir)/patches/downstream/0001-path-lookup-Include-stateless-xdg-path-by-default.patch
-    # Needed because we conservatively enable agetty on all ttys for now
-    # due to KMSCon currently stealing focus from display managers
     %patch %(pkgdir)/patches/downstream/0001-downstream-Allow-default-font-to-be-set.patch
     %patch %(pkgdir)/patches/downstream/0001-Don-t-build-32bit-EFI-stub.patch
+    %patch %(pkgdir)/patches/downstream/0001-pam-Apply-limits-to-the-systemd-user-manager.patch
 
     # Upstream patches
     # Currently none

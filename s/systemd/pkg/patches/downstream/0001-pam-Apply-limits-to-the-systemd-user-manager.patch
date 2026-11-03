@@ -1,0 +1,27 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Mon, 2 Nov 2026 00:00:00 -0600
+Subject: [PATCH] pam: Apply limits to the systemd user manager
+
+The systemd-user PAM stack does not include pam_limits, so limits set in
+limits.conf or limits.d (for example rtprio/memlock for a realtime group)
+never reach user@.service or the applications it launches.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-02
+---
+ src/login/systemd-user.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/login/systemd-user.in b/src/login/systemd-user.in
+--- a/src/login/systemd-user.in
++++ b/src/login/systemd-user.in
+@@ -15,6 +15,7 @@
+ session  required   pam_loginuid.so
+ session  optional   pam_keyinit.so force revoke
+ session  required   pam_namespace.so
++session  required   pam_limits.so
+ {% if ENABLE_HOMED %}
+ -session optional   pam_systemd_home.so
+ {% endif %}
