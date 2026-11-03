@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 autoload -U +X compinit && compinit
@@ -18,7 +18,7 @@ function cpesearch() {
 }
 
 
-# Goes to the root directory of the AerynOS recipes
+# Goes to the root directory of the aerynOS recipes
 # git repository from anywhere on the filesystem.
 # This function will only work if this script is sourced
 # by your zsh shell.

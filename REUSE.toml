@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 version = 1
@@ -8,7 +8,7 @@ version = 1
 # it is a valid copyright notice anyway.
 [[annotations]]
 path = ["**/manifest.*.bin"]
-SPDX-FileCopyrightText = "AerynOS Developers"
+SPDX-FileCopyrightText = "aerynOS Developers"
 SPDX-License-Identifier = "MPL-2.0"
 
 # Configuration files usually don't have enough logic
@@ -54,5 +54,5 @@ SPDX-License-Identifier = "CC0-1.0"
 # this eventually needs to change.
 [[annotations]]
 path = ["**/manifest.*.jsonc"]
-SPDX-FileCopyrightText = "AerynOS Developers"
+SPDX-FileCopyrightText = "aerynOS Developers"
 SPDX-License-Identifier = "MPL-2.0"
