@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : glycin
-version     : "2.2.5"
-release     : 25
+version     : "2.2.6"
+release     : 26
 homepage    : https://gitlab.gnome.org/GNOME/glycin
 upstreams   :
-    - https://download.gnome.org/sources/glycin/2.2/glycin-2.2.5.tar.xz : 0766c32b80fcd858258cfd8cbb42783efc835d0e9256fdbfa6bdad034bb0717e
+    - https://download.gnome.org/sources/glycin/2.2/glycin-2.2.6.tar.xz : 6a114aa1117ec2d7bd578c8cefd235d993304dedfd1a62575dc31be9a146b791
 summary     : Sandboxed and extendable image loading
 description : |
   Glycin allows to decode images into gdk::Textures and to extract image metadata. The decoding happens in sandboxed modular image loaders.
