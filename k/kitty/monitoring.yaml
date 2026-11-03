@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
@@ -8,9 +8,3 @@ security:
   cpe:
   - vendor: kitty_project
     product: kitty
-  - vendor: 9bis
-    product: kitty
-  - vendor: portapps
-    product: kitty_portable
-  - vendor: sanriodigital
-    product: hello_kitty_cafe
