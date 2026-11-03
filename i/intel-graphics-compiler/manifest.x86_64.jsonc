@@ -37,11 +37,11 @@
 				"/usr/bin/iga64",
 				"/usr/lib/igc2/NOTICES.txt",
 				"/usr/lib/libiga64.so.2",
-				"/usr/lib/libiga64.so.2.41.0+0",
+				"/usr/lib/libiga64.so.2.42.0+0",
 				"/usr/lib/libigc.so.2",
-				"/usr/lib/libigc.so.2.41.0+0",
+				"/usr/lib/libigc.so.2.42.0+0",
 				"/usr/lib/libigdfcl.so.2",
-				"/usr/lib/libigdfcl.so.2.41.0+0",
+				"/usr/lib/libigdfcl.so.2.42.0+0",
 				"/usr/lib/libopencl-clang.so.22.1"
 			],
 			"name": "intel-graphics-compiler",
@@ -200,6 +200,6 @@
 		}
 	},
 	"source-name": "intel-graphics-compiler",
-	"source-release": "9",
-	"source-version": "2.41.5"
+	"source-release": "10",
+	"source-version": "2.42.6"
 }
