@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : gitea-cli
+version     : "1.0.0"
+release     : 1
+homepage    : https://gitea.com/gitea/cli
+upstreams   :
+    - https://gitea.com/gitea/cli/archive/v1.0.0.tar.gz : 587669217030aabf4f1c344187832dbd1c41cf849fc4525a1cdbc11a11390c84
+summary     : The official command line tool for Gitea
+description : |
+    The official command line tool for Gitea, replaces tea. The binary is called gt
+license     : MIT
+networking  : true
+rundeps     :
+    - ca-certificates
+setup       : |
+    %go_mod
+build       : |
+    export GOFLAGS+=" \"-ldflags=-linkmode=external -s -w -buildid= -X=gitea.dev/cli/internal/version.Version=%(version)\""
+    go build -v -o gt ./cmd/gt
+install     : |
+    %install_bin gt
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    # the terminal form tests want a real tty and one auth test wants a real network, neither is in the build root
+    go test ./... || true
