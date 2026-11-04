@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lcms2
-version     : "2.19.1"
-release     : 9
+version     : "2.20"
+release     : 10
 homepage    : https://www.littlecms.com/
 upstreams   :
-    - https://github.com/mm2/Little-CMS/releases/download/lcms2.19.1/lcms2-2.19.1.tar.gz : bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8
+    - https://github.com/mm2/Little-CMS/releases/download/lcms2.20/lcms2-2.20.tar.gz : 18ff5504fa9cc8a2b1f3591180d90ead16c8a2ea78e530523b46eab70e1ca6b9
 summary     : A free, open source, CMM engine. It provides fast transforms between ICC profiles.
 description : |
     Little CMS intends to be an OPEN SOURCE small-footprint color management engine, with special focus on accuracy and performance. It uses the International Color Consortium standard (ICC), which is the modern standard when re garding to color management. The ICC specification is widely used and is referred to in many International and other de-facto standards. It was approved as an International Standard, ISO 15076-1, in 2005.
