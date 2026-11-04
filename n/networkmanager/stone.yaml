@@ -3,7 +3,7 @@
 
 name        : networkmanager
 version     : "1.58.1"
-release     : 20
+release     : 21
 homepage    : https://wiki.gnome.org/Projects/NetworkManager
 upstreams   :
     - https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/releases/1.58.1/downloads/NetworkManager-1.58.1.tar.xz : 262864cfd198123d3e5dbe91937441b97ee9059d6d712e1a5bfbb1c54668d14d
