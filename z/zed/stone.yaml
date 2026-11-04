@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zed
-version     : "1.26.2"
-release     : 71
+version     : "1.27.0"
+release     : 72
 homepage    : https://zed.dev/
 upstreams   :
-    - https://github.com/zed-industries/zed/archive/refs/tags/v1.26.2.tar.gz : c101b00c4634a836c43664778b29f3a0f49777f88966d863905e3607a30e776a
+    - https://github.com/zed-industries/zed/archive/refs/tags/v1.27.0.tar.gz : 0e7bec0a4f27ed4d3a9007b136bea8c820e50d60bd96a78a444a93c520726b0a
 summary     : High performance, graphical code editor
 description : |
     Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
