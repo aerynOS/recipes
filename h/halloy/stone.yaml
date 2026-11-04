@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : halloy
-version     : "2026.9"
-release     : 2
+version     : "2026.10"
+release     : 3
 homepage    : https://halloy.chat/
 upstreams   :
-    - https://github.com/squidowl/halloy/archive/refs/tags/2026.9.tar.gz : 5d35f1f6cb2902225b5267b62423d3f41d088147a66c0044148c16a6ca7cd4cd
+    - https://github.com/squidowl/halloy/archive/refs/tags/2026.10.tar.gz : 19b77a7e09cf66ef518bfa5b1e8b3c07713373d7468d30500b093e327729a00b
 summary     : Open-source IRC client
 description : |
     Halloy is a native cross-platform desktop IRC client built with Rust and the iced GUI library. 
