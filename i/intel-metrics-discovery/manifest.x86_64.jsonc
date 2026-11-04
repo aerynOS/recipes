@@ -1,0 +1,46 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"intel-metrics-discovery": {
+			"build-depends": [
+				"pkgconfig(libdrm)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libdrm.so.2(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libigdmd.so.1",
+				"/usr/lib/libigdmd.so.1.16.199"
+			],
+			"name": "intel-metrics-discovery",
+			"provides": [
+				"soname(libigdmd.so.1(x86_64))"
+			]
+		},
+		"intel-metrics-discovery-devel": {
+			"build-depends": [
+				"pkgconfig(libdrm)"
+			],
+			"depends": [
+				"intel-metrics-discovery"
+			],
+			"files": [
+				"/usr/include/metrics_discovery_api.h",
+				"/usr/lib/libigdmd.so",
+				"/usr/lib/pkgconfig/libigdmd.pc"
+			],
+			"name": "intel-metrics-discovery-devel",
+			"provides": [
+				"pkgconfig(libigdmd)"
+			]
+		}
+	},
+	"source-name": "intel-metrics-discovery",
+	"source-release": "1",
+	"source-version": "1.16.199"
+}

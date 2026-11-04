@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : intel-metrics-discovery
+version     : "1.16.199"
+release     : 1
+homepage    : https://github.com/intel/metrics-discovery
+upstreams   :
+    - https://github.com/intel/metrics-discovery/archive/refs/tags/1.16.199.tar.gz : 9122a6bd9cb730ba781688be8c2488d0cdf18bfdfecb79b65f3ed5a30492bf46
+summary     : User mode library that provides access to GPU performance data.
+description : |
+    User mode library that provides access to GPU performance data.
+license     : MIT
+builddeps   :
+    - pkgconfig(libdrm)
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
