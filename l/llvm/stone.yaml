@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : llvm
-version     : "23.1.4"
-release     : 68
+version     : "23.1.5"
+release     : 69
 homepage    : https://www.llvm.org
 upstreams   :
-    - https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.4/llvm-project-23.1.4.src.tar.xz : 819ecf7351f1a66f76b2d701d8942faaf5faeb324cb90c9d5b090de142434bb2
+    - https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm-project-23.1.5.src.tar.xz : fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e
 summary     : Low Level Virtual Machine
 description : |
     Low Level Virtual Machine
@@ -134,7 +134,7 @@ environment : |
             -DCLANG_DEFAULT_PIE_ON_LINUX=ON \
             -DCLANG_LINK_CLANG_DYLIB=ON \
             -DCLANG_PLUGIN_SUPPORT=ON \
-            -DCLANG_REPOSITORY_STRING="AerynOS" \
+            -DCLANG_REPOSITORY_STRING="aerynOS" \
             -DENABLE_LINKER_BUILD_ID=ON \
             -DFLANG_RT_ENABLE_SHARED=ON \
             -DFLANG_RT_ENABLE_STATIC=OFF \
