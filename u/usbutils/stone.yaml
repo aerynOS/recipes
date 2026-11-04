@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : usbutils
-version     : "019"
-release     : 6
+version     : "020"
+release     : 7
 homepage    : https://github.com/gregkh/usbutils
 upstreams   :
-    - https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-019.tar.xz : 659f40c440e31ba865c52c818a33d3ba6a97349e3353f8b1985179cb2aa71ec5
+    - https://mirrors.edge.kernel.org/pub/linux/utils/usb/usbutils/usbutils-020.tar.xz : 20287d68fcd9ebb50a05ba0645a4af7583bd8dfc7307215ba121e4bc6d057aa1
 summary     : USB utilities for Linux, including lsusb
 description : |
     This is a collection of USB tools for use on Linux systems to query what type of USB devices are connected to the system.
