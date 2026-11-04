@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : bandwhich
+version     : "0.23.1"
+release     : 1
+homepage    : https://github.com/imsnif/bandwhich
+upstreams   :
+    - https://github.com/imsnif/bandwhich/archive/refs/tags/v0.23.1.tar.gz : aafb96d059cf9734da915dca4f5940c319d2e6b54e2ffb884332e9f5e820e6d7
+summary     : Terminal bandwidth utilization tool
+description : |
+    Shows live network usage per process and per remote address, for the terminal. Handy for finding what's eating your bandwidth.
+license     : MIT
+networking  : true
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+
+    %install_file LICENSE.md %(installroot)%(datadir)/licenses/%(name)/LICENSE.md
+check       : |
+    %cargo_test
