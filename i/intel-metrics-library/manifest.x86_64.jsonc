@@ -1,0 +1,47 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"intel-metrics-library": {
+			"build-depends": [
+				"pkgconfig(libdrm)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libdrm.so.2(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libigdml.so.1",
+				"/usr/lib/libigdml.so.1.0.249"
+			],
+			"name": "intel-metrics-library",
+			"provides": [
+				"soname(libigdml.so.1(x86_64))"
+			]
+		},
+		"intel-metrics-library-devel": {
+			"build-depends": [
+				"pkgconfig(libdrm)"
+			],
+			"depends": [
+				"intel-metrics-library"
+			],
+			"files": [
+				"/usr/include/metrics_library_api_1_0.h",
+				"/usr/lib/libigdml.so",
+				"/usr/lib/libigdml64.so",
+				"/usr/lib/pkgconfig/libigdml.pc"
+			],
+			"name": "intel-metrics-library-devel",
+			"provides": [
+				"pkgconfig(libigdml)"
+			]
+		}
+	},
+	"source-name": "intel-metrics-library",
+	"source-release": "1",
+	"source-version": "1.0.249"
+}

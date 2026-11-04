@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : intel-metrics-library
+version     : "1.0.249"
+release     : 1
+homepage    : https://github.com/intel/metrics-library
+upstreams   :
+    - https://github.com/intel/metrics-library/archive/refs/tags/1.0.249.tar.gz : dd876e66268a2c4022aff5589e2a21dcebaca26238008572ff2195ed835d3f34
+summary     : User mode driver helper library that provides access to GPU performance counters.
+description : |
+    User mode driver helper library that provides access to GPU performance counters.
+license     : MIT
+builddeps   :
+    - pkgconfig(libdrm)
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
