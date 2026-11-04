@@ -165,6 +165,7 @@ enable tinysparql-xdg-portal-3.service
 enable keyd.service
 enable cardwired.service
 enable tailscaled.service
+enable rsyncd.service
 
 # ZFS support
 enable zfs-import-cache.service
