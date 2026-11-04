@@ -1,0 +1,303 @@
+From e494dac5b0fcd471f1660b433c281cb39917aba9 Mon Sep 17 00:00:00 2001
+From: akshatj0630 <jainakshat0630@gmail.com>
+Date: Fri, 26 Jun 2026 20:53:19 +0530
+Subject: [PATCH] Fix: Eliminate white flashes in dark mode and add App Theme
+ selector
+
+Fixes #1512.
+
+Origin: upstream, https://github.com/zulip/zulip-desktop/pull/1525
+Forwarded: not-needed
+Last-Update: 2026-11-04
+---
+ app/common/config-schemata.ts                 |   1 +
+ app/main/index.ts                             |   3 +
+ app/renderer/css/about.css                    |  22 ++++
+ app/renderer/css/main.css                     |   8 ++
+ app/renderer/css/network.css                  |  12 ++
+ app/renderer/css/preference.css               | 105 +++++++++++++++++-
+ .../js/pages/preference/general-section.ts    |  31 +++++-
+ 7 files changed, 180 insertions(+), 2 deletions(-)
+
+diff --git a/app/common/config-schemata.ts b/app/common/config-schemata.ts
+index 8d74f2583..390c5123d 100644
+--- a/app/common/config-schemata.ts
++++ b/app/common/config-schemata.ts
+@@ -8,6 +8,7 @@ export const dndSettingsSchemata = {
+ 
+ export const configSchemata = {
+   ...dndSettingsSchemata,
++  appTheme: z.enum(["system", "light", "dark"]),
+   appLanguage: z.string().nullable(),
+   autoHideMenubar: z.boolean(),
+   autoUpdate: z.boolean(),
+diff --git a/app/main/index.ts b/app/main/index.ts
+index 4822c668e..4567789f8 100644
+--- a/app/main/index.ts
++++ b/app/main/index.ts
+@@ -5,6 +5,7 @@ import {
+   type WebContents,
+   app,
+   dialog,
++  nativeTheme,
+   powerMonitor,
+   session,
+   webContents,
+@@ -174,6 +175,8 @@ function createMainWindow(): BrowserWindow {
+ 
+   remoteMain.initialize();
+ 
++  nativeTheme.themeSource = ConfigUtil.getConfigItem("appTheme", "system");
++
+   app.on("second-instance", () => {
+     if (mainWindow) {
+       if (mainWindow.isMinimized()) {
+diff --git a/app/renderer/css/about.css b/app/renderer/css/about.css
+index 28bf7fca4..52db4b6e8 100644
+--- a/app/renderer/css/about.css
++++ b/app/renderer/css/about.css
+@@ -66,3 +66,25 @@ p.detail a {
+ p.detail a:hover {
+   text-decoration: underline;
+ }
++
++@media (prefers-color-scheme: dark) {
++  :host {
++    background: rgb(28 38 43 / 100%);
++  }
++
++  #version {
++    color: rgb(180 180 180 / 100%);
++  }
++
++  .about p {
++    color: rgb(220 220 220 / 90%);
++  }
++
++  .maintenance-info {
++    color: rgb(180 180 180 / 100%);
++  }
++
++  p.detail a {
++    color: rgb(78 191 172 / 100%);
++  }
++}
+diff --git a/app/renderer/css/main.css b/app/renderer/css/main.css
+index 490da3fca..31800c7d0 100644
+--- a/app/renderer/css/main.css
++++ b/app/renderer/css/main.css
+@@ -492,3 +492,11 @@ webview.focus {
+     opacity: 1;
+   }
+ }
++
++@media (prefers-color-scheme: dark) {
++  html,
++  body,
++  #webviews-container::before {
++    background-color: rgb(28 38 43 / 100%);
++  }
++}
+diff --git a/app/renderer/css/network.css b/app/renderer/css/network.css
+index 3ed118e55..f1605bfa6 100644
+--- a/app/renderer/css/network.css
++++ b/app/renderer/css/network.css
+@@ -57,3 +57,15 @@ body {
+ .button:hover {
+   opacity: 0.8;
+ }
++
++@media (prefers-color-scheme: dark) {
++  html,
++  body {
++    background: rgb(28 38 43 / 100%);
++    color: rgb(220 220 220 / 100%);
++  }
++
++  .button {
++    background: rgb(78 191 172 / 100%);
++  }
++}
+diff --git a/app/renderer/css/preference.css b/app/renderer/css/preference.css
+index 37bd08fea..ac2b88505 100644
+--- a/app/renderer/css/preference.css
++++ b/app/renderer/css/preference.css
+@@ -742,7 +742,8 @@ i.open-network-button {
+   }
+ }
+ 
+-.lang-menu {
++.lang-menu,
++.theme-menu {
+   font-size: 13px;
+   font-weight: bold;
+   background: rgb(78 191 172 / 100%);
+@@ -768,3 +769,105 @@ i.open-network-button {
+   z-index: 9999;
+   height: 0;
+ }
++
++@media (prefers-color-scheme: dark) {
++  :host {
++    background: rgb(28 38 43 / 100%);
++    color: rgb(220 220 220 / 100%);
++
++    --tagify-dd-bg-color: rgb(41 53 59);
++  }
++
++  kbd {
++    border-color: rgb(60 75 83 / 100%);
++    background-color: rgb(34 44 49 / 100%);
++    color: rgb(220 220 220 / 100%);
++    text-shadow: none;
++  }
++
++  table,
++  th,
++  td {
++    color: rgb(220 220 220 / 100%);
++  }
++
++  #sidebar {
++    background: rgb(34 44 49 / 100%);
++  }
++
++  .nav {
++    color: rgb(170 180 190 / 100%);
++  }
++
++  .nav.active {
++    color: rgb(78 191 172 / 100%);
++  }
++
++  .nav.active::before {
++    background: rgb(170 180 190 / 100%);
++  }
++
++  #settings-header {
++    color: rgb(240 240 240 / 100%);
++  }
++
++  .title,
++  .page-title {
++    color: rgb(240 240 240 / 100%);
++  }
++
++  .sub-title {
++    color: rgb(160 160 160 / 100%);
++  }
++
++  .setting-input-value {
++    color: rgb(240 240 240 / 100%);
++    border-color: rgb(60 75 83 / 100%);
++  }
++
++  .settings-card {
++    background: rgb(41 53 59 / 100%);
++  }
++
++  .settings-card:hover {
++    box-shadow:
++      0 2px 5px 0 rgb(0 0 0 / 40%),
++      0 2px 0 0 rgb(0 0 0 / 30%);
++  }
++
++  .red {
++    background: rgb(28 38 43 / 100%);
++  }
++
++  .grey {
++    color: rgb(180 180 180 / 100%);
++    background: rgb(34 44 49 / 100%);
++    border-color: rgb(60 75 83 / 100%);
++  }
++
++  .selected-css-path,
++  .download-folder-path {
++    background: rgb(34 44 49 / 100%);
++  }
++
++  input.toggle-round + label {
++    background-color: rgb(60 75 83 / 100%);
++  }
++
++  input.toggle-round + label::before {
++    background-color: rgb(41 53 59 / 100%);
++  }
++
++  .modal-container {
++    background-color: rgb(41 53 59 / 100%);
++    border-color: rgb(60 75 83 / 100%);
++  }
++
++  .action {
++    color: rgb(78 191 172);
++  }
++
++  .action.disabled {
++    color: hsl(0deg 0% 45%);
++  }
++}
+diff --git a/app/renderer/js/pages/preference/general-section.ts b/app/renderer/js/pages/preference/general-section.ts
+index b981e0c46..8410a8c3e 100644
+--- a/app/renderer/js/pages/preference/general-section.ts
++++ b/app/renderer/js/pages/preference/general-section.ts
+@@ -4,7 +4,7 @@ import path from "node:path";
+ import process from "node:process";
+ 
+ import * as remote from "@electron/remote";
+-import {app, dialog, session} from "@electron/remote";
++import {app, dialog, nativeTheme, session} from "@electron/remote";
+ import Tagify from "@yaireo/tagify";
+ import {z} from "zod";
+ 
+@@ -28,6 +28,10 @@ export function initGeneralSection({$root}: GeneralSectionProperties): void {
+     <div class="settings-pane">
+       <div class="title">${t.__("Appearance")}</div>
+       <div id="appearance-option-settings" class="settings-card">
++        <div class="setting-row" id="app-theme-option">
++          <div class="setting-description">${t.__("App Theme")}</div>
++          <div id="app-theme-div" class="app-theme-div"></div>
++        </div>
+         <div class="setting-row" id="tray-option">
+           <div class="setting-description">
+             ${t.__("Show app icon in system tray")}
+@@ -211,6 +215,7 @@ export function initGeneralSection({$root}: GeneralSectionProperties): void {
+     </div>
+   `.html;
+ 
++  initAppTheme();
+   updateTrayOption();
+   updateBadgeOption();
+   updateSilentOption();
+@@ -249,6 +254,30 @@ export function initGeneralSection({$root}: GeneralSectionProperties): void {
+     updateMenubarOption();
+   }
+ 
++  function initAppTheme(): void {
++    const themeDiv: HTMLSelectElement = $root.querySelector(".app-theme-div")!;
++    const themeOptions = {
++      system: t.__("Automatic"),
++      light: t.__("Light"),
++      dark: t.__("Dark"),
++    };
++    const themeListHtml = generateSelectHtml(themeOptions, "theme-menu");
++    themeDiv.innerHTML += themeListHtml.html;
++
++    const themeMenu: HTMLSelectElement = $root.querySelector(".theme-menu")!;
++
++    const currentTheme = ConfigUtil.getConfigItem("appTheme", "system");
++    themeMenu.options.namedItem(currentTheme)!.selected = true;
++
++    themeMenu.addEventListener("change", () => {
++      const newTheme = z
++        .enum(["system", "light", "dark"])
++        .parse(themeMenu.value);
++      ConfigUtil.setConfigItem("appTheme", newTheme);
++      nativeTheme.themeSource = newTheme;
++    });
++  }
++
+   function updateTrayOption(): void {
+     generateSettingOption({
+       $element: $root.querySelector("#tray-option .setting-control")!,

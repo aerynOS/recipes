@@ -3,13 +3,14 @@
 
 name        : zulip-desktop
 version     : "5.14.2"
-release     : 8
-homepage    : https://zulipchat.com
+release     : 9
+homepage    : https://zulip.com
 upstreams   :
     - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.14.2.tar.gz : 9be427a5e7e2218c9ebcbefc9decad9c3ed2b3815598ab78db233d3d6ca1dd52
 summary     : Desktop client for Zulip
 description : |
-    Real-time team chat based on the email threading model
+    Zulip is an organized team chat app for distributed teams of all sizes,
+    combining the immediacy of real-time chat with an email-style threading model.
 license     : Apache-2.0
 networking  : true
 builddeps   :
@@ -18,6 +19,7 @@ rundeps     :
     - binary(xdg-open)
 setup       : |
     %patch %(pkgdir)/0001-Disable-auto-update.patch
+    %patch %(pkgdir)/1525.patch
 
     pnpm install
 build       : |

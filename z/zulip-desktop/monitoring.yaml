@@ -5,7 +5,7 @@ releases:
   id: 374790
   rss: https://github.com/zulip/zulip-desktop/releases.atom
 security:
-  # Last checked 2026-11-02
+  # Last checked 2026-11-04
   cpe:
   - vendor: zulipchat
     product: zulip_desktop
