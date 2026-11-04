@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : noctalia-greeter
+version     : "1.7.0"
+release     : 1
+homepage    : https://github.com/noctalia-dev/noctalia-greeter
+upstreams   :
+    - https://github.com/noctalia-dev/noctalia-greeter/archive/refs/tags/v1.7.0.tar.gz : 5b092784c0147bb6739efc2e8146d2d07e3572a59d7a370e93092f9f56d4fcc8
+summary     : Login greeter that matches the look and feel of Noctalia Shell.
+description : |
+    Noctalia Greeter is a minimal login greeter for greetd that matches the look and feel of Noctalia Shell. The current theme and wallpaper can be synced via the Noctalia settings me menu.
+license     : MIT AND (Apache-2.0 OR MIT)
+builddeps   :
+    - pkgconfig(cairo)
+    - pkgconfig(fontconfig)
+    - pkgconfig(freetype2)
+    - pkgconfig(libinput)
+    - pkgconfig(libjxl)
+    - pkgconfig(librsvg-2.0)
+    - pkgconfig(libwebp)
+    - pkgconfig(libxml-2.0)
+    - pkgconfig(nlohmann_json)
+    - pkgconfig(pango)
+    - pkgconfig(tomlplusplus)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(wayland-server)
+    - pkgconfig(wlroots-0.20)
+    - pkgconfig(xkbcommon)
+    - stb
+rundeps     :
+    - binary(dbus-run-session)
+    - binary(gnome-keyring-daemon)
+    - binary(greetd)
+    - linux-pam
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+
+    # Userdb
+    %install_file %(pkgdir)/noctalia-greeter.group %(installroot)%(libdir)/userdb/noctalia-greeter.group
+    ln -s noctalia-greeter.group %(installroot)%(libdir)/userdb/25.group
+
+    %install_file %(pkgdir)/noctalia-greeter.user %(installroot)%(libdir)/userdb/noctalia-greeter.user
+    ln -s noctalia-greeter.user %(installroot)%(libdir)/userdb/25.user
+
+    # Systemd
+    %install_file %(pkgdir)/noctalia-greeter.service %(installroot)%(libdir)/systemd/system/noctalia-greeter.service
+    %install_file %(pkgdir)/noctalia-greeter.toml %(installroot)%(datadir)/greetd/noctalia-greeter.toml
+
+    # Pam
+    %install_file %(pkgdir)/noctalia-greeter.pam %(installroot)%(vendordir)/pam.d/noctalia-greeter
+
+    # Override tmpfile config created by meson to use the correct user
+    rm -f %(installroot)%(tmpfilesdir)/noctalia-greeter.conf
+    %tmpfiles 'd /var/lib/noctalia-greeter 0750 noctalia-greeter noctalia-greeter -'
+    %tmpfiles 'Z /var/lib/noctalia-greeter 0750 noctalia-greeter noctalia-greeter -'
