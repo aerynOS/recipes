@@ -1,0 +1,90 @@
+From 5f6d8f8b6b1834a447250f05c45a146019a83927 Mon Sep 17 00:00:00 2001
+From: Sebastian Luzynski <sebastian.luzynski@intel.com>
+Date: Mon, 26 Oct 2026 11:18:59 +0000
+Subject: [PATCH] test: fix build failure when using LLVM-23
+
+Clang-23 has a new check unused-but-set-global that was causing build
+failures. This check is enabled by -Wall flag. This change removes set but
+unused globals.
+
+Signed-off-by: Sebastian Luzynski <sebastian.luzynski@intel.com>
+---
+ level_zero/core/test/black_box_tests/common/zello_common.cpp   | 2 --
+ .../unit_test/os_interface/linux/drm_memory_manager_tests.cpp  | 3 ---
+ shared/test/unit_test/os_interface/windows/wddm_tests.cpp      | 3 ---
+ 3 files changed, 8 deletions(-)
+
+diff --git a/level_zero/core/test/black_box_tests/common/zello_common.cpp b/level_zero/core/test/black_box_tests/common/zello_common.cpp
+index a11eae21b2faa..32968b47d9036 100644
+--- a/level_zero/core/test/black_box_tests/common/zello_common.cpp
++++ b/level_zero/core/test/black_box_tests/common/zello_common.cpp
+@@ -33,7 +33,6 @@ static LoadedDriverExtensions driverExtensions;
+ 
+ using LoadedDeviceQueueProperties = std::map<ze_device_handle_t, std::vector<ze_command_queue_group_properties_t>>;
+ static LoadedDeviceQueueProperties deviceQueueProperties;
+-static ze_driver_handle_t testDriverHandle;
+ 
+ std::vector<ze_command_queue_group_properties_t> &getDeviceQueueProperties(ze_device_handle_t device) {
+     auto &queueProperties = deviceQueueProperties[device];
+@@ -503,7 +502,6 @@ std::vector<ze_device_handle_t> zelloInitContextAndGetDevices(ze_context_handle_
+ 
+     driverCount = 1;
+     SUCCESS_OR_TERMINATE(zeInitDrivers(&driverCount, &driverHandle, &desc));
+-    testDriverHandle = driverHandle;
+ 
+     context = zerGetDefaultContext();
+     if (!context) {
+diff --git a/shared/test/unit_test/os_interface/linux/drm_memory_manager_tests.cpp b/shared/test/unit_test/os_interface/linux/drm_memory_manager_tests.cpp
+index cc55677fb9ee1..c07c276fdc694 100644
+--- a/shared/test/unit_test/os_interface/linux/drm_memory_manager_tests.cpp
++++ b/shared/test/unit_test/os_interface/linux/drm_memory_manager_tests.cpp
+@@ -113,13 +113,11 @@ void *capturingHostMmap(void *addr, size_t len, int prot, int flags, int fd, off
+     capturedHostMmapFlags = flags;
+     return addr;
+ }
+-void *capturedMremapOldAddress = nullptr;
+ size_t capturedMremapSize = 0u;
+ void *capturedMremapNewAddress = nullptr;
+ uint32_t capturedMremapCalls = 0u;
+ bool failCapturedMremap = false;
+ void *capturingMremapFixed(void *oldAddress, size_t size, void *newAddress) noexcept {
+-    capturedMremapOldAddress = oldAddress;
+     capturedMremapSize = size;
+     capturedMremapNewAddress = newAddress;
+     capturedMremapCalls++;
+@@ -142,7 +140,6 @@ void resetCapturedNoReplace() {
+     failCapturedNoReplace = false;
+ }
+ void resetCapturedMremap() {
+-    capturedMremapOldAddress = nullptr;
+     capturedMremapSize = 0u;
+     capturedMremapNewAddress = nullptr;
+     capturedMremapCalls = 0u;
+diff --git a/shared/test/unit_test/os_interface/windows/wddm_tests.cpp b/shared/test/unit_test/os_interface/windows/wddm_tests.cpp
+index f071ade2f2d45..330ce19dfa145 100644
+--- a/shared/test/unit_test/os_interface/windows/wddm_tests.cpp
++++ b/shared/test/unit_test/os_interface/windows/wddm_tests.cpp
+@@ -1662,7 +1662,6 @@ struct ShareObjectsCapture {
+         callCount++;
+         lastObjectCount = cObjects;
+         lastResourceHandle = hObjects ? *hObjects : 0u;
+-        lastObjectAttributes = pObjectAttributes;
+         lastDesiredAccess = dwDesiredAccess;
+         *phSharedNtHandle = reinterpret_cast<HANDLE>(static_cast<uintptr_t>(0x1234u));
+         return returnValue;
+@@ -1672,7 +1671,6 @@ struct ShareObjectsCapture {
+         callCount = 0u;
+         lastObjectCount = 0u;
+         lastResourceHandle = 0u;
+-        lastObjectAttributes = nullptr;
+         lastDesiredAccess = 0u;
+         returnValue = STATUS_SUCCESS;
+     }
+@@ -1680,7 +1678,6 @@ struct ShareObjectsCapture {
+     inline static uint32_t callCount = 0u;
+     inline static UINT lastObjectCount = 0u;
+     inline static D3DKMT_HANDLE lastResourceHandle = 0u;
+-    inline static POBJECT_ATTRIBUTES lastObjectAttributes = nullptr;
+     inline static DWORD lastDesiredAccess = 0u;
+     inline static NTSTATUS returnValue = STATUS_SUCCESS;
+ };

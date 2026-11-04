@@ -4,15 +4,20 @@
 	"packages": {
 		"intel-compute-runtime": {
 			"build-depends": [
+				"binary(mold)",
 				"cmake(igsc)",
 				"pkgconfig(igc-opencl)",
 				"pkgconfig(igdgmm)",
 				"pkgconfig(level-zero)",
 				"pkgconfig(libdrm)",
+				"pkgconfig(libigdmd)",
+				"pkgconfig(libigdml)",
 				"pkgconfig(libnl-3.0)",
+				"pkgconfig(libtracefs)",
 				"pkgconfig(libudev)",
 				"pkgconfig(libva)",
-				"pkgconfig(libze_loader)"
+				"pkgconfig(libze_loader)",
+				"pkgconfig(ocl-icd)"
 			],
 			"depends": [
 				"intel-graphics-compiler",
@@ -29,7 +34,7 @@
 				"/usr/lib/intel-opencl/libigdrcl.so",
 				"/usr/lib/libocloc.so",
 				"/usr/lib/libze_intel_gpu.so.1",
-				"/usr/lib/libze_intel_gpu.so.1.17.39758",
+				"/usr/lib/libze_intel_gpu.so.1.18.40196",
 				"/usr/share/OpenCL/vendors/intel.icd"
 			],
 			"name": "intel-compute-runtime",
@@ -42,15 +47,20 @@
 		},
 		"intel-compute-runtime-devel": {
 			"build-depends": [
+				"binary(mold)",
 				"cmake(igsc)",
 				"pkgconfig(igc-opencl)",
 				"pkgconfig(igdgmm)",
 				"pkgconfig(level-zero)",
 				"pkgconfig(libdrm)",
+				"pkgconfig(libigdmd)",
+				"pkgconfig(libigdml)",
 				"pkgconfig(libnl-3.0)",
+				"pkgconfig(libtracefs)",
 				"pkgconfig(libudev)",
 				"pkgconfig(libva)",
-				"pkgconfig(libze_loader)"
+				"pkgconfig(libze_loader)",
+				"pkgconfig(ocl-icd)"
 			],
 			"depends": [
 				"intel-compute-runtime"
@@ -78,6 +88,6 @@
 		}
 	},
 	"source-name": "intel-compute-runtime",
-	"source-release": "9",
-	"source-version": "26.35.39758.10"
+	"source-release": "10",
+	"source-version": "26.40.40196.15"
 }
