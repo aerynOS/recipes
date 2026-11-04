@@ -38,9 +38,56 @@
 				"binary(rsync)",
 				"binary(rsync-ssl)"
 			]
+		},
+		"rsync-daemon": {
+			"build-depends": [
+				"binary(python3)",
+				"pkgconfig(libacl)",
+				"pkgconfig(libidn2)",
+				"pkgconfig(liblz4)",
+				"pkgconfig(libxxhash)",
+				"pkgconfig(libzstd)",
+				"pkgconfig(openssl)",
+				"pkgconfig(popt)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"rsync"
+			],
+			"files": [
+				"/usr/lib/systemd/system/rsync.service",
+				"/usr/lib/systemd/system/rsync.socket",
+				"/usr/lib/systemd/system/rsync@.service"
+			],
+			"name": "rsync-daemon"
+		},
+		"rsync-rrsync": {
+			"build-depends": [
+				"binary(python3)",
+				"pkgconfig(libacl)",
+				"pkgconfig(libidn2)",
+				"pkgconfig(liblz4)",
+				"pkgconfig(libxxhash)",
+				"pkgconfig(libzstd)",
+				"pkgconfig(openssl)",
+				"pkgconfig(popt)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"binary(python3)",
+				"rsync"
+			],
+			"files": [
+				"/usr/bin/rrsync",
+				"/usr/share/man/man1/rrsync.1"
+			],
+			"name": "rsync-rrsync",
+			"provides": [
+				"binary(rrsync)"
+			]
 		}
 	},
 	"source-name": "rsync",
-	"source-release": "10",
+	"source-release": "11",
 	"source-version": "3.5.2"
 }

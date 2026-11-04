@@ -1,0 +1,52 @@
+From 8e4d2c8b5d51840bdf3e31075ab01dfaf911d990 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Tue, 3 Nov 2026 18:35:23 -0600
+Subject: [PATCH] Don't require the rsyncd config file to exist
+
+rsyncd refuses to run when its config file does not exist, and the
+systemd service is skipped entirely in that case, so a system that ships
+the daemon units without an rsyncd.conf exports nothing and gives no
+useful error. Treat a missing config file as an empty one, starting the
+daemon with no modules, and drop the now redundant unit condition. An
+unreadable or malformed file is still fatal.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-03
+---
+ packaging/systemd/rsync.service |  1 -
+ params.c                        | 10 ++++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/packaging/systemd/rsync.service b/packaging/systemd/rsync.service
+index 8a867ca..9df53cf 100644
+--- a/packaging/systemd/rsync.service
++++ b/packaging/systemd/rsync.service
+@@ -1,6 +1,5 @@
+ [Unit]
+ Description=fast remote file copy program daemon
+-ConditionPathExists=/etc/rsyncd.conf
+ After=network.target
+ Documentation=man:rsync(1) man:rsyncd.conf(5)
+ 
+diff --git a/params.c b/params.c
+index 933db7c..8505cbb 100644
+--- a/params.c
++++ b/params.c
+@@ -619,6 +619,16 @@ int pm_process( char *FileName,
+   FILE *InFile;
+   char *func = "params.c:pm_process() -";
+ 
++  /* A missing config file is treated as an empty one: the caller has already
++   * set up the defaults, so the daemon comes up with no modules instead of
++   * refusing to run.  An unreadable or malformed file is still fatal. */
++  if( NULL != FileName && *FileName && access( FileName, F_OK ) != 0
++   && ENOENT == errno )
++    {
++    rsyserr(FWARNING, ENOENT, "warning: config file \"%s\" not found", FileName);
++    return( 1 );
++    }
++
+   InFile = OpenConfFile( FileName );          /* Open the config file. */
+   if( NULL == InFile )
+     return( False );

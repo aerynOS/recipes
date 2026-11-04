@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 aerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : rsync
 version     : "3.5.2"
-release     : 10
+release     : 11
 homepage    : https://rsync.samba.org/
 upstreams   :
     - https://rsync.samba.org/ftp/rsync/src/rsync-3.5.2.tar.gz : a10d591825251e070f74c98df3daad195def4ed81b4a2de16169026aea33f6c8
@@ -22,12 +22,40 @@ builddeps   :
     - pkgconfig(popt)
     - pkgconfig(zlib)
 setup       : |
+    %patch %(pkgdir)/config-file-optional.patch
+
     %configure \
         --with-included-popt=no \
-        --with-included-zlib=no
+        --with-included-zlib=no \
+        --with-rrsync
 build       : |
     %make
 install     : |
     %make_install
+
+    %install_file packaging/systemd/rsync* -t %(installroot)/%(libdir)/systemd/system/
 check       : |
     %make check
+packages    :
+    - "%(name)-daemon":
+        summary     : rsync server daemon
+        description : |
+            The rsync daemon, which serves directory trees over the rsync://
+            protocol, and its systemd units.
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/systemd/system/rsync*
+
+    - "%(name)-rrsync":
+        summary     : Restricted rsync wrapper for SSH forced commands
+        description : |
+            rrsync confines rsync to a single directory when used as an SSH forced
+            command, so a remote peer can push or pull files there without getting
+            general shell access.
+        rundeps:
+            - "%(name)"
+            - binary(python3)
+        paths:
+            - /usr/bin/rrsync
+            - /usr/share/man/man1/rrsync.1*
