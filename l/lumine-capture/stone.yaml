@@ -3,7 +3,7 @@
 
 name        : lumine-capture
 version     : "0.3.0"
-release     : 2
+release     : 3
 homepage    : https://github.com/Netflate/LumineCapture
 upstreams   :
     - https://github.com/Netflate/LumineCapture/archive/refs/tags/v0.3.0.tar.gz : 190ff87948213767d1636be82f70fda1521daf6970f083ef05d3a259aedb5b7c
@@ -21,6 +21,8 @@ builddeps   :
     - pkgconfig(openssl)
     - pkgconfig(xkbcommon)
 setup       : |
+    %patch %(pkgdir)/0001-overlay-use-layer-shell-on-Umbriel.patch
+
     %cargo_fetch
 build       : |
     %cargo_build --features ocr-gpu

@@ -1,0 +1,126 @@
+From 2ea0a96b00aca0d889781da40c001bf27db6d8f3 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Wed, 4 Nov 2026 13:05:26 -0600
+Subject: [PATCH] overlay: use layer shell on Umbriel
+
+Umbriel is a wlroots compositor that, like niri, tiles every new
+fullscreen window into its layout. With overlay = "auto" the editor
+opened as a window and landed in a column with the usual opening
+animation; a layer surface is never tiled, which also makes it the right
+default for Umbriel's dwindle, master and stacking layouts.
+
+Detect Umbriel through XDG_CURRENT_DESKTOP or UMBRIEL_SOCKET, mirroring
+the niri check. The desktop lookups now share one helper, and the chosen
+surface is logged together with the detected desktop. When a compositor
+accepts the layer surface but never configures it, the error points at
+general.overlay = "window".
+
+The default config comment lists Umbriel among the supported
+compositors.
+Origin: vendor
+Forwarded: https://github.com/Netflate/LumineCapture/pull/28
+Last-Update: 2026-11-04
+
+---
+ src/backend.rs                 | 28 ++++++++++++++++++----------
+ src/backend/wayland/overlay.rs |  6 ++++--
+ src/config.rs                  |  3 ++-
+ 3 files changed, 24 insertions(+), 13 deletions(-)
+
+diff --git a/src/backend.rs b/src/backend.rs
+index e1bc81e..49fabab 100644
+--- a/src/backend.rs
++++ b/src/backend.rs
+@@ -112,9 +112,10 @@ pub enum OverlayShell {
+ /// cannot be temporarily moved to another desktop or minimized, which seems non-optimal.
+ /// Therefore, a forced full-screen window is used as default.
+ ///
+-/// Niri, and likely other scroll managers, places every new full-screen window on the side
+-/// making the user experience clunky since every trigger plays an animation of opening a new app.
+-/// Therefore, layer_shell is used there instead.
++/// Niri and Umbriel, and likely other scroll managers, place every new full-screen window on the
++/// side making the user experience clunky since every trigger plays an animation of opening a new
++/// app. Therefore, layer_shell is used there instead. It also suits Umbriel's other layouts
++/// (dwindle, master, stacking), since a layer surface is never tiled.
+ ///
+ /// COSMIC gets layer_shell too since a full-screen window there flashes gray while it opens,
+ /// and there is few focus grabbing issues.
+@@ -123,12 +124,13 @@ pub fn initialize_overlay(
+     conn: Connection,
+ ) -> Result<Box<dyn ScreenOverlay>, Box<dyn std::error::Error>> {
+     let layer = match crate::config::get().general.overlay {
+-        OverlayShell::Auto => on_niri() || on_cosmic(),
++        OverlayShell::Auto => on_niri() || on_umbriel() || on_cosmic(),
+         shell => shell == OverlayShell::Layer,
+     };
+     info!(
+-        "overlay surface: {}",
+-        if layer { "layer" } else { "window" }
++        "overlay surface: {} (XDG_CURRENT_DESKTOP={:?})",
++        if layer { "layer" } else { "window" },
++        std::env::var("XDG_CURRENT_DESKTOP").unwrap_or_default()
+     );
+     Ok(Box::new(wayland::overlay::WaylandOverlay::new(
+         conn, layer,
+@@ -136,13 +138,19 @@ pub fn initialize_overlay(
+ }
+ 
+ fn on_niri() -> bool {
+-    let desktop = std::env::var("XDG_CURRENT_DESKTOP").unwrap_or_default();
+-    desktop.split(':').any(|d| d == "niri") || std::env::var_os("NIRI_SOCKET").is_some()
++    desktop_is("niri") || std::env::var_os("NIRI_SOCKET").is_some()
++}
++
++fn on_umbriel() -> bool {
++    desktop_is("umbriel") || std::env::var_os("UMBRIEL_SOCKET").is_some()
+ }
+ 
+ fn on_cosmic() -> bool {
+-    let desktop = std::env::var("XDG_CURRENT_DESKTOP").unwrap_or_default();
+-    desktop.split(':').any(|d| d == "COSMIC")
++    desktop_is("COSMIC")
++}
++
++fn desktop_is(name: &str) -> bool {
++    std::env::var("XDG_CURRENT_DESKTOP").is_ok_and(|d| d.split(':').any(|s| s == name))
+ }
+ 
+ pub fn initialize_clipboard() -> Box<dyn ClipboardProvider> {
+diff --git a/src/backend/wayland/overlay.rs b/src/backend/wayland/overlay.rs
+index 6705be0..506af97 100644
+--- a/src/backend/wayland/overlay.rs
++++ b/src/backend/wayland/overlay.rs
+@@ -5,7 +5,7 @@
+ // via xdg windows or layer_shell, managing shm pixel buffers, and driving the event loop
+ //
+ // by default, auto decides what to use, for everything a fullscreen window
+-// for scrolling wm (for now only niri) layer, since creating a window there will start a clunky animation for a screenshot app
++// for scrolling compositors (niri, umbriel) layer, since creating a window there starts a clunky animation for a screenshot app
+ // and for COSMIC, since force fullscreen window is unstable, at least for now (focus grabbing + gray cosmic ui)
+ use rustix::{
+     event::{PollFd, PollFlags, poll},
+@@ -177,7 +177,9 @@ impl ScreenOverlay for WaylandOverlay {
+                 return Err(format!("can't allocate overlay buffer: {e}").into());
+             }
+             if Instant::now() > deadline {
+-                return Err("compositor didn't configure the overlay windows".into());
++                return Err("compositor didn't configure the overlay windows, \
++                            try general.overlay = \"window\""
++                    .into());
+             }
+         }
+ 
+diff --git a/src/config.rs b/src/config.rs
+index d9971c5..e1d48fd 100644
+--- a/src/config.rs
++++ b/src/config.rs
+@@ -727,7 +727,8 @@ to = "cs"
+ # window  a fullscreen window: can be sent to another desktop or minimized (Recommended)
+ # layer   drawn above everything else until the capture is finished, so to check something
+ #         outside the screenshot you'd have to cancel the capture.
+-# auto    layer on niri, where a window would open as a new column, and on COSMIC, window everywhere else
++# auto    layer on niri and umbriel, where a window would be tiled into the layout, and on COSMIC;
++#         a fullscreen window everywhere else
+ overlay = "auto"
+ 
+ [save]
