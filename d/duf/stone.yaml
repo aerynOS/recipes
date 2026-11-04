@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : duf
+version     : "0.9.1"
+release     : 1
+homepage    : https://github.com/muesli/duf
+upstreams   :
+    - https://github.com/muesli/duf/archive/refs/tags/v0.9.1.tar.gz : 1334d8c1a7957d0aceebe651e3af9e1c1e0c6f298f1feb39643dd0bd8ad1e955
+summary     : Disk usage utility with a readable table
+description : |
+    Shows your drives and mounts in a readable, colour coded table. A nicer way to read df.
+license     : MIT
+networking  : true
+rundeps     :
+    - ca-certificates
+setup       : |
+    %go_mod
+build       : |
+    export GOFLAGS+=" \"-ldflags=-linkmode=external -s -w -buildid= -X=main.Version=%(version)\""
+    go build -v .
+install     : |
+    %install_bin duf
+    %install_file duf.1 %(installroot)%(mandir)/man1/duf.1
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    go test ./...
