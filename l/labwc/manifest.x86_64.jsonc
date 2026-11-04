@@ -124,6 +124,7 @@
 				"/usr/share/locale/fr/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/he/LC_MESSAGES/labwc.mo",
+				"/usr/share/locale/hi/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/hr/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/labwc.mo",
 				"/usr/share/locale/id/LC_MESSAGES/labwc.mo",
@@ -156,6 +157,7 @@
 				"/usr/share/man/man5/labwc-config.5",
 				"/usr/share/man/man5/labwc-menu.5",
 				"/usr/share/man/man5/labwc-theme.5",
+				"/usr/share/man/man7/labwc-philosophy.7",
 				"/usr/share/xdg-desktop-portal/labwc-portals.conf"
 			],
 			"name": "labwc-core",
@@ -204,6 +206,6 @@
 		}
 	},
 	"source-name": "labwc",
-	"source-release": "3",
-	"source-version": "0.20.2"
+	"source-release": "4",
+	"source-version": "0.20.3"
 }
