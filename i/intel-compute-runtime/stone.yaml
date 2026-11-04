@@ -1,46 +1,55 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : intel-compute-runtime
-version     : "26.35.39758.10"
-release     : 9
+version     : "26.40.40196.15"
+release     : 10
 homepage    : https://github.com/intel/compute-runtime
 upstreams   :
-    - https://github.com/intel/compute-runtime/archive/refs/tags/26.35.39758.10.tar.gz : c904eb932c82e2a00e9f41dcdf5a560d4869efcc6c22826b733437cf16196e84
+    - https://github.com/intel/compute-runtime/archive/refs/tags/26.40.40196.15.tar.gz : 138ad074eb617372ddc778cf2b63f382f210a4cbf5a1cd38d207567ffa74a7e3
+    - git|https://github.com/intel/aubstream.git : 941711fa1499871e7c81038ded0e6e386c254dcd
 summary     :  Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver
 description : |
     The Intel(R) Graphics Compute Runtime for oneAPI Level Zero and OpenCL(TM) Driver is an open source project providing compute API support (Level Zero, OpenCL) for Intel graphics hardware architectures (HD Graphics, Xe).
 license     : MIT
 builddeps   :
+    - binary(mold)
     - cmake(igsc)
     - pkgconfig(igc-opencl)
     - pkgconfig(igdgmm)
     - pkgconfig(level-zero)
     - pkgconfig(libdrm)
-    # - pkgconfig(libigdmd)
-    # - pkgconfig(libigdml)
+    - pkgconfig(libigdmd)
+    - pkgconfig(libigdml)
     - pkgconfig(libnl-3.0)
+    - pkgconfig(libtracefs)
     - pkgconfig(libudev)
     - pkgconfig(libva)
     - pkgconfig(libze_loader)
+    - pkgconfig(ocl-icd)
 rundeps     :
     - intel-graphics-compiler
     - level-zero
+tuning      :
+    # let CMake set LTO
+   - lto: false
+environment : |
+    export LDFLAGS="$LDFLAGS -fuse-ld=mold"
 setup       : |
-    %patch %(pkgdir)/010-intel-compute-runtime-disable-werror.patch
-    %cmake \
-        -DDISABLE_WDDM_LINUX=ON \
-        -DNEO_BUILD_UNVERSIONED_OCLOC='ON' \
-        -DNEO_DISABLE_LTO=OFF \
-        -DNEO_OCL_VERSION_MAJOR=$(echo "%(version)" | cut -d. -f1) \
-        -DNEO_OCL_VERSION_MINOR=$(echo "%(version)" | cut -d. -f2) \
-        -DNEO_VERSION_BUILD=$(echo "%(version)" | cut -d. -f3) \
-        -DNEO_SKIP_UNIT_TESTS=OFF \
-        -DSKIP_UNIT_TESTS=OFF \
-        -DSUPPORT_DG1=ON \
-        -DSUPPORT_DG2=ON \
-        -DOCL_ICD_VENDORDIR=%(datadir)/OpenCL/vendors
+    # cmake strips -O and fortify flags from tests but fails
+    # since the regex is quite brittle. patch to match our flags
+    %patch %(pkgdir)/fortify-source-3.patch
 
+    # TODO: remove this patch in next update
+    %patch %(pkgdir)/ftbfs-llvm-23-unused-but-set-global.patch
+
+    %cmake \
+        -DAUB_STREAM_DIR=%(buildroot)/aubstream.git \
+        -DDISABLE_WDDM_LINUX=ON \
+        -DLIBTRACEFS_INCLUDE_DIR=%(includedir)/libtracefs \
+        -DNEO_BUILD_UNVERSIONED_OCLOC=ON \
+        -DNEO_VERSION_BUILD=$(echo "%(version)" | cut -d. -f3) \
+        -DOCL_ICD_VENDORDIR=%(datadir)/OpenCL/vendors
 # Tests run automatically during build, check section not required
 build       : |
     %cmake_build
