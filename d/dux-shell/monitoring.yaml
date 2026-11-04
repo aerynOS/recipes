@@ -5,4 +5,5 @@ releases:
   id: 388076
   rss: https://github.com/duxlabs-dev/dux-shell/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-01-17)
+  # Last checked 2026-11-04
+  cpe: ~
