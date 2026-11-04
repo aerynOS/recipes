@@ -4,9 +4,7 @@
 	"packages": {
 		"xrizer": {
 			"build-depends": [
-				"binary(cmake)",
 				"binary(glslc)",
-				"binary(ninja)",
 				"pkgconfig(wayland-client)",
 				"pkgconfig(x11)"
 			],
@@ -15,11 +13,12 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libstdc++.so.6(x86_64))"
+				"soname(libopenxr_loader.so.1(x86_64))"
 			],
 			"files": [
 				"/usr/lib/xrizer/bin/linux64/vrclient.so",
-				"/usr/share/openvr/openvrpaths.vrpath"
+				"/usr/lib/xrizer/bin/version.txt",
+				"/usr/lib/xrizer/openvrpaths.vrpath"
 			],
 			"name": "xrizer",
 			"provides": [
@@ -28,6 +27,6 @@
 		}
 	},
 	"source-name": "xrizer",
-	"source-release": "2",
-	"source-version": "0.5"
+	"source-release": "3",
+	"source-version": "0.6"
 }
