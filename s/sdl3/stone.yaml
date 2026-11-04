@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sdl3
-version     : "3.4.18"
-release     : 20
+version     : "3.4.20"
+release     : 21
 homepage    : https://libsdl.org
 upstreams   :
-    - https://github.com/libsdl-org/SDL/releases/download/release-3.4.18/SDL3-3.4.18.tar.gz : 9c75cf16330322c217dedd2e0609f1124f1b54b8633e763467b4684d0f4334a3
+    - https://github.com/libsdl-org/SDL/releases/download/release-3.4.20/SDL3-3.4.20.tar.gz : f3bb06f55bed9557227a700af2ea62e49497ebdf58037732a731a5fb3ef8581f
 summary     : Simple DirectMedia Library
 description : |
     Simple DirectMedia Library
@@ -17,8 +17,8 @@ builddeps   :
     - pkgconfig(egl)
     - pkgconfig(fribidi)
     - pkgconfig(gbm)
-    - pkgconfig(jack)
     - pkgconfig(ibus-1.0)
+    - pkgconfig(jack)
     - pkgconfig(libdecor-0)
     - pkgconfig(libdrm)
     - pkgconfig(libpipewire-0.3)
