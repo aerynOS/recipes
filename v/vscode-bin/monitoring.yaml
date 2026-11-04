@@ -1,13 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 12396
   rss: https://github.com/microsoft/vscode/releases.atom
   ignore:
-  # ???
-  - 14
-  - 1\.999.*
+    - '14'
+    - 1\.999.*
 security:
   cpe:
   - vendor: microsoft
