@@ -3,7 +3,7 @@
 
 name        : keepassxc
 version     : "2.8.0"
-release     : 11
+release     : 12
 homepage    : https://keepassxc.org/
 upstreams   :
     - https://github.com/keepassxreboot/keepassxc/archive/refs/tags/2.8.0.tar.gz : ea44ba7ced55c8437eade22e6ed22b3c48950220a789d63f422b23c401f95db8
@@ -36,6 +36,8 @@ builddeps   :
 rundeps     :
     - qt6-wayland
 setup       : |
+    %patch %(pkgdir)/botan-3.14-randomized-ecdsa.patch
+
     %cmake \
         -DKEEPASSXC_BUILD_TYPE=Release \
         -DKPXC_FEATURE_UPDATES=OFF
