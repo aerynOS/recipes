@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kaccounts-providers
-version     : "26.08.2"
-release     : 21
+version     : "26.08.3"
+release     : 22
+homepage    : https://invent.kde.org/network/kaccounts-providers
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kaccounts-providers-26.08.2.tar.xz : 356e8ebbd6793a2f6231f526277d5d390b897a788cbe09e2e4e5cf352bf0d0ce
-homepage    : https://kde.org/
-license     : GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kaccounts-providers-26.08.3.tar.xz : bec64fd9f9098969b12136af44c0b9b3a983cfba10a5fd25a035b8e9a09c743b
 summary     : KDE Providers
 description : |
     KDE providers for accounts sign-on Provides additional configuration files for libaccounts and libsignon to recognize online services such as Facebook and Google.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
