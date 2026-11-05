@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libstone
-version     : "0.26.1+git.647000c"
-release     : 8
-homepage    : https://github.com/serpent-os/tools
+version     : "0.26.1~git.647000c"
+release     : 9
+homepage    : https://github.com/aerynOS/os-tools
 upstreams   :
-    - git|https://github.com/AerynOS/os-tools.git : 647000ce6c4570ae451359ac87639df57c060db8
+    - git|https://github.com/aerynOS/os-tools.git : 647000ce6c4570ae451359ac87639df57c060db8
 summary     : Library to read .stone archives
 description : |
     Library to read .stone archives
