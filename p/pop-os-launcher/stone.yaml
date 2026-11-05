@@ -1,22 +1,22 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pop-os-launcher
-version     : "1.2.7+git.eead361"
-release     : 11
-summary     : Pop!_OS Launcher
-license     : MPL-2.0
+version     : "1.2.7~git.eead361"
+release     : 12
 homepage    : https://github.com/pop-os/launcher
 upstreams   :
     - git|https://github.com/pop-os/launcher.git : eead361cca44d8e19e988572462c49e26cf20427
+summary     : Pop!_OS Launcher
 description : |
     Pop!_OS Application Launcher
+license     : MPL-2.0
+networking  : true
 builddeps   :
     - binary(just)
     - pkgconfig(xkbcommon)
 rundeps     :
     - binary(qalc) # Used for math expressions (https://github.com/pop-os/launcher/blob/8d9da92dbae520b37ab93fc2364a01d7adbd2f29/plugins/src/calc/mod.rs#L117)
-networking  : true
 setup       : |
     %cargo_fetch
 build       : |

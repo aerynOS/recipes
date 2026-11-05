@@ -57,6 +57,6 @@
 		}
 	},
 	"source-name": "pop-os-launcher",
-	"source-release": "11",
-	"source-version": "1.2.7+git.eead361"
+	"source-release": "12",
+	"source-version": "1.2.7~git.eead361"
 }
