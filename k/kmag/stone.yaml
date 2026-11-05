@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmag
-version     : "26.08.2"
-release     : 15
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kmag-26.08.2.tar.xz : 1f62af3f969f97d32cddafb46e0930b346aa2168aecff9cbdd67447f6b7b0882
+version     : "26.08.3"
+release     : 16
 homepage    : https://apps.kde.org/kmag/
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kmag-26.08.3.tar.xz : cfd5b94d572e8f98385f5c0a9cf3ce639ce720ca27089ad12a0699d947d24a08
 summary     : KMag is a screen magnifier
 description : |
     KMag is a screen magnifier
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
