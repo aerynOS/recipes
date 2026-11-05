@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libsodium
-version     : "1.0.22+git.2ce4d906"
-release     : 6
+version     : "1.0.22~git.2ce4d906"
+release     : 7
 homepage    : https://libsodium.org
 upstreams   :
     - git|https://github.com/jedisct1/libsodium.git : 2ce4d906a68eae82b27b4867f3d4172ec508cb27 # Should be the latest of the stable branch, or a specific version branch if we're holding this back
