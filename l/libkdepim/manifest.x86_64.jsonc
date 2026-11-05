@@ -20,7 +20,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6Libkdepim.so.6",
-				"/usr/lib/libKPim6Libkdepim.so.6.8.2",
+				"/usr/lib/libKPim6Libkdepim.so.6.8.3",
 				"/usr/share/dbus-1/interfaces/org.kde.addressbook.service.xml",
 				"/usr/share/dbus-1/interfaces/org.kde.mailtransport.service.xml",
 				"/usr/share/locale/af/LC_MESSAGES/libkdepim6.mo",
@@ -163,6 +163,6 @@
 		}
 	},
 	"source-name": "libkdepim",
-	"source-release": "19",
-	"source-version": "26.08.2"
+	"source-release": "20",
+	"source-version": "26.08.3"
 }
