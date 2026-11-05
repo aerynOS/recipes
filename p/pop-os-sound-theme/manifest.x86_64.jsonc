@@ -465,6 +465,6 @@
 		}
 	},
 	"source-name": "pop-os-sound-theme",
-	"source-release": "2",
-	"source-version": "5.5.1+git.25ea85d"
+	"source-release": "3",
+	"source-version": "5.5.1~git.25ea85d"
 }
