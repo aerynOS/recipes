@@ -1,20 +1,19 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lucien
-version     : "0.1.0+git.ee18358"
-release     : 2
+version     : "0.1.0~git.ee18358"
+release     : 3
 homepage    : https://github.com/Wachamuli/lucien
 upstreams   :
     - git|https://github.com/Wachamuli/lucien.git : ee183580c3298f30a93d95110c9de981520dc075
 summary     : Lucien is a refined application launcher tailored for Linux users who demand a premium experience.
 description : |
     Lucien is a refined, lightweight application launcher built with Rust with Wayland environments in mind. It prioritizes speed, minimal memory overhead, and a clean aesthetic.
-license     :
-    - MIT
-builddeps   :
-    - pkgconfig(glib-2.0)
+license     : MIT
 networking  : true
+builddeps   : 
+    - pkgconfig(glib-2.0)
 setup       : |
     %cargo_fetch
 build       : |
