@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kimap
-version     : "26.08.2"
-release     : 20
+version     : "26.08.3"
+release     : 21
+homepage    : https://invent.kde.org/pim/kimap
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kimap-26.08.2.tar.xz : 7315fcb0c0b213275378229b7b31a4239acd398ffbf68fd494cb3aa662a51e91
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kimap-26.08.3.tar.xz : b3c74e3652f0b2ced6bb10c356472ddca48b17728d23c12598d1a0f7bc2f976a
 summary     : This library provides a job-based API for interacting with an IMAP4rev1 server
 description : |
     This library provides a job-based API for interacting with an IMAP4rev1 server. It manages connections, encryption and parameter quoting and encoding, but otherwise provides quite a low-level interface to the protocol.  This library does not implement an IMAP client; it merely makes it easier to do so.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
