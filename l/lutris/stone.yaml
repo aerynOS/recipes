@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lutris
-version     : "0.5.22+git.d262218"
-release     : 4
+version     : "0.5.22~git.d262218"
+release     : 5
 homepage    : https://lutris.net/
 upstreams   :
     - git|https://github.com/lutris/lutris.git : d262218565a5a7c3628583d8ae9cd776447d52da # d262218
