@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : jujutsu
-version     : "0.46.0"
-release     : 18
+version     : "0.47.1"
+release     : 19
 homepage    : https://jj-vcs.github.io/jj/
 upstreams   :
-    - https://github.com/jj-vcs/jj/archive/refs/tags/v0.46.0.tar.gz : 6489f79d59dc4f9c11230c51d309dc9c6ec392921772b738546966c494b6d72c
+    - https://github.com/jj-vcs/jj/archive/refs/tags/v0.47.1.tar.gz : 838fb5ddbf474ccee6639ce68835cedf88c8285b5c812599c56688286fb0b7a6
 summary     : Git-compatible VCS that is both simple and powerful
 description : |
     Git-compatible VCS that is both simple and powerful
