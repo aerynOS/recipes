@@ -15,7 +15,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6Mbox.so.6",
-				"/usr/lib/libKPim6Mbox.so.6.8.2",
+				"/usr/lib/libKPim6Mbox.so.6.8.3",
 				"/usr/share/qlogging-categories6/kmbox.categories",
 				"/usr/share/qlogging-categories6/kmbox.renamecategories"
 			],
@@ -53,6 +53,6 @@
 		}
 	},
 	"source-name": "kmbox",
-	"source-release": "20",
-	"source-version": "26.08.2"
+	"source-release": "21",
+	"source-version": "26.08.3"
 }

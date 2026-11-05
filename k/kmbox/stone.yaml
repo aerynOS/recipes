@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmbox
-version     : "26.08.2"
-release     : 20
+version     : "26.08.3"
+release     : 21
+homepage    : https://invent.kde.org/pim/kmbox
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kmbox-26.08.2.tar.xz : a4b08915584d0b7ec5fa28adae1eb3d0bc63a1d95f15e40bfae529505d0307a5
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kmbox-26.08.3.tar.xz : b897e2c360b2b2e0d34ab196cef4c9e840920e6001df73538fa05407c4270bad
 summary     : KMBox provides API to access emails in storages in the MBox format
 description : |
     KMBox provides API to access emails in storages in the MBox format.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
