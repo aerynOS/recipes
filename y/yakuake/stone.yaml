@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yakuake
-version     : "26.08.2"
-release     : 27
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/yakuake-26.08.2.tar.xz : 7f0ce86218ed13c43e0cd544c11583a9700995953cbe8642daa3e0d67585ba36
+version     : "26.08.3"
+release     : 28
 homepage    : https://apps.kde.org/yakuake/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/yakuake-26.08.3.tar.xz : 16e0ef03e8484b2841b6162509b3a0002c9bd2cdb86b9c4973e46b11c1aec44d
 summary     : A quake style dropdown terminal.
 description : |
     A quake-inspired dropdown terminal window.  Qt-based, robust, and highly configurable.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
