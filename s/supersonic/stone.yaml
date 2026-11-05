@@ -3,7 +3,7 @@
 
 name        : supersonic
 version     : "0.22.1"
-release     : 2
+release     : 3
 homepage    : https://github.com/supersonic-app/supersonic
 upstreams   :
     - https://github.com/supersonic-app/supersonic/archive/refs/tags/v0.22.1.tar.gz : 7d4d6012d7354373b69609ce55acd7933406363ba13802f756a2713b19f9c599
