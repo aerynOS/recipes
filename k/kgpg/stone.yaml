@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kgpg
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kgpg-26.08.2.tar.xz : 31d9c98e353882eff6b8218572eec1918f7fb4d1d4b6ce595a02c877be3d985c
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kgpg/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kgpg-26.08.3.tar.xz : 7ebc207545aeac3b8797d2dd3dd06e28f25e87fa4e0410407100869dbcd1d361
+summary     : Graphical interface for GnuPG
+description : |
+    KGpg is a GUI frontend for GnuPG based on the KDE stack.
 license     :
     - GPL-2.0-only
     - GPL-2.0-or-later
     - GPL-3.0-only
-summary     : Graphical interface for GnuPG
-description : |
-    KGpg is a GUI frontend for GnuPG based on the KDE stack.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

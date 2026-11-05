@@ -98,11 +98,11 @@
 			"files": [
 				"/usr/bin/korganizer",
 				"/usr/lib/libkorganizer_core.so.6",
-				"/usr/lib/libkorganizer_core.so.6.8.2",
+				"/usr/lib/libkorganizer_core.so.6.8.3",
 				"/usr/lib/libkorganizer_interfaces.so.6",
-				"/usr/lib/libkorganizer_interfaces.so.6.8.2",
+				"/usr/lib/libkorganizer_interfaces.so.6.8.3",
 				"/usr/lib/libkorganizerprivate.so.6",
-				"/usr/lib/libkorganizerprivate.so.6.8.2",
+				"/usr/lib/libkorganizerprivate.so.6.8.3",
 				"/usr/lib/qt6/plugins/korganizerpart.so",
 				"/usr/lib/qt6/plugins/pim6/kcms/korganizer/korganizer_configcolorsandfonts.so",
 				"/usr/lib/qt6/plugins/pim6/kcms/korganizer/korganizer_configfreebusy.so",
@@ -463,6 +463,6 @@
 		}
 	},
 	"source-name": "korganizer",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

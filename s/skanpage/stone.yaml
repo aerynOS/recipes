@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : skanpage
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/skanpage-26.08.2.tar.xz : 1e06c842ee774de21a02772c5bb646088c6de970af22e9b3e879273b615bfe6e
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/skanpage/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/skanpage-26.08.3.tar.xz : f2c753349f8d9e49114ed037615baab54948a528ca7f464f730b7099e19a8e6f
+summary     : Document scanner application
+description : |
+    Skanpage is a simple scanning application optimized for multi-page document scanning. It can also scan and save single-page documents and images.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
     - CC0-1.0
     - GPL-2.0-only
     - GPL-3.0-only
-summary     : Document scanner application
-description : |
-    Skanpage is a simple scanning application optimized for multi-page document scanning. It can also scan and save single-page documents and images.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

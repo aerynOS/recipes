@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi-calendar-tools
-version     : "26.08.2"
-release     : 2
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/akonadi-calendar-tools-26.08.2.tar.xz : f500b5b9fe9d34a3fd03f7e9c2a9cd9930f9d67ce66b31826826de508e2501dc
+version     : "26.08.3"
+release     : 3
 homepage    : https://invent.kde.org/pim/akonadi-calendar-tools
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/akonadi-calendar-tools-26.08.3.tar.xz : 0d40c12988d8633f956a86c22f8dfd2980676576380951d649d7e9d7ebe268a8
+summary     : Console tools for managing Akonadi calendars
+description : |
+    A collection of command-line tools for managing calendars stored in Akonadi, including konsolekalendar.
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - GPL-2.0-or-later
-summary     : Console tools for managing Akonadi calendars
-description : |
-    A collection of command-line tools for managing calendars stored in Akonadi, including konsolekalendar.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

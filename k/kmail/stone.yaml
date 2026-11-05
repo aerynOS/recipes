@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmail
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kmail-26.08.2.tar.xz : 107c5b3a4c605250f76073c01e0e8eb73cfac969bd853d2e1fddd011c94f4e78
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kmail2/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kmail-26.08.3.tar.xz : b67d3d47ab772a28916a1633302e0901ced65d36638a5806cf0c7134b6570436
+summary     : Email client supporting POP3 and IMAP mailboxes
+description : |
+    KMail is the email component of Kontact, the integrated personal information manager from KDE.
 license     :
     - BSD-3-Clause
     - CC0-1.0
@@ -17,9 +20,6 @@ license     :
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - MIT
-summary     : Email client supporting POP3 and IMAP mailboxes
-description : |
-    KMail is the email component of Kontact, the integrated personal information manager from KDE.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

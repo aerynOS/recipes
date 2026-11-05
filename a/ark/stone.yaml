@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ark
-version     : "26.08.2"
-release     : 26
+version     : "26.08.3"
+release     : 27
+homepage    : https://apps.kde.org/ark/
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/ark-26.08.2.tar.xz : ef1e6c47fb17e57271917f71d72cd093eee7c88bcdf679753958498dae6d43a0
-homepage    : https://kde.org/applications/utilities/org.kde.ark
-license     : GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/ark-26.08.3.tar.xz : 97063f4f714ceb76ce02b9ed806c3177216b3a39f6ddd05980d2dbb3f8c7ca7a
 summary     : A graphical file compression/decompression utility
 description : |
     Ark is a graphical file compression/decompression utility with support for multiple formats, including tar, gzip, bzip2, rar and zip, as well as CD-ROM images.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

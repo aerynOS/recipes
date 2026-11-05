@@ -52,7 +52,7 @@
 			],
 			"files": [
 				"/usr/bin/falkon",
-				"/usr/lib/libFalkonPrivate.so.26.08.2",
+				"/usr/lib/libFalkonPrivate.so.26.08.3",
 				"/usr/lib/libFalkonPrivate.so.3",
 				"/usr/lib/qt6/plugins/falkon/AutoScroll.so",
 				"/usr/lib/qt6/plugins/falkon/FlashCookieManager.so",
@@ -1075,6 +1075,6 @@
 		}
 	},
 	"source-name": "falkon",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

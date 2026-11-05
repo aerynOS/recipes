@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mbox-importer
-version     : "26.08.2"
-release     : 2
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/mbox-importer-26.08.2.tar.xz : 48ef7b90a7ce35fe2253d262d17e7d74f78391bc566048bf521450e491f8b65d
+version     : "26.08.3"
+release     : 3
 homepage    : https://invent.kde.org/pim/mbox-importer
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/mbox-importer-26.08.3.tar.xz : aed22826507e07d983afd526a910a19c5b51024a808f11dfbdccf082b69368de
+summary     : Wizard to import mbox email archives into Akonadi
+description : |
+    An assistant that imports mbox files into Akonadi for use with KDE PIM applications.
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - GPL-2.0-or-later
     - MIT
-summary     : Wizard to import mbox email archives into Akonadi
-description : |
-    An assistant that imports mbox files into Akonadi for use with KDE PIM applications.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

@@ -51,9 +51,9 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6AkonadiContactCore.so.6",
-				"/usr/lib/libKPim6AkonadiContactCore.so.6.8.2",
+				"/usr/lib/libKPim6AkonadiContactCore.so.6.8.3",
 				"/usr/lib/libKPim6AkonadiContactWidgets.so.6",
-				"/usr/lib/libKPim6AkonadiContactWidgets.so.6.8.2",
+				"/usr/lib/libKPim6AkonadiContactWidgets.so.6.8.3",
 				"/usr/lib/qt6/plugins/akonadi_serializer_addressee.so",
 				"/usr/lib/qt6/plugins/akonadi_serializer_contactgroup.so",
 				"/usr/share/akonadi/plugins/serializer/akonadi_serializer_addressee.desktop",
@@ -309,6 +309,6 @@
 		}
 	},
 	"source-name": "akonadi-contacts",
-	"source-release": "21",
-	"source-version": "26.08.2"
+	"source-release": "22",
+	"source-version": "26.08.3"
 }

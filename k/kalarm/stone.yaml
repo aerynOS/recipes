@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kalarm
-version     : "26.08.2"
-release     : 2
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kalarm-26.08.2.tar.xz : b8b68cf4c20903adecdacf867df0fe3c538593fca0506a3719fe7d249dd917c4
+version     : "26.08.3"
+release     : 3
 homepage    : https://apps.kde.org/kalarm/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kalarm-26.08.3.tar.xz : c4d8b2314d260c67ecffddee305ad0d752ea9574a03ce1e438fc380d4383a764
+summary     : Personal alarm scheduler
+description : |
+    KAlarm lets you schedule alarms, commands and emails to be triggered at a chosen time, with support for recurring alarms.
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - GFDL-1.2-or-later
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
-summary     : Personal alarm scheduler
-description : |
-    KAlarm lets you schedule alarms, commands and emails to be triggered at a chosen time, with support for recurring alarms.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

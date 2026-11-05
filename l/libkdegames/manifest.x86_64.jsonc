@@ -54,9 +54,9 @@
 			],
 			"files": [
 				"/usr/lib/libKDEGames6.so.6",
-				"/usr/lib/libKDEGames6.so.6.0.260802",
+				"/usr/lib/libKDEGames6.so.6.0.260803",
 				"/usr/lib/libKDEGames6Private.so.6",
-				"/usr/lib/libKDEGames6Private.so.6.0.260802",
+				"/usr/lib/libKDEGames6Private.so.6.0.260803",
 				"/usr/lib/qt6/qml/org/kde/games/core/KGameItem.qml",
 				"/usr/lib/qt6/qml/org/kde/games/core/corebindingsplugin.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/games/core/kde-qmlmodule.version",
@@ -332,6 +332,6 @@
 		}
 	},
 	"source-name": "libkdegames",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

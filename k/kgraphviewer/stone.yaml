@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kgraphviewer
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kgraphviewer-26.08.2.tar.xz : 2841af8c2228f933febd0c3ae89923690923b29b7b9a0e0fb2ebeec74d153177
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kgraphviewer/
-license     : GPL-2.0-only
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kgraphviewer-26.08.3.tar.xz : 04fea783ee146267dfeb14c44d125e98b30241ff776494255dc026b2344164e8
 summary     : Graphviz dot graph file viewer
 description : |
     Graphviz dot graph file viewer.
+license     : GPL-2.0-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(Boost)

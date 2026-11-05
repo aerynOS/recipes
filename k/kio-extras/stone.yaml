@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kio-extras
-version     : "26.08.2"
-release     : 23
+version     : "26.08.3"
+release     : 24
+homepage    : https://invent.kde.org/network/kio-extras
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kio-extras-26.08.2.tar.xz : b5fc98552eea1f9279fb1f03c7e3ffb36a46ffddd0bf0bba9868331d8c461e6e
-homepage    : https://kde.org/
-license     : GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kio-extras-26.08.3.tar.xz : 5ff1e1091b162cd02c226880a6af93e6908ab32993b420fbe8fc10718e168780
 summary     : Additional components to increase the functionality of KIO
 description : |
     Additional components to increase the functionality of KIO
+license     : GPL-2.0-or-later
 builddeps   :
     - binary(gperf)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually

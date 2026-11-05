@@ -52,7 +52,7 @@
 				"/usr/bin/kdf",
 				"/usr/bin/kwikdisk",
 				"/usr/lib/libkdfprivate.so.26",
-				"/usr/lib/libkdfprivate.so.26.08.2",
+				"/usr/lib/libkdfprivate.so.26.08.3",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings_qwidgets/kcm_kdf.so",
 				"/usr/share/applications/kcm_kdf.desktop",
 				"/usr/share/applications/org.kde.kdf.desktop",
@@ -269,6 +269,6 @@
 		}
 	},
 	"source-name": "kdf",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

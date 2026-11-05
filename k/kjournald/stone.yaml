@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kjournald
-version     : "26.08.2"
-release     : 22
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kjournald-26.08.2.tar.xz : face3b0f8b2a252bae685f6edc060776ead40133cf0ddc171966218849579da7
+version     : "26.08.3"
+release     : 23
 homepage    : https://apps.kde.org/kjournaldbrowser/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kjournald-26.08.3.tar.xz : 8796104c0ce9b3b15c2612d28cf5d1f148502cc87fedcb3f84ae82739e23b04f
 summary     : Framework for interacting with systemd-journald
 description : |
     Framework for interacting with systemd-journald
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

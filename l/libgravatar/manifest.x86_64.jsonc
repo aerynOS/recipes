@@ -26,7 +26,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6Gravatar.so.6",
-				"/usr/lib/libKPim6Gravatar.so.6.8.2",
+				"/usr/lib/libKPim6Gravatar.so.6.8.3",
 				"/usr/share/locale/ar/LC_MESSAGES/libgravatar6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libgravatar6.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/libgravatar6.mo",
@@ -125,6 +125,6 @@
 		}
 	},
 	"source-name": "libgravatar",
-	"source-release": "18",
-	"source-version": "26.08.2"
+	"source-release": "19",
+	"source-version": "26.08.3"
 }

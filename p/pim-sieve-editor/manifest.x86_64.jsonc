@@ -61,7 +61,7 @@
 			"files": [
 				"/usr/bin/sieveeditor",
 				"/usr/lib/libsieveeditor.so.6",
-				"/usr/lib/libsieveeditor.so.6.8.2",
+				"/usr/lib/libsieveeditor.so.6.8.3",
 				"/usr/share/applications/org.kde.sieveeditor.desktop",
 				"/usr/share/config.kcfg/sieveeditorglobalconfig.kcfg",
 				"/usr/share/icons/hicolor/16x16/apps/sieveeditor.png",
@@ -191,6 +191,6 @@
 		}
 	},
 	"source-name": "pim-sieve-editor",
-	"source-release": "2",
-	"source-version": "26.08.2"
+	"source-release": "3",
+	"source-version": "26.08.3"
 }

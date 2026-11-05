@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : calendarsupport
-version     : "26.08.2"
-release     : 19
+version     : "26.08.3"
+release     : 20
+homepage    : https://invent.kde.org/pim/calendarsupport
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/calendarsupport-26.08.2.tar.xz : 2c59bc7e9fd7834145de0a5f3dd8f7dbf4a6244d5f286e0edf68cc486e642f14
-homepage    : https://kontact.kde.org/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/calendarsupport-26.08.3.tar.xz : a7d811f14c84a1a736cdfe7dbd9c18a14cd4a44c4a8cfcf72ff84dfbb476706f
 summary     : Calendar Support library provides helper utilities for calendaring applications
 description : |
     Calendar Support library provides helper utilities for calendaring applications.
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

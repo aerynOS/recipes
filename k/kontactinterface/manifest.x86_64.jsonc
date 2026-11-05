@@ -29,7 +29,7 @@
 			],
 			"files": [
 				"/usr/lib/libKPim6KontactInterface.so.6",
-				"/usr/lib/libKPim6KontactInterface.so.6.8.2",
+				"/usr/lib/libKPim6KontactInterface.so.6.8.3",
 				"/usr/share/locale/ar/LC_MESSAGES/kontactinterfaces6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kontactinterfaces6.mo",
 				"/usr/share/locale/az/LC_MESSAGES/kontactinterfaces6.mo",
@@ -143,6 +143,6 @@
 		}
 	},
 	"source-name": "kontactinterface",
-	"source-release": "27",
-	"source-version": "26.08.2"
+	"source-release": "28",
+	"source-version": "26.08.3"
 }

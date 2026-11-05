@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kbackup
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kbackup-26.08.2.tar.xz : b070b45598deffad762eee60ab0776cd10b11c7291995a389965c8ab47e8adcd
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kbackup/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kbackup-26.08.3.tar.xz : ad1947d145163f323a5be25e8fb5d5999a494ab10ade87ddc9ab0e548fbdb041
 summary     : Simple backup application
 description : |
     KBackup is an application which lets you back up your data in a simple, user friendly way.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

@@ -182,9 +182,9 @@
 				"/usr/bin/kmail-refresh-settings",
 				"/usr/bin/ktnef",
 				"/usr/lib/libkmailprivate.so.6",
-				"/usr/lib/libkmailprivate.so.6.8.2",
+				"/usr/lib/libkmailprivate.so.6.8.3",
 				"/usr/lib/libmailfilteragentprivate.so.6",
-				"/usr/lib/libmailfilteragentprivate.so.6.8.2",
+				"/usr/lib/libmailfilteragentprivate.so.6.8.3",
 				"/usr/lib/qt6/plugins/kmailpart.so",
 				"/usr/lib/qt6/plugins/pim6/akonadi/config/archivemailagentconfig.so",
 				"/usr/lib/qt6/plugins/pim6/akonadi/config/followupreminderagentconfig.so",
@@ -1214,6 +1214,6 @@
 		}
 	},
 	"source-name": "kmail",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

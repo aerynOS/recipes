@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kaddressbook
-version     : "26.08.2"
-release     : 19
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kaddressbook-26.08.2.tar.xz : 8d593ad344471cc9a7b0d3ef9d7a57d5299745c5adedd0676b9dc70d3e432376
+version     : "26.08.3"
+release     : 20
 homepage    : https://apps.kde.org/kaddressbook/
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kaddressbook-26.08.3.tar.xz : c9d00b8ad1b5fff4cd51d82b85e169447f681b1d8f52ec34ec85730cdc84322b
 summary     : KDE Contact Manager
 description : |
     KAddressBook stores all the personal details of your family, friends and other contacts.
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

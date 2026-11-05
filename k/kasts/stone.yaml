@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kasts
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kasts-26.08.2.tar.xz : 667c3bfbccfa62a6ac761ae17f0ee617f0f8e74803e134931067940d1a278da1
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kasts/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kasts-26.08.3.tar.xz : b0ccdadaa78f5a250b3ca8c257986e618b123a8b6a489ec2526dca7dc88457fb
+summary     : Podcast client
+description : |
+    Kasts is a convergent podcast application that looks good on desktop and mobile, with features such as episode management through a play queue, sync through gpodder.net and variable playback speed.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -20,9 +23,6 @@ license     :
     - LGPL-2.1-or-later
     - LGPL-3.0-only
     - LGPL-3.0-or-later
-summary     : Podcast client
-description : |
-    Kasts is a convergent podcast application that looks good on desktop and mobile, with features such as episode management through a play queue, sync through gpodder.net and variable playback speed.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

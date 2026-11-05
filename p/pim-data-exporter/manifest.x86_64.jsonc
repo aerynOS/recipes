@@ -80,7 +80,7 @@
 				"/usr/bin/pimdataexporter",
 				"/usr/bin/pimdataexporterconsole",
 				"/usr/lib/libpimdataexporterprivate.so.6",
-				"/usr/lib/libpimdataexporterprivate.so.6.8.2",
+				"/usr/lib/libpimdataexporterprivate.so.6.8.3",
 				"/usr/share/applications/org.kde.pimdataexporter.desktop",
 				"/usr/share/config.kcfg/pimdataexporterglobalconfig.kcfg",
 				"/usr/share/locale/ar/LC_MESSAGES/pimdataexporter.mo",
@@ -216,6 +216,6 @@
 		}
 	},
 	"source-name": "pim-data-exporter",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

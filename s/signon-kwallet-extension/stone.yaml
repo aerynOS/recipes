@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : signon-kwallet-extension
-version     : "26.08.2"
-release     : 19
+version     : "26.08.3"
+release     : 20
+homepage    : https://invent.kde.org/network/signon-kwallet-extension
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/signon-kwallet-extension-26.08.2.tar.xz : bc5cd2cc79683cee25e7f8ad5b405e00494cfebc97f543c3e1185b8caf1d88f1
-homepage    : https://kde.org/
-license     : GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/signon-kwallet-extension-26.08.3.tar.xz : e80090087eddc7f823ac5647e290288e890bd6d2372aaeaa24ff17cecd0480a9
 summary     : KWallet integration for signon framework
 description : |
     KWallet integration for signon framework
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

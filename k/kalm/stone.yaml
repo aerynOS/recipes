@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kalm
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kalm-26.08.2.tar.xz : aeca52aa8e5c094df222dd29ac2b76711317b5f4a724a7255f7b1f51a3c5799d
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kalm/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kalm-26.08.3.tar.xz : 0ce0d27288157e6e1aa36c9ae2b05e427111a7230cc5a64726d5d1f8ad59beb0
+summary     : Breathing exercise trainer
+description : |
+    Kalm can teach you different breathing techniques to help you relax and focus.
 license     :
     - BSD-2-Clause
     - CC-BY-SA-4.0
     - CC0-1.0
     - LGPL-2.1-or-later
-summary     : Breathing exercise trainer
-description : |
-    Kalm can teach you different breathing techniques to help you relax and focus.
 builddeps   :
     - binary(python3)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually

@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : alligator
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/alligator-26.08.2.tar.xz : f40097bcc6d8ab388c0a9287c40c886214a4ec648daf783e955d079f3abc7b53
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/alligator/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/alligator-26.08.3.tar.xz : a8bdd269ad9620f3107c0db2ba8046fcb0d7bf0f52501a6583f4e60f58b8e95a
+summary     : RSS/Atom feed reader
+description : |
+    Alligator is a convergent, cross-platform feed reader supporting standard RSS/Atom feeds.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -16,9 +19,6 @@ license     :
     - GPL-2.0-or-later
     - GPL-3.0-only
     - GPL-3.0-or-later
-summary     : RSS/Atom feed reader
-description : |
-    Alligator is a convergent, cross-platform feed reader supporting standard RSS/Atom feeds.
 builddeps   :
     - binary(python3)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually

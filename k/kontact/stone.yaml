@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kontact
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kontact-26.08.2.tar.xz : 3d26032dad5f07739c5c24c62ba56a5948a4e25840df2b01f781eaf65000c5fc
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kontact/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kontact-26.08.3.tar.xz : d01314c0cde2a7c75f0178b640c4a32ace0f421a640daae340f5c175406ea4d6
+summary     : Integrated personal information manager
+description : |
+    Kontact is the integrated solution to your personal information management (PIM) needs. It combines well-known KDE applications like KMail, KOrganizer and KAddressBook into a single interface.
 license     :
     - BSD-3-Clause
     - CC0-1.0
@@ -15,9 +18,6 @@ license     :
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - MIT
-summary     : Integrated personal information manager
-description : |
-    Kontact is the integrated solution to your personal information management (PIM) needs. It combines well-known KDE applications like KMail, KOrganizer and KAddressBook into a single interface.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

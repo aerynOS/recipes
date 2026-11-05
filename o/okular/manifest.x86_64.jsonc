@@ -1493,6 +1493,7 @@
 				"/usr/share/doc/HTML/ru/okular/annotation-properties.png",
 				"/usr/share/doc/HTML/ru/okular/annotations.png",
 				"/usr/share/doc/HTML/ru/okular/bookmark-management.png",
+				"/usr/share/doc/HTML/ru/okular/config-pdf-digital-signatures.png",
 				"/usr/share/doc/HTML/ru/okular/configure-annotations.png",
 				"/usr/share/doc/HTML/ru/okular/configure-backends.png",
 				"/usr/share/doc/HTML/ru/okular/configure-editor.png",
@@ -1508,6 +1509,8 @@
 				"/usr/share/doc/HTML/ru/okular/mainwindow.png",
 				"/usr/share/doc/HTML/ru/okular/presentation.png",
 				"/usr/share/doc/HTML/ru/okular/rating.png",
+				"/usr/share/doc/HTML/ru/okular/signatures-bar.png",
+				"/usr/share/doc/HTML/ru/okular/signatures-panel.png",
 				"/usr/share/doc/HTML/ru/okular/tool-ellipse-okular.png",
 				"/usr/share/doc/HTML/ru/okular/tool-highlighter-okular.png",
 				"/usr/share/doc/HTML/ru/okular/tool-ink-okular.png",
@@ -1733,6 +1736,6 @@
 		}
 	},
 	"source-name": "okular",
-	"source-release": "30",
-	"source-version": "26.08.2"
+	"source-release": "31",
+	"source-version": "26.08.3"
 }

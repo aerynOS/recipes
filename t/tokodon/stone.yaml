@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tokodon
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/tokodon-26.08.2.tar.xz : 28d8e392fd93c7a8fe59822c07894b49ca76fbd00471f3ca6ce5984d12dbfb25
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/tokodon/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/tokodon-26.08.3.tar.xz : 7acb526269d92aec26526aa182c18d2080188ddc8444addb0fff2606ff43c52c
+summary     : Mastodon and Fediverse client
+description : |
+    A modern client for Mastodon and other decentralized servers that implement its API (such as Pixelfed).
 license     :
     - AGPL-3.0-or-later
     - BSD-2-Clause
@@ -22,9 +25,6 @@ license     :
     - LGPL-2.1-or-later
     - LGPL-3.0-only
     - MIT
-summary     : Mastodon and Fediverse client
-description : |
-    A modern client for Mastodon and other decentralized servers that implement its API (such as Pixelfed).
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

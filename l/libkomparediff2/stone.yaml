@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libkomparediff2
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/libkomparediff2-26.08.2.tar.xz : ffdc293a6904a62740357168a89b7a61c955557cddbb69598015940d19d368db
+version     : "26.08.3"
+release     : 2
 homepage    : https://invent.kde.org/sdk/libkomparediff2
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/libkomparediff2-26.08.3.tar.xz : 87c9e6b5dcf64463442f3748e4b7b79a85748def48c4d649152627e0b1836d4f
 summary     : Library to compare files and strings
 description : |
     Library to compare files and strings, used in Kompare and KDevelop.
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

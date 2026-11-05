@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : falkon
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/falkon-26.08.2.tar.xz : f59ed0b6fb12aee5a3ed310e489104b815e35a19278bd7e80f9c5ef444616f07
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/falkon/
-license     :
-    - GPL-3.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/falkon-26.08.3.tar.xz : ab2deb9c7dcbfde2769ab67565378a260ffa081df5fbd5e5f7d39d500c251c11
 summary     : Web browser
 description : |
     Falkon is a cross-platform Qt-based web browser using the QtWebEngine engine, with support for extensions, bookmarks and a built-in ad blocker.
+license     :
+    - GPL-3.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

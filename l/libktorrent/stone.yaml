@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libktorrent
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/libktorrent-26.08.2.tar.xz : 140a8e90b2b0d2f91ad12a9d0ff9687aceac44ede0c06e00d7f41ca999340b5e
+version     : "26.08.3"
+release     : 2
 homepage    : https://invent.kde.org/network/libktorrent
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/libktorrent-26.08.3.tar.xz : cc9a3f42dedaa686cf0167305c28f009a5896e520207305a5d1957d5ce1dea2b
+summary     : BitTorrent protocol implementation
+description : |
+    libktorrent is a BitTorrent protocol implementation for KDE.
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - GPL-2.0-or-later
     - MIT
-summary     : BitTorrent protocol implementation
-description : |
-    libktorrent is a BitTorrent protocol implementation for KDE.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(Boost)

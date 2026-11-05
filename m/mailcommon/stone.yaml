@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mailcommon
-version     : "26.08.2"
-release     : 22
+version     : "26.08.3"
+release     : 23
+homepage    : https://invent.kde.org/pim/mailcommon
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/mailcommon-26.08.2.tar.xz : a69a2c7c613ad1378c8bc31e89dc5394101534db64d9d83d9afa6f3ab85b39d8
-homepage    : https://kde.org
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/mailcommon-26.08.3.tar.xz : 2f8d76f8318f32065e375c87044cdf007563846c9a24e78db84e6fbb013b3531
 summary     : MailCommon Library
 description : |
     MailCommon Library.
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

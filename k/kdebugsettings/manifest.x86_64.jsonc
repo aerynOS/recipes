@@ -40,9 +40,9 @@
 			],
 			"files": [
 				"/usr/bin/kdebugsettings",
-				"/usr/lib/libkdebugsettings.so.26.08.2",
+				"/usr/lib/libkdebugsettings.so.26.08.3",
 				"/usr/lib/libkdebugsettings.so.6",
-				"/usr/lib/libkdebugsettingscore.so.26.08.2",
+				"/usr/lib/libkdebugsettingscore.so.26.08.3",
 				"/usr/lib/libkdebugsettingscore.so.6",
 				"/usr/share/applications/org.kde.kdebugsettings.desktop",
 				"/usr/share/kdebugsettings/groups/Full Debug Ruqola",
@@ -106,6 +106,6 @@
 		}
 	},
 	"source-name": "kdebugsettings",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

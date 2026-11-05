@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zanshin
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/zanshin-26.08.2.tar.xz : 51457e05d0e45de98ffebb9bd1f9c74c4b7ed29ee9917928dd5d1dddab67244c
+version     : "26.08.3"
+release     : 2
 homepage    : https://zanshin.kde.org/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/zanshin-26.08.3.tar.xz : d4d87564e1e97262204e958ac10b4ee302a6058e17b4d743b59cc369b1aa2279
+summary     : To-do management application
+description : |
+    A powerful yet simple application to manage your day to day actions.
 license     :
     - CC0-1.0
     - GPL-2.0-only
     - GPL-3.0-only
     - LGPL-2.0-or-later
     - MIT
-summary     : To-do management application
-description : |
-    A powerful yet simple application to manage your day to day actions.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(Boost)

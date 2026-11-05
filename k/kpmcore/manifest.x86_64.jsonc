@@ -29,7 +29,7 @@
 			"files": [
 				"/usr/lib/kf6/kpmcore_externalcommand",
 				"/usr/lib/libkpmcore.so.13",
-				"/usr/lib/libkpmcore.so.26.08.2",
+				"/usr/lib/libkpmcore.so.26.08.3",
 				"/usr/lib/qt6/plugins/kpmcore/pmdummybackendplugin.so",
 				"/usr/lib/qt6/plugins/kpmcore/pmsfdiskbackendplugin.so",
 				"/usr/share/dbus-1/system-services/org.kde.kpmcore.helperinterface.service",
@@ -116,9 +116,13 @@
 				"/usr/share/locale/sk/LC_MESSAGES/kpmcore.mo",
 				"/usr/share/locale/sl/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sl/LC_MESSAGES/kpmcore.mo",
+				"/usr/share/locale/sr/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sr/LC_MESSAGES/kpmcore.mo",
+				"/usr/share/locale/sr@ijekavian/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sr@ijekavian/LC_MESSAGES/kpmcore.mo",
+				"/usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sr@ijekavianlatin/LC_MESSAGES/kpmcore.mo",
+				"/usr/share/locale/sr@latin/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sr@latin/LC_MESSAGES/kpmcore.mo",
 				"/usr/share/locale/sv/LC_MESSAGES/kpmcore._policy_.mo",
 				"/usr/share/locale/sv/LC_MESSAGES/kpmcore.mo",
@@ -252,6 +256,6 @@
 		}
 	},
 	"source-name": "kpmcore",
-	"source-release": "18",
-	"source-version": "26.08.2"
+	"source-release": "19",
+	"source-version": "26.08.3"
 }

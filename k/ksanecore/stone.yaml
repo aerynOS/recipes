@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ksanecore
-version     : "26.08.2"
-release     : 15
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/ksanecore-26.08.2.tar.xz : 532b69ef17ed29c787b0da4050117fb3fab6499242d23f9207e5d5894caaab9a
+version     : "26.08.3"
+release     : 16
 homepage    : https://invent.kde.org/libraries/ksanecore
-license     :
-    - LGPL-2.1-only
-    - LGPL-3.0-only
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/ksanecore-26.08.3.tar.xz : 360f87193ed6dd6729e67ce09096df1743f892e13db43b6e03b02a8a036524dd
 summary     : Library providing logic to interface scanners
 description : |
     KSaneCore is a library that provides a Qt interface for the SANE library for scanner hardware.
+license     :
+    - LGPL-2.1-only
+    - LGPL-3.0-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

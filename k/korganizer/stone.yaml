@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : korganizer
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/korganizer-26.08.2.tar.xz : e0b736e452a0203e265255a1e46c27526fe23d85e8aa8b8b62c40cd79b21dcce
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/korganizer/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/korganizer-26.08.3.tar.xz : 8876d26d6a5528b32ca7aaddfd87a96928fc7b94cf33f1e07accf5f6c72acaa4
+summary     : Calendar and scheduling program
+description : |
+    KOrganizer provides management of events and tasks, alarm notification, web export, network transparent handling of data, group scheduling, import and export of calendar files and more.
 license     :
     - BSD-3-Clause
     - CC0-1.0
@@ -16,9 +19,6 @@ license     :
     - LGPL-2.1-or-later
     - LGPL-3.0-only
     - MIT
-summary     : Calendar and scheduling program
-description : |
-    KOrganizer provides management of events and tasks, alarm notification, web export, network transparent handling of data, group scheduling, import and export of calendar files and more.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

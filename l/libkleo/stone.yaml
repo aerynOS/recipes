@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libkleo
-version     : "26.08.2"
-release     : 23
+version     : "26.08.3"
+release     : 24
+homepage    : https://invent.kde.org/pim/libkleo
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/libkleo-26.08.2.tar.xz : 70dce52fad62d32a3122542bfb4efa20cd1e0e3de92273bcbaae704f32ed3f32
-homepage    : https://kde.org
-license     : GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/libkleo-26.08.3.tar.xz : cd95679340af60bdbba0139c039dca4b5a334c03180dbaf7ba520e3d514cb7a7
 summary     : KDE PIM cryptographic library
 description : |
     KDE PIM cryptographic library.
+license     : GPL-2.0-or-later
 builddeps   :
     - cmake(Boost)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually

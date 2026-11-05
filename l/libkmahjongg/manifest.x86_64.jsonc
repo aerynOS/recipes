@@ -27,7 +27,7 @@
 			],
 			"files": [
 				"/usr/lib/libKMahjongg6.so.6",
-				"/usr/lib/libKMahjongg6.so.6.0.260802",
+				"/usr/lib/libKMahjongg6.so.6.0.260803",
 				"/usr/share/kmahjongglib/backgrounds/chinese_landscape.desktop",
 				"/usr/share/kmahjongglib/backgrounds/chinese_landscape.svgz",
 				"/usr/share/kmahjongglib/backgrounds/color_plain.desktop",
@@ -162,6 +162,6 @@
 		}
 	},
 	"source-name": "libkmahjongg",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
