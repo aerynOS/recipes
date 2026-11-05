@@ -26,6 +26,6 @@
 		}
 	},
 	"source-name": "lucien",
-	"source-release": "2",
-	"source-version": "0.1.0+git.ee18358"
+	"source-release": "3",
+	"source-version": "0.1.0~git.ee18358"
 }
