@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : binutils
-version     : "2.47+git.9d6b31fb"
-release     : 28
-summary     : A GNU collection of binary utilities
-license     : GPL-3.0-or-later
+version     : "2.47~git.9d6b31fb"
+release     : 29
 homepage    : https://sourceware.org/binutils
-description : |
-    A GNU collection of binary utilities
 upstreams   :
     # binutils-2_47-branch
     - git|https://sourceware.org/git/binutils-gdb.git : 9d6b31fb8132ab2597d44d5e1ba20cc85037a427
+summary     : A GNU collection of binary utilities
+description : |
+    A GNU collection of binary utilities
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(bison)
     - binary(flex)
@@ -29,6 +29,11 @@ builddeps   :
     - pkgconfig(ncursesw)
     # - pkgconfig(readline)
     - pkgconfig(zlib)
+tuning      :
+    - lto: full
+    - nosemantic
+    - optimize: speed
+    - symbolic
 setup       : |
     %patch %(pkgdir)/0001-Proper-stateless.patch
     %patch %(pkgdir)/0001-Use-BLAKE3-for-build-id-hashing.patch
@@ -83,11 +88,6 @@ install     : |
     %install_dir %(installroot)/usr/share/defaults/gprofng
     mv %(installroot)/etc/gprofng.rc %(installroot)/usr/share/defaults/gprofng
     rmdir %(installroot)/etc
-tuning      :
-    - lto: full
-    - nosemantic
-    - optimize: speed
-    - symbolic
 packages    :
     - "%(name)-libs":
         summary: "Library files for %(name)"
