@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdf
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kdf-26.08.2.tar.xz : 9c1f8d6ee09f35505f1562e4e580303a4bbf65059369d4a9a2ce10f51ef49bae
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kdf/
-license     :
-    - CC0-1.0
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kdf-26.08.3.tar.xz : 7a72a2a79d57d6aa75cae58548db10a54f0bf46ea08b5dea2c9a7edfc8ff7d6f
 summary     : Disk usage viewer
 description : |
     KDF displays the usage of the mounted file systems and other storage devices, and lets you unmount or eject them.
+license     :
+    - CC0-1.0
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
