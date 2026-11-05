@@ -1,17 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pop-os-sound-theme
-version     : "5.5.1+git.25ea85d"
-release     : 2
+version     : "5.5.1~git.25ea85d"
+release     : 3
 homepage    : https://github.com/pop-os/gtk-theme
 upstreams   :
     - git|https://github.com/pop-os/gtk-theme.git : 25ea85d97126992024b03bfb4e4c3b0711c749ed
 summary     : Gtk Theme by System76
 description : |
     Gtk Theme by System76
-license     :
-    - CC-BY-SA-4.0
+license     : CC-BY-SA-4.0
 builddeps   :
     - binary(glib-compile-resources)
     - binary(sassc)
