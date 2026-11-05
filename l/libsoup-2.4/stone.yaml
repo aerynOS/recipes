@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libsoup-2.4
-version     : "2.7.4+git.5739a0905"
-release     : 2
+version     : "2.7.4~git.5739a0905"
+release     : 3
 homepage    : https://gitlab.gnome.org/GNOME/libsoup
 upstreams   :
     - git|https://gitlab.gnome.org/GNOME/libsoup.git : 5739a090529209c2afc13f482256573bcd9ce940
@@ -19,8 +19,8 @@ builddeps   :
     - binary(xgettext)
     - pkgconfig(glib-2.0)
     - pkgconfig(libbrotlidec)
-    - pkgconfig(libxml-2.0)
     - pkgconfig(libpsl)
+    - pkgconfig(libxml-2.0)
     - pkgconfig(sqlite3)
     - pkgconfig(sysprof-capture-4)
     - glib-networking
