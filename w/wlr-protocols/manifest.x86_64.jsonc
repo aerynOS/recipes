@@ -37,6 +37,6 @@
 		}
 	},
 	"source-name": "wlr-protocols",
-	"source-release": "1",
-	"source-version": "20260309+git.bf4fc79"
+	"source-release": "2",
+	"source-version": "20260309~git.bf4fc79"
 }
