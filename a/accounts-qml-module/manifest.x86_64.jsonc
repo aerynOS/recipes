@@ -31,6 +31,6 @@
 		}
 	},
 	"source-name": "accounts-qml-module",
-	"source-release": "3",
-	"source-version": "0.7+git.05e79ebb"
+	"source-release": "4",
+	"source-version": "0.7~git.05e79ebb"
 }
