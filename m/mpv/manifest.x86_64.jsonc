@@ -24,6 +24,7 @@
 				"pkgconfig(libavutil)",
 				"pkgconfig(libcdio)",
 				"pkgconfig(libcdio_paranoia)",
+				"pkgconfig(libcurl)",
 				"pkgconfig(libdisplay-info)",
 				"pkgconfig(libdrm)",
 				"pkgconfig(libjpeg)",
@@ -35,6 +36,7 @@
 				"pkgconfig(libva)",
 				"pkgconfig(luajit)",
 				"pkgconfig(openal)",
+				"pkgconfig(sdl2)",
 				"pkgconfig(shaderc)",
 				"pkgconfig(sndio)",
 				"pkgconfig(uchardet)",
@@ -55,6 +57,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libEGL.so.1(x86_64))",
+				"soname(libSDL2-2.0.so.0(x86_64))",
 				"soname(libX11.so.6(x86_64))",
 				"soname(libXfixes.so.3(x86_64))",
 				"soname(libarchive.so.13(x86_64))",
@@ -69,9 +72,11 @@
 				"soname(libcdio.so.19(x86_64))",
 				"soname(libcdio_cdda.so.2(x86_64))",
 				"soname(libcdio_paranoia.so.2(x86_64))",
+				"soname(libcurl.so.4(x86_64))",
 				"soname(libdisplay-info.so.3(x86_64))",
 				"soname(libdrm.so.2(x86_64))",
 				"soname(libdvdnav.so.4(x86_64))",
+				"soname(libdvdread.so.8(x86_64))",
 				"soname(libgbm.so.1(x86_64))",
 				"soname(libjack.so.0(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
@@ -167,6 +172,7 @@
 				"pkgconfig(libavutil)",
 				"pkgconfig(libcdio)",
 				"pkgconfig(libcdio_paranoia)",
+				"pkgconfig(libcurl)",
 				"pkgconfig(libdisplay-info)",
 				"pkgconfig(libdrm)",
 				"pkgconfig(libjpeg)",
@@ -178,6 +184,7 @@
 				"pkgconfig(libva)",
 				"pkgconfig(luajit)",
 				"pkgconfig(openal)",
+				"pkgconfig(sdl2)",
 				"pkgconfig(shaderc)",
 				"pkgconfig(sndio)",
 				"pkgconfig(uchardet)",
@@ -197,6 +204,7 @@
 			],
 			"depends": [
 				"soname(libEGL.so.1(x86_64))",
+				"soname(libSDL2-2.0.so.0(x86_64))",
 				"soname(libX11.so.6(x86_64))",
 				"soname(libXfixes.so.3(x86_64))",
 				"soname(libarchive.so.13(x86_64))",
@@ -211,9 +219,11 @@
 				"soname(libcdio.so.19(x86_64))",
 				"soname(libcdio_cdda.so.2(x86_64))",
 				"soname(libcdio_paranoia.so.2(x86_64))",
+				"soname(libcurl.so.4(x86_64))",
 				"soname(libdisplay-info.so.3(x86_64))",
 				"soname(libdrm.so.2(x86_64))",
 				"soname(libdvdnav.so.4(x86_64))",
+				"soname(libdvdread.so.8(x86_64))",
 				"soname(libgbm.so.1(x86_64))",
 				"soname(libjack.so.0(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
@@ -241,7 +251,7 @@
 			],
 			"files": [
 				"/usr/lib/libmpv.so.2",
-				"/usr/lib/libmpv.so.2.5.0"
+				"/usr/lib/libmpv.so.2.6.0"
 			],
 			"name": "mpv-libs",
 			"provides": [
@@ -270,6 +280,7 @@
 				"pkgconfig(libavutil)",
 				"pkgconfig(libcdio)",
 				"pkgconfig(libcdio_paranoia)",
+				"pkgconfig(libcurl)",
 				"pkgconfig(libdisplay-info)",
 				"pkgconfig(libdrm)",
 				"pkgconfig(libjpeg)",
@@ -281,6 +292,7 @@
 				"pkgconfig(libva)",
 				"pkgconfig(luajit)",
 				"pkgconfig(openal)",
+				"pkgconfig(sdl2)",
 				"pkgconfig(shaderc)",
 				"pkgconfig(sndio)",
 				"pkgconfig(uchardet)",
@@ -302,6 +314,7 @@
 				"mpv-libs",
 				"pkgconfig(alsa)",
 				"pkgconfig(dvdnav)",
+				"pkgconfig(dvdread)",
 				"pkgconfig(egl)",
 				"pkgconfig(ffnvcodec)",
 				"pkgconfig(gbm)",
@@ -316,6 +329,7 @@
 				"pkgconfig(libavutil)",
 				"pkgconfig(libcdio)",
 				"pkgconfig(libcdio_paranoia)",
+				"pkgconfig(libcurl)",
 				"pkgconfig(libdisplay-info)",
 				"pkgconfig(libdrm)",
 				"pkgconfig(libjpeg)",
@@ -329,6 +343,7 @@
 				"pkgconfig(libva-wayland)",
 				"pkgconfig(luajit)",
 				"pkgconfig(openal)",
+				"pkgconfig(sdl2)",
 				"pkgconfig(sndio)",
 				"pkgconfig(uchardet)",
 				"pkgconfig(vapoursynth)",
@@ -346,6 +361,7 @@
 			"files": [
 				"/usr/include/mpv/client.h",
 				"/usr/include/mpv/render.h",
+				"/usr/include/mpv/render_d3d11.h",
 				"/usr/include/mpv/render_gl.h",
 				"/usr/include/mpv/stream_cb.h",
 				"/usr/lib/libmpv.so",
@@ -358,6 +374,6 @@
 		}
 	},
 	"source-name": "mpv",
-	"source-release": "22",
-	"source-version": "0.41.0"
+	"source-release": "23",
+	"source-version": "0.42.0"
 }
