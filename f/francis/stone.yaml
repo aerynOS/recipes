@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : francis
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/francis-26.08.2.tar.xz : fc504c2c7a2abc2af57e22f66302ecd515d2c40425c7ac60daef4b50a42de502
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/francis/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/francis-26.08.3.tar.xz : 8335b771df6d0e4e54f5bf6d0a53ecffe8acadd1d2539280956e1db102a5fa75
+summary     : Time tracking app based on the Pomodoro Technique
+description : |
+    Francis is a time-tracking application that helps you stay productive using the Pomodoro Technique.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -14,9 +17,6 @@ license     :
     - GPL-3.0-or-later
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Time tracking app based on the Pomodoro Technique
-description : |
-    Francis is a time-tracking application that helps you stay productive using the Pomodoro Technique.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
