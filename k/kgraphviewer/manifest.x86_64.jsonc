@@ -43,7 +43,7 @@
 			"files": [
 				"/usr/bin/kgraphviewer",
 				"/usr/lib/libkgraphviewer.so.0",
-				"/usr/lib/libkgraphviewer.so.2.5.26082",
+				"/usr/lib/libkgraphviewer.so.2.5.26083",
 				"/usr/lib/qt6/plugins/kf6/parts/kgraphviewerpart.so",
 				"/usr/share/applications/org.kde.kgraphviewer.desktop",
 				"/usr/share/config.kcfg/kgraphviewer_partsettings.kcfg",
@@ -238,6 +238,6 @@
 		}
 	},
 	"source-name": "kgraphviewer",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
