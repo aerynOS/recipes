@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : monado
-version     : "25.1.0+git.983a8a51"
-release     : 3
+version     : "25.1.0~git.983a8a51"
+release     : 4
 homepage    : https://monado.dev/
 upstreams   :
     - git|https://gitlab.freedesktop.org/monado/monado.git : 983a8a518356041fba6445d3548792e2ef0d6948
