@@ -46,6 +46,6 @@
 		}
 	},
 	"source-name": "signon-ui-qt",
-	"source-release": "4",
-	"source-version": "0.15+git.eef943f0"
+	"source-release": "5",
+	"source-version": "0.15~git.eef943f0"
 }

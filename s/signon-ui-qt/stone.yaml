@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : signon-ui-qt
-version     : "0.15+git.eef943f0"
-release     : 4
+version     : "0.15~git.eef943f0"
+release     : 5
+homepage    : https://gitlab.com/accounts-sso/signond
 upstreams   :
     # Temporary (?) source for Qt6 support
     - git|https://gitlab.com/accounts-sso/signon-ui.git : eef943f0edf3beee8ecb85d4a9dae3656002fc24
-homepage    : https://gitlab.com/accounts-sso/signond
-license     : LGPL-2.1-only
 summary     : Signond Qt UI
 description : |
     Signond Qt UI
+license     : LGPL-2.1-only
 builddeps   :
     - binary(qmake6)
     - cmake(Qt6Quick)
