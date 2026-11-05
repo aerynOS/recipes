@@ -318,8 +318,16 @@
 				"/usr/share/doc/HTML/nl/lokalize/index.docbook",
 				"/usr/share/doc/HTML/pt_BR/lokalize/index.cache.bz2",
 				"/usr/share/doc/HTML/pt_BR/lokalize/index.docbook",
+				"/usr/share/doc/HTML/ru/lokalize/configure_shortcuts.png",
+				"/usr/share/doc/HTML/ru/lokalize/configure_toolbar.png",
+				"/usr/share/doc/HTML/ru/lokalize/default_editor_lokalize.png",
+				"/usr/share/doc/HTML/ru/lokalize/glossary.png",
 				"/usr/share/doc/HTML/ru/lokalize/index.cache.bz2",
 				"/usr/share/doc/HTML/ru/lokalize/index.docbook",
+				"/usr/share/doc/HTML/ru/lokalize/original-diff.png",
+				"/usr/share/doc/HTML/ru/lokalize/project_overview.png",
+				"/usr/share/doc/HTML/ru/lokalize/sync.png",
+				"/usr/share/doc/HTML/ru/lokalize/tmview.png",
 				"/usr/share/doc/HTML/sr/lokalize/glossary.png",
 				"/usr/share/doc/HTML/sr/lokalize/index.cache.bz2",
 				"/usr/share/doc/HTML/sr/lokalize/index.docbook",
@@ -345,6 +353,6 @@
 		}
 	},
 	"source-name": "lokalize",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }

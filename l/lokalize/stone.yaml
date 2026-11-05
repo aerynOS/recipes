@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lokalize
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/lokalize-26.08.2.tar.xz : f7c73c77a158cf2df339a7cc040e9add999a8331f0c2b2a6dba2e2be10eaeffd
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/lokalize/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/lokalize-26.08.3.tar.xz : 1fdcf516ce4b664faa29d1b676bdbee8b7fd45df156a733d40c1071c10228a2b
+summary     : Computer-aided translation system
+description : |
+    Lokalize is a computer-aided translation system focused on software translation, with support for translation memories, glossaries and project management.
 license     :
     - BSD-3-Clause
     - GFDL-1.2-or-later
@@ -14,9 +17,6 @@ license     :
     - GPL-2.0-or-later
     - GPL-3.0-only
     - LGPL-2.1-or-later
-summary     : Computer-aided translation system
-description : |
-    Lokalize is a computer-aided translation system focused on software translation, with support for translation memories, glossaries and project management.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
