@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : steam-devices
-version     : "1.0.0.61+git.22ec85e5"
-release     : 4
+version     : "1.0.0.61~git.22ec85e5"
+release     : 5
 homepage    : https://github.com/ValveSoftware/steam-devices
 upstreams   :
     - git|https://github.com/ValveSoftware/steam-devices.git : 22ec85e5ff5ea2e15c56d71a41bcbef46356cd60
