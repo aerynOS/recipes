@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmines
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kmines-26.08.2.tar.xz : b88e3a8e7e3deacb2fc113d97deceb05662d188a9639d513acd34a2a88d25ea8
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kmines/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kmines-26.08.3.tar.xz : aa7ffa2138ae8a0d8680e2deb328aec150e43cb525231b0eb78559f8f1ab6da8
+summary     : Minesweeper game
+description : |
+    KMines is a classic Minesweeper game. The idea is to uncover all the squares without blowing up any mines.
 license     :
     - BSD-3-Clause
     - CC-BY-SA-4.0
     - CC0-1.0
     - GFDL-1.2-or-later
     - GPL-2.0-or-later
-summary     : Minesweeper game
-description : |
-    KMines is a classic Minesweeper game. The idea is to uncover all the squares without blowing up any mines.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
