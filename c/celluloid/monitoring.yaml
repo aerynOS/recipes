@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 193876
-  rss: ~
+  rss: https://github.com/celluloid-player/celluloid/releases.atom
 security:
   cpe:
   - vendor: celluloidapp

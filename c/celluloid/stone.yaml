@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : celluloid
 version     : "0.30"
-release     : 5
+release     : 6
 homepage    : https://github.com/celluloid-player/celluloid
 upstreams   :
     - https://github.com/celluloid-player/celluloid/archive/refs/tags/v0.30.tar.gz : 75ff83f650180cf9fa2458a7015fa84fd3be014e9478d670f9cf94367720313e
