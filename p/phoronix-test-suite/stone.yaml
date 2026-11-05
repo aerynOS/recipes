@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : phoronix-test-suite
-version     : "10.8.4+git.f665ba8"
-release     : 5
+version     : "10.8.4~git.f665ba8"
+release     : 6
 homepage    : https://www.phoronix-test-suite.com/
 upstreams   :
     - git|https://github.com/phoronix-test-suite/phoronix-test-suite.git : f665ba8ee724331f5bc375715089ad6393bcf10e # f665ba8
