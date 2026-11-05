@@ -45,6 +45,6 @@
 		}
 	},
 	"source-name": "signon-plugin-oauth2",
-	"source-release": "3",
-	"source-version": "0.25+git.fab69886"
+	"source-release": "4",
+	"source-version": "0.25~git.fab69886"
 }
