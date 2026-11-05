@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kio-admin
-version     : "26.08.2"
-release     : 15
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kio-admin-26.08.2.tar.xz : f12aff98913c91e6eb6a09cafdedbea3ee2e43a6d559e8ec98d0b72b54cc32ea
+version     : "26.08.3"
+release     : 16
 homepage    : https://invent.kde.org/system/kio-admin
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kio-admin-26.08.3.tar.xz : eda947b2a5cad3e90e30ea5b2b5480fe5a754f0ebcfc59c44cb4c21a15c2ac43
 summary     : Manage files as administrator using the admin:// KIO protocol.
 description : |
     Manage files as administrator using the admin:// KIO protocol.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
