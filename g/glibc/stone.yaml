@@ -2,9 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : glibc
-version     : "2.44+git.34106fee"
-release     : 46
+version     : "2.44~git.34106fee"
+release     : 47
+homepage    : https://www.gnu.org/software/libc
+upstreams   :
+    - git|https://sourceware.org/git/glibc.git :
+        ref : 34106fee698c83eb0af71d4d0381e66b399be746
 summary     : The GNU libc libraries
+description : |
+    The GNU C Library provides the standard C library and the system-call
+    interface used by most programs on aerynOS. It contains the dynamic
+    linker, the core C and POSIX APIs, math and threading libraries, charset
+    conversion and locale support, the Name Service Switch, and timezone
+    utilities.
 license     :
     - GPL-2.0-or-later
     - LGPL-2.1-or-later
@@ -17,16 +27,6 @@ license     :
     - ISC
     - MIT
     - SunPro
-homepage    : https://www.gnu.org/software/libc
-description : |
-    The GNU C Library provides the standard C library and the system-call
-    interface used by most programs on aerynOS. It contains the dynamic
-    linker, the core C and POSIX APIs, math and threading libraries, charset
-    conversion and locale support, the Name Service Switch, and timezone
-    utilities.
-upstreams   :
-    - git|https://sourceware.org/git/glibc.git :
-        ref : 34106fee698c83eb0af71d4d0381e66b399be746
 builddeps   :
     - binary(bison)
     - binary(gperf)
@@ -66,6 +66,48 @@ environment : |
             --enable-stack-protector=strong \
             --with-selinux=no
     "
+profiles    :
+    - emul32:
+        setup: |
+            %patch %(pkgdir)/perf/0001-Remove-RELR-dependency-check.patch
+            %patch %(pkgdir)/aerynos/0001-sysdeps-Add-support-for-default-directories.patch
+            %patch %(pkgdir)/aerynos/0001-Force-correct-RTLDLIST-for-ldd.patch
+            %patch %(pkgdir)/aerynos/0001-Compress-charmaps-with-zstd.patch
+            %patch %(pkgdir)/aerynos/0001-downstream-Update-default-PATH.patch
+            %patch %(pkgdir)/stateless/make-hosts-file-stateless.patch
+            %patch %(pkgdir)/stateless/Support-fallback-stateless-shells-path.patch
+            %patch %(pkgdir)/stateless/Use-a-stateless-ld.so.conf.patch
+            %patch %(pkgdir)/stateless/0001-Stateless-nsswitch.conf.patch
+            %patch %(pkgdir)/stateless/ld-so-cache-in-var.patch
+
+            mkdir build && cd build
+            echo "LD_SO_CACHE=/var/cache/ldconfig/ld.so.cache" >> configparms
+            echo "slibdir=%(libdir)" >> configparms
+            echo "rtlddir=%(libdir)" >> configparms
+            echo "sbindir=%(sbindir)" >> configparms
+            echo "rootsbindir=%(sbindir)" >> configparms
+            # Note this deliberately excludes libsuffix and is not an error
+            echo "complocaledir=/usr/lib/locale" >> configparms
+
+            ../configure \
+                $COMMON_GLIBC_OPTIONS \
+                --disable-cet
+        install: |
+            %make_install build DESTDIR="%(installroot)" -C build
+
+            # Make gconv cache
+            LD_LIBRARY_PATH=%(installroot)/%(libdir) %(installroot)/%(libdir)/ld-linux.so.2 %(installroot)/usr/sbin/iconvconfig --prefix=%(installroot)
+
+            # We don't support nss_db/hesiod currently
+            rm -v %(installroot)/%(bindir)/makedb \
+                %(installroot)/%(libdir)/libnss_db.so* \
+                %(installroot)/%(libdir)/libnss_hesiod.so* \
+                %(installroot)/var/db/Makefile
+            rmdir -v %(installroot)/var/db %(installroot)/var
+
+            # Support old compiled 32bit binaries
+            %install_dir %(installroot)/usr/lib
+            ln -sv ../lib32/ld-linux.so.2 %(installroot)/usr/lib/ld-linux.so.2
 setup       : |
     %patch %(pkgdir)/perf/0001-Remove-RELR-dependency-check.patch
     %patch %(pkgdir)/aerynos/0001-sysdeps-Add-support-for-default-directories.patch
@@ -131,48 +173,6 @@ install     : |
     %tmpfiles "d /etc/ld.so.conf.d 0755 - - -"
     %tmpfiles "d /var/cache/ldconfig 0755 - - -"
     %tmpfiles "d /var/db 0755 - - -"
-profiles    :
-    - emul32:
-        setup: |
-            %patch %(pkgdir)/perf/0001-Remove-RELR-dependency-check.patch
-            %patch %(pkgdir)/aerynos/0001-sysdeps-Add-support-for-default-directories.patch
-            %patch %(pkgdir)/aerynos/0001-Force-correct-RTLDLIST-for-ldd.patch
-            %patch %(pkgdir)/aerynos/0001-Compress-charmaps-with-zstd.patch
-            %patch %(pkgdir)/aerynos/0001-downstream-Update-default-PATH.patch
-            %patch %(pkgdir)/stateless/make-hosts-file-stateless.patch
-            %patch %(pkgdir)/stateless/Support-fallback-stateless-shells-path.patch
-            %patch %(pkgdir)/stateless/Use-a-stateless-ld.so.conf.patch
-            %patch %(pkgdir)/stateless/0001-Stateless-nsswitch.conf.patch
-            %patch %(pkgdir)/stateless/ld-so-cache-in-var.patch
-
-            mkdir build && cd build
-            echo "LD_SO_CACHE=/var/cache/ldconfig/ld.so.cache" >> configparms
-            echo "slibdir=%(libdir)" >> configparms
-            echo "rtlddir=%(libdir)" >> configparms
-            echo "sbindir=%(sbindir)" >> configparms
-            echo "rootsbindir=%(sbindir)" >> configparms
-            # Note this deliberately excludes libsuffix and is not an error
-            echo "complocaledir=/usr/lib/locale" >> configparms
-
-            ../configure \
-                $COMMON_GLIBC_OPTIONS \
-                --disable-cet
-        install: |
-            %make_install build DESTDIR="%(installroot)" -C build
-
-            # Make gconv cache
-            LD_LIBRARY_PATH=%(installroot)/%(libdir) %(installroot)/%(libdir)/ld-linux.so.2 %(installroot)/usr/sbin/iconvconfig --prefix=%(installroot)
-
-            # We don't support nss_db/hesiod currently
-            rm -v %(installroot)/%(bindir)/makedb \
-                %(installroot)/%(libdir)/libnss_db.so* \
-                %(installroot)/%(libdir)/libnss_hesiod.so* \
-                %(installroot)/var/db/Makefile
-            rmdir -v %(installroot)/var/db %(installroot)/var
-
-            # Support old compiled 32bit binaries
-            %install_dir %(installroot)/usr/lib
-            ln -sv ../lib32/ld-linux.so.2 %(installroot)/usr/lib/ld-linux.so.2
 packages    :
     - "%(name)":
         rundeps:
