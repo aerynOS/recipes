@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ktnef
-version     : "26.08.2"
-release     : 18
+version     : "26.08.3"
+release     : 19
+homepage    : https://invent.kde.org/pim/ktnef
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/ktnef-26.08.2.tar.xz : 07950712fee0b4965405ce0498e66505adf9c850fd2a7463111c38a474866ad8
-homepage    : https://kde.org/
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/ktnef-26.08.3.tar.xz : badb933874840b1fc2566297be4182b00f1ea2ecf0385d800a8537f7cd209fa1
 summary     : API for handling TNEF data
 description : |
     API for handling TNEF data.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
