@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ent
-version     : "0.1.0+7ca2a68"
-release     : 9
-homepage    : https://github.com/AerynOS/ent
+version     : "0.1.0~git.eb308bf"
+release     : 10
+homepage    : https://github.com/aerynOS/ent
 upstreams   :
-    - git|https://github.com/AerynOS/ent.git:
-        ref : 7ca2a682e3a104a517cc9fb01507a2f373f4349b
+    - git|https://github.com/aerynOS/ent.git:
+        ref : eb308bf280096122a78fe797ba41953ab928a878
 summary     : Tree management
 description : |
     ent is a tool for working with packaging recipes in git trees/monorepos. Primarily it is intended for use with Serpent OS packaging, and to a limited degree, Solus packaging.
