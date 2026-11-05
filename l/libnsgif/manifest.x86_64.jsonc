@@ -31,6 +31,6 @@
 		}
 	},
 	"source-name": "libnsgif",
-	"source-release": "2",
-	"source-version": "1.0.0+git.e97bc7b"
+	"source-release": "3",
+	"source-version": "1.0.0~git.e97bc7b"
 }
