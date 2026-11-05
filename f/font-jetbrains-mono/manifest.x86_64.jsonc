@@ -1,0 +1,74 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"font-jetbrains-mono-ttf": {
+			"files": [
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Bold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-BoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-ExtraBold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-ExtraBoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-ExtraLight.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-ExtraLightItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Italic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Light.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-LightItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Medium.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-MediumItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Regular.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-SemiBold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-SemiBoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Thin.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-ThinItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Bold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-BoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-ExtraBold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-ExtraBoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-ExtraLight.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-ExtraLightItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Italic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Light.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-LightItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Medium.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-MediumItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Regular.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-SemiBold.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-SemiBoldItalic.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-Thin.ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMonoNL-ThinItalic.ttf"
+			],
+			"name": "font-jetbrains-mono-ttf"
+		},
+		"font-jetbrains-mono-ttf-vf": {
+			"files": [
+				"/usr/share/fonts/truetype/jetbrains-mono-vf/JetBrainsMono-Italic[wght].ttf",
+				"/usr/share/fonts/truetype/jetbrains-mono-vf/JetBrainsMono[wght].ttf"
+			],
+			"name": "font-jetbrains-mono-ttf-vf"
+		},
+		"font-jetbrains-mono-woff2": {
+			"files": [
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Bold.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-BoldItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-ExtraBold.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-ExtraBoldItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-ExtraLight.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-ExtraLightItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Italic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Light.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-LightItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Medium.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-MediumItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Regular.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-SemiBold.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-SemiBoldItalic.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-Thin.woff2",
+				"/usr/share/fonts/WOFF2/jetbrains-mono/JetBrainsMono-ThinItalic.woff2"
+			],
+			"name": "font-jetbrains-mono-woff2"
+		}
+	},
+	"source-name": "font-jetbrains-mono",
+	"source-release": "1",
+	"source-version": "2.304"
+}
