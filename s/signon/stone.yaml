@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : signon
-version     : "8.61+git.c8ad9824"
-release     : 3
+version     : "8.61~git.c8ad9824"
+release     : 4
+homepage    : https://gitlab.com/accounts-sso/signond
 upstreams   :
     # Temporary source for Qt6 support
     - git|https://gitlab.com/nicolasfella/signond.git : c8ad98249af541514ff7a81634d3295e712f1a39
-homepage    : https://gitlab.com/accounts-sso/signond
-license     : LGPL-2.1-only
 summary     : Qt SignOn Daemon
 description : |
     Qt SignOn Daemon
+license     : LGPL-2.1-only
 builddeps   :
     - binary(ar)
     - binary(doxygen)

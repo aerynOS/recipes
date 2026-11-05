@@ -462,6 +462,6 @@
 		}
 	},
 	"source-name": "signon",
-	"source-release": "3",
-	"source-version": "8.61+git.c8ad9824"
+	"source-release": "4",
+	"source-version": "8.61~git.c8ad9824"
 }
