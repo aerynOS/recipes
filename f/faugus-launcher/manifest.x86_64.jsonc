@@ -26,6 +26,7 @@
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/backup_daemon.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/components.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/config_manager.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/faugus/__pycache__/core.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/ea_fix.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/gamepad.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/faugus/__pycache__/keyboard.cpython-314.pyc",
@@ -46,6 +47,7 @@
 				"/usr/lib/python3.14/site-packages/faugus/backup_daemon.py",
 				"/usr/lib/python3.14/site-packages/faugus/components.py",
 				"/usr/lib/python3.14/site-packages/faugus/config_manager.py",
+				"/usr/lib/python3.14/site-packages/faugus/core.py",
 				"/usr/lib/python3.14/site-packages/faugus/ea_fix.py",
 				"/usr/lib/python3.14/site-packages/faugus/gamepad.py",
 				"/usr/lib/python3.14/site-packages/faugus/keyboard.py",
@@ -119,6 +121,7 @@
 				"/usr/share/locale/nl/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ps/LC_MESSAGES/faugus-launcher.mo",
+				"/usr/share/locale/pt/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ro/LC_MESSAGES/faugus-launcher.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/faugus-launcher.mo",
@@ -138,6 +141,6 @@
 		}
 	},
 	"source-name": "faugus-launcher",
-	"source-release": "26",
-	"source-version": "2.5.4"
+	"source-release": "27",
+	"source-version": "2.5.7"
 }
