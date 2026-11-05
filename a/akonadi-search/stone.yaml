@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi-search
-version     : "26.08.2"
-release     : 21
+version     : "26.08.3"
+release     : 22
+homepage    : https://invent.kde.org/pim/akonadi-search
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/akonadi-search-26.08.2.tar.xz : 7508de35606f31bd9cfa2804a3686f232e50721cf7ad206603bdfc2b8bc48dca
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/akonadi-search-26.08.3.tar.xz : 18313bdae58e9a39b65da88809ba78260072faf118ce1e3c673966acdbf74101
 summary     : Libraries and daemons to implement searching in Akonadi
 description : |
     Libraries and daemons to implement searching in Akonadi.
+license     : LGPL-2.1-or-later
 builddeps   :
     - cmake(Corrosion)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
