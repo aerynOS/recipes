@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ksmtp
-version     : "26.08.2"
-release     : 18
+version     : "26.08.3"
+release     : 19
+homepage    : https://invent.kde.org/pim/ksmtp
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/ksmtp-26.08.2.tar.xz : 8d948815bbcd7f4f5c3f19e31651124e36771df19c2bd10cd68763023d24b1e5
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/ksmtp-26.08.3.tar.xz : 91b0ea13523c314a628d3dd8d4d22598f3ec1de0daa68ce79ae7324afd26e8d5
 summary     : Job-based library to send email through an SMTP server
 description : |
     Job-based library to send email through an SMTP server.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
