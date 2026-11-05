@@ -108,6 +108,6 @@
 		}
 	},
 	"source-name": "libsodium",
-	"source-release": "6",
-	"source-version": "1.0.22+git.2ce4d906"
+	"source-release": "7",
+	"source-version": "1.0.22~git.2ce4d906"
 }
