@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : isoimagewriter
-version     : "26.08.2"
-release     : 6
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/isoimagewriter-26.08.2.tar.xz : 8cc5a8df149b32e9473a6a3d4355840d77fd80210d7e90ae98329c5be9c9f954
+version     : "26.08.3"
+release     : 7
 homepage    : https://apps.kde.org/isoimagewriter/
-license     : GPL-3.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/isoimagewriter-26.08.3.tar.xz : 768fba424780a321590c93d599048579cfa4a23f5c01313b31116512ece7d46c
 summary     : ISO Image Writer is a KDE tool to write a .iso file to a USB disk
 description : |
     ISO Image Writer is a KDE tool to write a .iso file to a USB disk
+license     : GPL-3.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
