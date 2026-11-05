@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libepoxy
-version     : "1.5.10+git.bb7ddbc7"
-release     : 5
+version     : "1.5.10~git.bb7ddbc7"
+release     : 6
 homepage    : https://github.com/anholt/libepoxy
 upstreams   :
     - git|https://github.com/anholt/libepoxy.git : bb7ddbc7bd1ee879ec50aa281dcb10cfaefb784c

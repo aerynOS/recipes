@@ -48,6 +48,6 @@
 		}
 	},
 	"source-name": "libepoxy",
-	"source-release": "5",
-	"source-version": "1.5.10+git.bb7ddbc7"
+	"source-release": "6",
+	"source-version": "1.5.10~git.bb7ddbc7"
 }
