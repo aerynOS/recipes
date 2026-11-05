@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kldap
-version     : "26.08.2"
-release     : 18
+version     : "26.08.3"
+release     : 19
+homepage    : https://invent.kde.org/pim/kldap
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kldap-26.08.2.tar.xz : 17fb3e289692599b6aa0ad2c3d409e13f52dabcd6273544eb568cf6f025bac59
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kldap-26.08.3.tar.xz : a3460ece61ab2bb48f6eef24375317c22e897336912bc95ba9fecfb0d21597c2
 summary     : Allows LDAP accessing with a convenient Qt style C++ API
 description : |
     Allows LDAP accessing with a convenient Qt style C++ API.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
