@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : stb
-version     : "20260415+git.31c1ad37" # Use the date of the last commit
-release     : 1
+version     : "20260415~git.31c1ad37" # Use the date of the last commit
+release     : 2
+homepage    : https://github.com/nothings/stb
 upstreams   :
     - git|https://github.com/nothings/stb.git : 31c1ad37456438565541f4919958214b6e762fb4
-homepage    : https://github.com/nothings/stb
-license     : MIT
 summary     : Single-file public domain (or MIT licensed) libraries for C/C++
 description : |
     Single-file public domain (or MIT licensed) libraries for C/C++
+license     : MIT
 install     : |
     %install_file *.{c,h} -t %(installroot)%(includedir)/stb
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/stb/
