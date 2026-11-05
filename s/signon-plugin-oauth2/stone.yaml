@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : signon-plugin-oauth2
-version     : "0.25+git.fab69886"
-release     : 3
+version     : "0.25~git.fab69886"
+release     : 4
+homepage    : https://gitlab.com/accounts-sso/signon-plugin-oauth2
 upstreams   :
     # Temporary source for Qt6 support
     - git|https://gitlab.com/nicolasfella/signon-plugin-oauth2.git : fab698862466994a8fdc9aa335c87b4f05430ce6
-homepage    : https://gitlab.com/accounts-sso/signon-plugin-oauth2
-license     : LGPL-2.1-only
 summary     : Signon OAuth 1.0 and 2.0 plugin
 description : |
     Signon OAuth 1.0 and 2.0 plugin
+license     : LGPL-2.1-only
 builddeps   :
     # - binary(ar)
     # - binary(doxygen)
