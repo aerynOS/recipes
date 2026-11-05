@@ -25,6 +25,7 @@
 				"kf6-kirigami",
 				"kf6-kirigami-addons",
 				"qt6-wayland",
+				"soname(libKF6Codecs.so.6(x86_64))",
 				"soname(libKF6ConfigCore.so.6(x86_64))",
 				"soname(libKF6ConfigWidgets.so.6(x86_64))",
 				"soname(libKF6CoreAddons.so.6(x86_64))",
@@ -120,6 +121,6 @@
 		}
 	},
 	"source-name": "kmail-account-wizard",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
