@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwalletmanager
-version     : "26.08.2"
-release     : 18
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kwalletmanager-26.08.2.tar.xz : 579cf90c9d6e9aa9ff103747208c66a172efcf3338a5f0d7384e63c79e17b66a
+version     : "26.08.3"
+release     : 19
 homepage    : https://apps.kde.org/kwalletmanager5/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kwalletmanager-26.08.3.tar.xz : a9210a6ceef1fe273ead233ffcdd7ca9dbb1d2f79627bf1d29a5353410b67557
 summary     : KWallet Management Tool
 description : |
     KWalletManager is a tool to manage the passwords on your system. By using the KDE wallet subsystem it not only allows you to keep your own secrets but also to access and manage the passwords of every application that integrates with the wallet.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
