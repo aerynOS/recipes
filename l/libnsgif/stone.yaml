@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libnsgif
-version     : "1.0.0+git.e97bc7b"
-release     : 2
+version     : "1.0.0~git.e97bc7b"
+release     : 3
 homepage    : https://www.netsurf-browser.org/projects/libnsgif
 upstreams   :
     - git|https://github.com/netsurf-browser/libnsgif.git :

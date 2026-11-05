@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 7303 # https://release-monitoring.org/ and use the numeric id in the url of project
+  id: 7303
   rss: https://github.com/netsurf-browser/libnsgif/releases.atom
 security:
   cpe: ~ # No CPE found, last checked (2026-05-05)
