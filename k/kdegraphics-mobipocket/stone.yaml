@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdegraphics-mobipocket
-version     : "26.08.2"
-release     : 18
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kdegraphics-mobipocket-26.08.2.tar.xz : 771fb6343177cc9b61ab83fda6d32ed3e87b57de0ce2744ce86b00f8488b6300
+version     : "26.08.3"
+release     : 19
 homepage    : https://invent.kde.org/graphics/kdegraphics-mobipocket
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kdegraphics-mobipocket-26.08.3.tar.xz : ea5d978c66332fd377f97d683b4c3902133f22b7aec586fcc9e810307f2f1f38
 summary     : Plugins for mobipocket
 description : |
     A collection of plugins to handle mobipocket files.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
