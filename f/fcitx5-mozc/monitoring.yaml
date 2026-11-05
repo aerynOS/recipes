@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 2016
-  rss: ~ # use update-mozc.py instead
+  rss: https://github.com/google/mozc/tags.atom # use update-mozc.py instead
 security:
   cpe: ~ # No CPE found, last checked (2026-04-24)
