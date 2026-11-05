@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vapoursynth
-version     : "81"
-release     : 5
+version     : "82"
+release     : 6
 homepage    : https://www.vapoursynth.com
 upstreams   :
-    - https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R81.tar.gz : 4ef8aa67d890fec387f7f5eeec3b54bb0cf6cf5579af2d64a8ea5373c71a6e84
+    - https://github.com/vapoursynth/vapoursynth/archive/refs/tags/R82.tar.gz : 8994fbcfa2fcaa5dc94109e547060521f60829a0899747e98e351bed72bd9611
     # comment from meson.build
     # Runtime GLSL to SPIR-V compilation: glslang is embedded statically and always present,
     # taken from the wrap rather than the system so the accepted dialect stays a pinned
