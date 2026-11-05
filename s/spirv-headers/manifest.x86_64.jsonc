@@ -100,6 +100,6 @@
 		}
 	},
 	"source-name": "spirv-headers",
-	"source-release": "17",
-	"source-version": "1.4.363.0+git.cb42dec"
+	"source-release": "18",
+	"source-version": "1.4.363.0~git.cb42dec"
 }
