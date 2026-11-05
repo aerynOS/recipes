@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi-mime
-version     : "26.08.2"
-release     : 27
+version     : "26.08.3"
+release     : 28
+homepage    : https://invent.kde.org/pim/akonadi-mime
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/akonadi-mime-26.08.2.tar.xz : 1f260c099b01ff5eefcba3c9d706b7ece17b251a5719afa43d8f40cdef0daaf5
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/akonadi-mime-26.08.3.tar.xz : 983f0984574bfdb3181f015f0358fa204a44df02c4d3abfe0390eff888700c4b
 summary    : Akonadi Mime is a library that effectively bridges the type-agnostic API of the Akonadi client libraries and the domain-specific KMime library
 description: |
     Akonadi Mime is a library that effectively bridges the type-agnostic API of the Akonadi client libraries and the domain-specific KMime library. It provides jobs, models and other helpers to make working with emails through Akonadi easier.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
