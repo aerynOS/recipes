@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gcc
-version     : "16.2.0+git.929cafe1"
-release     : 26
-summary     : GNU C++ standard library and compiler
-license     : GPL-3.0-or-later
+version     : "16.2.0~git.929cafe1"
+release     : 27
 homepage    : https://gcc.gnu.org/
-description : |
-    GNU C++ standard library and compiler
 upstreams   :
     # Use the github mirror since the official git hosting is unreliable and slow
     - git|https://github.com/gcc-mirror/gcc:
         # Should be the latest commit on the releases/gcc-16 branch that isn't a bump to the date
         ref: 929cafe124d0020c66dea03d069374c9e4c5aec2
+summary     : GNU C++ standard library and compiler
+description : |
+    GNU C++ standard library and compiler
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(bison)
     - binary(cargo)
