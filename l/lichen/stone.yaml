@@ -1,19 +1,17 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lichen
-version     : "0.1.0+git.a3896a6"
-release     : 58
-summary     : OS installer
-license     : MPL-2.0
-homepage    : https://github.com/AerynOS/lichen
+version     : "0.1.0~git.a3896a6"
+release     : 59
+homepage    : https://github.com/aerynOS/lichen
 upstreams   :
-    - git|https://github.com/AerynOS/lichen.git :
+    - git|https://github.com/aerynOS/lichen.git :
         ref : a3896a6555c5e77dc29a79fa2bf2f2ac5106f418
+summary     : OS installer
 description : |
     Experimental OS installer
-builddeps   :
-    - binary(cargo)
+license     : MPL-2.0
 networking  : true
 rundeps     :
     - binary(moss)
