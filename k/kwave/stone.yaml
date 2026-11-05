@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwave
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kwave-26.08.2.tar.xz : d4ff633303e870e0e9c59eb7adfc4b2f5ad82b6cfb34a4b36de6548c70845a78
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kwave/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kwave-26.08.3.tar.xz : 8eca30668b13c8331721d4e9cf619b3bb1def5caf461944244abf8c25eb5fd6a
 summary     : Sound editor
 description : |
     With Kwave you can record, play back, import and edit many sorts of audio files including multi channel files.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
