@@ -878,6 +878,7 @@
 				"/usr/share/vim/vim92/ftplugin/awk.vim",
 				"/usr/share/vim/vim92/ftplugin/bash.vim",
 				"/usr/share/vim/vim92/ftplugin/basic.vim",
+				"/usr/share/vim/vim92/ftplugin/bats.vim",
 				"/usr/share/vim/vim92/ftplugin/bazelrc.vim",
 				"/usr/share/vim/vim92/ftplugin/bdf.vim",
 				"/usr/share/vim/vim92/ftplugin/beancount.vim",
@@ -1311,6 +1312,7 @@
 				"/usr/share/vim/vim92/indent/awk.vim",
 				"/usr/share/vim/vim92/indent/bash.vim",
 				"/usr/share/vim/vim92/indent/basic.vim",
+				"/usr/share/vim/vim92/indent/bats.vim",
 				"/usr/share/vim/vim92/indent/beancount.vim",
 				"/usr/share/vim/vim92/indent/bib.vim",
 				"/usr/share/vim/vim92/indent/bitbake.vim",
@@ -1421,6 +1423,7 @@
 				"/usr/share/vim/vim92/indent/pascal.vim",
 				"/usr/share/vim/vim92/indent/perl.vim",
 				"/usr/share/vim/vim92/indent/php.vim",
+				"/usr/share/vim/vim92/indent/pkl.vim",
 				"/usr/share/vim/vim92/indent/postscr.vim",
 				"/usr/share/vim/vim92/indent/pov.vim",
 				"/usr/share/vim/vim92/indent/prolog.vim",
@@ -1976,6 +1979,7 @@
 				"/usr/share/vim/vim92/syntax/baan.vim",
 				"/usr/share/vim/vim92/syntax/bash.vim",
 				"/usr/share/vim/vim92/syntax/basic.vim",
+				"/usr/share/vim/vim92/syntax/bats.vim",
 				"/usr/share/vim/vim92/syntax/bazelrc.vim",
 				"/usr/share/vim/vim92/syntax/bc.vim",
 				"/usr/share/vim/vim92/syntax/bdf.vim",
@@ -2875,6 +2879,6 @@
 		}
 	},
 	"source-name": "vim",
-	"source-release": "38",
-	"source-version": "9.2.1252"
+	"source-release": "39",
+	"source-version": "9.2.1295"
 }
