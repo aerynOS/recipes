@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : envision
-version     : "3.2.0+git.aa84e48e"
-release     : 3
+version     : "3.2.0~git.aa84e48e"
+release     : 4
 homepage    : https://gitlab.com/gabmus/envision
 upstreams   :
     - git|https://gitlab.com/gabmus/envision.git : aa84e48e8de86dd12d62604340a29748b599d298
@@ -11,6 +11,7 @@ summary     : Orchestrator for the free XR stack
 description : |
     Envision is a graphical app that acts as an orchestrator to get a full Monado setup up and running with a few clicks
 license     : AGPL-3.0-or-later
+networking  : true
 builddeps   :
     - binary(cargo)
     - binary(desktop-file-validate)
@@ -26,7 +27,6 @@ builddeps   :
 rundeps     :
     - binary(monado-service)
     - xrizer
-networking  : true
 setup       : |
     %patch %(pkgdir)/ftbfs-openssl-4.patch
     %meson \
