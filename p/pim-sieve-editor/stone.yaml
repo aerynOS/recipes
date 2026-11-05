@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pim-sieve-editor
-version     : "26.08.2"
-release     : 2
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/pim-sieve-editor-26.08.2.tar.xz : f7f24d4c0496ee4565abc6821a3b353f7d6b7d5994f247820427243ecafd551c
+version     : "26.08.3"
+release     : 3
 homepage    : https://invent.kde.org/pim/pim-sieve-editor
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/pim-sieve-editor-26.08.3.tar.xz : aa2c7b84da770799804e2dc80863af2017d92ff243cbccc0704c66bacd5810d8
+summary     : Editor for IMAP Sieve mail filters
+description : |
+    An application to assist with editing IMAP Sieve filters, which sort incoming mail on the server.
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
     - MIT
-summary     : Editor for IMAP Sieve mail filters
-description : |
-    An application to assist with editing IMAP Sieve filters, which sort incoming mail on the server.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
