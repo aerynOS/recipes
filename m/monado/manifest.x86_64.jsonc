@@ -176,6 +176,6 @@
 		}
 	},
 	"source-name": "monado",
-	"source-release": "3",
-	"source-version": "25.1.0+git.983a8a51"
+	"source-release": "4",
+	"source-version": "25.1.0~git.983a8a51"
 }
