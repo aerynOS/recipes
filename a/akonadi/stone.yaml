@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akonadi
-version     : "26.08.2"
-release     : 32
+version     : "26.08.3"
+release     : 33
+homepage    : https://invent.kde.org/pim/akonadi
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/akonadi-26.08.2.tar.xz : 85746817161152a3c887c32caabaf2163396796f2ad8fc3ac638e2c91f4b0fbd
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/akonadi-26.08.3.tar.xz : 04e9f73f10ee2fdc4f74a91292ad389f483bd7c4bc7e5f257b75df3a8abb02a3
 summary     : KDE centralized database to store, index and retrieve the user's personal information
 description : |
     The Akonadi framework is responsible for providing applications with a centralized database to store, index and retrieve the user's personal information. This includes the user's emails, contacts, calendars, events, journals, alarms, notes, etc.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - binary(xsltproc)
