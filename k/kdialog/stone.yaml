@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdialog
-version     : "26.08.2"
-release     : 2
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kdialog-26.08.2.tar.xz : ed4a6fde2832d2c0265c855b2a871a6b2bb5a22a1949edaed67f44dbda84bf20
+version     : "26.08.3"
+release     : 3
 homepage    : https://invent.kde.org/utilities/kdialog
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kdialog-26.08.3.tar.xz : 64cbdf30d29f26c0535d66494a3032860e700922deb44b3839e2ab171e639a66
 summary     : Show KDE dialogs from shell scripts
 description : |
     KDialog allows you to display dialog boxes from shell scripts. The syntax is very much inspired by the dialog command.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
