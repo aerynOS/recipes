@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : font-jetbrains-mono
+version     : "2.304"
+release     : 1
+homepage    : https://www.jetbrains.com/lp/mono/
+upstreams   :
+    - https://github.com/JetBrains/JetBrainsMono/releases/download/v2.304/JetBrainsMono-2.304.zip : 6f6376c6ed2960ea8a963cd7387ec9d76e3f629125bc33d1fdcd7eb7012f7bbf
+summary     : Typeface for developers, by JetBrains
+description : |
+    Typeface for developers, by JetBrains
+license     : OFL-1.1
+install     : |
+    %install_file ttf/*.ttf -t %(installroot)%(datadir)/fonts/truetype/jetbrains-mono/
+    %install_file va*/*.ttf -t %(installroot)%(datadir)/fonts/truetype/jetbrains-mono-vf/
+    %install_file w*/*.woff2 -t %(installroot)%(datadir)/fonts/WOFF2/jetbrains-mono/
+packages    :
+    - "%(name)-ttf":
+        summary: static fonts for jetbrains-mono
+        description: static fonts for jetbrains-mono
+        paths:
+            - /usr/share/fonts/truetype/jetbrains-mono/
+    - "%(name)-ttf-vf":
+        summary: variable fonts for jetbrains-mono
+        description: variable fonts for jetbrains-mono
+        paths:
+            - /usr/share/fonts/truetype/jetbrains-mono-vf/
+    - "%(name)-woff2":
+        summary: webfonts for jetbrains-mono
+        description: webfonts fonts for jetbrains-mono
+        paths:
+            - /usr/share/fonts/WOFF2/
