@@ -35,6 +35,6 @@
 		}
 	},
 	"source-name": "steam-removable-media",
-	"source-release": "3",
-	"source-version": "24.07+git.314c0bd"
+	"source-release": "4",
+	"source-version": "24.07~git.314c0bd"
 }
