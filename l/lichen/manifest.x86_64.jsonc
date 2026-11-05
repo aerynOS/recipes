@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"lichen": {
-			"build-depends": [
-				"binary(cargo)"
-			],
 			"depends": [
 				"binary(moss)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -35,6 +32,6 @@
 		}
 	},
 	"source-name": "lichen",
-	"source-release": "58",
-	"source-version": "0.1.0+git.a3896a6"
+	"source-release": "59",
+	"source-version": "0.1.0~git.a3896a6"
 }
