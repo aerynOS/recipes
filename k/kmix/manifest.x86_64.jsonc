@@ -55,7 +55,7 @@
 				"/usr/bin/kmix",
 				"/usr/bin/kmixctrl",
 				"/usr/bin/kmixremote",
-				"/usr/lib/libkmixcore.so.26.08.2",
+				"/usr/lib/libkmixcore.so.26.08.3",
 				"/usr/lib/libkmixcore.so.6",
 				"/usr/share/applications/org.kde.kmix.desktop",
 				"/usr/share/config.kcfg/kmixsettings.kcfg",
@@ -290,6 +290,6 @@
 		}
 	},
 	"source-name": "kmix",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
