@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : koko
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/koko-26.08.2.tar.xz : f7fce0d885ac53ddd3fc30d443cbff694b5432eb0745efae0556dbfe270c5830
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/koko/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/koko-26.08.3.tar.xz : 51a91aae40c7c606235c218eee32f59048a528394ba68994a7ce34d26bcf3e5e
+summary     : Image viewer for desktop and touch devices
+description : |
+    Koko is an image viewer designed for desktop and touch devices.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -18,9 +21,6 @@ license     :
     - LGPL-2.1-only
     - LGPL-2.1-or-later
     - LGPL-3.0-only
-summary     : Image viewer for desktop and touch devices
-description : |
-    Koko is an image viewer designed for desktop and touch devices.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
