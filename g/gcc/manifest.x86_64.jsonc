@@ -3584,6 +3584,6 @@
 		}
 	},
 	"source-name": "gcc",
-	"source-release": "26",
-	"source-version": "16.2.0+git.929cafe1"
+	"source-release": "27",
+	"source-version": "16.2.0~git.929cafe1"
 }
