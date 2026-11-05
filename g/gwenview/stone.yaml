@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gwenview
-version     : "26.08.2"
-release     : 28
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/gwenview-26.08.2.tar.xz : bc6eb96196daeb5879e3551b834e65e296409d2252804ee26fedcbb376826a72
+version     : "26.08.3"
+release     : 29
 homepage    : https://apps.kde.org/gwenview/
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/gwenview-26.08.3.tar.xz : 14cd907c8290e49450e2e26dd894854eaed3a7d5dc383c744ab7cc4728ea2bee
 summary     : Fast and easy to use image viewer by KDE
 description : |
     Gwenview is able to load and save to a variety of image formats supported by KDE applications, such as PNG, JPEG, and even the Gimp's XCF! Gwenview also sports a beautiful thumbnail toolbar when viewing images in fullscreen. Gwenview's simple interface doesn't get in the way and lets you view your images quickly and easily.
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
