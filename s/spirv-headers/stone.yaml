@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : spirv-headers
-version     : "1.4.363.0+git.cb42dec"
-release     : 17
+version     : "1.4.363.0~git.cb42dec"
+release     : 18
 homepage    : https://registry.khronos.org/SPIR-V/
 upstreams   :
     - git|https://github.com/KhronosGroup/SPIRV-Headers.git : cb42dec3830d3ac67fa449ecdc0c0f73d5e74498 # post-vulkan-sdk-1.4.363.0, required by spirv-llvm-translator 23.1.3
