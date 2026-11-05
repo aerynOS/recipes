@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dolphin
-version     : "26.08.2"
-release     : 33
+version     : "26.08.3"
+release     : 34
+homepage    : https://apps.kde.org/dolphin/
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/dolphin-26.08.2.tar.xz : 8bb1bdfcab19dd62d7625270fc6cc3c81145600d67b0599fc9fe89d711cc6730
-homepage    : https://kde.org/applications/system/org.kde.dolphin
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/dolphin-26.08.3.tar.xz : 8d73851ba561f81b9aa27bba53157a59d9eeaa548fd82f0c9c2167b5a7c4a65d
 summary     : KDE file manager focusing on usability
 description : |
     Dolphin is a file manager focusing on usability. Focusing on usability means that features are discoverable and efficient to use.
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
