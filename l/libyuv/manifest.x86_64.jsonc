@@ -64,6 +64,6 @@
 		}
 	},
 	"source-name": "libyuv",
-	"source-release": "4",
-	"source-version": "0.0.1910+git.7e5863ae"
+	"source-release": "5",
+	"source-version": "0.0.1910~git.7e5863ae"
 }

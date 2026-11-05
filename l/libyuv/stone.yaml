@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libyuv
-version     : "0.0.1910+git.7e5863ae" # version string comes from version.h
-release     : 4
+version     : "0.0.1910~git.7e5863ae" # version string comes from version.h
+release     : 5
+homepage    : https://chromium.googlesource.com/libyuv/libyuv/
 upstreams   :
     - git|https://chromium.googlesource.com/libyuv/libyuv : 7e5863ae5a55610643b9abc3c5aa87344df399f7
 summary     : YUV conversion and scaling functionality library
-license     : BSD-3-Clause
-homepage    : https://chromium.googlesource.com/libyuv/libyuv/
 description : |
     YUV conversion and scaling functionality library
+license     : BSD-3-Clause
 builddeps   :
     - pkgconfig(gtest)
     - pkgconfig(libjpeg)
