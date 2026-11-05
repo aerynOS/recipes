@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : steam-removable-media
-version     : "24.07+git.314c0bd"
-release     : 3
+version     : "24.07~git.314c0bd"
+release     : 4
 homepage    : https://github.com/ShadowBlip/steam-removable-media
 upstreams   :
     - https://github.com/ShadowBlip/steam-removable-media/archive/314c0bd2ca8eb46dcf138bce829b8821386975e8.tar.gz : daf1e542d64c0e220d859506fef406e17a9d8884f5f667fc8831bae7285a2a4e
