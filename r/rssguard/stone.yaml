@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : rssguard
 version     : "5.2.5"
-release     : 12
+release     : 13
 homepage    : https://github.com/martinrotter/rssguard
 upstreams   :
     - https://github.com/martinrotter/rssguard/releases/download/5.2.5/rssguard-5.2.5-src.tar.gz : 5051308aaff854e5b1948e23b02871cd8d4fb4b870bdb688a8b98e907e6a0614
