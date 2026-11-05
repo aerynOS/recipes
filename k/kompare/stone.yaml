@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kompare
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kompare-26.08.2.tar.xz : b1bee9df5873ef81746d8069255c286c00cae179bb8ab38870f616806f61b776
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/kompare/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/kompare-26.08.3.tar.xz : 23b414d2d2a69b24a18b8e63aa45d18cd96e97f8dca02c8c93bfb6551fbbec96
+summary     : Diff and merge file comparator
+description : |
+    Tool to visualize changes between two versions of a file.
 license     :
     - GFDL-1.2-or-later
     - GPL-2.0-only
     - GPL-2.0-or-later
     - GPL-3.0-only
-summary     : Diff and merge file comparator
-description : |
-    Tool to visualize changes between two versions of a file.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
