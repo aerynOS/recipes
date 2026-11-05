@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : urw-base35-fonts
-version     : "20200910+git.3c0ba3b"
-release     : 5
-summary     : URW Base35 PostScript fonts
-license     : AGPL-3.0-or-later
+version     : "20200910~git.3c0ba3b"
+release     : 6
 homepage    : https://github.com/ArtifexSoftware/urw-base35-fonts
 upstreams   :
     - git|https://github.com/ArtifexSoftware/urw-base35-fonts : 3c0ba3b5687632dfc66526544a4e811fe0ec0cd9
+summary     : URW Base35 PostScript fonts
 description : |
     URW Base35 PostScript fonts
+license     : AGPL-3.0-or-later
 install     : |
     %install_dir %(installroot)%(datadir)/fonts/urw-base35
 
