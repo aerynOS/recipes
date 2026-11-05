@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : akregator
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/akregator-26.08.2.tar.xz : d819df8e453e45167ed90c3bf99073017f325f792832b97ce9df5445f844deed
+version     : "26.08.3"
+release     : 2
 homepage    : https://apps.kde.org/akregator/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/akregator-26.08.3.tar.xz : 44fa1959e3dc8e72cf02d88249c6d4ee1a6ae6305e9921ea19237003c29cbdcd
+summary     : RSS/Atom feed reader
+description : |
+    Akregator is a news feed reader for the KDE desktop. It enables you to follow news sites, blogs and other RSS/Atom-enabled websites without the need to manually check for updates using a web browser.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -15,9 +18,6 @@ license     :
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
     - MIT
-summary     : RSS/Atom feed reader
-description : |
-    Akregator is a news feed reader for the KDE desktop. It enables you to follow news sites, blogs and other RSS/Atom-enabled websites without the need to manually check for updates using a web browser.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)

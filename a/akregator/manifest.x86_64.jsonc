@@ -87,9 +87,9 @@
 				"/usr/bin/akregator",
 				"/usr/bin/akregatorstorageexporter",
 				"/usr/lib/libakregatorinterfaces.so.6",
-				"/usr/lib/libakregatorinterfaces.so.6.8.2",
+				"/usr/lib/libakregatorinterfaces.so.6.8.3",
 				"/usr/lib/libakregatorprivate.so.6",
-				"/usr/lib/libakregatorprivate.so.6.8.2",
+				"/usr/lib/libakregatorprivate.so.6.8.3",
 				"/usr/lib/qt6/plugins/akregatorpart.so",
 				"/usr/lib/qt6/plugins/pim6/kcms/akregator/akregator_config_advanced.so",
 				"/usr/lib/qt6/plugins/pim6/kcms/akregator/akregator_config_appearance.so",
@@ -323,6 +323,6 @@
 		}
 	},
 	"source-name": "akregator",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
