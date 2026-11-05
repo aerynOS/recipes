@@ -3,7 +3,7 @@
 
 name        : mpvqt
 version     : "1.2.1"
-release     : 6
+release     : 7
 homepage    : https://mpv.io/
 upstreams   :
     - https://download.kde.org/stable/mpvqt/mpvqt-1.2.1.tar.xz : 6ff5f56a0edd8248073446e5cc038f47d4b17c46b6af43cf438123d0ac911189
