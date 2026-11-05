@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mpv
-version     : "0.41.0"
-release     : 22
+version     : "0.42.0"
+release     : 23
 homepage    : https://mpv.io/
 upstreams   :
-    - https://github.com/mpv-player/mpv/archive/refs/tags/v0.41.0.tar.gz : ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209
+    - https://github.com/mpv-player/mpv/archive/refs/tags/v0.42.0.tar.gz : bcfebbfa2b65a6d88dc97ea18117831072373e38b5785a2afb874ed4df5070dd
 summary     : a free, open source, and cross-platform media player
 description : |
   mpv is a free (as in freedom) media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types.
@@ -36,6 +36,7 @@ builddeps   :
     # pkgconfig(libbluray)
     - pkgconfig(libcdio)
     - pkgconfig(libcdio_paranoia)
+    - pkgconfig(libcurl)
     - pkgconfig(libdisplay-info)
     - pkgconfig(libdrm)
     - pkgconfig(libjpeg)
@@ -50,6 +51,7 @@ builddeps   :
     # pkgconfig(mujs)
     - pkgconfig(openal)
     # pkgconfig(rubberband)
+    - pkgconfig(sdl2)
     - pkgconfig(shaderc)
     - pkgconfig(sndio)
     # pkgconfig(spirv-cross-c-shared)
@@ -69,17 +71,6 @@ builddeps   :
     - pkgconfig(zimg)
     - pkgconfig(zlib)
 setup       : |
-    %patch %(pkgdir)/fix_wayland_clipboard_high_cpu_usage.patch
-
-    # Vapoursynth patches
-    # https://github.com/mpv-player/mpv/pull/17731
-    # https://github.com/mpv-player/mpv/pull/17806
-    # https://github.com/mpv-player/mpv/pull/18049
-    # TODO: remove patches in next update
-    %patch %(pkgdir)/17731.patch
-    %patch %(pkgdir)/17806.patch
-    %patch %(pkgdir)/18049.patch
-
     # mpv currently only looks for unversioned libs of vapoursynth
     # we ship vapoursynth in the base package as versioned
     # so patch mpv to accept the .0 version as well
@@ -87,7 +78,8 @@ setup       : |
 
     %meson \
         -Dlibmpv=true \
-        -Dopenal=enabled
+        -Dopenal=enabled \
+        -Dsdl2-gamepad=enabled
 build       : |
     %meson_build
 install     : |
