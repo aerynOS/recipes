@@ -3,7 +3,7 @@
 
 name        : kalarm
 version     : "26.08.2"
-release     : 1
+release     : 2
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.2/src/kalarm-26.08.2.tar.xz : b8b68cf4c20903adecdacf867df0fe3c538593fca0506a3719fe7d249dd917c4
 homepage    : https://apps.kde.org/kalarm/
