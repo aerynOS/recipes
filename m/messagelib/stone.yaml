@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : messagelib
-version     : "26.08.2"
-release     : 26
+version     : "26.08.3"
+release     : 27
+homepage    : https://invent.kde.org/pim/messagelib
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/messagelib-26.08.2.tar.xz : 7a6003d027042ad9f69a16f84cb0132cb8a306c28ac0fa70087b505dccca6e3b
-homepage    : https://kde.org
-license     :
-    - GPL-2.0-only
-    - LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/messagelib-26.08.3.tar.xz : 9a9c64ccd5c722cb5b6e605d4804ea2be50f0687377737cba82553bbe7856cf2
 summary     : KDE PIM messaging library
 description : |
     KDE PIM messaging library.
+license     :
+    - GPL-2.0-only
+    - LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
