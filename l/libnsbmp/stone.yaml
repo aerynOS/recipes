@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libnsbmp
-version     : "0.1.7+git.77ce1da"
-release     : 2
+version     : "0.1.7~git.77ce1da"
+release     : 3
 homepage    : https://www.netsurf-browser.org/projects/libnsbmp
 upstreams   :
     - git|https://github.com/netsurf-browser/libnsbmp.git :
