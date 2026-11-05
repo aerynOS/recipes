@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libkdcraw
-version     : "26.08.2"
-release     : 20
+version     : "26.08.3"
+release     : 21
+homepage    : https://invent.kde.org/graphics/libkdcraw
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/libkdcraw-26.08.2.tar.xz : 1e4efcc416d8c2a3f5c1e3c1d458938ca243975fcda094b9101999175f505959
-homepage    : https://kde.org/
-license     :
-    - GFDL-1.2-or-later
-    - GPL-2.0-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/libkdcraw-26.08.3.tar.xz : 835f43299d97afd37a5e03bd48f977bad388553c5cd079fa51b1bda6151e1917
 summary     : C++ interface to LibRaw
 description : |
     Libkdcraw is a C++ interface around LibRaw library used to decode RAW picture files.
+license     :
+    - GFDL-1.2-or-later
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
