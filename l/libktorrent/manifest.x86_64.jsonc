@@ -31,7 +31,7 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libKTorrent6.so.26.08.2",
+				"/usr/lib/libKTorrent6.so.26.08.3",
 				"/usr/lib/libKTorrent6.so.6",
 				"/usr/share/locale/ar/LC_MESSAGES/libktorrent6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libktorrent6.mo",
@@ -322,6 +322,6 @@
 		}
 	},
 	"source-name": "libktorrent",
-	"source-release": "1",
-	"source-version": "26.08.2"
+	"source-release": "2",
+	"source-version": "26.08.3"
 }
