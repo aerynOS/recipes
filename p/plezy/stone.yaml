@@ -3,7 +3,7 @@
 
 name        : plezy
 version     : "2.25.0"
-release     : 18
+release     : 19
 homepage    : https://plezy.app/
 upstreams   :
     - https://github.com/edde746/plezy/archive/refs/tags/2.25.0.tar.gz:
