@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ghostwriter
-version     : "26.08.2"
-release     : 1
-upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/ghostwriter-26.08.2.tar.xz : 03ad5d604205bc6a33f6dcd0cc4c1e04e7c4a4e0ba88ef3169e2aaf971d21700
+version     : "26.08.3"
+release     : 2
 homepage    : https://ghostwriter.kde.org/
+upstreams   :
+    - https://download.kde.org/stable/release-service/26.08.3/src/ghostwriter-26.08.3.tar.xz : cbe3942aa77c3be2ba69de7d84702558d3776495673040f95b99c3cb3387240b
+summary     : Distraction-free Markdown editor
+description : |
+    ghostwriter is a text editor for Markdown, providing a relaxing, distraction-free writing environment.
 license     :
     - Apache-2.0
     - BSD-2-Clause
@@ -17,9 +20,6 @@ license     :
     - LGPL-2.1-or-later
     - MIT
     - OFL-1.1
-summary     : Distraction-free Markdown editor
-description : |
-    ghostwriter is a text editor for Markdown, providing a relaxing, distraction-free writing environment.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
