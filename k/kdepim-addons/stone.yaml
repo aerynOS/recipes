@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdepim-addons
-version     : "26.08.2"
-release     : 20
+version     : "26.08.3"
+release     : 21
+homepage    : https://invent.kde.org/pim/kdepim-addons
 upstreams   :
-    - https://download.kde.org/stable/release-service/26.08.2/src/kdepim-addons-26.08.2.tar.xz : d01ea99b6e7938f05f0d3b6332c60e1a4148a14883f1b48acd69951d95c39dc2
-homepage    : https://community.kde.org/PIM
-license     :
-    - GPL-2.0-only
-    - LGPL-2.1-or-later
+    - https://download.kde.org/stable/release-service/26.08.3/src/kdepim-addons-26.08.3.tar.xz : 42fa0193267cfdb57f1db43e3365fe42c4a90ba1bb0119d85beb1ef0d5152aa1
 summary     : Addons for KDE PIM applications
 description : |
     Addons for KDE PIM applications including akregator, kaddressbook, kmail and korganizer.
+license     :
+    - GPL-2.0-only
+    - LGPL-2.1-or-later
 builddeps   :
     - cmake(Corrosion)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
