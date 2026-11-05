@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zimg
-version     : "3.0.6+git.1ad1895"
-release     : 2
+version     : "3.0.6~git.1ad1895"
+release     : 3
 homepage    : https://github.com/sekrit-twc/zimg
 upstreams   :
     - git|https://github.com/sekrit-twc/zimg.git : 1ad1895d5ff0bbe69c61243f9996aede713d1b5f
