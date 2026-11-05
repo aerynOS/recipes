@@ -42,6 +42,6 @@
 		}
 	},
 	"source-name": "libstone",
-	"source-release": "8",
-	"source-version": "0.26.1+git.647000c"
+	"source-release": "9",
+	"source-version": "0.26.1~git.647000c"
 }
