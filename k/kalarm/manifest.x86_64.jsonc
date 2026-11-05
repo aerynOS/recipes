@@ -102,9 +102,9 @@
 				"/usr/lib/kconf_update_bin/kalarm-3.10.0-run_mode",
 				"/usr/lib/kf6/kauth/kalarm_helper",
 				"/usr/lib/libkalarmcalendar.so.6",
-				"/usr/lib/libkalarmcalendar.so.6.8.2",
+				"/usr/lib/libkalarmcalendar.so.6.8.3",
 				"/usr/lib/libkalarmplugin.so.6",
-				"/usr/lib/libkalarmplugin.so.6.8.2",
+				"/usr/lib/libkalarmplugin.so.6.8.3",
 				"/usr/lib/qt6/plugins/pim6/kalarm/akonadiplugin.so",
 				"/usr/lib/qt6/plugins/pim6/kalarm/audioplugin_mpv.so",
 				"/usr/lib/qt6/plugins/pim6/kalarm/audioplugin_vlc.so",
@@ -292,8 +292,13 @@
 				"/usr/share/doc/HTML/pt/kalarm/index.docbook",
 				"/usr/share/doc/HTML/pt_BR/kalarm/index.cache.bz2",
 				"/usr/share/doc/HTML/pt_BR/kalarm/index.docbook",
+				"/usr/share/doc/HTML/ru/kalarm/alarmmessage.png",
+				"/usr/share/doc/HTML/ru/kalarm/editwindow-simple.png",
+				"/usr/share/doc/HTML/ru/kalarm/editwindow.png",
 				"/usr/share/doc/HTML/ru/kalarm/index.cache.bz2",
 				"/usr/share/doc/HTML/ru/kalarm/index.docbook",
+				"/usr/share/doc/HTML/ru/kalarm/mainwindow-calendars.png",
+				"/usr/share/doc/HTML/ru/kalarm/mainwindow.png",
 				"/usr/share/doc/HTML/sl/kalarm/index.cache.bz2",
 				"/usr/share/doc/HTML/sl/kalarm/index.docbook",
 				"/usr/share/doc/HTML/sv/kalarm/index.cache.bz2",
@@ -305,6 +310,6 @@
 		}
 	},
 	"source-name": "kalarm",
-	"source-release": "2",
-	"source-version": "26.08.2"
+	"source-release": "3",
+	"source-version": "26.08.3"
 }
