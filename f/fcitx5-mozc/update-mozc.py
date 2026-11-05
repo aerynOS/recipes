@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 import json

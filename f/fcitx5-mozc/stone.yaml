@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-mozc
 ##@@BEGIN_VERSION
-version     : "3.34.6239.2"
+version     : "3.35.6354.2"
 ##@@END_VERSION
-release     : 2
+release     : 3
 homepage    : https://github.com/google/mozc
 upstreams   :
 ##@@BEGIN_GIT_UPSTREAMS
     - git|https://github.com/fcitx/mozc.git:
-        ref: 3f9b1bd6d089cef2e1e8814d7de25291e730274b
+        ref: 8ab43bc361db9fb056e1f0644ec89956c0d67987
         clonedir: mozc
     - git|https://github.com/bazelbuild/bazel-central-registry.git:
-        ref: b4e12725d1ea1e61060d0a851193f3047e5eca64
+        ref: 5eca7ccfea26866ef348d2ed76cdd684fad8c2eb
         clonedir: bazel-central-registry
 ##@@END_GIT_UPSTREAMS
 ##@@BEGIN_BAZEL_BINARY
@@ -24,6 +24,9 @@ upstreams   :
 ##@@BEGIN_BAZEL_DEPS
     - https://github.com/abseil/abseil-cpp/releases/download/20260107.1/abseil-cpp-20260107.1.tar.gz:
         hash: 4314e2a7cbac89cac25a2f2322870f343d81579756ceff7f431803c2c9090195
+        unpack: false
+    - https://github.com/abseil/abseil-py/archive/refs/tags/v2.1.0.tar.gz:
+        hash: 8a3d0830e4eb4f66c4fa907c06edf6ce1c719ced811a12e26d9d3162f8471758
         unpack: false
     - https://github.com/astral-sh/python-build-standalone/releases/download/20251031/cpython-3.11.14+20251031-x86_64-unknown-linux-gnu-install_only.tar.gz:
         hash: 60f0bd473d861cc45d3401d9914e47ccb9fa037f88a91879ed517a62042b8477

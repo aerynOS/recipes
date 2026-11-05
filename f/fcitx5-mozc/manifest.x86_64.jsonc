@@ -71,6 +71,7 @@
 				"/usr/share/locale/ka/LC_MESSAGES/fcitx5-mozc.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/fcitx5-mozc.mo",
 				"/usr/share/locale/ru/LC_MESSAGES/fcitx5-mozc.mo",
+				"/usr/share/locale/sv/LC_MESSAGES/fcitx5-mozc.mo",
 				"/usr/share/locale/tr/LC_MESSAGES/fcitx5-mozc.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/fcitx5-mozc.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/fcitx5-mozc.mo",
@@ -84,6 +85,6 @@
 		}
 	},
 	"source-name": "fcitx5-mozc",
-	"source-release": "2",
-	"source-version": "3.34.6239.2"
+	"source-release": "3",
+	"source-version": "3.35.6354.2"
 }
