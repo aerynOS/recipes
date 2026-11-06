@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-httplib2
-version     : "0.32.0"
-release     : 6
-upstreams   :
-    - https://github.com/httplib2/httplib2/archive/refs/tags/v0.32.0.tar.gz : 14e842d2041ae3cf11f2e82f1b3454e0283050cc38599ed87d116e005097e470
+version     : "0.32.1"
+release     : 7
 homepage    : https://github.com/httplib2/httplib2
-license     : MIT
+upstreams   :
+    - https://github.com/httplib2/httplib2/archive/refs/tags/v0.32.1.tar.gz : 2f46228aeac064b85b877dcad6cfaceb8a2a8e54a77084c666109ab5cfae643e
 summary     : Small, fast HTTP client library for Python
 description : |
     Small, fast HTTP client library for Python. Features persistent connections, cache, Appengine support.
+license     : MIT
 builddeps   :
     - python(setuptools)
 rundeps     :
