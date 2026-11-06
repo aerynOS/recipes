@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 aerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kitinerary
 version     : "26.08.3"
-release     : 37
+release     : 38
 homepage    : https://invent.kde.org/pim/kitinerary
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/kitinerary-26.08.3.tar.xz : ec6361f0ade8f657e9e53494e0c58fb99a4711dbf5665b146894abe5692011c2
