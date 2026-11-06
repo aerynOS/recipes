@@ -7,10 +7,10 @@
 				"python(flit-core)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/click-8.5.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/click-8.5.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/click-8.5.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/click-8.5.0.dist-info/licenses/LICENSE.txt",
+				"/usr/lib/python3.14/site-packages/click-8.5.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/click-8.5.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/click-8.5.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/click-8.5.1.dist-info/licenses/LICENSE.txt",
 				"/usr/lib/python3.14/site-packages/click/__init__.py",
 				"/usr/lib/python3.14/site-packages/click/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/click/__pycache__/__init__.cpython-314.pyc",
@@ -71,6 +71,6 @@
 		}
 	},
 	"source-name": "python-click",
-	"source-release": "7",
-	"source-version": "8.5.0"
+	"source-release": "8",
+	"source-version": "8.5.1"
 }
