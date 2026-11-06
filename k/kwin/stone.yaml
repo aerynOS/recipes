@@ -3,7 +3,7 @@
 
 name        : kwin
 version     : "6.8.2"
-release     : 46
+release     : 47
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.2/kwin-6.8.2.tar.xz : ea5e68d957c7d70abed97222a592d4445fda29129e20942658badd224ee138b4
 homepage    : https://kde.org/plasma-desktop/
@@ -86,6 +86,7 @@ tuning      :
     - optimize: speed
 setup       : |
     %patch %(pkgdir)/revert-cap-sys-nice.patch
+    %patch %(pkgdir)/upstream-01.patch
 
     %cmake_kf6
 build       : |
