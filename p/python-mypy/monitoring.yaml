@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 8453
+  rss: https://pypi.org/rss/project/mypy/releases.xml
 
 # Last checked 2024-11-13
 security:

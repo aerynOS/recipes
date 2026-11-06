@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-mypy
-version     : "2.4.0"
-release     : 8
+version     : "2.4.1"
+release     : 9
 homepage    : https://www.mypy-lang.org/
 upstreams   :
-    - https://pypi.debian.net/mypy/mypy-2.4.0.tar.gz : 77bdaebd452f43fcfc4cc3ba94352a3ea537cd01e3f2d0879f48673d2ec00d6e
+    - https://pypi.debian.net/mypy/mypy-2.4.1.tar.gz : 63b590965691e540a335fa74dadf31a7069142f6b72e234689bbd244edf55623
 summary     : Optional static typing for Python 3 (PEP484)
 description : |
     Mypy is an optional static type checker for Python that aims to combine the benefits of dynamic (or "duck") typing and static typing. Mypy combines the expressive power and convenience of Python with a powerful type system and compile-time type checking. Mypy type checks standard Python programs; run them using any Python VM with basically no runtime overhead.
