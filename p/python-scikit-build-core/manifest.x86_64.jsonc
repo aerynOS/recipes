@@ -16,11 +16,11 @@
 			"files": [
 				"/usr/bin/scikit-build",
 				"/usr/bin/scikit-build-core",
-				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.2.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/scikit_build_core-1.1.2.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/__init__.py",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/__main__.py",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -281,6 +281,9 @@
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/c/src/${module}/_core.c",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/common/pyproject.toml.in",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/common/src/${module}/__init__.py.in",
+				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/ctypes/CMakeLists.txt",
+				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/ctypes/src/${module}/__init__.py.in",
+				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/ctypes/src/${module}/_core.c",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/cython/CMakeLists.txt",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/cython/src/${module}/_core.pyx",
 				"/usr/lib/python3.14/site-packages/scikit_build_core/resources/templates/fortran/CMakeLists.txt",
@@ -365,6 +368,6 @@
 		}
 	},
 	"source-name": "python-scikit-build-core",
-	"source-release": "4",
-	"source-version": "1.1.1"
+	"source-release": "5",
+	"source-version": "1.1.2"
 }
