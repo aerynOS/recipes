@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-importlib_metadata
-version     : "10.0.0"
-release     : 6
+version     : "10.1.0"
+release     : 7
 homepage    : https://pypi.org/project/importlib_metadata
 upstreams   :
-    - https://pypi.debian.net/importlib-metadata/importlib_metadata-10.0.0.tar.gz : 91f91d04082e49e99df91762a6571ad65a56dabf876b860e668ffa107eaf1a98
+    - https://pypi.debian.net/importlib-metadata/importlib_metadata-10.1.0.tar.gz : 82b04047fa09792c1a8cfeddfe08bec79e4b13c29c8469b0d3949860f61017e8
 summary     : Read metadata from Python packages
 description : |
     Library to access the metadata for a Python package.
