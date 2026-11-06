@@ -2,16 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-platformdirs
-version     : "4.13.5"
-release     : 13
+version     : "4.14.5"
+release     : 14
 homepage    : https://platformdirs.readthedocs.io/en/latest/
 upstreams   :
-    - https://pypi.debian.net/platformdirs/platformdirs-4.13.5.tar.gz : 05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0
+    - https://pypi.debian.net/platformdirs/platformdirs-4.14.5.tar.gz : 32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1
 summary     : A library to determine platform-specific system directories
 description : |
     A library to determine platform-specific system directories
 license     : MIT
 builddeps   :
+    - python(hatch-fancy-pypi-readme)
     - python(hatch-vcs)
     - python(hatchling)
 rundeps     :
