@@ -13,7 +13,7 @@
 				"/usr/bin/lz4cat",
 				"/usr/bin/unlz4",
 				"/usr/lib/liblz4.so.1",
-				"/usr/lib/liblz4.so.1.10.0",
+				"/usr/lib/liblz4.so.1.11.0",
 				"/usr/share/man/man1/lz4.1",
 				"/usr/share/man/man1/lz4c.1",
 				"/usr/share/man/man1/lz4cat.1",
@@ -35,7 +35,7 @@
 			],
 			"files": [
 				"/usr/lib32/liblz4.so.1",
-				"/usr/lib32/liblz4.so.1.10.0"
+				"/usr/lib32/liblz4.so.1.11.0"
 			],
 			"name": "lz4-32bit",
 			"provides": [
@@ -74,6 +74,6 @@
 		}
 	},
 	"source-name": "lz4",
-	"source-release": "5",
-	"source-version": "1.10.0"
+	"source-release": "6",
+	"source-version": "1.11.0"
 }

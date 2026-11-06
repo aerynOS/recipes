@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lz4
-version     : "1.10.0"
-release     : 5
+version     : "1.11.0"
+release     : 6
 homepage    : https://lz4.github.io/lz4
 upstreams   :
-    - https://github.com/lz4/lz4/releases/download/v1.10.0/lz4-1.10.0.tar.gz : 537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b
+    - https://github.com/lz4/lz4/releases/download/v1.11.0/lz4-1.11.0.tar.gz : 247e5fa64da5f7b75ee3dd3bed484076396c9ebe8254d9ccf693eb62800c5e26
 summary     : Extremely fast lossless compression algorithm
 description : |
     LZ4 is lossless compression algorithm, providing compression speed > 500 MB/s per core, scalable with multi-cores CPU. It features an extremely fast decoder, with speed in multiple GB/s per core, typically reaching RAM speed limits on multi-core systems.
@@ -16,7 +16,9 @@ license     :
 emul32      : true
 setup       : |
     pushd build/meson
-    %meson -Dprograms=true
+    %meson \
+        -Dprograms=true \
+        -Dtests=true
 build       : |
     pushd build/meson
     %meson_build
@@ -25,4 +27,6 @@ install     : |
     %meson_install
 check       : |
     pushd build/meson
-    %meson_test
+    # hugefile tests compress several GB of generated data
+    %meson_test \
+        --exclude hugefile
