@@ -18,7 +18,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/CloudProviders-0.3.typelib",
 				"/usr/lib/libcloudproviders.so.0",
-				"/usr/lib/libcloudproviders.so.0.4.1"
+				"/usr/lib/libcloudproviders.so.0.4.2"
 			],
 			"name": "libcloudproviders",
 			"provides": [
@@ -58,6 +58,6 @@
 		}
 	},
 	"source-name": "libcloudproviders",
-	"source-release": "8",
-	"source-version": "0.4.1"
+	"source-release": "9",
+	"source-version": "0.4.2"
 }
