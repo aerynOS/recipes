@@ -28,7 +28,8 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libgcc_s.so.1(x86_64))"
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/bin/fastfetch",
@@ -84,6 +85,6 @@
 		}
 	},
 	"source-name": "fastfetch",
-	"source-release": "30",
-	"source-version": "2.70.0"
+	"source-release": "31",
+	"source-version": "2.71.0"
 }
