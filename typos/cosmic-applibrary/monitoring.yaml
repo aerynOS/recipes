@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 377102
+  id: ~
   rss: ~
 security:
   cpe: ~
