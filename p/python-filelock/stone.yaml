@@ -1,27 +1,32 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-filelock
-version     : "3.32.6"
-release     : 10
+version     : "4.2.9"
+release     : 11
 homepage    : https://github.com/tox-dev/filelock
 upstreams   :
-    - https://pypi.debian.net/filelock/filelock-3.32.6.tar.gz : a3f55a18af3652a94d8f47d6055df434f254ca1d02ef2524850c6d249ca2512c
+    - https://pypi.debian.net/filelock/filelock-4.2.9.tar.gz : 96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896
 summary     : A platform independent file lock
 description : |
     A platform independent file lock
-license     : Unlicense
+license     : MIT
 builddeps   :
+    - python(hatch-fancy-pypi-readme)
     - python(hatch-vcs)
     - python(hatchling)
 rundeps     :
     - python-libs
+# TODO: tests need pytest-asyncio and pytest-timeout
 # checkdeps   :
-#     - binary(pytest)
+#     - python(pytest)
+#     - python(pytest-asyncio)
+#     - python(pytest-mock)
+#     - python(pytest-timeout)
+#     - python(virtualenv)
 build       : |
     %pyproject_build
 install     : |
     %pyproject_install
-# TODO: needs python-virtualenv for tests
 # check       : |
-#     PYTHONPATH="$PWD/src" pytest
+#     PYTHONPATH="$PWD"/src pytest
