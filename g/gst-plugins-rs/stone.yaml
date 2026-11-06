@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gst-plugins-rs
-version     : "1.28.8"
-release     : 24
+version     : "1.28.9"
+release     : 25
 homepage    : https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 upstreams   :
-    - https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.8/gst-plugins-rs-gstreamer-1.28.8.tar.gz : 949ce5a2c78660fff7862995c1918c2114decf914e1e6e928eca61c7f1e1edb9
+    - https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.28.9/gst-plugins-rs-gstreamer-1.28.9.tar.gz : b7560160850558d9fc3a85a57cec44914ae3be832ce8dc0eb966b4064d6b7ae9
 summary     : GStreamer plugins written in Rust.
 description : |
     These plugins can be used by applications written in other programming languages as well of course, they are just like any other GStreamer plugins available on the system.
