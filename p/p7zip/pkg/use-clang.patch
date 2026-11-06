@@ -1,0 +1,489 @@
+diff --git a/makefile.aix_gcc b/makefile.aix_gcc
+index c8fe6e3..5ae3e18 100644
+--- a/makefile.aix_gcc
++++ b/makefile.aix_gcc
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} \
+         -DNDEBUG -D_REENTRANT -DENV_UNIX \
+         $(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.beos b/makefile.beos
+index e2134c3..465a44e 100644
+--- a/makefile.beos
++++ b/makefile.beos
+@@ -7,8 +7,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-nostart
+ 
+ LOCAL_LIBS=-lbe
+diff --git a/makefile.cygwin b/makefile.cygwin
+index 9538e43..beeb95e 100644
+--- a/makefile.cygwin
++++ b/makefile.cygwin
+@@ -7,8 +7,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=
+ LINK_SHARED=-shared
+ 
+diff --git a/makefile.cygwin64 b/makefile.cygwin64
+index e875581..1cffe45 100644
+--- a/makefile.cygwin64
++++ b/makefile.cygwin64
+@@ -7,8 +7,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=
+ LINK_SHARED=-shared
+ 
+diff --git a/makefile.cygwin64_asm b/makefile.cygwin64_asm
+index be61213..1e7a479 100644
+--- a/makefile.cygwin64_asm
++++ b/makefile.cygwin64_asm
+@@ -8,8 +8,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-D_7ZIP_ASM \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ ASM=nasm -f win64  -DCYGWIN64 -Dx64
+ 
+diff --git a/makefile.cygwin_asm b/makefile.cygwin_asm
+index 3e29fbf..23d163e 100644
+--- a/makefile.cygwin_asm
++++ b/makefile.cygwin_asm
+@@ -8,8 +8,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-D_7ZIP_ASM \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ ASM=nasm -f gnuwin32
+ 
+diff --git a/makefile.djgpp b/makefile.djgpp
+index 6c04885..36b84e5 100644
+--- a/makefile.djgpp
++++ b/makefile.djgpp
+@@ -11,7 +11,7 @@ ALLFLAGS=${OPTFLAGS} \
+ 	$(LOCAL_FLAGS)
+ 
+ CXX=gpp
+-CC=gcc
++CC?=gcc
+ LINK_SHARED=-shared
+ 
+ LOCAL_LIBS=-lpthread -lsocket
+diff --git a/makefile.djgpp_watt b/makefile.djgpp_watt
+index a305e8f..09f3edd 100644
+--- a/makefile.djgpp_watt
++++ b/makefile.djgpp_watt
+@@ -30,7 +30,7 @@ ALLFLAGS=$(OPTFLAGS) \
+        $(LOCAL_FLAGS)
+ 
+ CXX=gpp
+-CC=gcc
++CC?=gcc
+ #LINK_SHARED=-shared
+ LINK_SHARED=
+ 
+diff --git a/makefile.freebsd5 b/makefile.freebsd5
+index ebb6da4..92167af 100644
+--- a/makefile.freebsd5
++++ b/makefile.freebsd5
+@@ -9,8 +9,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ 
+ LOCAL_LIBS=-lc_r
+diff --git a/makefile.freebsd6+ b/makefile.freebsd6+
+index 268be0c..36aa64e 100644
+--- a/makefile.freebsd6+
++++ b/makefile.freebsd6+
+@@ -9,8 +9,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ 
+ LOCAL_LIBS=-lpthread
+diff --git a/makefile.gprof b/makefile.gprof
+index b4a189d..9903c0a 100644
+--- a/makefile.gprof
++++ b/makefile.gprof
+@@ -5,8 +5,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ 
+ LOCAL_LIBS=-lpthread
+diff --git a/makefile.haiku b/makefile.haiku
+index a6e71c2..0a6ba3d 100644
+--- a/makefile.haiku
++++ b/makefile.haiku
+@@ -7,8 +7,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-nostart
+ 
+ LOCAL_LIBS=-lbe
+diff --git a/makefile.hpux-gcc b/makefile.hpux-gcc
+index 9fa24b9..19afc06 100644
+--- a/makefile.hpux-gcc
++++ b/makefile.hpux-gcc
+@@ -9,8 +9,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_amd64 b/makefile.linux_amd64
+index 898d9df..2804c42 100644
+--- a/makefile.linux_amd64
++++ b/makefile.linux_amd64
+@@ -8,8 +8,8 @@ ALLFLAGS=-m64 ${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_amd64_asm b/makefile.linux_amd64_asm
+index 075c6a8..609ea4a 100644
+--- a/makefile.linux_amd64_asm
++++ b/makefile.linux_amd64_asm
+@@ -11,8 +11,8 @@ ALLFLAGS=-m64 ${OPTFLAGS} -pipe \
+ 	-D_7ZIP_ASM \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ ASM=yasm -f elf -m amd64 -Dx64
+diff --git a/makefile.linux_amd64_sanitizer b/makefile.linux_amd64_sanitizer
+index 93bbe97..ae4a2fa 100644
+--- a/makefile.linux_amd64_sanitizer
++++ b/makefile.linux_amd64_sanitizer
+@@ -13,8 +13,8 @@ ALLFLAGS=${OPTFLAGS} -pipe  \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_any_cpu b/makefile.linux_any_cpu
+index 9e34c34..9a4550d 100644
+--- a/makefile.linux_any_cpu
++++ b/makefile.linux_any_cpu
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_any_cpu_gcc_4.X b/makefile.linux_any_cpu_gcc_4.X
+index be093b5..227de8c 100644
+--- a/makefile.linux_any_cpu_gcc_4.X
++++ b/makefile.linux_any_cpu_gcc_4.X
+@@ -12,8 +12,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 
+ ALLFLAGS_CPP=-DENV_HAVE_GCCVISIBILITYPATCH -fvisibility=hidden -fvisibility-inlines-hidden
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_gcc6_sanitize b/makefile.linux_gcc6_sanitize
+index 35f3066..f6ca6f3 100644
+--- a/makefile.linux_gcc6_sanitize
++++ b/makefile.linux_gcc6_sanitize
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++-6
+-CC=gcc-6
++CXX?=g++-6
++CC?=gcc-6
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_gcc_2.95_no_need_for_libstdc b/makefile.linux_gcc_2.95_no_need_for_libstdc
+index 8508f31..dcf47cd 100644
+--- a/makefile.linux_gcc_2.95_no_need_for_libstdc
++++ b/makefile.linux_gcc_2.95_no_need_for_libstdc
+@@ -9,7 +9,7 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	$(LOCAL_FLAGS)
+ 
+ CXX=gcc
+-CC=gcc
++CC?=gcc
+ LINK_SHARED=-shared
+ ASM=nasm -f elf
+ 
+diff --git a/makefile.linux_s390x b/makefile.linux_s390x
+index 3c9c2ec..18c6120 100644
+--- a/makefile.linux_s390x
++++ b/makefile.linux_s390x
+@@ -11,8 +11,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_scan-build b/makefile.linux_scan-build
+index dd33ed0..9262966 100644
+--- a/makefile.linux_scan-build
++++ b/makefile.linux_scan-build
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-#CXX=g++
+-#CC=gcc
++#CXX?=g++
++#CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_valgrind b/makefile.linux_valgrind
+index 7d9d0de..4841ac5 100644
+--- a/makefile.linux_valgrind
++++ b/makefile.linux_valgrind
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_x32 b/makefile.linux_x32
+index e49b305..92382a0 100644
+--- a/makefile.linux_x32
++++ b/makefile.linux_x32
+@@ -8,8 +8,8 @@ ALLFLAGS=-mx32 ${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.linux_x86_asm_gcc_4.X b/makefile.linux_x86_asm_gcc_4.X
+index 1ac339b..f7c31ff 100644
+--- a/makefile.linux_x86_asm_gcc_4.X
++++ b/makefile.linux_x86_asm_gcc_4.X
+@@ -14,8 +14,8 @@ ALLFLAGS=${OPTFLAGS} -pipe -m32 \
+ 
+ ALLFLAGS_CPP=-DENV_HAVE_GCCVISIBILITYPATCH -fvisibility=hidden -fvisibility-inlines-hidden
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ ASM=nasm -f elf
+diff --git a/makefile.linux_x86_asm_gcc_4.X_fltk b/makefile.linux_x86_asm_gcc_4.X_fltk
+index d5ef798..452cafb 100644
+--- a/makefile.linux_x86_asm_gcc_4.X_fltk
++++ b/makefile.linux_x86_asm_gcc_4.X_fltk
+@@ -13,8 +13,8 @@ ALLFLAGS=${OPTFLAGS} -m32 -pipe \
+ 
+ ALLFLAGS_CPP=-DENV_HAVE_GCCVISIBILITYPATCH -fvisibility=hidden -fvisibility-inlines-hidden `fltk-config --cxxflags`
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ ASM=nasm -f elf
+diff --git a/makefile.linux_x86_asm_gcc_mudflap_4.X b/makefile.linux_x86_asm_gcc_mudflap_4.X
+index d372a4b..ddc0e35 100644
+--- a/makefile.linux_x86_asm_gcc_mudflap_4.X
++++ b/makefile.linux_x86_asm_gcc_mudflap_4.X
+@@ -11,8 +11,8 @@ ALLFLAGS=${OPTFLAGS} -m32 -pipe -pthread -fmudflapth \
+ 	-D_7ZIP_ASM \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ ASM=nasm -f elf
+diff --git a/makefile.machine b/makefile.machine
+index a89b568..246e5f3 100644
+--- a/makefile.machine
++++ b/makefile.machine
+@@ -11,8 +11,8 @@ ALLFLAGS=${OPTFLAGS} -pipe \
+ 	-D_7ZIP_LARGE_PAGES \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.netbsd b/makefile.netbsd
+index 971c4ed..37d02a0 100644
+--- a/makefile.netbsd
++++ b/makefile.netbsd
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT -DENV_UNIX \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ LINK_SHARED=-shared
+ 
+ LOCAL_LIBS=-lpthread
+diff --git a/makefile.openbsd_no_port b/makefile.openbsd_no_port
+index 215de5d..846548d 100644
+--- a/makefile.openbsd_no_port
++++ b/makefile.openbsd_no_port
+@@ -11,8 +11,8 @@ ALLFLAGS=${OPTFLAGS} \
+                                                                                                       
+ ALLFLAGS_CPP=-DENV_HAVE_GCCVISIBILITYPATCH -fvisibility=hidden -fvisibility-inlines-hidden
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+                                                                                                       
+diff --git a/makefile.solaris_sparc_gcc b/makefile.solaris_sparc_gcc
+index 31f3e25..c6b2043 100644
+--- a/makefile.solaris_sparc_gcc
++++ b/makefile.solaris_sparc_gcc
+@@ -9,8 +9,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 
+ #CXX=/opt/sfw/bin/g++
+ #CC=/opt/sfw/bin/gcc
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.solaris_x86 b/makefile.solaris_x86
+index df75624..1b19ca3 100644
+--- a/makefile.solaris_x86
++++ b/makefile.solaris_x86
+@@ -7,8 +7,8 @@ ALLFLAGS=${OPTFLAGS} \
+ 	-DNDEBUG -D_REENTRANT \
+ 	$(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
+diff --git a/makefile.tru64 b/makefile.tru64
+index 089b17d..15dd103 100644
+--- a/makefile.tru64
++++ b/makefile.tru64
+@@ -10,8 +10,8 @@ ALLFLAGS=${OPTFLAGS} \
+        -DNDEBUG -D_REENTRANT -DENV_UNIX \
+        $(LOCAL_FLAGS)
+ 
+-CXX=g++
+-CC=gcc
++CXX?=g++
++CC?=gcc
+ CC_SHARED=-fPIC
+ LINK_SHARED=-fPIC -shared
+ 
