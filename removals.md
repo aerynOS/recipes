@@ -305,3 +305,8 @@ NB: Each entry *must* contain all sub-packages created by the package!
 - zig-0.15
 - zig-0.15-dbginfo
 - zig-0.16
+
+### OpenCV 5 module changes
+- opencv-calib3d
+- opencv-features2d
+- opencv-ml
