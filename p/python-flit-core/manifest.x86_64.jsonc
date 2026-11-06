@@ -4,11 +4,11 @@
 	"packages": {
 		"python-flit-core": {
 			"files": [
-				"/usr/lib/python3.14/site-packages/flit_core-4.1.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/flit_core-4.1.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/flit_core-4.1.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/flit_core-4.1.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/flit_core-4.1.0.dist-info/licenses/flit_core/vendor/tomli-1.2.3.dist-info/LICENSE",
+				"/usr/lib/python3.14/site-packages/flit_core-4.2.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/flit_core-4.2.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/flit_core-4.2.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/flit_core-4.2.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/flit_core-4.2.0.dist-info/licenses/flit_core/vendor/tomli-1.2.3.dist-info/LICENSE",
 				"/usr/lib/python3.14/site-packages/flit_core/__init__.py",
 				"/usr/lib/python3.14/site-packages/flit_core/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/flit_core/__pycache__/__init__.cpython-314.pyc",
@@ -41,6 +41,6 @@
 		}
 	},
 	"source-name": "python-flit-core",
-	"source-release": "10",
-	"source-version": "4.1.0"
+	"source-release": "11",
+	"source-version": "4.2.0"
 }
