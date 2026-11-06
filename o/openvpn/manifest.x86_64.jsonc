@@ -5,6 +5,7 @@
 		"openvpn": {
 			"build-depends": [
 				"binary(rst2man)",
+				"pkgconfig(cmocka)",
 				"pkgconfig(libcap-ng)",
 				"pkgconfig(liblz4)",
 				"pkgconfig(libnl-genl-3.0)",
@@ -13,7 +14,8 @@
 				"pkgconfig(lzo2)",
 				"pkgconfig(openssl)",
 				"pkgconfig(p11-kit-1)",
-				"pkgconfig(pam)"
+				"pkgconfig(pam)",
+				"sysbinary(ip)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -39,7 +41,7 @@
 				"/usr/sbin/openvpn",
 				"/usr/share/doc/openvpn/COPYING",
 				"/usr/share/doc/openvpn/COPYRIGHT.GPL",
-				"/usr/share/doc/openvpn/Changes.rst",
+				"/usr/share/doc/openvpn/Changes.md",
 				"/usr/share/doc/openvpn/README",
 				"/usr/share/doc/openvpn/README.auth-pam",
 				"/usr/share/doc/openvpn/README.down-root",
@@ -62,6 +64,7 @@
 		"openvpn-devel": {
 			"build-depends": [
 				"binary(rst2man)",
+				"pkgconfig(cmocka)",
 				"pkgconfig(libcap-ng)",
 				"pkgconfig(liblz4)",
 				"pkgconfig(libnl-genl-3.0)",
@@ -70,7 +73,8 @@
 				"pkgconfig(lzo2)",
 				"pkgconfig(openssl)",
 				"pkgconfig(p11-kit-1)",
-				"pkgconfig(pam)"
+				"pkgconfig(pam)",
+				"sysbinary(ip)"
 			],
 			"depends": [
 				"openvpn"
@@ -83,6 +87,6 @@
 		}
 	},
 	"source-name": "openvpn",
-	"source-release": "15",
-	"source-version": "2.7.8"
+	"source-release": "16",
+	"source-version": "2.7.9"
 }

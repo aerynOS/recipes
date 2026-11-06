@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openvpn
-version     : "2.7.8"
-release     : 15
+version     : "2.7.9"
+release     : 16
 upstreams   :
-    - https://swupdate.openvpn.net/community/releases/openvpn-2.7.8.tar.gz : c070d1d2440b5a6fca6c2c68645c98cd492116ac36ef4f0946177115532c8e36
+    - https://swupdate.openvpn.net/community/releases/openvpn-2.7.9.tar.gz : c42a6ed892ddfe2d6e3317a5040f19bec5827564affb2fe3f2b3904a94daacb1
 homepage    : https://openvpn.net/community/
 license     :
     - GPL-2.0-only
@@ -26,6 +26,9 @@ builddeps   :
     - pkgconfig(openssl)
     - pkgconfig(p11-kit-1)
     - pkgconfig(pam)
+checkdeps   :
+    - pkgconfig(cmocka)
+    - sysbinary(ip)
 setup       : |
     %reconfigure \
         --enable-async-push \
@@ -36,3 +39,7 @@ build       : |
     %make
 install     : |
     %make_install
+check       : |
+    # t_net.sh calls ip, which lives in /usr/sbin
+    export PATH="/usr/sbin:${PATH}"
+    %make check
