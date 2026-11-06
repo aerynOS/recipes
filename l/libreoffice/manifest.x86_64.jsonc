@@ -161,7 +161,7 @@
 				"soname(libopenjp2.so.7(x86_64))",
 				"soname(libplc4.so(x86_64))",
 				"soname(libpng16.so.16(x86_64))",
-				"soname(libpoppler.so.165(x86_64))",
+				"soname(libpoppler.so.166(x86_64))",
 				"soname(libpq.so.5(x86_64))",
 				"soname(libpython3.14.so.1.0(x86_64))",
 				"soname(librevenge-0.0.so.0(x86_64))",
@@ -5137,6 +5137,6 @@
 		}
 	},
 	"source-name": "libreoffice",
-	"source-release": "8",
+	"source-release": "9",
 	"source-version": "26.8.2.2"
 }
