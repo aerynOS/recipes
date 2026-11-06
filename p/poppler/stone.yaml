@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : poppler
-version     : "26.10.0"
-release     : 26
+version     : "26.11.0"
+release     : 27
 homepage    : https://poppler.freedesktop.org
 upstreams   :
-    - https://poppler.freedesktop.org/poppler-26.10.0.tar.xz : 6792cb7c69205007ad87d2e936cecc5b3a31fac29ab54ffc3175fdb6b2a6ce35
-    - git|https://gitlab.freedesktop.org/poppler/test.git : 48b6219b84fc0a708040cb279d51095cc4e1c603
+    - https://poppler.freedesktop.org/poppler-26.11.0.tar.xz : 41c32680160addf5a8dd7a830e4869c01e9f6bee1abb91e44fabd1ba9d7828fb
+    - git|https://gitlab.freedesktop.org/poppler/test.git : 0ef006dca68d2206387eca1d36ae06733812e387
 summary     : A PDF rendering library
 description : |
     Poppler is a PDF rendering library based on the xpdf-3.0 code base
@@ -22,8 +22,8 @@ builddeps   :
     - pkgconfig(freetype2)
     - pkgconfig(gdk-pixbuf-2.0)
     - pkgconfig(gobject-introspection-1.0)
-    - pkgconfig(gtk+-3.0)
     - pkgconfig(gpgme)
+    - pkgconfig(gtk+-3.0)
     - pkgconfig(harfbuzz)
     - pkgconfig(harfbuzz-subset)
     - pkgconfig(lcms2)
