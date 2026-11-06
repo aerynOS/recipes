@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : moss
-version     : "0.26.10~git.b47b3b6"
-release     : 141
+version     : "0.26.10~git.05bd904"
+release     : 142
 homepage    : https://github.com/AerynOS/os-tools
 upstreams   :
     - git|https://github.com/aerynOS/os-tools.git :
-        ref : b47b3b6f59881b7cd21cbcfd97374ce188611a0e
+        ref : 05bd904a8fd75490808c8c0aaf9e273c90ae1028
 summary     : AerynOS package & system state manager
 description : |
     Advanced package & system state manager with atomic transactions, content deduplication and declarative system-model support.
