@@ -19,12 +19,12 @@
 				"/usr/bin/sip-module",
 				"/usr/bin/sip-sdist",
 				"/usr/bin/sip-wheel",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/sip-6.17.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/sip-6.17.2.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/sipbuild/__init__.py",
 				"/usr/lib/python3.14/site-packages/sipbuild/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/sipbuild/__pycache__/__init__.cpython-314.pyc",
@@ -870,6 +870,6 @@
 		}
 	},
 	"source-name": "python-sip",
-	"source-release": "4",
-	"source-version": "6.17.1"
+	"source-release": "5",
+	"source-version": "6.17.2"
 }
