@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 44841
-  rss: ~
+  rss: https://pypi.org/rss/project/flit-core/releases.xml
 security:
   cpe: ~
