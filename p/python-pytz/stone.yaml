@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pytz
-version     : "2026.5"
-release     : 13
+version     : "2026.6"
+release     : 14
 homepage    : https://pythonhosted.org/pytz/
 upstreams   :
-    - https://pypi.debian.net/pytz/pytz-2026.5.tar.gz : fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86
+    - https://pypi.debian.net/pytz/pytz-2026.6.tar.gz : 3b0fc2727707663d6e517936f444fd8a8b240f1fc32f4bf7ee03274245945284
 summary     : World timezone definitions, modern and historical
 description : |
     World timezone definitions, modern and historical
