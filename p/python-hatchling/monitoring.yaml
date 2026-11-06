@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 185085
-  rss: ~
+  rss: https://pypi.org/rss/project/hatchling/releases.xml
 security:
   cpe: ~

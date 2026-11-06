@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-hatchling
-version     : "1.32.4"
-release     : 12
+version     : "1.33.0"
+release     : 13
 homepage    : https://pypi.org/project/hatchling/
 upstreams   :
-    - https://pypi.debian.net/hatchling/hatchling-1.32.4.tar.gz : c4468f73144c054d2aab4ef0f0378c43b9878bf07f8ffd6b79690e970d375f07
+    - https://pypi.debian.net/hatchling/hatchling-1.33.0.tar.gz : 4c422bd4d554fcff5de5b73e9596f85e41e9f97f7e553d8f7595ecb31a627bef
 summary     : Modern, extensible Python build backend
 description : |
     Modern, extensible Python build backend, as used by Hatch
