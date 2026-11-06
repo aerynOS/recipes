@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyscard
-version     : "2.3.1"
-release     : 4
+version     : "2.3.2"
+release     : 5
 homepage    : https://pypi.org/project/pyscard
 upstreams   :
-    - https://files.pythonhosted.org/packages/source/p/pyscard/pyscard-2.3.1.tar.gz : a24356f57a0a950740b6e54f51f819edd5296ee8892a6625b0da04724e9e6c13
+    - https://files.pythonhosted.org/packages/source/p/pyscard/pyscard-2.3.2.tar.gz : 5f5435e32aede88e6668fe1348d85fb7bea3d319e798ceb8c1eb0100cab53fb4
 summary     : Smartcard module for Python
 description : |
     python smart card library is a python module adding smart cards support to python
@@ -14,7 +14,7 @@ license     : LGPL-2.1-or-later
 builddeps   :
     - binary(swig)
     - pkgconfig(libpcsclite)
-    - python-devel
+    - pkgconfig(python3)
 rundeps     :
     - sysbinary(pcscd)
 build       : |
