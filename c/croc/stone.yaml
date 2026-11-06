@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : croc
-version     : "11.5.5"
-release     : 13
+version     : "11.6.4"
+release     : 14
 homepage    : https://getcroc.com/
 upstreams   :
-    - https://github.com/schollz/croc/archive/refs/tags/v11.5.5.tar.gz : 1263e430cd62654438c9724072b7d5587e9930ca0e687d65b3dd8917ec0141df
+    - https://github.com/schollz/croc/archive/refs/tags/v11.6.4.tar.gz : e77f051d3470020d856b22240c2edb09fcd93b059611358157656d8833667722
 summary     : Securely transfer files and folders between any two computers
 description : |
     croc is a tool that allows any two computers to simply and securely
@@ -15,6 +15,10 @@ description : |
     transfers, and can relay through a proxy without requiring port forwarding
     or a local server.
 license     : MIT
+checkdeps   :
+    - binary(gzip)
+    - binary(tar)
+    - binary(unzip)
 networking  : true
 rundeps     :
     - ca-certificates
@@ -33,4 +37,5 @@ install     : |
     %install_file croc.fish %(installroot)%(fishcompletionsdir)/croc.fish
     %install_file croc.service -t %(installroot)%(libdir)/systemd/system/
 check       : |
-    go test ./...
+    # Build network answers the DNS server this test expects to fail.
+    go test -skip 'TestRemoteLookupIPTimeout' ./...
