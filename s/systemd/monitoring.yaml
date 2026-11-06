@@ -1,13 +1,14 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 5440
   ignore:
-    # We only update to the n-1 stable release. So for now we're only interested in 260.x updates
-  - 261.*
+    # We only update to the n-1 stable release. So for now we're only interested in 261.x updates
+  - 262.*
   rss: ~
 security:
+  # Last checked 2026-11-06
   cpe:
   - vendor: systemd_project
     product: systemd
