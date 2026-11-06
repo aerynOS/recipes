@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wayfreeze
-version     : "0.2.0"
-release     : 2
+version     : "0.2.1"
+release     : 3
 homepage    : https://github.com/Jappie3/wayfreeze
 upstreams   :
-  - https://github.com/Jappie3/wayfreeze/archive/refs/tags/0.2.0.tar.gz : 9ab941cbd242f82a7ff807c573e23f5f0576c2815a8a493581a9037a0d754bb6
+  - https://github.com/Jappie3/wayfreeze/archive/refs/tags/0.2.1.tar.gz : 4e7bb0eb5655f39fddde2106fd8a8b4475d1ce817cf53d104b8d69aead9a9531
 summary     : Tool to freeze the screen of a Wayland compositor
 description : |
   A small CLI tool to freeze the screen of a wlroots compositor, this can be useful to, for example, take a screenshot. Supports multiple monitors & fractional scaling.

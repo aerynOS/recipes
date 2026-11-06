@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 388802
   rss: https://github.com/Jappie3/wayfreeze/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-03-03)
+  # No known CPE, last checked 2026-11-05
+  cpe: ~
