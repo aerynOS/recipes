@@ -1,0 +1,40 @@
+diff --git a/shell-integration/bash/kitty.bash b/shell-integration/bash/kitty.bash
+--- a/shell-integration/bash/kitty.bash
++++ b/shell-integration/bash/kitty.bash
+@@ -11,6 +11,7 @@
+     builtin unset KITTY_BASH_INJECT ENV
+     if [[ -z "$HOME" ]]; then HOME=~; fi
+     if [[ -z "$KITTY_BASH_ETC_LOCATION" ]]; then KITTY_BASH_ETC_LOCATION="/etc"; fi
++    if [[ -z "$KITTY_BASH_DEFAULTS_LOCATION" ]]; then KITTY_BASH_DEFAULTS_LOCATION="/usr/share/defaults"; fi
+ 
+     _ksi_sourceable() {
+         [[ -f "$1" && -r "$1" ]] && builtin return 0; builtin return 1;
+@@ -69,7 +70,9 @@
+         # See run_startup_files() in shell.c in the Bash source code
+         if builtin shopt -q login_shell; then
+             if [[ "$kitty_bash_inject" != *"no-profile"* ]]; then
+-                _ksi_sourceable "$KITTY_BASH_ETC_LOCATION/profile" && builtin source "$KITTY_BASH_ETC_LOCATION/profile"
++                for _ksi_i in "$KITTY_BASH_DEFAULTS_LOCATION/profile" "$KITTY_BASH_ETC_LOCATION/profile"; do
++                    _ksi_sourceable "$_ksi_i" && builtin source "$_ksi_i"
++                done
+                 for _ksi_i in "$HOME/.bash_profile" "$HOME/.bash_login" "$HOME/.profile"; do
+                     _ksi_sourceable "$_ksi_i" && { builtin source "$_ksi_i"; break; }
+                 done
+@@ -81,6 +84,8 @@
+                 # Arch, Debian, Ubuntu use /etc/bash.bashrc
+                 # Fedora uses /etc/bashrc sourced from ~/.bashrc instead of SYS_BASHRC
+                 # Void Linux uses /etc/bash/bashrc
++                # aerynOS uses /usr/share/defaults/bashrc (SYS_BASHRC)
++                _ksi_sourceable "$KITTY_BASH_DEFAULTS_LOCATION/bashrc" && builtin source "$KITTY_BASH_DEFAULTS_LOCATION/bashrc"
+                 for _ksi_i in "$KITTY_BASH_ETC_LOCATION/bash.bashrc" "$KITTY_BASH_ETC_LOCATION/bash/bashrc" ; do
+                     _ksi_sourceable "$_ksi_i" && { builtin source "$_ksi_i"; break; }
+                 done
+@@ -89,7 +94,7 @@
+             fi
+         fi
+     fi
+-    builtin unset KITTY_BASH_RCFILE KITTY_BASH_POSIX_ENV KITTY_BASH_ETC_LOCATION
++    builtin unset KITTY_BASH_RCFILE KITTY_BASH_POSIX_ENV KITTY_BASH_ETC_LOCATION KITTY_BASH_DEFAULTS_LOCATION
+     builtin unset -f _ksi_sourceable
+     builtin export KITTY_SHELL_INTEGRATION="$ksi_val"
+     builtin unset _ksi_i ksi_val kitty_bash_inject

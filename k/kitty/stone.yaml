@@ -3,7 +3,7 @@
 
 name        : kitty
 version     : "0.50.0"
-release     : 24
+release     : 25
 homepage    : https://sw.kovidgoyal.net/kitty/
 upstreams   :
     - https://github.com/kovidgoyal/kitty/releases/download/v0.50.0/kitty-0.50.0.tar.xz : 01f20d0b253af0a7e041394a501adc83483f2eee01faf607a933c028343ab71a
@@ -37,6 +37,7 @@ builddeps   :
     - python(sphinx-inline-tabs)
     - font-symbols-nerd
 setup       : |
+    %patch %(pkgdir)/0001-source-stateless-bash-startup.patch
     %go_mod
 build       : |
     python3 setup.py linux-package \
