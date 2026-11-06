@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-click
-version     : "8.5.0"
-release     : 7
+version     : "8.5.1"
+release     : 8
 homepage    : https://pypi.org/project/click
 upstreams   :
-    - https://pypi.debian.net/click/click-8.5.0.tar.gz : ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34
+    - https://pypi.debian.net/click/click-8.5.1.tar.gz : 9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4
 summary     : Composable command line interface toolkit
 description : |
     Click is a Python package for creating beautiful command line interfaces in a composable way with as little code as necessary. It's the "Command Line Interface Creation Kit". It's highly configurable but comes with sensible defaults out of the box.
