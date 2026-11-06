@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : botan
-version     : "3.14.0"
-release     : 13
+version     : "3.14.1"
+release     : 14
 homepage    : https://botan.randombit.net
 upstreams   :
-    - https://botan.randombit.net/releases/Botan-3.14.0.tar.xz : c22d66a08cd3c6dae683bdcb8384beaa9e2cbd75821e19a270047030fbe81ac7
+    - https://botan.randombit.net/releases/Botan-3.14.1.tar.xz : 5b85cba0f014d344eb8e9919aee0a3bdc31e16acb05816410025be9bee1e0930
 summary     : A C++ cryptography library
 description : |
     A C++ cryptography library
