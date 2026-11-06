@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 16546
   rss: https://github.com/MirServer/mir/tags.atom
-# No known CPE, checked 2025-03-08
+# No known CPE, last checked 2026-11-05
 security:
   cpe: ~
