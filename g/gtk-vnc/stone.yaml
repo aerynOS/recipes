@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gtk-vnc
-version     : "1.5.0"
-release     : 2
+version     : "1.6.0"
+release     : 3
 homepage    : https://gitlab.gnome.org/GNOME/gtk-vnc/
 upstreams   :
-    - https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz : c0beb4747528ad931da43acc567c6a0190f7fc624465571ed9ccece02c34dd23
+    - https://download.gnome.org/sources/gtk-vnc/1.6/gtk-vnc-1.6.0.tar.xz : 0e1a1023f191a842e994e5d10053bbe0e76d5f5fb9ec2eb525e2f8fdea57347f
 summary     : A VNC client viewer widget for GTK
 description : |
     gtk-vnc is a project providing client side APIs for the RFB protocol / VNC remote desktop technology.
@@ -20,8 +20,8 @@ builddeps   :
     - pkgconfig(gdk-pixbuf-2.0)
     - pkgconfig(gio-2.0)
     - pkgconfig(gio-unix-2.0)
-    - pkgconfig(gnutls)
     - pkgconfig(gmp)
+    - pkgconfig(gnutls)
     - pkgconfig(gobject-2.0)
     - pkgconfig(gthread-2.0)
     - pkgconfig(gtk+-3.0)
