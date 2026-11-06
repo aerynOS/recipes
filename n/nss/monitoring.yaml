@@ -5,7 +5,7 @@ releases:
   id: 2503
   rss: ~
 security:
-  # Last checked 2026-10-20
+  # Last checked 2026-11-05
   cpe:
   - vendor: mozilla
     product: nss
