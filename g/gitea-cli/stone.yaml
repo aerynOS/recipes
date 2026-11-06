@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gitea-cli
-version     : "1.0.0"
-release     : 1
+version     : "1.1.0"
+release     : 2
 homepage    : https://gitea.com/gitea/cli
 upstreams   :
-    - https://gitea.com/gitea/cli/archive/v1.0.0.tar.gz : 587669217030aabf4f1c344187832dbd1c41cf849fc4525a1cdbc11a11390c84
+    - https://gitea.com/gitea/cli/archive/v1.1.0.tar.gz : b48b90f1427fac8779f87d1f014d62b2b7513725da11677910bb04577d3cd710
 summary     : The official command line tool for Gitea
 description : |
     The official command line tool for Gitea, replaces tea. The binary is called gt
