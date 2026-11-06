@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 24271
   rss: https://gitlab.com/AOMediaCodec/SVT-AV1/-/tags?format=atom
 security:
-  # Last checked 2025-02-13
+  # No known CPE, last checked 2026-11-05
   cpe: ~

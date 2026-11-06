@@ -12,7 +12,7 @@
 			],
 			"files": [
 				"/usr/lib/libSvtAv1Enc.so.4",
-				"/usr/lib/libSvtAv1Enc.so.4.2.0"
+				"/usr/lib/libSvtAv1Enc.so.4.3.0"
 			],
 			"name": "svt-av1",
 			"provides": [
@@ -49,6 +49,6 @@
 		}
 	},
 	"source-name": "svt-av1",
-	"source-release": "8",
-	"source-version": "4.2.0"
+	"source-release": "9",
+	"source-version": "4.3.0"
 }
