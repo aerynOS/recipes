@@ -2,16 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-discovery
-version     : "1.6.4"
-release     : 12
+version     : "1.9.5"
+release     : 13
 homepage    : https://github.com/tox-dev/python-discovery
 upstreams   :
-    - https://pypi.debian.net/python-discovery/python_discovery-1.6.4.tar.gz : bc70d31f0ec5de11eda13d4d64c16e24b3506a65984684f2b6c98cb83b2ea9df
+    - https://pypi.debian.net/python-discovery/python_discovery-1.9.5.tar.gz : 86279f5d2728bc067de28b7ddc571be2eacc2ae0e7048f8629d2481a0f8848a2
 summary     : Python interpreter discovery
 description : |
     A library for discovering Python interpreters installed on your machine
 license     : MIT
 builddeps   :
+    - python(hatch-fancy-pypi-readme)
     - python(hatch-vcs)
     - python(hatchling)
 build       : |

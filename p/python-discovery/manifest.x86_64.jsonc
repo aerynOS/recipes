@@ -4,6 +4,7 @@
 	"packages": {
 		"python-discovery": {
 			"build-depends": [
+				"python(hatch-fancy-pypi-readme)",
 				"python(hatch-vcs)",
 				"python(hatchling)"
 			],
@@ -11,10 +12,10 @@
 				"python(filelock)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.6.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/python_discovery/__init__.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.pyc",
@@ -45,10 +46,13 @@
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__init__.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_cancel_io.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_cancel_io.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_pep514.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_pep514.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_propose.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/__pycache__/_propose.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/_windows/_cancel_io.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/_pep514.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_windows/_propose.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/py.typed"
@@ -60,6 +64,6 @@
 		}
 	},
 	"source-name": "python-discovery",
-	"source-release": "12",
-	"source-version": "1.6.4"
+	"source-release": "13",
+	"source-version": "1.9.5"
 }
