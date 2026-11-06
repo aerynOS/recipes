@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fresh
-version     : "0.5.4"
-release     : 13
+version     : "0.5.8"
+release     : 14
 homepage    : https://getfresh.dev/
 upstreams   :
-    - https://github.com/sinelaw/fresh/archive/refs/tags/v0.5.4.tar.gz : b062b336a85bf290344fe4efb730468fd8bda6941e508bf76150a3afb6a9a2d6
+    - https://github.com/sinelaw/fresh/archive/refs/tags/v0.5.8.tar.gz : b048bfa38b9b50a262f19ac49d254a1479926ddb74d496367649892ac8720495
 summary     : A terminal text editor built in rust
 description : |
   A lightweight, fast terminal-based text editor with LSP support and TypeScript plugins built with Rust.
