@@ -1,24 +1,30 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libnatspec
-version     : "0.3.3-alt1"
-release     : 2
+version     : "0.4.0"
+release     : 3
 homepage    : https://github.com/Etersoft/libnatspec
 upstreams   :
-    - https://github.com/Etersoft/libnatspec/archive/refs/tags/0.3.3-alt1.tar.gz : 89f8df4ce4244d11083e79d3692c415da0745761059aaf13f40841d766884b84
+    - https://github.com/Etersoft/libnatspec/releases/download/0.4.0/libnatspec-0.4.0.tar.gz : ac436c05ddf9daaecb548538bb87f5cca1ad977931f61709074391f8f38bfae5
 summary     : Library for national and language-specific issues
 description : |
     A collection of functions for request various charsets and locales for host system and for other system.
-license     :
-    - LGPL-2.1-or-later
+license     : LGPL-2.1-or-later
 builddeps   :
     - binary(bison)
     - binary(flex)
     - pkgconfig(popt)
 setup       : |
-    %reconfigure
+    %configure
 build       : |
     %make
 install     : |
     %make_install
+check       : |
+    %make check
+packages    :
+    - "%(name)-tools":
+        paths:
+            - /usr/bin/
+            - /usr/share/man/
