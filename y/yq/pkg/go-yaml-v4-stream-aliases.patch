@@ -1,0 +1,145 @@
+Preserve cross-document YAML aliases with go-yaml v4.
+
+go-yaml v4 keeps anchors inside one document unless the alias-data plugin
+is configured with stream scope. yq 4.54.2 already requires v4.0.0-rc.7,
+but it still decodes with NewDecoder, so an alias such as *remember fails
+when the anchor was defined in an earlier document.
+
+Load each input with a fresh stream-scoped loader. This follows
+https://github.com/mikefarah/yq/pull/2956; that pull request's module bump
+is already present in this release. A bare colon is valid YAML here, so
+the invalid-snippet fixture is an unterminated sequence. goccy/go-json
+v0.12 reports the same syntax error as encoding/json, so the bad-JSON
+expectation matches that message.
+
+---
+diff --git a/pkg/yqlib/decoder_yaml.go b/pkg/yqlib/decoder_yaml.go
+index 49be6c6..91d22fb 100644
+--- a/pkg/yqlib/decoder_yaml.go
++++ b/pkg/yqlib/decoder_yaml.go
+@@ -9,6 +9,7 @@ import (
+ 	"strings"
+ 
+ 	yaml "go.yaml.in/yaml/v4"
++	"go.yaml.in/yaml/v4/plugin/aliasdata"
+ )
+ 
+ var (
+@@ -19,7 +20,7 @@ var (
+ )
+ 
+ type yamlDecoder struct {
+-	decoder yaml.Decoder
++	decoder *yaml.Loader
+ 
+ 	prefs YamlPreferences
+ 
+@@ -137,7 +138,14 @@ func (dec *yamlDecoder) Init(reader io.Reader) error {
+ 	}
+ 	dec.leadingContent = leadingContent
+ 	dec.readAnything = false
+-	dec.decoder = *yaml.NewDecoder(readerToUse)
++	aliasData, err := aliasdata.New(aliasdata.WithStream(true))
++	if err != nil {
++		return err
++	}
++	dec.decoder, err = yaml.NewLoader(readerToUse, yaml.WithPlugin(aliasData))
++	if err != nil {
++		return err
++	}
+ 	dec.firstFile = false
+ 	dec.documentIndex = 0
+ 	dec.anchorMap = make(map[string]*CandidateNode)
+@@ -146,7 +154,7 @@ func (dec *yamlDecoder) Init(reader io.Reader) error {
+ 
+ func (dec *yamlDecoder) Decode() (*CandidateNode, error) {
+ 	var yamlNode yaml.Node
+-	err := dec.decoder.Decode(&yamlNode)
++	err := dec.decoder.Load(&yamlNode)
+ 
+ 	if errors.Is(err, io.EOF) && dec.leadingContent != "" && !dec.readAnything {
+ 		// force returning an empty node with a comment.
+diff --git a/pkg/yqlib/json_test.go b/pkg/yqlib/json_test.go
+index 1fbb9a6..12ae64e 100644
+--- a/pkg/yqlib/json_test.go
++++ b/pkg/yqlib/json_test.go
+@@ -172,7 +172,7 @@ var jsonScenarios = []formatScenario{
+ 		description:   "bad json",
+ 		skipDoc:       true,
+ 		input:         `{"a": 1 b": 2}`,
+-		expectedError: `bad file 'sample.yml': json: string of object unexpected end of JSON input`,
++		expectedError: `bad file 'sample.yml': invalid character 'b' after object key:value pair`,
+ 		scenarioType:  "decode-error",
+ 	},
+ 	{
+diff --git a/pkg/yqlib/lib_test.go b/pkg/yqlib/lib_test.go
+index 6727d8b..40610ef 100644
+--- a/pkg/yqlib/lib_test.go
++++ b/pkg/yqlib/lib_test.go
+@@ -25,8 +25,8 @@ type parseSnippetScenario struct {
+ 
+ var parseSnippetScenarios = []parseSnippetScenario{
+ 	{
+-		snippet:       ":",
+-		expectedError: "go-yaml load error in parser (while parsing a block mapping) at L1.C1: did not find expected key",
++		snippet:       "[",
++		expectedError: "go-yaml load error in parser (while parsing a flow node) at L2.C1: did not find expected node content",
+ 	},
+ 	{
+ 		snippet: "",
+diff --git a/pkg/yqlib/yaml_test.go b/pkg/yqlib/yaml_test.go
+index e9ca300..20772c3 100644
+--- a/pkg/yqlib/yaml_test.go
++++ b/pkg/yqlib/yaml_test.go
+@@ -1,6 +1,7 @@
+ package yqlib
+ 
+ import (
++	"strings"
+ 	"testing"
+ 
+ 	"github.com/mikefarah/yq/v4/test"
+@@ -94,6 +95,20 @@ var yamlFormatScenarios = []formatScenario{
+ 		expression:  "explode(.)",
+ 		expected:    "a: mike\n---\nb: mike\n",
+ 	},
++	{
++		description: "multi document anchors can be redefined",
++		skipDoc:     true,
++		input:       "a: &remember first\n---\nb: &remember second\nc: *remember\n---\nd: *remember",
++		expression:  "explode(.)",
++		expected:    "a: first\n---\nb: second\nc: second\n---\nd: second\n",
++	},
++	{
++		description: "multi document anchors retain literal dotted names",
++		skipDoc:     true,
++		input:       "a: &remember.name mike\n---\nb: *remember.name",
++		expression:  "explode(.)",
++		expected:    "a: mike\n---\nb: mike\n",
++	},
+ 	{
+ 		description: "basic - [~]",
+ 		skipDoc:     true,
+@@ -182,3 +197,22 @@ func TestYamlFormatScenarios(t *testing.T) {
+ 		testYamlScenario(t, tt)
+ 	}
+ }
++
++func TestYamlDecoderInitResetsAnchors(t *testing.T) {
++	decoder := NewYamlDecoder(ConfiguredYamlPreferences)
++	err := decoder.Init(strings.NewReader("a: &remember mike\n---\nb: *remember"))
++	if err != nil {
++		t.Fatal(err)
++	}
++	for range 2 {
++		if _, err = decoder.Decode(); err != nil {
++			t.Fatal(err)
++		}
++	}
++	if err = decoder.Init(strings.NewReader("b: *remember")); err != nil {
++		t.Fatal(err)
++	}
++	if _, err = decoder.Decode(); err == nil || !strings.Contains(err.Error(), "unknown anchor") {
++		t.Fatalf("expected unknown anchor in a fresh stream, got %v", err)
++	}
++}
