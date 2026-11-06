@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libaec
-version     : "1.1.7"
-release     : 5
+version     : "1.1.8"
+release     : 6
 upstreams   :
-    - https://gitlab.dkrz.de/-/project/117/uploads/d5f804a519d8781de4ab9ce239892ab9/libaec-1.1.7.tar.gz : cc7b93be9002e25a88b45d6b8d5f6120756cb5e1000613f91d803ce0beba24d9
+    - https://gitlab.dkrz.de/dkrz-sw/libaec/-/archive/v1.1.8/libaec-v1.1.8.tar.gz : ad33164e9922007f6a43b79f998dfd7c3401758e567b5813603cde530aa5d518
 homepage    : https://gitlab.dkrz.de/dkrz-sw/libaec
 license     : LicenseRef-Callaway-BSD
 summary     : Adaptive Entropy Coding library

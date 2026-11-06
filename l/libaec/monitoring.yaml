@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 15539
   rss: https://gitlab.dkrz.de/k202009/libaec/-/tags?format=atom
 security:
-  # Last checked 20251116
+  # No known CPE, last checked 2026-11-05
   cpe: ~
