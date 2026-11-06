@@ -3,7 +3,7 @@
 
 name        : monado
 version     : "25.1.0~git.983a8a51"
-release     : 4
+release     : 5
 homepage    : https://monado.dev/
 upstreams   :
     - git|https://gitlab.freedesktop.org/monado/monado.git : 983a8a518356041fba6445d3548792e2ef0d6948
@@ -32,7 +32,7 @@ builddeps   :
     - pkgconfig(libdrm)
     - pkgconfig(libjpeg)
     - pkgconfig(libusb-1.0)
-    - pkgconfig(opencv4)
+    - pkgconfig(opencv5)
     - pkgconfig(python3)
     - pkgconfig(sdl2)
     - pkgconfig(udev)
@@ -59,6 +59,8 @@ builddeps   :
 rundeps     :
     - xr-hardware
 setup       : |
+    %patch %(pkgdir)/ftbfs-opencv-5.patch
+
     %cmake
 build       : |
     %cmake_build
