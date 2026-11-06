@@ -3,7 +3,7 @@
 
 name        : ghostty
 version     : "1.4.0"
-release     : 11
+release     : 12
 homepage    : https://github.com/ghostty-org/ghostty
 upstreams   :
     - https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.4.0.tar.gz : 2e2a2516f9bea89a4991ad7c9401b77682eed366387a5b1d7c629472b5d11a43
@@ -37,6 +37,7 @@ environment : |
     export DESTDIR=%(installroot)
 setup       : |
     %patch %(pkgdir)/0001-Do-not-build-static-libghostty-vt.patch
+    %patch %(pkgdir)/0002-Source-stateless-bash-defaults.patch
 
     # Fetch the full dependency tree (including lazy deps) into the global cache
     zig-0.17 build --fetch=all
