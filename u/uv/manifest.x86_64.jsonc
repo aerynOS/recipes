@@ -12,12 +12,12 @@
 				"uv"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/licenses/LICENSE-APACHE",
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/licenses/LICENSE-MIT",
-				"/usr/lib/python3.14/site-packages/uv-0.13.6.dist-info/sboms/uv.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/licenses/LICENSE-APACHE",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/licenses/LICENSE-MIT",
+				"/usr/lib/python3.14/site-packages/uv-0.13.7.dist-info/sboms/uv.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/uv/__init__.py",
 				"/usr/lib/python3.14/site-packages/uv/__main__.py",
 				"/usr/lib/python3.14/site-packages/uv/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -48,12 +48,12 @@
 			],
 			"files": [
 				"/usr/bin/uv-build",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/licenses/LICENSE-APACHE",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/licenses/LICENSE-MIT",
-				"/usr/lib/python3.14/site-packages/uv_build-0.13.6.dist-info/sboms/uv-build.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/licenses/LICENSE-APACHE",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/licenses/LICENSE-MIT",
+				"/usr/lib/python3.14/site-packages/uv_build-0.13.7.dist-info/sboms/uv-build.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/uv_build/__init__.py",
 				"/usr/lib/python3.14/site-packages/uv_build/__main__.py",
 				"/usr/lib/python3.14/site-packages/uv_build/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -95,6 +95,6 @@
 		}
 	},
 	"source-name": "uv",
-	"source-release": "15",
-	"source-version": "0.13.6"
+	"source-release": "16",
+	"source-version": "0.13.7"
 }
