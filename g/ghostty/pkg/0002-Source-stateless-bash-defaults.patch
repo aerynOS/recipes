@@ -1,0 +1,47 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Jared Cervantes <jared@jaredcervantes.com>
+Date: Fri, 6 Nov 2026 20:15:44 -0500
+Subject: [PATCH] Source stateless bash defaults
+
+Stateless distributions may build bash to read its system startup files
+from /usr/share/defaults instead of /etc. Check those locations first so
+the shell integration sources the same files as a plain bash would.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-06
+---
+ src/shell-integration/bash/ghostty.bash | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/src/shell-integration/bash/ghostty.bash b/src/shell-integration/bash/ghostty.bash
+index 48d1602..aec0b9c 100644
+--- a/src/shell-integration/bash/ghostty.bash
++++ b/src/shell-integration/bash/ghostty.bash
+@@ -47,7 +47,12 @@ if [ -n "$GHOSTTY_BASH_INJECT" ]; then
+   # run_startup_files() in shell.c in the Bash source code.
+   if builtin shopt -q login_shell; then
+     if [[ $__ghostty_bash_flags != *"--noprofile"* ]]; then
+-      [ -r /etc/profile ] && builtin source "/etc/profile"
++      for __ghostty_rcfile in /usr/share/defaults/profile /etc/profile; do
++        [ -r "$__ghostty_rcfile" ] && {
++          builtin source "$__ghostty_rcfile"
++          break
++        }
++      done
+       for __ghostty_rcfile in "$HOME/.bash_profile" "$HOME/.bash_login" "$HOME/.profile"; do
+         [ -r "$__ghostty_rcfile" ] && {
+           builtin source "$__ghostty_rcfile"
+@@ -63,7 +68,8 @@ if [ -n "$GHOSTTY_BASH_INJECT" ]; then
+       #  Fedora uses /etc/bashrc sourced from ~/.bashrc instead of SYS_BASHRC
+       #  Void Linux uses /etc/bash/bashrc
+       #  Nixos uses /etc/bashrc
+-      for __ghostty_rcfile in /etc/bash.bashrc /etc/bash/bashrc /etc/bashrc; do
++      #  Stateless distros may use /usr/share/defaults/bashrc
++      for __ghostty_rcfile in /usr/share/defaults/bashrc /etc/bash.bashrc /etc/bash/bashrc /etc/bashrc; do
+         [ -r "$__ghostty_rcfile" ] && {
+           builtin source "$__ghostty_rcfile"
+           break
+-- 
+2.56.0
+
