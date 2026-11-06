@@ -8507,6 +8507,6 @@
 		}
 	},
 	"source-name": "glibc",
-	"source-release": "47",
-	"source-version": "2.44~git.34106fee"
+	"source-release": "48",
+	"source-version": "2.44~git.21442dba"
 }
