@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gstreamer
-version     : "1.28.8"
-release     : 65
+version     : "1.28.9"
+release     : 66
 homepage    : https://gstreamer.freedesktop.org/
 upstreams   :
-    - https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.8/gstreamer-1.28.8.tar.gz : fd146dc03ea55ccfe78c1a91d35b71f20089209e173163f98237aad9f5ec7540
+    - https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.28.9/gstreamer-1.28.9.tar.gz : 0fdecabb02f170b78251f7b9f1b5092073f52e70ba06c92df53fe36745041db6
 summary     : GStreamer multimedia framework
 description : |
     GStreamer can bridge to other multimedia frameworks in order to reuse existing components (e.g. codecs) and use platform input/output mechanisms.
@@ -27,6 +27,7 @@ builddeps   :
     - cmake(Qt6Qml)
     - cmake(Qt6WaylandClient)
     - cmake(VulkanHeaders)
+    - cmake(ajantv2)
     - pkgconfig(OpenEXR)
     - pkgconfig(SvtAv1Enc)
     - pkgconfig(alsa)
@@ -165,14 +166,12 @@ setup       : |
     #  files that appear each time are the ones that should go in the subpackage you just enabled.
     # Note: if gst-editing-services is enabled the gst-editing-services:validate=disabled option should be re-added
     %meson \
-        --wrap-mode=nodownload \
         -D examples=disabled \
         -D gpl=enabled \
         -D gstreamer:ptp-helper-permissions=setuid-root \
-        -D gst-plugins-bad:aja=disabled \
         -D gst-plugins-base:gl_winsys=wayland,x11,gbm \
         -D gst-plugins-good:soup-version=3 \
-        -D package-name="AerynOS GStreamer" \
+        -D package-name="aerynOS GStreamer" \
         -D package-origin="https://aerynos.com/" \
         -D tests=disabled \
         -D base=enabled \
@@ -792,6 +791,15 @@ packages    :
             - /usr/lib/gstreamer-1.0/libgstx264.so
             - /usr/share/gstreamer-1.0/presets/GstX264Enc.prs
             - /usr/share/locale/**/**/gst-plugins-ugly-1.0.mo
+
+    - "%(name)-plugin-aja":
+        summary: GStreamer AJA plugin
+        description: GStreamer AJA plugin
+        rundeps:
+            - "%(name)"
+            - "%(name)-plugins-base"
+        paths:
+            - /usr/lib/gstreamer-1.0/libgstaja.so
 
     - "%(name)-plugin-gtk3":
         summary: GStreamer gtk3 plugin

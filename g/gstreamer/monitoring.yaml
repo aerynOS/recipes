@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 1263
-  rss: ~
+  rss: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/tags?format=atom
 security:
   cpe:
   - vendor: gstreamer_project
