@@ -1926,7 +1926,6 @@
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/28bc7450",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/2903222b",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/2c64b35c",
-				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/2de7de5c",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/2e7f19d7",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/2fb9ee36",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/33d93084",
@@ -2047,6 +2046,7 @@
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/eb4525b5",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/eb53f7a9",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/eba78b42",
+				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/ec391625",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/ec9d340b",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/ed93e4e1",
 				"/usr/lib/vscode/resources/app/node-compile-cache/extension-host/v24.22.1-x64-60e4fe36/efcfc505",
@@ -3285,6 +3285,6 @@
 		}
 	},
 	"source-name": "vscode-bin",
-	"source-release": "52",
-	"source-version": "1.145.0"
+	"source-release": "53",
+	"source-version": "1.145.2"
 }
