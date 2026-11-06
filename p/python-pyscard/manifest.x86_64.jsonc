@@ -6,18 +6,18 @@
 			"build-depends": [
 				"binary(swig)",
 				"pkgconfig(libpcsclite)",
-				"python-devel"
+				"pkgconfig(python3)"
 			],
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"sysbinary(pcscd)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pyscard-2.3.1-py3.14.egg-info/PKG-INFO",
-				"/usr/lib/python3.14/site-packages/pyscard-2.3.1-py3.14.egg-info/SOURCES.txt",
-				"/usr/lib/python3.14/site-packages/pyscard-2.3.1-py3.14.egg-info/dependency_links.txt",
-				"/usr/lib/python3.14/site-packages/pyscard-2.3.1-py3.14.egg-info/requires.txt",
-				"/usr/lib/python3.14/site-packages/pyscard-2.3.1-py3.14.egg-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pyscard-2.3.2-py3.14.egg-info/PKG-INFO",
+				"/usr/lib/python3.14/site-packages/pyscard-2.3.2-py3.14.egg-info/SOURCES.txt",
+				"/usr/lib/python3.14/site-packages/pyscard-2.3.2-py3.14.egg-info/dependency_links.txt",
+				"/usr/lib/python3.14/site-packages/pyscard-2.3.2-py3.14.egg-info/requires.txt",
+				"/usr/lib/python3.14/site-packages/pyscard-2.3.2-py3.14.egg-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/smartcard/ATR.py",
 				"/usr/lib/python3.14/site-packages/smartcard/AbstractCardRequest.py",
 				"/usr/lib/python3.14/site-packages/smartcard/Card.py",
@@ -138,6 +138,6 @@
 		}
 	},
 	"source-name": "python-pyscard",
-	"source-release": "4",
-	"source-version": "2.3.1"
+	"source-release": "5",
+	"source-version": "2.3.2"
 }
