@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 21287
   rss: https://github.com/Alexays/Waybar/releases.atom
 security:
-  cpe: ~ # Last checked 2025-03-30
+  # Last checked 2026-11-06
+  cpe: ~

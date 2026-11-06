@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : waybar
-version     : "0.15.0"
-release     : 13
+version     : "0.16.0"
+release     : 14
 homepage    : https://github.com/Alexays/Waybar
 upstreams   :
-    - https://github.com/Alexays/Waybar/archive/refs/tags/0.15.0.tar.gz : 21c2bbef88c40473c355003582f9331d2f9b8a01efdcce0935edfc5f6b023a3e
+    - https://github.com/Alexays/Waybar/archive/refs/tags/0.16.0.tar.gz : ce74962053002c35e80f569298baebd6887088c80454d0ce9a2c9ca5e21e97c7
 summary     : Highly customizable Wayland bar for Sway and Wlroots based compositors
 description : |
     Highly customizable Wayland bar for Sway and Wlroots based compositors.
@@ -20,6 +20,7 @@ builddeps   :
     - pkgconfig(fftw3)
     - pkgconfig(fmt)
     - pkgconfig(gio-unix-2.0)
+    - pkgconfig(giomm-2.4)
     - pkgconfig(gtk-layer-shell-0)
     - pkgconfig(gtkmm-3.0)
     - pkgconfig(jack)
@@ -33,7 +34,9 @@ builddeps   :
     - pkgconfig(libnl-genl-3.0)
     - pkgconfig(libpipewire-0.3)
     - pkgconfig(libpulse)
+    - pkgconfig(libsystemd)
     - pkgconfig(libudev)
+    - pkgconfig(mm-glib)
     - pkgconfig(playerctl)
     - pkgconfig(scdoc)
     - pkgconfig(sigc++-2.0)
@@ -51,8 +54,6 @@ builddeps   :
     # - libgps
 setup       : |
     %patch %(pkgdir)/0001-make-stateless.patch
-
-    %patch %(pkgdir)/ftbfs-cava-1.0.patch
 
     %meson
 build       : |
