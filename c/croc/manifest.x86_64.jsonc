@@ -3,6 +3,11 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"croc": {
+			"build-depends": [
+				"binary(gzip)",
+				"binary(tar)",
+				"binary(unzip)"
+			],
 			"depends": [
 				"ca-certificates",
 				"interpreter(/lib64/ld-linux-x86-64.so.2(x86_64))"
@@ -22,6 +27,6 @@
 		}
 	},
 	"source-name": "croc",
-	"source-release": "13",
-	"source-version": "11.5.5"
+	"source-release": "14",
+	"source-version": "11.6.4"
 }
