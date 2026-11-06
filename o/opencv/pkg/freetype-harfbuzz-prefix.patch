@@ -1,0 +1,57 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Fri, 06 Nov 2026 12:45:00 -0600
+Subject: [PATCH] freetype: use a private HarfBuzz pkg-config prefix
+
+The freetype module checks "harfbuzz" through ocv_check_modules() with the
+HARFBUZZ prefix, overwriting the HARFBUZZ_LIBRARIES that
+cmake/OpenCVFindHarfBuzz.cmake resolves for imgproc. That resolution adds the
+separate harfbuzz-raster library that the new cv::putText engine needs, so the
+clobber leaves libopencv_imgproc with undefined hb_raster_* symbols even when
+the module is disabled (its CMakeLists still runs while modules are globbed).
+
+Use a module-local prefix instead.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-06
+---
+ contrib/modules/freetype/CMakeLists.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/contrib/modules/freetype/CMakeLists.txt b/contrib/modules/freetype/CMakeLists.txt
+index 3a1b0b1a1f..5d2c4e8b12 100644
+--- a/contrib/modules/freetype/CMakeLists.txt
++++ b/contrib/modules/freetype/CMakeLists.txt
+@@ -4,7 +4,7 @@
+ endif()
+ 
+ ocv_check_modules(FREETYPE freetype2)
+-ocv_check_modules(HARFBUZZ harfbuzz)
++ocv_check_modules(FREETYPE_HARFBUZZ harfbuzz)
+ 
+ if(OPENCV_INITIAL_PASS)
+   if(NOT FREETYPE_FOUND)
+@@ -13,17 +13,17 @@
+     message(STATUS "freetype2:   YES (ver ${FREETYPE_VERSION})")
+   endif()
+ 
+-  if(NOT HARFBUZZ_FOUND)
++  if(NOT FREETYPE_HARFBUZZ_FOUND)
+     message(STATUS "harfbuzz:    NO")
+   else()
+-    message(STATUS "harfbuzz:    YES (ver ${HARFBUZZ_VERSION})")
++    message(STATUS "harfbuzz:    YES (ver ${FREETYPE_HARFBUZZ_VERSION})")
+   endif()
+ endif()
+ 
+-if(FREETYPE_FOUND AND HARFBUZZ_FOUND)
++if(FREETYPE_FOUND AND FREETYPE_HARFBUZZ_FOUND)
+   ocv_define_module(freetype opencv_core opencv_imgproc WRAP python)
+-  ocv_target_link_libraries(${the_module} ${FREETYPE_LIBRARIES} ${HARFBUZZ_LIBRARIES})
+-  ocv_include_directories( ${FREETYPE_INCLUDE_DIRS} ${HARFBUZZ_INCLUDE_DIRS} )
++  ocv_target_link_libraries(${the_module} ${FREETYPE_LIBRARIES} ${FREETYPE_HARFBUZZ_LIBRARIES})
++  ocv_include_directories( ${FREETYPE_INCLUDE_DIRS} ${FREETYPE_HARFBUZZ_INCLUDE_DIRS} )
+ else()
+   ocv_module_disable(freetype)
+ endif()
