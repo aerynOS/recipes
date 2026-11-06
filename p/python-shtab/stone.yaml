@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-shtab
-version     : "1.12.1"
-release     : 8
+version     : "1.13.0"
+release     : 9
 homepage    : https://github.com/iterative/shtab
 upstreams   :
-    - https://pypi.debian.net/shtab/shtab-1.12.1.tar.gz : 0637338723a8fc08ed1c2fd826d8432229924649c26e3247bb48c53d60ca3bf9
+    - https://pypi.debian.net/shtab/shtab-1.13.0.tar.gz : 0a5be9d7ab2b4549e9a38252abcd5ecf5ec6813ecd80c6b06fa851bff55a5085
 summary     : Automagic shell tab completion for Python CLI applications
 description : |
     Automagic shell tab completion for Python CLI applications
