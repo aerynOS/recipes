@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mythes
-version     : "1.2.6"
-release     : 1
+version     : "1.2.7"
+release     : 2
 upstreams   :
-    - https://github.com/hunspell/mythes/archive/refs/tags/v1.2.6.tar.gz : 7ebc9d32e4d37c1da7fb9dd9673dec2deda9607470a84ebcab2c0d08dc3c7d6c
+    - https://github.com/hunspell/mythes/archive/refs/tags/v1.2.7.tar.gz : ab6c398a783bb581fdede5075953cfb8ea4b8d13a2d90eb901af013b09db3f8f
 homepage    : https://hunspell.github.io/
 license     : BSD-3-Clause
 summary     : Simple thesaurus library

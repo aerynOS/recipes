@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 374490
   rss: https://github.com/hunspell/mythes/releases.atom
- # No known CPE, checked 2025-10-09
 security:
+  # Last checked 2026-11-06
   cpe: ~
