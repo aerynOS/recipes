@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   # Yes, there's a separate ID for gst-plugins-rs but we want to keep versioning in-sync with gstreamer
   id: 1263
-  rss: ~
+  rss: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/tags?format=atom
 security:
   cpe: ~ # last checked 2024/12/23
