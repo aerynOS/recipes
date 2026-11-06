@@ -47,6 +47,7 @@
 				"/usr/share/inputplumber/capability_maps/ayn_type1.yaml",
 				"/usr/share/inputplumber/capability_maps/ayn_type2.yaml",
 				"/usr/share/inputplumber/capability_maps/ayn_type3.yaml",
+				"/usr/share/inputplumber/capability_maps/ayn_type4.yaml",
 				"/usr/share/inputplumber/capability_maps/cec.yaml",
 				"/usr/share/inputplumber/capability_maps/dinput_generic.yaml",
 				"/usr/share/inputplumber/capability_maps/flow_type1.yaml",
@@ -100,6 +101,7 @@
 				"/usr/share/inputplumber/devices/50-ayn_loki_max.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_loki_mini_pro.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_loki_zero.yaml",
+				"/usr/share/inputplumber/devices/50-ayn_odin.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_odin2.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_odin2_mini.yaml",
 				"/usr/share/inputplumber/devices/50-ayn_odin3.yaml",
@@ -131,6 +133,7 @@
 				"/usr/share/inputplumber/devices/50-onexplayer_mini_pro.yaml",
 				"/usr/share/inputplumber/devices/50-onexplayer_onexfly.yaml",
 				"/usr/share/inputplumber/devices/50-onexplayer_x1.yaml",
+				"/usr/share/inputplumber/devices/50-onexplayer_x2_mini.yaml",
 				"/usr/share/inputplumber/devices/50-onexplayer_x2_mini_pro.yaml",
 				"/usr/share/inputplumber/devices/50-orangepi_neo.yaml",
 				"/usr/share/inputplumber/devices/50-retroid_pocket5.yaml",
@@ -181,6 +184,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "71",
-	"source-version": "0.83.1"
+	"source-release": "72",
+	"source-version": "0.84.0"
 }
