@@ -4,6 +4,7 @@
 	"packages": {
 		"python-filelock": {
 			"build-depends": [
+				"python(hatch-fancy-pypi-readme)",
 				"python(hatch-vcs)",
 				"python(hatchling)"
 			],
@@ -11,10 +12,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/filelock-3.32.6.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/filelock-3.32.6.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/filelock-3.32.6.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/filelock-3.32.6.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.9.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.9.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.9.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.9.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/filelock/__init__.py",
 				"/usr/lib/python3.14/site-packages/filelock/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/__pycache__/__init__.cpython-314.pyc",
@@ -68,9 +69,15 @@
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/__init__.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_async.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_async.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_protocol.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_protocol.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_storage.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_storage.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_sync.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/__pycache__/_sync.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/_async.py",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/_protocol.py",
+				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/_storage.py",
 				"/usr/lib/python3.14/site-packages/filelock/_soft_rw/_sync.py",
 				"/usr/lib/python3.14/site-packages/filelock/_strict.py",
 				"/usr/lib/python3.14/site-packages/filelock/_unix.py",
@@ -87,6 +94,6 @@
 		}
 	},
 	"source-name": "python-filelock",
-	"source-release": "10",
-	"source-version": "3.32.6"
+	"source-release": "11",
+	"source-version": "4.2.9"
 }
