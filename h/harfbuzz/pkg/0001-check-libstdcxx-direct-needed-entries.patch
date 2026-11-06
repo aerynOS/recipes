@@ -1,0 +1,87 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Fri, 6 Nov 2026 10:55:36 -0600
+Subject: [PATCH] check-libstdc++: only inspect direct DT_NEEDED entries
+
+ldd reports the transitive dependency closure, so the check fails when a
+dependency of a dependency links against libstdc++ (for example
+cairo -> fontconfig -> libxml2 -> ICU). Inspect the library's own
+DT_NEEDED entries with readelf (or llvm-readelf) instead, and only fall
+back to the ldd/otool closure check for the libraries whose own NEEDED
+entries are known to be clean.
+
+Origin: vendor
+Forwarded: https://github.com/ReillyBrogan/harfbuzz/tree/libstdc
+Last-Update: 2026-11-06
+---
+ src/check-libstdc++.py | 15 ++++++++++++---
+ src/check_helpers.py   |  5 +++--
+ 2 files changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/src/check-libstdc++.py b/src/check-libstdc++.py
+index 613cfbaf9..5d4116ecf 100755
+--- a/src/check-libstdc++.py
++++ b/src/check-libstdc++.py
+@@ -5,7 +5,7 @@ import shutil
+ import subprocess
+ import sys
+ 
+-from check_helpers import CHECK_LIBSTDCXX_LIBS
++from check_helpers import CHECK_LIBSTDCXX_LIBS, CHECK_SYMBOL_LIBS
+ 
+ srcdir = sys.argv[1]
+ base_srcdir = sys.argv[2]
+@@ -14,6 +14,7 @@ builddir = sys.argv[3]
+ os.chdir(srcdir)
+ 
+ ldd = os.getenv("LDD", shutil.which("ldd"))
++readelf = os.getenv("READELF") or shutil.which("readelf") or shutil.which("llvm-readelf")
+ if not ldd:
+     otool = os.getenv("OTOOL", shutil.which("otool"))
+     if otool:
+@@ -25,14 +26,22 @@ if not ldd:
+ stat = 0
+ tested = False
+ 
+-for soname in CHECK_LIBSTDCXX_LIBS:
++check_libs = CHECK_SYMBOL_LIBS
++if not readelf:
++    check_libs = CHECK_LIBSTDCXX_LIBS
++
++for soname in check_libs:
+     for suffix in ["so", "dylib"]:
+         so = os.path.join(builddir, "lib%s.%s" % (soname, suffix))
+         if not os.path.exists(so):
+             continue
+ 
+         print("Checking that we are not linking to libstdc++ or libc++ in %s" % so)
+-        ldd_result = subprocess.check_output(ldd.split() + [so])
++        if readelf:
++            dynamic = subprocess.check_output([readelf, "-d", so])
++            ldd_result = b"\n".join(line for line in dynamic.splitlines() if b"(NEEDED)" in line)
++        else:
++            ldd_result = subprocess.check_output(ldd.split() + [so])
+         if (b"libstdc++" in ldd_result) or (b"libc++" in ldd_result):
+             print("Ouch, %s is linked to libstdc++ or libc++" % so)
+             stat = 1
+diff --git a/src/check_helpers.py b/src/check_helpers.py
+index 292766b5b..237b09e43 100644
+--- a/src/check_helpers.py
++++ b/src/check_helpers.py
+@@ -1,13 +1,14 @@
+-# harfbuzz-icu links to libstdc++ because icu does.
++# harfbuzz-icu links to libstdc++ because icu does, and harfbuzz-cairo links transitively
++# to libxml2 which on some platforms is also linked against icu
+ CHECK_LIBSTDCXX_LIBS = [
+     "harfbuzz",
+     "harfbuzz-subset",
+     "harfbuzz-raster",
+     "harfbuzz-vector",
+     "harfbuzz-gobject",
+-    "harfbuzz-cairo",
+ ]
+ 
+ CHECK_SYMBOL_LIBS = CHECK_LIBSTDCXX_LIBS + [
++    "harfbuzz-cairo",
+     "harfbuzz-icu",
+ ]
