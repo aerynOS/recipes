@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libplist
-version     : "2.8.0"
-release     : 7
+version     : "2.8.1"
+release     : 8
 homepage    : https://libimobiledevice.org/docs/libplist/latest/
 upstreams   :
-    - https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2 : b1f59f7634c58b2481325a23ff4e3bf51574a42d868cbe466d2b39b04550752a
+    - https://github.com/libimobiledevice/libplist/releases/download/2.8.1/libplist-2.8.1.tar.bz2 : 2a1792e5820e1657c173735fde75baeebd6dd967d2ac47be1e3891ddc64ebefa
 summary     : Library for handling Apple Property List format
 description : |
     Library for handling Apple Property List format

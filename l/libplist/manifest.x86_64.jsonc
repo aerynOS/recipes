@@ -19,9 +19,9 @@
 				"/usr/bin/plist2json",
 				"/usr/bin/plistutil",
 				"/usr/lib/libplist++-2.0.so.12",
-				"/usr/lib/libplist++-2.0.so.12.0.0",
+				"/usr/lib/libplist++-2.0.so.12.0.1",
 				"/usr/lib/libplist-2.0.so.12",
-				"/usr/lib/libplist-2.0.so.12.0.0",
+				"/usr/lib/libplist-2.0.so.12.0.1",
 				"/usr/lib/python3.14/site-packages/plist.so",
 				"/usr/share/man/man1/plistutil.1"
 			],
@@ -71,6 +71,6 @@
 		}
 	},
 	"source-name": "libplist",
-	"source-release": "7",
-	"source-version": "2.8.0"
+	"source-release": "8",
+	"source-version": "2.8.1"
 }
