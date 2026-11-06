@@ -10,16 +10,18 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/soupsieve-3.0.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/soupsieve-3.0.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/soupsieve-3.0.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/soupsieve-3.0.4.dist-info/licenses/LICENSE.md",
+				"/usr/lib/python3.14/site-packages/soupsieve-4.0.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/soupsieve-4.0.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/soupsieve-4.0.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/soupsieve-4.0.1.dist-info/licenses/LICENSE.md",
 				"/usr/lib/python3.14/site-packages/soupsieve/__init__.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/__meta__.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/__init__.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/__meta__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/__meta__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/bidi.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/bidi.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/css_match.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/css_match.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/css_parser.cpython-314.opt-1.pyc",
@@ -30,6 +32,7 @@
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/pretty.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/util.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/soupsieve/__pycache__/util.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/soupsieve/bidi.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/css_match.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/css_parser.py",
 				"/usr/lib/python3.14/site-packages/soupsieve/css_types.py",
@@ -44,6 +47,6 @@
 		}
 	},
 	"source-name": "python-soupsieve",
-	"source-release": "9",
-	"source-version": "3.0.4"
+	"source-release": "10",
+	"source-version": "4.0.1"
 }
