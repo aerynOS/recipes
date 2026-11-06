@@ -1,0 +1,28 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"netbird": {
+			"build-depends": [
+				"binary(go)"
+			],
+			"depends": [
+				"interpreter(/lib64/ld-linux-x86-64.so.2(x86_64))"
+			],
+			"files": [
+				"/usr/bin/netbird",
+				"/usr/lib/systemd/system/netbird@.service",
+				"/usr/share/bash-completion/completions/netbird",
+				"/usr/share/fish/vendor_completions.d/netbird.fish",
+				"/usr/share/zsh/site-functions/_netbird"
+			],
+			"name": "netbird",
+			"provides": [
+				"binary(netbird)"
+			]
+		}
+	},
+	"source-name": "netbird",
+	"source-release": "1",
+	"source-version": "0.82.0"
+}

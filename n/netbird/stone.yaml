@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : netbird
+version     : "0.82.0"
+release     : 1
+homepage    : https://github.com/netbirdio/netbird
+upstreams   :
+    - https://github.com/netbirdio/netbird/archive/refs/tags/v0.82.0.tar.gz : 9553375fdd487572a4fdfeefd4cce95622686a80b8f0d10077c9913bebefe021
+summary     : netbird client
+description : |
+    NetBird securely connects people, machines and AI agents across any network with one identity-based Zero Trust platform. Powered by p2p WireGuard®
+license     : 
+    - BSD-3-Clause
+networking  : true
+builddeps   :
+    - binary(go)
+environment :
+    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+    export CGO_ENABLED=0
+    export GOLDFLAGS="-linkmode=external"
+build       : |
+    %go_mod
+    go build \
+       -ldflags "-X 'github.com/netbirdio/netbird/version.version=%(version)'" \
+       -o build/ ./client
+
+    # Build Completions
+    build/client completion bash > build/netbird
+    build/client completion zsh > build/_netbird
+    build/client completion fish > build/netbird.fish
+install     : |
+    %install_exe build/client %(installroot)%(bindir)/netbird
+
+    # Install systemd units
+    %install_file release_files/systemd/netbird@.service %(installroot)%(libdir)/systemd/system/netbird@.service
+    
+    # Install Completion
+    %install_file build/netbird %(installroot)%(bashcompletionsdir)/netbird
+    %install_file build/_netbird %(installroot)%(zshcompletionsdir)/_netbird
+    %install_file build/netbird.fish %(installroot)%(fishcompletionsdir)/netbird.fish
