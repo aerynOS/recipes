@@ -2,16 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-virtualenv
-version     : "21.14.13"
-release     : 14
+version     : "21.15.5"
+release     : 15
 homepage    : https://virtualenv.pypa.io/
-upstreams:
-  - https://pypi.debian.net/virtualenv/virtualenv-21.14.13.tar.gz: de5307ba4b9a0001d9c8ea02832d38f63ca432880f416c1bface61c4323fd905
+upstreams   :
+    - https://pypi.debian.net/virtualenv/virtualenv-21.15.5.tar.gz : fb869ea32930530ccc87549877b53268c2a4d4a7d7f2c384042eca05170350e6
 license     : MIT
 summary     : Tool to create isolated 'virtual' python environments
 description : |
-  virtualenv is a tool to create isolated python environments, allowing for easier management of versions and dependencies in Python applications.
+    virtualenv is a tool to create isolated python environments, allowing for easier management of versions and dependencies in Python applications.
 builddeps   :
+    - python(hatch-fancy-pypi-readme)
     - python(hatch-vcs)
     - python(hatchling)
 rundeps     :
@@ -27,5 +28,5 @@ build       : |
     %pyproject_build
 install     : |
     %pyproject_install
-#check      : |
-    # TODO
+# check       : |
+#     # TODO
