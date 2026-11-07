@@ -1,0 +1,21 @@
+# from CL and Arch
+[Unit]
+Description=Lightweight HTTP server and IMAP/POP3 proxy server
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+PrivateDevices=yes
+PrivateTmp=true
+ExecStartPre=/usr/bin/nginx -t
+ExecStart=/usr/bin/nginx
+ExecReload=/usr/bin/nginx -s reload
+Restart=on-failure
+KillMode=mixed
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target

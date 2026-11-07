@@ -1,0 +1,255 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"nginx": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcrypt.so.2(x86_64))",
+				"soname(libcrypto.so.4(x86_64))",
+				"soname(libpcre2-8.so.0(x86_64))",
+				"soname(libssl.so.4(x86_64))",
+				"soname(libz.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/nginx",
+				"/usr/lib/systemd/system/nginx.service",
+				"/usr/lib/sysusers.d/nginx.conf",
+				"/usr/lib/tmpfiles.d/nginx.conf",
+				"/usr/share/defaults/nginx/fastcgi.conf",
+				"/usr/share/defaults/nginx/fastcgi_params",
+				"/usr/share/defaults/nginx/koi-utf",
+				"/usr/share/defaults/nginx/koi-win",
+				"/usr/share/defaults/nginx/mime.types",
+				"/usr/share/defaults/nginx/nginx.conf",
+				"/usr/share/defaults/nginx/scgi_params",
+				"/usr/share/defaults/nginx/uwsgi_params",
+				"/usr/share/defaults/nginx/win-utf",
+				"/usr/share/licenses/nginx/LICENSE",
+				"/usr/share/man/man8/nginx.8",
+				"/usr/share/nginx/html/50x.html",
+				"/usr/share/nginx/html/index.html",
+				"/usr/share/vim/vimfiles/ftdetect/nginx.vim",
+				"/usr/share/vim/vimfiles/ftplugin/nginx.vim",
+				"/usr/share/vim/vimfiles/indent/nginx.vim",
+				"/usr/share/vim/vimfiles/syntax/nginx.vim"
+			],
+			"name": "nginx",
+			"provides": [
+				"binary(nginx)"
+			]
+		},
+		"nginx-full": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx-mod-geoip2",
+				"nginx-mod-image-filter",
+				"nginx-mod-mail",
+				"nginx-mod-perl",
+				"nginx-mod-stream",
+				"nginx-mod-xslt"
+			],
+			"files": [
+				"/usr/share/doc/nginx-full/README"
+			],
+			"name": "nginx-full"
+		},
+		"nginx-mod-geoip2": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"nginx-mod-stream",
+				"soname(libc.so.6(x86_64))",
+				"soname(libmaxminddb.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_http_geoip2_module.so",
+				"/usr/lib/nginx/modules/ngx_stream_geoip2_module.so",
+				"/usr/share/defaults/nginx/modules.d/20-geoip2.conf",
+				"/usr/share/defaults/nginx/modules.d/20-stream-geoip2.conf"
+			],
+			"name": "nginx-mod-geoip2",
+			"provides": [
+				"soname(nginx/modules/ngx_http_geoip2_module.so(x86_64))",
+				"soname(nginx/modules/ngx_stream_geoip2_module.so(x86_64))"
+			]
+		},
+		"nginx-mod-image-filter": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgd.so.3(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_http_image_filter_module.so",
+				"/usr/share/defaults/nginx/modules.d/20-image-filter.conf"
+			],
+			"name": "nginx-mod-image-filter",
+			"provides": [
+				"soname(nginx/modules/ngx_http_image_filter_module.so(x86_64))"
+			]
+		},
+		"nginx-mod-mail": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_mail_module.so",
+				"/usr/share/defaults/nginx/modules.d/20-mail.conf"
+			],
+			"name": "nginx-mod-mail",
+			"provides": [
+				"soname(nginx/modules/ngx_mail_module.so(x86_64))"
+			]
+		},
+		"nginx-mod-perl": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"soname(libc.so.6(x86_64))",
+				"soname(libperl.so.5.44(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_http_perl_module.so",
+				"/usr/lib/perl5/vendor_perl/auto/nginx/nginx.so",
+				"/usr/lib/perl5/vendor_perl/nginx.pm",
+				"/usr/share/defaults/nginx/modules.d/20-perl.conf",
+				"/usr/share/man/man3/nginx.3"
+			],
+			"name": "nginx-mod-perl",
+			"provides": [
+				"soname(nginx/modules/ngx_http_perl_module.so(x86_64))",
+				"soname(perl5/vendor_perl/auto/nginx/nginx.so(x86_64))"
+			]
+		},
+		"nginx-mod-stream": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_stream_module.so",
+				"/usr/share/defaults/nginx/modules.d/10-stream.conf"
+			],
+			"name": "nginx-mod-stream",
+			"provides": [
+				"soname(nginx/modules/ngx_stream_module.so(x86_64))"
+			]
+		},
+		"nginx-mod-xslt": {
+			"build-depends": [
+				"binary(ffmpeg)",
+				"binary(which)",
+				"perl-devel",
+				"pkgconfig(gdlib)",
+				"pkgconfig(libmaxminddb)",
+				"pkgconfig(libpcre2-8)",
+				"pkgconfig(libxcrypt)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(libxslt)",
+				"pkgconfig(openssl)"
+			],
+			"depends": [
+				"nginx",
+				"soname(libc.so.6(x86_64))",
+				"soname(libexslt.so.0(x86_64))",
+				"soname(libxml2.so.16(x86_64))",
+				"soname(libxslt.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/lib/nginx/modules/ngx_http_xslt_filter_module.so",
+				"/usr/share/defaults/nginx/modules.d/20-xslt.conf"
+			],
+			"name": "nginx-mod-xslt",
+			"provides": [
+				"soname(nginx/modules/ngx_http_xslt_filter_module.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "nginx",
+	"source-release": "2",
+	"source-version": "1.30.6"
+}
