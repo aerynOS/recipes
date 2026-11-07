@@ -58,6 +58,7 @@
 				"cups-pk-helper",
 				"gnome-online-accounts",
 				"gnome-remote-desktop",
+				"gnome-settings-daemon",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libX11.so.6(x86_64))",
 				"soname(libaccountsservice.so.1(x86_64))",
@@ -486,6 +487,6 @@
 		}
 	},
 	"source-name": "gnome-control-center",
-	"source-release": "40",
+	"source-release": "41",
 	"source-version": "51.1"
 }
