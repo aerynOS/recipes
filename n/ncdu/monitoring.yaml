@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 6045
+  rss: https://github.com/BratishkaErik/ncdu/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-11-07)
