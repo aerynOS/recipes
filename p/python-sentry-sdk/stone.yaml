@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-sentry-sdk
-version     : "2.73.0"
-release     : 16
+version     : "2.74.0"
+release     : 17
 homepage    : https://sentry.io/for/python
 upstreams   :
-    - https://pypi.debian.net/sentry-sdk/sentry_sdk-2.73.0.tar.gz : 4a2ab97b16e4693c325ab361c7bbbb346dbc7d0bc0150922d795a25bac8d5280
+    - https://pypi.debian.net/sentry-sdk/sentry_sdk-2.74.0.tar.gz : dd91d75aacaef636006b579ac3ddb2fdbc9dce35f00f4b353b6b1b110c6b256a
 summary     : The official Python SDK for Sentry.io
 description : |
     The official Python SDK for Sentry.io
