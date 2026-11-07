@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thunar-archive-plugin
+version     : "0.6.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/thunar/start
+upstreams   :
+    - https://archive.xfce.org/src/thunar-plugins/thunar-archive-plugin/0.6/thunar-archive-plugin-0.6.0.tar.xz : 692708cd047c7a552f2f85fe2ee32f19c7d5be5bf695d0288e8cadf50289db06
+summary     : Adds archive operations to the Thunar file context menus.
+description : |
+    Adds archive operations to the Thunar file context menus.
+license     : GPL-2.0-or-later
+builddeps   :
+    #- binary(msgfmt)
+    - pkgconfig(libxfce4util-1.0)
+    - pkgconfig(thunarx-3)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

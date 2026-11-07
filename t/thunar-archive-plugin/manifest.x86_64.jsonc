@@ -1,0 +1,41 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"thunar-archive-plugin": {
+			"build-depends": [
+				"pkgconfig(libxfce4util-1.0)",
+				"pkgconfig(thunarx-3)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libthunarx-3.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/ark.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/engrampa.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/file-roller.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/gnome-file-roller.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/mate-engrampa.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/org.gnome.FileRoller.tap",
+				"/usr/lib/thunar-archive-plugin/thunar-archive-plugin/org.kde.ark.tap",
+				"/usr/lib/thunarx-3/thunar-archive-plugin.so",
+				"/usr/share/icons/hicolor/16x16/apps/tap-create.png",
+				"/usr/share/icons/hicolor/16x16/apps/tap-extract-to.png",
+				"/usr/share/icons/hicolor/16x16/apps/tap-extract.png"
+			],
+			"name": "thunar-archive-plugin",
+			"provides": [
+				"soname(thunarx-3/thunar-archive-plugin.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "thunar-archive-plugin",
+	"source-release": "1",
+	"source-version": "0.6.0"
+}

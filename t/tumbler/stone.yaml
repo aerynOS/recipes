@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : tumbler
+version     : "4.21.1"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/tumbler/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/tumbler/4.21/tumbler-4.21.1.tar.xz : 0f499f79a2a7ee49726a433584dd8a680d514101b72bd1b003360611ce1dc244
+summary     : Thumbnail service implementing the thumbnail management D-Bus specification
+description : |
+    Thumbnail service implementing the thumbnail management D-Bus specification
+#networking  : true
+license     : |
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(libxfce4util-1.0)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)

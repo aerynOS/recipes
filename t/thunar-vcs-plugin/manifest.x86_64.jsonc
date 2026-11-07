@@ -1,0 +1,41 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"thunar-vcs-plugin": {
+			"build-depends": [
+				"pkgconfig(libxfce4ui-2)",
+				"pkgconfig(thunarx-3)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcairo.so.2(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libthunarx-3.so.0(x86_64))",
+				"soname(libxfce4ui-2.so.0(x86_64))",
+				"soname(libxfce4util.so.7(x86_64))"
+			],
+			"files": [
+				"/usr/lib/thunar-vcs-plugin/tvp-git-helper",
+				"/usr/lib/thunarx-3/thunar-vcs-plugin.so",
+				"/usr/share/icons/hicolor/16x16/apps/git.png",
+				"/usr/share/icons/hicolor/16x16/apps/subversion.png",
+				"/usr/share/icons/hicolor/24x24/apps/git.png",
+				"/usr/share/icons/hicolor/24x24/apps/subversion.png",
+				"/usr/share/icons/hicolor/48x48/apps/git.png",
+				"/usr/share/icons/hicolor/48x48/apps/subversion.png"
+			],
+			"name": "thunar-vcs-plugin",
+			"provides": [
+				"soname(thunarx-3/thunar-vcs-plugin.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "thunar-vcs-plugin",
+	"source-release": "1",
+	"source-version": "0.4.0"
+}
