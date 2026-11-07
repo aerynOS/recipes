@@ -20,13 +20,13 @@
 			],
 			"files": [
 				"/usr/bin/virtualenv",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/licenses/THIRD-PARTY-NOTICES.md",
-				"/usr/lib/python3.14/site-packages/virtualenv-21.15.5.dist-info/sboms/virtualenv.cdx.json",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/licenses/THIRD-PARTY-NOTICES.md",
+				"/usr/lib/python3.14/site-packages/virtualenv-21.15.6.dist-info/sboms/virtualenv.cdx.json",
 				"/usr/lib/python3.14/site-packages/virtualenv/__init__.py",
 				"/usr/lib/python3.14/site-packages/virtualenv/__main__.py",
 				"/usr/lib/python3.14/site-packages/virtualenv/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -329,6 +329,6 @@
 		}
 	},
 	"source-name": "python-virtualenv",
-	"source-release": "15",
-	"source-version": "21.15.5"
+	"source-release": "16",
+	"source-version": "21.15.6"
 }
