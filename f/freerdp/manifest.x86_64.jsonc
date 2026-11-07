@@ -21,6 +21,7 @@
 				"pkgconfig(libxslt)",
 				"pkgconfig(mit-krb5)",
 				"pkgconfig(openssl)",
+				"pkgconfig(sdl3)",
 				"pkgconfig(sdl3-ttf)",
 				"pkgconfig(sndio)",
 				"pkgconfig(wayland-scanner)",
@@ -113,6 +114,7 @@
 				"pkgconfig(libxslt)",
 				"pkgconfig(mit-krb5)",
 				"pkgconfig(openssl)",
+				"pkgconfig(sdl3)",
 				"pkgconfig(sdl3-ttf)",
 				"pkgconfig(sndio)",
 				"pkgconfig(wayland-scanner)",
@@ -404,6 +406,7 @@
 				"pkgconfig(libxslt)",
 				"pkgconfig(mit-krb5)",
 				"pkgconfig(openssl)",
+				"pkgconfig(sdl3)",
 				"pkgconfig(sdl3-ttf)",
 				"pkgconfig(sndio)",
 				"pkgconfig(wayland-scanner)",
@@ -506,6 +509,7 @@
 				"pkgconfig(libxslt)",
 				"pkgconfig(mit-krb5)",
 				"pkgconfig(openssl)",
+				"pkgconfig(sdl3)",
 				"pkgconfig(sdl3-ttf)",
 				"pkgconfig(sndio)",
 				"pkgconfig(wayland-scanner)",
@@ -562,6 +566,7 @@
 				"pkgconfig(libxslt)",
 				"pkgconfig(mit-krb5)",
 				"pkgconfig(openssl)",
+				"pkgconfig(sdl3)",
 				"pkgconfig(sdl3-ttf)",
 				"pkgconfig(sndio)",
 				"pkgconfig(wayland-scanner)",
@@ -680,6 +685,6 @@
 		}
 	},
 	"source-name": "freerdp",
-	"source-release": "43",
+	"source-release": "44",
 	"source-version": "3.33.0"
 }

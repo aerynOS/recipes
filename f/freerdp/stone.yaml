@@ -3,7 +3,7 @@
 
 name        : freerdp
 version     : "3.33.0"
-release     : 43
+release     : 44
 homepage    : https://www.freerdp.com
 upstreams   :
     # TODO: Switch back to source archive
@@ -34,6 +34,7 @@ builddeps   :
     - pkgconfig(libxslt)
     - pkgconfig(mit-krb5)
     - pkgconfig(openssl)
+    - pkgconfig(sdl3)
     - pkgconfig(sdl3-ttf)
     - pkgconfig(sndio)
     - pkgconfig(wayland-scanner)
@@ -49,6 +50,8 @@ builddeps   :
     - pkgconfig(xv)
     # TODO: uriparser, heimdal-krb5 (?)
 setup       : |
+    %patch %(pkgdir)/ftbfs-sdl3-3.4.20.patch
+
     %cmake \
       -DCMAKE_SKIP_INSTALL_RPATH=ON \
       -DWITH_CAIRO=ON \
