@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : diffoscope
-version     : "334"
-release     : 11
+version     : "337"
+release     : 12
 homepage    : https://diffoscope.org/
 upstreams   :
-    - https://diffoscope.org/archive/diffoscope-334.tar.bz2 : ddf0605787f73ce29ebaa02c1f0df3a07bfb51bf5df882f8cf2b44594866bfc0
+    - https://diffoscope.org/archive/diffoscope-337.tar.bz2 : eab13b5f49f1e6f751b15f15043b40d66ad99f292301f8e97cfcc93ff4580e1f
 summary     : Tool for in-depth comparison of files, archives, and directories
 description : |
     Tool for in-depth comparison of files, archives, and directories
