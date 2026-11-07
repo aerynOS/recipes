@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-dbus
-version     : "1.4.0"
-release     : 4
+version     : "1.5.1"
+release     : 5
 homepage    : https://www.freedesktop.org/wiki/Software/DBusBindings/
 upstreams   :
-    - https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.4.0.tar.xz : c36b28f10ffcc8f1f798aca973bcc132f91f33eb9b6b8904381b4077766043d5
-license     : MIT
+    - https://dbus.freedesktop.org/releases/dbus-python/dbus_python-1.5.1.tar.gz : 57423cf87d09b7d084f420b55b737fe654c33339b06df77945620d97795c6ac4
 summary     : D-Bus module for Python
 description : |
     Easy access to dbus from Python
+license     : MIT
 builddeps   :
     - pkgconfig(dbus-1)
     - pkgconfig(glib-2.0)
@@ -24,6 +24,6 @@ install    : |
     %meson_install
     %python_compile
 
+    # 1.5+ no longer ships egg-info; install PKG-INFO so we still provide python(dbus-python)
     sitepkg=$(python -c 'import site; print(site.getsitepackages()[0])')
-    %install_dir %(installroot)$sitepkg/dbus_python.egg-info/
-    cp -rv dbus_python.egg-info/* %(installroot)$sitepkg/dbus_python.egg-info/
+    %install_file PKG-INFO %(installroot)$sitepkg/dbus_python.egg-info/PKG-INFO

@@ -51,10 +51,7 @@
 				"/usr/lib/python3.14/site-packages/dbus/server.py",
 				"/usr/lib/python3.14/site-packages/dbus/service.py",
 				"/usr/lib/python3.14/site-packages/dbus/types.py",
-				"/usr/lib/python3.14/site-packages/dbus_python.egg-info/PKG-INFO",
-				"/usr/lib/python3.14/site-packages/dbus_python.egg-info/SOURCES.txt",
-				"/usr/lib/python3.14/site-packages/dbus_python.egg-info/dependency_links.txt",
-				"/usr/lib/python3.14/site-packages/dbus_python.egg-info/top_level.txt"
+				"/usr/lib/python3.14/site-packages/dbus_python.egg-info/PKG-INFO"
 			],
 			"name": "python-dbus",
 			"provides": [
@@ -85,6 +82,6 @@
 		}
 	},
 	"source-name": "python-dbus",
-	"source-release": "4",
-	"source-version": "1.4.0"
+	"source-release": "5",
+	"source-version": "1.5.1"
 }
