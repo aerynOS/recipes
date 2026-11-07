@@ -1,0 +1,37 @@
+From 44c5b7d0b9143214562d60beae7b2671d04ba651 Mon Sep 17 00:00:00 2001
+From: Antheas Kapenekakis <lkml@antheas.dev>
+Date: Mon, 2 Nov 2026 18:32:41 +0100
+Subject: [PATCH 154/206] [FROM-ML] platform/x86: ayaneo-ec: Add KONKR FIT
+ support
+
+Add a DMI match for KONKR FIT, an Ayaneo sub-brand. The board is similar
+to an Ayaneo 3, with the same display and similar controller firmware.
+However, the controllers are not ejectable. Relevant functionality
+including charge bypass was verified to work, so use quirk_charge_limit.
+
+Signed-off-by: Antheas Kapenekakis <lkml@antheas.dev>
+---
+ drivers/platform/x86/ayaneo-ec.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/platform/x86/ayaneo-ec.c b/drivers/platform/x86/ayaneo-ec.c
+index b1c064fd93f9..c31d954babc3 100644
+--- a/drivers/platform/x86/ayaneo-ec.c
++++ b/drivers/platform/x86/ayaneo-ec.c
+@@ -154,6 +154,13 @@ static const struct dmi_system_id dmi_table[] = {
+ 		},
+ 		.driver_data = (void *)&quirk_charge_limit,
+ 	},
++	{
++		.matches = {
++			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "KONKR"),
++			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "KONKR FIT"),
++		},
++		.driver_data = (void *)&quirk_charge_limit,
++	},
+ 	{
+ 		.matches = {
+ 			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "Mysten Labs, Inc."),
+-- 
+2.56.0
+

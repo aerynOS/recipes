@@ -1,0 +1,38 @@
+From fabcd063a1427049bdc3ae4b32b084da204dc332 Mon Sep 17 00:00:00 2001
+From: Antheas Kapenekakis <lkml@antheas.dev>
+Date: Mon, 2 Nov 2026 18:32:40 +0100
+Subject: [PATCH 153/206] [FROM-ML] platform/x86: ayaneo-ec: Add AYANEO NEXT 2
+ support
+
+The AYANEO NEXT 2 is a new AI Max 395 platform. As seen in older Ayaneo
+units, it uses "AYA" as its board vendor and "AB09" as its board name.
+Add a DMI match with quirk_charge_limit. The EC map was verified on Windows
+and then all relevant functionality under this driver on linux.
+
+Signed-off-by: Antheas Kapenekakis <lkml@antheas.dev>
+---
+ drivers/platform/x86/ayaneo-ec.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/platform/x86/ayaneo-ec.c b/drivers/platform/x86/ayaneo-ec.c
+index 08e679347e9b..b1c064fd93f9 100644
+--- a/drivers/platform/x86/ayaneo-ec.c
++++ b/drivers/platform/x86/ayaneo-ec.c
+@@ -146,6 +146,14 @@ static const struct dmi_system_id dmi_table[] = {
+ 		},
+ 		.driver_data = (void *)&quirk_ayaneo3,
+ 	},
++	{
++		/* AYANEO NEXT 2 */
++		.matches = {
++			DMI_EXACT_MATCH(DMI_BOARD_VENDOR, "AYA"),
++			DMI_EXACT_MATCH(DMI_BOARD_NAME, "AB09"),
++		},
++		.driver_data = (void *)&quirk_charge_limit,
++	},
+ 	{
+ 		.matches = {
+ 			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "Mysten Labs, Inc."),
+-- 
+2.56.0
+

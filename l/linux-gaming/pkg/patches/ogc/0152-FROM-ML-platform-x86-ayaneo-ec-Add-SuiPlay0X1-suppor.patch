@@ -1,0 +1,38 @@
+From a69b51f2d94ffaf3441b9a1c99dcdf0e18604938 Mon Sep 17 00:00:00 2001
+From: Antheas Kapenekakis <lkml@antheas.dev>
+Date: Mon, 2 Nov 2026 18:32:39 +0100
+Subject: [PATCH 152/206] [FROM-ML] platform/x86: ayaneo-ec: Add SuiPlay0X1
+ support
+
+The SuiPlay0X1 is an Ayaneo 2S rebrand but with a different BIOS. Match its
+system vendor and product name and select quirk_fan to expose fan speed
+monitoring and PWM control. It is not clear if it supports charge control,
+so we defer that for now as the vendor has not implemented charge control
+in their OS yet.
+
+Signed-off-by: Antheas Kapenekakis <lkml@antheas.dev>
+---
+ drivers/platform/x86/ayaneo-ec.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/platform/x86/ayaneo-ec.c b/drivers/platform/x86/ayaneo-ec.c
+index 81dac81262e7..08e679347e9b 100644
+--- a/drivers/platform/x86/ayaneo-ec.c
++++ b/drivers/platform/x86/ayaneo-ec.c
+@@ -146,6 +146,13 @@ static const struct dmi_system_id dmi_table[] = {
+ 		},
+ 		.driver_data = (void *)&quirk_ayaneo3,
+ 	},
++	{
++		.matches = {
++			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "Mysten Labs, Inc."),
++			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "SuiPlay0X1"),
++		},
++		.driver_data = (void *)&quirk_fan,
++	},
+ 	{},
+ };
+ 
+-- 
+2.56.0
+
