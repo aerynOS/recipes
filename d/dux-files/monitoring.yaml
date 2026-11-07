@@ -5,5 +5,5 @@ releases:
   id: 392848
   rss: https://github.com/duxlabs-dev/dux-files/releases.atom
 security:
-  # No known CPE, checked 2026-10-22
+  # Last checked 2026-11-07
   cpe: ~
