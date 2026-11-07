@@ -162,6 +162,17 @@ git-shortlog-fix () {
         |cut -f1 -d' ' --complement
 }
 
+# List last commit before some timestamp (also supports 'now')
+function list-last-commit-before () {
+    local arg="${1}"
+    if [[ -z "${arg}" ]]
+    then
+       echo "Usage: find-last-commit-before-timestamp <timestamp>"
+    else
+       git log -1 --pretty="format:%ct %h %s" --before="${arg}"
+    fi
+}
+
 
 # Bash completions
 _chpkg()
