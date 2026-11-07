@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bluez
-version     : "5.87"
-release     : 15
+version     : "5.88"
+release     : 16
 homepage    : https://bluez.github.io/
 upstreams   :
-    - https://www.kernel.org/pub/linux/bluetooth/bluez-5.87.tar.xz : 26bdcf2cebd7310c6f598850606b037ef0c515fe6608ebc54d22c50c4c32b35f
+    - https://www.kernel.org/pub/linux/bluetooth/bluez-5.88.tar.xz : 6952c39eb5f8b0ee712cc50ab3bcff03be17c410dd97ca640f4849d9a1653ba3
 summary     : Bluetooth protocol stack for Linux
 description : |
     BlueZ provides support for the core Bluetooth layers and protocols. It is flexible, efficient and uses a modular implementation. It has many interesting features:
@@ -32,9 +32,7 @@ builddeps   :
 setup       : |
     %patch %(pkgdir)/0001-stateless.patch
     %patch %(pkgdir)/0002-Make-main.conf-stateless.patch
-    %patch %(pkgdir)/upstream-01.patch
 
-    # Remove ICAL_LIBS="-lical -licalvcal" in future release
     %reconfigure \
         --enable-experimental \
         --enable-hid2hci \
@@ -44,8 +42,7 @@ setup       : |
         --enable-sixaxis \
         --enable-testing \
         --with-dbusconfdir=%(datadir) \
-        --with-vendordir=%(vendordir)/bluetooth \
-        ICAL_LIBS="-lical -licalvcal"
+        --with-vendordir=%(vendordir)/bluetooth
 build       : |
     %make
 install     : |
