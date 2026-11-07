@@ -1,22 +1,25 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : automake
-version     : "1.19"
-release     : 10
+version     : "1.20"
+release     : 11
 homepage    : https://www.gnu.org/software/automake/
 upstreams   :
-    - https://ftp.gnu.org/gnu/automake/automake-1.19.tar.xz : e3e2c2e3abf37898138db5b6c1d1dc35c9160c5978be7947d2c741705251d445
+    - https://ftp.gnu.org/gnu/automake/automake-1.20.tar.xz : f6f34dad4cbe395715762b0710f7c511e39bd5cf777e6b95818ccbecf7714248
 summary     : Generate Makefile.in files
 description : |
     GNU Automake is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards. Automake requires the use of GNU Autoconf.
-license     : GPL-2.0-or-later
+license     : GPL-3.0-or-later
 checkdeps   :
     # Various compression tests
     - binary(gzip)
-    - binary(tar)
     - binary(rst2html)
+    - binary(tar)
     - binary(zstd)
+tuning      :
+    - lto
+    - optimize: speed
 setup       : |
     %configure
 build       : |
@@ -49,9 +52,6 @@ check       : |
     done
 
     %make check || (cat ./test-suite.log && exit 1)
-tuning      :
-    - lto
-    - optimize: speed
 packages    :
     - "%(name)":
         paths:
