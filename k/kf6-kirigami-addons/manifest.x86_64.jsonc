@@ -38,11 +38,11 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libKirigamiAddonsComponents.so.1.16.0",
+				"/usr/lib/libKirigamiAddonsComponents.so.1.16.1",
 				"/usr/lib/libKirigamiAddonsComponents.so.6",
-				"/usr/lib/libKirigamiAddonsStatefulApp.so.1.16.0",
+				"/usr/lib/libKirigamiAddonsStatefulApp.so.1.16.1",
 				"/usr/lib/libKirigamiAddonsStatefulApp.so.6",
-				"/usr/lib/libKirigamiApp.so.1.16.0",
+				"/usr/lib/libKirigamiApp.so.1.16.1",
 				"/usr/lib/libKirigamiApp.so.6",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/actions/ActionMenu.qml",
 				"/usr/lib/qt6/qml/org/kde/kirigamiaddons/actions/ActionMenuBar.qml",
@@ -402,6 +402,6 @@
 		}
 	},
 	"source-name": "kf6-kirigami-addons",
-	"source-release": "22",
-	"source-version": "1.16.0"
+	"source-release": "23",
+	"source-version": "1.16.1"
 }
