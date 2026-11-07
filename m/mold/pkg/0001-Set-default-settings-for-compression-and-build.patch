@@ -7,33 +7,30 @@ Set the default to compress debug sections with zstd, and also set the default t
 
 Origin: vendor
 Forwarded: not-needed
-Last-Update: 2026-08-19
+Last-Update: 2026-10-06
 ---
- src/mold.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ src/cmdline.rs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/src/mold.h b/src/mold.h
-index 53418ed1..87aaca52 100644
---- a/src/mold.h
-+++ b/src/mold.h
-@@ -2496,9 +2496,9 @@ struct BuildId {
-     }
-   }
- 
--  enum { NONE, HEX, HASH, UUID } kind = NONE;
-+  enum { NONE, HEX, HASH, UUID } kind = HASH;
-   std::vector<u8> value;
--  i64 hash_size = 0;
-+  i64 hash_size = 20;
- };
- 
- typedef enum {
-@@ -2707,7 +2707,7 @@ struct Context {
-     bool z_start_stop_visibility_protected = false;
-     bool z_text = false;
-     bool zero_to_bss = false;
--    i64 compress_debug_sections = ELFCOMPRESS_NONE;
-+    i64 compress_debug_sections = ELFCOMPRESS_ZSTD;
-     i64 compress_debug_sections_level = 0;
-     i64 filler = -1;
-     i64 spare_dynamic_tags = 5;
+diff --git a/src/cmdline.rs b/src/cmdline.rs
+index ebfd5cf..f546401 100644
+--- a/src/cmdline.rs
++++ b/src/cmdline.rs
+@@ -562,7 +562,7 @@ impl Default for Args {
+     fn default() -> Self {
+         Self {
+             bsymbolic: BsymbolicKind::None,
+-            build_id: BuildId::default(),
++            build_id: BuildId::Hash(20),
+             z_cet_report: CetReportKind::None,
+             undefined_glob: Glob::new(),
+             unique: Glob::new(),
+@@ -642,7 +642,7 @@ impl Default for Args {
+             z_start_stop_visibility_protected: false,
+             z_text: false,
+             zero_to_bss: false,
+-            compress_debug_sections: DebugCompression::None,
++            compress_debug_sections: DebugCompression::Zstd(3),
+             filler: None,
+             spare_dynamic_tags: 5,
+             spare_program_headers: 0,
