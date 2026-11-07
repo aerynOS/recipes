@@ -3,7 +3,7 @@
 
 name        : libcupsfilters
 version     : "2.2.1"
-release     : 13
+release     : 14
 homepage    : https://github.com/OpenPrinting/libcupsfilters
 upstreams   :
     - https://github.com/OpenPrinting/libcupsfilters/releases/download/2.2.1/libcupsfilters-2.2.1.tar.xz : 0a22b849d5068c4c86b20fbb4192d3faa3dabcc9ee844c8fd73710ed821d4860
@@ -39,6 +39,7 @@ setup       : |
     %patch %(pkgdir)/0009-pdftopdf-honor-inherited-mediabox-cropbox-and-rotate-attributes.patch
     %patch %(pkgdir)/0010-pdftopdf-keep-annotations-without-an-appearance-from-aborting-the-job.patch
     %patch %(pkgdir)/0011-texttotext-restore-the-default-tab-width-instead-of-just-logging-it.patch
+    %patch %(pkgdir)/0012-bannertopdf-preserve-indirect-page-resources.patch
 
     %configure \
         --disable-mutool \
