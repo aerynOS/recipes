@@ -1,0 +1,12 @@
+{
+    "userName" : "noctalia-greeter",
+    "realName" : "Noctalia Greeter",
+    "uid" : 25,
+    "gid" : 25,
+    "disposition" : "system",
+    "locked" : false,
+    "homeDirectory": "/var/lib/noctalia-greeter",
+    "memberOf": [
+        "video"
+    ]
+}
