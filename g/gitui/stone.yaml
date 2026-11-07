@@ -31,4 +31,5 @@ build       : |
 install     : |
     %cargo_install
 check       : |
-    %cargo_test
+    # test_env_variables sets GIT_DIR process-wide and races the other tests
+    %cargo_test -- --test-threads=1

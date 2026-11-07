@@ -5,4 +5,5 @@ releases:
   id: 187553
   rss: https://github.com/gitui-org/gitui/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-01-21)
+  # Last checked 2026-11-06
+  cpe: ~
