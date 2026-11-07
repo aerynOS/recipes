@@ -5,6 +5,11 @@ hack-config-X86_NATIVE_CPU.patch
 
 0000-ovl-fixes.patch
 
+# https://lwn.net/Articles/1105902/
+xen-netback-fix-uaf-when-reading-statistics-data.patch
+xen-netback-defer-xenvif_mcast_addr_list_free.patch
+xen-blkback-avoid-uaf-when-reading-i-o-statistics.patch
+
 # Enable x86_64-v2 build optimisations
 more-ISA-levels-and-uarches-for-kernel-6.16+.patch
 
