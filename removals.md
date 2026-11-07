@@ -310,3 +310,6 @@ NB: Each entry *must* contain all sub-packages created by the package!
 - opencv-calib3d
 - opencv-features2d
 - opencv-ml
+
+### No longer built
+- python-pyqt6-pdf

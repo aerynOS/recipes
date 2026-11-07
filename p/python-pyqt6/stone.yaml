@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyqt6
-version     : "6.11.0"
-release     : 3
+version     : "6.12.0"
+release     : 4
 homepage    : https://www.riverbankcomputing.com/software/pyqt/
 upstreams   :
-    - https://pypi.debian.net/PyQt6/pyqt6-6.11.0.tar.gz : 45dd60aa69976de1918b5ced6b4e7b6a25abd2a919ecef5fd5826ecc76718889
+    - https://pypi.debian.net/PyQt6/pyqt6-6.12.0.tar.gz : d3e021b716bae880224422f9d1b894d2d53de7e60e60dbc43f860723f9cc300b
 summary     : A set of Python bindings for Qt6
 description : |
     Python bindings for the Qt6 cross platform application toolkit.
@@ -16,12 +16,11 @@ builddeps   :
     - binary(sip-build)
     - cmake(Qt6Bluetooth)
     - cmake(Qt6Designer)
+    - cmake(Qt6GuiPrivate)
     - cmake(Qt6Help)
     - cmake(Qt6Multimedia)
     - cmake(Qt6MultimediaWidgets)
     - cmake(Qt6Nfc)
-    - cmake(Qt6Pdf)
-    - cmake(Qt6PdfWidgets)
     - cmake(Qt6Positioning)
     - cmake(Qt6Qml)
     - cmake(Qt6Quick)
@@ -41,8 +40,6 @@ builddeps   :
     - python(pyqt-builder)
     # Qt6-remoteobjects, Qt6-scxml (statemachine)
 setup       : |
-    %patch %(pkgdir)/ftbfs-qt-6.12.patch
-
     sip-build \
         --build-dir=%(builddir) \
         --confirm-license \
@@ -87,13 +84,6 @@ packages    :
             - /usr/lib/python3.*/site-packages/PyQt6/QtMultimedia.*
             - /usr/lib/python3.*/site-packages/PyQt6/QtMultimediaWidgets.*
             - /usr/lib/python3.*/site-packages/PyQt6/QtSpatialAudio.*
-
-    - "%(name)-pdf":
-        rundeps:
-            - "%(name)"
-        paths:
-            - /usr/lib/python3.*/site-packages/PyQt6/QtPdf.*
-            - /usr/lib/python3.*/site-packages/PyQt6/QtPdfWidgets.*
 
     - "%(name)-positioning":
         rundeps:
@@ -158,7 +148,6 @@ packages    :
             - "%(name)-connectivity"
             - "%(name)-declarative"
             - "%(name)-multimedia"
-            - "%(name)-pdf"
             - "%(name)-positioning"
             - "%(name)-quick3d"
             - "%(name)-sensors"
