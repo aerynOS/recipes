@@ -10,7 +10,7 @@
 			],
 			"files": [
 				"/usr/lib/libfmt.so.12",
-				"/usr/lib/libfmt.so.12.2.0"
+				"/usr/lib/libfmt.so.12.2.1"
 			],
 			"name": "fmt",
 			"provides": [
@@ -53,6 +53,6 @@
 		}
 	},
 	"source-name": "fmt",
-	"source-release": "10",
-	"source-version": "12.2.0"
+	"source-release": "11",
+	"source-version": "12.2.1"
 }

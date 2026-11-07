@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 11526
   rss:  https://github.com/fmtlib/fmt/tags.atom
 security:
+  # Last checked 2026-11-07
   cpe:
   - vendor: fmt
     product: fmt
