@@ -1,0 +1,37 @@
+From 447196fa9098d36a75aa976e02dc58f43f1ec1c6 Mon Sep 17 00:00:00 2001
+From: Beyley Cardellio <ep1cm1n10n123@gmail.com>
+Date: Sat, 1 Aug 2026 20:36:26 -0700
+Subject: [PATCH] a/tracking: Update for OpenCV 5
+
+The << operator for cv::Mat was deprecated in OpenCV 5.
+
+Signed-off-by: Beyley Cardellio <ep1cm1n10n123@gmail.com>
+Part-of: <https://gitlab.freedesktop.org/monado/monado/-/merge_requests/2960>
+
+Origin: upstream, https://gitlab.freedesktop.org/monado/monado/-/commit/447196fa9098d36a75aa976e02dc58f43f1ec1c6
+Forwarded: not-needed
+Last-Update: 2026-11-06
+---
+ src/xrt/auxiliary/tracking/t_tracker_psvr.cpp | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/xrt/auxiliary/tracking/t_tracker_psvr.cpp b/src/xrt/auxiliary/tracking/t_tracker_psvr.cpp
+index 1111111111..2222222222 100644
+--- a/src/xrt/auxiliary/tracking/t_tracker_psvr.cpp
++++ b/src/xrt/auxiliary/tracking/t_tracker_psvr.cpp
+@@ -321,9 +321,12 @@
+ init_filter(cv::KalmanFilter &kf, float process_cov, float meas_cov, float dt)
+ {
+ 	kf.init(6, 3);
+-	kf.transitionMatrix =
+-	    (cv::Mat_<float>(6, 6) << 1.0, 0.0, 0.0, dt, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, dt, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0,
+-	     dt, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
++	kf.transitionMatrix = cv::Mat_<float>({6, 6}, {1.0f, 0.0f, 0.0f, dt,   0.0f, 0.0f, //
++	                                               0.0f, 1.0f, 0.0f, 0.0f, dt,   0.0f, //
++	                                               0.0f, 0.0f, 1.0f, 0.0f, 0.0f, dt,   //
++	                                               0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, //
++	                                               0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, //
++	                                               0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f});
+ 
+ 	cv::setIdentity(kf.measurementMatrix, cv::Scalar::all(1.0f));
+ 	cv::setIdentity(kf.errorCovPost, cv::Scalar::all(0.0f));

@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 6615
   rss: https://github.com/opencv/opencv/releases.atom
 security:
+  # Last checked 2026-11-06
   cpe:
   - vendor: opencv
     product: opencv

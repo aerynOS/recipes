@@ -1,37 +1,35 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : opencv
-version     : "4.14.0"
-release     : 27
+version     : "5.1.0"
+release     : 28
 homepage    : https://opencv.org
 upstreams   :
-    - https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz:
-        hash: ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e
+    - https://github.com/opencv/opencv/archive/refs/tags/5.1.0.tar.gz:
+        hash: 638c1dae7e37e45afea21aa217dc667ad7cf57acc66cdf652c074f1e0e5ad6d2
         unpackdir: opencv
-    - https://github.com/opencv/opencv_contrib/archive/4.14.0/opencv_contrib-4.14.0.tar.gz:
-        hash: 4f17abd1bc7f88e19c3380c8de7cbf2d863aced5b5ee8d8934cc7902b67d42c9
+    - https://github.com/opencv/opencv_contrib/archive/5.1.0/opencv_contrib-5.1.0.tar.gz:
+        hash: 6aee68285f0e7b7bf77d3656bc6568820c6f15704860fc0922def357d40ebeff
         unpackdir: opencv/contrib
+    - https://github.com/opencv/opencv_extra/archive/5.1.0/opencv_extra-5.1.0.tar.gz:
+        hash: 8acdc45234b5b54795a30db80a66e87ceaa274a90f198fcfb373d985160c5ffe
+        unpackdir: extra
 summary     : An open source computer vision and machine learning software library
 description : |
     OpenCV is an open source computer vision and machine learning software library
-license     : BSD-3-Clause
+license     : Apache-2.0
 builddeps   :
-    - binary(nasm)
     - cmake(Eigen3)
     - cmake(OpenEXR)
     - cmake(OpenJPEG)
-    - cmake(Qt6Core5Compat)
     - cmake(VulkanHeaders)
-    - cmake(gflags)
-    - cmake(glog)
-    - cmake(hdf5)
     - cmake(libavif)
     - cmake(libjpeg-turbo)
     - cmake(protobuf)
     - cmake(tiff)
     - pkgconfig(OpenCL)
-    - pkgconfig(freetype2)
+    - pkgconfig(Qt6Widgets)
     - pkgconfig(gstreamer-plugins-base-1.0)
     - pkgconfig(harfbuzz)
     - pkgconfig(libavcodec)
@@ -42,7 +40,6 @@ builddeps   :
     - pkgconfig(libswscale)
     - pkgconfig(libva)
     - pkgconfig(openblas)
-    - pkgconfig(tesseract)
     - pkgconfig(zlib)
     - protobuf-staticlib
 setup       : |
@@ -51,8 +48,9 @@ setup       : |
     # Using `BUILD_OPENCV_*` options we disable all extra modules from opencv_contrib that we don't explicitly need
     # To make this easier on ourselves let's allowlist the modules we want and disable every other one
     # Technically we don't need plot but tracking checks for it so it can build samples (which we don't end up installing anyway)
-    # optflow and ximgproc from request https://github.com/aerynOS/recipes/issues/2621
-    modules=(bgsegm optflow plot tracking ximgproc)
+    # 2026-09-18: optflow and ximgproc from request https://github.com/aerynOS/recipes/issues/2621
+    # 2026-11-06: [opencv 5.1] xobjdetect now provides cv::CascadeClassifier, which the GStreamer OpenCV plugin uses
+    modules=(bgsegm optflow plot tracking ximgproc xobjdetect)
     contrib_cmake_args=""
     pushd contrib/modules
     directories=(*)
@@ -72,35 +70,28 @@ setup       : |
     export FC=flang
     export LDFLAGS+=" -lopenblas"
 
-    # Fix build for FFmpeg9
-    # https://github.com/opencv/opencv/pull/29533
-    # https://github.com/opencv/opencv/pull/29662
-    %patch %(pkgdir)/29533.patch
-    %patch %(pkgdir)/29662.patch
-
     # Add x86-64v2 CPU flags to baseline (See `cmake/OpenCVCompilerOptimizations.cmake`)
+    %patch %(pkgdir)/freetype-harfbuzz-prefix.patch
+
     %cmake \
         -DBUILD_EXAMPLES=OFF \
         -DBUILD_PERF_TESTS=OFF \
-        -DBUILD_TESTS=OFF \
         -DBUILD_PROTOBUF=OFF \
+        -DBUILD_TESTS=ON \
         -DCMAKE_CXX_STANDARD=17 \
         -DCPU_BASELINE_REQUIRE="SSE;SSE2;SSE3;SSSE3;SSE4_1;SSE4_2;POPCNT" \
-        -DHDF5_NO_FIND_PACKAGE_CONFIG_FILE=ON \
         -DINSTALL_C_EXAMPLES=OFF \
         -DINSTALL_PYTHON_EXAMPLES=OFF \
         -DOPENCV_ENABLE_NONFREE=OFF \
         -DOPENCV_EXTRA_MODULES_PATH=contrib/modules \
-        -DOPENCV_SKIP_FEATURES2D_DOWNLOADING=OFF \
         -DOPENCV_GENERATE_PKGCONFIG=ON \
         -DOPENCV_GENERATE_SETUPVARS=OFF \
         -DPROTOBUF_UPDATE_FILES=ON \
-        -DWITH_ADE=OFF \
         -DWITH_FLATBUFFERS=OFF \
+        -DWITH_IPP=OFF \
         -DWITH_JPEGXL=ON \
         -DWITH_LAPACK=ON \
         -DWITH_OPENMP=ON \
-        -DWITH_IPP=OFF \
         -DWITH_QT=ON \
         -DWITH_VA=ON \
         -DWITH_VULKAN=ON \
@@ -111,90 +102,260 @@ build       : |
     %cmake_build
 install     : |
     %cmake_install
+
+    # Deprecated module packages, kept until moss can remove packages
+    for i in %(name)-calib3d %(name)-features2d %(name)-ml; do
+        %install_dir %(installroot)%(docdir)/${i}
+        echo "DEPRECATED" > %(installroot)%(docdir)/${i}/README
+    done
+check       : |
+    # opencv_extra carries the test data; most tests need it now that findDataFile() defaults to required
+    # GTEST_FILTER drops upstream-failing tests:
+    #   hal_intrin128.int32x4*              signed overflow in the reference dotprod sum (UB, clang)
+    #   Imgcodecs_Png_Encode/ImwriteFlags   compares encoded size against pngsuite, differs with libpng 1.6.59
+    #   *GSTREAMER* / *gstreamer*           needs muxers/decoders that are not in the build root
+    # ctest skips the dnn suite (Vulkan/VKCOM backend fails upstream in 5.1.0) and highgui (needs a display)
+    export GTEST_FILTER="-hal_intrin128.int32x4*:Imgcodecs_Png_Encode.*:Imgcodecs_Png_ImwriteFlags.*:*GSTREAMER*:*gstreamer*"
+    export OPENCV_SAMPLES_DATA_PATH="$(cd %(builddir)/.. && pwd)/samples/data"
+    export OPENCV_TEST_DATA_PATH="$(cd %(builddir)/../../extra && pwd)/testdata"
+    export QT_QPA_PLATFORM=offscreen
+    %cmake_test -E "opencv_test_(dnn|highgui)"
 packages    :
     - "%(name)-core":
+        summary: Core module of the OpenCV library
+        description: |
+            Fundamental data types such as Mat, matrix and array operations, dynamic data
+            structures and the module infrastructure shared by all other OpenCV modules.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_core.so.*
             - /usr/share/licenses
 
     - "%(name)-devel":
+        summary: Development files for the OpenCV library
+        description: |
+            Headers, CMake config files, pkg-config file and vendor suppressions needed to
+            build software against OpenCV.
+        license: Apache-2.0
         paths:
-            - /usr/share/opencv4/*.supp
+            - /usr/share/opencv5/*.supp
         rundeps:
             - "%(name)-bgsegm"
-            - "%(name)-calib3d"
+            - "%(name)-calib"
             - "%(name)-core"
             - "%(name)-dnn"
-            - "%(name)-features2d"
+            - "%(name)-features"
             - "%(name)-flann"
+            - "%(name)-geometry"
             - "%(name)-highgui"
             - "%(name)-imgcodecs"
             - "%(name)-imgproc"
-            - "%(name)-ml"
             - "%(name)-objdetect"
             - "%(name)-optflow"
             - "%(name)-photo"
             - "%(name)-plot"
+            - "%(name)-ptcloud"
+            - "%(name)-stereo"
             - "%(name)-stitching"
             - "%(name)-tracking"
             - "%(name)-video"
             - "%(name)-videoio"
             - "%(name)-ximgproc"
+            - "%(name)-xobjdetect"
 
     # Most other distros just subpackage every individual library. That seems easiest rather than
     # trying to bundle some together into similar groupings. Autodep will just handle all of the
     # rundeps and revdeps for us.
     - "%(name)-bgsegm": # opencv_contrib module
+        summary: Background segmentation module of the OpenCV library
+        description: |
+            Algorithms for background and foreground segmentation in video sequences.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_bgsegm.so.*
-    - "%(name)-calib3d":
+    - "%(name)-calib":
+        summary: Camera calibration module of the OpenCV library
+        description: |
+            Camera calibration and 3D reconstruction routines such as calibrateCamera and
+            stereoCalibrate.
+        license: Apache-2.0
         paths:
-            - /usr/lib/libopencv_calib3d.so.*
+            - /usr/lib/libopencv_calib.so.*
     - "%(name)-dnn":
+        summary: Deep neural network module of the OpenCV library
+        description: |
+            Deep learning inference for ONNX and TFLite models, including the classic engine
+            and the new default engine.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_dnn.so.*
-    - "%(name)-features2d":
+    - "%(name)-features":
+        summary: Feature detection module of the OpenCV library
+        description: |
+            Feature detectors and descriptors such as SIFT, ORB, FAST and MSER, together with
+            descriptor matchers.
+        license: Apache-2.0
         paths:
-            - /usr/lib/libopencv_features2d.so.*
+            - /usr/lib/libopencv_features.so.*
     - "%(name)-flann":
+        summary: FLANN module of the OpenCV library
+        description: |
+            Fast approximate nearest neighbour search and clustering used by other OpenCV
+            modules.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_flann.so.*
+    - "%(name)-geometry":
+        summary: Computational geometry module of the OpenCV library
+        description: |
+            Homography, solvePnP, affine estimation and computational geometry on point sets.
+        license: Apache-2.0
+        paths:
+            - /usr/lib/libopencv_geometry.so.*
     - "%(name)-highgui":
+        summary: High-level GUI module of the OpenCV library
+        description: |
+            Window display, trackbars and the Qt based image and video user interface backend.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_highgui.so.*
     - "%(name)-imgcodecs":
+        summary: Image codec module of the OpenCV library
+        description: |
+            Reading and writing images in PNG, JPEG, TIFF, WebP, JPEG XL, AVIF, OpenEXR and
+            other formats.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_imgcodecs.so.*
     - "%(name)-imgproc":
+        summary: Image processing module of the OpenCV library
+        description: |
+            Filtering, morphology, colour conversion, geometric transforms and other image
+            processing operations.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_imgproc.so.*
-    - "%(name)-ml":
-        paths:
-            - /usr/lib/libopencv_ml.so.*
     - "%(name)-objdetect":
+        summary: Object detection module of the OpenCV library
+        description: |
+            DNN based object and face detection, QR code and ArUco marker detection.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_objdetect.so.*
     - "%(name)-optflow": # opencv_contrib module
+        summary: Optical flow module of the OpenCV library
+        description: |
+            Dense optical flow algorithms such as DeepFlow, DIS, RLOF, PCAFlow and
+            sparse-to-dense.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_optflow.so.*
     - "%(name)-photo":
+        summary: Computational photography module of the OpenCV library
+        description: |
+            Image denoising, inpainting, HDR and seamless cloning.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_photo.so.*
     - "%(name)-plot": # opencv_contrib module
+        summary: Plotting module of the OpenCV library
+        description: |
+            Simple 2D plotting of Mat data.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_plot.so.*
+    - "%(name)-ptcloud":
+        summary: Point cloud module of the OpenCV library
+        description: |
+            Point cloud I/O, registration and 3D reconstruction.
+        license: Apache-2.0
+        paths:
+            - /usr/lib/libopencv_ptcloud.so.*
+    - "%(name)-stereo":
+        summary: Stereo matching module of the OpenCV library
+        description: |
+            Stereo correspondence algorithms, StereoSGBM and StereoBM.
+        license: Apache-2.0
+        paths:
+            - /usr/lib/libopencv_stereo.so.*
     - "%(name)-stitching":
+        summary: Image stitching module of the OpenCV library
+        description: |
+            Panorama stitching: feature matching, warping and blending.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_stitching.so.*
     - "%(name)-tracking": # opencv_contrib module
+        summary: Tracking module of the OpenCV library
+        description: |
+            Object tracking API and trackers such as MIL, KCF, CSRT and DaSiamRPN.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_tracking.so.*
     - "%(name)-video":
+        summary: Video analysis module of the OpenCV library
+        description: |
+            Motion analysis, background subtraction and object tracking primitives.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_video.so.*
     - "%(name)-videoio":
+        summary: Video I/O module of the OpenCV library
+        description: |
+            Video capture and writing through FFmpeg, GStreamer and V4L.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_videoio.so.*
     - "%(name)-ximgproc": # opencv_contrib module
+        summary: Extended image processing module of the OpenCV library
+        description: |
+            Additional image processing algorithms: edge-preserving filters, superpixels,
+            thinning and related filters.
+        license: Apache-2.0
         paths:
             - /usr/lib/libopencv_ximgproc.so.*
+    - "%(name)-xobjdetect": # opencv_contrib module
+        summary: Extended object detection module of the OpenCV library
+        description: |
+            Cascade and HOG detectors, together with the Haar and LBP cascade data files.
+        license: Apache-2.0
+        paths:
+            - /usr/lib/libopencv_xobjdetect.so.*
+            - /usr/share/opencv5/haarcascades
+            - /usr/share/opencv5/lbpcascades
+
+    # Deprecated in OpenCV 5, split into other modules
+    - "%(name)-calib3d":
+        summary: Deprecated, replaced by opencv-calib, opencv-geometry, opencv-stereo and opencv-ptcloud
+        description: |
+            The calib3d module was split into calib, geometry, stereo and ptcloud in OpenCV 5.
+            Install opencv-calib, opencv-geometry, opencv-stereo and opencv-ptcloud instead.
+        license: Apache-2.0
+        rundeps:
+            - "%(name)-calib"
+            - "%(name)-geometry"
+            - "%(name)-ptcloud"
+            - "%(name)-stereo"
+        paths:
+            - /usr/share/doc/opencv-calib3d/README
+
+    # Deprecated in OpenCV 5, renamed
+    - "%(name)-features2d":
+        summary: Deprecated, replaced by opencv-features
+        description: |
+            The features2d module was renamed to features in OpenCV 5. Install opencv-features instead.
+        license: Apache-2.0
+        rundeps:
+            - "%(name)-features"
+        paths:
+            - /usr/share/doc/opencv-features2d/README
+
+    # Deprecated in OpenCV 5, moved to opencv_contrib and no longer built
+    - "%(name)-ml":
+        summary: Deprecated, no longer packaged
+        description: |
+            The ml module moved to opencv_contrib in OpenCV 5 and is not built here any more.
+            There is no replacement package.
+        license: Apache-2.0
+        paths:
+            - /usr/share/doc/opencv-ml/README
