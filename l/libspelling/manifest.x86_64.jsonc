@@ -37,6 +37,7 @@
 				"/usr/share/locale/cs/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/da/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/de/LC_MESSAGES/libspelling.mo",
+				"/usr/share/locale/de_CH/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/el/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/en_GB/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/eo/LC_MESSAGES/libspelling.mo",
@@ -62,11 +63,13 @@
 				"/usr/share/locale/kk/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/kw/LC_MESSAGES/libspelling.mo",
+				"/usr/share/locale/lo/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/lt/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/lv/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/nb/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/ne/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/libspelling.mo",
+				"/usr/share/locale/nn/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/oc/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/pa/LC_MESSAGES/libspelling.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/libspelling.mo",
@@ -133,6 +136,6 @@
 		}
 	},
 	"source-name": "libspelling",
-	"source-release": "10",
-	"source-version": "0.4.10"
+	"source-release": "11",
+	"source-version": "0.4.11"
 }

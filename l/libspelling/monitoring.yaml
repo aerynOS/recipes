@@ -5,4 +5,5 @@ releases:
   id: 369148
   rss: ~
 security:
-  cpe: ~ # last checked 2024/09/20
+  # Last checked 2026-11-07
+  cpe: ~
