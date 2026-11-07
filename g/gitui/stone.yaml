@@ -32,4 +32,6 @@ install     : |
     %cargo_install
 check       : |
     # test_env_variables sets GIT_DIR process-wide and races the other tests
+    # Upstream uses `cargo nextest` which runs each test in a separate process and avoids this issue.
+    # We don't package that and these tests complete in a second anyway even single-threaded
     %cargo_test -- --test-threads=1
