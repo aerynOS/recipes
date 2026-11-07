@@ -10,6 +10,11 @@ more-ISA-levels-and-uarches-for-kernel-6.16+.patch
 upstream/0000-iwlwifi-fix.patch
 upstream/0000-ovl-fixes.patch
 
+# https://lwn.net/Articles/1105902/
+upstream/xen-netback-fix-uaf-when-reading-statistics-data.patch
+upstream/xen-netback-defer-xenvif_mcast_addr_list_free.patch
+upstream/xen-blkback-avoid-uaf-when-reading-i-o-statistics.patch
+
 # OGC patch-set
 # https://github.com/OpenGamingCollective/linux/tree/ogc-7.2.y
 ogc/0001-FROM-ML-platform-x86-amd-wmi-Add-AMD-Overclocking-AO.patch
