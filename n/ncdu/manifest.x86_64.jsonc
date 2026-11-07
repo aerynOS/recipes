@@ -1,0 +1,31 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"ncdu": {
+			"build-depends": [
+				"binary(zig-0.17)",
+				"pkgconfig(libzstd)",
+				"pkgconfig(ncursesw)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libncursesw.so.6(x86_64))",
+				"soname(libzstd.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/ncdu",
+				"/usr/share/licenses/ncdu/MIT.txt",
+				"/usr/share/man/man1/ncdu.1"
+			],
+			"name": "ncdu",
+			"provides": [
+				"binary(ncdu)"
+			]
+		}
+	},
+	"source-name": "ncdu",
+	"source-release": "1",
+	"source-version": "2.12.0"
+}

@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : ncdu
+version     : "2.12.0"
+release     : 1
+homepage    : https://dev.yorhel.nl/ncdu
+upstreams   :
+    - https://github.com/BratishkaErik/ncdu/archive/refs/tags/v2.12.0.tar.gz : cd55cb5dcd30f7a40b283e5e189aede8cffe69700aa9eae1208fd6fde79dc159
+summary     : Disk usage analyzer with an ncurses interface
+description : |
+    Ncdu is a disk usage analyzer with a text-mode user interface. It is designed to find space hogs on a remote server where you don't have an entire graphical setup available, but it is a useful tool on regular desktop systems too.
+license     : MIT
+networking  : true
+builddeps   :
+    - binary(zig-0.17)
+    - pkgconfig(libzstd)
+    - pkgconfig(ncursesw)
+build       : |
+    zig-0.17 build \
+        --summary all \
+        --verbose \
+        -fsys=ncurses \
+        -fsys=zstd \
+        -Doptimize=ReleaseFast \
+        -Dcpu=x86_64_v2 \
+        -Dpie=true
+install     : |
+    %install_bin zig-out/bin/ncdu
+    %install_file ncdu.1 %(installroot)%(mandir)/man1/ncdu.1
+    %install_file LICENSES/MIT.txt -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    zig-0.17 build test \
+        -fsys=ncurses \
+        -fsys=zstd \
+        -Dcpu=x86_64_v2 \
+        -Dpie=true
