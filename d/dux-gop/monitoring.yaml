@@ -5,4 +5,5 @@ releases:
   id: 388379
   rss: https://github.com/duxlabs-dev/dux-gop/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-08-20)
+  # Last checked 2026-11-07
+  cpe: ~

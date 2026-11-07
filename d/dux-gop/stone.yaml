@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dux-gop
-version     : "2.1.0"
-release     : 2
+version     : "2.1.1"
+release     : 3
 homepage    : https://github.com/duxlabs-dev/dux-gop
 upstreams   :
-    - https://github.com/duxlabs-dev/dux-gop/releases/download/v2.1.0/dgop-2.1.0.tar.gz : d6b5531fb11b8a805d0aed2cd6155823df5d0243b674c7e8fd359477d2951f70
+    - https://github.com/duxlabs-dev/dux-gop/releases/download/v2.1.1/dgop-2.1.1.tar.gz : 449be858b25e293a724d168a2bae5eef6aec81fbbf3a0773363ad4cb578936ea
 summary     : System monitoring tool with CLI & REST API built in Go
 description : |
     dux gop is a stateless system and process monitoring tool that provides a top-like tui,
