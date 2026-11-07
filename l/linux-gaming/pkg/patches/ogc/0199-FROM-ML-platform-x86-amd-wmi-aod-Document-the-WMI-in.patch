@@ -1,0 +1,328 @@
+From 5225479344f56a3f595a6e725eed5309fce5f795 Mon Sep 17 00:00:00 2001
+From: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
+Date: Sun, 11 Oct 2026 00:35:43 +0530
+Subject: [PATCH 199/206] [FROM-ML] platform/x86/amd/wmi: aod: Document the WMI
+ interface
+
+Describe the AMD Overclocking WMI interface, the commands used for the
+sysfs attributes and the debugfs interface.
+
+Signed-off-by: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
+---
+ Documentation/wmi/devices/amd-wmi-aod.rst | 291 ++++++++++++++++++++++
+ MAINTAINERS                               |   1 +
+ 2 files changed, 292 insertions(+)
+ create mode 100644 Documentation/wmi/devices/amd-wmi-aod.rst
+
+diff --git a/Documentation/wmi/devices/amd-wmi-aod.rst b/Documentation/wmi/devices/amd-wmi-aod.rst
+new file mode 100644
+index 000000000000..c75a8d11d8c9
+--- /dev/null
++++ b/Documentation/wmi/devices/amd-wmi-aod.rst
+@@ -0,0 +1,291 @@
++.. SPDX-License-Identifier: GPL-2.0-or-later
++
++=========================================
++AMD Overclocking WMI driver (amd-wmi-aod)
++=========================================
++
++Introduction
++============
++
++AMD Ryzen platforms implement the AMD Overclocking (AOD) interface
++in the platform firmware. The firmware exposes it through a WMI device with
++the GUID ``95F20B61-3D44-41F8-87E1-03CBF94C4E8F``. All platforms that
++implement the AOD interface use this GUID. On Windows this interface is
++used by AMD Ryzen Master.
++
++The interface is command based. The firmware reports a list of supported
++commands, each with a numeric command ID and a property flag. Commands with
++a linear range of values (property 1) report their minimum, maximum and step
++size, commands with discrete values (property 0) report the list of values
++they accept. A new value is applied by executing the command.
++
++The firmware stores new values in its setup variables, so they only take
++effect after a reboot. Some commands also report their current value, but
++this depends on the firmware: on the systems tested so far the memory clock
++and SMT report their current value, the PPT, TDC and EDC limits do not.
++
++The driver exposes a selected set of these commands as sysfs attributes,
++see Documentation/ABI/testing/sysfs-platform-amd-wmi-aod. An attribute is
++only created if the firmware lists the matching command. All attributes
++call into the firmware and are only accessible by root. More attributes
++can be added later as needed.
++
++WMI interface description
++=========================
++
++The WMI interface description can be decoded from the embedded binary MOF
++(bmof) data using the `bmfdec <https://github.com/pali/bmfdec>`_ utility.
++Only the WMI methods and data classes used by the driver are shown here:
++
++::
++
++  [WMI,
++   Locale("MS\\0x409"),
++   Description("This class contains the definition of the package used in other classes"),
++   guid("{ABBC0F58-8EA1-11d1-00A0-C90629100000}")
++  ]
++  class OIDPackage
++  {
++      [WmiDataId(1),
++       read, write,
++       Description("Number of ID")
++      ] uint8 Length;
++      [WmiDataId(2),
++       read, write,
++       Description("64*4 bytes of data")
++      ] uint32 ID[64];
++      [WmiDataId(3),
++       read, write,
++       Description("64*4 bytes of data")
++      ] uint32 property[64];
++      [WmiDataId(4),
++       read, write,
++       Description("64 strings")
++      ] string IDstring[64];
++  };
++
++  [WMI,
++   Locale("MS\\0x409"),
++   Description("This class contains the definition of the package used in other classes"),
++   guid("{ABBC0F65-8EA1-11d1-00A0-C90629100000}")
++  ]
++  class GetdValuesPackage
++  {
++   [WmiDataId(1),
++       read, write,
++       Description("ID")
++      ] uint32 ID;
++   [WmiDataId(2),
++      read, write,
++      Description("Current")
++      ] uint32 Current;
++   [WmiDataId(3),
++       read, write,
++       Description("Number of ID")
++      ] uint32 Length;
++   [WmiDataId(4),
++       read, write,
++       Description("100*4 bytes of data")
++      ] uint32 DValuesBuffer[100];
++  };
++
++  [WMI,
++   Locale("MS\\0x409"),
++   Description("This class contains the definition of the package used in other classes"),
++   guid("{7BF6AE1F-85CC-4ee5-94FD-394B5FE7E710}")
++  ]
++  class OutBuffer
++  {
++   [WmiDataId(1),
++       read, write,
++       Description("ID")
++      ] uint8 result[200];
++  };
++
++  [WMI,
++   Locale("MS\\0x409"),
++   Description("This class contains the definition of the package used in other classes"),
++   guid("{ABBC0F63-8EA1-11d1-00A0-C90629100000}")
++  ]
++  class GetMinMaxSteppingPackage
++  {
++      [WmiDataId(1),
++          read, write,
++          Description("ID")
++          ] uint32 Value;
++          [WmiDataId(2),
++           read, write,
++           Description("Current")
++          ] uint32 Current;
++          [WmiDataId(3),
++           read, write,
++           Description("Min")
++          ] uint32 Min;
++          [WmiDataId(4),
++           read, write,
++           Description("Max")
++          ] uint32 Max;
++          [WmiDataId(5),
++           read, write,
++           Description("Stepping")
++          ] uint32 Stepping;
++  };
++
++  [WMI,
++   Dynamic,
++   Provider("WmiProv"),
++   Locale("MS\\0x409"),
++   Description("Class to Query/Set a CLKValue"),
++   guid("{95F20B61-3D44-41F8-87E1-03CBF94C4E8F}")
++  ]
++  class AMD_ACPI
++  {
++      [key, read]
++       string InstanceName;
++      [read] boolean Active;
++
++      [WmiMethodId(1),
++       Implemented,
++       read, write,
++       Description("Get version")
++      ] void QueryVersion([out,Description("version")]uint32 version);
++
++      [WmiMethodId(3),
++       Implemented,
++       read, write,
++       Description("Get BIOS ACPI support function table.")
++      ] void GetObjectID([out,Description("Get BIOS support Object ID table")]OIDPackage pack);
++
++      [WmiMethodId(4),
++       Implemented,
++       read, write,
++       Description("Bios request data")
++      ] void Getdvalues([in,Description("ID used to identify")]uint32 ID,[out,Description("status")]GetdValuesPackage pack);
++
++      [WmiMethodId(5),
++       Implemented,
++       read, write,
++       Description("Command Run")
++      ] void RunCommand([in,Description("In buffer")]uint8 Inbuf[8],[out,Description("Out buffer")]OutBuffer Outbuf);
++
++      [WmiMethodId(6),
++       Implemented,
++       read, write,
++       Description("Get Min/Max/Stepping values")
++      ] void GetMinMaxSteppingValues([in,Description("ID used to identify")]uint32 ID,[out,Description("status")]GetMinMaxSteppingPackage pack);
++
++       [WmiMethodId(8),
++       Implemented,
++       read, write,
++       Description("Get BIOS ACPI support function table2.")
++      ] void GetObjectID2([out,Description("Get BIOS support Object ID table2")]OIDPackage pack);
++  };
++
++WMI method usage
++================
++
++All WMI methods use instance 0. The firmware reads a 32-bit input argument
++even for WMI methods that take no arguments, so the driver always passes
++at least a 32-bit argument. All integers are 32-bit little-endian values.
++
++QueryVersion (method ID 1)
++--------------------------
++
++Returns the version of the AOD interface implemented by the firmware as
++a single integer.
++
++GetObjectID (method ID 3) and GetObjectID2 (method ID 8)
++--------------------------------------------------------
++
++Return the list of supported general (GetObjectID) and overclocking
++(GetObjectID2) commands as a package with 193 elements:
++
++- the number of valid entries
++- 64 command IDs
++- 64 property flags
++- 64 command names as strings
++
++The driver uses both lists during probe to find out which of its sysfs
++attributes are supported.
++
++Getdvalues (method ID 4)
++------------------------
++
++Takes a command ID and returns the discrete values supported by this
++command:
++
++- the command ID
++- the current value
++- the number of valid discrete values
++- 100 discrete values
++
++RunCommand (method ID 5)
++------------------------
++
++Takes a command ID and a new value, and applies the new value. The
++firmware returns a 200 byte buffer, with the 32-bit status of the
++operation (AodSmiStatus) located at offset 2. A status of 0 means
++success.
++
++GetMinMaxSteppingValues (method ID 6)
++-------------------------------------
++
++Takes a command ID and returns the range of values supported by this
++command:
++
++- the command ID
++- the current value, or 0 if the firmware does not report it
++- the minimum value
++- the maximum value
++- the step size
++
++Commands with discrete values return all fields as 0. In the same way,
++Getdvalues returns an ID and a length of 0 for commands with a linear range.
++
++The WMI methods 2 (Init), 7 (GetDimmSpdData), 9 (GetRmpData),
++10 (GetOppTable), 11 (GetOppData) and 12 (GetMemoryProfile) are not used
++by the driver.
++
++Commands used by the driver
++===========================
++
++============	================	==============	==========
++Command ID	sysfs attribute		Firmware unit	sysfs unit
++============	================	==============	==========
++0x00050001	ppt_limit		mW		uW
++0x00050002	tdc_limit		mA		mA
++0x00050003	edc_limit		mA		mA
++0x00020001	mem_clock		MHz		MHz
++0x00020026	smt_enable		0/1		0/1
++============	================	==============	==========
++
++Debugfs interface
++=================
++
++For debugging and for tools that need access to commands without a
++dedicated sysfs attribute, the driver exposes the raw WMI methods in
++``/sys/kernel/debug/amd-wmi-aod-<device>/``. This interface is not a
++stable ABI and is only accessible by root.
++
++``query_version``
++  Reads the AOD interface version.
++
++``get_object_id``, ``get_object_id2``
++  Read the command lists in text form, one line per command.
++
++``get_object_id_raw``, ``get_object_id2_raw``
++  Read the command lists as a 4612 byte binary structure: the number of
++  entries (u32), 64 command IDs (u32), 64 property flags (u32) and 64
++  NUL-terminated command names of 64 bytes each. The firmware is queried
++  when the file is read.
++
++``get_dvalues``, ``get_minmax_stepping``
++  Write a command ID, then read the result of Getdvalues or
++  GetMinMaxSteppingValues for this command.
++
++``run_command``
++  Write ``"<command id> <value>"`` to execute a command.
++
++``run_command_status``
++  Reads the status reported by the firmware for the last command executed
++  using ``run_command``.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2ef91ff102b9..fed7e4fde6f5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1340,6 +1340,7 @@ M:	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
+ L:	platform-driver-x86@vger.kernel.org
+ S:	Supported
+ F:	Documentation/ABI/testing/sysfs-platform-amd-wmi-aod
++F:	Documentation/wmi/devices/amd-wmi-aod.rst
+ F:	drivers/platform/x86/amd/wmi/
+ 
+ AMD XDNA DRIVER
+-- 
+2.56.0
+
