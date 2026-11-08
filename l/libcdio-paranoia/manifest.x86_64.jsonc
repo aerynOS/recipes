@@ -9,7 +9,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
@@ -53,6 +53,6 @@
 		}
 	},
 	"source-name": "libcdio-paranoia",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "10.2+2.0.2"
 }
