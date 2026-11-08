@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dux-files
-version     : "2.1.1"
-release     : 3
+version     : "2.1.2"
+release     : 4
 homepage    : https://duxlabs.dev/
 upstreams   :
-    - https://github.com/duxlabs-dev/dux-files/releases/download/v2.1.1/dfiles-2.1.1.tar.gz : fd2fc2583a736349ae2cac1dbe71caaa4f279d052d554d77f057b72d96c0b875
+    - https://github.com/duxlabs-dev/dux-files/releases/download/v2.1.2/dfiles-2.1.2.tar.gz : 0d90a4c3e9338db1a6fecffbf86e91b9e07d545d4b7edb8cb14d757887fc6cf5
 summary     : File manager from Dux Labs
 description : |
     File manager from Dux Labs
