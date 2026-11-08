@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pyqt-builder
-version     : "1.20.1"
-release     : 5
+version     : "1.21.0"
+release     : 6
 homepage    : https://github.com/Python-PyQt/PyQt-builder
 upstreams   :
-    - https://pypi.debian.net/PyQt-builder/pyqt_builder-1.20.1.tar.gz : b303cd9ec7a04100ecb66fcbcae432c409e22a98153249bf504db5900a361de3
+    - https://pypi.debian.net/PyQt-builder/pyqt_builder-1.21.0.tar.gz : 673efa27237a81ffefc7d9a6419565600a129b4f4cf4d358c89a348b39b3a454
 summary     : The PEP 517 compliant PyQt build system
 description : |
     PyQt-builder is the PEP 517 compliant build system for PyQt and projects that extend PyQt. It extends the SIP build system and uses Qt's qmake, in conjunction with make, to perform the actual compilation and installation of extension modules.
-license     : GPL-3.0-or-later
+license     : BSD-2-Clause
 builddeps   :
     - python(setuptools)
     - python(setuptools-scm)
