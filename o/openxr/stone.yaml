@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openxr
-version     : "1.1.58"
-release     : 10
-upstreams   :
-    - https://github.com/KhronosGroup/OpenXR-SDK-Source/releases/download/release-1.1.58/OpenXR-SDK-Source-release-1.1.58.tar.gz : 7139158a60b3e0f96d9afdac4337292a54539c8ec6e331f19844d7dae8daf041
+version     : "1.1.65"
+release     : 11
 homepage    : https://www.khronos.org/openxr/
-license     : Apache-2.0
+upstreams   :
+    - https://github.com/KhronosGroup/OpenXR-SDK-Source/releases/download/release-1.1.65/OpenXR-SDK-Source-release-1.1.65.tar.gz : 24594e93e43c93f734c55f6f857ed3950583f087636c36e1548ca7759bdbf329
 summary     : An open standard for virtual reality and augmented reality platforms and devices
 description : |
     An open standard for virtual reality and augmented reality platforms and devices
+license     : Apache-2.0
 builddeps   :
     - binary(glslangValidator)
     - binary(glslc)
