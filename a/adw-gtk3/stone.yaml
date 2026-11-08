@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : adw-gtk3
+version     : "6.5"
+release     : 1
+homepage    : https://github.com/lassekongo83/adw-gtk3
+upstreams   :
+    - https://github.com/lassekongo83/adw-gtk3/archive/refs/tags/v6.5.tar.gz : fc9fc3b3e89d90d9a0e38bae05445ce9e65faf47acea3ac658e5f42566def473
+    # Build-time sass binary. New releases: https://github.com/sass/dart-sass/releases
+    - https://github.com/sass/dart-sass/releases/download/1.108.1/dart-sass-1.108.1-linux-x64.tar.gz:
+        hash: 8c699c6e808ef44425b74e3f800e44b7cbec5d6d8bec022aba034294c4bfe4c0
+        unpackdir: dart-sass
+summary     : The theme from libadwaita ported to GTK-3
+description : |
+    An unofficial GTK3 port of libadwaita, so GTK3 apps match the look of
+    libadwaita/GTK4 applications.
+license     : LGPL-2.1-only
+setup       : |
+    export PATH="%(buildroot)/dart-sass:${PATH}"
+    %meson
+build       : |
+    export PATH="%(buildroot)/dart-sass:${PATH}"
+    %meson_build
+install     : |
+    %meson_install
