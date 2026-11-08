@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 19048
   rss: https://github.com/strawberrymusicplayer/strawberry/releases.atom
 security:
-  # No known CPE, last checked 2024-01-31
+  # Last checked 2026-11-08
   cpe: ~
