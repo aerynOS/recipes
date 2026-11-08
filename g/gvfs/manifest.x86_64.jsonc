@@ -47,7 +47,7 @@
 				"soname(libavahi-common.so.3(x86_64))",
 				"soname(libavahi-glib.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libcdio_cdda.so.2(x86_64))",
 				"soname(libcdio_paranoia.so.2(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -775,6 +775,6 @@
 		}
 	},
 	"source-name": "gvfs",
-	"source-release": "30",
+	"source-release": "31",
 	"source-version": "1.62.0"
 }
