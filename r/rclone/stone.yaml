@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : rclone
-version     : "1.75.2"
-release     : 8
+version     : "1.76.0"
+release     : 9
 homepage    : https://rclone.org/
 upstreams   :
-    - https://github.com/rclone/rclone/archive/refs/tags/v1.75.2.tar.gz : 68afd7f68c84bd978966feae2116339aa7bf454b39c573910c462e87c3774d5a
+    - https://github.com/rclone/rclone/archive/refs/tags/v1.76.0.tar.gz : 8cb7e5d576fe9a3aef8b1a0785e2ffc6c1953f8ed109f42000b0b86718f6628b
 summary     : Sync files to and from many cloud storage providers
 description : |
     Rclone is a command line program to manage files on cloud storage. It is a feature-rich alternative to cloud vendors' web storage interfaces and supports more than 70 cloud storage products including S3 object stores, business & consumer file storage services, as well as standard transfer protocols.
