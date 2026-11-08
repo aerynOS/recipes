@@ -69,7 +69,7 @@
 				"soname(libavformat.so.63(x86_64))",
 				"soname(libavutil.so.61(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libcdio_cdda.so.2(x86_64))",
 				"soname(libcdio_paranoia.so.2(x86_64))",
 				"soname(libcurl.so.4(x86_64))",
@@ -216,7 +216,7 @@
 				"soname(libavformat.so.63(x86_64))",
 				"soname(libavutil.so.61(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libcdio_cdda.so.2(x86_64))",
 				"soname(libcdio_paranoia.so.2(x86_64))",
 				"soname(libcurl.so.4(x86_64))",
@@ -374,6 +374,6 @@
 		}
 	},
 	"source-name": "mpv",
-	"source-release": "23",
+	"source-release": "24",
 	"source-version": "0.42.0"
 }
