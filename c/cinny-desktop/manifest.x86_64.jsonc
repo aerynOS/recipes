@@ -39,7 +39,7 @@
 			],
 			"files": [
 				"/usr/bin/cinny-desktop",
-				"/usr/share/applications/in.cinny.Cinny.desktop",
+				"/usr/share/applications/in.cinny.app.desktop",
 				"/usr/share/icons/hicolor/scalable/apps/cinny-desktop.svg"
 			],
 			"name": "cinny-desktop",
@@ -49,6 +49,6 @@
 		}
 	},
 	"source-name": "cinny-desktop",
-	"source-release": "3",
-	"source-version": "4.12.7"
+	"source-release": "4",
+	"source-version": "4.12.8"
 }
