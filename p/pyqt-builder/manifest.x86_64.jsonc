@@ -15,12 +15,12 @@
 			"files": [
 				"/usr/bin/pyqt-bundle",
 				"/usr/bin/pyqt-qt-wheel",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/pyqt_builder-1.20.1.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pyqt_builder-1.21.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/__init__.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/__pycache__/__init__.cpython-314.pyc",
@@ -117,6 +117,8 @@
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_graphs.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_networkauth.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_networkauth.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_pdf.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_pdf.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_webengine.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqt6_webengine.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/__pycache__/pyqtchart.cpython-314.opt-1.pyc",
@@ -139,6 +141,7 @@
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqt6_datavisualization.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqt6_graphs.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqt6_networkauth.py",
+				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqt6_pdf.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqt6_webengine.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqtchart.py",
 				"/usr/lib/python3.14/site-packages/pyqtbuild/bundle/packages/pyqtdatavisualization.py",
@@ -167,6 +170,6 @@
 		}
 	},
 	"source-name": "pyqt-builder",
-	"source-release": "5",
-	"source-version": "1.20.1"
+	"source-release": "6",
+	"source-version": "1.21.0"
 }
