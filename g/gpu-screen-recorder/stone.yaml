@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gpu-screen-recorder
-version     : "5.12.5"
-release     : 3
+version     : "6.1.7"
+release     : 4
 homepage    : https://git.dec05eba.com/gpu-screen-recorder/about/
-license     : GPL-3.0-only
+upstreams   :
+    - https://dec05eba.com/snapshot/gpu-screen-recorder.git.6.1.7.tar.gz:
+        hash: 17be095ed8c6200c467c1477cc127c97b056b25071443d015e0ef026cf3fcd73
+        stripdirs: 0
 summary     : An extremely fast hardware-accelerated screen recorder
 description : |
     GPU Screen Recorder is a high-performance screen recorder for Linux that
     minimizes system overhead by leveraging GPU hardware encoding. It can be
     used for local recording, streaming, and instant-replay workflows.
-upstreams   :
-    - https://dec05eba.com/snapshot/gpu-screen-recorder.git.5.12.5.tar.gz:
-        hash: 3207bef976d130f8df465f4290304e226f82ce0c226b6a8cb9756e6316e15b79
-        stripdirs: 0
+license     : GPL-3.0-only
 builddeps   :
     - pkgconfig(dbus-1)
     - pkgconfig(libavcodec)
