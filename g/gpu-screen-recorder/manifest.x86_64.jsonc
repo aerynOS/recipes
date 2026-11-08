@@ -36,10 +36,9 @@
 				"soname(libcap.so.2(x86_64))",
 				"soname(libdbus-1.so.3(x86_64))",
 				"soname(libdrm.so.2(x86_64))",
-				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
 				"soname(libpipewire-0.3.so.0(x86_64))",
 				"soname(libpulse.so.0(x86_64))",
-				"soname(libstdc++.so.6(x86_64))",
 				"soname(libswresample.so.7(x86_64))",
 				"soname(libva-drm.so.2(x86_64))",
 				"soname(libva.so.2(x86_64))",
@@ -48,6 +47,7 @@
 			],
 			"files": [
 				"/usr/bin/gpu-screen-recorder",
+				"/usr/bin/gsr-cli",
 				"/usr/bin/gsr-kms-server",
 				"/usr/lib/modprobe.d/gsr-nvidia.conf",
 				"/usr/lib/systemd/user/gpu-screen-recorder.service",
@@ -68,11 +68,13 @@
 				"/usr/share/gpu-screen-recorder/scripts/twitch-stream.sh",
 				"/usr/share/gpu-screen-recorder/scripts/youtube-hls-stream.sh",
 				"/usr/share/man/man1/gpu-screen-recorder.1",
+				"/usr/share/man/man1/gsr-cli.1",
 				"/usr/share/man/man1/gsr-kms-server.1"
 			],
 			"name": "gpu-screen-recorder",
 			"provides": [
 				"binary(gpu-screen-recorder)",
+				"binary(gsr-cli)",
 				"binary(gsr-kms-server)"
 			]
 		},
@@ -105,6 +107,6 @@
 		}
 	},
 	"source-name": "gpu-screen-recorder",
-	"source-release": "3",
-	"source-version": "5.12.5"
+	"source-release": "4",
+	"source-version": "6.1.7"
 }
