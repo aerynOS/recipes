@@ -4060,7 +4060,7 @@
 				"gstreamer",
 				"gstreamer-plugins-base",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libdvdread.so.8(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgmodule-2.0.so.0(x86_64))",
@@ -4291,6 +4291,6 @@
 		}
 	},
 	"source-name": "gstreamer",
-	"source-release": "67",
+	"source-release": "68",
 	"source-version": "1.28.9"
 }
