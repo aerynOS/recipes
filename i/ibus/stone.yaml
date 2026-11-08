@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ibus
-version     : "1.5.34"
-release     : 15
+version     : "1.5.35"
+release     : 16
 homepage    : https://github.com/ibus/ibus
 upstreams   :
-    - https://github.com/ibus/ibus/releases/download/1.5.34/ibus-1.5.34.tar.gz : 12a72210ce5250f8a66df562a75e034e67b2bce74c4df2983dc86d1154894943
+    - https://github.com/ibus/ibus/releases/download/1.5.35/ibus-1.5.35.tar.gz : a4fe45deae5d751a3587a81deebe59e17962286f71af41675894fa2ab96f59f4
 summary     : Intelligent Input Bus for Linux/Unix
 description : |
     Intelligent Input Bus for Linux/Unix
@@ -51,25 +51,15 @@ setup       : |
     %patch %(pkgdir)/0001-Stateless-dconf.patch
     %patch %(pkgdir)/0001-use-bash-for-dconf-script.patch
 
-    # https://gitlab.gnome.org/GNOME/gnome-shell/-/work_items/9401#note_2863347
-    %patch %(pkgdir)/gnome-51-01.patch
-    %patch %(pkgdir)/gnome-51-02.patch
-
     # Can we disable xim now that we have appindicator? Needs more investigation
     %reconfigure \
         --disable-gtk2 \
-        --disable-python2 \
         --disable-static \
-        --enable-python-library \
         --enable-vala \
         --enable-wayland \
         --with-python=python3 \
         CC_FOR_BUILD=${CC}
 build       : |
-    # ld.lld: error: undefined symbol: indicator_unregister_connection
-    # for segv-bus-proxy.patch
-    make -C ui/gtk3 maintainer-clean-generic
-
     %make
 install     : |
     %make_install

@@ -304,6 +304,7 @@
 				"/usr/share/locale/kk/LC_MESSAGES/ibus10.mo",
 				"/usr/share/locale/kn/LC_MESSAGES/ibus10.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/ibus10.mo",
+				"/usr/share/locale/lo/LC_MESSAGES/ibus10.mo",
 				"/usr/share/locale/lv/LC_MESSAGES/ibus10.mo",
 				"/usr/share/locale/ml/LC_MESSAGES/ibus10.mo",
 				"/usr/share/locale/mn/LC_MESSAGES/ibus10.mo",
@@ -688,7 +689,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/IBus-1.0.typelib",
 				"/usr/lib/libibus-1.0.so.5",
-				"/usr/lib/libibus-1.0.so.5.0.534"
+				"/usr/lib/libibus-1.0.so.5.0.535"
 			],
 			"name": "ibus-libs",
 			"provides": [
@@ -850,6 +851,6 @@
 		}
 	},
 	"source-name": "ibus",
-	"source-release": "15",
-	"source-version": "1.5.34"
+	"source-release": "16",
+	"source-version": "1.5.35"
 }
