@@ -3,7 +3,7 @@
 
 name        : libheif
 version     : "1.23.7"
-release     : 23
+release     : 24
 upstreams   :
     - https://github.com/strukturag/libheif/releases/download/v1.23.7/libheif-1.23.7.tar.gz : f7483e818503ea6224c8863e4a56ac02c7089021a98472c811c12aa19faf2475
 homepage    : https://github.com/strukturag/libheif
