@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : chezmoi
-version     : "2.73.3"
-release     : 10
+version     : "2.74.0"
+release     : 11
 homepage    : https://www.chezmoi.io/
 upstreams   :
-    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.73.3.tar.gz : 5bee6b243331b9c02a7f25ca1696bbde30cb3909c8bccb91108f2718931e4fc7
+    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.74.0.tar.gz : 58ecb38aae54e1852f918adae1260a84bb4d750181e093439e621c921acbee49
 summary     : Manage your dotfiles across multiple machines
 description : |
     chezmoi helps you manage your personal configuration files
