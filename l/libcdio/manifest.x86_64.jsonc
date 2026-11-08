@@ -24,14 +24,14 @@
 				"/usr/bin/iso-info",
 				"/usr/bin/iso-read",
 				"/usr/bin/mmc-tool",
-				"/usr/lib/libcdio++.so.1",
-				"/usr/lib/libcdio++.so.1.0.0",
-				"/usr/lib/libcdio.so.19",
-				"/usr/lib/libcdio.so.19.1.0",
+				"/usr/lib/libcdio++.so.2",
+				"/usr/lib/libcdio++.so.2.0.0",
+				"/usr/lib/libcdio.so.21",
+				"/usr/lib/libcdio.so.21.0.0",
 				"/usr/lib/libiso9660++.so.1",
 				"/usr/lib/libiso9660++.so.1.0.0",
-				"/usr/lib/libiso9660.so.12",
-				"/usr/lib/libiso9660.so.12.0.0",
+				"/usr/lib/libiso9660.so.13",
+				"/usr/lib/libiso9660.so.13.0.0",
 				"/usr/lib/libudf.so.0",
 				"/usr/lib/libudf.so.0.0.0",
 				"/usr/share/info/libcdio.info",
@@ -50,10 +50,10 @@
 				"binary(iso-info)",
 				"binary(iso-read)",
 				"binary(mmc-tool)",
-				"soname(libcdio++.so.1(x86_64))",
-				"soname(libcdio.so.19(x86_64))",
+				"soname(libcdio++.so.2(x86_64))",
+				"soname(libcdio.so.21(x86_64))",
 				"soname(libiso9660++.so.1(x86_64))",
-				"soname(libiso9660.so.12(x86_64))",
+				"soname(libiso9660.so.13(x86_64))",
 				"soname(libudf.so.0(x86_64))"
 			]
 		},
@@ -131,6 +131,6 @@
 		}
 	},
 	"source-name": "libcdio",
-	"source-release": "3",
-	"source-version": "2.3.0"
+	"source-release": "4",
+	"source-version": "2.4.0"
 }
