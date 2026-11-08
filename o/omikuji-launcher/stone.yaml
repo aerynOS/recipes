@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : omikuji-launcher
-version     : "0.20.7"
-release     : 2
+version     : "0.20.9"
+release     : 3
 homepage    : https://github.com/omikuji-launcher/omikuji
 upstreams   :
-    - https://github.com/omikuji-launcher/omikuji/archive/refs/tags/v0.20.7.tar.gz : ea30c90a35f56a813abe64d8f6e22e4f4964f55ce80fc846d643172124911827
+    - https://github.com/omikuji-launcher/omikuji/archive/refs/tags/v0.20.9.tar.gz : 2c81e9b35edbf5aa0cd0a6bc7ea5afa253729df7577fc7a2057a4411f2255cb4
 summary     : A Qt/QML based games and apps launcher for Linux
 description : |
     A Qt/QML based games and apps launcher for Linux with wine/flatpak/native runners, Epic Games (Legendary), GOG (gogdl) and Gacha stores.
