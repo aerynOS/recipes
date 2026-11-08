@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : shader-slang
-version     : "2026.18.3"
-release     : 2
+version     : "2026.21"
+release     : 3
 homepage    : https://shader-slang.com/
 upstreams   :
     # The tag tarball omits submodules that are compiled in: miniz, unordered_dense, cmark, fast_float, and lua.
-    - git|https://github.com/shader-slang/slang.git : 6eb89786ca882d71049c8568638e247f60864b6f # v2026.18.3
+    - git|https://github.com/shader-slang/slang.git : e73d268973dae1a2af701277b27c2fddef98a274 # v2026.21
 summary     : Shading language for large, high-performance shader codebases
 description : |
     Slang is a shading language and compiler for building and maintaining large shader codebases.
@@ -31,7 +31,6 @@ setup       : |
     # Gentoo dev-util/shader-slang
     %patch %(pkgdir)/shader-slang-2026.14.1-includedir.patch
     %patch %(pkgdir)/shader-slang-2026.14.1-libdir.patch
-    %patch %(pkgdir)/shader-slang-2026.14.1-lz4.patch
     %patch %(pkgdir)/shader-slang-2026.14.1-system-glslang.patch
 
     # Headers live under include/shader-slang so they do not collide with slang2.
