@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-sphinx
-version     : "9.1.0"
-release     : 5
+version     : "9.2.0"
+release     : 6
 homepage    : https://www.sphinx-doc.org
 upstreams   :
-    - https://pypi.debian.net/Sphinx/sphinx-9.1.0.tar.gz : 7741722357dd75f8190766926071fed3bdc211c74dd2d7d4df5404da95930ddb
+    - https://pypi.debian.net/Sphinx/sphinx-9.2.0.tar.gz : 90470459f3cab15d9dfed146c71cf77694b0445df17b2e0e69059cb9f7fc9ee4
 summary     : Python documentation generator
 description : |
     Python documentation generator
@@ -49,11 +49,7 @@ install     : |
     %pyproject_install
 
     cd doc
-    %install_dir %(installroot)%(mandir)/man1
-    for f in _build/man/sphinx-*.1;
-    do
-        cp -p $f %(installroot)%(mandir)/man1/$(basename $f)
-    done
+    %install_file _build/man/sphinx-*.1 -t %(installroot)%(mandir)/man1
 # check       : |
 #     # TODO replace with pytest macro
 #     PYTHONPATH="$PWD"/build/lib pytest
