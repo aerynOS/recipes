@@ -5,4 +5,5 @@ releases:
   id: 392440
   rss: https://github.com/pop-os/cosmic-viewer/tags.atom
 security:
+  # Last checked 2026-11-08
   cpe: ~

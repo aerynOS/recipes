@@ -3,7 +3,7 @@
 
 name        : cosmic-viewer
 version     : "1.11.0"
-release     : 3
+release     : 4
 homepage    : https://github.com/pop-os/cosmic-viewer
 upstreams   :
     - https://github.com/pop-os/cosmic-viewer/archive/refs/tags/epoch-1.11.0.tar.gz : 9143d8fa1f5e88144b9ab44ebb2f9fee73498fece4a68dda7492866a2cecd691

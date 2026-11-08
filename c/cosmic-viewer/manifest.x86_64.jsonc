@@ -37,7 +37,7 @@
 				"soname(libm.so.6(x86_64))",
 				"soname(libopenh264.so.8(x86_64))",
 				"soname(libopenjp2.so.7(x86_64))",
-				"soname(libopenjph.so.0.32(x86_64))",
+				"soname(libopenjph.so.0.33(x86_64))",
 				"soname(librav1e.so.0.8(x86_64))",
 				"soname(libsharpyuv.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
@@ -65,6 +65,6 @@
 		}
 	},
 	"source-name": "cosmic-viewer",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "1.11.0"
 }
