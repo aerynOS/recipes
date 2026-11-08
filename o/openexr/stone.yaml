@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openexr
 version     : "3.5.3"
-release     : 27
+release     : 28
 homepage    : https://www.openexr.com/
 upstreams   :
     - https://github.com/AcademySoftwareFoundation/openexr/releases/download/v3.5.3/openexr-3.5.3.tar.gz : aa84c2979d614a1bb5870da64d9fb4969deda8bf4f8166e7393bfd81e40af305
@@ -22,6 +22,8 @@ builddeps   :
     - cmake(openjph)
     - pkgconfig(libzstd)
 setup       : |
+    %patch %(pkgdir)/0001-Do-not-pin-the-OpenJPH-version.patch
+
     %cmake
 build       : |
     %cmake_build
