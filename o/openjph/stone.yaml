@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openjph
-version     : "0.32.0"
-release     : 14
+version     : "0.33.0"
+release     : 15
 upstreams   :
-    - https://github.com/aous72/OpenJPH/archive/refs/tags/0.32.0.tar.gz : 5cb1ebe18e5ee1322d23ff2130b37562d447d1ad5586c3d16cf84be3ae30f719
+    - https://github.com/aous72/OpenJPH/archive/refs/tags/0.33.0.tar.gz : 3437f296ff8531b35558650b0ed7fde45cad39394329eef4064a3d4900cf101f
 homepage    : https://github.com/aous72/OpenJPH
 license     : BSD-2-Clause
 summary     : Open source implementation of High-throughput JPEG2000 (HTJ2K)

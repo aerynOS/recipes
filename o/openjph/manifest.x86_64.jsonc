@@ -13,12 +13,12 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libopenjph.so.0.32",
-				"/usr/lib/libopenjph.so.0.32.0"
+				"/usr/lib/libopenjph.so.0.33",
+				"/usr/lib/libopenjph.so.0.33.0"
 			],
 			"name": "libopenjph",
 			"provides": [
-				"soname(libopenjph.so.0.32(x86_64))"
+				"soname(libopenjph.so.0.33(x86_64))"
 			]
 		},
 		"openjph": {
@@ -29,7 +29,8 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libopenjph.so.0.32(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libopenjph.so.0.33(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libtiff.so.6(x86_64))"
 			],
@@ -76,6 +77,6 @@
 		}
 	},
 	"source-name": "openjph",
-	"source-release": "14",
-	"source-version": "0.32.0"
+	"source-release": "15",
+	"source-version": "0.33.0"
 }
