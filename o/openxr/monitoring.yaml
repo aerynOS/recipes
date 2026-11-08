@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 138281
   rss: https://github.com/KhronosGroup/OpenXR-SDK-Source/releases.atom
- # No known CPE, checked 2025-07-07
+# No known CPE, checked 2025-11-08
 security:
   cpe: ~

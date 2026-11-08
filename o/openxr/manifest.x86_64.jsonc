@@ -109,7 +109,7 @@
 			],
 			"files": [
 				"/usr/lib/libopenxr_loader.so.1",
-				"/usr/lib/libopenxr_loader.so.1.1.58"
+				"/usr/lib/libopenxr_loader.so.1.1.65"
 			],
 			"name": "openxr-libs",
 			"provides": [
@@ -118,6 +118,6 @@
 		}
 	},
 	"source-name": "openxr",
-	"source-release": "10",
-	"source-version": "1.1.58"
+	"source-release": "11",
+	"source-version": "1.1.65"
 }
