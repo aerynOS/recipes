@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 17749
   rss: https://github.com/tsujan/Kvantum/releases.atom
 security:
-  # No known CPE, last checked 2024-03-15
+  # No known CPE, last checked 2026-11-08
   cpe: ~

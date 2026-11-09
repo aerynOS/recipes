@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kvantum
-version     : "1.1.8"
-release     : 6
+version     : "1.1.9"
+release     : 7
 upstreams   :
-    - https://github.com/tsujan/Kvantum/releases/download/V1.1.8/Kvantum-1.1.8.tar.xz : 7aa9099345e48048ebdad768f583944ac042f87b216fa0b26a169c7e05425047
+    - https://github.com/tsujan/Kvantum/releases/download/V1.1.9/Kvantum-1.1.9.tar.xz : a9ca7d108b73e932227c10e435dc6c46b53306d752a8720f91813039770513df
 homepage    : https://github.com/tsujan/Kvantum
 license     : GPL-3.0-or-later
 summary     : A Linux SVG-based theme engine for Qt6
