@@ -3,7 +3,7 @@
 
 name        : zfs-module
 version     : "2.4.4"
-release     : 44
+release     : 45
 upstreams   :
     - https://github.com/openzfs/zfs/releases/download/zfs-2.4.4/zfs-2.4.4.tar.gz : 2a3c70d55a37cc71618a95a60e81ad66530201eb118d37741dc92efcf848c8b1
 homepage    : https://openzfs.github.io/openzfs-docs/
@@ -26,7 +26,17 @@ environment : |
         kernels+=(${dir##*/})
     done
 setup       : |
-    # This is where patches would go
+    %patch %(pkgdir)/linux-7.3-iops-create-no-flag.patch
+    %patch %(pkgdir)/linux-7.3-bvec-iter-bi-offset.patch
+    %patch %(pkgdir)/linux-cpu-feature-enabled.patch
+    %patch %(pkgdir)/linux-7.3-kthread-init-fs.patch
+    %patch %(pkgdir)/bump-Linux-Maximum-7.3.patch
+
+    # Regenerate configure/configure.ac after patching
+    autoreconf -fi
+
+    # config.status runs `$SED` as a command; zfs' configure leaves it unset
+    sed -i -e 's|\$SED|sed|g' configure
 
     for _kernel in ${kernels[@]}; do
         mkdir ${_kernel}

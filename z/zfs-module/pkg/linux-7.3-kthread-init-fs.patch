@@ -1,0 +1,113 @@
+Description: Linux 7.3: make host filesystem available to kernel threads
+ Linux 7.3 starts all kthreads in an unrooted nullfs, so path lookups made
+ from ZFS taskq workers and SPL threads (vdev_disk_open(), vdev_file_open(),
+ zvol_os_is_zvol(), ...) fail with ENOENT and pool creation/import breaks.
+ .
+ Backport of the upstream fix: wrap every SPL taskq task and every thread
+ started through thread_create() in scoped_with_init_fs(). spl.ko is
+ MODULE_LICENSE("GPL"), so it may use the GPL-only userspace_init_fs, and
+ that fs_struct follows init through switch_root, so lookups resolve against
+ the real root even when the module was loaded from the initramfs of a ZFS
+ root system.
+ .
+ This replaces linux-7.3-kthread-nullfs.patch, whose root captured at module
+ load time was the initramfs root on ZFS-root installs, breaking the creation
+ and import of any further pool (LP: #2168581).
+Author: Rob Norris <rob.norris@truenas.com>
+Origin: upstream, https://github.com/openzfs/zfs/commit/cd3699d308e1b37dcdd0d5a9a8c3624deb5fc3e9
+Bug: https://github.com/openzfs/zfs/issues/19082
+Bug-Ubuntu: https://bugs.launchpad.net/bugs/2168581
+Applied-Upstream: master, commit cd3699d308e1b37dcdd0d5a9a8c3624deb5fc3e9
+Last-Update: 2026-09-28
+---
+--- a/include/os/linux/Makefile.am
++++ b/include/os/linux/Makefile.am
+@@ -6,6 +6,7 @@
+ 	%D%/kernel/linux/compiler_compat.h \
+ 	%D%/kernel/linux/dcache_compat.h \
+ 	%D%/kernel/linux/kmap_compat.h \
++	%D%/kernel/linux/kthread_compat.h \
+ 	%D%/kernel/linux/mm_compat.h \
+ 	%D%/kernel/linux/mod_compat.h \
+ 	%D%/kernel/linux/page_compat.h \
+--- /dev/null
++++ b/include/os/linux/kernel/linux/kthread_compat.h
+@@ -0,0 +1,35 @@
++// SPDX-License-Identifier: CDDL-1.0
++/*
++ * This file and its contents are supplied under the terms of the
++ * Common Development and Distribution License ("CDDL"), version 1.0.
++ * You may only use this file in accordance with the terms of version
++ * 1.0 of the CDDL.
++ *
++ * A full copy of the text of the CDDL should have accompanied this
++ * source.  A copy of the CDDL is also available via the Internet at
++ * https://opensource.org/license/CDDL-1.0.
++ */
++
++/*
++ * Copyright (c) 2026, TrueNAS.
++ */
++
++#ifndef _ZFS_KTHREAD_COMPAT_H
++#define	_ZFS_KTHREAD_COMPAT_H
++
++#include <linux/fs_struct.h>
++
++/*
++ * Linux 7.3 change. Kernel-internal threads no longer have access to the
++ * filesystem by default. Callers that need it should wrap the necessary code
++ * in `scoped_with_init_fs()`, which will make the filesystem availble until
++ * end of scope.
++ *
++ * For older kernels that do not provide this macro, we define it to be a
++ * no-op.
++ */
++#ifndef scoped_with_init_fs
++#define	scoped_with_init_fs()	if (1)
++#endif
++
++#endif
+--- a/module/os/linux/spl/spl-taskq.c
++++ b/module/os/linux/spl/spl-taskq.c
+@@ -38,6 +38,7 @@
+ #include <sys/kstat.h>
+ #include <linux/cpuhotplug.h>
+ #include <linux/mod_compat.h>
++#include <linux/kthread_compat.h>
+ 
+ /* Linux 6.2 renamed timer_delete_sync(); point it at its old name for those. */
+ #ifndef HAVE_TIMER_DELETE_SYNC
+@@ -1107,7 +1108,8 @@
+ 			DTRACE_PROBE1(taskq_ent__start, taskq_ent_t *, t);
+ 
+ 			/* Perform the requested task */
+-			t->tqent_func(t->tqent_arg);
++			scoped_with_init_fs()
++			    t->tqent_func(t->tqent_arg);
+ 
+ 			DTRACE_PROBE1(taskq_ent__finish, taskq_ent_t *, t);
+ 
+--- a/module/os/linux/spl/spl-thread.c
++++ b/module/os/linux/spl/spl-thread.c
+@@ -29,6 +29,7 @@
+ #include <sys/tsd.h>
+ #include <sys/string.h>
+ #include <sys/misc.h>
++#include <linux/kthread_compat.h>
+ 
+ /*
+  * Thread interfaces
+@@ -59,8 +60,10 @@
+ 	kmem_free(tp->tp_name, tp->tp_name_size);
+ 	kmem_free(tp, sizeof (thread_priv_t));
+ 
+-	if (func)
+-		func(args);
++	if (func) {
++		scoped_with_init_fs()
++		    func(args);
++	}
+ 
+ 	return (0);
+ }
