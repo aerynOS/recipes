@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nvidia-graphics-driver
-version     : "615.78.08"
-release     : 52
+version     : "620.70.06"
+release     : 53
 homepage    : https://www.nvidia.com/
 upstreams   :
-    - https://us.download.nvidia.com/XFree86/Linux-x86_64/615.78.08/NVIDIA-Linux-x86_64-615.78.08.run:
-        hash: 3e3f6dddc2ee767a08185300af7be3cb286ece76698d2dde3524599782d07ffe
+    - https://us.download.nvidia.com/XFree86/Linux-x86_64/620.70.06/NVIDIA-Linux-x86_64-620.70.06.run:
+        hash: 29118e3abd08c07559bcca3d9c76238d039490af0362a2e5bcfcbe7204afd4b1
         unpack: false
         rename: NVIDIA.run
-    - https://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-615.78.08.tar.bz2:
-        hash: 70cad858a907098606d7a7a8ec412f2654866795d317e1bc9790f44d3ae63572
+    - https://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-620.70.06.tar.bz2:
+        hash: 22d953a2594f2d56d410528d9ebd489b62b462b30801ea76fc69c46ab16887f8
         rename: nvidia-persistenced.tar.bz2
         extract: false
 summary     : The proprietary NVIDIA graphics driver
