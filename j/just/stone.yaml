@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : just
-version     : "1.46.0"
-release     : 16
+version     : "1.59.0"
+release     : 17
 homepage    : https://github.com/casey/just
 upstreams   :
-    - https://github.com/casey/just/archive/refs/tags/1.46.0.tar.gz : f60a578502d0b29eaa2a72c5b0d91390b2064dfd8d1a1291c3b2525d587fd395
+    - https://github.com/casey/just/archive/refs/tags/1.59.0.tar.gz : 20f876880851f1cc67fc7eb7589c7f7ccaa7612d827feac75797cf4a6ed729aa
 summary     : just is a handy way to save and run project-specific commands.
 description : |
     just is a handy way to save and run project-specific commands.
@@ -19,13 +19,9 @@ build       : |
     %cargo_build
 install     : |
     %cargo_install
-    %install_dir %(installroot)%(datadir)/bash-completion/completions
-    %install_dir %(installroot)%(datadir)/zsh/site-functions
-    %install_dir %(installroot)%(datadir)/fish/vendor_completions.d
-
-    ./target/*/release/just --completions bash > %(installroot)%(datadir)/bash-completion/completions/just
-    ./target/*/release/just --completions zsh > %(installroot)%(datadir)/zsh/site-functions/_just
-    ./target/*/release/just --completions fish > %(installroot)%(datadir)/fish/vendor_completions.d/just.fish
+    ./target/*/release/just --completions bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/just
+    ./target/*/release/just --completions zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_just
+    ./target/*/release/just --completions fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/just.fish
 check       : |
     # backticks::trailing_newlines_are_stripped
     # completions::bash
