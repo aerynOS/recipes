@@ -4,11 +4,11 @@
 releases:
   id: 5440
   ignore:
-    # We only update to the n-1 stable release. So for now we're only interested in 261.x updates
-  - 262.*
+    # We only update to the n-1 stable release. So for now we're only interested in 262.x updates
+  - 263.*
   rss: ~
 security:
-  # Last checked 2026-11-06
+  # Last checked 2026-11-08
   cpe:
   - vendor: systemd_project
     product: systemd

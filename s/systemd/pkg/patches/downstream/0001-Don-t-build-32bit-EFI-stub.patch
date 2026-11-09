@@ -3,15 +3,18 @@ From: Reilly Brogan <reilly@reillybrogan.com>
 Date: Wed, 6 Aug 2025 18:41:42 -0500
 Subject: [PATCH] Don't build 32bit EFI stub
 
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-08
 ---
  meson.build | 8 --------
  1 file changed, 8 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 7ede6f7a96..d7790353e8 100644
+index a4dfc11..f72146b 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -1929,14 +1929,6 @@ conf.set_quoted('EFI_MACHINE_TYPE_NAME', have ? efi_arch : '')
+@@ -1764,14 +1764,6 @@ conf.set_quoted('EFI_MACHINE_TYPE_NAME', efi_arch)
  
  efi_arch_alt = ''
  efi_cpu_family_alt = ''
@@ -24,5 +27,5 @@ index 7ede6f7a96..d7790353e8 100644
 -        efi_cpu_family_alt = 'x86'
 -endif
  
- pefile = pymod.find_installation('python3', required: false, modules : ['pefile'])
- 
+ want_ukify = get_option('ukify').allowed()
+ conf.set10('ENABLE_UKIFY', want_ukify)

@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : systemd
-version     : "261.5"
-release     : 108
+version     : "262.2"
+release     : 109
 summary     : A System and Service Manager
 license     :
     - GPL-2.0-or-later
@@ -13,7 +13,7 @@ homepage    : http://www.freedesktop.org/wiki/Software/systemd
 description : |
     A System and Service Manager
 upstreams   :
-    - https://github.com/systemd/systemd/archive/refs/tags/v261.5.tar.gz : b07aeca3386108e39f3841ab7ebcb4f47fc2e11a127ad0c57db1dbd86d044643
+    - https://github.com/systemd/systemd/archive/refs/tags/v262.2.tar.gz : 116432ee9dce9bfef4c7da7963c6de41899ab44197f2876ee99545707a5c7c1f
 builddeps   :
     - binary(bpftool)
     - binary(gcc)
@@ -99,7 +99,6 @@ setup       : |
 
     # TODO:
     # - Figure out what to do about run0. Do we keep it? If so it should be tested and configured
-    # - Change openssl dependencies to v4 after updating to 262+
     %meson \
         -Dacl=${_IS_64BIT_FEAT} \
         -Dadm-gid=16 \
@@ -370,7 +369,7 @@ packages    :
             - soname(libbpf.so.1(x86_64))
             - soname(libblkid.so.1(x86_64))
             - soname(libcrypt.so.2(x86_64))
-            - soname(libcrypto.so.3(x86_64))
+            - soname(libcrypto.so.4(x86_64))
             - soname(libdw.so.1(x86_64))
             - soname(libelf.so.1(x86_64))
             - soname(libfdisk.so.1(x86_64))
@@ -447,7 +446,7 @@ packages    :
         description: Simple UEFI boot manager
         rundeps:
             - "%(name)"
-            - soname(libcrypto.so.3(x86_64))
+            - soname(libcrypto.so.4(x86_64))
         paths:
             - /usr/bin/bootctl
             - /usr/lib/systemd/boot/efi/
@@ -555,9 +554,8 @@ packages    :
             - /usr/lib/systemd/network
             - /usr/lib/systemd/system/*networkd*
             - /usr/lib/systemd/*networkd*
-            - /usr/lib/sysusers.d/*networkd*
             - /usr/lib/sysusers.d/systemd-network.conf
-            - /usr/lib/tmpfiles.d/*networkd*
+            - /usr/lib/tmpfiles.d/systemd-network.conf
             - /usr/share/dbus-1/system-services/*network1*
             - /usr/share/dbus-1/system.d/*network1*
             - /usr/share/man/man1/network*
@@ -572,7 +570,7 @@ packages    :
         description: Systemd container/nspawn tools
         rundeps:
             - "%(name)"
-            - soname(libcrypto.so.3(x86_64))
+            - soname(libcrypto.so.4(x86_64))
         paths:
             - /usr/bin/importctl
             - /usr/bin/machinectl
@@ -581,7 +579,6 @@ packages    :
             - /usr/bin/systemd-dissect
             - /usr/bin/systemd-mstack
             - /usr/bin/systemd-nspawn
-            - /usr/bin/systemd-sysupdate
             - /usr/bin/systemd-vmspawn
             - /usr/lib/systemd/import-pubring.pgp
             - /usr/lib/systemd/network/80-namespace-*
@@ -606,7 +603,6 @@ packages    :
             - /usr/lib/systemd/system/systemd-portabled.*
             - /usr/lib/systemd/system/systemd-storage-block*
             - /usr/lib/systemd/system/systemd-storage-fs*
-            - /usr/lib/systemd/system/systemd-vnspawn@.*
             - /usr/lib/systemd/system/var-lib-machines.mount
             - /usr/lib/systemd/systemd-export
             - /usr/lib/systemd/systemd-import*
@@ -727,8 +723,8 @@ packages    :
         description: Systemd DNS resolver
         rundeps:
             - "%(name)"
-            - soname(libcrypto.so.3(x86_64))
-            - soname(libssl.so.3(x86_64))
+            - soname(libcrypto.so.4(x86_64))
+            - soname(libssl.so.4(x86_64))
         paths:
             - /usr/bin/resolvectl
             - /usr/lib/systemd/resolv.conf
