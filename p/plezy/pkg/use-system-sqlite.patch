@@ -1,0 +1,14 @@
+diff --git a/pubspec.yaml b/pubspec.yaml
+index f95c242..8ac6eab 100644
+--- a/pubspec.yaml
++++ b/pubspec.yaml
+@@ -192,3 +192,9 @@ flutter:
+     - family: Go Noto Current Hangul
+       fonts:
+         - asset: assets/go-noto-kurrent-hangul.ttf
++
++hooks:
++  user_defines:
++    sqlite3:
++      source: system
++      name_linux: /usr/lib/libsqlite3.so.0

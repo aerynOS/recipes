@@ -37,6 +37,7 @@
 				"soname(libpango-1.0.so.0(x86_64))",
 				"soname(libpangocairo-1.0.so.0(x86_64))",
 				"soname(libpthread.so.0(x86_64))",
+				"soname(libsqlite3.so.0(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libwayland-client.so.0(x86_64))",
 				"soname(libwayland-egl.so.1(x86_64))",
@@ -50,7 +51,6 @@
 				"/usr/lib/plezy/libos_media_controls_plugin.so",
 				"/usr/lib/plezy/libscreen_retriever_linux_plugin.so",
 				"/usr/lib/plezy/libsentry.so",
-				"/usr/lib/plezy/libsqlite3.so",
 				"/usr/lib/plezy/libuniversal_gamepad_plugin.so",
 				"/usr/lib/plezy/liburl_launcher_linux_plugin.so",
 				"/usr/lib/plezy/libwindow_manager_plugin.so",
@@ -150,7 +150,6 @@
 				"soname(plezy/libos_media_controls_plugin.so(x86_64))",
 				"soname(plezy/libscreen_retriever_linux_plugin.so(x86_64))",
 				"soname(plezy/libsentry.so(x86_64))",
-				"soname(plezy/libsqlite3.so(x86_64))",
 				"soname(plezy/libuniversal_gamepad_plugin.so(x86_64))",
 				"soname(plezy/liburl_launcher_linux_plugin.so(x86_64))",
 				"soname(plezy/libwindow_manager_plugin.so(x86_64))"
@@ -158,6 +157,6 @@
 		}
 	},
 	"source-name": "plezy",
-	"source-release": "19",
-	"source-version": "2.25.0"
+	"source-release": "20",
+	"source-version": "2.26.0"
 }
