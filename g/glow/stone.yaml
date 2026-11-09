@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : glow
+version     : "3.0.0"
+release     : 1
+homepage    : https://github.com/charmbracelet/glow
+upstreams   :
+    - https://github.com/charmbracelet/glow/archive/refs/tags/v3.0.0.tar.gz : 18df6f3c09157021366b8c702b5badba405d37dbb42f132353eb50c1b0d3f464
+summary     : Render markdown on the CLI
+description : |
+    Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.
+networking  : true
+license     : MIT
+setup       : |
+    %go_mod
+build       : |
+    go build -ldflags "-linkmode=external -X 'main.Version=%(version)'" -o glow .
+
+    # Shell Completions
+    ./glow completion bash > glow.bash
+    ./glow completion fish > glow.fish
+    ./glow completion zsh > _glow
+install     : |
+    %install_bin glow
+    
+    # Install Completion
+    %install_file glow.bash %(installroot)%(bashcompletionsdir)/glow
+    %install_file _glow %(installroot)%(zshcompletionsdir)/_glow
+    %install_file glow.fish %(installroot)%(fishcompletionsdir)/glow.fish
+check       : |
+    go test ./...
