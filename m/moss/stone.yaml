@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : moss
 version     : "0.26.10~git.a43b174"
-release     : 143
+release     : 144
 homepage    : https://github.com/AerynOS/os-tools
 upstreams   :
     - git|https://github.com/aerynOS/os-tools.git :
