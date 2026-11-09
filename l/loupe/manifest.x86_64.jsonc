@@ -534,6 +534,7 @@
 				"/usr/share/icons/hicolor/scalable/apps/org.gnome.Loupe.svg",
 				"/usr/share/icons/hicolor/symbolic/apps/org.gnome.Loupe-symbolic.svg",
 				"/usr/share/locale/ar/LC_MESSAGES/loupe.mo",
+				"/usr/share/locale/az/LC_MESSAGES/loupe.mo",
 				"/usr/share/locale/be/LC_MESSAGES/loupe.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/loupe.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/loupe.mo",
@@ -601,6 +602,6 @@
 		}
 	},
 	"source-name": "loupe",
-	"source-release": "20",
-	"source-version": "51.1"
+	"source-release": "21",
+	"source-version": "51.2"
 }
