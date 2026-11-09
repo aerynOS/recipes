@@ -1,0 +1,13 @@
+diff --git a/dracut.sh b/dracut.sh
+index 9819b793..a30ebb5c 100755
+--- a/dracut.sh
++++ b/dracut.sh
+@@ -1604,6 +1604,8 @@ mark_hostonly() {
+ build_ld_cache() {
+     local dstdir="${dstdir:-"$initdir"}"
+ 
++    mkdir -p "$initdir/var/cache/ldconfig"
++
+     for f in "${dracutsysrootdir-}"/etc/ld.so.conf "${dracutsysrootdir-}"/etc/ld.so.conf.d/* "${dracutsysrootdir-}"/usr/share/defaults/ld.so.conf "${dracutsysrootdir-}"/usr/share/defaults/*; do
+         [[ -f $f ]] && inst_simple "${f}"
+     done

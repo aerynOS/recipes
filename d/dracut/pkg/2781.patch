@@ -1,0 +1,78 @@
+From 81a9d39eb6d9256641c6e716aa32818d2382d564 Mon Sep 17 00:00:00 2001
+From: Benjamin Drung <benjamin.drung@canonical.com>
+Date: Tue, 6 Oct 2026 00:01:47 +0200
+Subject: [PATCH 1/2] fix(systemd-udevd): do not install loginctl override in
+ /bin
+
+On a system with merged `/bin` and `/usr/bin` directories, following
+error message is shown:
+
+```
+dracut[I]: *** Including module: systemd-udevd ***
+ln: failed to create symbolic link '/var/tmp/dracut.d3IAtlU/initramfs//bin/loginctl': Not a directory
+```
+
+The first `ln_r` call will create the symlink. Since `/bin` and
+`/usr/bin` are merged, the symlink is available in `/bin` as well.
+
+There is no distribution (that Dracut runs its CI on) that installs
+`loginctl` in `/bin`. So do not install the loginctl override in `/bin`.
+
+Bug-Ubuntu: https://launchpad.net/bugs/2168725
+Fixes: 8229d06b05ea ("systemd: add seat udev rules and mask loginctl")
+---
+ modules.d/11systemd-udevd/module-setup.sh | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/modules.d/11systemd-udevd/module-setup.sh b/modules.d/11systemd-udevd/module-setup.sh
+index 37469bbc0b..70b0f9e02c 100755
+--- a/modules.d/11systemd-udevd/module-setup.sh
++++ b/modules.d/11systemd-udevd/module-setup.sh
+@@ -86,7 +86,6 @@ install() {
+ 
+     inst_binary true
+     ln_r "$(find_binary true)" "/usr/bin/loginctl"
+-    ln_r "$(find_binary true)" "/bin/loginctl"
+ 
+     # Install required libraries.
+     inst_libdir_file {"tls/$DRACUT_ARCH/",tls/,"$DRACUT_ARCH/",}"libudev.so.*"
+
+From f4f565c6f863aaa5ab1d7a203066f76a04a92504 Mon Sep 17 00:00:00 2001
+From: Benjamin Drung <benjamin.drung@canonical.com>
+Date: Tue, 6 Oct 2026 00:15:23 +0200
+Subject: [PATCH 2/2] fix(systemd-udevd): support busybox for loginctl override
+
+Symlinking `loginctl` to the `true` command does not work for multicall
+binaries like busybox. The command would fail with busybox:
+
+```
+$ /usr/bin/loginctl
+loginctl: applet not found
+```
+
+So create a simple shell script that does the same as `true` in case
+busybox is included in the initrd.
+---
+ modules.d/11systemd-udevd/module-setup.sh | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/modules.d/11systemd-udevd/module-setup.sh b/modules.d/11systemd-udevd/module-setup.sh
+index 70b0f9e02c..f74f22a52f 100755
+--- a/modules.d/11systemd-udevd/module-setup.sh
++++ b/modules.d/11systemd-udevd/module-setup.sh
+@@ -84,8 +84,13 @@ install() {
+         fi
+     fi
+ 
+-    inst_binary true
+-    ln_r "$(find_binary true)" "/usr/bin/loginctl"
++    if dracut_module_included "busybox"; then
++        printf "#!/bin/sh\nexit 0\n" > "${initdir}/usr/bin/loginctl"
++        chmod 755 "${initdir}/usr/bin/loginctl"
++    else
++        inst_binary true
++        ln_r "$(find_binary true)" "/usr/bin/loginctl"
++    fi
+ 
+     # Install required libraries.
+     inst_libdir_file {"tls/$DRACUT_ARCH/",tls/,"$DRACUT_ARCH/",}"libudev.so.*"
