@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : linux-tools
-version     : "7.2.14"
-release     : 55
+version     : "7.3.3"
+release     : 56
 summary     : Tools included with the Linux source code
 license     : GPL-2.0-only
 homepage    : https://perf.wiki.kernel.org/
 description : |
     Tools included with the Linux source code
 upstreams   :
-    - https://www.kernel.org/pub/linux/kernel/v7.x/linux-7.2.14.tar.xz: bb1b871ef95a8de10b3f7b7baf0e0d754abbf620f804b6caf860f226aa97647d
+    - https://www.kernel.org/pub/linux/kernel/v7.x/linux-7.3.3.tar.xz: 79c66dde66cd96877fcde8f7d36aec946b1f423d2b97b5a7b1751b75c764f3d1
 builddeps   :
     - binary(a2x)
     - binary(bison)
