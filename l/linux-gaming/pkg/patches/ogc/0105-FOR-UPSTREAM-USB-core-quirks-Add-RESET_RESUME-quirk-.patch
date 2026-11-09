@@ -1,0 +1,39 @@
+From 23bdf96adeba4702eb1c6bc7bb1bf39890aa5ffa Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Tue, 3 Nov 2026 15:34:46 -0800
+Subject: [PATCH 105/206] [FOR-UPSTREAM] USB: core: quirks: Add RESET_RESUME
+ quirk for MSI Claw
+
+The MSI Claw fails to restore after a system resume, and rebinding
+the HID driver does not recover it. A reset of the usb_device does,
+so add USB_QUIRK_RESET_RESUME for all four product IDs to have the
+core reset the device on resume and invoke the interface drivers'
+reset_resume callbacks.
+
+Validated with usbcore.quirks=0db0:1902:b.
+
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/usb/core/quirks.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/usb/core/quirks.c b/drivers/usb/core/quirks.c
+index b5b577f0b931..37ef6e17ba22 100644
+--- a/drivers/usb/core/quirks.c
++++ b/drivers/usb/core/quirks.c
+@@ -469,6 +469,12 @@ static const struct usb_device_id usb_quirk_list[] = {
+ 	{ USB_DEVICE(0x0c45, 0x7056), .driver_info =
+ 			USB_QUIRK_IGNORE_REMOTE_WAKEUP },
+ 
++	/* MSI Claw does not restore its USB state on resume */
++	{ USB_DEVICE(0x0db0, 0x1901), .driver_info = USB_QUIRK_RESET_RESUME },
++	{ USB_DEVICE(0x0db0, 0x1902), .driver_info = USB_QUIRK_RESET_RESUME },
++	{ USB_DEVICE(0x0db0, 0x1903), .driver_info = USB_QUIRK_RESET_RESUME },
++	{ USB_DEVICE(0x0db0, 0x1904), .driver_info = USB_QUIRK_RESET_RESUME },
++
+ 	/* Elgato 4K X - BOS descriptor fetch hangs at SuperSpeed Plus */
+ 	{ USB_DEVICE(0x0fd9, 0x009b), .driver_info = USB_QUIRK_NO_BOS },
+ 
+-- 
+2.56.0
+
