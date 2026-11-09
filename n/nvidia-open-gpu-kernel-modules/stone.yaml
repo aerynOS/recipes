@@ -3,7 +3,7 @@
 
 name        : nvidia-open-gpu-kernel-modules
 version     : "620.70.06"
-release     : 142
+release     : 143
 homepage    : https://github.com/NVIDIA/open-gpu-kernel-modules
 upstreams   :
     - https://download.nvidia.com/XFree86/NVIDIA-kernel-module-source/NVIDIA-kernel-module-source-620.70.06.tar.xz:
@@ -53,6 +53,8 @@ setup       : |
         pushd ${_kernel}
         # This is where patches would go
         # %patch %(pkgdir)/ibt-support.patch
+        # Request by OGC: https://github.com/NVIDIA/open-gpu-kernel-modules/pull/1512
+        [[ "${_kernel}" =~ "7.3" ]] && %patch %(pkgdir)/1512.patch
         popd
     done
 build       : |

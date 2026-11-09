@@ -1,0 +1,94 @@
+From 369378dc1552ae46f7f95a598a085c0025e464b3 Mon Sep 17 00:00:00 2001
+From: Hugo Sales <hugo@hsal.es>
+Date: Mon, 26 Oct 2026 19:52:43 +0000
+Subject: [PATCH] nvidia: Open the PCI sysfs config file through init's root on
+ Linux 7.3
+
+Linux 7.3 starts every kthread in an empty nullfs (commit 32750c77e811d,
+"fs: start all kthreads in nullfs"), so path lookups from kthreads fail.
+nv_get_pci_sysfs_config() runs in one during module init: the PCI async
+probe worker in the open build, and the nv-probe-<bdf> kthread in both.
+Its filp_open() of /sys/bus/pci/devices/<bdf>/config then fails,
+sysfs_config_file stays NULL, nv_dynamic_power_available() returns false
+and RM reports "Runtime D3 status: Not supported". The GPU never runtime
+suspends
+
+Open the file inside scoped_with_init_fs() where userspace_init_fs is
+available to the module. That covers the open build. A non-GPL build
+can't use it, since userspace_init_fs is EXPORT_SYMBOL_GPL, but it has no
+async probe either, so the kthread only serializes the same work. Probe
+inline there when NV_PCI_ASYNC_PROBE_SUPPORTED is 0
+
+A probe after module init (sysfs bind, hotplug) already ran inline and is
+not affected
+---
+ kernel-open/nvidia/nv-pci.c      | 27 +++++++++++++++++++++++++--
+ kernel-open/nvidia/nvidia.Kbuild |  2 ++
+ 2 files changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/kernel-open/nvidia/nv-pci.c b/kernel-open/nvidia/nv-pci.c
+index 5aee234..d92e269 100644
+--- a/kernel-open/nvidia/nv-pci.c
++++ b/kernel-open/nvidia/nv-pci.c
+@@ -46,6 +46,10 @@
+ #include <linux/iommu.h>
+ #include <linux/kthread.h>
+ 
++#if NV_CHECK_EXPORT_SYMBOL(userspace_init_fs)
++#include <linux/fs_struct.h>
++#endif
++
+ #if defined(NV_SEQ_READ_ITER_PRESENT)
+ #include <linux/seq_file.h>
+ #include <linux/kernfs.h>
+@@ -481,7 +485,19 @@ static void nv_get_pci_sysfs_config
+                    NV_PCI_SLOT_NUMBER(pci_dev));
+     if (ret > 0 && ret < sizeof(filename))
+     {
+-        struct file *file = filp_open(filename, O_RDONLY, 0);
++        struct file *file;
++
++#if NV_CHECK_EXPORT_SYMBOL(userspace_init_fs)
++        /*
++         * Since Linux 7.3, kthreads start in an empty nullfs and path
++         * lookups from them fail. Probe runs in one (the async probe worker
++         * or nv-probe-*), so look the file up in init's root instead.
++         */
++        scoped_with_init_fs()
++            file = filp_open(filename, O_RDONLY, 0);
++#else
++        file = filp_open(filename, O_RDONLY, 0);
++#endif
+         if (!IS_ERR(file))
+         {
+ #if defined(NV_SEQ_READ_ITER_PRESENT)
+@@ -1682,8 +1698,15 @@ nv_pci_probe
+      * run concurrently via the async worker pool. Later bind/unbind from
+      * sysfs or hotplug is synchronous, so the kthread overhead is not
+      * worthwhile.
++     *
++     * Without async probe, probes are serialized and the kthread adds no
++     * parallelism. It would also lose the caller's root on Linux 7.3+,
++     * where kthreads start in nullfs and nv_get_pci_sysfs_config() can't
++     * open the config file without scoped_with_init_fs(), which needs the
++     * GPL-only userspace_init_fs.
+      */
+-    if (!smp_load_acquire(&nv_pci_driver_registration_in_progress))
++    if (!NV_PCI_ASYNC_PROBE_SUPPORTED ||
++        !smp_load_acquire(&nv_pci_driver_registration_in_progress))
+     {
+         return nv_pci_probe_body(pci_dev, id_table);
+     }
+diff --git a/kernel-open/nvidia/nvidia.Kbuild b/kernel-open/nvidia/nvidia.Kbuild
+index e1e33a5..fafc137 100644
+--- a/kernel-open/nvidia/nvidia.Kbuild
++++ b/kernel-open/nvidia/nvidia.Kbuild
+@@ -240,6 +240,8 @@ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_pci_find_dvsec_capabili
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_wait_for_device_probe
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_dma_iova_try_alloc
+ NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_shmem_kernel_file_setup
++NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_present_userspace_init_fs
++NV_CONFTEST_SYMBOL_COMPILE_TESTS += is_export_symbol_gpl_userspace_init_fs
+ 
+ NV_CONFTEST_TYPE_COMPILE_TESTS += vmf_insert_pfn_prot
+ NV_CONFTEST_TYPE_COMPILE_TESTS += sysfs_slab_unlink
