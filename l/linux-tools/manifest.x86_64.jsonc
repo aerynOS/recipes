@@ -388,6 +388,7 @@
 				"/usr/lib/perf/tests/shell/common/init.sh",
 				"/usr/lib/perf/tests/shell/common/patterns.sh",
 				"/usr/lib/perf/tests/shell/common/settings.sh",
+				"/usr/lib/perf/tests/shell/coresight/callchain.sh",
 				"/usr/lib/perf/tests/shell/coresight/concurrent_threads.sh",
 				"/usr/lib/perf/tests/shell/coresight/context_switch_thread.sh",
 				"/usr/lib/perf/tests/shell/coresight/deterministic.sh",
@@ -614,6 +615,6 @@
 		}
 	},
 	"source-name": "linux-tools",
-	"source-release": "55",
-	"source-version": "7.2.14"
+	"source-release": "56",
+	"source-version": "7.3.3"
 }
