@@ -3,7 +3,7 @@
 
 name        : dracut
 version     : "112"
-release     : 15
+release     : 16
 homepage    : https://github.com/dracut-ng/dracut-ng
 upstreams   :
     - https://github.com/dracut-ng/dracut-ng/archive/refs/tags/112.tar.gz : 839d21eb4bd27bb0ee40d74c9da46df088c2e1425fcd8c3ea62b7e3a3dd28a91
@@ -29,7 +29,13 @@ setup       : |
     # revisit when the patch is improved
     # %patch %(pkgdir)/0003-Exclude-unwanted-paths-from-initrd-creation.patch
 
+    # https://www.mail-archive.com/initramfs@vger.kernel.org/msg01700.html
+    %patch %(pkgdir)/0004-Create-ldconfig-folder-in-initramfs.patch
+
     %patch %(pkgdir)/0005-solus-Allow-for-skipping-firmware-installation.patch
+    
+    # https://github.com/dracut-ng/dracut/pull/2781
+    %patch %(pkgdir)/2781.patch
 
     # Uses bash syntax: ./configure: 26: [[: not found
     %configure_with_bash
