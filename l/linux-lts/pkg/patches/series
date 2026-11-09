@@ -128,3 +128,14 @@ wifi/0008-wifi-mt76-mt7921-add-MT7902-MCU-support.patch
 wifi/0009-wifi-mt76-mt792x-add-MT7902-WFDMA-prefetch-configuration.patch
 wifi/0010-wifi-mt76-mt7921-add-MT7902-PCIe-device-support.patch
 wifi/0011-wifi-mt76-mt7921-add-MT7902-SDIO-device-support.patch
+
+# https://lore.kernel.org/all/20260804-dmemcg-aggressive-protect-v8-0-07af96681bf8@gmx.de
+upstream/0001-cgroup-dmem-Add-queries-for-protection-values.patch
+upstream/0002-cgroup-cgroup-dmem-Add-dmem_-cgroup_common_ancestor-helper.patch
+upstream/0003-drm-ttm-Extract-code-for-attempting-allocation-in-a-place.patch
+upstream/0004-drm-ttm-Split-cgroup-charge-and-resource-allocation.patch
+upstream/0005-drm-ttm-Be-more-aggressive-when-allocating-below-protection-limit.patch
+upstream/0006-drm-ttm-Use-common-ancestor-of-evictor-and-evictee-as-limit-pool.patch
+
+# https://lore.kernel.org/all/20260410081322.5577-1-natalie.vock@gmx.de/
+upstream/0001-drm-nouveau-Wire-up-dmem-cgroups.patch
