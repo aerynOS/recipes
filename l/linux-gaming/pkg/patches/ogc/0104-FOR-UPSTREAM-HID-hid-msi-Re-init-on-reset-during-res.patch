@@ -1,0 +1,38 @@
+From 71e66f670e0a4ec16b67ff63a18ec2b9064aa21f Mon Sep 17 00:00:00 2001
+From: "Derek J. Clark" <derekjohn.clark@gmail.com>
+Date: Tue, 3 Nov 2026 15:16:56 -0800
+Subject: [PATCH 104/206] [FOR-UPSTREAM] HID: hid-msi: Re-init on reset during
+ resume
+
+If the USB device is reset while suspended, the USB core restores the
+interface and calls the driver's reset_resume callback instead of
+resume. hid-msi does not provide one, so the MCU is never re-synced
+after such a reset: the deferred cfg_resume work is only scheduled
+from msi_resume.
+
+Reuse msi_resume for .reset_resume. It is idempotent and the 500 ms
+deferred cfg_resume work re-reads all state from the MCU, which also
+covers a device that rebooted across the reset.
+
+Fixes: a9517958e828 ("HID: hid-msi: Add MSI Claw configuration driver")
+Cc: stable <stable@vger.kernel.org>
+Signed-off-by: Derek J. Clark <derekjohn.clark@gmail.com>
+---
+ drivers/hid/hid-msi.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/hid/hid-msi.c b/drivers/hid/hid-msi.c
+index f3fe46bf6f41..7b9f72bd54fd 100644
+--- a/drivers/hid/hid-msi.c
++++ b/drivers/hid/hid-msi.c
+@@ -2107,6 +2107,7 @@ static struct hid_driver msi_driver = {
+ 	.probe		= msi_probe,
+ 	.remove		= msi_remove,
+ 	.resume		= pm_ptr(msi_resume),
++	.reset_resume	= pm_ptr(msi_resume),
+ 	.suspend	= pm_ptr(msi_suspend),
+ };
+ module_hid_driver(msi_driver);
+-- 
+2.56.0
+
