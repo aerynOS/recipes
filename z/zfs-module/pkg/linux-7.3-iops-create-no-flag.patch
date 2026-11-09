@@ -1,0 +1,128 @@
+Description: Linux 7.3: inode_operations->create dropped its flag argument
+ Linux 7.3 removed the "excl" flag argument from ->create (kernel commit
+ b2f1e6301efa "Remove excl arg to ->create inode_operation"), so zpl_create()
+ no longer matches the prototype.
+ .
+ Rebased onto 2.4.4, which still carries the dedicated iops->create detection
+ in config/kernel-inode-create.m4 that upstream has since consolidated into the
+ generic idmap checks. The upstream patch adds its new probe as
+ kernel-inode-create.m4 and would collide with that file, so here the probe
+ lands in config/kernel-inode-create-no-flag.m4, and the existing
+ ZFS_AC_KERNEL_CREATE is taught to accept the no-flag variant (still defining
+ HAVE_IOPS_CREATE_IDMAP) instead of hard-erroring on 7.3.
+Author: Rob Norris <robn@despairlabs.com>
+Origin: upstream, https://github.com/robn/zfs/commit/1d2cc855e77c721fc82631e32099f235a150f0b2
+Forwarded: not-needed
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+Index: zfs-linux-2.4.4/config/kernel-inode-create-no-flag.m4
+===================================================================
+--- /dev/null
++++ zfs-linux-2.4.4/config/kernel-inode-create-no-flag.m4
+@@ -0,0 +1,33 @@
++dnl # SPDX-License-Identifier: CDDL-1.0
++dnl #
++dnl # 7.3 API change.
++dnl #
++dnl # inode_operations->create drops flag arg. We test for the mnt_idmap
++dnl # version without the flag arg, to avoid have to test for all the
++dnl # idmap/userns variants back to before 5.12 (see kernel-inode-create.m4).
++dnl #
++AC_DEFUN([ZFS_AC_KERNEL_SRC_IOPS_CREATE_NO_FLAG], [
++	ZFS_LINUX_TEST_SRC([iops_create_no_flag], [
++		#include <linux/fs.h>
++
++		static int test_iops_create(struct mnt_idmap *idmap,
++		    struct inode *inode, struct dentry *dentry,
++		    umode_t mode) { return 0; }
++
++		static const struct inode_operations test_iops
++		    __attribute__ ((unused)) = {
++			.create = test_iops_create
++		};
++	],[])
++])
++
++AC_DEFUN([ZFS_AC_KERNEL_IOPS_CREATE_NO_FLAG], [
++	AC_MSG_CHECKING([whether iops->create() takes a flag arg])
++	ZFS_LINUX_TEST_RESULT([iops_create_no_flag], [
++		AC_MSG_RESULT(no)
++		AC_DEFINE(HAVE_IOPS_CREATE_NO_FLAG_ARG, 1,
++		    [iops->create() does not take a flag arg])
++	],[
++		AC_MSG_RESULT(yes)
++	])
++])
+Index: zfs-linux-2.4.4/config/kernel-inode-create.m4
+===================================================================
+--- zfs-linux-2.4.4.orig/config/kernel-inode-create.m4
++++ zfs-linux-2.4.4/config/kernel-inode-create.m4
+@@ -54,6 +54,17 @@ AC_DEFUN([ZFS_AC_KERNEL_SRC_CREATE], [
+ ])
+ 
+ AC_DEFUN([ZFS_AC_KERNEL_CREATE], [
++	dnl #
++	dnl # 7.3 dropped the flag arg entirely, so the mnt_idmap test below
++	dnl # (which still expects it) no longer matches. If the no-flag
++	dnl # variant is what's present (see kernel-inode-create-no-flag.m4),
++	dnl # struct mnt_idmap* is still the arg type in use - just without
++	dnl # a trailing flag - so HAVE_IOPS_CREATE_IDMAP is still correct.
++	dnl #
++	ZFS_LINUX_TEST_RESULT([iops_create_no_flag], [
++		AC_DEFINE(HAVE_IOPS_CREATE_IDMAP, 1,
++		   [iops->create() takes struct mnt_idmap*])
++	],[
+ 	AC_MSG_CHECKING([whether iops->create() takes struct mnt_idmap*])
+ 	ZFS_LINUX_TEST_RESULT([create_mnt_idmap], [
+ 		AC_MSG_RESULT(yes)
+@@ -78,4 +89,5 @@ AC_DEFUN([ZFS_AC_KERNEL_CREATE], [
+ 			])
+ 		])
+ 	])
++	])
+ ])
+Index: zfs-linux-2.4.4/config/kernel.m4
+===================================================================
+--- zfs-linux-2.4.4.orig/config/kernel.m4
++++ zfs-linux-2.4.4/config/kernel.m4
+@@ -63,6 +63,7 @@ AC_DEFUN([ZFS_AC_KERNEL_TEST_SRC], [
+ 	ZFS_AC_KERNEL_SRC_INODE_STATE_READ_ONCE
+ 	ZFS_AC_KERNEL_SRC_SHOW_OPTIONS
+ 	ZFS_AC_KERNEL_SRC_SHRINKER
++	ZFS_AC_KERNEL_SRC_IOPS_CREATE_NO_FLAG
+ 	ZFS_AC_KERNEL_SRC_MKDIR
+ 	ZFS_AC_KERNEL_SRC_LOOKUP_FLAGS
+ 	ZFS_AC_KERNEL_SRC_IDMAP
+@@ -188,6 +189,7 @@ AC_DEFUN([ZFS_AC_KERNEL_TEST_RESULT], [
+ 	ZFS_AC_KERNEL_INODE_STATE_READ_ONCE
+ 	ZFS_AC_KERNEL_SHOW_OPTIONS
+ 	ZFS_AC_KERNEL_SHRINKER
++	ZFS_AC_KERNEL_IOPS_CREATE_NO_FLAG
+ 	ZFS_AC_KERNEL_MKDIR
+ 	ZFS_AC_KERNEL_LOOKUP_FLAGS
+ 	ZFS_AC_KERNEL_IDMAP
+Index: zfs-linux-2.4.4/module/os/linux/zfs/zpl_inode.c
+===================================================================
+--- zfs-linux-2.4.4.orig/module/os/linux/zfs/zpl_inode.c
++++ zfs-linux-2.4.4/module/os/linux/zfs/zpl_inode.c
+@@ -165,7 +165,10 @@ is_nametoolong(struct dentry *dentry)
+ }
+ 
+ static int
+-#ifdef HAVE_IOPS_CREATE_USERNS
++#if defined(HAVE_IOPS_CREATE_NO_FLAG_ARG)
++zpl_create(struct mnt_idmap *user_ns, struct inode *dir,
++    struct dentry *dentry, umode_t mode)
++#elif defined(HAVE_IOPS_CREATE_USERNS)
+ zpl_create(struct user_namespace *user_ns, struct inode *dir,
+     struct dentry *dentry, umode_t mode, bool flag)
+ #elif defined(HAVE_IOPS_CREATE_IDMAP)
+@@ -180,7 +183,8 @@ zpl_create(struct inode *dir, struct den
+ 	vattr_t *vap;
+ 	int error;
+ 	fstrans_cookie_t cookie;
+-#if !(defined(HAVE_IOPS_CREATE_USERNS) || defined(HAVE_IOPS_CREATE_IDMAP))
++#if !(defined(HAVE_IOPS_CREATE_USERNS) || defined(HAVE_IOPS_CREATE_IDMAP) || \
++	defined(HAVE_IOPS_CREATE_NO_FLAG_ARG))
+ 	zidmap_t *user_ns = kcred->user_ns;
+ #endif
+ 

@@ -1,0 +1,18 @@
+Description: bump Linux-Maximum to declare Linux 7.3 support
+ The Linux 7.3 compatibility fixes (see linux-7.3-compat.patch) are
+ present in this tree, but META still declares Linux-Maximum: 7.2, so
+ the autoconf kernel-version check refuses to build against Linux 7.3.
+ Bump the field to 7.3 to permit it.
+Forwarded: not-needed
+Signed-off-by: Paolo Pisati <paolo.pisati@canonical.com>
+Index: zfs-linux-2.4.4/META
+===================================================================
+--- zfs-linux-2.4.4.orig/META
++++ zfs-linux-2.4.4/META
+@@ -6,5 +6,5 @@ Release:       1
+ Release-Tags:  relext
+ License:       CDDL
+ Author:        OpenZFS
+-Linux-Maximum: 7.2
++Linux-Maximum: 7.3
+ Linux-Minimum: 4.18
