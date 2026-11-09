@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : carapace
-version     : "1.8.1"
-release     : 4
+version     : "1.8.2"
+release     : 5
 homepage    : https://carapace.sh/
 upstreams   :
-  - https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.1.tar.gz : 1dc7314cbda4643186bcf00b6e2402002a113b09a0220e5d564a40e77daa886e
+  - https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.2.tar.gz : 56b934e1c94cb4e10d912c0158a74f8b727e430e6d9c8aff5bfb99e124fa3ace
 summary     : A multi-shell completion library
 description : |
     Carapace-bin provides argument completion for multiple CLI commands, works across multiple POSIX and non-POSIX shells
