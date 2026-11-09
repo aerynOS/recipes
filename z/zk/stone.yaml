@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : zk
+version     : "0.15.7"
+release     : 1
+homepage    : https://github.com/zk-org/zk
+upstreams   :
+    - https://github.com/zk-org/zk/archive/refs/tags/v0.15.7.tar.gz : 69a9f72a0b18d89b2a7ec080aa3c2fbca0e5cfb31bfa89bf47e64c3f8a2d1ad0
+summary     : A plain text note-taking assistant
+description : |
+    A command line tool for keeping a plain text Zettelkasten or personal wiki in markdown, with templates, tags, links and search
+license     : GPL-3.0-only
+networking  : true
+rundeps     :
+    - fzf
+setup       : |
+    %go_mod
+build       : |
+    # fts5 tag is what upstream's Makefile builds with, the full text search needs it
+    export CGO_ENABLED=1
+    export GOFLAGS+=" \"-ldflags=-linkmode=external -s -w -buildid= -X=main.Version=v%(version)\""
+    go build -v -buildvcs=false -tags fts5 -o zk .
+install     : |
+    %install_bin zk
+    %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
+check       : |
+    # boulder sets HOME to the build dir, not /root, so TestExpandPath can never pass in here
+    go test -tags fts5 -skip TestExpandPath ./...
