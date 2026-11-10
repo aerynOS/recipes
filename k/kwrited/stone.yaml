@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwrited
-version     : "6.8.2"
-release     : 25
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kwrited-6.8.2.tar.xz : b4a5fd4f807ec394bea5b49d8f0079143183ac1e4628182bac254a8b7ad31650
+version     : "6.8.3"
+release     : 26
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kwrited-6.8.3.tar.xz : f3038d5bdee825475ba3ef6c61a63279d7e725c64e6dc00a39eb46759ff9d4ea
 summary     : KDE daemon listening for wall and write messages
 description : |
     KDE daemon listening for wall and write messages.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
