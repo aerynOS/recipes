@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : layer-shell-qt
-version     : "6.8.2"
-release     : 34
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/layer-shell-qt-6.8.2.tar.xz : 8866504834e4727e30ca3674207781dc9a3ac50c8f042bbbc8d8cfdf2ece32a1
+version     : "6.8.3"
+release     : 35
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/layer-shell-qt-6.8.3.tar.xz : af3e56be10eb95a5993600449d6c811a08d491f7905c40a1203040b5baf98f9e
+summary     : Qt component to allow applications to make use of the Wayland wl-layer-shell protocol
+description : |
+    Qt component to allow applications to make use of the Wayland wl-layer-shell protocol
 license     :
     - BSD-3-Clause
     - CC0-1.0
     - LGPL-3.0-or-later
     - MIT
-summary     : Qt component to allow applications to make use of the Wayland wl-layer-shell protocol
-description : |
-    Qt component to allow applications to make use of the Wayland wl-layer-shell protocol
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
