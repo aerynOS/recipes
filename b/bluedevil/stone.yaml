@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bluedevil
-version     : "6.8.2"
-release     : 35
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/bluedevil-6.8.2.tar.xz : 119647ee96619dea9ef10339984246367f44835941cceb725483964e113f75ba
+version     : "6.8.3"
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/bluedevil-6.8.3.tar.xz : 52c3bdbe75f986b796fabf326c4414a07d0fecb5fb066844c5673c0b91fbb36b
+summary     : Bluetooth stack for KDE Plasma
+description : |
+    Bluedevil is a project which intends to integrate the Bluetooth technology within KDE workspace and applications.
 license     :
     - BSD-3-Clause
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
     - LGPL-2.1-only
-summary     : Bluetooth stack for KDE Plasma
-description : |
-    Bluedevil is a project which intends to integrate the Bluetooth technology within KDE workspace and applications.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
