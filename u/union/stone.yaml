@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : union
-version     : "6.8.2"
-release     : 7
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/union-6.8.2.tar.xz : a87b6cd9e04c7941d631cb0f243277aa84795738383e5153750a0ad1659e0353
+version     : "6.8.3"
+release     : 8
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - LGPL-2.1-only
-    - LGPL-3.0-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/union-6.8.3.tar.xz : cebe4d33d23ee3125191ea11130db41f19d4fb9d82fea8c50518906a7ca5279a
 summary     : A Qt style supporting both QtQuick and QtWidgets
 description : |
     A Qt style supporting both QtQuick and QtWidgets
+license     :
+    - LGPL-2.1-only
+    - LGPL-3.0-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
