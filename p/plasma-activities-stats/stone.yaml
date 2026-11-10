@@ -2,11 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-activities-stats
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-activities-stats-6.8.2.tar.xz : 6c641f2faa08c777239513a5a6c05900b5f6e237350c9e57af42825ce26098ce
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-activities-stats-6.8.3.tar.xz : 88681ff26460d3498b966aa3d16f4b9ba60e5571408af6341b46f6da35ec141f
+summary     : library for accessing the usage data collected by the activities system
+description : |
+    library for accessing the usage data collected by the activities system
 license     :
     - GPL-2.0-only
     - GPL-2.0-or-later
@@ -14,9 +17,6 @@ license     :
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - LGPL-3.0-only
-summary     : library for accessing the usage data collected by the activities system
-description : |
-    library for accessing the usage data collected by the activities system
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
