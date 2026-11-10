@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : breeze
-version     : "6.8.2"
-release     : 28
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/breeze-6.8.2.tar.xz : d6493c5abbcb27b6b1bc42e2e561d64218133ecd2ed56bfc42b1e25d97e216bc
+version     : "6.8.3"
+release     : 29
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/breeze-6.8.3.tar.xz : 1d47a61f9f397f212d7a23d7ed7a7289b026757a050610304bb945dc067937e2
+summary     : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
+description : |
+    Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
     - GPL-2.0-or-later
     - MIT
-summary     : Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
-description : |
-    Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
