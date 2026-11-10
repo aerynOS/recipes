@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sddm-kcm
-version     : "6.8.2"
-release     : 27
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/sddm-kcm-6.8.2.tar.xz : dcd2cdf1210e12eaad78f88819d36a21e05573939f1765552c4f57477d10003e
+version     : "6.8.3"
+release     : 28
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/sddm-kcm-6.8.3.tar.xz : e7a069bb70f00af9fc0a4f65ddab9d28d55c209e84431f7dc3e9a444d4543186
 summary     : Config module for SDDM
 description : |
     Hosts the KCM module for SDDM. This module allows for configuring SDDM in Plasma System Settings.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
