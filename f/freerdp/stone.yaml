@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : freerdp
-version     : "3.33.0"
-release     : 44
+version     : "3.33.1"
+release     : 45
 homepage    : https://www.freerdp.com
 upstreams   :
     # TODO: Switch back to source archive
-    - https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.33.0.tar.gz : 3b5e7733e667ad66f54e0db51d952268c9d08b2e71a4fade44c716ab29dd5657
+    - https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.33.1.tar.gz : 6b6da1e7217f924b033da6896e70eb4c4a447c3900d03c0d10179062f0a7d495
 summary     : FreeRDP is a free remote desktop protocol library and clients
 description : |
     FreeRDP is a free implementation of the Remote Desktop Protocol (RDP), released
@@ -50,8 +50,6 @@ builddeps   :
     - pkgconfig(xv)
     # TODO: uriparser, heimdal-krb5 (?)
 setup       : |
-    %patch %(pkgdir)/ftbfs-sdl3-3.4.20.patch
-
     %cmake \
       -DCMAKE_SKIP_INSTALL_RPATH=ON \
       -DWITH_CAIRO=ON \
