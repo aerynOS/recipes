@@ -131,7 +131,6 @@ ogc/0117-EXTERNALLY-MAINTAINED-x86-don-t-check-for-random-war.patch
 ogc/0118-FROM-ML-x86-revert-extra-time-added-to-check-for-tsc.patch
 ogc/0119-EXTERNALLY-MAINTAINED-fixup-x86-implement-tsc-direct.patch
 ogc/0120-NOT-FOR-UPSTREAM-Bluetooth-btusb-QCA-don-t-reflash-a.patch
-ogc/0121-FROM-ML-platform-x86-asus-wmi-Serialize-WMI-method-e.patch
 ogc/0122-FROM-ML-platform-x86-asus-wmi-Remove-redundant-per-d.patch
 ogc/0123-FROM-ML-iio-imu-bmi270-Match-PNP-ID-found-on-OrangeP.patch
 ogc/0124-FROM-ML-iio-imu-bmi270-Match-PNP-ID-found-on-OneXPla.patch
@@ -187,9 +186,7 @@ ogc/0173-MAINTAINED-EXTERNALLY-hid-asus-ally-add-sleep_animat.patch
 ogc/0174-FROM-ML-platform-x86-asus-wmi-validate-custom-fan-cu.patch
 ogc/0175-FROM-ML-platform-x86-asus-armoury-fix-sysfs_notify-o.patch
 ogc/0176-FROM-ML-platform-x86-asus-armoury-fix-pending_reboot.patch
-ogc/0177-FROM-ML-platform-x86-asus-wmi-use-named-masks-for-TU.patch
 ogc/0178-FROM-ML-platform-x86-asus-wmi-enable-TUF-RGB-state-f.patch
-ogc/0179-FROM-ML-platform-x86-asus-wmi-re-assert-FA401-keyboa.patch
 ogc/0180-FROM-ML-ASoC-tas2783-sdw-make-multi-byte-MBQ-registe.patch
 ogc/0181-FROM-ML-ASoC-tas2783-sdw-do-not-cache-read-only-Cont.patch
 ogc/0182-FROM-ML-ASoC-rt721-Use-the-function_status-check-to-.patch

@@ -21,10 +21,10 @@ diff --git a/drivers/platform/x86/oxpec.c b/drivers/platform/x86/oxpec.c
 index 34bb17fca148..00a5e64b2001 100644
 --- a/drivers/platform/x86/oxpec.c
 +++ b/drivers/platform/x86/oxpec.c
-@@ -50,6 +50,7 @@ enum oxp_board {
- 	oxp_x1,
+@@ -51,6 +51,7 @@ enum oxp_board {
  	oxp_g1_i,
  	oxp_g1_a,
+ 	oxp_apex,
 +	oxp_super_x,
  };
  
@@ -38,26 +38,26 @@ index 34bb17fca148..00a5e64b2001 100644
  	},
  	{
  		.matches = {
-@@ -352,6 +353,7 @@ static umode_t tt_toggle_is_visible(struct kobject *kobj,
- 	case oxp_x1:
+@@ -357,6 +358,7 @@ static umode_t tt_toggle_is_visible(stru
  	case oxp_g1_i:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return attr->mode;
  	default:
  		break;
-@@ -381,6 +383,7 @@ static ssize_t tt_toggle_store(struct device *dev,
- 	case oxp_fly:
+@@ -387,6 +389,7 @@ static ssize_t tt_toggle_store(struct de
  	case oxp_mini_amd_pro:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		reg = OXP_TURBO_SWITCH_REG;
  		mask = OXP_TURBO_TAKE_VAL;
  		break;
-@@ -427,6 +430,7 @@ static ssize_t tt_toggle_show(struct device *dev,
- 	case oxp_fly:
+@@ -434,6 +437,7 @@ static ssize_t tt_toggle_show(struct dev
  	case oxp_mini_amd_pro:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		reg = OXP_TURBO_SWITCH_REG;
  		mask = OXP_TURBO_TAKE_VAL;
@@ -70,50 +70,50 @@ index 34bb17fca148..00a5e64b2001 100644
  	case oxp_fly:
  		return true;
  	default:
-@@ -656,6 +661,7 @@ static int oxp_pwm_enable(void)
- 	case oxp_x1:
+@@ -690,6 +694,7 @@ static int oxp_pwm_enable(void)
  	case oxp_g1_i:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return write_to_ec(OXP_SENSOR_PWM_ENABLE_REG, PWM_MODE_MANUAL);
  	default:
  		return -EINVAL;
-@@ -676,6 +682,7 @@ static int oxp_pwm_disable(void)
- 	case oxp_x1:
+@@ -711,6 +716,7 @@ static int oxp_pwm_disable(void)
  	case oxp_g1_i:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return write_to_ec(OXP_SENSOR_PWM_ENABLE_REG, PWM_MODE_AUTO);
  	default:
  		return -EINVAL;
-@@ -696,6 +703,7 @@ static int oxp_pwm_read(long *val)
- 	case oxp_x1:
+@@ -732,6 +738,7 @@ static int oxp_pwm_read(long *val)
  	case oxp_g1_i:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return read_from_ec(OXP_SENSOR_PWM_ENABLE_REG, 1, val);
  	default:
  		return -EOPNOTSUPP;
-@@ -732,6 +740,7 @@ static int oxp_pwm_fan_speed(long *val)
- 	case oxp_mini_amd_a07:
+@@ -769,6 +776,7 @@ static int oxp_pwm_fan_speed(long *val)
  	case oxp_mini_amd_pro:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return read_from_ec(OXP_SENSOR_FAN_REG, 2, val);
  	default:
  		return -EOPNOTSUPP;
-@@ -764,6 +773,7 @@ static int oxp_pwm_input_write(long val)
- 	case oxp_fly:
+@@ -802,6 +810,7 @@ static int oxp_pwm_input_write(long val)
  	case oxp_mini_amd_pro:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  		return write_to_ec(OXP_SENSOR_PWM_REG, val);
  	default:
  		return -EOPNOTSUPP;
-@@ -803,6 +813,7 @@ static int oxp_pwm_input_read(long *val)
- 	case oxp_fly:
+@@ -842,6 +851,7 @@ static int oxp_pwm_input_read(long *val)
  	case oxp_mini_amd_pro:
  	case oxp_g1_a:
+ 	case oxp_apex:
 +	case oxp_super_x:
  	default:
  		ret = read_from_ec(OXP_SENSOR_PWM_REG, 1, val);

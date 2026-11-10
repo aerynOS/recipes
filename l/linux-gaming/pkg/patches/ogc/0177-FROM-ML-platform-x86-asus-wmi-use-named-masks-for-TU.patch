@@ -93,12 +93,12 @@ index 741045647f04..19c85bd95754 100644
  				 struct device_attribute *attr,
  				 const char *buf, size_t count)
  {
--	u32 flags, cmd, boot, awake, sleep, keyboard;
-+	u32 cmd, boot, awake, sleep, keyboard;
+-	u32 flags, cmd, boot, awake, sleep, shutdown;
++	u32 cmd, boot, awake, sleep, shutdown;
 +	u32 arg0;
  	int err;
  
- 	if (sscanf(buf, "%d %d %d %d %d", &cmd, &boot, &awake, &sleep, &keyboard) != 5)
+ 	if (sscanf(buf, "%d %d %d %d %d", &cmd, &boot, &awake, &sleep, &shutdown) != 5)
  		return -EINVAL;
  
 +	arg0 = ASUS_WMI_TUF_RGB_STATE_CMD_ID;
@@ -117,7 +117,7 @@ index 741045647f04..19c85bd95754 100644
  	if (sleep)
 -		flags |= BIT(5);
 +		arg0 |= FIELD_PREP(TUF_RGB_STATE_SLEEP, 1);
- 	if (keyboard)
+ 	if (shutdown)
 -		flags |= BIT(7);
 +		arg0 |= FIELD_PREP(TUF_RGB_STATE_KEYBOARD, 1);
  
