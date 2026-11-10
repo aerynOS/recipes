@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : spectacle
-version     : "6.8.2"
-release     : 38
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/spectacle-6.8.2.tar.xz : 95785faf9a97c5005956ff78fc812a32a3735b6a3c1b8543cb21e5838cb8b23f
+version     : "6.8.3"
+release     : 39
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/spectacle-6.8.3.tar.xz : 2c412a5e3bd4ecfc5a0a251acb04876030acc6224e08973b0d980d3611b4cb59
 summary     : KDE Screenshot Utility
 description : |
     KDE Screenshot Utility
+license     : GPL-2.0-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
