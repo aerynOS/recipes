@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-nano
-version     : "6.8.2"
-release     : 7
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-nano-6.8.2.tar.xz : 0c99b25c6498e5afe0608fa9aab3208ff4906c842bc26c8f69cd0601fc56468c
+version     : "6.8.3"
+release     : 8
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-nano-6.8.3.tar.xz : 26f152fc174505de8ad02dfb7e5e4775b0bd817ff8cd87a2ae265ec8526434a9
 summary     : KDE Plasma nano
 description : |
     A minimal Plasma shell package intended for embedded devices
+license     :
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
