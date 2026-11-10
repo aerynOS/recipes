@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdeplasma-addons
-version     : "6.8.2"
-release     : 36
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kdeplasma-addons-6.8.2.tar.xz : 89458bb18c2d055f582467d920c413712aa5b639404a36d37643475b22bbf364
+version     : "6.8.3"
+release     : 37
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kdeplasma-addons-6.8.3.tar.xz : 16c03d8e9116b2419a2d183b828cb858a80b5b5a4415b41b7389cadadbd012fa
 summary     : A plugin based system monitoring daemon
 description : |
     A plugin based system monitoring daemon
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     - cmake(Corrosion)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
