@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-bigscreen
-version     : "6.8.2"
-release     : 10
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-bigscreen-6.8.2.tar.xz : f770c879c1d884e0f35963f933210ee70f150122d8b4d1bf29ed1224b429a88a
+version     : "6.8.3"
+release     : 11
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-bigscreen-6.8.3.tar.xz : 11d1c1c2e613013af049ccce9f5e4a2c238d91052e33bef3ec613708f4cfbec7
 summary     : Plasma shell for TVs
 description : |
     Plasma shell for TVs
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
