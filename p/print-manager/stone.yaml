@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : print-manager
-version     : "6.8.2"
-release     : 35
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/print-manager-6.8.2.tar.xz : 648dc29862b49fc9eb62e0bda89016ec6b76e1236f0285f3450c8ea9c5a00cf5
+version     : "6.8.3"
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/print-manager-6.8.3.tar.xz : b5eb208cabbfc02528d57a72a61ea92928ecfb87f7dd261cf614ce8318533b9a
 summary     : Tool for managing print jobs and printers
 description : |
     Tool for managing print jobs and printers
+license     : GPL-2.0-or-later
 builddeps   :
     - binary(smbspool)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
