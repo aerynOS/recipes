@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : krdp
-version     : "6.8.2"
-release     : 34
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/krdp-6.8.2.tar.xz : d4e651aca79f83d6da71de1b36e87d38b123fa8fcf066c2294a55a43b3675de4
+version     : "6.8.3"
+release     : 35
 homepage    : https://kde.org/plasma-desktop/
-license     : LGPL-2.1-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/krdp-6.8.3.tar.xz : 8a80e5a5e0f3e7b665752a60264ac36367431d6d8865cd5797370010a819a40b
 summary     : Library and examples for creating an RDP server
 description : |
     Library and examples for creating an RDP server
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
