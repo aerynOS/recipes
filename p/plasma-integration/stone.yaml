@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-integration
-version     : "6.8.2"
-release     : 34
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-integration-6.8.2.tar.xz : 2107a8247553cf7a54f8701191c7b1cfe802f53d0f38b3e2ce908135035c6c82
+version     : "6.8.3"
+release     : 35
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-integration-6.8.3.tar.xz : e32e074d79159f584c3098de550a2de46142049234602dffd50596c574816e5b
 summary     : Integration of Qt application with KDE workspaces
 description : |
     Integration of Qt application with KDE workspaces
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
