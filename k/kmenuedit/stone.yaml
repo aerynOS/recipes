@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kmenuedit
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kmenuedit-6.8.2.tar.xz : 56ee8da65ea1ee384930c518fca29a516bcecca84e224ad3d606d42bb37de398
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GFDL-1.2-only
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kmenuedit-6.8.3.tar.xz : 08a401cec5b0d0c8d918ff72b9e8f0af8f0fc1c72e71f095947f94c6bc2fc333
 summary     : KDE Plasma menu editor
 description : |
     KDE Plasma menu editor
+license     :
+    - GFDL-1.2-only
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
