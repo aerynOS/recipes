@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kdecoration
-version     : "6.8.2"
-release     : 28
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kdecoration-6.8.2.tar.xz : 9f88bed244082444787fda9c08b4c733796da3d75861abde0c25fe69b5216b35
+version     : "6.8.3"
+release     : 29
 homepage    : https://kde.org/plasma-desktop/
-license     : LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kdecoration-6.8.3.tar.xz : 77435cc9dda43ff14e6b99cfb08498ace7730f995fc4ab4c21d6be2d1a6c73a1
 summary     : Plugin based library to create window decorations
 description : |
     Plugin based library to create window decorations
+license     : LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
