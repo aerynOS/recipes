@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kwin
-version     : "6.8.2"
-release     : 48
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kwin-6.8.2.tar.xz : ea5e68d957c7d70abed97222a592d4445fda29129e20942658badd224ee138b4
+version     : "6.8.3"
+release     : 49
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GFDL-1.2-only
-    - GPL-2.0-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kwin-6.8.3.tar.xz : fd5cb783f220ea4526a9afee2f72b582c3e87ef7f91b19bc5c7a6662ffe7fbdc
 summary     : KDE window manager
 description : |
     KWin is the window manager for the KDE Plasma Desktop. It gives you complete control over your windows, making sure they're not in the way but aid you in your task. It paints the window decoration, the bar on top of every window with (configurable) buttons like close, maximize and minimize. It also handles placing of windows and switching between them.
+license     :
+    - GFDL-1.2-only
+    - GPL-2.0-only
 builddeps   :
     - binary(Xwayland)
     - binary(glslangValidator)
@@ -86,8 +86,6 @@ tuning      :
     - optimize: speed
 setup       : |
     %patch %(pkgdir)/revert-cap-sys-nice.patch
-    %patch %(pkgdir)/upstream-01.patch
-    %patch %(pkgdir)/upstream-02.patch
 
     %cmake_kf6
 build       : |
