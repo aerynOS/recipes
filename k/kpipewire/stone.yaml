@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kpipewire
-version     : "6.8.2"
-release     : 36
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kpipewire-6.8.2.tar.xz : 80d5bb3a95018f67f7476570ac8aad91872188cf2e6536cf81e9347b4adfefec
+version     : "6.8.3"
+release     : 37
 homepage    : https://kde.org/plasma-desktop/
-license     : LGPL-2.1-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kpipewire-6.8.3.tar.xz : 6b3175c928322e2084f8c40e51c05c24e3823b05195ff6de7db27c130a19c12f
 summary     : Components relating to pipewire use in Plasma
 description : |
     Components relating to pipewire use in Plasma
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
