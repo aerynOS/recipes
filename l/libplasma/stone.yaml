@@ -2,20 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libplasma
-version     : "6.8.2"
-release     : 38
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/libplasma-6.8.2.tar.xz : d63a270b5aaba6144c1ddd215d509ff3b350d3d7a0ac08e539d58a043b061b29
+version     : "6.8.3"
+release     : 39
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/libplasma-6.8.3.tar.xz : 76f081f2d96c7dccf1f29fa0a301572d0115b0c5bec1b32ede0fea4a45c254c4
+summary     : Plasma library and runtime components
+description : |
+    Plasma library and runtime components
 license     :
     - BSD-3-Clause
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - LGPL-2.1-or-later
-summary     : Plasma library and runtime components
-description : |
-    Plasma library and runtime components
 builddeps   :
     - binary(bzip2)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
