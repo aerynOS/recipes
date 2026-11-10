@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-workspace
-version     : "6.8.2"
-release     : 51
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-workspace-6.8.2.tar.xz : 52bee29adbac15d0e2f8db98e6440d4ae042fc38340423ed736ac20189778b64
+version     : "6.8.3"
+release     : 52
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-workspace-6.8.3.tar.xz : 3f984e2d960c252ee6353ef639807379c7d1bb2777fecedd047943209c52ffcb
+summary     : KDE Plasma workspace
+description : |
+    KDE Plasma workspace
 license     :
     - GFDL-1.2
     - GPL-2.0
     - LGPL-2.1
-summary     : KDE Plasma workspace
-description : |
-    KDE Plasma workspace
 builddeps   :
     - cmake(AppStreamQt)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
