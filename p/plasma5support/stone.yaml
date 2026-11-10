@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma5support
-version     : "6.8.2"
-release     : 34
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma5support-6.8.2.tar.xz : 6d98603d6ec0826bd1fb7348a15e73d9011fd2035f03bda5f8e55210d62b24ed
+version     : "6.8.3"
+release     : 35
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma5support-6.8.3.tar.xz : e97329a0b0d200df15ec30cbf14c8572c72869eef65629a96e8cb3706361d105
 summary     : Support components for porting from KF5/Qt5 to KF6/Qt6
 description : |
     Support components for porting from KF5/Qt5 to KF6/Qt6
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
