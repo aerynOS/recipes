@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : milou
-version     : "6.8.2"
-release     : 35
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/milou-6.8.2.tar.xz : 8fca3d90574476c70d258f30b9af9714a71e57270534ece203fdfb5ba8bcae15
+version     : "6.8.3"
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/milou-6.8.3.tar.xz : 87706400f9f82277cba4aeffbcc8d67e74b89f33038a7d49c0e7db6db3138f86
 summary     : A dedicated search application built on top of Baloo
 description : |
     A dedicated search application built on top of Baloo
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
