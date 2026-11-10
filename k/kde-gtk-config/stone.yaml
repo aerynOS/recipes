@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kde-gtk-config
-version     : "6.8.2"
-release     : 27
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kde-gtk-config-6.8.2.tar.xz : 883a7c5f2491c180d0ce2631217d20ca450fe6ad1587a2cfa271a51a100cd638
+version     : "6.8.3"
+release     : 28
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kde-gtk-config-6.8.3.tar.xz : ce5d555049afbf2162125e1d6ae75a4b9a3ebfa8f87043f94a0a44472da96cb4
+summary     : KDE settings to set GTK look and feel
+description : |
+    KDE system settings to set GTK look and feel.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
     - GPL-2.0-only
     - GPL-2.0-or-later
-summary     : KDE settings to set GTK look and feel
-description : |
-    KDE system settings to set GTK look and feel.
 builddeps   :
     - binary(sassc)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
