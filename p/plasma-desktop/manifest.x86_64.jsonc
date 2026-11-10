@@ -172,7 +172,7 @@
 				"/usr/lib/kf6/kimpanel-ibus-panel",
 				"/usr/lib/kf6/kimpanel-ibus-panel-launcher",
 				"/usr/lib/libkglobalaccelmodel.so.6",
-				"/usr/lib/libkglobalaccelmodel.so.6.8.2",
+				"/usr/lib/libkglobalaccelmodel.so.6.8.3",
 				"/usr/lib/qt6/plugins/attica_kde.so",
 				"/usr/lib/qt6/plugins/kf6/kded/device_automounter.so",
 				"/usr/lib/qt6/plugins/kf6/kded/screenreader.so",
@@ -1514,6 +1514,7 @@
 				"/usr/share/locale/hu/LC_MESSAGES/plasma-desktop-sddm-theme.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.desktopcontainment.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.panel.mo",
+				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.plasma.dwellclicker.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.plasma.keyboardlayout.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.plasma.kicker.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/plasma_applet_org.kde.plasma.kickoff.mo",
@@ -3704,7 +3705,9 @@
 				"/usr/share/sddm/themes/breeze/Login.qml",
 				"/usr/share/sddm/themes/breeze/Main.qml",
 				"/usr/share/sddm/themes/breeze/Messages.sh",
+				"/usr/share/sddm/themes/breeze/QtVirtualKeyboard.qml",
 				"/usr/share/sddm/themes/breeze/SessionButton.qml",
+				"/usr/share/sddm/themes/breeze/VirtualKeyboard.qml",
 				"/usr/share/sddm/themes/breeze/default-logo.svg",
 				"/usr/share/sddm/themes/breeze/faces/.face.icon",
 				"/usr/share/sddm/themes/breeze/metadata.desktop",
@@ -4513,6 +4516,6 @@
 		}
 	},
 	"source-name": "plasma-desktop",
-	"source-release": "42",
-	"source-version": "6.8.2"
+	"source-release": "43",
+	"source-version": "6.8.3"
 }
