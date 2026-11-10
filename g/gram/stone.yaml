@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gram
-version     : "3.4.1"
-release     : 10
+version     : "3.5.0"
+release     : 11
 homepage    : https://gram-editor.com/
 upstreams   :
-    - https://codeberg.org/GramEditor/gram/archive/3.4.1.tar.gz : 07b849e711c01f2434704b180c16b6b578c3c6aa00a87857c36bd0ac6993aee0
+    - https://codeberg.org/GramEditor/gram/archive/3.5.0.tar.gz : 20fafb030a3646c5fd64727a3c0c801f5a7a9940e3943d661104970b246a26ec
 summary     : A code editor for humanoid apes and grumpy toads
 description : |
     Gram is a powerful and modern source code editor.
@@ -16,8 +16,6 @@ license     :
     - GPL-3.0-or-later
 # everything below is copypasta from zed's stone.yaml
 networking  : true
-tuning      :
-    - lto: false
 builddeps   :
     - binary(cmake)
     - binary(envsubst)
@@ -52,6 +50,8 @@ environment : |
     export OPENSSL_NO_VENDOR=true
     export RUST_FONTCONFIG_DLOPEN=1
     export ZSTD_SYS_USE_PKG_CONFIG=1
+tuning      :
+    - lto: false
 setup       : |
     %cargo_fetch
 build       : |
