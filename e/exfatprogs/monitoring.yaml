@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 94441
   rss: https://github.com/exfatprogs/exfatprogs/releases.atom
 security:
-  # No known CPE, last checked 2024-11-27
-  cpe: ~
+  # Last checked 2026-11-10
+  cpe:
+  - vendor: namjaejeon
+    product: exfatprogs
