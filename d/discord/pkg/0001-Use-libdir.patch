@@ -3,17 +3,20 @@ From: Reilly Brogan <reilly@reillybrogan.com>
 Date: Fri, 8 May 2026 09:55:37 -0500
 Subject: [PATCH] Use libdir
 
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-10
 ---
  discord | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/discord b/discord
-index 678f54a..2c9aa08 100755
+index ba05400..a337915 100755
 --- a/discord
 +++ b/discord
 @@ -24,7 +24,7 @@ if [ ! -x "$discord_host" ]; then
      else
-         zenity=--zenity
+         gui=
      fi
 -    bootstrap=/usr/share/$BOOTSTRAP_SUFFIX
 +    bootstrap=/usr/lib/$BOOTSTRAP_SUFFIX
