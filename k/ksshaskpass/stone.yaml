@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ksshaskpass
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/ksshaskpass-6.8.2.tar.xz : 7ec5bb7db2da000097536ffe4081028967289af4fc564f40cff54100966e5445
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/ksshaskpass-6.8.3.tar.xz : 93acd43cc199d26714f770e5e0ce0833aee1db9ed009a3d1e96fdd0eea3e3128
 summary     : Front-end for ssh-add which stores the password of the ssh key in KWallet
 description : |
     Front-end for ssh-add which stores the password of the ssh key in KWallet.
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
