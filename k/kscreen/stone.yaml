@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kscreen
-version     : "6.8.2"
-release     : 36
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kscreen-6.8.2.tar.xz : 17841f29c50460f48923b537dac01e38d64bc2f3f34915f257b4941bff007e26
+version     : "6.8.3"
+release     : 37
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kscreen-6.8.3.tar.xz : 866dead8b6bb3f974a64f18c930e219b358118213e510fcdaabafc37ee7a8a73
 summary     : KDE Plasma screen management
 description : |
     KDE Plasma screen management
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
