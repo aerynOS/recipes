@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : polkit-kde-agent
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/polkit-kde-agent-1-6.8.2.tar.xz : 8b415960c4d2b0e7c7e8218e3186ed0b7b059f09b0a041f600b4a068f288b094
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
-license     : GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/polkit-kde-agent-1-6.8.3.tar.xz : 59abbe4c339966f5961daf0f7151b29b67d749c4f7e78e821af287ea96cab4b3
 summary     : Daemon providing a polkit authentication for KDE
 description : |
     Daemon providing a polkit authentication for KDE
+license     : GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
