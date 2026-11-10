@@ -3,7 +3,11 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"patch": {
+			"build-depends": [
+				"binary(ed)"
+			],
 			"depends": [
+				"binary(ed)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))"
 			],
@@ -18,6 +22,6 @@
 		}
 	},
 	"source-name": "patch",
-	"source-release": "5",
-	"source-version": "2.8"
+	"source-release": "6",
+	"source-version": "2.8.1"
 }
