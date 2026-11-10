@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-workspace-wallpapers
-version     : "6.8.2"
-release     : 25
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-workspace-wallpapers-6.8.2.tar.xz : 8f281e2b2c6f2259f0c38e7c6a6be0b53013c25593e7d214d7be563a7afedc37
+version     : "6.8.3"
+release     : 26
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-3.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-workspace-wallpapers-6.8.3.tar.xz : fa4ff783f41c8fa08a58d32f094d7acc6c5ac268e23354bd49a40a35617463d6
 summary     : Wallpapers for Plasma Workspaces
 description : |
     Wallpapers for Plasma Workspaces
+license     :
+    - GPL-2.0-or-later
+    - LGPL-3.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
