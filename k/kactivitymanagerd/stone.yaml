@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kactivitymanagerd
-version     : "6.8.2"
-release     : 27
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kactivitymanagerd-6.8.2.tar.xz : 2941253c0ed0ad5ff6286e772de8beb320b5eed2fc26383dc7c55ada8946ca62
+version     : "6.8.3"
+release     : 28
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - GPL-3.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kactivitymanagerd-6.8.3.tar.xz : ace8726d6a3f95769dd3c8614d4c0a432ce756bd60ab12584b2d13280db471f1
 summary     : Core components for the KDE Activity concept
 description : |
     Core components for the KDE Activity concept
+license     :
+    - GPL-2.0-or-later
+    - GPL-3.0-or-later
 builddeps   :
     - cmake(Boost)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
