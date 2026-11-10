@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-vault
-version     : "6.8.2"
-release     : 7
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-vault-6.8.2.tar.xz : acc4167ef8f8701af4437378797c41c573d27f7573341ff39a1476930406f729
+version     : "6.8.3"
+release     : 8
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - BSD-3-Clause
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-vault-6.8.3.tar.xz : 98552279fa15995a1329455f42b8dd1e4397df9f3b95d8ffdfbd2255ce49ebe6
 summary     : Plasma Vault
 description : |
     Plasma applet and services for creating encrypted vaults
+license     :
+    - BSD-3-Clause
+    - GPL-2.0-or-later
 builddeps   :
     - binary(gocryptfs)
     - binary(python3)
