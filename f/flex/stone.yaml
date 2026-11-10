@@ -1,25 +1,27 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : flex
-version     : "2.6.4"
-release     : 6
-homepage    : https://github.com/westes/flex
+version     : "2.6.5"
+release     : 7
+homepage    : https://westes.github.io/flex/
 upstreams   :
-    - https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz : e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
+    - https://github.com/westes/flex/releases/download/v2.6.5/flex-2.6.5.tar.gz : 4dfb3d6095c0cd58f050dd66fa132ad52c118c5ae26a4bddd916557720920769
 summary     : The Fast Lexical Analyzer
 description : |
     The Fast Lexical Analyzer
-license     :
-    - BSD-2-Clause
-builddeps   :
-    - binary(file)
+license     : BSD-3-Clause-flex
+checkdeps   :
+    - binary(bison)
 rundeps     :
     - binary(m4)
 setup       : |
-    export CC_FOR_BUILD="%(cc)"
-    %configure --disable-static
+    export CC_FOR_BUILD="$CC"
+    %configure \
+        --disable-static
 build       : |
     %make
 install     : |
     %make_install
+check       : |
+    %make check
