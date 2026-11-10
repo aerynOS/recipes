@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qqc2-breeze-style
-version     : "6.8.2"
-release     : 8
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/qqc2-breeze-style-6.8.2.tar.xz : f27528b3da92abefe3eb7f302c24707279871444996c9f1868c96fb0d040e6a0
+version     : "6.8.3"
+release     : 9
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/qqc2-breeze-style-6.8.3.tar.xz : 73501d76471781d1205c6f8e094cadbe9d65443de34246a218a1a802771a9d45
 summary     : Breeze Style for QQC2
 description : |
     Breeze inspired QQC2 Style
+license     :
+    - GPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
