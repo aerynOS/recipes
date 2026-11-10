@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-disks
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-disks-6.8.2.tar.xz : 3432198413c86745e0fdf551361c55b26684b580ce5116a05d9cf973beb92a28
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-disks-6.8.3.tar.xz : 56b112d35776a76fb42ab6fd7ad54328eacf5ed396e7342f2bc08744144b6d90
+summary     : Monitors S.M.A.R.T. capable devices for imminent failure
+description : |
+    Monitors S.M.A.R.T. capable devices for imminent failure
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
     - GPL-3.0-only
     - LGPL-3.0-only
-summary     : Monitors S.M.A.R.T. capable devices for imminent failure
-description : |
-    Monitors S.M.A.R.T. capable devices for imminent failure
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
