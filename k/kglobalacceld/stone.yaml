@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kglobalacceld
-version     : "6.8.2"
-release     : 34
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kglobalacceld-6.8.2.tar.xz : aeedd8546b25e3907497eebb041f1ad3ca5044d9893b5cc654100a0312ecc3f6
+version     : "6.8.3"
+release     : 35
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kglobalacceld-6.8.3.tar.xz : e0fa8b3d951e85d1713e92f4d5c0622a5b0cd441a50383b8b26ac25cceab45c6
+summary     : Daemon providing Global Keyboard Shortcut (Accelerator) functionality
+description : |
+    Daemon providing Global Keyboard Shortcut (Accelerator) functionality
 license     :
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - LGPL-3.0-only
-summary     : Daemon providing Global Keyboard Shortcut (Accelerator) functionality
-description : |
-    Daemon providing Global Keyboard Shortcut (Accelerator) functionality
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
