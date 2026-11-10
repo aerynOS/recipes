@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : firefox
-version     : "159.0.1"
-release     : 95
+version     : "160.0"
+release     : 96
 homepage    : https://www.mozilla.org/
 upstreams   :
-    - https://releases.mozilla.org/pub/firefox/releases/159.0.1/source/firefox-159.0.1.source.tar.xz:
-        hash: b5fe407199685f8bddf3b2c81feb8b805429e6f3d307c9430f53456f85b6e063
+    - https://releases.mozilla.org/pub/firefox/releases/160.0/source/firefox-160.0.source.tar.xz:
+        hash: 2b23d2bf6716ea16b45c10aa5c275c78a1d7ff50ad53150809ab27424c58fd81
         unpackdir: firefox
 
     # This should _usually_ be the latest version unless it's somehow incompatible with the used LLVM toolchain
@@ -18,6 +18,7 @@ summary     : Firefox web browser
 description : |
     Firefox web browser
 license     : MPL-2.0
+networking  : true # PGO
 builddeps   :
     - binary(cbindgen)
     - binary(dbus-run-session) # PGO
@@ -54,7 +55,6 @@ rundeps     :
     - firefox-langpacks
     - soname(libavcodec.so.63(x86_64)) # dlopened, check dom/media/platforms/ffmpeg/FFmpegLibWrapper.h for latest supported
     - xdg-desktop-portal
-networking  : true # PGO
 environment : |
     # Set this to 1 if you want to create a release build, 0 if you're just doing builds locally for testing purposes
     # Note that you still need to do a full release build locally and test it before pushing it
@@ -102,7 +102,7 @@ setup       : |
         echo "ac_add_options --enable-lto=cross,full" >> mozconfig
     fi
 
-    # Set up google safe browsing API key for AerynOS
+    # Set up google safe browsing API key for aerynOS
     cp %(pkgdir)/build/aerynos-google-safebrowsing-api-key .
     echo "ac_add_options --with-google-safebrowsing-api-keyfile=%(workdir)/aerynos-google-safebrowsing-api-key" >> mozconfig
 
