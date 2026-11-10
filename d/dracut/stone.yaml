@@ -3,7 +3,7 @@
 
 name        : dracut
 version     : "112"
-release     : 16
+release     : 17
 homepage    : https://github.com/dracut-ng/dracut-ng
 upstreams   :
     - https://github.com/dracut-ng/dracut-ng/archive/refs/tags/112.tar.gz : 839d21eb4bd27bb0ee40d74c9da46df088c2e1425fcd8c3ea62b7e3a3dd28a91
@@ -36,6 +36,9 @@ setup       : |
     
     # https://github.com/dracut-ng/dracut/pull/2781
     %patch %(pkgdir)/2781.patch
+
+    # Make dracut-emergency.sh also respect a set $SYSTEMD_SULOGIN_FORCE env var
+    %patch %(pkgdir)/0006-check-for-env-var-for-passwordless-root-login.patch
 
     # Uses bash syntax: ./configure: 26: [[: not found
     %configure_with_bash
