@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ksystemstats
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/ksystemstats-6.8.2.tar.xz : 2a71fa12b3dd8ad4a6c31feae253b1d1ed7fb0ddd44c8d27a32b63583f8b4889
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/ksystemstats-6.8.3.tar.xz : 7126e4174d064e48652e95d2f534daffb03b439c78b16385ed350616efa812e0
+summary     : A plugin based system monitoring daemon
+description : |
+    A plugin based system monitoring daemon
 license     :
     - GPL-2.0-only
     - GPL-2.0-or-later
     - GPL-3.0-only
     - LGPL-2.1-only
-summary     : A plugin based system monitoring daemon
-description : |
-    A plugin based system monitoring daemon
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
