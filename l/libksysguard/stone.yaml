@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libksysguard
-version     : "6.8.2"
-release     : 36
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/libksysguard-6.8.2.tar.xz : b9dbdcf73f32b88bf6ada9ff9fdb90d7bea4edb66ce708abb107eb64fad26a3f
+version     : "6.8.3"
+release     : 37
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/libksysguard-6.8.3.tar.xz : a44aa32511a1ce842e8c6adac972f268d662d736650cff6c86360112c4dd2681
 summary     : Task management and system monitoring library
 description : |
     Task management and system monitoring library
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
