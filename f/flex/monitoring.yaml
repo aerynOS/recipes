@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 819
-  rss: ~
+  rss: https://github.com/westes/flex/releases.atom
 security:
   cpe:
   - vendor: flex_project
