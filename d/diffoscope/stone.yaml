@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : diffoscope
-version     : "337"
-release     : 12
+version     : "338"
+release     : 13
 homepage    : https://diffoscope.org/
 upstreams   :
-    - https://diffoscope.org/archive/diffoscope-337.tar.bz2 : eab13b5f49f1e6f751b15f15043b40d66ad99f292301f8e97cfcc93ff4580e1f
+    - https://diffoscope.org/archive/diffoscope-338.tar.bz2 : c3e493932adf1df64fe43afa3dd426b9c097cea415d45bacc7c4861e654f19b9
 summary     : Tool for in-depth comparison of files, archives, and directories
 description : |
     Tool for in-depth comparison of files, archives, and directories
