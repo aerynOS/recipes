@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ocean-sound-theme
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/ocean-sound-theme-6.8.2.tar.xz : 354f0e7ff7bf7eb90defd4e0609b3a47d2349744aab7cb238ab8e12668c36316
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/ocean-sound-theme-6.8.3.tar.xz : f13f85e49cac35be429c50e95b21ce281f4a6bba02ecd006a073adcd4f299ab8
+summary     : Ocean Sound Theme for Plasma
+description : |
+    Ocean Sound Theme for Plasma
 license     :
     - BSD-2-Clause
     - CC-BY-SA-4.0
     - CC0-1.0
-summary     : Ocean Sound Theme for Plasma
-description : |
-    Ocean Sound Theme for Plasma
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
