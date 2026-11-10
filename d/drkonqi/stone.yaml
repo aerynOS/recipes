@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : drkonqi
-version     : "6.8.2"
-release     : 26
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/drkonqi-6.8.2.tar.xz : 0cf975d4078b0f789c34a81e6df4554f050539bd8a7c931bf823d8d25dbdef86
+version     : "6.8.3"
+release     : 27
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/drkonqi-6.8.3.tar.xz : a2072dcfeaae0d948fab951876653ea0036984c7b13a2fe2064dcc9dad7807c6
 summary     : KDE Crash Handler
 description : |
     The KDE Crash Handler.
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
 builddeps   :
     - binary(coredumpctl)
     - binary(eu-unstrip)
