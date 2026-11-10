@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : knighttime
-version     : "6.8.2"
-release     : 22
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/knighttime-6.8.2.tar.xz : 24a7bba1fb798a06b4dec5249b72d4dff94d01df6e2bddfa6665c122a1ab7b28
+version     : "6.8.3"
+release     : 23
 homepage    : https://kde.org/plasma-desktop/
-license     : LGPL-2.0-or-later
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/knighttime-6.8.3.tar.xz : b364a57af1a629d5e09c36a3c859075f8eafa2463201959548fbc362987d7c5f
 summary     : Helpers for scheduling the dark-light cycle
 description : |
     Helpers for scheduling the dark-light cycle
+license     : LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
