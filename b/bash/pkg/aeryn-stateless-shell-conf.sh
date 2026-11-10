@@ -59,9 +59,25 @@ if [ -n "$_shprefix" ] ; then
     if [ -e /etc/"$_shprefix"shrc ] ; then
         source /etc/"$_shprefix"shrc
     fi
-    # Here mostly zsh compatibility but doesn't hurt.
+    # Here mostly for zsh compatibility but doesn't hurt.
     if [ -e /etc/"$_shprefix"sh/"$_shprefix"shrc ] ; then
         source /etc/"$_shprefix"sh/"$_shprefix"shrc
+    fi
+
+    # https://uapi-group.org/specifications/specs/linux_file_system_hierarchy/ (UAPI.9)
+    # mandates that systemd systems should offer ~/.local/bin as part of PATH;
+    # see also the output of 'systemd-path user-binaries'.
+    # Note that putting the PATH change here makes user-binaries available to
+    # any user-specific shell drop-ins below. By default, they will *not*
+    # override existing system-binaries.
+    if [ -n "$HOME" ]; then
+        user_binaries="$HOME/.local/bin"
+        # only add ^ to PATH if it is not already present.
+        case :${PATH}:
+            in *:${user_binaries}:*) ;;
+            *) export PATH="$PATH:$user_binaries" ;;
+        esac
+        unset user_binaries
     fi
 
     # We want to source all files ending in sh, like *.sh, *.bash, *.zsh etc.

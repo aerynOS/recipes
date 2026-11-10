@@ -3,7 +3,7 @@
 
 name        : bash
 version     : "5.3.20"
-release     : 34
+release     : 35
 homepage    : http://www.gnu.org/software/bash/bash.html
 upstreams   :
     # Use a mirror because the GNU http server is flaky AF
