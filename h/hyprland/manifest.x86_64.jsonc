@@ -31,7 +31,6 @@
 				"pkgconfig(pixman-1)",
 				"pkgconfig(re2)",
 				"pkgconfig(readline)",
-				"pkgconfig(sdbus-c++)",
 				"pkgconfig(tomlplusplus)",
 				"pkgconfig(uuid)",
 				"pkgconfig(wayland-protocols)",
@@ -74,7 +73,6 @@
 				"soname(libpixman-1.so.0(x86_64))",
 				"soname(libre2.so.11(x86_64))",
 				"soname(libreadline.so.8(x86_64))",
-				"soname(libsdbus-c++.so.2(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libtomlplusplus.so.3(x86_64))",
 				"soname(libuuid.so.1(x86_64))",
@@ -151,7 +149,6 @@
 				"pkgconfig(pixman-1)",
 				"pkgconfig(re2)",
 				"pkgconfig(readline)",
-				"pkgconfig(sdbus-c++)",
 				"pkgconfig(tomlplusplus)",
 				"pkgconfig(uuid)",
 				"pkgconfig(wayland-protocols)",
@@ -817,6 +814,6 @@
 		}
 	},
 	"source-name": "hyprland",
-	"source-release": "18",
-	"source-version": "0.57.1"
+	"source-release": "19",
+	"source-version": "0.57.2"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprland
-version     : "0.57.1"
-release     : 18
+version     : "0.57.2"
+release     : 19
 homepage    : https://hypr.land/
 upstreams   :
-    - https://github.com/hyprwm/Hyprland/releases/download/v0.57.1/source-v0.57.1.tar.gz : 24e7428f83115e58e5fc81f100f6b73691dcaaf7a503087391e44327a71c43ab
+    - https://github.com/hyprwm/Hyprland/releases/download/v0.57.2/source-v0.57.2.tar.gz : 34dbec0738ab88c8228caf89385662688ab1601ea58fbe5c60a6b6ab383db46d
 summary     : Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
 description : |
     Hyprland is a 100% independent, dynamic tiling Wayland compositor that doesn't sacrifice on its looks. It provides the latest Wayland features, is highly customizable, has all the eyecandy, the most powerful plugins, easy IPC, much more QoL stuff than other compositors and more...
@@ -39,7 +39,6 @@ builddeps   :
     - pkgconfig(pixman-1)
     - pkgconfig(re2)
     - pkgconfig(readline)
-    - pkgconfig(sdbus-c++)
     - pkgconfig(tomlplusplus)
     - pkgconfig(uuid)
     - pkgconfig(wayland-protocols)
