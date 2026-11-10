@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : plasma-thunderbolt
-version     : "6.8.2"
-release     : 27
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/plasma-thunderbolt-6.8.2.tar.xz : 26234e6659782fc3fc7cacec156c1b742b98e215df203c21616aa3fd29805601
+version     : "6.8.3"
+release     : 28
 homepage    : https://kde.org/plasma-desktop/
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/plasma-thunderbolt-6.8.3.tar.xz : a9988d8c3e2217a8579484a654d95101fe2477a333ef25316b7696fe4242e6d7
+summary     : Plasma integration for controlling Thunderbolt devices
+description : |
+    Plasma integration for controlling Thunderbolt devices
 license     :
     - GPL-2.0-or-later
     - GPL-3.0-or-later
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Plasma integration for controlling Thunderbolt devices
-description : |
-    Plasma integration for controlling Thunderbolt devices
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
