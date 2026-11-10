@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kde-cli-tools
-version     : "6.8.2"
-release     : 33
-upstreams   :
-    - https://download.kde.org/stable/plasma/6.8.2/kde-cli-tools-6.8.2.tar.xz : 4b04a8086a3049a24ef9eb7845db3cd36204cc656f95894dea9359e99bd31d1d
+version     : "6.8.3"
+release     : 34
 homepage    : https://kde.org/plasma-desktop/
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-only
+upstreams   :
+    - https://download.kde.org/stable/plasma/6.8.3/kde-cli-tools-6.8.3.tar.xz : 2d702d018e895ecf879d5827d75944563a12ab27244f231bab6c5a40c7656c76
 summary     : Tools to better interact with the system
 description : |
     Tools based on KDE Frameworks 6 to better interact with the system.
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
