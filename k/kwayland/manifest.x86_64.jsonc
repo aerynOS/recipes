@@ -20,7 +20,7 @@
 			],
 			"files": [
 				"/usr/lib/libKWaylandClient.so.6",
-				"/usr/lib/libKWaylandClient.so.6.8.2",
+				"/usr/lib/libKWaylandClient.so.6.8.3",
 				"/usr/share/qlogging-categories6/kwayland.categories",
 				"/usr/share/qlogging-categories6/kwayland.renamecategories"
 			],
@@ -102,6 +102,6 @@
 		}
 	},
 	"source-name": "kwayland",
-	"source-release": "34",
-	"source-version": "6.8.2"
+	"source-release": "35",
+	"source-version": "6.8.3"
 }
