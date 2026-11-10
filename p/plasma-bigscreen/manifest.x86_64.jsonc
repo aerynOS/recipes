@@ -362,6 +362,7 @@
 				"/usr/share/locale/gl/LC_MESSAGES/kcm_mediacenter_bigscreen_settings.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/kcm_mediacenter_display.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/kcm_mediacenter_kdeconnect.mo",
+				"/usr/share/locale/gl/LC_MESSAGES/kcm_mediacenter_wifi.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/plasma-bigscreen-uvcviewer.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/plasma_applet_org.kde.bigscreen.homescreen.mo",
 				"/usr/share/locale/gl/LC_MESSAGES/plasma_lookandfeel_org.kde.plasma.bigscreen.mo",
@@ -855,6 +856,6 @@
 		}
 	},
 	"source-name": "plasma-bigscreen",
-	"source-release": "10",
-	"source-version": "6.8.2"
+	"source-release": "11",
+	"source-version": "6.8.3"
 }
