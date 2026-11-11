@@ -1,0 +1,49 @@
+From ce65eb7455b5dedb08943a6d966f12bc4eaf3caa Mon Sep 17 00:00:00 2001
+From: oubayashi <214973957@qq.com>
+Date: Thu, 24 Sep 2026 13:39:10 +0800
+Subject: [PATCH] bannertopdf: preserve indirect page resources when adding
+ fonts
+
+Resolve and copy an indirect page Resources dictionary before adding the
+banner font instead of replacing it with an empty dictionary.
+
+Upstream: https://github.com/OpenPrinting/libcupsfilters/commit/ce65eb7455b5dedb08943a6d966f12bc4eaf3caa
+(pdf.c hunk only, the test file isn't in the 2.2.1 tarball)
+---
+diff --git a/cupsfilters/pdf.c b/cupsfilters/pdf.c
+--- a/cupsfilters/pdf.c
++++ b/cupsfilters/pdf.c
+@@ -370,15 +370,30 @@ cfPDFAddType1Font1(cf_pdf_t *pdf, 	// I - Pointer to PDF object
+ {
+   pdfio_dict_t *fonts;
+   pdfio_dict_t *pageDict = iterate_helper->page_dict;
++  pdfio_valtype_t resources_type;
+   if (!pageDict) 
+     return 1; 
+ 
+   // Locate or create the Resources dictionary
+-  pdfio_dict_t *resources = pdfioDictGetDict(pageDict, "Resources");
+-  if (!resources) 
++  pdfio_dict_t *resources;
++  resources_type = pdfioDictGetType(pageDict, "Resources");
++  if (resources_type == PDFIO_VALTYPE_INDIRECT)
++  {
++    pdfio_obj_t *resources_obj = pdfioDictGetObj(pageDict, "Resources");
++
++    if (!resources_obj ||
++	(resources = pdfioDictCopy((pdfio_file_t *)iterate_helper->pdf,
++				   pdfioObjGetDict(resources_obj))) == NULL ||
++	!pdfioDictSetDict(pageDict, "Resources", resources))
++      return 1;
++  }
++  else if (resources_type == PDFIO_VALTYPE_DICT)
++    resources = pdfioDictGetDict(pageDict, "Resources");
++  else
+   {
+     resources = pdfioDictCreate((pdfio_file_t *)iterate_helper->pdf);
+-    pdfioDictSetDict(pageDict, "Resources", resources);
++    if (!resources || !pdfioDictSetDict(pageDict, "Resources", resources))
++      return 1;
+   }
+ 
+   // Locate or create the Font dictionary within Resources
