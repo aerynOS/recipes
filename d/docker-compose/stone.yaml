@@ -2,19 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : docker-compose
-version     : "5.7.0"
-release     : 29
+version     : "5.7.1"
+release     : 30
 homepage    : https://github.com/docker/compose
 upstreams   :
-    - https://github.com/docker/compose/archive/refs/tags/v5.7.0.tar.gz : 98f5b7dd4a66d8a2d9289e918fa0f63e5ff9821623950e53e633571a78b30d63
+    - https://github.com/docker/compose/archive/refs/tags/v5.7.1.tar.gz : bd108789759d3e17ae5532dd6eee67b427dade4c85089daa2f85d6c8f3e3ccb6
 summary     : Define and run multi-container applications with Docker
 description : |
     Define and run multi-container applications with Docker
 license     :
     - Apache-2.0
 networking  : true
-builddeps   :
-    - binary(git)
 rundeps     :
     - binary(docker)
     - ca-certificates
@@ -26,10 +24,7 @@ setup      : |
 build      : |
     export GO111MODULE=auto
 
-    export GOFLAGS+=" -ldflags=-X=${_compose_r}/v2/internal.Version=v%(version)"
-
-    # Git commit corresponding to the version tag
-    export GITCOMMIT=$(git ls-remote https://github.com/docker/compose.git refs/tags/v%(version) |awk '{print $1}')
+    export GOFLAGS+=" -ldflags=-X=${_compose_r}/v5/internal.Version=v%(version)"
 
     go build -trimpath -tags "e2e,kube" -o docker-compose ./cmd
 install    : |

@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"docker-compose": {
-			"build-depends": [
-				"binary(git)"
-			],
 			"depends": [
 				"binary(docker)",
 				"ca-certificates",
@@ -23,6 +20,6 @@
 		}
 	},
 	"source-name": "docker-compose",
-	"source-release": "29",
-	"source-version": "5.7.0"
+	"source-release": "30",
+	"source-version": "5.7.1"
 }
