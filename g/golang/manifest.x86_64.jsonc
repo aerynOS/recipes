@@ -941,6 +941,7 @@
 				"/usr/lib/golang/src/cmd/compile/internal/types2/lookup_test.go",
 				"/usr/lib/golang/src/cmd/compile/internal/types2/main_test.go",
 				"/usr/lib/golang/src/cmd/compile/internal/types2/map.go",
+				"/usr/lib/golang/src/cmd/compile/internal/types2/methodorder_test.go",
 				"/usr/lib/golang/src/cmd/compile/internal/types2/mono.go",
 				"/usr/lib/golang/src/cmd/compile/internal/types2/mono_test.go",
 				"/usr/lib/golang/src/cmd/compile/internal/types2/named.go",
@@ -10523,6 +10524,7 @@
 				"/usr/lib/golang/test/fixedbugs/issue81612.go",
 				"/usr/lib/golang/test/fixedbugs/issue81687.go",
 				"/usr/lib/golang/test/fixedbugs/issue8183.go",
+				"/usr/lib/golang/test/fixedbugs/issue81863.go",
 				"/usr/lib/golang/test/fixedbugs/issue8280.dir/a.go",
 				"/usr/lib/golang/test/fixedbugs/issue8280.dir/b.go",
 				"/usr/lib/golang/test/fixedbugs/issue8280.go",
@@ -11416,6 +11418,6 @@
 		}
 	},
 	"source-name": "golang",
-	"source-release": "40",
-	"source-version": "1.27.3"
+	"source-release": "41",
+	"source-version": "1.27.4"
 }
