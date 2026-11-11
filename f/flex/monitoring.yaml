@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 819
-  rss: https://github.com/westes/flex/releases.atom
+  id: ~
+  rss: ~
 security:
   cpe:
   - vendor: flex_project
