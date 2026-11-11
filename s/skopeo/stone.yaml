@@ -1,17 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : skopeo
-version     : "1.24.1"
-release     : 13
-upstreams   :
-    - https://github.com/containers/skopeo/archive/refs/tags/v1.24.1.tar.gz : 6a3f342a327ec7684198eb0e15114940b6101506db48d9a96590f5942cb3b335
+version     : "1.25.1"
+release     : 14
 homepage    : https://github.com/containers/skopeo
-license     : Apache-2.0
+upstreams   :
+    - https://github.com/containers/skopeo/archive/refs/tags/v1.25.1.tar.gz : 8e889df322ec3d9457a2e3b61ba9fa77759dd81dac857514333fb3b837e98b65
 summary     : Inspect container images and repositories on registries
 description : |
     Command line utility to inspect images and repositories directly on Docker
     registries without the need to pull them
+license     : Apache-2.0
 builddeps   :
     - binary(go)
     - binary(go-md2man)
@@ -24,6 +24,8 @@ builddeps   :
 rundeps     :
     - ca-certificates
     - containers-common
+tuning      :
+    - golang-modflags: false
 setup       : |
     sed -i 's|.PHONY: bin/skopeo||' Makefile
     sed -i 's|-gcflags "$(GOGCFLAGS)"||' Makefile
@@ -37,5 +39,3 @@ build       : |
     %make docs
 install     : |
     %make_install PREFIX="%(prefix)"
-tuning      :
-    - golang-modflags: false
