@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zed
-version     : "1.27.0"
-release     : 72
+version     : "1.28.1"
+release     : 73
 homepage    : https://zed.dev/
 upstreams   :
-    - https://github.com/zed-industries/zed/archive/refs/tags/v1.27.0.tar.gz : 0e7bec0a4f27ed4d3a9007b136bea8c820e50d60bd96a78a444a93c520726b0a
+    - https://github.com/zed-industries/zed/archive/refs/tags/v1.28.1.tar.gz : 2baab0ae5fdbbdd64cf69afbc4fd3f4427dc86b9a8a4dfd2335a949097741226
 summary     : High performance, graphical code editor
 description : |
     Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
@@ -14,6 +14,7 @@ license     :
     - AGPL-3.0
     - Apache-2.0
     - GPL-3.0
+networking  : true
 builddeps   :
     - binary(cmake)
     - binary(envsubst)
@@ -38,9 +39,6 @@ builddeps   :
     - libstdc++-devel
 rundeps     :
     - binary(unzip)
-networking  : true
-tuning      :
-    - lto: false
 environment : |
     export RUSTFLAGS="$RUSTFLAGS -Clink-arg=-fuse-ld=mold"
     # enable LTO here instead
@@ -49,6 +47,8 @@ environment : |
     export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
     export OPENSSL_NO_VENDOR=true
     export ZSTD_SYS_USE_PKG_CONFIG=1
+tuning      :
+    - lto: false
 setup       : |
     %cargo_fetch
 build       : |
