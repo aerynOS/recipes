@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : buildah
-version     : "1.46.0"
-release     : 13
+version     : "1.46.1"
+release     : 14
 homepage    : https://buildah.io/
 upstreams   :
-    - https://github.com/containers/buildah/archive/refs/tags/v1.46.0.tar.gz : 1e4bb293d4fcebf545f85d4ff0dc3e045ce3a92adfb2aa6242fd30e90189da0c
+    - https://github.com/containers/buildah/archive/refs/tags/v1.46.1.tar.gz : 23c8436ddc87602ef049b94c35a584037ad80f47c679c85a9fdf53647289d2dd
 summary     : A command line tool used for creating OCI Images
 description : |
     The buildah package provides a command line tool which can be used to
