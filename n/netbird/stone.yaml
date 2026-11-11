@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : netbird
-version     : "0.82.0"
-release     : 1
+version     : "0.82.1"
+release     : 2
 homepage    : https://github.com/netbirdio/netbird
 upstreams   :
-    - https://github.com/netbirdio/netbird/archive/refs/tags/v0.82.0.tar.gz : 9553375fdd487572a4fdfeefd4cce95622686a80b8f0d10077c9913bebefe021
+    - https://github.com/netbirdio/netbird/archive/refs/tags/v0.82.1.tar.gz : faea65ed0321a285818ad4458da5b0441c6f6f766c9fd963cb7dfc5cd9bf4445
 summary     : Open Source Zero Trust Networking client
 description : |
     NetBird securely connects people, machines and AI agents across any network with one identity-based Zero Trust platform. Powered by p2p WireGuard®
@@ -14,8 +14,9 @@ license     :
     - AGPL-3.0
     - BSD-3-Clause
 networking  : true
-build       : |
+setup       : |
     %go_mod
+build       : |
     go build \
        -ldflags "-s -w -X 'github.com/netbirdio/netbird/version.version=%(version)' -X 'main.builtBy=aerynOS'" \
        -o build/ ./client
