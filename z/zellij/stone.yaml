@@ -2,18 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zellij
-version     : "0.45.1"
-release     : 10
+version     : "0.46.0"
+release     : 11
 homepage    : https://zellij.dev/
 upstreams   :
-    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.45.1.tar.gz : 5cbe711437d2a61afd9287165f6aca0bcccb9ab1473633665a5b11ed55467852
+    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.0.tar.gz : 2dfa237fea447f3cc98954e81b0097b9d25841010036720e11f67880fe7861f0
 summary     : A terminal workspace with batteries included
 description : |
     Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen) but includes many built-in features that would allow users to extend it and create their own personalized environment.
 license     : MIT
 networking  : true
-tuning      :
-    - lto : thin
 builddeps   :
     - pkgconfig(libcurl)
     - pkgconfig(openssl)
@@ -25,7 +23,7 @@ setup       : |
     %patch %(pkgdir)/ftbfs-openssl-4.patch
     %cargo_fetch
 build       : |
-    %cargo_build --no-default-features --features "plugins_from_target web_server_capability"
+    %cargo_build --no-default-features --features "plugins_from_target web_server_capability terminal"
 
     %(cargo_target_dir)/zellij setup --generate-completion bash > zellij.bash
     %(cargo_target_dir)/zellij setup --generate-completion fish > zellij.fish
@@ -39,9 +37,11 @@ install     : |
     %install_file zellij.fish %(installroot)%(fishcompletionsdir)/zellij.fish
     %install_file zellij.zsh %(installroot)%(zshcompletionsdir)/_zellij
 
-    %install_file assets/zellij.desktop -t %(installroot)%(datadir)/applications/
+    # Desktop launcher (replaces the old zellij.desktop) — see docs/PACKAGING_DESKTOP.md
+    %install_file assets/dev.zellij.Zellij.desktop -t %(installroot)%(datadir)/applications/
+    %install_file assets/dev.zellij.Zellij.metainfo.xml -t %(installroot)%(datadir)/metainfo/
 
-    %install_dir %(installroot)%(datadir)/icons/hicolor/scalable/apps
-    %install_file assets/logo.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/zellij.svg
-
-    %install_file %(pkgdir)/dev.zellij.Zellij.metainfo.xml %(installroot)%(datadir)/metainfo/dev.zellij.Zellij.metainfo.xml
+    %install_file assets/logo.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/dev.zellij.Zellij.svg
+# Disabled: running the full test suite uses too much memory.
+# check       : |
+#     %cargo_test --no-default-features --features "plugins_from_target web_server_capability terminal" -- --test-threads=1

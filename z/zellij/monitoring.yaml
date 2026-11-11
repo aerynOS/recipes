@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 300087
-  rss: ~
+  rss: https://github.com/zellij-org/zellij/releases.atom
 security:
   cpe: ~
