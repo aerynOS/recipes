@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : git
-version     : "2.56.0"
-release     : 27
+version     : "2.56.1"
+release     : 28
 homepage    : https://git-scm.com
 upstreams   :
-    - https://www.kernel.org/pub/software/scm/git/git-2.56.0.tar.gz: 826817fd3671b8565586d6d49f688298de8354ab11db829c02720e5c74b9b39f
+    - https://www.kernel.org/pub/software/scm/git/git-2.56.1.tar.gz: fd0c0495427dc9ac445fdced8e36bb5eb6f233a14da5db3c6dfd8dcfa7f85761
 summary     : Fast, scalable, distributed revision control system
 description : |
     Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.
