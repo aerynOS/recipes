@@ -15,7 +15,8 @@
 			"files": [
 				"/usr/bin/moss",
 				"/usr/lib/dracut/modules.d/90moss/module-setup.sh",
-				"/usr/lib/kernel/cmdline.d/00-quiet.cmdline",
+				"/usr/lib/kernel/cmdline.d/00-unlock-initramfs-root-account.cmdline",
+				"/usr/lib/kernel/cmdline.d/01-quiet.cmdline",
 				"/usr/lib/moss/moss-fstx.sh",
 				"/usr/lib/systemd/system/moss-fstx.service",
 				"/usr/share/bash-completion/completions/moss",
@@ -67,6 +68,6 @@
 		}
 	},
 	"source-name": "moss",
-	"source-release": "144",
+	"source-release": "145",
 	"source-version": "0.26.10~git.a43b174"
 }
