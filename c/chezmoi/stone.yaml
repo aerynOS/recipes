@@ -1,18 +1,21 @@
-# SPDX-FileCopyrightText: 2025 aerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : chezmoi
-version     : "2.74.0"
-release     : 11
+version     : "2.74.1"
+release     : 12
 homepage    : https://www.chezmoi.io/
 upstreams   :
-    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.74.0.tar.gz : 58ecb38aae54e1852f918adae1260a84bb4d750181e093439e621c921acbee49
+    - https://github.com/twpayne/chezmoi/archive/refs/tags/v2.74.1.tar.gz : 818984475f981bb79d516f144386d0f4aeb03f035bca3c6d6287da2bdae61829
 summary     : Manage your dotfiles across multiple machines
 description : |
     chezmoi helps you manage your personal configuration files
     (dotfiles, like ~/.gitconfig) across multiple machines.
 license     : MIT
 networking  : true
+checkdeps   :
+    - binary(gzip)
+    - binary(tar)
 rundeps     :
     - ca-certificates
 setup       : |
@@ -28,6 +31,9 @@ build       : |
         -tags noupgrade
 install     : |
     %install_bin chezmoi
-    %install_file completions/*.bash %(installroot)%(bashcompletionsdir)/chezmoi
-    %install_file completions/*.fish %(installroot)%(fishcompletionsdir)/chezmoi.fish
-    %install_file completions/*.zsh %(installroot)%(zshcompletionsdir)/_chezmoi
+    cd completions
+    %install_file *.bash    %(installroot)%(bashcompletionsdir)/chezmoi
+    %install_file *.fish    %(installroot)%(fishcompletionsdir)/chezmoi.fish
+    %install_file *.zsh     %(installroot)%(zshcompletionsdir)/_chezmoi
+check       : |
+    go test ./...

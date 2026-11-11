@@ -3,6 +3,10 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"chezmoi": {
+			"build-depends": [
+				"binary(gzip)",
+				"binary(tar)"
+			],
 			"depends": [
 				"ca-certificates",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -21,6 +25,6 @@
 		}
 	},
 	"source-name": "chezmoi",
-	"source-release": "11",
-	"source-version": "2.74.0"
+	"source-release": "12",
+	"source-version": "2.74.1"
 }
