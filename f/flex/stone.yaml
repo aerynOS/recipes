@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : flex
-version     : "2.6.4"
-release     : 8
+version     : "2.6.7"
+release     : 9
 homepage    : https://westes.github.io/flex/
 upstreams   :
-    - https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz : e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
+    - https://github.com/westes/flex/releases/download/v2.6.7/flex-2.6.7.tar.gz : b8dbc5625462664d06ac028791e465ae23e0dc8a04e014890d366221d37d5008
 summary     : The Fast Lexical Analyzer
 description : |
     The Fast Lexical Analyzer
