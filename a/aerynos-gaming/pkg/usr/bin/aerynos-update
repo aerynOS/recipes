@@ -36,10 +36,9 @@ moss repo list >> $logfile
 
 # Check if an update is available
 check_for_update () {
-	pkg_count_legacy=$(moss repo update >/dev/null 2>&1 && moss list sync 2>/dev/null |wc -l |tail -n1)
 	pkg_count=$(moss repo update >/dev/null 2>&1 && moss pkg list --sync 2>/dev/null |wc -l |tail -n1)
 	# Report to Steam if update is available
-	if [[ $pkg_count -ge 1 ]] || [[ $pkg_count_legacy -ge 1 ]]; then
+	if [[ $pkg_count -ge 1 ]]; then
 		printf "steamos-update: Update available\n" >> $logfile
 		printf "Update available\n"
 	else
@@ -88,7 +87,7 @@ else
 
 	# FIXME: Workaround to get "empty" file
 	echo '{}' > $source_file
-	moss sync -y --log info:json:$source_file >/dev/null 2>&1 &
+	moss pkg list --sync -y --log info:json:$source_file >/dev/null 2>&1 &
 
 	count_hundred=0
 	while IFS= read -r progress_item
