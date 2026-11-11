@@ -3,7 +3,7 @@
 
 name        : plymouth
 version     : "26.134.222"
-release     : 16
+release     : 17
 homepage    : https://www.freedesktop.org/wiki/Software/Plymouth/
 upstreams   :
     - https://www.freedesktop.org/software/plymouth/releases/plymouth-26.134.222.tar.xz : 6ee1068216c5047923fabf0f6aa583e9d77cab383077358df3fc22f2ee398bb0
@@ -56,4 +56,4 @@ build       : |
 install     : |
     %meson_install
     %install_file /usr/share/icons/aerynos-logo-dark.png %(installroot)%(datadir)/plymouth/themes/spinner/watermark.png
-    %install_file %(pkgdir)/10-splash.cmdline %(installroot)%(libdir)/kernel/cmdline.d/10-splash.cmdline
+    %install_file %(pkgdir)/02-plymouth-splash.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
