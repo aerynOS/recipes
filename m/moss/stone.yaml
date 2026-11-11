@@ -3,7 +3,7 @@
 
 name        : moss
 version     : "0.26.10~git.a43b174"
-release     : 144
+release     : 145
 homepage    : https://github.com/AerynOS/os-tools
 upstreams   :
     - git|https://github.com/aerynOS/os-tools.git :
@@ -41,8 +41,10 @@ install     : |
     %install_dir %(installroot)%(mandir)/man1
     cp generated/*.1 %(installroot)%(mandir)/man1/
 
-    # Install the base cmdline snippet
-    %install_file %(pkgdir)/00-quiet.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
+    # Tightly control kernel cmdline argument order for easier editing
+    # This unlocks the initramfs root account by default as a convenience
+    %install_file %(pkgdir)/00-unlock-initramfs-root-account.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
+    %install_file %(pkgdir)/01-quiet.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
 
     # Install the mime type
     %install_file stone.xml -t %(installroot)%(datadir)/mime/packages/
