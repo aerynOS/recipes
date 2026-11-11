@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sshfs
-version     : "3.7.6"
-release     : 4
-upstreams   :
-    - https://github.com/libfuse/sshfs/archive/refs/tags/sshfs-3.7.6.tar.gz : 67a3e166a39b07708497ee0aee308547dba386053cf8d816b4ce8a9b3066a6ce
+version     : "3.7.7"
+release     : 5
 homepage    : https://github.com/libfuse/sshfs
-license     : GPL-2.0-only
+upstreams   :
+    - https://github.com/libfuse/sshfs/archive/refs/tags/sshfs-3.7.7.tar.gz : 3f2873a2b7e7bdd3179ce2a5ee00d219a043cbd75d5be42ccb9707123a90418f
 summary     : A network filesystem client to connect to SSH servers
 description : |
     SSHFS allows you to mount a remote filesystem using SFTP. Most SSH servers support and enable this SFTP access by default, so SSHFS is very simple to use - there's nothing to do on the server-side.
+license     : GPL-2.0-only
 builddeps   :
     - binary(rst2man)
     - pkgconfig(fuse3)
@@ -26,3 +26,5 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+check       : |
+    %meson_test --suite unit
