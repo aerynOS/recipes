@@ -3,7 +3,7 @@
 
 releases:
   id: 10385
-  rss: ~
+  rss: https://github.com/ximion/appstream/tags.atom
 security:
   # Last checked 2026-10-28
   cpe: ~
