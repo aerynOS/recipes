@@ -2,15 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : thunderbird
-version     : "159.0"
-release     : 62
+version     : "160.0"
+release     : 63
 homepage    : https://www.thunderbird.net/
 upstreams   :
-    - https://releases.mozilla.org/pub/thunderbird/releases/159.0/source/thunderbird-159.0.source.tar.xz : b4cbc4e010deaa66a51a5c647586c8dc41579c136155fe8baa8253f7c8b3927e
+    - https://releases.mozilla.org/pub/thunderbird/releases/160.0/source/thunderbird-160.0.source.tar.xz : 0eee5fd3ad212b19d355498dc490d8c672f0dcd3697e242ed9b2fa9519efa4d3
 summary     : Thunderbird Email Client
 description : |
     Thunderbird Email Client
 license     : MPL-2.0
+networking  : true # PGO
 builddeps   :
     - binary(cbindgen)
     - binary(dbus-run-session) # PGO
@@ -48,7 +49,6 @@ rundeps     :
     - rnp
     - thunderbird-langpacks
     - xdg-desktop-portal
-networking  : true # PGO
 environment : |
     # Set this to 1 if you want to create a release build, 0 if you're just doing builds locally for testing purposes
     # Note that you still need to do a full release build locally and test it before pushing it
