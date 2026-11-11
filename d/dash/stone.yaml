@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dash
-version     : "0.5.13.5"
-release     : 20
+version     : "0.5.13.6"
+release     : 21
 homepage    : http://gondor.apana.org.au/~herbert/dash
 upstreams   :
-    - http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.5.tar.gz: 40090101a2a491f13e901d3d48e90414f26634628b9bfff35ff540363c227a7d
+    - http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.6.tar.gz: 26aac476f476cef391c600cb064417d82a5465d8fc7c4fd56158c276e86538c1
 summary     : Small and fast POSIX-compliant shell
 description : |
     Small and fast POSIX-compliant shell
