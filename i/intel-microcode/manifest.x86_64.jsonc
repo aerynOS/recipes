@@ -142,6 +142,7 @@
 				"/usr/lib/firmware/intel-ucode/06-cf-02",
 				"/usr/lib/firmware/intel-ucode/06-d5-01",
 				"/usr/lib/firmware/intel-ucode/06-d7-00",
+				"/usr/lib/firmware/intel-ucode/06-dd-01",
 				"/usr/lib/firmware/intel-ucode/0f-00-07",
 				"/usr/lib/firmware/intel-ucode/0f-00-0a",
 				"/usr/lib/firmware/intel-ucode/0f-01-02",
@@ -173,6 +174,6 @@
 		}
 	},
 	"source-name": "intel-microcode",
-	"source-release": "22",
-	"source-version": "20260925"
+	"source-release": "23",
+	"source-version": "20261110"
 }
