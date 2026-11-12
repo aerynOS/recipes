@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openexr
-version     : "3.5.3"
-release     : 28
+version     : "3.5.4"
+release     : 29
 homepage    : https://www.openexr.com/
 upstreams   :
-    - https://github.com/AcademySoftwareFoundation/openexr/releases/download/v3.5.3/openexr-3.5.3.tar.gz : aa84c2979d614a1bb5870da64d9fb4969deda8bf4f8166e7393bfd81e40af305
+    - https://github.com/AcademySoftwareFoundation/openexr/releases/download/v3.5.4/openexr-3.5.4.tar.gz : a09706c88ab83a90c26e7ee06cb7e6fa03a57726931eaec557c2e7eaf35c1b13
 summary     : A high dynamic-range image file format library
 description : |
     OpenEXR provides the specification and reference implementation of the EXR file format, the professional-grade image storage format of the motion picture industry.
@@ -22,8 +22,6 @@ builddeps   :
     - cmake(openjph)
     - pkgconfig(libzstd)
 setup       : |
-    %patch %(pkgdir)/0001-Do-not-pin-the-OpenJPH-version.patch
-
     %cmake
 build       : |
     %cmake_build
