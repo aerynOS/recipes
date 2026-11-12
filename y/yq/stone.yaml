@@ -2,22 +2,22 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yq
-version     : "4.54.2"
-release     : 19
+version     : "4.54.3"
+release     : 20
 homepage    : https://mikefarah.gitbook.io/yq/
 upstreams   :
-    - https://github.com/mikefarah/yq/archive/refs/tags/v4.54.2.tar.gz : 13391403bb284452e102a532037c1ce5f5cd9d2a45f3e70521e810d5c32afe46
+    - https://github.com/mikefarah/yq/archive/refs/tags/v4.54.3.tar.gz : 93143d49b2a3bd6cb723477f585366b29f70c636af4653191d61b49b0c47de7f
 summary     : yq is a lightweight command-line YAML processor
 description : |
     A lightweight and portable command-line YAML processor. yq uses jq like syntax but works with yaml files as well as json. It doesn't yet support everything jq does - but it does support the most common operations and functions, and more is being added continuously.
 license     : MIT
+networking  : true
 checkdeps   :
     # Some of the tests need timezone data
     - tzdata
-networking  : true
 setup       : |
-    # https://github.com/mikefarah/yq/pull/2956
-    %patch %(pkgdir)/go-yaml-v4-stream-aliases.patch
+    # goccy/go-json error text differs from encoding/json
+    %patch %(pkgdir)/goccy-go-json-error-message.patch
     %go_mod
 build       : |
     go build -v ./yq.go
@@ -28,4 +28,5 @@ install     : |
     ./yq shell-completion zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_yq
     ./yq shell-completion fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/yq.fish
 check       : |
-    go test ./...
+    # ACL xattrs are unavailable in the boulder build environment (EINVAL)
+    go test -skip TestMultiPrinterWriterPreservesRestrictiveAccessACL ./...
