@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sdl2-image
 version     : "2.8.12"
-release     : 8
+release     : 9
 homepage    : https://www.libsdl.org/
 upstreams   :
     - https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.12/SDL2_image-2.8.12.tar.gz : 393f5efb50536ec13ca4f4affb69cc9966d3c3f969e6c5e701faddf9f9785381
