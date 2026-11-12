@@ -3,7 +3,7 @@
 
 name        : noctalia
 version     : "5.4.1"
-release     : 12
+release     : 13
 homepage    : https://github.com/noctalia-dev/noctalia
 upstreams   :
     - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.4.1.tar.gz : 6069d922e9d72488c74e4ce335314ce2203f08bd4641380bfe1bd137004597fa
