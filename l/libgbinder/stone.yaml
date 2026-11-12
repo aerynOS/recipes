@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libgbinder
-version     : "1.1.54"
-release     : 12
+version     : "1.1.55"
+release     : 13
 homepage    : https://github.com/mer-hybris/libgbinder
 upstreams   :
-    - https://github.com/mer-hybris/libgbinder/archive/1.1.54/libgbinder-1.1.54.tar.gz : 8fae2c3d94ceef5e3026d5d058daff1b298c18d3b68a66e1c2da10bffa80299b
+    - https://github.com/mer-hybris/libgbinder/archive/1.1.55/libgbinder-1.1.55.tar.gz : 391b9a4fe40c9f789c2379e853546570f26067fd8794abdd29b6ab98263f2ac5
 license     : BSD-3-Clause
 summary     : GLib-style interface to binder
 description : |
