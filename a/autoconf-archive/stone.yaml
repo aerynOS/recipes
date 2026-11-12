@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : autoconf-archive
-version     : "2024.10.16"
-release     : 2
+version     : "2026.11.11"
+release     : 3
 summary     : A collection of macros for Autoconf
 license     : GPL-3.0-or-later WITH Autoconf-exception-3.0
 homepage    : https://www.gnu.org/software/autoconf-archive/
 description : |
     A collection of macros for Autoconf
 upstreams   :
-    - https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2024.10.16.tar.xz: 7bcd5d001916f3a50ed7436f4f700e3d2b1bade3ed803219c592d62502a57363
+    - https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2026.11.11.tar.xz: 2c18f15e2b3bb79e09622b27391df07d8608ce9f07fbfc7c1143fa683891ab26
 rundeps     :
     - autoconf
 setup       : |
