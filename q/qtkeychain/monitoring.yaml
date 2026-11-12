@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 381807
   rss: https://github.com/frankosterfeld/qtkeychain/releases.atom
 security:
-  # Last checked 2025-02-11
+  # Last checked 2026-11-11
   cpe: ~
