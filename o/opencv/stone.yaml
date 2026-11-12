@@ -3,7 +3,7 @@
 
 name        : opencv
 version     : "5.1.0"
-release     : 28
+release     : 29
 homepage    : https://opencv.org
 upstreams   :
     - https://github.com/opencv/opencv/archive/refs/tags/5.1.0.tar.gz:
