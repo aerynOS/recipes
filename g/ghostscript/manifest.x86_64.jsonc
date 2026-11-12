@@ -17,7 +17,6 @@
 				"pkgconfig(lcms2)",
 				"pkgconfig(libidn2)",
 				"pkgconfig(libjpeg)",
-				"pkgconfig(libjxl)",
 				"pkgconfig(libopenjp2)",
 				"pkgconfig(libpng)",
 				"pkgconfig(libtiff-4)",
@@ -131,7 +130,6 @@
 				"pkgconfig(lcms2)",
 				"pkgconfig(libidn2)",
 				"pkgconfig(libjpeg)",
-				"pkgconfig(libjxl)",
 				"pkgconfig(libopenjp2)",
 				"pkgconfig(libpng)",
 				"pkgconfig(libtiff-4)",
@@ -165,7 +163,6 @@
 				"pkgconfig(lcms2)",
 				"pkgconfig(libidn2)",
 				"pkgconfig(libjpeg)",
-				"pkgconfig(libjxl)",
 				"pkgconfig(libopenjp2)",
 				"pkgconfig(libpng)",
 				"pkgconfig(libtiff-4)",
@@ -502,7 +499,6 @@
 				"pkgconfig(lcms2)",
 				"pkgconfig(libidn2)",
 				"pkgconfig(libjpeg)",
-				"pkgconfig(libjxl)",
 				"pkgconfig(libopenjp2)",
 				"pkgconfig(libpng)",
 				"pkgconfig(libtiff-4)",
@@ -526,6 +522,6 @@
 		}
 	},
 	"source-name": "ghostscript",
-	"source-release": "12",
+	"source-release": "13",
 	"source-version": "10.08.0"
 }

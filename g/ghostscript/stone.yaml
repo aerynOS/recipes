@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ghostscript
 version     : "10.08.0"
-release     : 12
+release     : 13
 homepage    : https://www.ghostscript.com/
 upstreams   :
     - https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10080/ghostscript-10.08.0.tar.gz : caf199e3f233f1290b27d0972d636f66c303355f2353309b7bfddf1edda06b3d
@@ -24,7 +24,6 @@ builddeps   :
     - pkgconfig(lcms2)
     - pkgconfig(libidn2)
     - pkgconfig(libjpeg)
-    - pkgconfig(libjxl)
     - pkgconfig(libopenjp2)
     - pkgconfig(libpng)
     - pkgconfig(libtiff-4)
