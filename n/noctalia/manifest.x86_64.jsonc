@@ -92,6 +92,7 @@
 				"/usr/share/noctalia/assets/fonts/tabler-icons-license.txt",
 				"/usr/share/noctalia/assets/fonts/tabler.json",
 				"/usr/share/noctalia/assets/noctalia-wallpaper.png",
+				"/usr/share/noctalia/assets/noctalia.service",
 				"/usr/share/noctalia/assets/noctalia.svg",
 				"/usr/share/noctalia/assets/templates/alacritty/alacritty.toml",
 				"/usr/share/noctalia/assets/templates/alacritty/apply.sh",
@@ -119,6 +120,7 @@
 				"/usr/share/noctalia/assets/templates/gtk/gtk4.css",
 				"/usr/share/noctalia/assets/templates/gtk/undo-gtk3.sh",
 				"/usr/share/noctalia/assets/templates/gtk/undo-gtk4.sh",
+				"/usr/share/noctalia/assets/templates/helix/apply.sh",
 				"/usr/share/noctalia/assets/templates/helix/helix.toml",
 				"/usr/share/noctalia/assets/templates/helix/undo.sh",
 				"/usr/share/noctalia/assets/templates/hyprland/apply.sh",
@@ -191,6 +193,6 @@
 		}
 	},
 	"source-name": "noctalia",
-	"source-release": "13",
-	"source-version": "5.4.1"
+	"source-release": "14",
+	"source-version": "5.5.0"
 }
