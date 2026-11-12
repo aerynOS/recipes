@@ -5,7 +5,7 @@ releases:
   id: 12683
   rss: https://github.com/tpm2-software/tpm2-tss/releases.atom
 security:
-  # Last checked 2026-10-30
+  # Last checked 2026-11-12
   cpe:
   - vendor: tpm2_software_stack_project
     product: tpm2_software_stack
