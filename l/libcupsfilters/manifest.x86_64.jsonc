@@ -30,7 +30,7 @@
 				"soname(libexif.so.12(x86_64))",
 				"soname(libfontconfig.so.1(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(liblcms2_fast_float.so.2(x86_64))",
 				"soname(liblcms2_threaded.so.2(x86_64))",
@@ -126,6 +126,6 @@
 		}
 	},
 	"source-name": "libcupsfilters",
-	"source-release": "13",
+	"source-release": "14",
 	"source-version": "2.2.1"
 }
