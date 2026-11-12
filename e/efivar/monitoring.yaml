@@ -5,4 +5,5 @@ releases:
   id: 664
   rss: https://github.com/rhboot/efivar/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-07-08)
+  # No CPE found, last checked 2026-11-12
+  cpe: ~
