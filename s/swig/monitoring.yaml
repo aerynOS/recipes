@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 4919
-# No known CPE. Last checked 20230110
   rss: ~
 security:
-  cpe: ~
+  # Last checked 2026-11-12
+  cpe:
+  - vendor: swig_project
+    product: swig
