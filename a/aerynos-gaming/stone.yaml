@@ -6,7 +6,7 @@
 #
 name        : aerynos-gaming
 version     : "2026.10"
-release     : 3
+release     : 4
 summary     : AerynOS Gaming config files
 license     : LGPL-2.1-or-later
 homepage    : https://github.com/aerynOS/recipes/tree/main/a/aerynos-gaming
