@@ -1,0 +1,143 @@
+From 1c90df02fcbb2477ce7e403d33fe762f5afdfa63 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Wed, 11 Nov 2026 16:58:36 -0600
+Subject: [PATCH] Read config from a vendor directory
+
+libblockdev only reads plugin configuration from /etc/libblockdev/3/conf.d/,
+so a stateless system that ships its defaults under /usr/share/defaults never
+picks them up and silently falls back to the built-in plugin list.
+
+Look the vendor directory up first and /etc second, merging both by file name
+so that the numbered files keep their precedence and the /etc copy of a file
+wins over the vendor one. LIBBLOCKDEV_CONFIG_DIR keeps replacing the lookup
+entirely, and an unreadable /etc directory is reported instead of ignored.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-11
+---
+ src/lib/blockdev.c.in | 91 +++++++++++++++++++++++++++++++------------
+ 1 file changed, 67 insertions(+), 24 deletions(-)
+
+diff --git a/src/lib/blockdev.c.in b/src/lib/blockdev.c.in
+index 6a46392..129b434 100644
+--- a/src/lib/blockdev.c.in
++++ b/src/lib/blockdev.c.in
+@@ -44,6 +44,7 @@
+  */
+ 
+ #define DEFAULT_CONF_DIR_PATH "/etc/libblockdev/@MAJOR_VER@/conf.d/"
++#define VENDOR_CONF_DIR_PATH "/usr/share/defaults/libblockdev/@MAJOR_VER@/conf.d/"
+ 
+ static GMutex init_lock;
+ static gboolean initialized = FALSE;
+@@ -95,43 +96,85 @@ static void set_plugin_so_name (BDPlugin name, const gchar *so_name) {
+ }
+ 
+ static gint config_file_cmp (gconstpointer a, gconstpointer b, gpointer user_data G_GNUC_UNUSED) {
+-    const gchar *name1 = (const gchar *) a;
+-    const gchar *name2 = (const gchar *) b;
+-
+-    return g_strcmp0 (name1, name2);
++    const gchar *path1 = (const gchar *) a;
++    const gchar *path2 = (const gchar *) b;
++    const gchar *name1 = strrchr (path1, '/');
++    const gchar *name2 = strrchr (path2, '/');
++    gint ret = 0;
++
++    /* order by file name so that the numbered files keep their precedence
++       across directories, with the /etc copy of a file winning over the
++       vendor one */
++    ret = g_strcmp0 (name1 ? name1 + 1 : path1, name2 ? name2 + 1 : path2);
++    if (ret != 0)
++        return ret;
++
++    return (g_str_has_prefix (path1, DEFAULT_CONF_DIR_PATH) ? 1 : 0)
++         - (g_str_has_prefix (path2, DEFAULT_CONF_DIR_PATH) ? 1 : 0);
+ }
+ 
+-static GSequence* get_config_files (GError **error) {
++static gboolean append_config_files (GSequence *files, const gchar *dir_path, GError **error) {
+     GDir *dir = NULL;
+-    GSequence *ret = NULL;
+-    gchar *conf_dir_path = NULL;
+     const gchar *dirent = NULL;
+ 
+-    conf_dir_path = g_strdup (g_getenv("LIBBLOCKDEV_CONFIG_DIR"));
+-    if (!conf_dir_path)
+-        conf_dir_path = g_strdup (DEFAULT_CONF_DIR_PATH);
++    dir = g_dir_open (dir_path, 0, error);
++    if (!dir)
++        return FALSE;
+ 
+-    dir = g_dir_open (conf_dir_path, 0, error);
+-    if (!dir) {
+-        g_prefix_error (error, "Failed to get contents of the config dir (%s)", conf_dir_path);
+-        g_free (conf_dir_path);
+-        return NULL;
++    dirent = g_dir_read_name (dir);
++    while (dirent) {
++        /* only process .cfg files from the directory */
++        if (g_str_has_suffix (dirent, ".cfg"))
++            g_sequence_insert_sorted (files, g_build_filename (dir_path, dirent, NULL), config_file_cmp, NULL);
++        dirent = g_dir_read_name (dir);
+     }
+ 
++    g_dir_close (dir);
++    return TRUE;
++}
++
++static GSequence* get_config_files (GError **error) {
++    GSequence *ret = NULL;
++    const gchar *conf_dir_path = NULL;
++    GError *local_error = NULL;
++
+     ret = g_sequence_new ((GDestroyNotify) g_free);
+ 
+-    dirent = g_dir_read_name(dir);
+-    while (dirent) {
+-        /* only process .cfg files from the directory */
+-        if (g_str_has_suffix (dirent, ".cfg")) {
+-            dirent = g_build_filename (conf_dir_path, dirent, NULL);
+-            g_sequence_insert_sorted (ret, (gpointer) dirent, config_file_cmp, NULL);
++    /* LIBBLOCKDEV_CONFIG_DIR replaces the default lookup entirely */
++    conf_dir_path = g_getenv ("LIBBLOCKDEV_CONFIG_DIR");
++    if (conf_dir_path && *conf_dir_path) {
++        if (!append_config_files (ret, conf_dir_path, error)) {
++            g_sequence_free (ret);
++            return NULL;
+         }
+-        dirent = g_dir_read_name(dir);
++        return ret;
+     }
+ 
+-    g_free (conf_dir_path);
+-    g_dir_close (dir);
++    /* read the vendor defaults first, /etc second so that the /etc copy of a
++       file takes precedence (see config_file_cmp for the ordering) */
++    if (!append_config_files (ret, VENDOR_CONF_DIR_PATH, &local_error)) {
++        if (g_error_matches (local_error, G_FILE_ERROR, G_FILE_ERROR_NOENT) ||
++            g_error_matches (local_error, G_FILE_ERROR, G_FILE_ERROR_NOTDIR))
++            g_clear_error (&local_error);
++        else
++            bd_utils_log_format (BD_UTILS_LOG_WARNING, "Failed to read the config dir (%s): %s",
++                                 VENDOR_CONF_DIR_PATH, local_error->message);
++    }
++    g_clear_error (&local_error);
++
++    if (!append_config_files (ret, DEFAULT_CONF_DIR_PATH, &local_error)) {
++        if (g_error_matches (local_error, G_FILE_ERROR, G_FILE_ERROR_NOENT) ||
++            g_error_matches (local_error, G_FILE_ERROR, G_FILE_ERROR_NOTDIR))
++            g_clear_error (&local_error);
++        else
++            bd_utils_log_format (BD_UTILS_LOG_WARNING, "Failed to read the config dir (%s): %s",
++                                 DEFAULT_CONF_DIR_PATH, local_error->message);
++    }
++    g_clear_error (&local_error);
++
++    if (g_sequence_get_length (ret) == 0)
++        bd_utils_log_format (BD_UTILS_LOG_INFO, "No config files found, using the built-in config");
++
+     return ret;
+ }
+ 

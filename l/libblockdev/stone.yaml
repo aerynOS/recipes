@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libblockdev
-version     : "3.5.0"
-release     : 9
+version     : "3.6.0"
+release     : 10
 homepage    : https://github.com/storaged-project/libblockdev
 upstreams   :
-    - https://github.com/storaged-project/libblockdev/releases/download/3.5.0/libblockdev-3.5.0.tar.gz : bccd30e6b5d11504de60d9889ff6a2a25b07a4ec8f04070f2387e168301b3e3a
+    - https://github.com/storaged-project/libblockdev/releases/download/3.6.0/libblockdev-3.6.0.tar.gz : 9c21338257746cd00c25fcf5975716d016b6d43bfde20ee21f254cbf7d0d2742
 summary     : A library for manipulating block devices
 description : |
     libblockdev is a C library supporting GObject introspection for manipulation of block devices. It has a plugin-based architecture where each technology (like LVM, Btrfs, MD RAID, Swap,...) is implemented in a separate plugin, possibly with multiple implementations (e.g. using LVM CLI or the new LVM DBus API).
@@ -17,8 +17,8 @@ builddeps   :
     - pkgconfig(devmapper)
     - pkgconfig(ext2fs)
     - pkgconfig(fdisk)
-    - pkgconfig(gobject-introspection-1.0)
     - pkgconfig(glib-2.0)
+    - pkgconfig(gobject-introspection-1.0)
     - pkgconfig(json-glib-1.0)
     - pkgconfig(libatasmart)
     - pkgconfig(libcryptsetup)
@@ -33,6 +33,8 @@ builddeps   :
     - pkgconfig(yaml-0.1)
     - smartmontools # drivedb.h
 setup       : |
+    %patch %(pkgdir)/0001-Read-config-from-a-vendor-directory.patch
+
     # escrow requires volume_key which is crusty af
     # nvdimm requries ndctl which isn't yet packaged but relatively unimportant
     %configure \
@@ -42,4 +44,11 @@ build       : |
     %make
 install     : |
     %make_install
+
+    # Boulder drops /etc, so ship the plugin configs as vendor defaults (see patch)
+    # 10-lvm-dbus.cfg is omitted until lvmdbusd is packaged (lvm2 has it disabled)
+    rm -rf %(installroot)%(sysconfdir)/libblockdev
+    rmdir %(installroot)%(sysconfdir) 2>/dev/null || true
+    %install_dir %(installroot)%(vendordir)/libblockdev/3/conf.d
+    %install_file data/conf.d/00-default.cfg %(installroot)%(vendordir)/libblockdev/3/conf.d/.
 # TODO: Subpackage this up
