@@ -3,13 +3,18 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"efivar": {
+			"build-depends": [
+				"pkgconfig(libcrypto)"
+			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(libc.so.6(x86_64))"
+				"soname(libc.so.6(x86_64))",
+				"soname(libcrypto.so.4(x86_64))"
 			],
 			"files": [
 				"/usr/bin/efisecdb",
 				"/usr/bin/efivar",
+				"/usr/bin/sbchooser",
 				"/usr/lib/libefiboot.so.1",
 				"/usr/lib/libefiboot.so.1.39",
 				"/usr/lib/libefisec.so.1",
@@ -21,12 +26,16 @@
 			"provides": [
 				"binary(efisecdb)",
 				"binary(efivar)",
+				"binary(sbchooser)",
 				"soname(libefiboot.so.1(x86_64))",
 				"soname(libefisec.so.1(x86_64))",
 				"soname(libefivar.so.1(x86_64))"
 			]
 		},
 		"efivar-devel": {
+			"build-depends": [
+				"pkgconfig(libcrypto)"
+			],
 			"depends": [
 				"efivar"
 			],
@@ -58,6 +67,6 @@
 		}
 	},
 	"source-name": "efivar",
-	"source-release": "1",
-	"source-version": "39"
+	"source-release": "2",
+	"source-version": "40"
 }
