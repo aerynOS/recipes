@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Thu, 12 Nov 2026 12:00:00 -0600
+Subject: [PATCH] Drop the yy_fatal_error() workaround
+
+flex 2.6.5 renamed the generated scanner's yy_fatal_error() to yypanic(),
+so the dead-code call kept only to silence -Wunused-function no longer
+compiles. do_fatal_error() is used by YY_FATAL_ERROR(), so drop the hack.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-12
+---
+ connectivity/source/parse/sqlflex.l | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/connectivity/source/parse/sqlflex.l b/connectivity/source/parse/sqlflex.l
+--- a/connectivity/source/parse/sqlflex.l
++++ b/connectivity/source/parse/sqlflex.l
+@@ -96,12 +96,10 @@
+ // coverity[+kill]
+ static void do_fatal_error(const char* msg)
+ {
+     xxx_pGLOBAL_SQLSCAN->SQLyyerror(msg);
+-    /*hack to silence -Wunused-function*/
+-    if ((0)) yy_fatal_error(msg);
+ }
+ 
+ #define YY_FATAL_ERROR(msg) \
+ {                           \
+     do_fatal_error(msg);    \
+ }

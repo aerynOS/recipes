@@ -6,22 +6,22 @@ name        : libreoffice
 ### IMPORTANT: Use the update-libreoffice.py script to update this package
 
 ##@@BEGIN_VERSION
-version     : "26.8.2.2"
+version     : "26.8.3.1"
 ##@@END_VERSION
-release     : 9
+release     : 10
 upstreams   :
 ##@@BEGIN_SOURCE
-    - https://download.documentfoundation.org/libreoffice/src/26.8.2/libreoffice-26.8.2.2.tar.xz:
-        hash: f0012302d9cc70955bd55890d3aaccf6c55677c4a6a46e1003f996b1b0dae8e7
+    - https://download.documentfoundation.org/libreoffice/src/26.8.3/libreoffice-26.8.3.1.tar.xz:
+        hash: 83006a81376988d04a73eaa4dcf44f6f12774a81fd763726406a831905a9de28
         unpackdir: libreoffice
-    - https://download.documentfoundation.org/libreoffice/src/26.8.2/libreoffice-dictionaries-26.8.2.2.tar.xz:
-        hash: d1b206157ea69249d754cabd8e9213b9dc69fc072fca91f51a681e95228239e0
+    - https://download.documentfoundation.org/libreoffice/src/26.8.3/libreoffice-dictionaries-26.8.3.1.tar.xz:
+        hash: 62652a9ff21dc04f76042c72034d6920db9b054d56b4fa72151d031daaa92164
         unpackdir: libreoffice
-    - https://download.documentfoundation.org/libreoffice/src/26.8.2/libreoffice-help-26.8.2.2.tar.xz:
-        hash: e7e0270c30b13c4c52acae57e6c7529dc2146d9946123b5da17ae236e3bb4f68
+    - https://download.documentfoundation.org/libreoffice/src/26.8.3/libreoffice-help-26.8.3.1.tar.xz:
+        hash: efb82de9a87daa6bfdc4b3a9bb1c255476f21c6fe5cb8fb7bd6217e6082c72b8
         unpackdir: libreoffice
-    - https://download.documentfoundation.org/libreoffice/src/26.8.2/libreoffice-translations-26.8.2.2.tar.xz:
-        hash: 1a3b6077ebfac899f2c31666d283e29e94c2d30704dd162fda7ba06d77212dd2
+    - https://download.documentfoundation.org/libreoffice/src/26.8.3/libreoffice-translations-26.8.3.1.tar.xz:
+        hash: 22c191a11907d1c449f27aa2ca976e02abdd98eaf59f823ecf8b35609bf838f0
         unpackdir: libreoffice
 ##@@END_SOURCE
 
@@ -414,9 +414,9 @@ upstreams   :
         hash: 673f5bb94612dbba581fc92b99b5e5dd1a53e29496a5dbc936432f6b0687c112
         rename: ext_sources/mdds-3.2.1.tar.xz
         unpack: false
-    - https://dev-www.libreoffice.org/src/openldap-2.7.1.tgz:
-        hash: 253db80f301258ea69cda1184766d57395b836aaabf41157eb0316eb0fac1341
-        rename: ext_sources/openldap-2.7.1.tgz
+    - https://dev-www.libreoffice.org/src/openldap-2.7.2.tgz:
+        hash: aad731aa22118ff327b9b4ddfc4b6f18ef9476586205da88a532e90940b523d2
+        rename: ext_sources/openldap-2.7.2.tgz
         unpack: false
     - https://dev-www.libreoffice.org/src/pdfium-8073.tar.bz2:
         hash: a3624f6f0ac46a7e190969d405aa7a07dbc342baf69f81192487575bf64055a5
@@ -426,9 +426,9 @@ upstreams   :
         hash: daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c
         rename: ext_sources/phc-winner-argon2-20190702.tar.gz
         unpack: false
-    - https://dev-www.libreoffice.org/src/poppler-26.10.0.tar.xz:
-        hash: 6792cb7c69205007ad87d2e936cecc5b3a31fac29ab54ffc3175fdb6b2a6ce35
-        rename: ext_sources/poppler-26.10.0.tar.xz
+    - https://dev-www.libreoffice.org/src/poppler-26.11.0.tar.xz:
+        hash: 41c32680160addf5a8dd7a830e4869c01e9f6bee1abb91e44fabd1ba9d7828fb
+        rename: ext_sources/poppler-26.11.0.tar.xz
         unpack: false
     - https://dev-www.libreoffice.org/src/poppler-data-0.4.12.tar.gz:
         hash: c835b640a40ce357e1b83666aabd95edffa24ddddd49b8daff63adb851cdab74
@@ -608,6 +608,8 @@ environment : |
     export JAVA_HOME=/usr/lib/jvm/openjdk-25
     export PATH=$JAVA_HOME/bin:$PATH
 setup       : |
+    %patch %(pkgdir)/ftbfs-flex-2.6.5.patch
+
     # TODO myspell dicts
 
     %configure \
