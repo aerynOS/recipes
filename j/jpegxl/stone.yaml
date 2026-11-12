@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : jpegxl
-version     : "0.12.0"
-release     : 12
+version     : "0.13.0"
+release     : 13
 homepage    : https://github.com/libjxl/libjxl
 upstreams   :
-    - https://github.com/libjxl/libjxl/archive/refs/tags/v0.12.0.tar.gz : 03e9be69a30be4011f559da75328b6d7cea8ad921fabfbd551ce10bf45cdc992
-    - git|https://github.com/webmproject/sjpeg.git : 94e0df6d0f8b44228de5be0ff35efb9f946a13c9
+    - https://github.com/libjxl/libjxl/archive/refs/tags/v0.13.0.tar.gz : 24d18c9af2d1f5a17730b3f8d3f70a5c16e5ac303f5d9d5fe9dc00cf7ca82af2
+    - git|https://github.com/webmproject/sjpeg.git : dd4d9857c58a25713711a46d37385ad23ca2177e
     - git|https://skia.googlesource.com/skcms.git : 96d9171c94b937a1b5f0293de7309ac16311b722
 summary     : JPEG XL image format reference implementation
 description : |
@@ -50,11 +50,11 @@ install     : |
     %cmake_install
 
     # This is obviously not ABI compatible but _boulder doesn't know that_
-    # for i in libjxl libjxl_cms libjxl_threads; do
-    #     cp %(installroot)%(libdir)/${i}.so.0.12 %(installroot)%(libdir)/${i}.so.0.11
-    #     cp %(installroot)%(libdir)/${i}.so.0.12.0 %(installroot)%(libdir)/${i}.so.0.11.2
-    #     patchelf --set-soname ${i}.so.0.11 %(installroot)%(libdir)/${i}.so.0.11.2
-    # done
+    for i in libjxl libjxl_cms libjxl_threads; do
+        cp %(installroot)%(libdir)/${i}.so.0.13 %(installroot)%(libdir)/${i}.so.0.12
+        cp %(installroot)%(libdir)/${i}.so.0.13.0 %(installroot)%(libdir)/${i}.so.0.12.0
+        patchelf --set-soname ${i}.so.0.12 %(installroot)%(libdir)/${i}.so.0.12.0
+    done
 
     %install_dir %(installroot)%(docdir)/jxl-pixbuf-loader
     echo "DEPRECATED" > %(installroot)%(docdir)/jxl-pixbuf-loader/README
