@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : runc
-version     : "1.5.2"
-release     : 19
+version     : "1.5.3"
+release     : 20
 homepage    : https://runc.io/
 upstreams   :
-    - https://github.com/opencontainers/runc/archive/refs/tags/v1.5.2.tar.gz : b5af44864a830c7032cf4a72efa0c6d44f701873d9507b127be31ad4d1d42ff3
+    - https://github.com/opencontainers/runc/archive/refs/tags/v1.5.3.tar.gz : 22e3e29e93c71b9d56caa95fed66b6448dd2db282129067ead987b2003837d1a
 summary     : CLI tool for managing OCI compliant containers
 description : |
     CLI tool for managing OCI compliant containers
