@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tpm2-tss
-version     : "4.2.1"
-release     : 8
+version     : "4.2.2"
+release     : 9
 homepage    : https://tpm2-software.github.io
 upstreams   :
-    - https://github.com/tpm2-software/tpm2-tss/releases/download/4.2.1/tpm2-tss-4.2.1.tar.gz : d4aadbc1610876385a370494bbfd7d994356f446dff60cd09eea5933befb1471
+    - https://github.com/tpm2-software/tpm2-tss/releases/download/4.2.2/tpm2-tss-4.2.2.tar.gz : bd4efc89ee01aca8ff771cae268d84333b7594c2d4afee50bb13b859f1113c3f
 summary     : OSS implementation of the TCG TPM2 Software Stack
 description : |
     %(name) is an OSS implementation of the TCG TPM2 Software Stack.

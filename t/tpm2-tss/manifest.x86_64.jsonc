@@ -221,6 +221,6 @@
 		}
 	},
 	"source-name": "tpm2-tss",
-	"source-release": "8",
-	"source-version": "4.2.1"
+	"source-release": "9",
+	"source-version": "4.2.2"
 }
