@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mobile-broadband-provider-info
-version     : "20240407"
-release     : 4
+version     : "20261111"
+release     : 5
 homepage    : https://wiki.gnome.org/Projects/NetworkManager/MobileBroadband/ServiceProviders
 upstreams   :
-    - https://download.gnome.org/sources/mobile-broadband-provider-info/20240407/mobile-broadband-provider-info-20240407.tar.xz : 89bfeff215f4bff8e9c3ff2ec25250fdb080d11e9bfa59c6fc71982ac01c814a
+    - https://download.gnome.org/sources/mobile-broadband-provider-info/20261111/mobile-broadband-provider-info-20261111.tar.xz : e591c1d327c296964b1ae99e6f9458952b1f8e27337a6bc4b3f3e8e55016a182
 summary     : Service Provider Database
 description : |
     Mobile Broadband Configuration Assistant has its own database. This database is constructed by volunteers from different countries. The volunteers gather service provider specific information of all providers in their country and then add it to the database. After the information is added by even a single contributor all the users of the given country will benefit from that contribution and they will get their connections up and running with ease.
