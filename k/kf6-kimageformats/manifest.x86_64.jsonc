@@ -26,9 +26,9 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libheif.so.1(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
-				"soname(libjxl_cms.so.0.12(x86_64))",
-				"soname(libjxl_threads.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
+				"soname(libjxl_cms.so.0.13(x86_64))",
+				"soname(libjxl_threads.so.0.13(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libopenjp2.so.7(x86_64))",
 				"soname(libraw.so.25(x86_64))",
@@ -115,6 +115,6 @@
 		}
 	},
 	"source-name": "kf6-kimageformats",
-	"source-release": "27",
+	"source-release": "28",
 	"source-version": "6.31.0"
 }

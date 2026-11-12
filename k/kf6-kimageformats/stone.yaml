@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kimageformats
 version     : "6.31.0"
-release     : 27
+release     : 28
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.31/kimageformats-6.31.0.tar.xz : 62a0a92b6b7e117256c0ad115f1c7cc8ef343bb3b80b721cc9240cfa76657c8c
 homepage    : https://community.kde.org/Frameworks
