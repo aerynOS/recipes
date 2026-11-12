@@ -514,7 +514,7 @@
 				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjavascriptcoregtk-4.1.so.0(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmanette-0.2.so.0(x86_64))",
@@ -4995,7 +4995,7 @@
 				"soname(libicuuc.so.79(x86_64))",
 				"soname(libjavascriptcoregtk-6.0.so.1(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmanette-0.2.so.0(x86_64))",
@@ -6991,6 +6991,6 @@
 		}
 	},
 	"source-name": "webkitgtk",
-	"source-release": "21",
+	"source-release": "22",
 	"source-version": "2.54.2"
 }
