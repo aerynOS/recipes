@@ -415,8 +415,8 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgsm.so.1(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
-				"soname(libjxl_threads.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
+				"soname(libjxl_threads.so.0.13(x86_64))",
 				"soname(liblc3.so.1(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(liblzma.so.5(x86_64))",
@@ -1929,6 +1929,6 @@
 		}
 	},
 	"source-name": "ffmpeg",
-	"source-release": "45",
+	"source-release": "46",
 	"source-version": "9.0.2"
 }

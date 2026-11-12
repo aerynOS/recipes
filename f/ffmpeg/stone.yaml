@@ -3,7 +3,7 @@
 
 name        : ffmpeg
 version     : "9.0.2"
-release     : 45
+release     : 46
 homepage    : https://ffmpeg.org/releases
 upstreams   :
     - https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz:
