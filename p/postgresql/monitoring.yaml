@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 5601
-  rss: https://github.com/postgres/postgres/releases.atom
+  rss: https://github.com/postgres/postgres/tags.atom
 security:
+  # Last checked 2026-11-12
   cpe:
   - vendor: postgresql
     product: postgresql
