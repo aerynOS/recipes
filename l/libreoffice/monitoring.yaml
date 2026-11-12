@@ -5,7 +5,7 @@ releases:
   id: 6506
   rss: https://github.com/LibreOffice/core/tags.atom
 security:
-  # Last checked 2026-11-06
+  # Last checked 2026-11-12
   cpe:
-    - vendor: libreoffice
-      product: libreoffice
+  - vendor: libreoffice
+    product: libreoffice
