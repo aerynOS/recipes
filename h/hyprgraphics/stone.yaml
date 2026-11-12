@@ -3,7 +3,7 @@
 
 name        : hyprgraphics
 version     : "0.6.0"
-release     : 6
+release     : 7
 upstreams   :
     - https://github.com/hyprwm/hyprgraphics/archive/refs/tags/v0.6.0.tar.gz : 27e9e19ff59ba75a2963d72c3dcb5c0840b266b90d7fca6d5df7cac105419b08
 homepage    : https://github.com/hyprwm/hyprgraphics

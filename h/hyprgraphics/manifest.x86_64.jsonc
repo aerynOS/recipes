@@ -26,8 +26,8 @@
 				"soname(libheif.so.1(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
-				"soname(libjxl_threads.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
+				"soname(libjxl_threads.so.0.13(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmagic.so.1(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))",
@@ -99,6 +99,6 @@
 		}
 	},
 	"source-name": "hyprgraphics",
-	"source-release": "6",
+	"source-release": "7",
 	"source-version": "0.6.0"
 }
