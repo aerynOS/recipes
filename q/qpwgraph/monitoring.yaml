@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 242723
   rss: https://gitlab.freedesktop.org/rncbc/qpwgraph/-/tags?format=atom
-# No known CPE, last checked 2024-01-29
 security:
+  # No CPE found, last checked 2026-11-12
   cpe: ~
