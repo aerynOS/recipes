@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : xdg-desktop-portal-wlr
-version     : "0.8.5"
-release     : 8
+version     : "0.9.0"
+release     : 9
 homepage    : https://github.com/emersion/xdg-desktop-portal-wlr
 upstreams   :
-    - https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.8.5/xdg-desktop-portal-wlr-0.8.5.tar.gz : 5d36f3c031d9c750f83a17a9468770df12f1ddc9d9d60eea81ad4062f7d71614
+    - https://github.com/emersion/xdg-desktop-portal-wlr/releases/download/v0.9.0/xdg-desktop-portal-wlr-0.9.0.tar.gz : 45e5c2d1a80f622892a00c980aca4bc50b6966137886892529f935caf0724172
 summary     : xdg-desktop-portal backend for wlroots
 description : |
     xdg-desktop-portal backend for wlroots
