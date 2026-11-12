@@ -54,8 +54,8 @@
 				"soname(libheif.so.1(x86_64))",
 				"soname(libhwy.so.1(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
-				"soname(libjxl_threads.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
+				"soname(libjxl_threads.so.0.13(x86_64))",
 				"soname(liblcms2.so.2(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libopenjp2.so.7(x86_64))",
@@ -384,6 +384,6 @@
 		}
 	},
 	"source-name": "vips",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "8.18.7"
 }
