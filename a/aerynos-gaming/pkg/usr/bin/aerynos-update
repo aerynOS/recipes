@@ -87,7 +87,7 @@ else
 
 	# FIXME: Workaround to get "empty" file
 	echo '{}' > $source_file
-	moss pkg list --sync -y --log info:json:$source_file >/dev/null 2>&1 &
+	moss sync -y --log info:json:$source_file >/dev/null 2>&1 &
 
 	count_hundred=0
 	while IFS= read -r progress_item
