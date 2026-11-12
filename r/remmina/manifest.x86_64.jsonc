@@ -100,6 +100,7 @@
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-camera-photo-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-connect-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-disconnect-symbolic.svg",
+				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-document-properties-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-document-save-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-document-send-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-duplicate-symbolic.svg",
@@ -107,6 +108,8 @@
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-fit-window-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-fullscreen-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-go-bottom-symbolic.svg",
+				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-go-home-symbolic.svg",
+				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-insert-object-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-keyboard-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-multi-monitor-symbolic.svg",
 				"/usr/share/icons/hicolor/scalable/actions/org.remmina.Remmina-pan-down-symbolic.svg",
@@ -568,6 +571,6 @@
 		}
 	},
 	"source-name": "remmina",
-	"source-release": "2",
-	"source-version": "1.4.43"
+	"source-release": "3",
+	"source-version": "1.4.44"
 }
