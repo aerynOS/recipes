@@ -29,6 +29,6 @@
 		}
 	},
 	"source-name": "gocryptfs",
-	"source-release": "2",
-	"source-version": "2.6.1"
+	"source-release": "3",
+	"source-version": "2.7.0"
 }
