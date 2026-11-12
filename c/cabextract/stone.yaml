@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cabextract
-version     : "1.11"
-release     : 2
+version     : "1.12"
+release     : 3
 homepage    : https://www.cabextract.org.uk
 upstreams   :
     # Official tar rejects the Boulder user-agent
-    - https://github.com/kyz/libmspack/archive/refs/tags/v1.11.tar.gz : 284e0e51fee991c40e8cbbc0f5e635f99722796a3642a14397989fc00b862f72
+    - https://github.com/kyz/libmspack/archive/refs/tags/v1.12.tar.gz : e9941cbfdab991af2afdd16ac746d3e194012838d81c80ce14d6a61bc69f78ce
 summary     : cabextract is Free Software for extracting Microsoft cabinet files
 description : |
     cabextract is Free Software for extracting Microsoft cabinet files, also called .CAB files.
