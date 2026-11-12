@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : swig
-version     : "4.4.1"
-release     : 8
+version     : "4.5.1"
+release     : 9
 homepage    : https://www.swig.org
 summary     : Generate scripting interfaces to C/C++ code
 description : |
     Generate scripting interfaces to C/C++ code
 license     : GPL-3.0-or-later
 upstreams   :
-    - https://downloads.sourceforge.net/swig/swig-4.4.1.tar.gz : 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
+    - https://downloads.sourceforge.net/swig/swig-4.5.1.tar.gz : 7fec50b27deddab5455a9633780b6341eddfb96215a7619e93a76eb27178f653
 builddeps   :
     - pkgconfig(libpcre2-8)
 #checkdeps   :
