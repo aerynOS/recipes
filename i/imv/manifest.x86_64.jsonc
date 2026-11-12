@@ -40,7 +40,7 @@
 				"soname(libheif.so.1(x86_64))",
 				"soname(libicuuc.so.79(x86_64))",
 				"soname(libinih.so.0(x86_64))",
-				"soname(libjxl.so.0.12(x86_64))",
+				"soname(libjxl.so.0.13(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libnsbmp.so.0(x86_64))",
 				"soname(libnsgif.so.1(x86_64))",
@@ -75,6 +75,6 @@
 		}
 	},
 	"source-name": "imv",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "5.0.1"
 }
