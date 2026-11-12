@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : chafa
 version     : "1.18.3"
-release     : 6
+release     : 7
 homepage    : https://github.com/hpjansson/chafa
 upstreams   :
     - https://github.com/hpjansson/chafa/releases/download/1.18.3/chafa-1.18.3.tar.xz : fb995ef21dce6c73dd0dd454ba3e0f7fac08e053ea16060a2e5ce69a3746ee27
