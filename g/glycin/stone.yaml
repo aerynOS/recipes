@@ -3,7 +3,7 @@
 
 name        : glycin
 version     : "2.2.6"
-release     : 26
+release     : 27
 homepage    : https://gitlab.gnome.org/GNOME/glycin
 upstreams   :
     - https://download.gnome.org/sources/glycin/2.2/glycin-2.2.6.tar.xz : 6a114aa1117ec2d7bd578c8cefd235d993304dedfd1a62575dc31be9a146b791
