@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kholidays
-version     : "6.31.0"
-release     : 26
+version     : "6.32.0"
+release     : 27
+homepage    : https://invent.kde.org/frameworks/kholidays
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kholidays-6.31.0.tar.xz : bdbbe8b1ae6ad6af2116e3ca2c986a317e00f215f58ad32000e2aae2b9d7d612
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kholidays-6.32.0.tar.xz : a6aeede0b1c5bba93f7e60d7c6fe84051cb32d90d3981202c4f90237b5fc17a7
+summary     : KDE library for regional holiday information
+description : |
+    KDE library for regional holiday information
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
     - GPL-3.0-or-later
     - LGPL-2.0-or-later
-summary     : KDE library for regional holiday information
-description : |
-    KDE library for regional holiday information
 builddeps   :
     - binary(bison)
     - binary(flex)
@@ -23,6 +23,9 @@ builddeps   :
     - cmake(Qt6CorePrivate)
     - cmake(Qt6Qml)
 setup       : |
+    # Bundled FlexLexer.h is too old for flex 2.6.11
+    %patch %(pkgdir)/0001-Update-FlexLexer.h-for-flex-2.6.11.patch
+
     %cmake_kf6
 build       : |
     %cmake_build
