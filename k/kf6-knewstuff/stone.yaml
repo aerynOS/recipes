@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-knewstuff
-version     : "6.31.0"
-release     : 33
+version     : "6.32.0"
+release     : 34
+homepage    : https://invent.kde.org/frameworks/knewstuff
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/knewstuff-6.31.0.tar.xz : c944c39ea454b956d0a71e6fe3d790aea46bd38447ea231ca21f3167f8dc1252
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/knewstuff-6.32.0.tar.xz : 91ee15856bb831d1f4022fb45c8b29b15be6e9330bbc8447fadeee9d6f16ab27
+summary     : Framework for downloading and sharing additional application data.
+description : |
+    Framework for downloading and sharing additional application data.
 license     :
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - LGPL-2.1-or-later
-summary     : Framework for downloading and sharing additional application data.
-description : |
-    Framework for downloading and sharing additional application data.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
