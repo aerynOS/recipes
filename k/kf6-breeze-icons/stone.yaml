@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-breeze-icons
-version     : "6.31.0"
-release     : 24
+version     : "6.32.0"
+release     : 25
+homepage    : https://invent.kde.org/frameworks/breeze-icons
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/breeze-icons-6.31.0.tar.xz : 82ab1c13f782cb37176e7c13c5fb2c77536a65f24b85d09127f3575f917fb56d
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-3.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/breeze-icons-6.32.0.tar.xz : 3e14087f180ece104dbf9cb23f2c7140759b9dd7c35d8d9defdfcfdee538628f
 summary     : Breeze icon theme
 description : |
     Breeze-icons is a freedesktop.org compatible icon theme.
+license     : LGPL-3.0-or-later
 builddeps   :
     - binary(gtk-update-icon-cache)
     - binary(python3)
