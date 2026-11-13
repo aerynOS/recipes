@@ -1,12 +1,15 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kconfig
-version     : "6.31.0"
-release     : 33
+version     : "6.32.0"
+release     : 34
+homepage    : https://invent.kde.org/frameworks/kconfig
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kconfig-6.31.0.tar.xz : 5572e3e098f7cf5d06c78cd941924333c0e84646d2a18aa6b4c9a6f7eae8a5c9
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kconfig-6.32.0.tar.xz : 5ec91eeb6b02db8a8c2e31e3ffdd85165bfa815729a45ca11922369098fd3fcf
+summary     : Persistent platform-independent application settings.
+description : |
+    Persistent platform-independent application settings.
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
@@ -15,9 +18,6 @@ license     :
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - MIT
-summary     : Persistent platform-independent application settings.
-description : |
-    Persistent platform-independent application settings.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
