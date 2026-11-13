@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-krunner
-version     : "6.31.0"
-release     : 19
+version     : "6.32.0"
+release     : 20
+homepage    : https://invent.kde.org/frameworks/krunner
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/krunner-6.31.0.tar.xz : 9bcc2525842991bf0e13d8fe7d98986c8ee770e722eda8c9e1abd609f1d65492
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/krunner-6.32.0.tar.xz : 5f9729b5f160fdf17c676b8dd1c5edad861576d4793c1a20cd0cb23ff9d2052b
 summary     : Framework for Plasma runners
 description : |
     Framework for Plasma runners
+license     : LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
