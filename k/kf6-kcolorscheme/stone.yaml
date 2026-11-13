@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kcolorscheme
-version     : "6.31.0"
-release     : 33
+version     : "6.32.0"
+release     : 34
+homepage    : https://invent.kde.org/frameworks/kcolorscheme
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kcolorscheme-6.31.0.tar.xz : 41a8b12a4d9f4fdada70e4853879a2f43a7bf43e870a18c6038eebd956a1f863
-homepage    : https://community.kde.org/Frameworks
-license     :
-    - GPL-3.0-only
-    - LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kcolorscheme-6.32.0.tar.xz : 235c73afa46669c41cbe2e3a14c5a6ae1f8ad8cbb386b3f65261f65449d2b915
 summary     : Classes to read and interact with KColorScheme
 description : |
     Classes to read and interact with KColorScheme
+license     :
+    - GPL-3.0-only
+    - LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
