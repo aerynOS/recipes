@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kjobwidgets
-version     : "6.31.0"
-release     : 31
+version     : "6.32.0"
+release     : 32
+homepage    : https://invent.kde.org/frameworks/kjobwidgets
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kjobwidgets-6.31.0.tar.xz : b734186ed41e8cc84c2a5f9ba61b46075dacf076450dcb78d37a5d01dcd8c69e
-homepage    : https://community.kde.org/Frameworks
-license     :
-    - LGPL-2.0-only
-    - LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kjobwidgets-6.32.0.tar.xz : 98eaee2846181b82b357067db00ac65e3bcf02c11322bb636aa6021a6eb65dd2
 summary     : Widgets for showing progress of asynchronous jobs.
 description : |
     Widgets for showing progress of asynchronous jobs.
+license     :
+    - LGPL-2.0-only
+    - LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
