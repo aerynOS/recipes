@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-ksvg
-version     : "6.31.0"
-release     : 26
+version     : "6.32.0"
+release     : 27
+homepage    : https://invent.kde.org/frameworks/ksvg
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/ksvg-6.31.0.tar.xz : 1cacfe9660cdb564edc4c0bf69578776a54001b114ae6fb2a4fa77da25fca2d1
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/ksvg-6.32.0.tar.xz : 8299498d46373a84811d29415f9e5a115f491bd7b5fa11c1648fc36ca9374ad6
+summary     : Components for handling SVGs
+description : |
+    Components for handling SVGs
 license     :
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
 
-summary     : Components for handling SVGs
-description : |
-    Components for handling SVGs
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
