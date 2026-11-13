@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-ki18n
-version     : "6.31.0"
-release     : 32
+version     : "6.32.0"
+release     : 33
+homepage    : https://invent.kde.org/frameworks/ki18n
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/ki18n-6.31.0.tar.xz : 9fa271c7a33b856451de1ed3ff105626c2763fbd3b11d3210b02cb30de43f2ba
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/ki18n-6.32.0.tar.xz : b574b381e7510cf3b14d6a16f6ed5670220f10df7f2494c21a579d20ca1d017f
+summary     : KDE Gettext-based UI text internationalization.
+description : |
+    KDE Gettext-based UI text internationalization.
 license     :
     - BSD-3-Clause
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-2.1-only
-summary     : KDE Gettext-based UI text internationalization.
-description : |
-    KDE Gettext-based UI text internationalization.
 builddeps   :
     - binary(msgmerge) # gettext
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
