@@ -31,7 +31,7 @@
 				"/usr/lib/dbus-1.0/include/dbus/dbus-arch-deps.h",
 				"/usr/lib/dbus/dbus-daemon-launch-helper",
 				"/usr/lib/libdbus-1.so.3",
-				"/usr/lib/libdbus-1.so.3.38.3",
+				"/usr/lib/libdbus-1.so.3.38.5",
 				"/usr/lib/systemd/system/dbus-daemon.service",
 				"/usr/lib/systemd/system/dbus.socket",
 				"/usr/lib/systemd/system/sockets.target.wants/dbus.socket",
@@ -91,7 +91,7 @@
 				"/usr/lib32/dbus-1.0/include/dbus/dbus-arch-deps.h",
 				"/usr/lib32/dbus/dbus-daemon-launch-helper",
 				"/usr/lib32/libdbus-1.so.3",
-				"/usr/lib32/libdbus-1.so.3.38.3"
+				"/usr/lib32/libdbus-1.so.3.38.5"
 			],
 			"name": "dbus-32bit",
 			"provides": [
@@ -164,6 +164,6 @@
 		}
 	},
 	"source-name": "dbus",
-	"source-release": "15",
-	"source-version": "1.16.2"
+	"source-release": "16",
+	"source-version": "1.16.4"
 }

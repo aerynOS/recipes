@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dbus
-version     : "1.16.2"
-release     : 15
+version     : "1.16.4"
+release     : 16
 summary     : D-Bus Message Bus System
 license     :
     - AFL-2.1
@@ -12,7 +12,7 @@ homepage    : https://www.freedesktop.org/wiki/Software/dbus
 description : |
     D-Bus Message Bus System
 upstreams   :
-    - https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz: 0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2
+    - https://dbus.freedesktop.org/releases/dbus/dbus-1.16.4.tar.xz: d08b05526c2cb7966a5fb79210d6112b1aca3d135f315c1b302e14b4b0297dac
 builddeps   :
     - pkgconfig(audit)
     - pkgconfig32(expat)
@@ -38,6 +38,9 @@ install     : |
     rm -rf %(installroot)/usr/lib/systemd/system/multi-user.target.wants
     mv %(installroot)/usr/lib/systemd/system/dbus.service %(installroot)/usr/lib/systemd/system/dbus-daemon.service
     mv %(installroot)/usr/lib/systemd/user/dbus.service %(installroot)/usr/lib/systemd/user/dbus-daemon.service
+
+# TODO: add a check phase (%meson_test) once the suite passes in the build sandbox;
+# currently the daemon-fork tests fail and two monitor/server tests time out there
 packages    :
     - "%(name)":
         rundeps:
