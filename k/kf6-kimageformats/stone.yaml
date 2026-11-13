@@ -2,19 +2,19 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kimageformats
-version     : "6.31.0"
-release     : 28
+version     : "6.32.0"
+release     : 29
+homepage    : https://invent.kde.org/frameworks/kimageformats
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kimageformats-6.31.0.tar.xz : 62a0a92b6b7e117256c0ad115f1c7cc8ef343bb3b80b721cc9240cfa76657c8c
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kimageformats-6.32.0.tar.xz : 298069eab84d34b909fc271d818b0762c6c63cc8490f2d8b0fe48dc0d8804b5c
+summary     : Additional image formats for Qt6/KF6
+description : |
+    Additional image formats for Qt6/KF6
 license     :
     - GPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
     - LGPL-2.1-only
-summary     : Additional image formats for Qt6/KF6
-description : |
-    Additional image formats for Qt6/KF6
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
