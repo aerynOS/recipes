@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : nano
 version     : "9.3"
-release     : 43
+release     : 44
 homepage    : https://www.nano-editor.org/
 upstreams   :
     - https://www.nano-editor.org/dist/v9/nano-9.3.tar.xz : a9affc52c9596ee0682bcdd4ceb3c0b235eb221d83d733dfd9b0dff45897cb0d
@@ -15,16 +15,17 @@ description : |
     line numbers, softwrapping, multiple buffers, selecting text by
     holding Shift, search-and-replace with regular expressions, and
     several other conveniences.
-license     :
-    - GPL-3.0-or-later
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(msgfmt)
     - pkgconfig(libmagic)
     - pkgconfig(ncursesw)
     - pkgconfig(zlib)
 setup       : |
+    %patch %(pkgdir)/0001-Fall-back-to-nanorc-in-stateless-directory.patch
     %configure
 build       : |
     %make
 install     : |
     %make_install
+    %install_file %(pkgdir)/nanorc -t %(installroot)/%(vendordir)/nano

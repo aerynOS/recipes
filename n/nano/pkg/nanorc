@@ -1,0 +1,10 @@
+# Default nano config
+# See 'man nanorc' for details.
+
+set atblanks
+set autoindent
+set boldtext
+set softwrap
+
+# Enable syntax highlighting
+include /usr/share/nano/*.nanorc
