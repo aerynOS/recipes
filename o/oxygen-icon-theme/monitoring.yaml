@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
 releases:
   id: 8762
   rss: https://invent.kde.org/frameworks/oxygen-icons/-/tags?format=atom
