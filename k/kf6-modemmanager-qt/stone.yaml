@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-modemmanager-qt
-version     : "6.31.0"
-release     : 18
+version     : "6.32.0"
+release     : 19
+homepage    : https://invent.kde.org/frameworks/modemmanager-qt
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/modemmanager-qt-6.31.0.tar.xz : e816565ce4b915fa885a6b039e582a477e84bb01bca3229df5f1b79dfa01b810
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/modemmanager-qt-6.32.0.tar.xz : b2be9d84fb6035d79c642c1f6b8196d3f04e673ea61e11deea8bf04213b0fe87
+summary     : Qt wrapper for ModemManager DBus API
+description : |
+    Qt wrapper for ModemManager DBus API
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
     - LGPL-2.1-only
-summary     : Qt wrapper for ModemManager DBus API
-description : |
-    Qt wrapper for ModemManager DBus API
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
