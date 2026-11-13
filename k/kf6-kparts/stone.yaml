@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kparts
-version     : "6.31.0"
-release     : 23
+version     : "6.32.0"
+release     : 24
+homepage    : https://invent.kde.org/frameworks/kparts
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kparts-6.31.0.tar.xz : edc52e34e6c0ec25811f1effe7c8c01be770671be71e7c2f1c58e5ffa09d3600
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kparts-6.32.0.tar.xz : f2e437b038a0b0b3c40f0dfc81eb5689542c2d4e1f6025436a29e17f11caa79d
+summary     : Plugin framework for user interface components
+description : |
+    Plugin framework for user interface components
 license     :
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Plugin framework for user interface components
-description : |
-    Plugin framework for user interface components
 builddeps   :
     - binary(bzip2)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
