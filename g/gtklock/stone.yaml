@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gtklock
-version     : "5.0.0"
-release     : 2
+version     : "5.0.1"
+release     : 3
 homepage    : https://github.com/jovanlanik/gtklock
 upstreams   :
-    - https://github.com/jovanlanik/gtklock/archive/refs/tags/v5.0.0.tar.gz : 018c50cf1d7b626f823e797750e5b304511b3b359e7277e8abb3383c11e7aed9
+    - https://github.com/jovanlanik/gtklock/archive/refs/tags/v5.0.1.tar.gz : b51bce5d81643dc3dcb422554d28e919f95d418ef54a082509763dfb6fdfb145
 summary     : Lock screen based on gtkgreet
 description : |
     A lock screen based on gtkgreet. It uses the ext-session-lock Wayland protocol. Works on sway and other wlroots-based compositors.
-license     : GPL-3.0-or-later
+license     : GPL-3.0-only
 builddeps   :
     - binary(msgfmt)
     - binary(scdoc)
