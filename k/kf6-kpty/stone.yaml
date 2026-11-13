@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kpty
-version     : "6.31.0"
-release     : 22
+version     : "6.32.0"
+release     : 23
+homepage    : https://invent.kde.org/frameworks/kpty
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kpty-6.31.0.tar.xz : 432b0a8fed2d355e19131e3f63c7856e5cb26fe4932ecb840be9465fa072bcea
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kpty-6.32.0.tar.xz : ed8a6feee493a1b98930fb78d40e09a5a7983ec2f29ced0afc83ffbdb54f6152
+summary     : Interfacing with pseudo terminal devices
+description : |
+    Interfacing with pseudo terminal devices
 license     :
     - BSD-3-Clause
     - GPL-2.0-or-later
     - LGPL-2.0-or-later
-summary     : Interfacing with pseudo terminal devices
-description : |
-    Interfacing with pseudo terminal devices
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
