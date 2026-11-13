@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kpeople
-version     : "6.31.0"
-release     : 24
+version     : "6.32.0"
+release     : 25
+homepage    : https://invent.kde.org/frameworks/kpeople
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kpeople-6.31.0.tar.xz : 7edf58309c9236877af6fd0c5e335054a8564dfce4407433a6c294c1ac400877
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-2.1-only
+    - https://download.kde.org/stable/frameworks/6.32/kpeople-6.32.0.tar.xz : 05ed43d73895e5f4bcc0f56076270f4c44a6ad7ffaf7b3bba2ca861ff9618d6c
 summary     : Provides access to all contacts and aggregates them by person
 description : |
     KPeople offers unified access to our contacts from different sources, grouping them by person while still exposing all the data. Furthermore, KPeople will also provide facilities to integrate the data provided in user interfaces by providing QML and Qt Widgets components.
+license     : LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
