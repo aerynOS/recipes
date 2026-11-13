@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-bluez-qt
-version     : "6.31.0"
-release     : 27
+version     : "6.32.0"
+release     : 28
+homepage    : https://invent.kde.org/frameworks/bluez-qt
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/bluez-qt-6.31.0.tar.xz : 22b25448c6b5372ee4fba15bb938e698a599cec0d69816ceb0405451c879c827
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-2.1-only
+    - https://download.kde.org/stable/frameworks/6.32/bluez-qt-6.32.0.tar.xz : 53f9705366f1e142e921f3ec314d673d51341bd20d358c33ebe8fe4218d2cd6b
 summary     : Qt wrapper for BlueZ 5 DBus API
 description : |
     BluezQt is a library for communication with BlueZ system and session daemons.
     * Manager class is used to communicate with system daemon - org.bluez
     * ObexManager class is used to communicate with session daemon - org.bluez.obex
+license     : LGPL-2.1-only
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
