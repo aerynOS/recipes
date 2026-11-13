@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kuserfeedback
-version     : "6.31.0"
-release     : 31
+version     : "6.32.0"
+release     : 32
+homepage    : https://invent.kde.org/frameworks/kuserfeedback
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kuserfeedback-6.31.0.tar.xz : 6a761f2eb1507110107b2ddf2a723bbe6fa205eac086ce04a4272fdfabb7c31a
-homepage    : https://community.kde.org/Frameworks
-license     : MIT
+    - https://download.kde.org/stable/frameworks/6.32/kuserfeedback-6.32.0.tar.xz : 156cadff9de487538440a7f6cfce4a4f0240dc22ccbe4d48f37fb1bd84c75ee5
 summary     : Framework for collecting user feedback for applications via telemetry and surveys
 description : |
     Framework for collecting user feedback for applications via telemetry and surveys
+license     : MIT
 builddeps   :
     - binary(bison)
     - binary(flex)
