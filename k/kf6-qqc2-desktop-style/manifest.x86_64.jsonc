@@ -126,6 +126,7 @@
 				"/usr/share/locale/ia/LC_MESSAGES/qqc2desktopstyle_qt.qm",
 				"/usr/share/locale/is/LC_MESSAGES/qqc2desktopstyle_qt.qm",
 				"/usr/share/locale/it/LC_MESSAGES/qqc2desktopstyle_qt.qm",
+				"/usr/share/locale/ja/LC_MESSAGES/qqc2desktopstyle_qt.qm",
 				"/usr/share/locale/ka/LC_MESSAGES/qqc2desktopstyle_qt.qm",
 				"/usr/share/locale/ko/LC_MESSAGES/qqc2desktopstyle_qt.qm",
 				"/usr/share/locale/lt/LC_MESSAGES/qqc2desktopstyle_qt.qm",
@@ -181,6 +182,6 @@
 		}
 	},
 	"source-name": "kf6-qqc2-desktop-style",
-	"source-release": "28",
-	"source-version": "6.31.0"
+	"source-release": "29",
+	"source-version": "6.32.0"
 }
