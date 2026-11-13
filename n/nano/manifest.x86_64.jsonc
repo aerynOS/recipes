@@ -18,6 +18,7 @@
 			"files": [
 				"/usr/bin/nano",
 				"/usr/bin/rnano",
+				"/usr/share/defaults/nano/nanorc",
 				"/usr/share/doc/nano/faq.html",
 				"/usr/share/doc/nano/nano.html",
 				"/usr/share/info/nano.info",
@@ -118,6 +119,6 @@
 		}
 	},
 	"source-name": "nano",
-	"source-release": "43",
+	"source-release": "44",
 	"source-version": "9.3"
 }
