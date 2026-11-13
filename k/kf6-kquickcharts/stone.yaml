@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kquickcharts
-version     : "6.31.0"
-release     : 27
+version     : "6.32.0"
+release     : 28
+homepage    : https://invent.kde.org/frameworks/kquickcharts
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kquickcharts-6.31.0.tar.xz : 2c2c18c1eb1ea1c8d9df0dc084bd2770b0099dc10cc0cb6827c7dc6bd5d3c21d
-homepage    : https://community.kde.org/Frameworks
-license     :
-    - LGPL-2.1-only
-    - MIT
+    - https://download.kde.org/stable/frameworks/6.32/kquickcharts-6.32.0.tar.xz : 9f676e504f73fa43e394833e514522baac3f3ca2b8c63908eef7f6bdf1053046
 summary     : QtQuick plugin providing high-performance charts
 description : |
     QtQuick plugin providing high-performance charts
+license     :
+    - LGPL-2.1-only
+    - MIT
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
