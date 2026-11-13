@@ -1,26 +1,26 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-sonnet
-version     : "6.31.0"
-release     : 31
+version     : "6.32.0"
+release     : 32
+homepage    : https://invent.kde.org/frameworks/sonnet
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/sonnet-6.31.0.tar.xz : 8a0db04df7c8d9d386dddc2e5d94f1504b15c63b3dc091a4eeb2519788b5aec6
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/sonnet-6.32.0.tar.xz : cae2686b18f41bde6494f353e1dccc5f045e9748b63175a9ff539b3bc93466f1
+summary     : Multi-language spell checker
+description : |
+    Multi-language spell checker
 license     :
     - BSD-3-Clause
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Multi-language spell checker
-description : |
-    Multi-language spell checker
 builddeps   :
+    # TODO Add voikko, aspell, and/or hspell
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
     - cmake(Qt6CorePrivate)
     - cmake(Qt6Qml)
     - pkgconfig(hunspell)
-    # TODO Add voikko, aspell, and/or hspell
 setup       : |
     %cmake_kf6
 build       : |
