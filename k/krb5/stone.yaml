@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : krb5
-version     : "1.22.2"
-release     : 8
+version     : "1.22.3"
+release     : 9
 homepage    : https://web.mit.edu/kerberos/
 upstreams   :
-    - https://web.mit.edu/kerberos/dist/krb5/1.22/krb5-1.22.2.tar.gz : 3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13
+    - https://web.mit.edu/kerberos/dist/krb5/1.22/krb5-1.22.3.tar.gz : fe90af8441ad9fa9b064b8e53077cefb782a96f8a68276b031dc54af1789ff0b
     # - git|https://github.com/krb5/krb5.git : e5b1787d8fbd77208312465107893e5bb98d4651
 summary     : network authentication protocol (kerberos)
 description : |
@@ -19,10 +19,10 @@ builddeps   :
     - binary(yacc)
     - pkgconfig(cmocka)
     - pkgconfig(com_err)
+    - pkgconfig(ldap)
     - pkgconfig(libkeyutils)
     - pkgconfig(libsasl2)
     - pkgconfig(lmdb)
-    - pkgconfig(ldap)
     - pkgconfig(openssl)
     - pkgconfig(readline)
     - pkgconfig(ss)
@@ -36,9 +36,7 @@ setup       : |
         -e 's|#! /bin/sh|#! /usr/bin/bash|g' \
         -e 's|SHELL=/bin/sh|SHELL=/usr/bin/bash|g'
 
-    %patch %(pkgdir)/ftbfs-glibc-2.43.patch -p2
     %patch %(pkgdir)/ftbfs-openssl-4.patch -p2
-    %patch %(pkgdir)/ftbfs-openssl-4-2.patch -p2
 
     %configure \
         --disable-rpath \

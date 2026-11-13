@@ -326,6 +326,6 @@
 		}
 	},
 	"source-name": "krb5",
-	"source-release": "8",
-	"source-version": "1.22.2"
+	"source-release": "9",
+	"source-version": "1.22.3"
 }
