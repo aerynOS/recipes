@@ -1,23 +1,23 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kdnssd
-version     : "6.31.0"
-release     : 18
+version     : "6.32.0"
+release     : 19
+homepage    : https://invent.kde.org/frameworks/kdnssd
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kdnssd-6.31.0.tar.xz : 7b5884ef22522bc25f8158546956b75b72f46e1af7765fedf4fb816b9c34574d
-homepage    : https://community.kde.org/Frameworks
-license     :
-    - BSD-3-Clause
-    - LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kdnssd-6.32.0.tar.xz : 60f8de14e4a6026c5e843355a180dadd038d6efe41eb9c9a2444971915466b41
 summary     : Network service discovery using Zeroconf
 description : |
     Network service discovery using Zeroconf
+license     :
+    - BSD-3-Clause
+    - LGPL-2.0-or-later
 builddeps   :
+    # TODO nss-mdns (as rundep)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
     - pkgconfig(avahi-core)
-    # TODO nss-mdns (as rundep)
 setup       : |
     %cmake_kf6
 build       : |
