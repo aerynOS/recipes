@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-ktextwidgets
-version     : "6.31.0"
-release     : 23
+version     : "6.32.0"
+release     : 24
+homepage    : https://invent.kde.org/frameworks/ktextwidgets
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/ktextwidgets-6.31.0.tar.xz : b122f86b179f9f9f7818a71dbcc3ce29ddac9605e55bf1d2fb885f3b8fe9c0b2
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/ktextwidgets-6.32.0.tar.xz : 7d8bf911d600bd695d2c9a9bdd0ff26e40092195aa18926adf89aef46a330e84
+summary     : Text editing widgets.
+description : |
+    Text editing widgets.
 license     :
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Text editing widgets.
-description : |
-    Text editing widgets.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
