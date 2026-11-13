@@ -3,11 +3,11 @@
 
 name        : rust
 ### IMPORTANT NOTE: Rust does not have a stable ABI. This is particularly important for the kernel where the version of Rust used to build the kernel must exactly match the version used to build extramodules. In other words you MUST do a round of kernel rebuilds whenever Rust is upgraded.
-version     : "1.99.1"
-release     : 47
+version     : "1.100.0"
+release     : 48
 homepage    : https://www.rust-lang.org/
 upstreams   :
-    - https://static.rust-lang.org/dist/rustc-1.99.1-src.tar.xz : 6451598a99e77f07571960f6b21d577399d3a30f33e80cbd2e3a4aae6535d265
+    - https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.xz : 90dab90b8084eb57c35ae2b1d0b70c8e5138ace6023b22c60a5a400f586f63b2
 summary     : Rust programming language compiler + tools
 description : |
     Rust programming language compiler + tools
@@ -17,9 +17,9 @@ license     :
     - CC-BY-4.0
     - CC-BY-NC-SA-3.0
     - CC0-1.0
-    - GCC-exception-3.1
     - GPL-2.0-or-later
     - GPL-3.0-or-later
+    - GPL-3.0-or-later WITH GCC-exception-3.1
     - MIT
     - Zlib
 # Enable this when bootstrapping

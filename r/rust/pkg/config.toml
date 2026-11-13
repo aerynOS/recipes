@@ -1,7 +1,7 @@
 # To get the most recent change-id go to `src/bootstrap/src/utils/change_tracker.rs` for the Rust version
 # you're updating to, and find the bottom-most entry. Make sure you review all change entries between the
 # previous ID and the new one to see if anything should be changed in this config.
-change-id = 160100
+change-id = 162423
 
 # Inherit from src/bootstrap/defaults/bootstrap.dist.toml
 profile = "dist"
@@ -31,7 +31,7 @@ tools = [
     "rust-analyzer",
     "rust-analyzer-proc-macro-srv",
     "rust-demangler",
-    "src",
+    "rust-src",
 ]
 vendor = true
 
