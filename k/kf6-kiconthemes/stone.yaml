@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kiconthemes
-version     : "6.31.0"
-release     : 32
+version     : "6.32.0"
+release     : 33
+homepage    : https://invent.kde.org/frameworks/kiconthemes
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kiconthemes-6.31.0.tar.xz : d6558d7dc6ed6de90ef3b5eef905c25fb624147a01d2703329144534a5df58ec
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kiconthemes-6.32.0.tar.xz : 1bd4fe3246af5527c136afc650703e5231b8b2de32ca1eac48fa310adece8db8
+summary     : Icon GUI utilities.
+description : |
+    Icon GUI utilities.
 license     :
     - GPL-2.0-only
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-2.1-only
-summary     : Icon GUI utilities.
-description : |
-    Icon GUI utilities.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
