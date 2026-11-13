@@ -31,7 +31,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6ConfigWidgets.so.6",
-				"/usr/lib/libKF6ConfigWidgets.so.6.31.0",
+				"/usr/lib/libKF6ConfigWidgets.so.6.32.0",
 				"/usr/share/locale/af/LC_MESSAGES/kconfigwidgets6.mo",
 				"/usr/share/locale/af/kf6_entry.desktop",
 				"/usr/share/locale/am/kf6_entry.desktop",
@@ -160,7 +160,9 @@
 				"/usr/share/locale/ms/kf6_entry.desktop",
 				"/usr/share/locale/my/kf6_entry.desktop",
 				"/usr/share/locale/nan_TW/LC_MESSAGES/kconfigwidgets6.mo",
+				"/usr/share/locale/nan_TW/kf6_entry.desktop",
 				"/usr/share/locale/nan_TW@latin/LC_MESSAGES/kconfigwidgets6.mo",
+				"/usr/share/locale/nan_TW@latin/kf6_entry.desktop",
 				"/usr/share/locale/nb/LC_MESSAGES/kconfigwidgets6.mo",
 				"/usr/share/locale/nb/kf6_entry.desktop",
 				"/usr/share/locale/nds/LC_MESSAGES/kconfigwidgets6.mo",
@@ -321,6 +323,6 @@
 		}
 	},
 	"source-name": "kf6-kconfigwidgets",
-	"source-release": "32",
-	"source-version": "6.31.0"
+	"source-release": "33",
+	"source-version": "6.32.0"
 }
