@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-ktexteditor
-version     : "6.31.0"
-release     : 22
+version     : "6.32.0"
+release     : 23
+homepage    : https://invent.kde.org/frameworks/ktexteditor
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/ktexteditor-6.31.0.tar.xz : 02e2d9dbe40b517861af7ad8dd7151d08cbf84be9f8c4e0fecf005b3fc741dac
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/ktexteditor-6.32.0.tar.xz : 13d906ecac31158eb68a6d6315a64948a3e79282d6c9316e82fc38c86640d084
+summary     : Full text editor component.
+description : |
+    Full text editor component.
 license     :
     - BSD-2-Clause
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - LGPL-2.1-or-later
-summary     : Full text editor component.
-description : |
-    Full text editor component.
 builddeps   :
     - binary(bzip2)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
