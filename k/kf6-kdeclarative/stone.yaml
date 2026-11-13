@@ -1,12 +1,15 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kdeclarative
-version     : "6.31.0"
-release     : 33
+version     : "6.32.0"
+release     : 34
+homepage    : https://invent.kde.org/frameworks/kdeclarative
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kdeclarative-6.31.0.tar.xz : 458eb2b6e15cd368292fb2a9a6c49621d006c306d7c37ca3bd3090520989401e
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kdeclarative-6.32.0.tar.xz : 9e187056b3e1d49ecde29b30e4a4f5f2633639b622dd596369eac86c45c7f167
+summary     : Integration of QML and KDE work spaces
+description : |
+    Integration of QML and KDE work spaces
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
@@ -14,9 +17,6 @@ license     :
     - LGPL-2.1-only
     - LGPL-2.1-or-later
     - MIT
-summary     : Integration of QML and KDE work spaces
-description : |
-    Integration of QML and KDE work spaces
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
