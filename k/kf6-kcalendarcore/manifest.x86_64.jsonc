@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6CalendarCore.so.6",
-				"/usr/lib/libKF6CalendarCore.so.6.31.0",
+				"/usr/lib/libKF6CalendarCore.so.6.32.0",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kcalendarcoreqml.qmltypes",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/kde-qmlmodule.version",
 				"/usr/lib/qt6/qml/org/kde/calendarcore/libkcalendarcoreqml.so",
@@ -33,16 +33,20 @@
 				"/usr/share/locale/en/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/es/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/eu/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/fi/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/fr/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/he/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/it/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/ka/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/ko/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/lt/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/nl/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/pl/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/ru/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/sk/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/sl/LC_MESSAGES/kcalendarcore6_qt.qm",
+				"/usr/share/locale/ta/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/tr/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/ug/LC_MESSAGES/kcalendarcore6_qt.qm",
 				"/usr/share/locale/uk/LC_MESSAGES/kcalendarcore6_qt.qm",
@@ -159,6 +163,6 @@
 		}
 	},
 	"source-name": "kf6-kcalendarcore",
-	"source-release": "26",
-	"source-version": "6.31.0"
+	"source-release": "27",
+	"source-version": "6.32.0"
 }

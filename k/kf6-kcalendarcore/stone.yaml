@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kcalendarcore
-version     : "6.31.0"
-release     : 26
+version     : "6.32.0"
+release     : 27
+homepage    : https://invent.kde.org/frameworks/kcalendarcore
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kcalendarcore-6.31.0.tar.xz : dd09650c406ef60ddb3e3fe55dd4faca819a500175197f88f8f2279ebb4fe16e
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kcalendarcore-6.32.0.tar.xz : 65c7b0111140833a0a54cbbc303890e03d3d91469ace4e272e1b76aa2135dba7
 summary     : Provides access to and handling of calendar data
 description : |
     This library provides access to and handling of calendar data. It supports the standard formats iCalendar and vCalendar and the group scheduling standard iTIP.
+license     : LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
