@@ -3,7 +3,7 @@
 
 name        : ly
 version     : "1.5.0"
-release     : 7
+release     : 8
 homepage    : https://codeberg.org/fairyglade/ly
 upstreams   :
     - https://codeberg.org/fairyglade/ly/archive/v1.5.0.tar.gz : 115a7f7fb281803ca7f9e0ddbdf76834a53f7fa6bc702d766d03772ce1976dc3
