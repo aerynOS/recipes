@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : glibc
-version     : "2.44~git.21442dba"
-release     : 48
+version     : "2.44~git.438677ef"
+release     : 49
 homepage    : https://www.gnu.org/software/libc
 upstreams   :
     - git|https://sourceware.org/git/glibc.git :
-        ref : 21442dba0d0be00d8b875349ba9fc71daa1639ce
+        ref : 438677ef498552b28c2060060c9e3947373f1e2c
 summary     : The GNU libc libraries
 description : |
     The GNU C Library provides the standard C library and the system-call
@@ -61,7 +61,7 @@ environment : |
             --disable-nscd \
             --enable-bind-now \
             --enable-fortify-source \
-            --enable-kernel=6.1 \
+            --enable-kernel=6.6 \
             --enable-multi-arch \
             --enable-stack-protector=strong \
             --with-selinux=no
