@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kded
-version     : "6.31.0"
-release     : 22
+version     : "6.32.0"
+release     : 23
+homepage    : https://invent.kde.org/frameworks/kded
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kded-6.31.0.tar.xz : 9a65e6dec8a51cb5e4e6e013c012a977904ca9ee74acb8d948e2031025a7233b
-homepage    : https://community.kde.org/Frameworks
-license     :
-    - LGPL-2.0-only
-    - LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kded-6.32.0.tar.xz : eade144d1e197b883529f7e262035134d7ff46b859d0beff34ab778cb5ef683b
 summary     : Central daemon of KDE work spaces
 description : |
     KDED runs in the background and performs a number of small tasks. Some of these tasks are built in, others are started on demand.
+license     :
+    - LGPL-2.0-only
+    - LGPL-2.0-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
