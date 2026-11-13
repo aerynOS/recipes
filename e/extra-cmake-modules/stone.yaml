@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : extra-cmake-modules
-version     : "6.31.0"
-release     : 27
+version     : "6.32.0"
+release     : 28
+homepage    : https://invent.kde.org/frameworks/extra-cmake-modules
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/extra-cmake-modules-6.31.0.tar.xz : 8f74af329e4c918358bfe54316f8cf4d530c28444595a3e2fb15075f72877f17
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/extra-cmake-modules-6.32.0.tar.xz : 305f4e2b82eb073be6ac3e50ace85578b3c0c409be262ccc51d445449e3d9312
+summary     : Extra cmake modules and scripts
+description : |
+    Extra cmake modules and scripts
 license     :
     - BSD-2-Clause
     - BSD-3-Clause
     - MIT
-summary     : Extra cmake modules and scripts
-description : |
-    Extra cmake modules and scripts
 builddeps   :
     - binary(doxygen)
     - cmake(Qt6)

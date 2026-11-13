@@ -23,6 +23,7 @@
 				"/usr/share/ECM/find-modules/Find7Zip.cmake",
 				"/usr/share/ECM/find-modules/Find7z.cmake",
 				"/usr/share/ECM/find-modules/FindCanberra.cmake",
+				"/usr/share/ECM/find-modules/FindDesktopFileUtils.cmake",
 				"/usr/share/ECM/find-modules/FindEGL.cmake",
 				"/usr/share/ECM/find-modules/FindFFmpeg.cmake",
 				"/usr/share/ECM/find-modules/FindGLIB2.cmake",
@@ -176,6 +177,7 @@
 				"/usr/share/doc/ECM/html/_sources/find-module/Find7Zip.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/Find7z.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindCanberra.rst.txt",
+				"/usr/share/doc/ECM/html/_sources/find-module/FindDesktopFileUtils.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindFFmpeg.rst.txt",
 				"/usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt",
@@ -285,6 +287,7 @@
 				"/usr/share/doc/ECM/html/find-module/Find7Zip.html",
 				"/usr/share/doc/ECM/html/find-module/Find7z.html",
 				"/usr/share/doc/ECM/html/find-module/FindCanberra.html",
+				"/usr/share/doc/ECM/html/find-module/FindDesktopFileUtils.html",
 				"/usr/share/doc/ECM/html/find-module/FindEGL.html",
 				"/usr/share/doc/ECM/html/find-module/FindFFmpeg.html",
 				"/usr/share/doc/ECM/html/find-module/FindGLIB2.html",
@@ -382,6 +385,6 @@
 		}
 	},
 	"source-name": "extra-cmake-modules",
-	"source-release": "27",
-	"source-version": "6.31.0"
+	"source-release": "28",
+	"source-version": "6.32.0"
 }
