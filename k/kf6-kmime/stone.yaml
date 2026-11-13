@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kmime
-version     : "6.31.0"
-release     : 5
+version     : "6.32.0"
+release     : 6
+homepage    : https://invent.kde.org/frameworks/kmime
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kmime-6.31.0.tar.xz : 859a5c233ef0a70af76fe678da3b1d519086de9cd410826342bdf2c02eadcf90
-homepage    : https://kde.org
-license     : LGPL-2.1-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kmime-6.32.0.tar.xz : 390870842f4b6afeab01a0f76b63e22f0b97f788f8815d847a43d7a4f23e7941
 summary     : KMime is a library for handling mail messages and newsgroup articles
 description : |
     KMime is a library for handling mail messages and newsgroup articles.
+license     : LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
