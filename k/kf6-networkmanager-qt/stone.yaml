@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-networkmanager-qt
-version     : "6.31.0"
-release     : 26
+version     : "6.32.0"
+release     : 27
+homepage    : https://invent.kde.org/frameworks/networkmanager-qt
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/networkmanager-qt-6.31.0.tar.xz : b045f7430f66f16c7bb9ee8c254fe6d3631a74260c1b9be6b4c9ab1873ec9f5e
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/networkmanager-qt-6.32.0.tar.xz : 028134ebcb8aba0394377775a15741c8dc3fc33af9651508a6d819ac1e7f31a0
+summary     : Qt wrapper for NetworkManager DBus API
+description : |
+    Qt wrapper for NetworkManager DBus API
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
     - LGPL-2.1-only
-summary     : Qt wrapper for NetworkManager DBus API
-description : |
-    Qt wrapper for NetworkManager DBus API
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
