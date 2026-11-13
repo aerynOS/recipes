@@ -21,7 +21,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6DAV.so.6",
-				"/usr/lib/libKF6DAV.so.6.31.0",
+				"/usr/lib/libKF6DAV.so.6.32.0",
 				"/usr/share/locale/ar/LC_MESSAGES/libkdav6.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/libkdav6.mo",
 				"/usr/share/locale/az/LC_MESSAGES/libkdav6.mo",
@@ -164,6 +164,6 @@
 		}
 	},
 	"source-name": "kf6-kdav",
-	"source-release": "17",
-	"source-version": "6.31.0"
+	"source-release": "18",
+	"source-version": "6.32.0"
 }
