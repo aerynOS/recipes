@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kcompletion
-version     : "6.31.0"
-release     : 23
+version     : "6.32.0"
+release     : 24
+homepage    : https://invent.kde.org/frameworks/kcompletion
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kcompletion-6.31.0.tar.xz : b9b0023059c09fadfd9aa5d6cf40b3fb0a72d9b45e73b2146c29c20dfab35689
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kcompletion-6.32.0.tar.xz : 1ec8c0f952af1b18b07c30265610c220acadf429ef1a16558d2c64679b93dcc7
+summary     : Powerful completion framework, including completion-enabled lineedit and combobox.
+description : |
+    Powerful completion framework, including completion-enabled lineedit and combobox.
 license     :
     - BSD-3-Clause
     - LGPL-2.0-or-later
     - LGPL-2.1-or-later
-summary     : Powerful completion framework, including completion-enabled lineedit and combobox.
-description : |
-    Powerful completion framework, including completion-enabled lineedit and combobox.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
