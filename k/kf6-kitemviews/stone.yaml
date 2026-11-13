@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kitemviews
-version     : "6.31.0"
-release     : 23
+version     : "6.32.0"
+release     : 24
+homepage    : https://invent.kde.org/frameworks/kitemviews
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kitemviews-6.31.0.tar.xz : cf0d9bf175619ed76cda99a20b04d349082a7c0e4bd1b2ce1dcf2631131cabcd
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kitemviews-6.32.0.tar.xz : fcd869d9e7cea6e296ae0240a6fab07f31762afcc3f427381db703f9fddaef28
+summary     : Set of item views extending the Qt model-view framework.
+description : |
+    Set of item views extending the Qt model-view framework.
 license     :
     - GPL-2.0-or-later
     - LGPL-2.0-only
     - LGPL-2.0-or-later
-summary     : Set of item views extending the Qt model-view framework.
-description : |
-    Set of item views extending the Qt model-view framework.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
