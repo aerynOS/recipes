@@ -294,7 +294,6 @@
 				"/usr/share/gtk-doc/html/udisks2/UDisksDriveLsmLocal.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksEncrypted.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksFilesystem.html",
-				"/usr/share/gtk-doc/html/udisks2/UDisksFilesystemBTRFS.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksFstabEntry.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksISCSISession.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksJob.html",
@@ -320,7 +319,6 @@
 				"/usr/share/gtk-doc/html/udisks2/UDisksLoop.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksMDRaid.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksManager.html",
-				"/usr/share/gtk-doc/html/udisks2/UDisksManagerBTRFS.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksManagerISCSIInitiator.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksManagerLVM2.html",
 				"/usr/share/gtk-doc/html/udisks2/UDisksManagerNVMe.html",
@@ -402,15 +400,16 @@
 				"/usr/share/gtk-doc/html/udisks2/right-insensitive.png",
 				"/usr/share/gtk-doc/html/udisks2/right.png",
 				"/usr/share/gtk-doc/html/udisks2/style.css",
-				"/usr/share/gtk-doc/html/udisks2/udiskd.8.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks-polkit-actions.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks-std-options.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks.8.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-ATA-commands.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-Logging.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksError.html",
+				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksFilesystemBTRFS.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksLinuxManagerNVMe.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksLinuxNVMeFabrics.html",
+				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksManagerBTRFS.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksModule.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksModuleManager.html",
 				"/usr/share/gtk-doc/html/udisks2/udisks2-UDisksUtabMonitor.html",
@@ -419,6 +418,7 @@
 				"/usr/share/gtk-doc/html/udisks2/udisks2.devhelp2",
 				"/usr/share/gtk-doc/html/udisks2/udisks2_lsm.conf.5.html",
 				"/usr/share/gtk-doc/html/udisks2/udisksctl.1.html",
+				"/usr/share/gtk-doc/html/udisks2/udisksd.8.html",
 				"/usr/share/gtk-doc/html/udisks2/umount.udisks2.8.html",
 				"/usr/share/gtk-doc/html/udisks2/up-insensitive.png",
 				"/usr/share/gtk-doc/html/udisks2/up.png"
@@ -468,6 +468,6 @@
 		}
 	},
 	"source-name": "udisks",
-	"source-release": "10",
-	"source-version": "2.11.2"
+	"source-release": "11",
+	"source-version": "2.12.0"
 }

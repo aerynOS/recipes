@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : udisks
-version     : "2.11.2"
-release     : 10
+version     : "2.12.0"
+release     : 11
 homepage    : https://github.com/storaged-project/udisks
 upstreams   :
-    - https://github.com/storaged-project/udisks/releases/download/udisks-2.11.2/udisks-2.11.2.tar.bz2 : 18630a8aad806bea0bc626ce97e71e50ec82c742956ac1c834a4275f8f22207b
+    - https://github.com/storaged-project/udisks/releases/download/udisks-2.12.0/udisks-2.12.0.tar.bz2 : dd709167fddf07b14f8175dbb3ab0c372147f66b437cc2341a9f97d79303c71f
 summary     : Disk and storage device abstraction
 description : |
     The UDisks project provides a daemon, tools and libraries to access and manipulate disks, storage devices and technologies.
@@ -20,8 +20,8 @@ builddeps   :
     - pkgconfig(glib-2.0)
     - pkgconfig(gobject-introspection-1.0)
     - pkgconfig(gudev-1.0)
-    - pkgconfig(polkit-gobject-1)
     - pkgconfig(libacl)
+    - pkgconfig(polkit-gobject-1)
     - docbook
     - docbook-xsl
 environment : |
@@ -42,6 +42,8 @@ install     : |
 
     %install_dir %(installroot)%(docdir)/%(name)-devel
     echo "DEPRECATED" > %(installroot)%(docdir)/%(name)-devel/README
+check       : |
+    %make check
 packages    :
     - "libudisks2":
         summary: Dynamic library to access the udisksd daemon
