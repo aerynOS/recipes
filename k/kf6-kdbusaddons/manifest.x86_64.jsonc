@@ -18,7 +18,7 @@
 			"files": [
 				"/usr/bin/kquitapp6",
 				"/usr/lib/libKF6DBusAddons.so.6",
-				"/usr/lib/libKF6DBusAddons.so.6.31.0",
+				"/usr/lib/libKF6DBusAddons.so.6.32.0",
 				"/usr/share/locale/ar/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/ast/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/az/LC_MESSAGES/kdbusaddons6_qt.qm",
@@ -65,7 +65,6 @@
 				"/usr/share/locale/ro/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/ru/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/sa/LC_MESSAGES/kdbusaddons6_qt.qm",
-				"/usr/share/locale/se/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/sk/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/sl/LC_MESSAGES/kdbusaddons6_qt.qm",
 				"/usr/share/locale/sr/LC_MESSAGES/kdbusaddons6_qt.qm",
@@ -121,6 +120,6 @@
 		}
 	},
 	"source-name": "kf6-kdbusaddons",
-	"source-release": "31",
-	"source-version": "6.31.0"
+	"source-release": "32",
+	"source-version": "6.32.0"
 }
