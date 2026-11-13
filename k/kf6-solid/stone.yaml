@@ -1,20 +1,21 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-solid
-version     : "6.31.0"
-release     : 35
+version     : "6.32.0"
+release     : 36
+homepage    : https://invent.kde.org/frameworks/solid
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/solid-6.31.0.tar.xz : 82950a3d19a8b3ccac11bbcc297e132b975921e25b386f462abe5727a78f1e35
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/solid-6.32.0.tar.xz : 9620a6065403c5097fce0518abb7d4f038f4f11327e7ce94094ae9561bce0008
+summary     : Desktop hardware abstraction.
+description : |
+    Desktop hardware abstraction.
 license     :
     - BSD-3-Clause
     - LGPL-2.1-only
     - LGPL-2.1-or-later
-summary     : Desktop hardware abstraction.
-description : |
-    Desktop hardware abstraction.
 builddeps   :
+    # TODO add mediaplayerinfo
     - binary(bison)
     - binary(flex)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
@@ -23,7 +24,6 @@ builddeps   :
     - pkgconfig(libimobiledevice-1.0)
     - pkgconfig(libplist-2.0)
     - pkgconfig(mount)
-    # TODO add mediaplayerinfo
 setup       : |
     %cmake_kf6
 build       : |
