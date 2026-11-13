@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : p11-kit
-version     : "0.26.5"
-release     : 13
+version     : "0.26.6"
+release     : 14
 homepage    : https://p11-glue.freedesktop.org
 upstreams   :
-    - https://github.com/p11-glue/p11-kit/releases/download/0.26.5/p11-kit-0.26.5.tar.xz: f2cc09111e44bf3fea58f023180b33acea90aa82d042d6fbb623fbc5ba033bb7
+    - https://github.com/p11-glue/p11-kit/releases/download/0.26.6/p11-kit-0.26.6.tar.xz: 5fda95dc89964af32dbd8e01b139c166717cf96c4fee3d601bcd60bdb23d23c6
 summary     : Loads and enumerates PKCS#11 modules
 description : |
    Loads and enumerates PKCS#11 modules
@@ -15,8 +15,8 @@ builddeps   :
     - binary(gettext)
     - pkgconfig(bash-completion)
     - pkgconfig(libffi)
-    - pkgconfig(libtasn1)
     - pkgconfig(libsystemd)
+    - pkgconfig(libtasn1)
     # cmake(GtkDocConfig)
 setup       : |
     %meson \
