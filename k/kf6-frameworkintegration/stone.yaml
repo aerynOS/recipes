@@ -1,20 +1,21 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-frameworkintegration
-version     : "6.31.0"
-release     : 24
+version     : "6.32.0"
+release     : 25
+homepage    : https://invent.kde.org/frameworks/frameworkintegration
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/frameworkintegration-6.31.0.tar.xz : b76c5fb0379c9c33641d2aebd6449dc3af6e727e9ce35bc469611b28e6f47ad1
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/frameworkintegration-6.32.0.tar.xz : 874e13434e808cb0b2081af0f993e09236d0c3e44a6ae37d4fe724ee7547a912
+summary     : Integration of Qt application with KDE workspaces
+description : |
+    Framework Integration is a set of plugins responsible for better integration of Qt applications when running on a KDE Plasma workspace.
 license     :
     - LGPL-2.0-only
     - LGPL-2.0-or-later
     - LGPL-3.0-only
-summary     : Integration of Qt application with KDE workspaces
-description : |
-    Framework Integration is a set of plugins responsible for better integration of Qt applications when running on a KDE Plasma workspace.
 builddeps   :
+    # TODO needs kf6-knewstuff, kf6-kpackage, and packagekit-qt6 bindings to build package handlers
     - cmake(AppStreamQt)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
@@ -23,7 +24,6 @@ builddeps   :
     - cmake(KF6IconThemes)
     - cmake(KF6Notifications)
     - cmake(KF6WidgetsAddons)
-    # TODO needs kf6-knewstuff, kf6-kpackage, and packagekit-qt6 bindings to build package handlers
 setup       : |
     %cmake_kf6 -DBUILD_KPACKAGE_INSTALL_HANDLERS=OFF
 build       : |
