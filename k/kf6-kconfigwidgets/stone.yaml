@@ -1,12 +1,15 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kconfigwidgets
-version     : "6.31.0"
-release     : 32
+version     : "6.32.0"
+release     : 33
+homepage    : https://invent.kde.org/frameworks/kconfigwidgets
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kconfigwidgets-6.31.0.tar.xz : a9aa37565702ac1353c36cf16cc968c8aa336d33bcab9d0ff5419dd0b1dc92df
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kconfigwidgets-6.32.0.tar.xz : 9d7f60aec2c8153e944d0916852942abb7a28459146b1383f3c540e49dd3da8d
+summary     : Widgets for configuration dialogs
+description : |
+    Widgets for configuration dialogs
 license     :
     - BSD-3-Clause
     - GPL-2.0-or-later
@@ -14,9 +17,6 @@ license     :
     - LGPL-2.0-or-later
     - LGPL-2.1-only
     - MIT
-summary     : Widgets for configuration dialogs
-description : |
-    Widgets for configuration dialogs
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
