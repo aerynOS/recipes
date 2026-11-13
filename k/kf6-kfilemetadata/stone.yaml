@@ -1,20 +1,23 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kfilemetadata
-version     : "6.31.0"
-release     : 26
+version     : "6.32.0"
+release     : 27
+homepage    : https://invent.kde.org/frameworks/kfilemetadata
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kfilemetadata-6.31.0.tar.xz : 9c9dd8d4a3d0dfc97c8177a391b8276638402fe0f55e5ff8b4332e1ab214da58
-homepage    : https://community.kde.org/Frameworks
+    - https://download.kde.org/stable/frameworks/6.32/kfilemetadata-6.32.0.tar.xz : f74fcb857e52613095d9b264ac6e8ddf0eca326c884e8c83fd536e70b111241a
+summary     : Simple library for extracting the text and metadata
+description : |
+    Simple library for extracting the text and metadata
 license     :
     - BSD-3-Clause
     - LGPL-2.1-only
     - LGPL-2.1-or-later
-summary     : Simple library for extracting the text and metadata
-description : |
-    Simple library for extracting the text and metadata
 builddeps   :
+    # Todo:
+    # - libappimage
+    # - CatDoc
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
     - cmake(KF6Archive)
@@ -30,9 +33,6 @@ builddeps   :
     - pkgconfig(libavformat)
     - pkgconfig(poppler-qt6)
     - ebook-tools-devel
-    # Todo:
-    # - libappimage
-    # - CatDoc
 setup       : |
     %cmake_kf6
 build       : |
