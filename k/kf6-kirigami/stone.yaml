@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kirigami
-version     : "6.31.0"
-release     : 36
+version     : "6.32.0"
+release     : 37
+homepage    : https://invent.kde.org/frameworks/kirigami
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.31/kirigami-6.31.0.tar.xz : 811a8a150e636216269c0346e62470997fa282113a39e32b2d332bd5969926f0
-homepage    : https://community.kde.org/Frameworks
-license     : LGPL-2.0-or-later
+    - https://download.kde.org/stable/frameworks/6.32/kirigami-6.32.0.tar.xz : 1cb13ef3ad1885726c383bcd1a35c494db3e9c2cf87b49398ea34d63129cf6d7
 summary     : QtQuick components for mobile and desktop UI development.
 description : |
     Kirigami is a set of QtQuick components for the creation of applications that look and feel great on mobile as well as desktop devices and follow the Kirigami Human Interface Guidelines.
+license     : LGPL-2.0-or-later
 builddeps   :
     - binary(bzip2)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
