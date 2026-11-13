@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libKF6Plotting.so.6",
-				"/usr/lib/libKF6Plotting.so.6.31.0"
+				"/usr/lib/libKF6Plotting.so.6.32.0"
 			],
 			"name": "kf6-kplotting",
 			"provides": [
@@ -61,6 +61,6 @@
 		}
 	},
 	"source-name": "kf6-kplotting",
-	"source-release": "1",
-	"source-version": "6.31.0"
+	"source-release": "2",
+	"source-version": "6.32.0"
 }
