@@ -17,7 +17,6 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libabsl_log_internal_message.so.2608.0.0(x86_64))",
-				"soname(libabsl_log_internal_nullguard.so.2608.0.0(x86_64))",
 				"soname(libabsl_status.so.2608.0.0(x86_64))",
 				"soname(libabsl_vlog_config_internal.so.2608.0.0(x86_64))",
 				"soname(libbrotlidec.so.1(x86_64))",
@@ -90,6 +89,6 @@
 		}
 	},
 	"source-name": "android-tools",
-	"source-release": "9",
-	"source-version": "37.0.0"
+	"source-release": "10",
+	"source-version": "37.0.0p1"
 }
