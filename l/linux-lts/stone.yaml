@@ -3,7 +3,7 @@
 
 name        : linux-lts
 version     : "6.18.63"
-release     : 49
+release     : 50
 homepage    : https://kernel.org/
 upstreams   :
     - https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.18.63.tar.xz : 81764a545072d160748beff4d9de2e7d95aa9f16e8261110288f067a2cc61d71
@@ -22,7 +22,6 @@ builddeps   :
     - binary(dash)
     - binary(dbus-broker)
     - binary(dracut)
-    - binary(eu-readelf)
     - binary(flex)
     - binary(gpg)
     - binary(grep)
@@ -131,7 +130,7 @@ install     : |
         module_list+=("${REPLY}")
     done < <(find .%(libdir)/modules -type f -name "*.ko" -print0)
     for module in "${module_list[@]}"; do
-        build_id=$(eu-readelf -n ${module} | awk '/Bui/ {print $3}')
+        build_id=$(${READELF} -n ${module} | awk '/Bui/ {print $3}')
         debug_path="%(libdir)/debug/.build-id/${build_id:0:2}/${build_id: 2}.debug"
 
         pushd $(dirname ${module})
