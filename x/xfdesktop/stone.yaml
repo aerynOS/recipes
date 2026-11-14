@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfdesktop
+version     : "4.21.1"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfdesktop/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfdesktop/4.21/xfdesktop-4.21.1.tar.xz : a1b798d045c8b188af49503e2b015632b460cd179e1893cb3d2eec93eb59a33f
+summary     : Xfce's desktop manager
+description : |
+    Xfce's desktop manager
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(libxfce4util-1.0)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(libxfce4windowing-0)
+    - pkgconfig(libxfce4session-client-1)
+    - pkgconfig(gtk-layer-shell-0)
+    - pkgconfig(yaml-0.1)
+    - pkgconfig(gstreamer-1.0)
+    - pkgconfig(garcon-1)
+    - pkgconfig(garcon-gtk3-1)
+    - pkgconfig(thunarx-3)
+    - pkgconfig(libnotify)
+    - soname(gstreamer-1.0/libgstgtk.so(x86_64))
+setup       : |
+    %meson \
+      -Dx11=disabled
+build       : |
+    %meson_build
+install     : |
+    %meson_install

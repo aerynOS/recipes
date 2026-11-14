@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thunar
+version     : "4.21.7"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/thunar/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/thunar/4.21/thunar-4.21.7.tar.xz : fcb196b2f89cbcb8a3f5130fa9a1a11bc49d66a6403bc91aff7676648d95d51f
+summary     : Modern, fast and easy-to-use file manager for Xfce
+description : |
+    Modern, fast and easy-to-use file manager for Xfce
+#networking  : true
+license     : |
+    - GPL-2.0-or-later
+    - LGPL-2.1-only
+builddeps   :
+    #- binary(gtkdoc-scan)
+    #- binary(xmlto)
+    - binary(xsltproc)
+    - binary(msgfmt)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(vte-2.91)
+    - pkgconfig(gudev-1.0)
+    - pkgconfig(libcanberra)
+    - pkgconfig(libnotify)
+    - pkgconfig(polkit-gobject-1)
+    - pkgconfig(gobject-introspection-1.0)
+    #- docbook-xsl
+setup       : |
+    # TODO! Workaround to fix: failed to load external entity "docbook.xsl"
+    sed -i -e "s|xsltproc, '--nonet', '--output', '@OUTPUT@', 'http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl', '@INPUT@'|'touch', '@OUTPUT@'|" docs/meson.build
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)

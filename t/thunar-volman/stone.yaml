@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thunar-volman
+version     : "4.20.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/thunar-volman/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/thunar-volman/4.20/thunar-volman-4.20.0.tar.bz2 : b0dad852959b515b8fbfd1ed552e362340347d26d5246e7f1b973027131eb1da
+summary     : Automatic management of removable drives and media for Thunar
+description : |
+    Automatic management of removable drives and media for Thunar
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - binary(thunar)
+    - pkgconfig(exo-2)
+    - pkgconfig(gudev-1.0)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(default-icon-theme)
+setup      : |
+    %configure
+build      : |
+    %make
+install    : |
+    %make_install

@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libxfce4ui
+version     : "4.21.9"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/libxfce4ui/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/libxfce4ui/4.21/libxfce4ui-4.21.9.tar.xz : d2072e0c3c27e39e1c38050c660f34806e34e8b1abba660684db586f8c4f7142
+summary     : Widgets library for the Xfce desktop environment
+description : |
+    Widgets library for the Xfce desktop environment
+license     : GPL-2.0-only
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(libgtop-2.0)
+    - pkgconfig(libxfconf-0)
+    - pkgconfig(libxfce4util-1.0)
+setup       : |
+    %patch -p1 -i %(pkgdir)/0001-libxfce4kbd-private-Add-shortcut-for-Whiskermenu.patch
+    %meson \
+      -Dvendor-info=aerynOS
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)

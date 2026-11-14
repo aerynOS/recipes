@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfce4-session
+version     : "4.21.2"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfce4-session/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfce4-session/4.21/xfce4-session-4.21.2.tar.xz : 1809216cb1c658cba50c56b70bcdc1bd073bd357980a4dc335d442eb559bf18a
+summary     : Xfce's session manager
+description : |
+    Xfce's session manager
+license     : GPL-2.0-or-later
+builddeps   :
+    - binary(msgfmt)
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(gdk-pixbuf-2.0)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(libxfce4windowing-0)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(sm)
+setup       : |
+    %meson \
+      -Dx11=disabled \
+      -Dlegacy-session-management=false
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+    mv %(installroot)%(sysconfdir)/xdg %(installroot)%(datadir)/xdg
+    rmdir %(installroot)%(sysconfdir)
