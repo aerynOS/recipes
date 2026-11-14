@@ -40,13 +40,12 @@
 				"/usr/include/inotifytools/inotify-nosys.h",
 				"/usr/include/inotifytools/inotify.h",
 				"/usr/include/inotifytools/inotifytools.h",
-				"/usr/lib/libinotifytools.a",
 				"/usr/lib/libinotifytools.so"
 			],
 			"name": "inotify-tools-devel"
 		}
 	},
 	"source-name": "inotify-tools",
-	"source-release": "3",
-	"source-version": "4.26.270"
+	"source-release": "4",
+	"source-version": "4.26.275"
 }

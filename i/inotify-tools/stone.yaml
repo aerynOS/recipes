@@ -2,23 +2,26 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : inotify-tools
-version     : "4.26.270"
-release     : 3
+version     : "4.26.275"
+release     : 4
 homepage    : https://github.com/inotify-tools/inotify-tools
 upstreams   :
-    - https://github.com/inotify-tools/inotify-tools/releases/download/4.26.270/inotify-tools-4.26.270.tar.gz : cfee168ed9fd914178e586e3ccb9b1180ae1cf33776f9ab2db16c54b9c0662a5
+    - https://github.com/inotify-tools/inotify-tools/releases/download/4.26.275/inotify-tools-4.26.275.tar.gz : e1e53d731f7021fcfe64d922344722a05f1918d9604b0aeebb5ba24453d7eb06
 summary     : inotify-tools is a library and a set of command-line programs providing a simple interface to inotify
 description : |
     This is a package of some commandline utilities relating to inotify.
 
     The general purpose of this package is to allow inotify's features to be used from within shell scripts.
     Read the man pages for further details.
-license     :
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 networking  : true
 setup       : |
     %cargo_fetch
 build       : |
     %make prefix=%(prefix)
 install     : |
-    %make_install prefix=%(prefix)
+    %make_install prefix=%(prefix) ENABLE_STATIC=0
+check       : |
+    # mason doesnt provide mount privileges
+    # so run the cargo and unit tests only.
+    %make cargo-test unit-test
