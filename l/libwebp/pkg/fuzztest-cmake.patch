@@ -1,0 +1,24 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 39d3d8f6..9142690c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -782,6 +782,7 @@ if(WEBP_BUILD_ANIM_UTILS)
+ endif()
+ 
+ if(WEBP_BUILD_FUZZTEST)
++  enable_testing()
+   add_subdirectory(tests/fuzzer)
+ endif()
+ 
+diff --git a/tests/fuzzer/CMakeLists.txt b/tests/fuzzer/CMakeLists.txt
+index 10bacb1c..3c22ba9a 100644
+--- a/tests/fuzzer/CMakeLists.txt
++++ b/tests/fuzzer/CMakeLists.txt
+@@ -35,6 +35,7 @@ set(FETCHCONTENT_QUIET FALSE)
+ set(fuzztest_SOURCE_DIR ${CMAKE_BINARY_DIR}/_deps/fuzztest-src)
+ FetchContent_Declare(
+   fuzztest
++  EXCLUDE_FROM_ALL
+   GIT_REPOSITORY https://github.com/google/fuzztest.git
+   GIT_TAG 078ea0871cc96d3a69bad406577f176a4fa14ae9
+   GIT_PROGRESS TRUE

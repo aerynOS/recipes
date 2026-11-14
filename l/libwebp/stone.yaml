@@ -1,17 +1,35 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libwebp
 version     : "1.6.0"
-release     : 9
+release     : 10
 homepage    : https://chromium.googlesource.com/webm/libwebp
 upstreams   :
     - https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz : e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564
+    # for check: "current latest" fuzztest was used, check dep links from link below.
+    # TODO: remove these section when fuzztest is packaged and pass system dep
+    # https://github.com/google/fuzztest/blob/2026-06-29/cmake/BuildDependencies.cmake#L19-L30
+    - https://github.com/google/fuzztest/releases/download/2026-06-29/fuzztest-2026-06-29.tar.gz:
+        hash: f012eb72e85f0601e51495bcb1c9e9d14b92982f58e4643cfc08a534c4eca7a2
+        unpackdir: fuzztest
+    - https://github.com/abseil/abseil-cpp/releases/download/20260526.0/abseil-cpp-20260526.0.tar.gz:
+        hash: 6e1aee535473414164bf83e4ebc40240dec71a4701f8a642d906e95bea1aea0c
+        unpackdir: abseil-cpp
+    - https://github.com/google/re2/releases/download/2025-11-05/re2-2025-11-05.tar.gz:
+        hash: 87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67
+        unpackdir: re2
+    - https://github.com/google/googletest/archive/refs/tags/v1.17.0.tar.gz:
+        hash: 65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c
+        unpackdir: googletest
+    - https://www.antlr.org/download/antlr4-cpp-runtime-4.13.2-source.zip:
+        hash: 0ed13668906e86dbc0dcddf30fdee68c10203dea4e83852b4edb810821bee3c4
+        unpackdir: antlr4
+        stripdirs: 0
 summary     : WebP codec is a library to encode and decode images in WebP format
 description : |
     WebP codec is a library to encode and decode images in WebP format
-license     :
-    - BSD-3-Clause
+license     : BSD-3-Clause
 builddeps   :
     - pkgconfig(glut)
     - pkgconfig(libjpeg)
@@ -19,16 +37,32 @@ builddeps   :
     - pkgconfig(libtiff-4)
     - pkgconfig(sdl2)
     - giflib-devel
-setup       : |
-    %configure \
-        --disable-static
-build       : |
-    %make
-install     : |
-    %make_install
 tuning      :
     - lto : thin
     - optimize : speed
+setup       : |
+    # FetchContent skips PATCH_COMMAND when source dir is supplied
+    ( cd %(buildroot)/fuzztest && sh %(workdir)/tests/fuzzer/patch.sh )
+
+    # remove fuzztest out of install
+    # and enable testing via ctest
+    %patch %(pkgdir)/fuzztest-cmake.patch
+
+    %cmake \
+        -DBUILD_SHARED_LIBS=ON \
+        -DWEBP_BUILD_FUZZTEST=ON \
+        -DFETCHCONTENT_SOURCE_DIR_FUZZTEST=%(buildroot)/fuzztest \
+        -DFETCHCONTENT_SOURCE_DIR_ABSEIL-CPP=%(buildroot)/abseil-cpp \
+        -DFETCHCONTENT_SOURCE_DIR_RE2=%(buildroot)/re2 \
+        -DFETCHCONTENT_SOURCE_DIR_GOOGLETEST=%(buildroot)/googletest \
+        -DFETCHCONTENT_SOURCE_DIR_ANTLR_CPP=%(buildroot)/antlr4 \
+        -DANTLR_BUILD_CPP_TESTS=OFF
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    %cmake_test
 packages    :
     - "%(name)-tools":
         paths:
