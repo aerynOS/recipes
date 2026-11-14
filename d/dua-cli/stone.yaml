@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dua-cli
-version     : "3.0.0"
-release     : 14
+version     : "3.0.3"
+release     : 15
 homepage    : https://github.com/Byron/dua-cli
 upstreams   :
-    - https://github.com/Byron/dua-cli/archive/refs/tags/v3.0.0.tar.gz : d178e30610b29b23b2ec478bb4ba256a01b82c8497895693e6cd92682bfcd4bd
+    - https://github.com/Byron/dua-cli/archive/refs/tags/v3.0.3.tar.gz : e1918a15a39ec1f25a2f16f8395512b21025221ff9b0a5ba9bb8eb6b17a4178a
 summary     : A tool to conveniently learn about the disk usage of directories
 description : |
     dua (Disk Usage Analyzer) is a tool to conveniently learn about the disk usage of directories, fast! It offers a terminal user interface for interactive exploration and supports parallel directory traversal for improved performance.
@@ -20,8 +20,10 @@ install     : |
     %cargo_install dua
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
 
-    target/*/release/dua completions bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/dua
-    target/*/release/dua completions zsh | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_dua
-    target/*/release/dua completions fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/dua.fish
+    %(cargo_target_dir)/dua completions bash | %install_file /dev/stdin %(installroot)%(bashcompletionsdir)/dua
+    %(cargo_target_dir)/dua completions zsh  | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_dua
+    %(cargo_target_dir)/dua completions fish | %install_file /dev/stdin %(installroot)%(fishcompletionsdir)/dua.fish
 check       : |
+    # test runs /usr/local/.. to get /usr but since we symlink /usr/local
+    # to /var/local test gets back /var instead of /usr. (see l/layout)
     %cargo_test -- --skip interactive --skip walk_options_identify_ignored_directories
