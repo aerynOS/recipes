@@ -1,0 +1,32 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"dmemcg-booster": {
+			"build-depends": [
+				"pkgconfig(dbus-1)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libdbus-1.so.3(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/bin/dmemcg-booster",
+				"/usr/lib/systemd/system-preset/98-dmemcg-booster-system.preset",
+				"/usr/lib/systemd/system/dmemcg-booster-system.service",
+				"/usr/lib/systemd/user-preset/98-dmemcg-booster-user.preset",
+				"/usr/lib/systemd/user/dmemcg-booster-user.service"
+			],
+			"name": "dmemcg-booster",
+			"provides": [
+				"binary(dmemcg-booster)"
+			]
+		}
+	},
+	"source-name": "dmemcg-booster",
+	"source-release": "1",
+	"source-version": "0.1.3"
+}
