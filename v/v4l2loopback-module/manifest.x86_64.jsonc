@@ -4,7 +4,6 @@
 	"packages": {
 		"v4l2loopback-module-gaming": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -15,13 +14,12 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.4-52.gaming/extra/v4l2loopback.ko.zst"
+				"/usr/lib/modules/7.3.4-53.gaming/extra/v4l2loopback.ko.zst"
 			],
 			"name": "v4l2loopback-module-gaming"
 		},
 		"v4l2loopback-module-lts": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -32,13 +30,12 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/6.18.63-49.lts/extra/v4l2loopback.ko.zst"
+				"/usr/lib/modules/6.18.63-50.lts/extra/v4l2loopback.ko.zst"
 			],
 			"name": "v4l2loopback-module-lts"
 		},
 		"v4l2loopback-module-stable": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -49,12 +46,12 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.3-74.stable/extra/v4l2loopback.ko.zst"
+				"/usr/lib/modules/7.3.4-76.stable/extra/v4l2loopback.ko.zst"
 			],
 			"name": "v4l2loopback-module-stable"
 		}
 	},
 	"source-name": "v4l2loopback-module",
-	"source-release": "56",
+	"source-release": "57",
 	"source-version": "0.15.4"
 }
