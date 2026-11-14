@@ -3,7 +3,7 @@
 
 name        : bcachefs-module
 version     : "1.39.7"
-release     : 70
+release     : 71
 homepage    : https://bcachefs.org
 upstreams   :
     - https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-vendored-1.39.7.tar.zst : 5d6927d7b88578518209c92f1510161dbec6e523221dac1cec54c57272d11293
@@ -15,7 +15,6 @@ builddeps   :
     - binary(awk)
     - binary(cargo)
     - binary(cpio)
-    - binary(eu-readelf)
     - binary(jq)
     - binary(zstd)
     - sysbinary(bcachefs)
@@ -77,7 +76,7 @@ install     : |
         fi
     }
 
-    readarray -t libs <<<"$(eu-readelf -d %(sbindir)/bcachefs | grep "NEEDED" | awk '{print $4}' | sed -e 's|\[||g' -e 's|]||g')"
+    readarray -t libs <<<"$(${READELF} -d %(sbindir)/bcachefs | grep "NEEDED" | awk '{print $5}' | sed -e 's|\[||g' -e 's|]||g')"
     for i in ${libs[@]}; do
         case $i in
             # We know for sure these are in the root initrd. Many of the rest are as well
@@ -109,7 +108,7 @@ install     : |
             module_list+=("$REPLY")
         done < <(find . -type f -name "*.ko" -print0)
         for module in "${module_list[@]}"; do
-            build_id=$(eu-readelf -n ${module} | awk '/Bui/ {print $3}')
+            build_id=$(${READELF} -n ${module} | awk '/Bui/ {print $3}')
             debug_path="%(libdir)/debug/.build-id/${build_id:0:2}/${build_id: 2}.debug"
 
             pushd $(dirname ${module})
