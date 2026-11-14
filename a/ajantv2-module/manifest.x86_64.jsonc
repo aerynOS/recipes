@@ -4,7 +4,6 @@
 	"packages": {
 		"ajantv2-module-gaming": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -15,14 +14,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.4-52.gaming/extra/drivers/aja/ajantv2.ko.zst",
-				"/usr/lib/modules/7.3.4-52.gaming/extra/drivers/aja/ajardma.ko.zst"
+				"/usr/lib/modules/7.3.4-53.gaming/extra/drivers/aja/ajantv2.ko.zst",
+				"/usr/lib/modules/7.3.4-53.gaming/extra/drivers/aja/ajardma.ko.zst"
 			],
 			"name": "ajantv2-module-gaming"
 		},
 		"ajantv2-module-lts": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -33,14 +31,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/6.18.63-49.lts/extra/drivers/aja/ajantv2.ko.zst",
-				"/usr/lib/modules/6.18.63-49.lts/extra/drivers/aja/ajardma.ko.zst"
+				"/usr/lib/modules/6.18.63-50.lts/extra/drivers/aja/ajantv2.ko.zst",
+				"/usr/lib/modules/6.18.63-50.lts/extra/drivers/aja/ajardma.ko.zst"
 			],
 			"name": "ajantv2-module-lts"
 		},
 		"ajantv2-module-stable": {
 			"build-depends": [
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -51,13 +48,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.3-74.stable/extra/drivers/aja/ajantv2.ko.zst",
-				"/usr/lib/modules/7.3.3-74.stable/extra/drivers/aja/ajardma.ko.zst"
+				"/usr/lib/modules/7.3.4-76.stable/extra/drivers/aja/ajantv2.ko.zst",
+				"/usr/lib/modules/7.3.4-76.stable/extra/drivers/aja/ajardma.ko.zst"
 			],
 			"name": "ajantv2-module-stable"
 		}
 	},
 	"source-name": "ajantv2-module",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "18.0.0"
 }
