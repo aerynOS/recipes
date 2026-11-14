@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : monado
-version     : "25.1.0~git.983a8a51"
-release     : 5
+version     : "25.1.0~git.2b7f5cb"
+release     : 6
 homepage    : https://monado.dev/
 upstreams   :
-    - git|https://gitlab.freedesktop.org/monado/monado.git : 983a8a518356041fba6445d3548792e2ef0d6948
+    - git|https://gitlab.freedesktop.org/monado/monado.git : 2b7f5cb0fb0b5b5e7b6b12e85e94b08bd37e4463 # 2b7f5cb0fb0b5b5e7b6b12e85e94b08bd37e446
 summary     : The open source XR runtime
 description : |
     Monado is an open source XR runtime delivering immersive experiences such as VR and AR on mobile, PC/desktop,
@@ -59,8 +59,6 @@ builddeps   :
 rundeps     :
     - xr-hardware
 setup       : |
-    %patch %(pkgdir)/ftbfs-opencv-5.patch
-
     %cmake
 build       : |
     %cmake_build
