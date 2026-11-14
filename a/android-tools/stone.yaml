@@ -1,18 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : android-tools
-version     : "37.0.0"
-release     : 9
+version     : "37.0.0p1"
+release     : 10
 homepage    : https://developer.android.com/tools
 upstreams   :
-    - https://github.com/nmeum/android-tools/releases/download/37.0.0/android-tools-37.0.0.tar.xz : 2725d09f892a3a38e534429f47a321f58ecf6a3169caa42c915fb2cb7d46be0e
+    - https://github.com/nmeum/android-tools/releases/download/37.0.0p1/android-tools-37.0.0p1.tar.xz : 2c6de1abe16b211c7d9f59276217e14fd9e0e18b20e331d3c84358f5dffd576e
 summary     : Android SDK Platform-Tools
 description : |
     Android SDK Platform-Tools is a component for the Android SDK.
     It includes tools that interface with the Android platform, primarily adb and fastboot.
-license     :
-    - Apache-2.0
+license     : Apache-2.0
 builddeps   :
     - pkgconfig(fmt)
     - pkgconfig(libbrotlicommon)
@@ -24,8 +23,6 @@ builddeps   :
     - pkgconfig(zlib)
     - protobuf-staticlib
 setup       : |
-    %patch %(pkgdir)/0001-ftbfs-protobuf-36.0.patch
-
     %cmake
 build       : |
     %cmake_build
