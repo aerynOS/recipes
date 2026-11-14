@@ -1,0 +1,45 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"thermald": {
+			"build-depends": [
+				"autoconf-archive",
+				"pkgconfig(gtk-doc)",
+				"pkgconfig(libevdev)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(upower-glib)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libevdev.so.2(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgmodule-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libupower-glib.so.3(x86_64))",
+				"soname(libxml2.so.16(x86_64))"
+			],
+			"files": [
+				"/usr/lib/systemd/system/thermald.service",
+				"/usr/sbin/thermald",
+				"/usr/share/dbus-1/system-services/org.freedesktop.thermald.service",
+				"/usr/share/dbus-1/system.d/org.freedesktop.thermald.conf",
+				"/usr/share/defaults/thermald/thermal-cpu-cdev-order.xml",
+				"/usr/share/defaults/thermald/thermald-features.xml",
+				"/usr/share/man/man5/thermal-conf.xml.5",
+				"/usr/share/man/man8/thermald.8"
+			],
+			"name": "thermald",
+			"provides": [
+				"sysbinary(thermald)"
+			]
+		}
+	},
+	"source-name": "thermald",
+	"source-release": "1",
+	"source-version": "2.5.13"
+}
