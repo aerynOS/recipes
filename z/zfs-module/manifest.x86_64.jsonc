@@ -5,7 +5,6 @@
 		"zfs-module-gaming": {
 			"build-depends": [
 				"binary(aclocal)",
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -16,15 +15,14 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.4-52.gaming/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/7.3.4-52.gaming/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/7.3.4-53.gaming/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/7.3.4-53.gaming/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-gaming"
 		},
 		"zfs-module-lts": {
 			"build-depends": [
 				"binary(aclocal)",
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -35,15 +33,14 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/6.18.63-49.lts/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/6.18.63-49.lts/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/6.18.63-50.lts/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/6.18.63-50.lts/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-lts"
 		},
 		"zfs-module-stable": {
 			"build-depends": [
 				"binary(aclocal)",
-				"binary(eu-readelf)",
 				"binary(zstd)",
 				"linux-gaming-devel",
 				"linux-lts-devel",
@@ -54,13 +51,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.3-74.stable/extra/fs/zfs/spl.ko.zst",
-				"/usr/lib/modules/7.3.3-74.stable/extra/fs/zfs/zfs.ko.zst"
+				"/usr/lib/modules/7.3.4-76.stable/extra/fs/zfs/spl.ko.zst",
+				"/usr/lib/modules/7.3.4-76.stable/extra/fs/zfs/zfs.ko.zst"
 			],
 			"name": "zfs-module-stable"
 		}
 	},
 	"source-name": "zfs-module",
-	"source-release": "46",
+	"source-release": "47",
 	"source-version": "2.4.4"
 }
