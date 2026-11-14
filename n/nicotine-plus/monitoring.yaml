@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 2086
+  rss: https://github.com/nicotine-plus/nicotine-plus/releases.atom
+security:
+  cpe:
+  - vendor: nicotine-plus
+    product: nicotine\+
