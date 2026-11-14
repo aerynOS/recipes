@@ -3,7 +3,7 @@
 
 name        : linux-stable
 version     : "7.3.4"
-release     : 75
+release     : 76
 homepage    : https://kernel.org/
 upstreams   :
         - https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-7.3.4.tar.xz : b11b6df8295e8e991ff040b71aaa4994a8b55caa23b6b092907f195b5840fd1f
@@ -21,7 +21,6 @@ builddeps   :
     - binary(dash)
     - binary(dbus-broker)
     - binary(dracut)
-    - binary(eu-readelf)
     - binary(flex)
     - binary(gpg)
     - binary(grep)
@@ -143,7 +142,7 @@ install     : |
         module_list+=("${REPLY}")
     done < <(find .%(libdir)/modules -type f -name "*.ko" -print0)
     for module in "${module_list[@]}"; do
-        build_id=$(eu-readelf -n ${module} | awk '/Bui/ {print $3}')
+        build_id=$(${READELF} -n ${module} | awk '/Bui/ {print $3}')
         debug_path="%(libdir)/debug/.build-id/${build_id:0:2}/${build_id: 2}.debug"
 
         pushd $(dirname ${module})
