@@ -5,4 +5,5 @@
 enable cosmic-greeter.service
 enable gdm.service
 enable plasmalogin.service
+enable noctalia-greeter.service
 enable sddm.service
