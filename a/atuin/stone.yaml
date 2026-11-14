@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : atuin
-version     : "18.24.6"
-release     : 14
+version     : "18.24.8"
+release     : 15
 homepage    : https://atuin.sh/
 upstreams   :
-    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.24.6.tar.gz : fdfcaab891ecc33561372d6763b8c279112a0d10c7ddb3a3b464abe039045423
+    - https://github.com/atuinsh/atuin/archive/refs/tags/v18.24.8.tar.gz : af0741ac5b7cc7207e794036b0a19db0ad5b9838f80768436664ee3c1c5a1bb2
 summary     : ✨ Magical shell history
 description : |
     Atuin replaces your existing shell history with a SQLite database, and records additional context
