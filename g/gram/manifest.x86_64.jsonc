@@ -8,7 +8,6 @@
 				"binary(envsubst)",
 				"binary(jq)",
 				"binary(make)",
-				"binary(mold)",
 				"libstdc++-devel",
 				"pkgconfig(alsa)",
 				"pkgconfig(fontconfig)",
@@ -55,6 +54,6 @@
 		}
 	},
 	"source-name": "gram",
-	"source-release": "11",
-	"source-version": "3.5.0"
+	"source-release": "12",
+	"source-version": "3.5.1"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gram
-version     : "3.5.0"
-release     : 11
+version     : "3.5.1"
+release     : 12
 homepage    : https://gram-editor.com/
 upstreams   :
-    - https://codeberg.org/GramEditor/gram/archive/3.5.0.tar.gz : 20fafb030a3646c5fd64727a3c0c801f5a7a9940e3943d661104970b246a26ec
+    - https://codeberg.org/GramEditor/gram/archive/3.5.1.tar.gz : 3f56445a5cea5e90ffb25f8524aae0f9904abbe71f59757cc6d22626e870ebb2
 summary     : A code editor for humanoid apes and grumpy toads
 description : |
     Gram is a powerful and modern source code editor.
@@ -21,7 +21,6 @@ builddeps   :
     - binary(envsubst)
     - binary(jq)
     - binary(make)
-    - binary(mold)
     - pkgconfig(alsa)
     - pkgconfig(fontconfig)
     - pkgconfig(gl)
@@ -41,8 +40,8 @@ builddeps   :
     - libstdc++-devel
 rundeps     :
     - binary(unzip)
+mold        : true
 environment : |
-    export RUSTFLAGS="$RUSTFLAGS -Clink-arg=-fuse-ld=mold"
     # enable LTO here instead
     export CARGO_PROFILE_RELEASE_LTO="thin"
     export GRAM_UPDATE_EXPLANATION="Package updates are provided via moss"
