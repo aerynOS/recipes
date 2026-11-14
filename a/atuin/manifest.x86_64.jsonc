@@ -13,7 +13,8 @@
 				"soname(libcrypto.so.4(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libssl.so.4(x86_64))"
+				"soname(libssl.so.4(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/bin/atuin",
@@ -28,6 +29,6 @@
 		}
 	},
 	"source-name": "atuin",
-	"source-release": "14",
-	"source-version": "18.24.6"
+	"source-release": "15",
+	"source-version": "18.24.8"
 }
