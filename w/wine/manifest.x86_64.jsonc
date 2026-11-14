@@ -145,6 +145,7 @@
 				"/usr/lib/wine/i386-windows/cabarc.exe",
 				"/usr/lib/wine/i386-windows/cabinet.dll",
 				"/usr/lib/wine/i386-windows/cacls.exe",
+				"/usr/lib/wine/i386-windows/capabilityaccessmanagerclient.dll",
 				"/usr/lib/wine/i386-windows/cards.dll",
 				"/usr/lib/wine/i386-windows/cdosys.dll",
 				"/usr/lib/wine/i386-windows/certutil.exe",
@@ -1018,6 +1019,7 @@
 				"/usr/lib/wine/x86_64-windows/cabarc.exe",
 				"/usr/lib/wine/x86_64-windows/cabinet.dll",
 				"/usr/lib/wine/x86_64-windows/cacls.exe",
+				"/usr/lib/wine/x86_64-windows/capabilityaccessmanagerclient.dll",
 				"/usr/lib/wine/x86_64-windows/cards.dll",
 				"/usr/lib/wine/x86_64-windows/cdosys.dll",
 				"/usr/lib/wine/x86_64-windows/certutil.exe",
@@ -4143,6 +4145,6 @@
 		}
 	},
 	"source-name": "wine",
-	"source-release": "42",
-	"source-version": "11.21"
+	"source-release": "43",
+	"source-version": "11.22"
 }
