@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: 389321 # https://release-monitoring.org/ and use the numeric id in the url of project
+  id: 389321
   rss: https://github.com/pythops/impala/releases.atom
 security:
   cpe:
