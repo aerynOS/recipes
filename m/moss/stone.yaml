@@ -3,7 +3,7 @@
 
 name        : moss
 version     : "0.26.10~git.a43b174"
-release     : 145
+release     : 146
 homepage    : https://github.com/AerynOS/os-tools
 upstreams   :
     - git|https://github.com/aerynOS/os-tools.git :
@@ -42,8 +42,8 @@ install     : |
     cp generated/*.1 %(installroot)%(mandir)/man1/
 
     # Tightly control kernel cmdline argument order for easier editing
-    # This unlocks the initramfs root account by default as a convenience
-    %install_file %(pkgdir)/00-unlock-initramfs-root-account.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
+    # This locks the initramfs root account by default as a security measure
+    %install_file %(pkgdir)/00-lock-initramfs-root-account.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
     %install_file %(pkgdir)/01-quiet.cmdline -t %(installroot)%(libdir)/kernel/cmdline.d/
 
     # Install the mime type
