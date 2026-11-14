@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ktextaddons
-version     : "2.1.2"
-release     : 15
+version     : "2.2.0"
+release     : 16
 upstreams   :
-    - https://download.kde.org/stable/ktextaddons/ktextaddons-2.1.2.tar.xz : f3b4448904f1656d6d7cd5a557d22fe1c50624eb32ed369f34726beff9ce0589
+    - https://download.kde.org/stable/ktextaddons/ktextaddons-2.2.0.tar.xz : 26b78fab82ce76fa19d8d2a47757631d21dcaddb6814442b6dd2853e65cd5a81
 homepage    : https://invent.kde.org/libraries/ktextaddons
-license     :
-    - GPL-2.0-or-later
-    - LGPL-2.1-or-later
 summary     : Various text handling addons
 description : |
     Text addons (autocorrection, text to speak, grammar checking, text translator, emoticon support)
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.1-or-later
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
@@ -40,13 +40,17 @@ packages    :
         summary: Various text handling addons - Qt6 bindings
         description: Various text handling addons - Qt6 bindings
         paths:
+            - /usr/bin/*.py
             - /usr/lib/libKF6*.so.*
             - /usr/lib/libmcpprotocol*.so.*
+            - /usr/lib/libkokoro*texttospeech*.so.*
             - /usr/lib/libtextautogenerate*.so.*
             - /usr/lib/libtextutils-cmark-rc-copy.so.*
+            - /usr/lib/libspeechtotextwhisper*.so.*
             - /usr/lib/qt6/plugins/kf6/speechtotext/
             - /usr/lib/qt6/plugins/kf6/textautogeneratetext/
             - /usr/lib/qt6/plugins/kf6/translator/
+            - /usr/lib/qt6/plugins/texttospeech/
             - /usr/share/config.kcfg/
             - /usr/share/locale/
             - /usr/share/qlogging-categories6/
