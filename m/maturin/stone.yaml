@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : maturin
-version     : "1.15.0"
-release     : 21
+version     : "1.16.0"
+release     : 22
 homepage    : https://www.maturin.rs
 upstreams   :
-    - https://pypi.debian.net/maturin/maturin-1.15.0.tar.gz : 94b26cc8e8aba61a5f2099715fe640e18c5f678e9a500408b38761263954228a
+    - https://pypi.debian.net/maturin/maturin-1.16.0.tar.gz : 13e69ca12542999d8c5467131de72a49bb76e4c284b9a45c5783df7c0fcb3a8a
 summary     : Build and publish crates with pyo3, rust-cpython and cffi bindings
 description : |
     Build and publish crates with pyo3, rust-cpython and cffi bindings

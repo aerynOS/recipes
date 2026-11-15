@@ -40,12 +40,12 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/licenses/license-apache",
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/licenses/license-mit",
-				"/usr/lib/python3.14/site-packages/maturin-1.15.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/licenses/license-apache",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/licenses/license-mit",
+				"/usr/lib/python3.14/site-packages/maturin-1.16.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/maturin/__init__.py",
 				"/usr/lib/python3.14/site-packages/maturin/__main__.py",
 				"/usr/lib/python3.14/site-packages/maturin/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -63,6 +63,6 @@
 		}
 	},
 	"source-name": "maturin",
-	"source-release": "21",
-	"source-version": "1.15.0"
+	"source-release": "22",
+	"source-version": "1.16.0"
 }
