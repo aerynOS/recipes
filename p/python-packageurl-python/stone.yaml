@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-packageurl-python
+version     : "0.17.6"
+release     : 1
+homepage    : https://github.com/package-url/packageurl-python
+upstreams   :
+    - https://pypi.debian.net/packageurl-python/packageurl_python-0.17.6.tar.gz : 1252ce3a102372ca6f86eb968e16f9014c4ba511c5c37d95a7f023e2ca6e5c25
+summary     : A purl aka Package URL parser and builder
+description : |
+    A purl (Package URL) parser and builder
+license     : MIT
+builddeps   :
+    - python(setuptools)
+checkdeps   :
+    - python(pytest)
+rundeps     :
+    - python-libs
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+check       : |
+    # spec/ submodule is not in the sdist
+    PYTHONPATH="$PWD"/src pytest -vv --ignore=tests/test_purl_spec.py

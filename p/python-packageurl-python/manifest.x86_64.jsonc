@@ -1,0 +1,65 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-packageurl-python": {
+			"build-depends": [
+				"python(pytest)",
+				"python(setuptools)"
+			],
+			"depends": [
+				"python-libs"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/packageurl/__init__.py",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/utils.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/utils.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/validate.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/__pycache__/validate.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__init__.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/purl2url.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/purl2url.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/route.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/route.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/url2purl.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/__pycache__/url2purl.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__init__.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/filters.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/filters.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/models.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/models.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/utils.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/__pycache__/utils.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/filters.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/models.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/django/utils.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/purl2url.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/route.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/sqlalchemy/__pycache__/mixin.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/sqlalchemy/__pycache__/mixin.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/sqlalchemy/mixin.py",
+				"/usr/lib/python3.14/site-packages/packageurl/contrib/url2purl.py",
+				"/usr/lib/python3.14/site-packages/packageurl/py.typed",
+				"/usr/lib/python3.14/site-packages/packageurl/utils.py",
+				"/usr/lib/python3.14/site-packages/packageurl/validate.py",
+				"/usr/lib/python3.14/site-packages/packageurl_python-0.17.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/packageurl_python-0.17.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/packageurl_python-0.17.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/packageurl_python-0.17.6.dist-info/top_level.txt"
+			],
+			"name": "python-packageurl-python",
+			"provides": [
+				"python(packageurl-python)"
+			]
+		}
+	},
+	"source-name": "python-packageurl-python",
+	"source-release": "1",
+	"source-version": "0.17.6"
+}
