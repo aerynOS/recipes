@@ -867,6 +867,7 @@
 				"/usr/share/vim/vim92/ftplugin/arch.vim",
 				"/usr/share/vim/vim92/ftplugin/arduino.vim",
 				"/usr/share/vim/vim92/ftplugin/art.vim",
+				"/usr/share/vim/vim92/ftplugin/ascendc.vim",
 				"/usr/share/vim/vim92/ftplugin/asciidoc.vim",
 				"/usr/share/vim/vim92/ftplugin/asm.vim",
 				"/usr/share/vim/vim92/ftplugin/aspvbs.vim",
@@ -1307,6 +1308,7 @@
 				"/usr/share/vim/vim92/indent/ada.vim",
 				"/usr/share/vim/vim92/indent/ant.vim",
 				"/usr/share/vim/vim92/indent/arduino.vim",
+				"/usr/share/vim/vim92/indent/ascendc.vim",
 				"/usr/share/vim/vim92/indent/astro.vim",
 				"/usr/share/vim/vim92/indent/automake.vim",
 				"/usr/share/vim/vim92/indent/awk.vim",
@@ -1954,6 +1956,7 @@
 				"/usr/share/vim/vim92/syntax/arch.vim",
 				"/usr/share/vim/vim92/syntax/arduino.vim",
 				"/usr/share/vim/vim92/syntax/art.vim",
+				"/usr/share/vim/vim92/syntax/ascendc.vim",
 				"/usr/share/vim/vim92/syntax/asciidoc.vim",
 				"/usr/share/vim/vim92/syntax/asm.vim",
 				"/usr/share/vim/vim92/syntax/asm68k.vim",
@@ -2879,6 +2882,6 @@
 		}
 	},
 	"source-name": "vim",
-	"source-release": "39",
-	"source-version": "9.2.1295"
+	"source-release": "40",
+	"source-version": "9.2.1351"
 }
