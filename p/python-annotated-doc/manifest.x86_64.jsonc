@@ -12,11 +12,11 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.5.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.5.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.5.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.5.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.5.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.6.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/annotated_doc-0.0.6.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/annotated_doc/__init__.py",
 				"/usr/lib/python3.14/site-packages/annotated_doc/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/annotated_doc/__pycache__/__init__.cpython-314.pyc",
@@ -32,6 +32,6 @@
 		}
 	},
 	"source-name": "python-annotated-doc",
-	"source-release": "4",
-	"source-version": "0.0.5"
+	"source-release": "5",
+	"source-version": "0.0.6"
 }
