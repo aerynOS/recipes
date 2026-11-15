@@ -1,0 +1,41 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-typing-inspection": {
+			"build-depends": [
+				"python(hatchling)",
+				"python(pytest)",
+				"python(typing-extensions)"
+			],
+			"depends": [
+				"python(typing-extensions)",
+				"python-libs"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/typing_inspection-0.4.5.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/typing_inspection-0.4.5.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/typing_inspection-0.4.5.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/typing_inspection-0.4.5.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__init__.py",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/introspection.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/introspection.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/typing_objects.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/__pycache__/typing_objects.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/typing_inspection/introspection.py",
+				"/usr/lib/python3.14/site-packages/typing_inspection/py.typed",
+				"/usr/lib/python3.14/site-packages/typing_inspection/typing_objects.py",
+				"/usr/lib/python3.14/site-packages/typing_inspection/typing_objects.pyi"
+			],
+			"name": "python-typing-inspection",
+			"provides": [
+				"python(typing-inspection)"
+			]
+		}
+	},
+	"source-name": "python-typing-inspection",
+	"source-release": "1",
+	"source-version": "0.4.5"
+}
