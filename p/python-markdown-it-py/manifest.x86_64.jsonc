@@ -212,12 +212,12 @@
 				"/usr/lib/python3.14/site-packages/markdown_it/token.py",
 				"/usr/lib/python3.14/site-packages/markdown_it/tree.py",
 				"/usr/lib/python3.14/site-packages/markdown_it/utils.py",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/markdown_it_py-4.2.0.dist-info/licenses/LICENSE.markdown-it"
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/markdown_it_py-4.3.0.dist-info/licenses/LICENSE.markdown-it"
 			],
 			"name": "python-markdown-it-py",
 			"provides": [
@@ -227,6 +227,6 @@
 		}
 	},
 	"source-name": "python-markdown-it-py",
-	"source-release": "5",
-	"source-version": "4.2.0"
+	"source-release": "6",
+	"source-version": "4.3.0"
 }
