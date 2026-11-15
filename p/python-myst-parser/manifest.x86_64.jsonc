@@ -24,11 +24,11 @@
 				"/usr/bin/myst-docutils-pseudoxml",
 				"/usr/bin/myst-docutils-xml",
 				"/usr/bin/myst-inv",
-				"/usr/lib/python3.14/site-packages/myst_parser-5.1.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/myst_parser-5.1.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/myst_parser-5.1.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/myst_parser-5.1.0.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/myst_parser-5.1.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/myst_parser-5.2.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/myst_parser-5.2.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/myst_parser-5.2.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/myst_parser-5.2.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/myst_parser-5.2.0.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/myst_parser/__init__.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/__init__.cpython-314.pyc",
@@ -44,6 +44,8 @@
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/inventory.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/mocking.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/mocking.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/slugs.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/slugs.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/sphinx_.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/sphinx_.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/myst_parser/__pycache__/warnings_.cpython-314.opt-1.pyc",
@@ -100,6 +102,7 @@
 				"/usr/lib/python3.14/site-packages/myst_parser/parsers/parse_html.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/parsers/sphinx_.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/py.typed",
+				"/usr/lib/python3.14/site-packages/myst_parser/slugs.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/sphinx_.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/sphinx_ext/__init__.py",
 				"/usr/lib/python3.14/site-packages/myst_parser/sphinx_ext/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -133,6 +136,6 @@
 		}
 	},
 	"source-name": "python-myst-parser",
-	"source-release": "5",
-	"source-version": "5.1.0"
+	"source-release": "6",
+	"source-version": "5.2.0"
 }
