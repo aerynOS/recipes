@@ -1,0 +1,35 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-pydantic-core
+version     : "2.50.4"
+release     : 1
+homepage    : https://github.com/pydantic/pydantic-core
+upstreams   :
+    - https://pypi.debian.net/pydantic-core/pydantic_core-2.50.4.tar.gz : aead3b74b68396bf0feab5d57e050b730ded7df55853c1e048a87e00aaf033c6
+summary     : Core functionality for Pydantic validation and serialization
+description : |
+    Core functionality for Pydantic validation and serialization
+license     : MIT
+networking  : true
+builddeps   :
+    - pkgconfig(python3)
+    - python(maturin)
+# checkdeps   :
+#     - python(pytest)
+#     - python(pytest-benchmark)
+#     - python(pytest-examples)
+#     - python(pytest-mock)
+#     - python(pytest-pretty)
+#     - python(pytest-run-parallel)
+#     - python(pytest-timeout)
+rundeps     :
+    - python-libs
+setup       : |
+    %cargo_fetch
+build       : |
+    %pyproject_build --skip-dependency-check
+install     : |
+    %pyproject_install
+# check       : |
+#     pytest -vv
