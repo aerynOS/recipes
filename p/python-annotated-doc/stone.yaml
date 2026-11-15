@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-annotated-doc
-version     : "0.0.5"
-release     : 4
+version     : "0.0.6"
+release     : 5
 homepage    : https://github.com/fastapi/annotated-doc
 upstreams   :
-    - https://pypi.debian.net/annotated-doc/annotated_doc-0.0.5.tar.gz : c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb
+    - https://pypi.debian.net/annotated-doc/annotated_doc-0.0.6.tar.gz : 7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf
 summary     : Document parameters, class attributes, return types, and variables inline
 description : |
     Document parameters, class attributes, return types, and variables inline
