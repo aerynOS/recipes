@@ -1,0 +1,45 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-pydantic-core": {
+			"build-depends": [
+				"pkgconfig(python3)",
+				"python(maturin)"
+			],
+			"depends": [
+				"python(typing-extensions)",
+				"python-libs",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/sboms/pydantic-core.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/pydantic_core/__init__.py",
+				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/core_schema.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/core_schema.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/pydantic_core/_pydantic_core.cpython-314-x86_64-linux-gnu.so",
+				"/usr/lib/python3.14/site-packages/pydantic_core/_pydantic_core/__init__.pyi",
+				"/usr/lib/python3.14/site-packages/pydantic_core/_pydantic_core/_schema_gather.pyi",
+				"/usr/lib/python3.14/site-packages/pydantic_core/core_schema.py",
+				"/usr/lib/python3.14/site-packages/pydantic_core/py.typed"
+			],
+			"name": "python-pydantic-core",
+			"provides": [
+				"python(pydantic-core)",
+				"soname(python3.14/site-packages/pydantic_core/_pydantic_core.cpython-314-x86_64-linux-gnu.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "python-pydantic-core",
+	"source-release": "1",
+	"source-version": "2.50.4"
+}
