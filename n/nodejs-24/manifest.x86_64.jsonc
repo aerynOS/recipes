@@ -374,6 +374,7 @@
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/lib/options.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/lib/print-tree.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/lib/timers.js",
+				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/license.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/prune.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/reify.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/arborist/bin/shrinkwrap.js",
@@ -482,6 +483,7 @@
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/node-gyp/lib/index.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/node-gyp/package.json",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/package-json/lib/index.js",
+				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/package-json/lib/license.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/package-json/lib/normalize-data.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/package-json/lib/normalize.js",
 				"/usr/lib/node_modules_24/npm/node_modules/@npmcli/package-json/lib/read-package.js",
@@ -1628,6 +1630,6 @@
 		}
 	},
 	"source-name": "nodejs-24",
-	"source-release": "19",
+	"source-release": "20",
 	"source-version": "24.22.3"
 }
