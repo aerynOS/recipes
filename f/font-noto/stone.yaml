@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : font-noto
-version     : "2026.10.01"
-release     : 10
+version     : "2026.11.01"
+release     : 11
 homepage    : https://notofonts.github.io/
 upstreams   :
-    - https://github.com/notofonts/notofonts.github.io/archive/refs/tags/noto-monthly-release-2026.10.01.tar.gz : 65493b5967fd11372c1566e87f38a05c8c80a0e7f1fee4644fcaad23731a7b8e
+    - https://github.com/notofonts/notofonts.github.io/archive/refs/tags/noto-monthly-release-2026.11.01.tar.gz : 9f755e1ddf64221d122a3cf2ed68112da0399bed00556ee71417489180599edc
 summary     : Noto is a collection of high-quality fonts with multiple weights and widths in sans, serif, mono, and other styles, in more than 1,000 languages and over 150 writing systems.
 description : |
     Noto is a collection of high-quality fonts with multiple weights and widths in sans, serif, mono, and other styles. The Noto fonts are perfect for harmonious, aesthetic, and typographically correct global communication, in more than 1,000 languages and over 150 writing systems.
