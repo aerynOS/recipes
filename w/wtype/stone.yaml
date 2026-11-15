@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : wtype
+version     : "0.5"
+release     : 1
+homepage    : https://github.com/atx/wtype
+upstreams   :
+    - https://github.com/atx/wtype/archive/refs/tags/v0.5.tar.gz : 684308ac8b47c510dddf4abac3aef86b4f7b8c0e165389a40608679a7a5b77ed
+summary     : xdotool type for wayland
+description : |
+    xdotool type for wayland
+license     : MIT
+builddeps   :
+    - binary(wayland-scanner)
+    - pkgconfig(wayland-client)
+    - pkgconfig(wayland-cursor)
+    - pkgconfig(xkbcommon)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
