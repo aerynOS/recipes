@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-markdown-it-py
-version     : "4.2.0"
-release     : 5
+version     : "4.3.0"
+release     : 6
 homepage    : https://github.com/executablebooks/markdown-it-py
 upstreams   :
-    - https://pypi.debian.net/markdown-it-py/markdown_it_py-4.2.0.tar.gz : 04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49
+    - https://pypi.debian.net/markdown-it-py/markdown_it_py-4.3.0.tar.gz : 91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa
 summary     : Markdown parser done right
 description : |
     Markdown parser, done right. 100% CommonMark support, extensions, syntax plugins & high speed.
@@ -15,9 +15,6 @@ builddeps   :
     - python(flit-core)
 rundeps     :
     - binary(python3)
-setup       : |
-    # Workaround for flit-core 4
-    %patch %(pkgdir)/flit-core-4.patch
 build       : |
     %pyproject_build
 install     : |
