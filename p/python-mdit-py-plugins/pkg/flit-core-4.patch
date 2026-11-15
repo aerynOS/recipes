@@ -1,6 +1,6 @@
-diff -Npur mdit-py-plugins-0.6.1.orig/pyproject.toml mdit-py-plugins-0.6.1/pyproject.toml
---- mdit-py-plugins-0.6.1.orig/pyproject.toml	2026-05-13 11:02:07.000000000 +0200
-+++ mdit-py-plugins-0.6.1/pyproject.toml	2026-09-04 05:46:16.636091728 +0200
+diff -Npur mdit-py-plugins-0.7.0.orig/pyproject.toml mdit-py-plugins-0.7.0/pyproject.toml
+--- mdit-py-plugins-0.7.0.orig/pyproject.toml	2026-05-13 11:02:07.000000000 +0200
++++ mdit-py-plugins-0.7.0/pyproject.toml	2026-09-04 05:46:16.636091728 +0200
 @@ -1,5 +1,5 @@
  [build-system]
 -requires = ["flit_core >=3.4,<4"]
