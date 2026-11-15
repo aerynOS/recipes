@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-sbom
+version     : "0.3.1"
+release     : 1
+homepage    : https://python-sbom.readthedocs.io/en/latest/
+upstreams   :
+    - https://pypi.debian.net/python-sbom/python_sbom-0.3.1.tar.gz : 37d0fa3d0a16fddc3d88099e147e164ddb3055e8bc3424506ef41dd80f723a73
+summary     : Write PEP 770 CycloneDX SBOMs into Python wheels
+description : |
+    SBOMs for Python distributions: write PEP 770 CycloneDX SBOMs into wheels.
+license     :
+    - MIT
+    - Apache-2.0
+builddeps   :
+    - python(hatch-fancy-pypi-readme)
+    - python(hatch-vcs)
+    - python(hatchling)
+    - python(installer)
+    - python(packageurl-python)
+    - python(zipremove)
+# checkdeps   :
+#     - python(flit-core)
+#     - python(jsonschema-rs)
+#     - python(license-expression)
+#     - python(pdm)
+#     - python(pytest)
+#     - python(pytest-mock)
+#     - python(spdx-tools)
+rundeps     :
+    - binary(python)
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+# check       : |
+#     PYTHONPATH="$PWD"/src pytest -vv
