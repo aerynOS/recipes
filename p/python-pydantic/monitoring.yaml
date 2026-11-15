@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 39654
+  rss: https://github.com/pydantic/pydantic/releases.atom
+security:
+  cpe: ~ # Last checked 2026-11-15
