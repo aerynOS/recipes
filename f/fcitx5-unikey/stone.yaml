@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : fcitx5-unikey
+version     : "5.1.12"
+release     : 1
+homepage    : https://github.com/fcitx/fcitx5-unikey
+upstreams   :
+    - https://download.fcitx-im.org/fcitx5/fcitx5-unikey/fcitx5-unikey-5.1.12.tar.zst : eeeae2990657a1b51a3499454173dce7c8dad94789ab0d8e9db710ad7a522a36
+summary     : Unikey (Vietnamese Input Method) engine support for Fcitx
+description : |
+    Unikey is a Vietnamese input method engine for Fcitx 5.
+license     : 
+    - GPL-2.0-or-later
+    - LGPL-2.0-or-later
+builddeps   :
+    - cmake(ECM)
+    - cmake(Fcitx5Core)
+    - cmake(Fcitx5Module)
+    - cmake(Fcitx5Qt6WidgetsAddons)
+    - cmake(Qt6)
+    - gettext-devel
+setup       : |
+    %cmake
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+check       : |
+    %cmake_test
