@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyqt6-sip
-version     : "13.13.0"
-release     : 3
+version     : "13.13.1"
+release     : 4
 homepage    : https://riverbankcomputing.com/software/pyqt/intro
 upstreams   :
-    - https://pypi.debian.net/PyQt6-sip/pyqt6_sip-13.13.0.tar.gz : 2cd55f575cde208c398d6cfdecc5a13394ed2afb54226210c50e3a6df7c3a997
+    - https://pypi.debian.net/PyQt6-sip/pyqt6_sip-13.13.1.tar.gz : 83c3c9cb93b6c631af7048084fb0f234b610a01edbf9b2b44c4ee4bda4197efe
 summary     : The sip module support for PyQt6
 description : |
     The sip module support for PyQt6
