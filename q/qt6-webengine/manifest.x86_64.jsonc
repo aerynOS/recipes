@@ -721,7 +721,6 @@
 				"soname(libQt6Qml.so.6(x86_64))",
 				"soname(libQt6WebChannel.so.6(x86_64))",
 				"soname(libQt6WebEngineCore.so.6(x86_64))",
-				"soname(libQt6WebEngineQuick.so.6(x86_64))",
 				"soname(libQt6WebEngineWidgets.so.6(x86_64))",
 				"soname(libQt6Widgets.so.6(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -1211,6 +1210,6 @@
 		}
 	},
 	"source-name": "qt6-webengine",
-	"source-release": "38",
+	"source-release": "39",
 	"source-version": "6.140.0"
 }

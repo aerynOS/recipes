@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Fri, 13 Nov 2026 11:20:00 -0600
+Subject: [PATCH] Link Rust rlibs into QtPdf
+
+QtPdf is linked with COMPLETE_STATIC, on the assumption that its Chromium
+target only produces object files. With the Rust build enabled, V8's Temporal
+support also produces Rust rlibs, which are archives; they were left out of
+the link and libQt6Pdf failed with undefined temporal_rs_* symbols.
+
+Link the archives response file unconditionally: for QtPdf it contains only
+the Rust rlibs.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-13
+---
+ cmake/Functions.cmake | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/cmake/Functions.cmake b/cmake/Functions.cmake
+--- a/cmake/Functions.cmake
++++ b/cmake/Functions.cmake
+@@ -118,11 +118,11 @@
+          # Chromium is meant for linking with gc-sections, which seems to not always get applied otherwise
+          target_link_options(${cmakeTarget} PRIVATE "-Wl,--gc-sections")
+          target_link_options(${cmakeTarget} PRIVATE $<$<CONFIG:${config}>:@${lflags_rsp}>)
+-         if(NOT completeStatic)
+-             target_link_libraries(${cmakeTarget} PRIVATE
+-                 "$<1:-Wl,--start-group $<$<CONFIG:${config}>:@${archives_rsp}> -Wl,--end-group>"
+-             )
+-         endif()
++         # QtPdf is linked with COMPLETE_STATIC, but with the Rust build enabled its
++         # Chromium target still emits archives (the Rust rlibs), so always link them.
++         target_link_libraries(${cmakeTarget} PRIVATE
++             "$<1:-Wl,--start-group $<$<CONFIG:${config}>:@${archives_rsp}> -Wl,--end-group>"
++         )
+ 
+          # linker here options are just to prevent processing it by cmake
+          target_link_libraries(${cmakeTarget} PRIVATE

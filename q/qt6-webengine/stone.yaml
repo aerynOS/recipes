@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-webengine
 version     : "6.140.0"
-release     : 38
+release     : 39
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/development_releases/qtwebengine/6.140.0-rc/qtwebengine-everywhere-src-6.140.0-rc.tar.xz: 61257967afd9803a1db6403e86ea25c4efff8fad479bda365a9d81bfd709f621
+    - https://download.qt.io/official_releases/qtwebengine/6.140/6.140.0/src/qtwebengine-everywhere-src-6.140.0.tar.xz: 82352854a1d01dfe6abeefaf023554e4722c1d7df48ba3ce0078f6c0a9c7e1a3
 
 ### Manage the chromium source separately so it can be updated separately from the Qt version
 ### To update this run the ./update-chromium.py script
 # Don't edit anything between the BEGIN_UPSTREAMS and END_UPSTREAMS tags
 ##@@BEGIN_UPSTREAMS
     - git|https://invent.kde.org/qt/qt/qtwebengine-chromium.git:
-        ref: d69c434a9f56bed724258838563be52170cfcf00
+        ref: 871c3567419501e7b23b6a496bb1931f262c0ca2
 ##@@END_UPSTREAMS
 summary     : Qt6 Webengine Module
 description : |
@@ -97,13 +97,14 @@ setup       : |
     # https://github.com/Homebrew/homebrew-core/blob/main/Patches/node/icu4c-79.patch
     %patch %(pkgdir)/icu4c-79.patch -d src/3rdparty/chromium/v8
 
+    # QtPdf is linked with COMPLETE_STATIC, so its Rust rlibs are dropped from the link
+    %patch %(pkgdir)/qtpdf-link-rust-rlibs.patch
+
     # backports
 
-    # TODO: fix webengine_rust_build=ON which might be due to missing PTY support in boulder
     %cmake_qt6 \
         -DQT_FEATURE_webengine_system_ffmpeg=ON \
         -DQT_FEATURE_webengine_system_icu=ON \
-        -DQT_FEATURE_webengine_system_libevent=ON \
         -DQT_FEATURE_webengine_system_libxml=ON \
         -DQT_FEATURE_webengine_system_minizip=ON \
         -DQT_FEATURE_webengine_system_pulseaudio=ON \
@@ -111,7 +112,7 @@ setup       : |
         -DQT_FEATURE_webengine_system_zlib=ON \
         -DQT_FEATURE_webengine_proprietary_codecs=ON \
         -DQT_FEATURE_webengine_kerberos=ON \
-        -DQT_FEATURE_webengine_rust_build=OFF \
+        -DQT_FEATURE_webengine_rust_build=ON \
         -DQT_FEATURE_webengine_spellchecker=ON \
         -DQT_FEATURE_webengine_vaapi=ON \
         -DQT_FEATURE_webengine_webrtc=ON \
