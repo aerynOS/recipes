@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyqt6
-version     : "6.12.0"
-release     : 4
+version     : "6.12.1"
+release     : 5
 homepage    : https://www.riverbankcomputing.com/software/pyqt/
 upstreams   :
-    - https://pypi.debian.net/PyQt6/pyqt6-6.12.0.tar.gz : d3e021b716bae880224422f9d1b894d2d53de7e60e60dbc43f860723f9cc300b
+    - https://pypi.debian.net/PyQt6/pyqt6-6.12.1.tar.gz : 17bb18b3ae953ab54b23026291ecea2579b028597b56c281a752c8ed66dd1a58
 summary     : A set of Python bindings for Qt6
 description : |
     Python bindings for the Qt6 cross platform application toolkit.
@@ -25,6 +25,7 @@ builddeps   :
     - cmake(Qt6Qml)
     - cmake(Qt6Quick)
     - cmake(Qt6Quick3D)
+    - cmake(Qt6QuickControls2)
     - cmake(Qt6QuickWidgets)
     - cmake(Qt6Sensors)
     - cmake(Qt6SerialPort)
@@ -75,6 +76,7 @@ packages    :
             - /usr/lib/qt6/plugins/PyQt6/libpyqt6qmlplugin.so
             - /usr/lib/python3.*/site-packages/PyQt6/QtQml.*
             - /usr/lib/python3.*/site-packages/PyQt6/QtQuick.*
+            - /usr/lib/python3.*/site-packages/PyQt6/QtQuickControls2.*
             - /usr/lib/python3.*/site-packages/PyQt6/QtQuickWidgets.*
 
     - "%(name)-multimedia":
