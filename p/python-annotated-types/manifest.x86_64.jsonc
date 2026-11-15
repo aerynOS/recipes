@@ -1,0 +1,35 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-annotated-types": {
+			"build-depends": [
+				"python(hatchling)",
+				"python(pytest)"
+			],
+			"depends": [
+				"python-libs"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/annotated_types-0.8.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/annotated_types-0.8.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/annotated_types-0.8.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/annotated_types-0.8.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/annotated_types/__init__.py",
+				"/usr/lib/python3.14/site-packages/annotated_types/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/annotated_types/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/annotated_types/__pycache__/test_cases.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/annotated_types/__pycache__/test_cases.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/annotated_types/py.typed",
+				"/usr/lib/python3.14/site-packages/annotated_types/test_cases.py"
+			],
+			"name": "python-annotated-types",
+			"provides": [
+				"python(annotated-types)"
+			]
+		}
+	},
+	"source-name": "python-annotated-types",
+	"source-release": "1",
+	"source-version": "0.8.0"
+}
