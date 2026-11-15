@@ -13,11 +13,11 @@
 			],
 			"files": [
 				"/usr/lib/python3.14/site-packages/PyQt6/sip.cpython-314-x86_64-linux-gnu.so",
-				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.0.dist-info/top_level.txt"
+				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.1.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.1.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pyqt6_sip-13.13.1.dist-info/top_level.txt"
 			],
 			"name": "python-pyqt6-sip",
 			"provides": [
@@ -27,6 +27,6 @@
 		}
 	},
 	"source-name": "python-pyqt6-sip",
-	"source-release": "3",
-	"source-version": "13.13.0"
+	"source-release": "4",
+	"source-version": "13.13.1"
 }
