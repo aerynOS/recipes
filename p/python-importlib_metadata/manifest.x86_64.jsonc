@@ -8,14 +8,15 @@
 				"python(setuptools-scm)"
 			],
 			"depends": [
+				"python(lazy-importer)",
 				"python(zipp)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/importlib_metadata-10.1.0.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/importlib_metadata-10.1.0.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/importlib_metadata-10.1.0.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/importlib_metadata-10.1.0.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/importlib_metadata-10.1.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/importlib_metadata-10.2.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/importlib_metadata-10.2.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/importlib_metadata-10.2.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/importlib_metadata-10.2.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/importlib_metadata-10.2.0.dist-info/top_level.txt",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/__init__.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/__pycache__/__init__.cpython-314.pyc",
@@ -40,8 +41,11 @@
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__init__.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/_functools.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/_functools.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/localize.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/__pycache__/localize.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/_functools.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_compat/localize.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_context.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/_functools.py",
@@ -55,8 +59,11 @@
 				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/__pycache__/py311.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/__pycache__/py312.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/__pycache__/py312.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/__pycache__/py314.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/__pycache__/py314.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/py311.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/py312.py",
+				"/usr/lib/python3.14/site-packages/importlib_metadata/compat/py314.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/diagnose.py",
 				"/usr/lib/python3.14/site-packages/importlib_metadata/py.typed"
 			],
@@ -67,6 +74,6 @@
 		}
 	},
 	"source-name": "python-importlib_metadata",
-	"source-release": "7",
-	"source-version": "10.1.0"
+	"source-release": "8",
+	"source-version": "10.2.0"
 }
