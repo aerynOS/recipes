@@ -1,7 +1,8 @@
+From b4577090c6350c6e88b025a4127e0aa637d69f42 Mon Sep 17 00:00:00 2001
 From: Fangzhi Zuo <jerry.zuo@amd.com>
-Subject: [2/2] drm/amd/display: Accept HDMI 2.2 FRL rates from the sink EDID
 Date: Wed, 28 Oct 2026 20:44:57 -0400
-Content-Type: text/plain; charset="utf-8"
+Subject: [PATCH 35/39] [FROM-ML] drm/amd/display: Accept HDMI 2.2 FRL rates
+ from the sink EDID
 
 [Why]
 get_max_frl_rate() converts the DRM lane count / per-lane rate pair back
@@ -21,10 +22,10 @@ Signed-off-by: Fangzhi Zuo <jerry.zuo@amd.com>
  2 files changed, 36 insertions(+)
 
 diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
-index f0fc6d080c20..3067ac5bb0cd 100644
+index ac11415e27ab..9552265eba73 100644
 --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
 +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_helpers.c
-@@ -1190,6 +1190,12 @@ STATIC_IFN_KUNIT uint8_t get_max_frl_rate(uint8_t max_lanes, uint8_t max_rate_pe
+@@ -1182,6 +1182,12 @@ STATIC_IFN_KUNIT uint8_t get_max_frl_rate(uint8_t max_lanes, uint8_t max_rate_pe
  		max_frl_rate = 5;
  	else if ((max_lanes == 4) && (max_rate_per_lane == 12))
  		max_frl_rate = 6;
@@ -38,10 +39,10 @@ index f0fc6d080c20..3067ac5bb0cd 100644
  		max_frl_rate = 0;
  
 diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_helpers_test.c b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_helpers_test.c
-index 38f53c596f0d..6e564f60b0df 100644
+index d03a5a61b0cd..e2d341226d0f 100644
 --- a/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_helpers_test.c
 +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/tests/amdgpu_dm_helpers_test.c
-@@ -1267,6 +1267,33 @@ static void dm_test_get_max_frl_rate_4lanes_12gbps(struct kunit *test)
+@@ -1148,6 +1148,33 @@ static void dm_test_get_max_frl_rate_4lanes_12gbps(struct kunit *test)
  	KUNIT_EXPECT_EQ(test, get_max_frl_rate(4, 12), 6);
  }
  
@@ -75,7 +76,7 @@ index 38f53c596f0d..6e564f60b0df 100644
  /**
   * dm_test_get_max_frl_rate_unknown - Test Get max frl rate unknown
   * @test: The KUnit test context
-@@ -4893,6 +4920,9 @@ static struct kunit_case amdgpu_dm_helpers_test_cases[] = {
+@@ -3794,6 +3821,9 @@ static struct kunit_case amdgpu_dm_helpers_test_cases[] = {
  	KUNIT_CASE(dm_test_get_max_frl_rate_4lanes_8gbps),
  	KUNIT_CASE(dm_test_get_max_frl_rate_4lanes_10gbps),
  	KUNIT_CASE(dm_test_get_max_frl_rate_4lanes_12gbps),
@@ -85,3 +86,6 @@ index 38f53c596f0d..6e564f60b0df 100644
  	KUNIT_CASE(dm_test_get_max_frl_rate_unknown),
  	/* dm_dtn_log_begin / dm_dtn_log_append_v / dm_dtn_log_end */
  	KUNIT_CASE(dm_test_dtn_log_buffer_accumulates),
+-- 
+2.56.0
+
