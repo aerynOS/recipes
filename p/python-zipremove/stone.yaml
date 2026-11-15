@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-zipremove
+version     : "0.10.0"
+release     : 1
+homepage    : https://github.com/danny0838/zipremove
+upstreams   :
+    - https://pypi.debian.net/zipremove/zipremove-0.10.0.tar.gz : 3c5957c115447b54299d3a23128764b59c4558fc98c4b878ff2dbc5db8a62021
+summary     : Extend zipfile with remove-related capabilities
+description : |
+    Extend zipfile with remove-related capabilities
+license     : MIT
+builddeps   :
+    - python(setuptools)
+rundeps     :
+    - python-libs
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+# Needs the CPython stdlib test package (test.test_zipfile).
+# check       : |
+#     PYTHONPATH="$PWD"/src python3 -m unittest discover -s tests -v

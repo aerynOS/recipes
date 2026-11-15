@@ -1,0 +1,31 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-zipremove": {
+			"build-depends": [
+				"python(setuptools)"
+			],
+			"depends": [
+				"python-libs"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/zipremove-0.10.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/zipremove-0.10.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/zipremove-0.10.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/zipremove-0.10.0.dist-info/licenses/LICENSE.txt",
+				"/usr/lib/python3.14/site-packages/zipremove-0.10.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/zipremove/__init__.py",
+				"/usr/lib/python3.14/site-packages/zipremove/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/zipremove/__pycache__/__init__.cpython-314.pyc"
+			],
+			"name": "python-zipremove",
+			"provides": [
+				"python(zipremove)"
+			]
+		}
+	},
+	"source-name": "python-zipremove",
+	"source-release": "1",
+	"source-version": "0.10.0"
+}
