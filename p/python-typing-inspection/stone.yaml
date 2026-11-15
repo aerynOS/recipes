@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-typing-inspection
+version     : "0.4.5"
+release     : 1
+homepage    : https://github.com/pydantic/typing-inspection
+upstreams   :
+    - https://pypi.debian.net/typing-inspection/typing_inspection-0.4.5.tar.gz : 7f16c411e7930dc79596d42ab44672a3fe5f60eb34b781a1647e7872363120c7
+summary     : Runtime typing introspection tools
+description : |
+    Runtime typing introspection tools
+license     : MIT
+builddeps   :
+    - python(hatchling)
+checkdeps   :
+    - python(pytest)
+    - python(typing-extensions)
+rundeps     :
+    - python-libs
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+check       : |
+    pytest -vv
