@@ -1,0 +1,38 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"python-lazy-importer": {
+			"build-depends": [
+				"python(flit-core)",
+				"python(pytest)"
+			],
+			"depends": [
+				"python-libs"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/lazy_importer-0.1.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/lazy_importer-0.1.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/lazy_importer-0.1.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/lazy_importer-0.1.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__init__.py",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/_imports.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/_imports.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/_native.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/__pycache__/_native.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/lazy_importer/_imports.py",
+				"/usr/lib/python3.14/site-packages/lazy_importer/_native.py",
+				"/usr/lib/python3.14/site-packages/lazy_importer/py.typed"
+			],
+			"name": "python-lazy-importer",
+			"provides": [
+				"python(lazy-importer)"
+			]
+		}
+	},
+	"source-name": "python-lazy-importer",
+	"source-release": "1",
+	"source-version": "0.1.0"
+}

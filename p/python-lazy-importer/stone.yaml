@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-lazy-importer
+version     : "0.1.0"
+release     : 1
+homepage    : https://github.com/pganssle/lazy_importer
+upstreams   :
+    - https://pypi.debian.net/lazy-importer/lazy_importer-0.1.0.tar.gz : b2e296716ce015c0cd80e57b940e52727c5b934b34b8656d5ce06bdd0ee5fbdd
+summary     : A context manager for portable, opt-in lazy imports
+description : |
+    A backwards-compatibility shim allowing libraries to get lazy import semantics
+    similar to PEP 810 on Python 3.11–3.14.
+license     : Apache-2.0
+builddeps   :
+    - python(flit-core)
+checkdeps   :
+    - python(pytest)
+rundeps     :
+    - python-libs
+setup       : |
+    # Workaround for flit-core 4
+    %patch %(pkgdir)/flit-core-4.patch
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+check       : |
+    PYTHONPATH="$PWD"/src pytest -vv
