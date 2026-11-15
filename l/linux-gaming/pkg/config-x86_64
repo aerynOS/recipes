@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86_64 7.3.4-53.gaming Kernel Configuration
+# Linux/x86_64 7.3.5-54.gaming Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="clang version 23.1.5 (aerynOS)"
 CONFIG_GCC_VERSION=0
