@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : python-pydantic
+version     : "2.14.3"
+release     : 1
+homepage    : https://github.com/pydantic/pydantic
+upstreams   :
+    - https://pypi.debian.net/pydantic/pydantic-2.14.3.tar.gz : 1054f237f4d4733e5a30e1e2333bd33a2004ab9ab1510bd053a9a31bb48e232d
+summary     : Data validation using Python type hints
+description : |
+    Data validation using Python type hints
+license     : MIT
+builddeps   :
+    - python(hatch-fancy-pypi-readme)
+    - python(hatchling)
+# checkdeps   :
+#     - python(cloudpickle)
+#     - python(dirty-equals)
+#     - python(email-validator)
+#     - python(Faker)
+#     - python(jsonschema)
+#     - python(pytz)
+#     - python(rich)
+#     - python(pytest)
+#     - python(pytest-benchmark)
+#     - python(pytest-examples)
+#     - python(pytest-mock)
+#     - python(pytest-pretty)
+rundeps     :
+    - python-libs
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install
+# check       : |
+#     pytest -vv
