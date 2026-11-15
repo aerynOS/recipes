@@ -11,10 +11,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.6.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.6.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.6.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.6.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.7.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.7.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.7.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins-0.7.0.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/__init__.py",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/__pycache__/__init__.cpython-314.pyc",
@@ -119,6 +119,12 @@
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/myst_role/__pycache__/index.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/myst_role/index.py",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/py.typed",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/__init__.py",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/__pycache__/__init__.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/__pycache__/index.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/__pycache__/index.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/mdit_py_plugins/section_ref/index.py",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/subscript/__init__.py",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/subscript/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/mdit_py_plugins/subscript/__pycache__/__init__.cpython-314.pyc",
@@ -155,6 +161,6 @@
 		}
 	},
 	"source-name": "python-mdit-py-plugins",
-	"source-release": "5",
-	"source-version": "0.6.1"
+	"source-release": "6",
+	"source-version": "0.7.0"
 }
