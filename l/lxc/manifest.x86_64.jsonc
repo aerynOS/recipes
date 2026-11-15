@@ -178,7 +178,7 @@
 			"files": [
 				"/usr/bin/lxc-autostart",
 				"/usr/lib/liblxc.so.1",
-				"/usr/lib/liblxc.so.1.8.0",
+				"/usr/lib/liblxc.so.1.9.0",
 				"/usr/lib/lxc/lxc/hooks/unmount-namespace",
 				"/usr/lib/lxc/lxc/lxc-apparmor-load",
 				"/usr/lib/lxc/lxc/lxc-containers",
@@ -241,6 +241,6 @@
 		}
 	},
 	"source-name": "lxc",
-	"source-release": "7",
-	"source-version": "6.0.6"
+	"source-release": "8",
+	"source-version": "7.0.0"
 }

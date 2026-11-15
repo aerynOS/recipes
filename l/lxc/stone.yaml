@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lxc
-version     : "6.0.6"
-release     : 7
+version     : "7.0.0"
+release     : 8
 homepage    : https://linuxcontainers.org/lxc
 upstreams   :
-    - https://linuxcontainers.org/downloads/lxc/lxc-6.0.6.tar.gz : b0ba4537258d2b848fd07dedb1044dab132de3fb3f1976d240da40a7dee1b8cf
+    - https://linuxcontainers.org/downloads/lxc/lxc-7.0.0.tar.gz : ba0c860626efbac6683f351dd718edb062065e919716d787b89e3d547c5d9493
 license     : LGPL-2.1-or-later
 summary     : Linux Containers
 description : |
