@@ -3,7 +3,7 @@
 
 name        : nodejs-24
 version     : "24.22.3"
-release     : 19
+release     : 20
 homepage    : https://nodejs.org/
 upstreams   :
     - https://nodejs.org/dist/v24.22.3/node-v24.22.3.tar.gz : 4690edccae352134bbe31d844b37898f2a28b2c3d67901d0112fb6c4996d556a
@@ -138,7 +138,8 @@ install     : |
         -name doc  -o \
         -name docs -o \
         -name examples -o \
-        -name 'license*' -o \
+        -name 'license' -o \
+        -name 'license.txt' -o \
         -name '*.bak'  -o \
         -name '*.d.ts' -o \
         -name '*.markdown' -o \
