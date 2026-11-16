@@ -1,9 +1,8 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 372233
   rss: https://github.com/xapp-project/gnome-online-accounts-gtk/releases.atom
 security:
-  # No known CPE, checked 2024-05-01
-  cpe: ~
+  cpe: ~ # No CPE found, last checked (2026-11-16)

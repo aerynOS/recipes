@@ -1,20 +1,20 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gnome-online-accounts-gtk
-version     : "3.50.11"
-release     : 2
-upstreams   :
-    - https://github.com/xapp-project/gnome-online-accounts-gtk/archive/refs/tags/3.50.11.tar.gz : c4c14a9d7b06d3323a32f7835dde7a75070b7d5e62609223ee46b26545cf03ac
+version     : "3.50.12"
+release     : 3
 homepage    : https://github.com/xapp-project/gnome-online-accounts-gtk
-license     : GPL-3.0-or-later
+upstreams   :
+    - https://github.com/xapp-project/gnome-online-accounts-gtk/archive/refs/tags/3.50.12.tar.gz : d60d7acba51f0df6c92360067b106ef9f4bc756f43c1334488722cc68f403d92
 summary     : A GTK Frontend for GNOME Online Accounts
 description : |
     A GTK Frontend for GNOME Online Accounts
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(msgfmt)
-    - pkgconfig(glib-2.0)
     - pkgconfig(gio-2.0)
+    - pkgconfig(glib-2.0)
     - pkgconfig(goa-1.0)
     - pkgconfig(goa-backend-1.0)
     - pkgconfig(gtk4)
