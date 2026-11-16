@@ -5,6 +5,7 @@ releases:
   id: 11515
   rss: https://github.com/capnproto/capnproto/tags.atom
 security:
+  # Last checked: 2026-11-06
   cpe:
   - vendor: capnproto
     product: capnproto
