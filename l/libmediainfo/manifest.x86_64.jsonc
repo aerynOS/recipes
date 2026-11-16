@@ -1,0 +1,67 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libmediainfo": {
+			"build-depends": [
+				"binary(pkg-config)",
+				"cmake(ZenLib)",
+				"pkgconfig(libcurl)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libcurl.so.4(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))",
+				"soname(libz.so.1(x86_64))",
+				"soname(libzen.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libmediainfo.so.0",
+				"/usr/lib/libmediainfo.so.0.2610.0"
+			],
+			"name": "libmediainfo",
+			"provides": [
+				"soname(libmediainfo.so.0(x86_64))"
+			]
+		},
+		"libmediainfo-devel": {
+			"build-depends": [
+				"binary(pkg-config)",
+				"cmake(ZenLib)",
+				"pkgconfig(libcurl)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"libmediainfo",
+				"pkgconfig(libcurl)",
+				"pkgconfig(libzen)",
+				"pkgconfig(zlib)"
+			],
+			"files": [
+				"/usr/include/MediaInfo/MediaInfo.h",
+				"/usr/include/MediaInfo/MediaInfoList.h",
+				"/usr/include/MediaInfo/MediaInfo_Const.h",
+				"/usr/include/MediaInfo/MediaInfo_Events.h",
+				"/usr/include/MediaInfoDLL/MediaInfoDLL.h",
+				"/usr/include/MediaInfoDLL/MediaInfoDLL_Static.h",
+				"/usr/lib/cmake/mediainfolib/MediaInfoLibConfig.cmake",
+				"/usr/lib/cmake/mediainfolib/MediaInfoLibConfigVersion.cmake",
+				"/usr/lib/cmake/mediainfolib/MediaInfoLibTargets-release.cmake",
+				"/usr/lib/cmake/mediainfolib/MediaInfoLibTargets.cmake",
+				"/usr/lib/libmediainfo.so",
+				"/usr/lib/pkgconfig/libmediainfo.pc"
+			],
+			"name": "libmediainfo-devel",
+			"provides": [
+				"cmake(MediaInfoLib)",
+				"pkgconfig(libmediainfo)"
+			]
+		}
+	},
+	"source-name": "libmediainfo",
+	"source-release": "1",
+	"source-version": "26.10"
+}
