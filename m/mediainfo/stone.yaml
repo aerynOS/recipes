@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : mediainfo
+version     : "26.10"
+release     : 1
+homepage    : https://mediaarea.net/en/MediaInfo
+upstreams   :
+    - https://github.com/MediaArea/MediaInfo/archive/refs/tags/v26.10.tar.gz : 33b0d63a9d4c16fe0579173bb2d1cb8d665f722875db791bac11ba881b5099bb
+summary     : MediaInfo CLI is a convenient unified display of the most relevant technical and tag data for video and audio files
+description : |
+    MediaInfo CLI is a convenient unified display of the most relevant technical and tag data for video and audio files
+license     : BSD-2-Clause
+builddeps   :
+    - pkgconfig(libmediainfo)
+    - pkgconfig(zlib)
+setup       : |
+    cd Project/GNU/CLI
+    %autogen
+    %configure
+build       : |
+    cd Project/GNU/CLI
+    %make
+install     : |
+    cd Project/GNU/CLI
+    %make_install

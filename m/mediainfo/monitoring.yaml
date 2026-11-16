@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 8240
+  rss: https://github.com/MediaArea/MediaInfo/releases.atom
+security:
+  cpe:
+  - vendor: mediaarea
+    product: mediainfo
