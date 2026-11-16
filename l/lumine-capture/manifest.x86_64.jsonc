@@ -23,6 +23,7 @@
 			],
 			"files": [
 				"/usr/bin/lumine-capture",
+				"/usr/lib/LumineCapture/libwebgpu_dawn.so",
 				"/usr/share/applications/lumine-capture.desktop",
 				"/usr/share/doc/lumine-capture/README.md",
 				"/usr/share/doc/lumine-capture/lumine-capture-shortcuts-kde.kksrc",
@@ -52,11 +53,12 @@
 			],
 			"name": "lumine-capture",
 			"provides": [
-				"binary(lumine-capture)"
+				"binary(lumine-capture)",
+				"soname(LumineCapture/libwebgpu_dawn.so(x86_64))"
 			]
 		}
 	},
 	"source-name": "lumine-capture",
-	"source-release": "3",
-	"source-version": "0.3.0"
+	"source-release": "4",
+	"source-version": "0.4.0"
 }
