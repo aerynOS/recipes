@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : discord
-version     : "1.0.169"
-release     : 75
+version     : "1.0.170"
+release     : 76
 homepage    : https://discord.com/
 upstreams   :
-    - https://dl.discordapp.net/apps/linux/1.0.169/discord-1.0.169.tar.gz : 21b47a62f83dbba99c128a379b6d901075b9eedb5e22a72dae87b7cd08088fa3
+    - https://dl.discordapp.net/apps/linux/1.0.170/discord-1.0.170.tar.gz : 129f38c16e7071b25c14c86f6cec43826370ed114d6bc77f9f406e1d70660c8c
 summary     : Group chat, video, and voice calling app
 description : |
     Discord is a proprietary freeware VoIP application and digital distribution platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel.
