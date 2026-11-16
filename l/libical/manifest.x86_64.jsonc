@@ -25,17 +25,17 @@
 			"files": [
 				"/usr/lib/girepository-1.0/ICal-4.0.typelib",
 				"/usr/lib/libical.so.4.0",
-				"/usr/lib/libical.so.4.0.7",
+				"/usr/lib/libical.so.4.0.8",
 				"/usr/lib/libical_cxx.so.4.0",
-				"/usr/lib/libical_cxx.so.4.0.7",
+				"/usr/lib/libical_cxx.so.4.0.8",
 				"/usr/lib/libicalss.so.4.0",
-				"/usr/lib/libicalss.so.4.0.7",
+				"/usr/lib/libicalss.so.4.0.8",
 				"/usr/lib/libicalss_cxx.so.4.0",
-				"/usr/lib/libicalss_cxx.so.4.0.7",
+				"/usr/lib/libicalss_cxx.so.4.0.8",
 				"/usr/lib/libicalvcal.so.4.0",
-				"/usr/lib/libicalvcal.so.4.0.7",
+				"/usr/lib/libicalvcal.so.4.0.8",
 				"/usr/lib/libicalvcard.so.4.0",
-				"/usr/lib/libicalvcard.so.4.0.7"
+				"/usr/lib/libicalvcard.so.4.0.8"
 			],
 			"name": "libical",
 			"provides": [
@@ -112,7 +112,9 @@
 				"/usr/include/libical/icalversion.h",
 				"/usr/include/libical/icptrholder_cxx.hpp",
 				"/usr/include/libical/libical_deprecated.h",
+				"/usr/include/libical/libical_ical_cxx_export.h",
 				"/usr/include/libical/libical_ical_export.h",
+				"/usr/include/libical/libical_icalss_cxx_export.h",
 				"/usr/include/libical/libical_icalss_export.h",
 				"/usr/include/libical/libical_sentinel.h",
 				"/usr/include/libical/libical_vcal_export.h",
@@ -2248,7 +2250,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/ICalGLib-4.0.typelib",
 				"/usr/lib/libical-glib.so.4.0",
-				"/usr/lib/libical-glib.so.4.0.7"
+				"/usr/lib/libical-glib.so.4.0.8"
 			],
 			"name": "libical-glib",
 			"provides": [
@@ -2326,6 +2328,7 @@
 				"/usr/include/libical-glib/i-cal-vcard-tz.h",
 				"/usr/include/libical-glib/i-cal-vcard-value.h",
 				"/usr/include/libical-glib/libical-glib.h",
+				"/usr/include/libical-glib/libical_glib_export.h",
 				"/usr/lib/libical-glib.so",
 				"/usr/lib/pkgconfig/libical-glib.pc",
 				"/usr/share/gir-1.0/ICalGLib-4.0.gir",
@@ -2338,6 +2341,6 @@
 		}
 	},
 	"source-name": "libical",
-	"source-release": "15",
-	"source-version": "4.0.7"
+	"source-release": "16",
+	"source-version": "4.0.8"
 }
