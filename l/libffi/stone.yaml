@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libffi
-version     : "3.8.0"
-release     : 13
+version     : "3.8.1"
+release     : 14
 homepage    : https://sourceware.org/libffi
 upstreams   :
-    - https://github.com/libffi/libffi/releases/download/v3.8.0/libffi-3.8.0.tar.gz: 7da3e2d9a171eb0a038f592ecad3ff2bb2550f3496d87b3b29ad0cf4430c0db4
+    - https://github.com/libffi/libffi/releases/download/v3.8.1/libffi-3.8.1.tar.gz: 81e879c094cc5ec3186c48510c6385ac6b3e866192e8bc71a35245703757ee40
 summary     : A portable foreign function interface library
 description : |
     A portable foreign function interface library
