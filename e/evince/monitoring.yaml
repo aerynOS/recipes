@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 8178
-  rss: https://gitlab.gnome.org/GNOME/sushi/-/tags?format=atom
+  rss: https://gitlab.gnome.org/GNOME/evince/-/tags?format=atom
 security:
   cpe:
   - vendor: gnome
