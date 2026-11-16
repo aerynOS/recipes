@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libmediainfo
+version     : "26.10"
+release     : 1
+homepage    : https://mediaarea.net/en/MediaInfo
+upstreams   :
+    - https://github.com/MediaArea/MediaInfoLib/archive/refs/tags/v26.10.tar.gz : 3985db56d18d504b0852c1485cfa9dbaf2733876058e9b8dc1b1411ebeba225d
+summary     : Shared library for MediaInfo
+description : |
+    Shared library for MediaInfo, a convenient unified display of the most relevant technical and tag data for video and audio files.
+license     : BSD-2-Clause
+builddeps   :
+    - binary(pkg-config)
+    - cmake(ZenLib)
+    - pkgconfig(libcurl)
+    - pkgconfig(zlib)
+setup       : |
+    # Pin C++20: the project defaults to the newest standard (c++26),
+    # which crashes clang 23.1.3 on MediaInfo_Inform.cpp
+    %cmake \
+    -S Project/CMake \
+    -DBUILD_SHARED_LIBS=ON \
+    -DCMAKE_CXX_STANDARD=20
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+packages    :
+    - "%(name)-devel":
+        rundeps:
+            - pkgconfig(zlib)
