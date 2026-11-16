@@ -3,7 +3,7 @@
 
 name        : libfido2
 version     : "1.17.0"
-release     : 7
+release     : 8
 homepage    : https://developers.yubico.com/libfido2/
 upstreams   :
     - https://github.com/Yubico/libfido2/archive/refs/tags/1.17.0.tar.gz : ace062d14a482ff9325410ff63d06c8b5fe87e79ebc18dda07add2bc0188c77f
