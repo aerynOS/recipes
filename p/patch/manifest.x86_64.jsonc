@@ -4,11 +4,14 @@
 	"packages": {
 		"patch": {
 			"build-depends": [
-				"binary(ed)"
+				"binary(bison)",
+				"binary(ed)",
+				"pkgconfig(libattr)"
 			],
 			"depends": [
 				"binary(ed)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libattr.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
@@ -22,6 +25,6 @@
 		}
 	},
 	"source-name": "patch",
-	"source-release": "6",
+	"source-release": "7",
 	"source-version": "2.8.1"
 }
