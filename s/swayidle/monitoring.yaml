@@ -1,8 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 137685
   rss: https://github.com/swaywm/swayidle/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2025-12-16)
+  # No CPE found, last checked 2026-11-15
+  cpe: ~

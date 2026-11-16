@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : swayidle
-version     : "1.9.0"
-release     : 4
+version     : "1.9.1"
+release     : 5
 homepage    : https://github.com/swaywm/swayidle
 upstreams   :
-    - https://github.com/swaywm/swayidle/releases/download/v1.9.0/swayidle-1.9.0.tar.gz : 6c1b769038b60250c88e47380cbb021cfa57a65f872bf4d6c340b5e3057096ac
+    - https://github.com/swaywm/swayidle/releases/download/v1.9.1/swayidle-1.9.1.tar.gz : 6e1655ecba30db14de3df1652ef9dd1db72784946fa65cb222404a87ac825d57
 summary     : Sway idle management daemon
 description : |
     Sway idle management daemon
