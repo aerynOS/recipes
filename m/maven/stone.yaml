@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : maven
-version     : "3.10.0"
-release     : 5
+version     : "3.10.1"
+release     : 6
 homepage    : https://maven.apache.org
 upstreams   :
-    - https://dlcdn.apache.org/maven/maven-3/3.10.0/source/apache-maven-3.10.0-src.tar.gz:
-        hash: aa4d8ff3b71b636e6826b91695062d909ea6949a27e3442dd2762d8459439df9
+    - https://dlcdn.apache.org/maven/maven-3/3.10.1/source/apache-maven-3.10.1-src.tar.gz:
+        hash: 440846130652a1764c207e076209e71cd2d6bb8fcc45e0f8f224f669231b9951
         unpackdir: "maven"
 
     # Comment out this section if bootstrapping isn't necessary
@@ -49,10 +49,6 @@ install     : |
         -DdistributionTargetDir="%(installroot)${_maven_dir}" \
         -Drat.skip=true \
         -DskipTests
-
-    # Only keep the Linux x86_64 JLine native library
-    rm -rf %(installroot)${_maven_dir}/lib/jline-native/{FreeBSD,Windows} \
-           %(installroot)${_maven_dir}/lib/jline-native/Linux/{arm,arm64,armv6,armv7,ppc64,x86}
 
     %install_dir %(installroot)/usr/bin
     ln -srv %(installroot)${_maven_dir}/bin/mvn %(installroot)%(bindir)/mvn

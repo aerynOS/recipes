@@ -5,6 +5,7 @@ releases:
   id: 1894
   rss: ~
 security:
+  # Last checked 2026-11-15
   cpe:
   - vendor: apache
     product: maven
