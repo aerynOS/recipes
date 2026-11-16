@@ -9,6 +9,7 @@
 				"cmake(KF6ColorScheme)",
 				"cmake(KF6Config)",
 				"cmake(KF6CoreAddons)",
+				"cmake(KF6FileMetaData)",
 				"cmake(KF6I18n)",
 				"cmake(KF6IconThemes)",
 				"cmake(KF6KIO)",
@@ -32,6 +33,7 @@
 				"soname(libKF6ConfigCore.so.6(x86_64))",
 				"soname(libKF6ConfigGui.so.6(x86_64))",
 				"soname(libKF6CoreAddons.so.6(x86_64))",
+				"soname(libKF6FileMetaData.so.3(x86_64))",
 				"soname(libKF6I18n.so.6(x86_64))",
 				"soname(libKF6I18nQml.so.6(x86_64))",
 				"soname(libKF6IconThemes.so.6(x86_64))",
@@ -130,6 +132,6 @@
 		}
 	},
 	"source-name": "elisa",
-	"source-release": "28",
+	"source-release": "29",
 	"source-version": "26.08.3"
 }
