@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=Experimental aerynOS installer
-GenericName=Experimental aerynOS installer
-Comment=Test the experiemental aerynOS installer
+Name=Install aerynOS (experimental)
+GenericName=Install aerynOS (experimental)
+Comment=Test the experimental aerynOS installer
 Icon=system-software-install
 Exec=lichen-tui
 Terminal=true
