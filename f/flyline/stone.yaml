@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : flyline
-version     : "1.10.0"
-release     : 4
+version     : "1.11.0"
+release     : 5
 homepage    : https://github.com/HalFrgrd/flyline
 upstreams   :
-    - https://github.com/HalFrgrd/flyline/archive/refs/tags/v1.10.0.tar.gz : 3da007554eed359ef8a0e05875ac9a3c5d251dbce8f50cdc0e864e72a54b3199
+    - https://github.com/HalFrgrd/flyline/archive/refs/tags/v1.11.0.tar.gz : c805d6227252d51e1863a9901a34f6b6b157b243cc0ca18651da11aa13f1da7b
 summary     : A Bash plugin to replace readline for a modern line editing experience
 description : |
     Flyline is a readline replacement for Bash that provides syntax highlighting,
