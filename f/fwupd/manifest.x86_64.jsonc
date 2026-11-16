@@ -29,6 +29,7 @@
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libblkid.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
+				"soname(libcrypto.so.4(x86_64))",
 				"soname(libcurl.so.4(x86_64))",
 				"soname(libdrm.so.2(x86_64))",
 				"soname(libdrm_amdgpu.so.1(x86_64))",
@@ -51,9 +52,9 @@
 				"/usr/bin/dbxtool",
 				"/usr/bin/fwupdmgr",
 				"/usr/bin/fwupdtool",
-				"/usr/lib/fwupd-2.1.9/libfwupdengine.so",
-				"/usr/lib/fwupd-2.1.9/libfwupdplugin.so",
-				"/usr/lib/fwupd-2.1.9/libfwupdutil.so",
+				"/usr/lib/fwupd-2.1.10/libfwupdengine.so",
+				"/usr/lib/fwupd-2.1.10/libfwupdplugin.so",
+				"/usr/lib/fwupd-2.1.10/libfwupdutil.so",
 				"/usr/lib/fwupd/fwupd/fwupd",
 				"/usr/lib/fwupd/installed-tests/fwupd/acpi-dmar-self-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/acpi-facp-self-test",
@@ -109,6 +110,7 @@
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-protobuf-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-ptr-array-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-quirks-test",
+				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-secure-bytes-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-security-attrs-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-smbios-test",
 				"/usr/lib/fwupd/installed-tests/fwupd/fwupdplugin-srec-firmware-test",
@@ -152,7 +154,6 @@
 				"/usr/lib/libfwupd.so.3.0.0",
 				"/usr/lib/modules-load.d/fwupd-i2c.conf",
 				"/usr/lib/modules-load.d/fwupd-msr.conf",
-				"/usr/lib/systemd/system-shutdown/fwupd.shutdown",
 				"/usr/lib/systemd/system/fwupd-refresh.service",
 				"/usr/lib/systemd/system/fwupd-refresh.timer",
 				"/usr/lib/systemd/system/fwupd.service",
@@ -638,9 +639,9 @@
 				"binary(dbxtool)",
 				"binary(fwupdmgr)",
 				"binary(fwupdtool)",
-				"soname(fwupd-2.1.9/libfwupdengine.so(x86_64))",
-				"soname(fwupd-2.1.9/libfwupdplugin.so(x86_64))",
-				"soname(fwupd-2.1.9/libfwupdutil.so(x86_64))",
+				"soname(fwupd-2.1.10/libfwupdengine.so(x86_64))",
+				"soname(fwupd-2.1.10/libfwupdplugin.so(x86_64))",
+				"soname(fwupd-2.1.10/libfwupdutil.so(x86_64))",
 				"soname(libfwupd.so.3(x86_64))"
 			]
 		},
@@ -734,6 +735,6 @@
 		}
 	},
 	"source-name": "fwupd",
-	"source-release": "3",
-	"source-version": "2.1.9"
+	"source-release": "4",
+	"source-version": "2.1.10"
 }
