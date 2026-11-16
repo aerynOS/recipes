@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openssl
-version     : "4.0.3"
-release     : 42
+version     : "4.1.0"
+release     : 43
 summary     : OpenSSL cryptography library
 license     :
     - OpenSSL
@@ -12,8 +12,8 @@ homepage    : https://www.openssl.org
 description : |
     OpenSSL cryptography library.
 upstreams   :
-    - https://www.openssl.org/source/openssl-4.0.3.tar.gz:
-        hash: 325b5c806167c13b40b1ffeadfe0248197c00eccc4cf123ec1e28d2d2fd216d9
+    - https://www.openssl.org/source/openssl-4.1.0.tar.gz:
+        hash: 50c17baf54cb008f6ce42d50deb4b28050a1aad711636cabd4b241c7e90cc2fd
         unpackdir: current
 
     - https://www.openssl.org/source/openssl-3.5.9.tar.gz:
