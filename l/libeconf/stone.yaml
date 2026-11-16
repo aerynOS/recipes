@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libeconf
-version     : "0.8.6"
-release     : 10
+version     : "0.8.7"
+release     : 11
 homepage    : https://github.com/openSUSE/libeconf
 upstreams   :
-    - https://github.com/openSUSE/libeconf/archive/refs/tags/v0.8.6.tar.gz : 0d4ae78a5924e1af0e1c4fe9e538cb62d507dfb6f50b827654f89caabe83a33b
+    - https://github.com/openSUSE/libeconf/archive/refs/tags/v0.8.7.tar.gz : ebbddde55c6fb9eb141fca03d0f3c251282ded60351f43933d83e2e2e0bff6de
 summary     : Configuration file parser for hermetic systems
 description : |
     Enhanced config file parser, which merges config files placed in several locations into one.
