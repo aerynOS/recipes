@@ -114,6 +114,7 @@
 				"/usr/share/xfsprogs/mkfs/lts_6.12.conf",
 				"/usr/share/xfsprogs/mkfs/lts_6.18.conf",
 				"/usr/share/xfsprogs/mkfs/lts_6.6.conf",
+				"/usr/share/xfsprogs/mkfs/lts_7.3.conf",
 				"/usr/share/xfsprogs/xfs_scrub_all.cron"
 			],
 			"name": "xfsprogs",
@@ -220,6 +221,6 @@
 		}
 	},
 	"source-name": "xfsprogs",
-	"source-release": "21",
-	"source-version": "7.2.1"
+	"source-release": "22",
+	"source-version": "7.3.0"
 }
