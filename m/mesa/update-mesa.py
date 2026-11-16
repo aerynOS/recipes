@@ -97,7 +97,9 @@ version_output = version_template.substitute(version = version)
 # Update the source
 source_template = Template(\
 """##@@BEGIN_SOURCE
-    - ${source_url} : ${checksum}
+    - ${source_url}:
+        hash: ${checksum}
+        unpackdir: mesa
 ##@@END_SOURCE""")
 with open(source, 'rb', buffering=0) as f:
     checksum = hashlib.file_digest(f, 'sha256').hexdigest()

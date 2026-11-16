@@ -5,15 +5,23 @@ name        : mesa
 ### IMPORTANT: Use the update-mesa.py script to update this package
 
 ##@@BEGIN_VERSION
-version     : "26.2.7"
+version     : "26.3.0"
 ##@@END_VERSION
 # Note: keep mesa-clc in-sync with this package version-wise
-release     : 95
+release     : 96
 homepage    : https://mesa3d.org/
 upstreams   :
 ##@@BEGIN_SOURCE
-    - https://mesa.freedesktop.org/archive/mesa-26.2.7.tar.xz : 04294f75d22e9f61cd1e050206bc48b3d39366e788f1803a3368e3d5a872ce18
+    - https://mesa.freedesktop.org/archive/mesa-26.3.0.tar.xz:
+        hash: 91d729aa68bb89e4ec857841300bbe922bcb3e52b1f97566ca83930d3b28343a
+        unpackdir: mesa
 ##@@END_SOURCE
+
+    # Keep this in sync with what mesa checks for.
+    # If something else needs this we can split it out to a different package
+    - https://gitlab.freedesktop.org/virgl/venus-protocol/-/archive/v1.1.3/venus-protocol-v1.1.3.tar.gz:
+        hash: c5a362ca28e0a35042db1baeadaf9183500b216841e49d72714b80bae50b4445
+        unpackdir: mesa/venus-protocol
 
 ##@@BEGIN_CRATES
     - https://static.crates.io/crates/bitflags/2.9.1/download:
@@ -47,6 +55,10 @@ upstreams   :
     - https://static.crates.io/crates/log/0.4.27/download:
         hash: 13dc2df351e3202783a1fe0d44375f7295ffb4049267b0f3018346dc122a1d94
         rename: log-0.4.27.tar.gz
+        unpack: false
+    - https://static.crates.io/crates/mach2/0.7.0/download:
+        hash: b0d28e293f2b8c9d2b2d1c0193bd3c1cbdc0d2cf396888dc01162f7cf9d6c3f3
+        rename: mach2-0.7.0.tar.gz
         unpack: false
     - https://static.crates.io/crates/once_cell/1.8.0/download:
         hash: 692fcb63b64b1758029e0a96ee63e049ce8c5948587f2f7208df04625e5f6b56
@@ -229,6 +241,16 @@ setup       : |
 
     export MESON_PACKAGE_CACHE_DIR=%(sourcedir)
 
+    pushd venus-protocol
+        %meson
+        %meson_build
+        DESTDIR="${PWD}/tmp" meson install --no-rebuild -C "%(builddir)"
+
+        export PKG_CONFIG_PATH="${PWD}/tmp/%(libdir)/pkgconfig${PKG_CONFIG_PATH:+":$PKG_CONFIG_PATH"}"
+        export CFLAGS+=" -I${PWD}/tmp/usr/include/venus-protocol"
+        export CXXFLAGS+=" -I${PWD}/tmp/usr/include/venus-protocol"
+    popd
+
     %meson \
         -Ddisplay-info=${_IS_64BIT_FEAT} \
         -Degl=enabled \
@@ -247,7 +269,7 @@ setup       : |
         -Dsysprof=${_IS_64BIT_BOOL} \
         -Dvideo-codecs=all \
         -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio$EXTRA_VK_DRIVERS \
-        -Dvulkan-layers=anti-lag,device-select,overlay,screenshot,vram-report-limit \
+        -Dvulkan-layers=device-select,overlay,screenshot,vram-report-limit \
         -Dzstd=enabled
 build       : |
     %meson_build
@@ -353,7 +375,6 @@ packages    :
             - /usr/lib/libVkLayer_MESA_device_select.so
             - /usr/share/drirc.d/00-radv-defaults.conf
             - /usr/share/vulkan/icd.d/*.x86_64.json
-            - /usr/share/vulkan/implicit_layer.d/VkLayer_MESA_anti_lag.json
             - /usr/share/vulkan/implicit_layer.d/VkLayer_MESA_device_select.json
 
     - "%(name)-vulkan-layers":
