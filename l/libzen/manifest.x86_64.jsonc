@@ -1,0 +1,78 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libzen": {
+			"build-depends": [
+				"binary(pkg-config)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libstdc++.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libzen.so.0",
+				"/usr/lib/libzen.so.0.4.41"
+			],
+			"name": "libzen",
+			"provides": [
+				"soname(libzen.so.0(x86_64))"
+			]
+		},
+		"libzen-devel": {
+			"build-depends": [
+				"binary(pkg-config)"
+			],
+			"depends": [
+				"libzen"
+			],
+			"files": [
+				"/usr/include/ZenLib/BitStream.h",
+				"/usr/include/ZenLib/BitStream_Fast.h",
+				"/usr/include/ZenLib/BitStream_LE.h",
+				"/usr/include/ZenLib/Conf.h",
+				"/usr/include/ZenLib/Conf_Internal.h",
+				"/usr/include/ZenLib/CriticalSection.h",
+				"/usr/include/ZenLib/Dir.h",
+				"/usr/include/ZenLib/File.h",
+				"/usr/include/ZenLib/FileName.h",
+				"/usr/include/ZenLib/Format/Html/Html_Handler.h",
+				"/usr/include/ZenLib/Format/Html/Html_Request.h",
+				"/usr/include/ZenLib/Format/Http/Http_Cookies.h",
+				"/usr/include/ZenLib/Format/Http/Http_Handler.h",
+				"/usr/include/ZenLib/Format/Http/Http_Request.h",
+				"/usr/include/ZenLib/Format/Http/Http_Utils.h",
+				"/usr/include/ZenLib/InfoMap.h",
+				"/usr/include/ZenLib/MemoryDebug.h",
+				"/usr/include/ZenLib/OS_Utils.h",
+				"/usr/include/ZenLib/PreComp.h",
+				"/usr/include/ZenLib/Thread.h",
+				"/usr/include/ZenLib/Trace.h",
+				"/usr/include/ZenLib/Translation.h",
+				"/usr/include/ZenLib/Utils.h",
+				"/usr/include/ZenLib/Ztring.h",
+				"/usr/include/ZenLib/ZtringList.h",
+				"/usr/include/ZenLib/ZtringListList.h",
+				"/usr/include/ZenLib/ZtringListListF.h",
+				"/usr/include/ZenLib/int128s.h",
+				"/usr/include/ZenLib/int128u.h",
+				"/usr/lib/cmake/zenlib/ZenLibConfig.cmake",
+				"/usr/lib/cmake/zenlib/ZenLibConfigVersion.cmake",
+				"/usr/lib/cmake/zenlib/ZenLibTargets-release.cmake",
+				"/usr/lib/cmake/zenlib/ZenLibTargets.cmake",
+				"/usr/lib/libzen.so",
+				"/usr/lib/pkgconfig/libzen.pc"
+			],
+			"name": "libzen-devel",
+			"provides": [
+				"cmake(ZenLib)",
+				"pkgconfig(libzen)"
+			]
+		}
+	},
+	"source-name": "libzen",
+	"source-release": "1",
+	"source-version": "0.4.41"
+}
