@@ -1740,6 +1740,7 @@
 				"/usr/share/terminfo/n/nsterm-build361",
 				"/usr/share/terminfo/n/nsterm-build400",
 				"/usr/share/terminfo/n/nsterm-build440",
+				"/usr/share/terminfo/n/nsterm-build472",
 				"/usr/share/terminfo/n/nsterm-c",
 				"/usr/share/terminfo/n/nsterm-c-7",
 				"/usr/share/terminfo/n/nsterm-c-acs",
@@ -2165,6 +2166,7 @@
 				"/usr/share/terminfo/s/st-0.7",
 				"/usr/share/terminfo/s/st-0.8",
 				"/usr/share/terminfo/s/st-0.8.5",
+				"/usr/share/terminfo/s/st-0.9.2",
 				"/usr/share/terminfo/s/st-16color",
 				"/usr/share/terminfo/s/st-256color",
 				"/usr/share/terminfo/s/st-direct",
@@ -4185,6 +4187,6 @@
 		}
 	},
 	"source-name": "ncurses",
-	"source-release": "35",
-	"source-version": "6.6-20261107"
+	"source-release": "36",
+	"source-version": "6.6-20261114"
 }
