@@ -3,14 +3,14 @@
 
 name        : lichen-installer
 version     : "0.1.7~git.18e1f1d"
-release     : 3
+release     : 4
 homepage    : https://github.com/aerynos/lichen-installer
 upstreams   :
     - git|https://github.com/aerynos/lichen-installer.git:
         ref: 18e1f1de70bf0a9976169e1cdc237ee3459b0576
-summary     : aerynOS Installer
+summary     : OS Installer (experimental)
 description : |
-    aerynOS installer
+    Experimental aerynOS TUI installer.
 license     : GPL-3.0-only
 networking  : true
 builddeps   :
