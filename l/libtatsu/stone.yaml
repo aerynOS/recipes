@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libtatsu
-version     : "1.1.0"
-release     : 6
+version     : "1.1.1"
+release     : 7
 homepage    : https://github.com/libimobiledevice/libtatsu
 upstreams   :
-    - https://github.com/libimobiledevice/libtatsu/releases/download/1.1.0/libtatsu-1.1.0.tar.bz2 : 96c8abd97552a4a0c487c701aba9a65d590c338dd331058ffb38304290b696c7
+    - https://github.com/libimobiledevice/libtatsu/releases/download/1.1.1/libtatsu-1.1.1.tar.bz2 : 18f471f131c1d55ccc02fa09565d870030c6ce92f737b89fe1b3849941ebb303
 summary     : A library to communicate with Apple devices
 description : |
     A library to communicate with Apple devices
