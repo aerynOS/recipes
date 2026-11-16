@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : evince
-version     : "48.4"
-release     : 2
+version     : "48.5"
+release     : 3
 homepage    : https://gitlab.gnome.org/GNOME/evince
 upstreams   :
-    - https://gitlab.gnome.org/GNOME/evince/-/archive/48.4/evince-48.4.tar.gz : 3a660f2e844a773c5b9bc381aeb14c1b2a702c6eeaf03ae9dcb9b363885bc18d
+    - https://gitlab.gnome.org/GNOME/evince/-/archive/48.5/evince-48.5.tar.gz : 2a8a1a53dd6d7ccabad215f247e281dfb6e0e9c4f0427f6cd03b228bb01522d7
 summary     : Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
 description : |
     Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
@@ -30,3 +30,5 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+check       : |
+    %meson_test
