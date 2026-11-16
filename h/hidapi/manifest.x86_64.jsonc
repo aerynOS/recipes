@@ -15,9 +15,9 @@
 			],
 			"files": [
 				"/usr/lib/libhidapi-hidraw.so.0",
-				"/usr/lib/libhidapi-hidraw.so.0.15.0",
+				"/usr/lib/libhidapi-hidraw.so.0.16.0",
 				"/usr/lib/libhidapi-libusb.so.0",
-				"/usr/lib/libhidapi-libusb.so.0.15.0"
+				"/usr/lib/libhidapi-libusb.so.0.16.0"
 			],
 			"name": "hidapi",
 			"provides": [
@@ -43,17 +43,19 @@
 				"/usr/lib/libhidapi-hidraw.so",
 				"/usr/lib/libhidapi-libusb.so",
 				"/usr/lib/pkgconfig/hidapi-hidraw.pc",
-				"/usr/lib/pkgconfig/hidapi-libusb.pc"
+				"/usr/lib/pkgconfig/hidapi-libusb.pc",
+				"/usr/lib/pkgconfig/hidapi.pc"
 			],
 			"name": "hidapi-devel",
 			"provides": [
 				"cmake(hidapi)",
+				"pkgconfig(hidapi)",
 				"pkgconfig(hidapi-hidraw)",
 				"pkgconfig(hidapi-libusb)"
 			]
 		}
 	},
 	"source-name": "hidapi",
-	"source-release": "6",
-	"source-version": "0.15.0"
+	"source-release": "7",
+	"source-version": "0.16.0"
 }

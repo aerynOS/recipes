@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hidapi
-version     : "0.15.0"
-release     : 6
+version     : "0.16.0"
+release     : 7
 homepage    : https://libusb.info/hidapi/
 upstreams   :
-    - https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.15.0.tar.gz : 5d84dec684c27b97b921d2f3b73218cb773cf4ea915caee317ac8fc73cef8136
+    - https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.16.0.tar.gz : bc599d295792fe515778f19ce86a49760b0ea5fc114e5258245d470609632bbf
 summary     : A Simple cross-platform library for communicating with HID devices
 description : |
     HIDAPI is a multi-platform library which allows an application to interface
