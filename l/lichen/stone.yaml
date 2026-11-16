@@ -3,14 +3,14 @@
 
 name        : lichen
 version     : "0.1.0~git.a3896a6"
-release     : 59
+release     : 60
 homepage    : https://github.com/aerynOS/lichen
 upstreams   :
     - git|https://github.com/aerynOS/lichen.git :
         ref : a3896a6555c5e77dc29a79fa2bf2f2ac5106f418
-summary     : OS installer
+summary     : OS Installer (legacy)
 description : |
-    Experimental OS installer
+    Legacy aerynOS installer.
 license     : MPL-2.0
 networking  : true
 rundeps     :
