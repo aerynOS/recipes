@@ -21,7 +21,7 @@
 			"files": [
 				"/usr/bin/awk",
 				"/usr/bin/gawk",
-				"/usr/bin/gawk-5.4.1",
+				"/usr/bin/gawk-5.4.2",
 				"/usr/bin/gawkbug",
 				"/usr/lib/gawk/awk/grcat",
 				"/usr/lib/gawk/awk/pwcat",
@@ -42,6 +42,7 @@
 				"/usr/share/awk/cliff_rand.awk",
 				"/usr/share/awk/ctime.awk",
 				"/usr/share/awk/ftrans.awk",
+				"/usr/share/awk/gensub2.awk",
 				"/usr/share/awk/getopt.awk",
 				"/usr/share/awk/gettime.awk",
 				"/usr/share/awk/group.awk",
@@ -90,6 +91,7 @@
 				"/usr/share/locale/it/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/gawk.mo",
+				"/usr/share/locale/lv/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/pt/LC_MESSAGES/gawk.mo",
@@ -100,6 +102,7 @@
 				"/usr/share/locale/tr/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/uk/LC_MESSAGES/gawk.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/gawk.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/gawk.mo",
 				"/usr/share/man/man1/gawk.1",
 				"/usr/share/man/man1/gawkbug.1",
 				"/usr/share/man/man1/pm-gawk.1"
@@ -108,7 +111,7 @@
 			"provides": [
 				"binary(awk)",
 				"binary(gawk)",
-				"binary(gawk-5.4.1)",
+				"binary(gawk-5.4.2)",
 				"binary(gawkbug)",
 				"soname(gawk/filefuncs.so(x86_64))",
 				"soname(gawk/fnmatch.so(x86_64))",
@@ -154,6 +157,6 @@
 		}
 	},
 	"source-name": "gawk",
-	"source-release": "10",
-	"source-version": "5.4.1"
+	"source-release": "11",
+	"source-version": "5.4.2"
 }

@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gawk
-version     : "5.4.1"
-release     : 10
+version     : "5.4.2"
+release     : 11
 summary     : GNU awk pattern-matching language
 license     : GPL-3.0-or-later
 homepage    : https://www.gnu.org/software/gawk/gawk.html
@@ -12,7 +12,7 @@ description : |
 upstreams   :
     # - https://ftp.gnu.org/gnu/gawk/gawk-5.4.0.tar.xz: f8c3486509de705192138b00ef2c00bbbdd0e84c30d5c07d23fc73a9dc4cc9cc
     # Use a mirror because the GNU servers are terrible
-    - https://mirror.kumi.systems/gnu/gawk/gawk-5.4.1.tar.xz: 07f6f7342b7febe4313fc2c2542ad93d64fe20ad8717200109f105a826f5fd37
+    - https://mirror.kumi.systems/gnu/gawk/gawk-5.4.2.tar.xz: b95e4909533b5f988c6b5e5539b3b3ddf76e7d7df02ca2e5b5b7d6f62db78e6a
 builddeps   :
     - binary(bison)
     - binary(msgfmt)
