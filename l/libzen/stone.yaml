@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : libzen
+version     : "0.4.41"
+release     : 1
+homepage    : https://github.com/MediaArea/ZenLib
+upstreams   :
+    - https://github.com/MediaArea/ZenLib/archive/refs/tags/v0.4.41.tar.gz : 45d5173fa0278f5264daa6836ae297aa303984482227d00b35c4f03929494c8f
+summary     : A shared C++ library for libmediainfo and mediainfo
+description : |
+    A shared C++ library for libmediainfo and mediainfo.
+license     : Zlib
+builddeps   :
+    - binary(pkg-config)
+setup       : |
+    %cmake \
+        -S Project/CMake \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
