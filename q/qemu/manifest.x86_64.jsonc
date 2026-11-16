@@ -3905,7 +3905,7 @@
 				"soname(libaio.so.1(x86_64))",
 				"soname(libbpf.so.1(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libcbor.so.0.14(x86_64))",
+				"soname(libcbor.so.0.15(x86_64))",
 				"soname(libdw.so.1(x86_64))",
 				"soname(libfdt.so.1(x86_64))",
 				"soname(libfuse3.so.4(x86_64))",
@@ -5312,6 +5312,6 @@
 		}
 	},
 	"source-name": "qemu",
-	"source-release": "45",
+	"source-release": "46",
 	"source-version": "11.1.3"
 }
