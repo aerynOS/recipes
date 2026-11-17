@@ -1,0 +1,11 @@
+--- a/fs/vfs/fs.h	2026-11-17 21:23:51.181371259 +0100
++++ b/fs/vfs/fs.h	2026-11-17 21:27:30.647152620 +0100
+@@ -13,7 +13,7 @@
+ #include <linux/stat.h>
+ #include <linux/version.h>
+ 
+-#if LINUX_VERSION_CODE < KERNEL_VERSION(6,19,0)
++#if LINUX_VERSION_CODE < KERNEL_VERSION(6,18,64)
+ static inline unsigned inode_state_read(struct inode *inode)
+ {
+ 	return inode->i_state;

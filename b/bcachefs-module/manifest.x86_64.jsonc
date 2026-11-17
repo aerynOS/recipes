@@ -20,8 +20,8 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.3.4-53.gaming/70-bcachefs-module-1.39.7.initrd",
-				"/usr/lib/modules/7.3.4-53.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.3.5-54.gaming/70-bcachefs-module-1.39.7.initrd",
+				"/usr/lib/modules/7.3.5-54.gaming/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-gaming"
 		},
@@ -43,8 +43,8 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/6.18.63-50.lts/70-bcachefs-module-1.39.7.initrd",
-				"/usr/lib/modules/6.18.63-50.lts/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/6.18.64-51.lts/70-bcachefs-module-1.39.7.initrd",
+				"/usr/lib/modules/6.18.64-51.lts/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-lts"
 		},
@@ -83,13 +83,13 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/kernel/7.3.4-76.stable/70-bcachefs-module-1.39.7.initrd",
-				"/usr/lib/modules/7.3.4-76.stable/extra/fs/bcachefs/bcachefs.ko.zst"
+				"/usr/lib/kernel/7.3.5-77.stable/70-bcachefs-module-1.39.7.initrd",
+				"/usr/lib/modules/7.3.5-77.stable/extra/fs/bcachefs/bcachefs.ko.zst"
 			],
 			"name": "bcachefs-module-stable"
 		}
 	},
 	"source-name": "bcachefs-module",
-	"source-release": "71",
+	"source-release": "72",
 	"source-version": "1.39.7"
 }
