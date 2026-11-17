@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : firefox
-version     : "160.0"
-release     : 96
+version     : "160.0.1"
+release     : 97
 homepage    : https://www.mozilla.org/
 upstreams   :
-    - https://releases.mozilla.org/pub/firefox/releases/160.0/source/firefox-160.0.source.tar.xz:
-        hash: 2b23d2bf6716ea16b45c10aa5c275c78a1d7ff50ad53150809ab27424c58fd81
+    - https://releases.mozilla.org/pub/firefox/releases/160.0.1/source/firefox-160.0.1.source.tar.xz:
+        hash: 7b9d95ddf24f7bbf5d0d05698bc02a66dac1eca438f80e093c5c76af7648b06d
         unpackdir: firefox
 
     # This should _usually_ be the latest version unless it's somehow incompatible with the used LLVM toolchain
