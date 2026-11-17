@@ -3,7 +3,7 @@
 
 name        : bcachefs-module
 version     : "1.39.7"
-release     : 71
+release     : 72
 homepage    : https://bcachefs.org
 upstreams   :
     - https://evilpiepirate.org/bcachefs-tools/bcachefs-tools-vendored-1.39.7.tar.zst : 5d6927d7b88578518209c92f1510161dbec6e523221dac1cec54c57272d11293
@@ -30,6 +30,9 @@ environment : |
     done
 setup       : |
     # This is where patches would go
+    # 6.18.64/fs-provide-accessors-for-i_state.patch
+    # https://github.com/torvalds/linux/commit/d8753f7
+    %patch %(pkgdir)/6.18.64-d8753f7.patch
 
     for _kernel in ${kernels[@]}; do
         mkdir ${_kernel}
