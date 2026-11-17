@@ -1245,8 +1245,11 @@
 				"/usr/lib/helix/runtime/themes/zed_onelight.toml",
 				"/usr/lib/helix/runtime/themes/zenburn.toml",
 				"/usr/lib/helix/runtime/tutor",
+				"/usr/share/applications/helix.desktop",
 				"/usr/share/bash-completion/completions/hx.bash",
 				"/usr/share/fish/vendor_completions.d/hx.fish",
+				"/usr/share/icons/hicolor/256x256/apps/helix.png",
+				"/usr/share/icons/hicolor/scalable/apps/helix.svg",
 				"/usr/share/zsh/site-functions/_hx"
 			],
 			"name": "helix",
@@ -1501,6 +1504,6 @@
 		}
 	},
 	"source-name": "helix",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "25.07.1"
 }
