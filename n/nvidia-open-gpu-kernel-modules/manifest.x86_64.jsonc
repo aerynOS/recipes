@@ -103,6 +103,6 @@
 		}
 	},
 	"source-name": "nvidia-open-gpu-kernel-modules",
-	"source-release": "146",
-	"source-version": "620.70.06"
+	"source-release": "147",
+	"source-version": "620.73.04"
 }
