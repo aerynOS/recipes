@@ -9,9 +9,14 @@
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"soname(libc.so.6(x86_64))"
+				"soname(libc.so.6(x86_64))",
+				"soname(libparted.so.2(x86_64))",
+				"soname(libudev.so.1(x86_64))"
 			],
 			"files": [
+				"/usr/bin/f3brew",
+				"/usr/bin/f3fix",
+				"/usr/bin/f3probe",
 				"/usr/bin/f3read",
 				"/usr/bin/f3write",
 				"/usr/share/man/man1/f3read.1",
@@ -19,12 +24,15 @@
 			],
 			"name": "f3",
 			"provides": [
+				"binary(f3brew)",
+				"binary(f3fix)",
+				"binary(f3probe)",
 				"binary(f3read)",
 				"binary(f3write)"
 			]
 		}
 	},
 	"source-name": "f3",
-	"source-release": "5",
+	"source-release": "6",
 	"source-version": "10.0"
 }
