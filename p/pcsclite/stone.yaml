@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025-2026 aerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pcsclite
-version     : "2.5.3"
-release     : 11
+version     : "2.5.4"
+release     : 12
 homepage    : https://pcsclite.apdu.fr
 upstreams   :
-    - https://github.com/LudovicRousseau/PCSC/archive/refs/tags/2.5.3.tar.gz : c00ea09732bb46feb03eccc70d513c3b7922ea61954cfd0c0e691702bf1d579f
+    - https://github.com/LudovicRousseau/PCSC/archive/refs/tags/2.5.4.tar.gz : 86f5563806bd8d3992dd2d832e95f58c3eb7d6f78a9da7f12bbac304b1ec71d3
 summary     : PC/SC implementation
 description : |
     PC/SC implementation
