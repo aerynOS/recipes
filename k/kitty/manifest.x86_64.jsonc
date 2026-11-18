@@ -388,6 +388,9 @@
 				"/usr/lib/kitty/kitty/__pycache__/launch.cpython-314.opt-1.pyc",
 				"/usr/lib/kitty/kitty/__pycache__/launch.cpython-314.opt-2.pyc",
 				"/usr/lib/kitty/kitty/__pycache__/launch.cpython-314.pyc",
+				"/usr/lib/kitty/kitty/__pycache__/launch_wrapper.cpython-314.opt-1.pyc",
+				"/usr/lib/kitty/kitty/__pycache__/launch_wrapper.cpython-314.opt-2.pyc",
+				"/usr/lib/kitty/kitty/__pycache__/launch_wrapper.cpython-314.pyc",
 				"/usr/lib/kitty/kitty/__pycache__/logout_session.cpython-314.opt-1.pyc",
 				"/usr/lib/kitty/kitty/__pycache__/logout_session.cpython-314.opt-2.pyc",
 				"/usr/lib/kitty/kitty/__pycache__/logout_session.cpython-314.pyc",
@@ -546,6 +549,7 @@
 				"/usr/lib/kitty/kitty/key_names.py",
 				"/usr/lib/kitty/kitty/keys.py",
 				"/usr/lib/kitty/kitty/launch.py",
+				"/usr/lib/kitty/kitty/launch_wrapper.py",
 				"/usr/lib/kitty/kitty/launcher/kitty",
 				"/usr/lib/kitty/kitty/layout/__init__.py",
 				"/usr/lib/kitty/kitty/layout/__pycache__/__init__.cpython-314.opt-1.pyc",
@@ -846,6 +850,9 @@
 				"/usr/lib/kitty/kitty/shaders/custom/pond-ripple.pipeline",
 				"/usr/lib/kitty/kitty/shaders/custom/pond-ripple.slang",
 				"/usr/lib/kitty/kitty/shaders/custom/sample.slang",
+				"/usr/lib/kitty/kitty/shaders/custom/screen-shake-random.pipeline",
+				"/usr/lib/kitty/kitty/shaders/custom/screen-shake.pipeline",
+				"/usr/lib/kitty/kitty/shaders/custom/screen-shake.slang",
 				"/usr/lib/kitty/kitty/shaders/custom/spotlight.pipeline",
 				"/usr/lib/kitty/kitty/shaders/custom/spotlight.slang",
 				"/usr/lib/kitty/kitty/shaders/custom/tab-change.pipeline",
@@ -1142,7 +1149,7 @@
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_actions_1745a1bd.png",
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_binary_478594b0.png",
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_build_e554a463.png",
-				"/usr/share/doc/kitty/html/_images/social_previews/summary_changelog_ebdebeba.png",
+				"/usr/share/doc/kitty/html/_images/social_previews/summary_changelog_3a0c7623.png",
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_clipboard_673291d1.png",
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_color-stack_b2e66ffc.png",
 				"/usr/share/doc/kitty/html/_images/social_previews/summary_conf_6d817f14.png",
@@ -1526,6 +1533,6 @@
 		}
 	},
 	"source-name": "kitty",
-	"source-release": "25",
-	"source-version": "0.50.0"
+	"source-release": "26",
+	"source-version": "0.51.0"
 }

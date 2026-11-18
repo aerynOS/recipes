@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kitty
-version     : "0.50.0"
-release     : 25
+version     : "0.51.0"
+release     : 26
 homepage    : https://sw.kovidgoyal.net/kitty/
 upstreams   :
-    - https://github.com/kovidgoyal/kitty/releases/download/v0.50.0/kitty-0.50.0.tar.xz : 01f20d0b253af0a7e041394a501adc83483f2eee01faf607a933c028343ab71a
+    - https://github.com/kovidgoyal/kitty/releases/download/v0.51.0/kitty-0.51.0.tar.xz : 084807db816a3de9f1a253eff232f17fe9f76ccd77da8101511f830431097ecf
 summary     : Cross-platform, fast, feature-rich, GPU based terminal
 description : |
     kitty the fast, feature-rich, GPU based terminal emulator
@@ -37,7 +37,6 @@ builddeps   :
     - python(sphinx-inline-tabs)
     - font-symbols-nerd
 setup       : |
-    %patch %(pkgdir)/0001-source-stateless-bash-startup.patch
     %go_mod
 build       : |
     python3 setup.py linux-package \
@@ -56,7 +55,7 @@ install     : |
     _build/bin/kitten __complete__ setup zsh  | %install_file /dev/stdin %(installroot)%(zshcompletionsdir)/_kitty
 
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
-packages     :
+packages    :
     - "%(name)":
         rundeps:
             - "terminfo-%(name)"
