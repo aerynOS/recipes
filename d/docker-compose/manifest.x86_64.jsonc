@@ -20,6 +20,6 @@
 		}
 	},
 	"source-name": "docker-compose",
-	"source-release": "31",
-	"source-version": "5.7.2"
+	"source-release": "32",
+	"source-version": "5.8.0"
 }
