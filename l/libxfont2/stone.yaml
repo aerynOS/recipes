@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libxfont2
-version     : "2.0.9"
-release     : 5
+version     : "2.0.10"
+release     : 6
 homepage    : https://gitlab.freedesktop.org/xorg/lib/libxfont
 upstreams   :
-    - https://www.x.org/archive/individual/lib/libXfont2-2.0.9.tar.xz : f042a370666815e7b941e9b7019024755bd1c6c2954afbfa515af378251799e2
+    - https://www.x.org/archive/individual/lib/libXfont2-2.0.10.tar.xz : cef1f4ad9cd69f439bb1ac484bdc8f9d7f8e70215b92d8ca86b96e31513e5f9c
 summary     : X font handling library for server & utilities
 description : |
     X font handling library for server & utilities
