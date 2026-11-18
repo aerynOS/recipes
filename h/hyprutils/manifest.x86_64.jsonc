@@ -14,7 +14,7 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libhyprutils.so.0.14.3",
+				"/usr/lib/libhyprutils.so.0.14.4",
 				"/usr/lib/libhyprutils.so.13"
 			],
 			"name": "hyprutils",
@@ -66,6 +66,7 @@
 				"/usr/include/hyprutils/path/Path.hpp",
 				"/usr/include/hyprutils/signal/Listener.hpp",
 				"/usr/include/hyprutils/signal/Signal.hpp",
+				"/usr/include/hyprutils/state/KVStateFile.hpp",
 				"/usr/include/hyprutils/string/ConstVarList.hpp",
 				"/usr/include/hyprutils/string/Numeric.hpp",
 				"/usr/include/hyprutils/string/String.hpp",
@@ -83,6 +84,6 @@
 		}
 	},
 	"source-name": "hyprutils",
-	"source-release": "7",
-	"source-version": "0.14.3"
+	"source-release": "8",
+	"source-version": "0.14.4"
 }
