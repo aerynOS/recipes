@@ -72,6 +72,13 @@
 				"/usr/share/man/man1/gh-discussion-list.1",
 				"/usr/share/man/man1/gh-discussion-view.1",
 				"/usr/share/man/man1/gh-discussion.1",
+				"/usr/share/man/man1/gh-event-listen.1",
+				"/usr/share/man/man1/gh-event-subscription-create.1",
+				"/usr/share/man/man1/gh-event-subscription-delete.1",
+				"/usr/share/man/man1/gh-event-subscription-list.1",
+				"/usr/share/man/man1/gh-event-subscription-view.1",
+				"/usr/share/man/man1/gh-event-subscription.1",
+				"/usr/share/man/man1/gh-event.1",
 				"/usr/share/man/man1/gh-extension-browse.1",
 				"/usr/share/man/man1/gh-extension-create.1",
 				"/usr/share/man/man1/gh-extension-exec.1",
@@ -262,6 +269,6 @@
 		}
 	},
 	"source-name": "github-cli",
-	"source-release": "25",
-	"source-version": "2.104.0"
+	"source-release": "26",
+	"source-version": "2.105.0"
 }
