@@ -20,7 +20,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/GTop-2.0.typelib",
 				"/usr/lib/libgtop-2.0.so.11",
-				"/usr/lib/libgtop-2.0.so.11.1.0",
+				"/usr/lib/libgtop-2.0.so.11.1.1",
 				"/usr/lib/libgtop/libgtop_daemon2",
 				"/usr/lib/libgtop/libgtop_server2",
 				"/usr/share/info/libgtop2.info",
@@ -61,15 +61,20 @@
 				"/usr/share/locale/hi/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/hr/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/hu/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/ia/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/id/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/it/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ja/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/kab/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/kk/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/kn/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ku/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/kw/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ky/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/la/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/lo/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/lt/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/lv/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/mai/LC_MESSAGES/libgtop.mo",
@@ -106,6 +111,7 @@
 				"/usr/share/locale/tr/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/ug/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/uk/LC_MESSAGES/libgtop.mo",
+				"/usr/share/locale/uz/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/xh/LC_MESSAGES/libgtop.mo",
 				"/usr/share/locale/zh_CN/LC_MESSAGES/libgtop.mo",
@@ -244,6 +250,6 @@
 		}
 	},
 	"source-name": "libgtop",
-	"source-release": "5",
-	"source-version": "2.41.3"
+	"source-release": "6",
+	"source-version": "2.41.4"
 }
