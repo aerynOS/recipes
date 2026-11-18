@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libksba
-version     : "1.8.1"
-release     : 6
+version     : "1.9.0"
+release     : 7
 homepage    : https://gnupg.org/software/libksba
 upstreams   :
-    - https://gnupg.org/ftp/gcrypt/libksba/libksba-1.8.1.tar.bz2 : c2f84393011827219ae117131dba8e7684c2bed0961eed11b0642c2acba440b5
+    - https://gnupg.org/ftp/gcrypt/libksba/libksba-1.9.0.tar.bz2 : b070f3da9113df3804379f55e10cd00f0bc4993d5392157fecb5fd174a5d58ce
 summary     : Makes working with X.509 certificates, CMS data and related objects more easy
 description : |
     %(name) is a library to make the tasks of working with X.509 certificates, CMS data and related objects more easy. It provides a highlevel interface to the implemented protocols and presents the data in a consistent way. There is no more need to worry about all the nasty details of the protocols.
