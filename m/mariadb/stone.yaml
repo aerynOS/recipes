@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mariadb
-version     : "11.8.9"
-release     : 9
+version     : "11.8.10"
+release     : 10
 upstreams   :
-    - https://archive.mariadb.org/mariadb-11.8.9/source/mariadb-11.8.9.tar.gz : 2e015b7e91004142eda8b3a20d3ceb875cf2ae55e72603e7222cd497d4e56fc6
+    - https://archive.mariadb.org/mariadb-11.8.10/source/mariadb-11.8.10.tar.gz : 77d62a86477d5b836da960f5228eb4e13458692ab775f2ad95d55fd4a4d3b117
 homepage    : https://mariadb.org/
 license     :
     - BSD-3-Clause
@@ -27,6 +27,7 @@ builddeps   :
     - pkgconfig(liblzma)
     - pkgconfig(libpcre2-8)
     - pkgconfig(libsystemd)
+    - pkgconfig(liburing)
     - pkgconfig(libxml-2.0)
     - pkgconfig(libzstd)
     - pkgconfig(lzo2)
@@ -65,6 +66,7 @@ setup       : |
         -DINSTALL_SYSTEMD_UNITDIR="%(libdir)/systemd/system" \
         -DMYSQL_DATADIR=/var/lib/mysql \
         -DMYSQL_UNIX_ADDR=/var/lib/mysql/mysqld.sock \
+        -DPLUGIN_DUCKDB=YES \
         -DSKIP_COMPONENTS="Test" \
         -DWITH_CURL=system \
         -DWITH_EMBEDDED_SERVER=ON \
@@ -122,7 +124,6 @@ packages    :
             - /usr/lib/libmariadb.a
             - /usr/lib/libmariadbclient.a
             - /usr/lib/libmysqlclient*.a
-            - /usr/lib/libmysqlservices.a
 
     - "%(name)-common":
         paths:
@@ -145,7 +146,6 @@ packages    :
             - /usr/share/man/man1/mariadb-embedded.*
             - /usr/share/man/man1/mysql_embedded.*
 
-    # This might be wrong
     - "%(name)-embedded-devel":
         summary: Development files for %(name)-embedded
         description: Development files for %(name)-embedded
@@ -155,13 +155,15 @@ packages    :
             - /usr/include/mysql/server/
             - /usr/lib/libmariadbd.so
             - /usr/lib/libmysqld.so
+            - /usr/lib/libmysqlservices.a
             - /usr/lib/pkgconfig/mariadb.pc
+            - /usr/share/cmake/mariadb-plugin/
 
     - "%(name)-embedded-staticlib":
         summary: Development files for %(name)-embedded - Static libraries
         description: Development files for %(name)-embedded - Static libraries
         rundeps:
-            - "%(name)-devel"
+            - "%(name)-embedded-devel"
         paths:
             - /usr/lib/libmariadbd.a
             - /usr/lib/libmysqld.a
