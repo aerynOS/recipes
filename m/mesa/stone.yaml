@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mesa
 ### IMPORTANT: Use the update-mesa.py script to update this package
 
 ##@@BEGIN_VERSION
-version     : "26.3.0"
+version     : "26.3.1"
 ##@@END_VERSION
 # Note: keep mesa-clc in-sync with this package version-wise
-release     : 96
+release     : 97
 homepage    : https://mesa3d.org/
 upstreams   :
 ##@@BEGIN_SOURCE
-    - https://mesa.freedesktop.org/archive/mesa-26.3.0.tar.xz:
-        hash: 91d729aa68bb89e4ec857841300bbe922bcb3e52b1f97566ca83930d3b28343a
+    - https://mesa.freedesktop.org/archive/mesa-26.3.1.tar.xz:
+        hash: 4e4e438eac7b840a9383988cbb7c08dad8041da544b9319fc26d319fa7348961
         unpackdir: mesa
 ##@@END_SOURCE
 
