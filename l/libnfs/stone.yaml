@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libnfs
-version     : "8.0.0"
-release     : 5
+version     : "8.0.1"
+release     : 6
 homepage    : https://github.com/sahlberg/libnfs
 upstreams   :
-    - https://github.com/sahlberg/libnfs/archive/libnfs-8.0.0.tar.gz : bc91216e927a85142b5de611c7f711558e02119a7daad67620ea631634038350
+    - https://github.com/sahlberg/libnfs/archive/libnfs-8.0.1.tar.gz : 03653086471ceddd846077151adc6fda9ebc47118010a196e27f4f2e3e5e32f0
 summary     : A client library for accessing NFS shares over a network
 description : |
     LIBNFS offers three different APIs: RAW, NFS ASYNC and NFS SYNC.
