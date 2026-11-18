@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libsrtp
-version     : "2.8.1"
-release     : 5
+version     : "2.8.2"
+release     : 6
 upstreams   :
-    - https://github.com/cisco/libsrtp/archive/v2.8.1.tar.gz : ef5569220749529d778013aae1178391d972570a2b4f7288dda22effa875b07c
+    - https://github.com/cisco/libsrtp/archive/v2.8.2.tar.gz : 02e8326e12381e27a205ded888a803c6ff55ec7be170cd5e5506251f731fee92
 homepage    : https://github.com/cisco/libsrtp
 license     : BSD-3-Clause
 summary     : Secure Real-Time Transport Protocol
@@ -15,6 +15,8 @@ builddeps   :
     - binary(doxygen)
     - pkgconfig(libcrypto)
     - pkgconfig(libpcap)
+checkdeps   :
+    - binary(ps)
 setup       : |
     %meson \
         -Dcrypto-library=openssl
@@ -22,3 +24,5 @@ build       : |
     %meson_build
 install     : |
     %meson_install
+check       : |
+    %meson_test

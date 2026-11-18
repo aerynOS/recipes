@@ -5,6 +5,7 @@
 		"libsrtp": {
 			"build-depends": [
 				"binary(doxygen)",
+				"binary(ps)",
 				"pkgconfig(libcrypto)",
 				"pkgconfig(libpcap)"
 			],
@@ -23,6 +24,7 @@
 		"libsrtp-devel": {
 			"build-depends": [
 				"binary(doxygen)",
+				"binary(ps)",
 				"pkgconfig(libcrypto)",
 				"pkgconfig(libpcap)"
 			],
@@ -44,6 +46,6 @@
 		}
 	},
 	"source-name": "libsrtp",
-	"source-release": "5",
-	"source-version": "2.8.1"
+	"source-release": "6",
+	"source-version": "2.8.2"
 }
