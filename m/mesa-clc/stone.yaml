@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mesa-clc
-version     : "26.3.0"
-release     : 51
+version     : "26.3.1"
+release     : 52
 homepage    : https://mesa3d.org/
 upstreams   :
-    - https://mesa.freedesktop.org/archive/mesa-26.3.0.tar.xz : 91d729aa68bb89e4ec857841300bbe922bcb3e52b1f97566ca83930d3b28343a
+    - https://mesa.freedesktop.org/archive/mesa-26.3.1.tar.xz : 4e4e438eac7b840a9383988cbb7c08dad8041da544b9319fc26d319fa7348961
 summary     : Tool used for building OpenCL C to SPIR-V
 description : |
     %(name) tool used for building OpenCL C to SPIR-V
