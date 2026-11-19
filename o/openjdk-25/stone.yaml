@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openjdk-25
-version     : "25.0.5"
-release     : 5
+version     : "25.0.5.1"
+release     : 6
+homepage    : https://openjdk.java.net/
 upstreams   :
-    - https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.5-ga.tar.gz:
-        hash: 9a850ceee8c2fb2a5cda99fde4bb74a1bc12fbbabbd995273a2febd9206070c4
+    - https://github.com/openjdk/jdk25u/archive/refs/tags/jdk-25.0.5.1-ga.tar.gz:
+        hash: b4a28f325bc5f38f87c13489a5825613bba78a0e55ebe4202a993e982c62922e
         unpackdir: "jdk"
     # BOOTSTRAPPIN
     # - https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.4%2B10/OpenJDK25U-jdk_x64_linux_hotspot_25.0.4_10.tar.gz:
@@ -16,12 +17,10 @@ upstreams   :
     - https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz:
         hash: 8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7
         unpackdir: "jdk/gtest-local"
-homepage    : https://openjdk.java.net/
 summary     : Open implementation of Oracle's Java Development Kit, major version 25
 description : |
     Open implementation of Oracle's Java Development Kit, major version 25. This package includes the JDK, the JRE is not separately provided.
-license     :
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 networking  : true
 builddeps   :
     - binary(awk)
@@ -98,10 +97,10 @@ setup       : |
         --with-version-build="${_version_build}" \
         --with-version-pre="" \
         --with-version-opt="aeryn" \
-        --with-vendor-name=AerynOS \
-        --with-vendor-url=https://AerynOS.com/ \
-        --with-vendor-bug-url=https://github.com/AerynOS/recipes/issues \
-        --with-vendor-vm-bug-url=https://github.com/AerynOS/recipes/issues \
+        --with-vendor-name=aerynOS \
+        --with-vendor-url=https://aerynOS.com/ \
+        --with-vendor-bug-url=https://github.com/aerynOS/recipes/issues \
+        --with-vendor-vm-bug-url=https://github.com/aerynOS/recipes/issues \
         --with-freetype=system \
         --with-giflib=system \
         --with-harfbuzz=system \
@@ -113,12 +112,7 @@ setup       : |
         --with-extra-cxxflags="${CXXFLAGS}" \
         --with-extra-ldflags="${LDFLAGS}" \
         --with-jobs=%(jobs) \
-        AR="${AR}" \
-        NM="${NM}" \
-        OBJCOPY="${OBJCOPY}" \
-        OBJDUMP="llvm-objdump" \
         SORT="/usr/bin/gnu-sort" \
-        STRIP="${STRIP}" \
         $extra_conf_opts
 build       : |
     %ccache_zero
