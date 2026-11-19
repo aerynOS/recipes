@@ -34,7 +34,7 @@
 			],
 			"files": [
 				"/usr/lib/libgnutls.so.30",
-				"/usr/lib/libgnutls.so.30.42.0",
+				"/usr/lib/libgnutls.so.30.43.0",
 				"/usr/share/locale/cs/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/de/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/eo/LC_MESSAGES/gnutls.mo",
@@ -43,6 +43,7 @@
 				"/usr/share/locale/fr/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/it/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/gnutls.mo",
+				"/usr/share/locale/lv/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/ms/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/gnutls.mo",
@@ -52,7 +53,8 @@
 				"/usr/share/locale/sv/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/uk/LC_MESSAGES/gnutls.mo",
 				"/usr/share/locale/vi/LC_MESSAGES/gnutls.mo",
-				"/usr/share/locale/zh_CN/LC_MESSAGES/gnutls.mo"
+				"/usr/share/locale/zh_CN/LC_MESSAGES/gnutls.mo",
+				"/usr/share/locale/zh_TW/LC_MESSAGES/gnutls.mo"
 			],
 			"name": "gnutls",
 			"provides": [
@@ -82,16 +84,8 @@
 			"depends": [
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libgmp.so.10(x86_64))",
 				"soname(libgnutls.so.30(x86_64))",
-				"soname(libhogweed.so.7(x86_64))",
-				"soname(libidn2.so.0(x86_64))",
-				"soname(libm.so.6(x86_64))",
-				"soname(libnettle.so.9(x86_64))",
-				"soname(libp11-kit.so.0(x86_64))",
-				"soname(libstdc++.so.6(x86_64))",
-				"soname(libtasn1.so.6(x86_64))",
-				"soname(libunistring.so.5(x86_64))"
+				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/lib/libgnutlsxx.so.30",
@@ -487,6 +481,8 @@
 				"/usr/share/man/man3/gnutls_hpke_derive_keypair.3",
 				"/usr/share/man/man3/gnutls_hpke_encap.3",
 				"/usr/share/man/man3/gnutls_hpke_export.3",
+				"/usr/share/man/man3/gnutls_hpke_export_pubkey.3",
+				"/usr/share/man/man3/gnutls_hpke_import_pubkey.3",
 				"/usr/share/man/man3/gnutls_hpke_init.3",
 				"/usr/share/man/man3/gnutls_hpke_open.3",
 				"/usr/share/man/man3/gnutls_hpke_seal.3",
@@ -818,6 +814,7 @@
 				"/usr/share/man/man3/gnutls_pubkey_export_ecc_raw2.3",
 				"/usr/share/man/man3/gnutls_pubkey_export_ecc_x962.3",
 				"/usr/share/man/man3/gnutls_pubkey_export_gost_raw2.3",
+				"/usr/share/man/man3/gnutls_pubkey_export_mldsa_raw.3",
 				"/usr/share/man/man3/gnutls_pubkey_export_rsa_raw.3",
 				"/usr/share/man/man3/gnutls_pubkey_export_rsa_raw2.3",
 				"/usr/share/man/man3/gnutls_pubkey_get_key_id.3",
@@ -832,6 +829,7 @@
 				"/usr/share/man/man3/gnutls_pubkey_import_ecc_raw.3",
 				"/usr/share/man/man3/gnutls_pubkey_import_ecc_x962.3",
 				"/usr/share/man/man3/gnutls_pubkey_import_gost_raw.3",
+				"/usr/share/man/man3/gnutls_pubkey_import_mldsa_raw.3",
 				"/usr/share/man/man3/gnutls_pubkey_import_openpgp.3",
 				"/usr/share/man/man3/gnutls_pubkey_import_openpgp_raw.3",
 				"/usr/share/man/man3/gnutls_pubkey_import_pkcs11.3",
@@ -1458,6 +1456,6 @@
 		}
 	},
 	"source-name": "gnutls",
-	"source-release": "14",
-	"source-version": "3.8.13"
+	"source-release": "15",
+	"source-version": "3.8.14"
 }
