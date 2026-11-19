@@ -5,7 +5,7 @@ releases:
   id: 369281
   rss: https://github.com/openjdk/jdk21u/tags.atom
 security:
-  # Last checked 2026-10-20
+  # Last checked 2026-11-19
   cpe:
   - vendor: oracle
     product: openjdk
