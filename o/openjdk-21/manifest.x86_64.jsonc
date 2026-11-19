@@ -406,6 +406,6 @@
 		}
 	},
 	"source-name": "openjdk-21",
-	"source-release": "7",
-	"source-version": "21.0.13"
+	"source-release": "8",
+	"source-version": "21.0.13.1"
 }
