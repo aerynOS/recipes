@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : wireshark
-version     : "4.6.9"
-release     : 10
+version     : "4.6.10"
+release     : 11
 homepage    : https://www.wireshark.org/
 upstreams   :
-    - https://gitlab.com/wireshark/wireshark/-/archive/v4.6.9/wireshark-v4.6.9.tar.gz : dba1b5c79b668963160457b9a0792e7b00644ed36879e532cbf9ced2dcb138b1
+    - https://www.wireshark.org/download/src/all-versions/wireshark-4.6.10.tar.xz : 268f41bdf8acee561b670217cf6ea74cf9e779477543e59f92f1cd00294a03dd
 summary     : Wireshark is the world's foremost network protocol analyzer.
 description : |
     Wireshark is the world's foremost network protocol analyzer. It lets you see what's happening on your network at a microscopic level.
@@ -40,6 +40,7 @@ builddeps   :
     - pkgconfig(libnl-3.0)
     - pkgconfig(libpcap)
     - pkgconfig(libssh)
+    - pkgconfig(libxxhash)
     - pkgconfig(libzstd)
     - pkgconfig(lua)
     - pkgconfig(minizip)

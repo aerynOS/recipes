@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 5137
   rss: https://gitlab.com/wireshark/wireshark/-/tags?format=atom
 security:
+  # Last checked 2026-11-19
   cpe:
   - vendor: wireshark
     product: wireshark

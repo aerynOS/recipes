@@ -29,6 +29,7 @@
 				"pkgconfig(libnl-3.0)",
 				"pkgconfig(libpcap)",
 				"pkgconfig(libssh)",
+				"pkgconfig(libxxhash)",
 				"pkgconfig(libzstd)",
 				"pkgconfig(lua)",
 				"pkgconfig(minizip)",
@@ -118,6 +119,7 @@
 				"pkgconfig(libnl-3.0)",
 				"pkgconfig(libpcap)",
 				"pkgconfig(libssh)",
+				"pkgconfig(libxxhash)",
 				"pkgconfig(libzstd)",
 				"pkgconfig(lua)",
 				"pkgconfig(minizip)",
@@ -157,6 +159,7 @@
 				"soname(libssh.so.4(x86_64))",
 				"soname(libsystemd.so.0(x86_64))",
 				"soname(libxml2.so.16(x86_64))",
+				"soname(libxxhash.so.0(x86_64))",
 				"soname(libz-ng.so.2(x86_64))",
 				"soname(libz.so.1(x86_64))",
 				"soname(libzstd.so.1(x86_64))"
@@ -176,9 +179,9 @@
 				"/usr/bin/tfshark",
 				"/usr/bin/tshark",
 				"/usr/lib/libwireshark.so.19",
-				"/usr/lib/libwireshark.so.19.1.9",
+				"/usr/lib/libwireshark.so.19.1.10",
 				"/usr/lib/libwiretap.so.16",
-				"/usr/lib/libwiretap.so.16.0.9",
+				"/usr/lib/libwiretap.so.16.0.10",
 				"/usr/lib/libwsutil.so.17",
 				"/usr/lib/libwsutil.so.17.0.0",
 				"/usr/lib/sysusers.d/wireshark.conf",
@@ -646,6 +649,7 @@
 				"pkgconfig(libnl-3.0)",
 				"pkgconfig(libpcap)",
 				"pkgconfig(libssh)",
+				"pkgconfig(libxxhash)",
 				"pkgconfig(libzstd)",
 				"pkgconfig(lua)",
 				"pkgconfig(minizip)",
@@ -668,6 +672,6 @@
 		}
 	},
 	"source-name": "wireshark",
-	"source-release": "10",
-	"source-version": "4.6.9"
+	"source-release": "11",
+	"source-version": "4.6.10"
 }
