@@ -2,11 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : openjdk-17
-version     : "17.0.21"
-release     : 7
+version     : "17.0.21.1"
+release     : 8
+homepage    : https://openjdk.java.net/
 upstreams   :
-    - https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.21-ga.tar.gz:
-        hash: f2d18152bbd924a329e76000065904dd6bcca3deb716e91834864a1f00d9ed99
+    - https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.21.1-ga.tar.gz:
+        hash: e25ed894ac1c20173e52435d56bc3d44030e7a468a9fd12d184a097e3ebde752
         unpackdir: "jdk"
     # BOOTSTRAPPIN
     # - https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20%2B8/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20_10.tar.gz:
@@ -16,12 +17,10 @@ upstreams   :
     - https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz:
         hash: 8ad598c73ad796e0d8280b082cebd82a630d73e73cd3c70057938a6501bba5d7
         unpackdir: "jdk/gtest-local"
-homepage    : https://openjdk.java.net/
 summary     : Open implementation of Oracle's Java Development Kit, major version 17
 description : |
     Open implementation of Oracle's Java Development Kit, major version 17. This package includes the JDK, the JRE is not separately provided.
-license     :
-    - GPL-2.0-or-later
+license     : GPL-2.0-or-later
 networking  : true
 builddeps   :
     - binary(awk)
@@ -97,10 +96,10 @@ setup       : |
         --with-version-build="${_version_build}" \
         --with-version-pre="" \
         --with-version-opt="aeryn" \
-        --with-vendor-name=AerynOS \
-        --with-vendor-url=https://AerynOS.com/ \
-        --with-vendor-bug-url=https://github.com/AerynOS/recipes/issues \
-        --with-vendor-vm-bug-url=https://github.com/AerynOS/recipes/issues \
+        --with-vendor-name=aerynOS \
+        --with-vendor-url=https://aerynOS.com/ \
+        --with-vendor-bug-url=https://github.com/aerynOS/recipes/issues \
+        --with-vendor-vm-bug-url=https://github.com/aerynOS/recipes/issues \
         --with-freetype=system \
         --with-giflib=system \
         --with-harfbuzz=system \
@@ -112,12 +111,7 @@ setup       : |
         --with-extra-cxxflags="${CXXFLAGS}" \
         --with-extra-ldflags="${LDFLAGS}" \
         --with-jobs=%(jobs) \
-        AR="${AR}" \
-        NM="${NM}" \
-        OBJCOPY="${OBJCOPY}" \
-        OBJDUMP="llvm-objdump" \
         SORT="/usr/bin/gnu-sort" \
-        STRIP="${STRIP}" \
         $extra_conf_opts
 build       : |
     %ccache_zero
