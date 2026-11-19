@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ruby
-version     : "4.0.9"
-release     : 22
+version     : "4.0.10"
+release     : 23
 homepage    : https://www.ruby-lang.org/en/
 upstreams   :
-    - https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.9.tar.gz : c35350682ff050b79702d57ade4516e7336063f510155d19fb2fb5b3f3909511
+    - https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.10.tar.gz : b53eef3371fa5d3e3b74340edcd015f06d5d8853968d4e539a5264fce41ed9f1
 summary     : An object-oriented language for quick and easy programming
 description : |
     An object-oriented language for quick and easy programming
