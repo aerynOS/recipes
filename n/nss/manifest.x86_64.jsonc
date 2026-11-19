@@ -126,9 +126,6 @@
 				"/usr/include/nss/genname.h",
 				"/usr/include/nss/hasht.h",
 				"/usr/include/nss/hmacct.h",
-				"/usr/include/nss/jar-ds.h",
-				"/usr/include/nss/jar.h",
-				"/usr/include/nss/jarfile.h",
 				"/usr/include/nss/key.h",
 				"/usr/include/nss/keyhi.h",
 				"/usr/include/nss/keyi.h",
@@ -343,6 +340,6 @@
 		}
 	},
 	"source-name": "nss",
-	"source-release": "57",
-	"source-version": "3.133"
+	"source-release": "58",
+	"source-version": "3.134"
 }
