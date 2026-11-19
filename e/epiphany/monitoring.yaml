@@ -5,7 +5,7 @@ releases:
   id: 10903
   rss: https://gitlab.gnome.org/GNOME/epiphany/-/releases.atom
 security:
-  # Last checked 2026-10-29
+  # Last checked 2026-11-19
   cpe:
   - vendor: gnome
     product: epiphany

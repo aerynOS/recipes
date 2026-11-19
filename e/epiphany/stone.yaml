@@ -2,18 +2,18 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : epiphany
-version     : "51.2"
-release     : 4
-upstreams   :
-    - https://download.gnome.org/sources/epiphany/51/epiphany-51.2.tar.xz : e45d93483d62beeb26b36b39fe2f8cb5511ffe6ddccc7fedff55b1e3cc0a5c30
+version     : "51.3"
+release     : 5
 homepage    : https://apps.gnome.org/Epiphany
-license     : GPL-3.0-or-later
+upstreams   :
+    - https://download.gnome.org/sources/epiphany/51/epiphany-51.3.tar.xz : 8b8f4603f051c0cbebba3f394e5410d2c9011f80c9cda156da40d8029e030964
 summary     : Web browser for GNOME
 description : |
     Epiphany is the web browser for the GNOME desktop. Its goal is to be
     simple and easy to use. Epiphany ties together many GNOME components
     in order to let you focus on the web content, instead of the browser
     application.
+license     : GPL-3.0-or-later
 builddeps   :
     - binary(appstreamcli)
     - binary(blueprint-compiler)
