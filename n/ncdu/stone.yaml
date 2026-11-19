@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ncdu
-version     : "2.12.1"
-release     : 2
+version     : "2.13.0"
+release     : 3
 homepage    : https://ncdu.landless-city.net/
 upstreams   :
-    - https://github.com/BratishkaErik/ncdu/archive/refs/tags/v2.12.1.tar.gz : 20ae2ead758f248403770849d5c112de9ce61314f60cb863a787b9c5d2721c50
+    - https://github.com/BratishkaErik/ncdu/archive/refs/tags/v2.13.0.tar.gz : 9756eedb8d426d64d62e01afd69254bfa32e86c26c2ce4c7c45c0390326694e6
 summary     : Disk usage analyzer with an ncurses interface
 description : |
     Ncdu is a disk usage analyzer with a text-mode user interface. It is designed to find space hogs on a remote server where you don't have an entire graphical setup available, but it is a useful tool on regular desktop systems too.
