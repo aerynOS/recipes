@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : php
-version     : "8.5.13"
-release     : 25
+version     : "8.6.0"
+release     : 26
 homepage    : https://www.php.net/
 upstreams   :
-    - https://www.php.net/distributions/php-8.5.13.tar.xz : 607602acaf0c3061818e9916ec44a058e8b3d43959a83862b9cd3ec7bf5b785f
+    - https://www.php.net/distributions/php-8.6.0.tar.xz : 5f84beaa3d763aee1e4feed99bf54ec692c383b322e25626807b589238c3a087
 summary     : PHP is a popular general-purpose scripting language
 description : |
     PHP is a popular general-purpose scripting language that is especially suited to web development.
@@ -41,11 +41,11 @@ builddeps   :
     - pkgconfig(valgrind)
     - pkgconfig(zlib)
     - gdbm-devel
+environment : |
+    export EXTENSION_DIR=%(libdir)/php/extensions
 tuning      :
     - lto: false # Causes a clang segfault
     - optimize: speed
-environment : |
-    export EXTENSION_DIR=%(libdir)/php/extensions
 setup       : |
     # TODO: Setup users/integration for php-fpm
     %configure \
