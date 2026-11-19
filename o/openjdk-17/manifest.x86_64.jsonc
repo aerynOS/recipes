@@ -400,6 +400,6 @@
 		}
 	},
 	"source-name": "openjdk-17",
-	"source-release": "7",
-	"source-version": "17.0.21"
+	"source-release": "8",
+	"source-version": "17.0.21.1"
 }
