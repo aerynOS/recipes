@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libnfs
-version     : "8.0.1"
-release     : 6
+version     : "8.1.0"
+release     : 7
 homepage    : https://github.com/sahlberg/libnfs
 upstreams   :
-    - https://github.com/sahlberg/libnfs/archive/libnfs-8.0.1.tar.gz : 03653086471ceddd846077151adc6fda9ebc47118010a196e27f4f2e3e5e32f0
+    - https://github.com/sahlberg/libnfs/archive/libnfs-8.1.0.tar.gz : 7a8c39bed7678b84ac0ab4607b64b5ce44e14c1bbe463cc072314ff4e75754ae
 summary     : A client library for accessing NFS shares over a network
 description : |
     LIBNFS offers three different APIs: RAW, NFS ASYNC and NFS SYNC.
