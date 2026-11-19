@@ -12,7 +12,7 @@
 			],
 			"files": [
 				"/usr/lib/libnfs.so.18",
-				"/usr/lib/libnfs.so.18.0.1"
+				"/usr/lib/libnfs.so.18.1.0"
 			],
 			"name": "libnfs",
 			"provides": [
@@ -78,6 +78,6 @@
 		}
 	},
 	"source-name": "libnfs",
-	"source-release": "6",
-	"source-version": "8.0.1"
+	"source-release": "7",
+	"source-version": "8.1.0"
 }
