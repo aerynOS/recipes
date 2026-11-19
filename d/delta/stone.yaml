@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : delta
-version     : "0.20.1"
-release     : 5
+version     : "0.21.1"
+release     : 6
 homepage    : https://dandavison.github.io/delta/
 upstreams   :
-    - https://github.com/dandavison/delta/archive/refs/tags/0.20.1.tar.gz :
-        hash: d9d502396e3595ee8fd926f1ed2e54ac9935baabd3569a3753efab36304f90fa
+    - https://github.com/dandavison/delta/archive/refs/tags/0.21.1.tar.gz :
+        hash: 2fc82657d692dec135fce408b3f20c9ab6c23198ed35a983e79a04c5fb133f04
 summary     : A syntax-highlighting pager for git, diff, grep, and blame output
 description : |
     A syntax-highlighting pager for git, diff, grep, and blame output.
