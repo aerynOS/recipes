@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : php
-version     : "8.5.12"
-release     : 24
+version     : "8.5.13"
+release     : 25
 homepage    : https://www.php.net/
 upstreams   :
-    - https://www.php.net/distributions/php-8.5.12.tar.xz : 08bc2eba2a588654ade1357174aa646b761556c862dda0678345ee29ed481209
+    - https://www.php.net/distributions/php-8.5.13.tar.xz : 607602acaf0c3061818e9916ec44a058e8b3d43959a83862b9cd3ec7bf5b785f
 summary     : PHP is a popular general-purpose scripting language
 description : |
     PHP is a popular general-purpose scripting language that is especially suited to web development.
