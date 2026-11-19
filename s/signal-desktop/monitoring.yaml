@@ -5,7 +5,7 @@ releases:
   id: 14802
   rss: https://github.com/signalapp/signal-desktop/releases.atom
 security:
-  # Last checked 2026-10-20
+  # Last checked 2026-11-19
   cpe:
   - vendor: signal
     product: signal-desktop
