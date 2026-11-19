@@ -4,7 +4,8 @@
 	"packages": {
 		"restic": {
 			"build-depends": [
-				"binary(go)"
+				"binary(python)",
+				"binary(tar)"
 			],
 			"depends": [
 				"ca-certificates",
@@ -60,6 +61,6 @@
 		}
 	},
 	"source-name": "restic",
-	"source-release": "13",
-	"source-version": "0.19.1"
+	"source-release": "14",
+	"source-version": "0.20.0"
 }

@@ -1,26 +1,26 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : restic
-version     : "0.19.1"
-release     : 13
+version     : "0.20.0"
+release     : 14
 homepage    : https://restic.net
 upstreams   :
-    - https://github.com/restic/restic/archive/refs/tags/v0.19.1.tar.gz : bb9b1a19040744d26d8a79be029d4e6b189c45ccc9d8831d7fe367d3c33df725
+    - https://github.com/restic/restic/archive/refs/tags/v0.20.0.tar.gz : 7def5bbe05e62640f7b030b865b6f304701fd876f7836f5a6a603b56e1f4e30a
 summary     : Fast, secure, efficient backup program
 description : |
     Restic is a program that does backups right and was designed with the following principles in mind: easy, fast, verifiable, secure and efficient.
-license     :
-    - BSD-2-Clause
+license     : BSD-2-Clause
 networking  : true
-builddeps   :
-    - binary(go)
+checkdeps   :
+    - binary(python)
+    - binary(tar)
 rundeps     :
     - ca-certificates
+setup       : |
+    %go_mod
 build       : |
-    export GOMODCACHE="%(workdir)/.cache"
-
-    %make GO_BUILD_FLAGS="-trimpath -mod=readonly -modcacherw"
+    %make
 install     : |
     %install_bin restic
 
@@ -28,3 +28,8 @@ install     : |
     %install_file doc/bash-completion.sh %(installroot)/%(bashcompletionsdir)/restic
     %install_file doc/zsh-completion.zsh %(installroot)/%(zshcompletionsdir)/_restic
     %install_file doc/fish-completion.fish %(installroot)/%(fishcompletionsdir)/restic.fish
+check       : |
+    # Skip FUSE and root-permission tests that fail in the build container.
+    RESTIC_TEST_FUSE=0 go test \
+        -skip 'TestBackupErrors|TestArchiverErrorReporting|TestScannerError' \
+        ./cmd/... ./internal/...
