@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bitwarden
-version     : "2026.10.4"
-release     : 16
+version     : "2026.11.0"
+release     : 17
 homepage    : https://bitwarden.com/
 upstreams   :
-    - https://github.com/bitwarden/clients/archive/refs/tags/desktop-v2026.10.4.tar.gz: cc209fd9fa10d79c8751c4b635ef6f66f6bbb384fd69d14388f24f8d1f2af67f
+    - https://github.com/bitwarden/clients/archive/refs/tags/desktop-v2026.11.0.tar.gz: 3063af17647e0b153421586d2be2667dad0a388c76e3d4277754e3282a114a2c
 summary     : A secure and free password manager for all of your devices
 description : |
     A secure and free password manager for all of your devices
