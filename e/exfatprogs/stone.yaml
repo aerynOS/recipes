@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : exfatprogs
-version     : "1.4.4"
-release     : 8
+version     : "1.4.5"
+release     : 9
 homepage    : https://github.com/exfatprogs/exfatprogs
 upstreams   :
-    - https://github.com/exfatprogs/exfatprogs/releases/download/1.4.4/exfatprogs-1.4.4.tar.gz : 3ae7ad5903bf96845e191adfb48bbbeb9e0958d1444c97c75e1092040fb46412
+    - https://github.com/exfatprogs/exfatprogs/releases/download/1.4.5/exfatprogs-1.4.5.tar.gz : 51b7e06691c583a35f5cc51a346843ffe3a68324dbe1c8beeaa34ac1d61dba81
 summary     : exFAT filesystem userspace utilities
 description : |
     exfatprogs are the official userspace utilities that contain all of the standard utilities for creating, fixing and debugging exFAT filesystems in Linux.
