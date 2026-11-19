@@ -21,7 +21,8 @@
 		"nspr-32bit": {
 			"depends": [
 				"nspr",
-				"soname(libc.so.6(386))"
+				"soname(libc.so.6(386))",
+				"soname(libgcc_s.so.1(386))"
 			],
 			"files": [
 				"/usr/lib32/libnspr4.so",
@@ -65,6 +66,7 @@
 				"/usr/include/nspr/md/_nto.cfg",
 				"/usr/include/nspr/md/_openbsd.cfg",
 				"/usr/include/nspr/md/_qnx.cfg",
+				"/usr/include/nspr/md/_redox.cfg",
 				"/usr/include/nspr/md/_riscos.cfg",
 				"/usr/include/nspr/md/_solaris.cfg",
 				"/usr/include/nspr/md/_win95.cfg",
@@ -136,6 +138,6 @@
 		}
 	},
 	"source-name": "nspr",
-	"source-release": "10",
-	"source-version": "4.40"
+	"source-release": "11",
+	"source-version": "4.41"
 }
