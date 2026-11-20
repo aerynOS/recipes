@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 352876
+  rss: https://gitlab.gnome.org/World/amberol/-/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2026-11-20)
