@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : podman-compose
+version     : "1.6.0"
+release     : 1
+homepage    : https://github.com/containers/podman-compose
+upstreams   :
+    - https://github.com/containers/podman-compose/archive/refs/tags/v1.6.0.tar.gz : dffdec88deb6da8437a86d82340e213c3a616933807fe3fd5978f0c8c325e5e2
+summary     : run docker-compose.yml using podman
+description : |
+    An implementation of docker-compose with podman backend. The main objective of this project is to be able to run docker-compose.yml unmodified and rootless.
+license     : GPL-2.0-only
+builddeps   :
+    - python(pyyaml)
+    - python(setuptools)
+rundeps     :
+    - binary(python)
+    - python(pyyaml)
+    - podman
+build       : |
+    %pyproject_build
+install     : |
+    %pyproject_install

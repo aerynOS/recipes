@@ -1,0 +1,38 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"podman-compose": {
+			"build-depends": [
+				"python(pyyaml)",
+				"python(setuptools)"
+			],
+			"depends": [
+				"binary(python)",
+				"podman",
+				"python(python-dotenv)",
+				"python(pyyaml)"
+			],
+			"files": [
+				"/usr/bin/podman-compose",
+				"/usr/lib/python3.14/site-packages/__pycache__/podman_compose.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/__pycache__/podman_compose.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/podman_compose-1.6.0.dist-info/top_level.txt",
+				"/usr/lib/python3.14/site-packages/podman_compose.py"
+			],
+			"name": "podman-compose",
+			"provides": [
+				"binary(podman-compose)",
+				"python(podman-compose)"
+			]
+		}
+	},
+	"source-name": "podman-compose",
+	"source-release": "1",
+	"source-version": "1.6.0"
+}
