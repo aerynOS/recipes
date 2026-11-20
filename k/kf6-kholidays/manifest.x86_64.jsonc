@@ -8,7 +8,8 @@
 				"binary(flex)",
 				"cmake(ECM)",
 				"cmake(Qt6CorePrivate)",
-				"cmake(Qt6Qml)"
+				"cmake(Qt6Qml)",
+				"pkgconfig(libfl)"
 			],
 			"depends": [
 				"soname(libQt6Core.so.6(x86_64))",
@@ -114,7 +115,8 @@
 				"binary(flex)",
 				"cmake(ECM)",
 				"cmake(Qt6CorePrivate)",
-				"cmake(Qt6Qml)"
+				"cmake(Qt6Qml)",
+				"pkgconfig(libfl)"
 			],
 			"depends": [
 				"kf6-kholidays"
@@ -153,6 +155,6 @@
 		}
 	},
 	"source-name": "kf6-kholidays",
-	"source-release": "27",
+	"source-release": "28",
 	"source-version": "6.32.0"
 }

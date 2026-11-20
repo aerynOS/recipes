@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 aerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : kf6-kholidays
 version     : "6.32.0"
-release     : 27
+release     : 28
 homepage    : https://invent.kde.org/frameworks/kholidays
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kholidays-6.32.0.tar.xz : a6aeede0b1c5bba93f7e60d7c6fe84051cb32d90d3981202c4f90237b5fc17a7
@@ -22,9 +22,10 @@ builddeps   :
     - cmake(ECM)
     - cmake(Qt6CorePrivate)
     - cmake(Qt6Qml)
+    # System FlexLexer.h for the generated scanner
+    - pkgconfig(libfl)
 setup       : |
-    # Bundled FlexLexer.h is too old for flex 2.6.11
-    %patch %(pkgdir)/0001-Update-FlexLexer.h-for-flex-2.6.11.patch
+    %patch %(pkgdir)/0001-Use-FlexLexer.h-of-the-installed-flex.patch
 
     %cmake_kf6
 build       : |
