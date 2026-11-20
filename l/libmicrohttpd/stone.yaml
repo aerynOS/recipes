@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libmicrohttpd
-version     : "1.0.10"
-release     : 13
+version     : "1.0.11"
+release     : 14
 homepage    : https://www.gnu.org/software/libmicrohttpd
 upstreams   :
-    - https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.10.tar.gz : 04bfe8ef75db7d629a33de767599765cecadc56274a39822d5d081030d577685
+    - https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.11.tar.gz : f227a044b75688e449b58ddedf0582255cc562899ff69f173a8ef76439744b4e
 summary     : C library supposed to make it easy to run an embedded HTTP server
 description : |
     GNU libmicrohttpd is a small C library that is supposed to make it easy to run an HTTP server as part of another application. GNU Libmicrohttpd is free software and part of the GNU project.
