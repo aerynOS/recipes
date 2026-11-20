@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : uutils-coreutils
-version     : "0.12.0"
-release     : 40
+version     : "0.13.0"
+release     : 41
 homepage    : https://uutils.github.io/coreutils/
 upstreams   :
-    - https://github.com/uutils/coreutils/archive/refs/tags/0.12.0.tar.gz : 4fb327655cb4ffcbf2f16550cf9234079ffe839692f7aa1a6eda104af684e122
+    - https://github.com/uutils/coreutils/archive/refs/tags/0.13.0.tar.gz : 5830c023555ea8e98505e8cfb09524d3097f427c5e58ef197a943e6cb73af9b0
 summary     : Cross-platform Rust rewrite of the GNU coreutils
 description : |
     Cross-platform Rust rewrite of the GNU coreutils
@@ -14,11 +14,6 @@ license     : MIT
 networking  : true
 builddeps   :
     - pkgconfig(systemd)
-rundeps:
-    - binary(gnu-cp)
-    - binary(gnu-mv)
-    - binary(gnu-rm)
-    - binary(gnu-rmdir)
 tuning      :
     - optimize: size
     - lto: thin
@@ -63,15 +58,7 @@ install     : |
     done
 
     declare -a _gnu_utils
-    # https://github.com/uutils/coreutils/issues/10862
-    # https://github.com/uutils/coreutils/issues/14549
-    # TODO: revisit again with v0.13.0
-    # Upstream patch is not accounting umask 0022 yet, hence use gnu-cp for now
-    _gnu_utils+=(cp)
-
-    # https://discourse.ubuntu.com/t/an-update-on-rust-coreutils/80773
-    # use gnu-coreutils for apps having remaining open TOCTOU (time-of-check to time-of-use) issues
-    _gnu_utils+=(mv rm rmdir)
+    # place here tools we want to use from gnu_utils
 
     for i in ${_gnu_utils[@]}; do
         rm -v %(installroot)%(bindir)/${i}

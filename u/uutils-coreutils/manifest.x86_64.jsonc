@@ -19,10 +19,6 @@
 				"pkgconfig(systemd)"
 			],
 			"depends": [
-				"binary(gnu-cp)",
-				"binary(gnu-mv)",
-				"binary(gnu-rm)",
-				"binary(gnu-rmdir)",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -654,6 +650,6 @@
 		}
 	},
 	"source-name": "uutils-coreutils",
-	"source-release": "40",
-	"source-version": "0.12.0"
+	"source-release": "41",
+	"source-version": "0.13.0"
 }
