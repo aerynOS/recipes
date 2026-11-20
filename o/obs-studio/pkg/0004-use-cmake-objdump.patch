@@ -1,0 +1,104 @@
+diff --git a/cmake/finders/FindFFmpeg.cmake b/cmake/finders/FindFFmpeg.cmake
+index ecba82d..dc31bd3 100644
+--- a/cmake/finders/FindFFmpeg.cmake
++++ b/cmake/finders/FindFFmpeg.cmake
+@@ -252,7 +252,7 @@ macro(FFmpeg_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${FFmpeg_${component}_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${FFmpeg_${component}_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLibrist.cmake b/cmake/finders/FindLibrist.cmake
+index aed3597..9d54b28 100644
+--- a/cmake/finders/FindLibrist.cmake
++++ b/cmake/finders/FindLibrist.cmake
+@@ -57,7 +57,7 @@ macro(Librist_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Librist_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Librist_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLibrnnoise.cmake b/cmake/finders/FindLibrnnoise.cmake
+index fb3bc6e..922a669 100644
+--- a/cmake/finders/FindLibrnnoise.cmake
++++ b/cmake/finders/FindLibrnnoise.cmake
+@@ -57,7 +57,7 @@ macro(librnnoise_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Librnnoise_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Librnnoise_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLibspeexdsp.cmake b/cmake/finders/FindLibspeexdsp.cmake
+index c65a7c1..1f33d48 100644
+--- a/cmake/finders/FindLibspeexdsp.cmake
++++ b/cmake/finders/FindLibspeexdsp.cmake
+@@ -57,7 +57,7 @@ macro(libspeexdsp_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Libspeexdsp_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Libspeexdsp_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLibsrt.cmake b/cmake/finders/FindLibsrt.cmake
+index 4597a80..45359de 100644
+--- a/cmake/finders/FindLibsrt.cmake
++++ b/cmake/finders/FindLibsrt.cmake
+@@ -57,7 +57,7 @@ macro(libsrt_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Libsrt_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Libsrt_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLibx264.cmake b/cmake/finders/FindLibx264.cmake
+index 1a9cc1c..8b8fea0 100644
+--- a/cmake/finders/FindLibx264.cmake
++++ b/cmake/finders/FindLibx264.cmake
+@@ -57,7 +57,7 @@ macro(Libx264_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Libx264_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Libx264_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/FindLuajit.cmake b/cmake/finders/FindLuajit.cmake
+index 935ee62..591c09c 100644
+--- a/cmake/finders/FindLuajit.cmake
++++ b/cmake/finders/FindLuajit.cmake
+@@ -57,7 +57,7 @@ macro(Luajit_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${Luajit_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${Luajit_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )
+diff --git a/cmake/finders/Findjansson.cmake b/cmake/finders/Findjansson.cmake
+index 7624be3..f4e32d4 100644
+--- a/cmake/finders/Findjansson.cmake
++++ b/cmake/finders/Findjansson.cmake
+@@ -57,7 +57,7 @@ macro(jansson_set_soname)
+     endif()
+   elseif(CMAKE_HOST_SYSTEM_NAME MATCHES "Linux|FreeBSD")
+     execute_process(
+-      COMMAND sh -c "objdump -p '${jansson_LIBRARY}' | grep SONAME"
++      COMMAND sh -c "${CMAKE_OBJDUMP} -p '${jansson_LIBRARY}' | grep SONAME"
+       OUTPUT_VARIABLE _output
+       RESULT_VARIABLE _result
+     )

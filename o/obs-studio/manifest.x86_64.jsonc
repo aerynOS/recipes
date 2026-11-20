@@ -5,7 +5,6 @@
 		"obs-studio": {
 			"build-depends": [
 				"binary(gio)",
-				"binary(objdump)",
 				"binary(swig)",
 				"cmake(ECM)",
 				"cmake(LibDataChannel)",
@@ -2181,7 +2180,6 @@
 		"obs-studio-devel": {
 			"build-depends": [
 				"binary(gio)",
-				"binary(objdump)",
 				"binary(swig)",
 				"cmake(ECM)",
 				"cmake(LibDataChannel)",
@@ -2347,7 +2345,6 @@
 		"obs-studio-plugin-browser": {
 			"build-depends": [
 				"binary(gio)",
-				"binary(objdump)",
 				"binary(swig)",
 				"cmake(ECM)",
 				"cmake(LibDataChannel)",
@@ -2414,7 +2411,6 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libcups.so.2(x86_64))",
 				"soname(libdbus-1.so.3(x86_64))",
-				"soname(libdl.so.2(x86_64))",
 				"soname(libexpat.so.1(x86_64))",
 				"soname(libgbm.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
@@ -2427,7 +2423,6 @@
 				"soname(libnssutil3.so(x86_64))",
 				"soname(libobs-frontend-api.so.30(x86_64))",
 				"soname(libobs.so.30(x86_64))",
-				"soname(libpthread.so.0(x86_64))",
 				"soname(libsmime3.so(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libudev.so.1(x86_64))",
@@ -2753,6 +2748,6 @@
 		}
 	},
 	"source-name": "obs-studio",
-	"source-release": "7",
-	"source-version": "33.0.1"
+	"source-release": "8",
+	"source-version": "33.0.2"
 }
