@@ -2,17 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : obs-studio
-version     : "33.0.1"
-release     : 7
+version     : "33.0.2"
+release     : 8
 homepage    : https://github.com/obsproject/obs-studio
 upstreams   :
-    - https://github.com/obsproject/obs-studio/releases/download/33.0.1/OBS-Studio-33.0.1-Sources.tar.gz:
-        hash: c8d3a8f69a0f17970ac0a8f2a2462f1bc4dacd324f6da0c4b408d442d4798913
+    - https://github.com/obsproject/obs-studio/releases/download/33.0.2/OBS-Studio-33.0.2-Sources.tar.gz:
+        hash: 7876b8fbc4db4622b3821d2b5d91038b602eaf7f59b124059f09229c6cafbc0f
         unpackdir: obs
     # Check for bundled version of CEF in 'build-aux/com.obsproject.Studio.json'
-    # Example for v33.0.0: https://github.com/obsproject/obs-studio/blob/72e8665/build-aux/com.obsproject.Studio.json#L124
-    - https://cdn-fastly.obsproject.com/downloads/cef_binary_7871_linux_x86_64.tar.xz:
-        hash: 8ffc64d06ea74da613eeda7f2aa5d4e98661af6fa3ed8c68724c9a6e4e89ea8e
+    # Example for v33.0.2: https://github.com/obsproject/obs-studio/blob/33.0.2/build-aux/com.obsproject.Studio.json#L124
+    - https://cdn-fastly.obsproject.com/downloads/cef_binary_7871_linux_x86_64_v2.tar.xz:
+        hash: 3f5c74f8c4c4b24dbbe9ff4cff7ba764aa4d0a72127b96976342e4360e435db3
         unpackdir: cef
 summary     : Free and open source software for live streaming and screen recording
 description : |
@@ -20,7 +20,6 @@ description : |
 license     : GPL-2.0-only
 builddeps   :
     - binary(gio)
-    - binary(objdump)
     - binary(swig)
     - cmake(ECM)
     - cmake(LibDataChannel)
@@ -68,6 +67,16 @@ builddeps   :
 tuning      :
     - optimize: speed
 setup       : |
+    # Must rebuild libcef_dll_wrapper, using the prebuilt wrapper
+    # causes obs to segfault whenever a browser source is added
+    cmake \
+        -G Ninja \
+        -S %(buildroot)/cef \
+        -B %(buildroot)/cef/wrapper-build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=%(buildroot)/cef/libcef_dll_wrapper
+    cmake --build %(buildroot)/cef/wrapper-build --target libcef_dll_wrapper
+
     %patch %(pkgdir)/0001-load-distro-crlset.patch
 
     # failing to load a core module stops all subsequent modules from
@@ -77,15 +86,8 @@ setup       : |
     # from tytan's aur
     %patch %(pkgdir)/0003-display-distro-branding.patch
 
-    # Must rebuild libcef_dll_wrapper, using the prebuilt wrapper
-    # causes obs to segfault whenever a browser source is added
-    cmake \
-        -G Ninja \
-        -S %(buildroot)/cef \
-        -B %(buildroot)/cef-wrapper-build \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=%(buildroot)/cef/libcef_dll_wrapper
-    cmake --build %(buildroot)/cef-wrapper-build --target libcef_dll_wrapper
+    # don't hardcode GNU objdump
+    %patch %(pkgdir)/0004-use-cmake-objdump.patch
 
     %cmake \
         -DCEF_ROOT_DIR="%(buildroot)/cef" \
