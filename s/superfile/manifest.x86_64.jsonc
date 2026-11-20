@@ -3,9 +3,6 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"superfile": {
-			"build-depends": [
-				"binary(go)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))"
@@ -23,6 +20,6 @@
 		}
 	},
 	"source-name": "superfile",
-	"source-release": "2",
-	"source-version": "1.6.0"
+	"source-release": "3",
+	"source-version": "1.6.1"
 }

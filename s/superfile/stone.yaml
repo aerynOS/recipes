@@ -1,19 +1,19 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : superfile
-version     : "1.6.0"
-release     : 2
-homepage    : https://github.com/yorukot/superfile
+version     : "1.6.1"
+release     : 3
+homepage    : https://superfile.dev/
 upstreams   :
-    - https://github.com/yorukot/superfile/archive/refs/tags/v1.6.0.tar.gz : 7340ce9e3e7db401164310dd5d2d1dfa3ccf76118ac49d192b0fac2a292c5b0d
+    - https://github.com/yorukot/superfile/archive/refs/tags/v1.6.1.tar.gz : cdca43cebee4b302104274084d67de31e244b4add39a247a76ab2ae3b255e7d6
 summary     : Pretty fancy and modern terminal file manager
 description : |
     Pretty fancy and modern terminal file manager
 license     : MIT
 networking  : true
-builddeps   :
-    - binary(go)
+setup       : |
+    %go_mod
 build       : |
     go build -v -o ./bin/spf
 install     : |
@@ -22,5 +22,6 @@ install     : |
     %install_file %(pkgdir)/spf.desktop -t %(installroot)%(datadir)/applications/
     %install_file website/public/logo.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/spf.svg
     %install_file %(pkgdir)/io.github.yorukot.superfile.metainfo.xml -t %(installroot)%(datadir)/metainfo/
-tuning      :
-    - golang-modflags: false
+# check     : |
+# go test needs -trimpath dropped, HOME/TMPDIR on one fs for trash,
+# binary(zoxide), and exiftool (not packaged) for TestGetMetadata.
