@@ -13,7 +13,7 @@
 			],
 			"files": [
 				"/usr/lib/libksba.so.8",
-				"/usr/lib/libksba.so.8.17.0",
+				"/usr/lib/libksba.so.8.17.1",
 				"/usr/share/info/ksba.info"
 			],
 			"name": "libksba",
@@ -43,6 +43,6 @@
 		}
 	},
 	"source-name": "libksba",
-	"source-release": "7",
-	"source-version": "1.9.0"
+	"source-release": "8",
+	"source-version": "1.9.1"
 }

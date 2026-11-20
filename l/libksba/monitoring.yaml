@@ -5,7 +5,7 @@ releases:
   id: 1649
   rss: ~
 security:
-  # Last checked 2026-11-18
+  # Last checked 2026-11-20
   cpe:
   - vendor: libksba_project
     product: libksba
