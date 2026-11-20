@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : virtiofsd
-version     : "1.14.0"
-release     : 4
+version     : "1.15.0"
+release     : 5
 homepage    : https://gitlab.com/virtio-fs/virtiofsd
 upstreams   :
-    - https://gitlab.com/virtio-fs/virtiofsd/-/archive/v1.14.0/virtiofsd-v1.14.0.tar.gz : 52b66e449ca583b4f050a2bff327ff812211a2c349b4130279fcfc6a64540f04
+    - https://gitlab.com/virtio-fs/virtiofsd/-/archive/v1.15.0/virtiofsd-v1.15.0.tar.gz : 333bb121f38f1c8afd5b9eae16f4b5267a9d8d0c6b1f0281fc03a2027346764a
 summary     : Vhost-user virtio-fs device backend
 description : |
     Vhost-user virtio-fs device backend written in Rust

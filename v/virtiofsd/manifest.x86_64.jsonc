@@ -23,6 +23,6 @@
 		}
 	},
 	"source-name": "virtiofsd",
-	"source-release": "4",
-	"source-version": "1.14.0"
+	"source-release": "5",
+	"source-version": "1.15.0"
 }
