@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : harfbuzz
-version     : "15.1.0"
-release     : 45
+version     : "15.2.0"
+release     : 46
 homepage    : https://harfbuzz.github.io/
 upstreams   :
-    - https://github.com/harfbuzz/harfbuzz/releases/download/15.1.0/harfbuzz-15.1.0.tar.xz : 0fc7c565443a5f4be7da65ac5ee5bd737d9b158dc908708b7689a0a5796b0c8d
+    - https://github.com/harfbuzz/harfbuzz/releases/download/15.2.0/harfbuzz-15.2.0.tar.xz : e2ec49090744383cdbe7df808c1cedaafba06a97be8dc4211fe546ba585f12cb
 summary     : HarfBuzz text shaping engine
 description : |
     HarfBuzz is a text shaping library. Using the HarfBuzz library allows programs to convert a sequence of Unicode input into properly formatted and positioned glyph output—for any writing system and language.
@@ -47,9 +47,6 @@ tuning      :
     # clang: error: linker command failed with exit code 1 (use -v to see invocation)
     - thread-exceptions: false
 setup       : |
-    %patch %(pkgdir)/0001-check-libstdcxx-direct-needed-entries.patch
-    %patch %(pkgdir)/0002-tests-llvm-binutils-fallbacks.patch
-
     %meson \
         -Dgraphite2=enabled \
         -Dintrospection=enabled
