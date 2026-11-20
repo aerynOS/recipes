@@ -2,17 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libeconf
-version     : "0.8.7"
-release     : 11
+version     : "0.8.8"
+release     : 12
 homepage    : https://github.com/openSUSE/libeconf
 upstreams   :
-    - https://github.com/openSUSE/libeconf/archive/refs/tags/v0.8.7.tar.gz : ebbddde55c6fb9eb141fca03d0f3c251282ded60351f43933d83e2e2e0bff6de
+    - https://github.com/openSUSE/libeconf/archive/refs/tags/v0.8.8.tar.gz : 5a11e1153a9b1d8c0b514d9c341b7509c35ebc2a5b2dcfdff82b925a46b6bbd9
 summary     : Configuration file parser for hermetic systems
 description : |
     Enhanced config file parser, which merges config files placed in several locations into one.
 license     : MIT
-builddeps   :
-    - binary(doxygen)
 emul32      : true
 profiles    :
     - emul32:
@@ -22,14 +20,16 @@ profiles    :
             # x64 won't install the correct binaries if this is present
             rm -v %(installroot)%(bindir)/econftool
 setup       : |
-    %patch %(pkgdir)/0001-cmake-no-install-html.patch
-
     %cmake \
+        -DBUILD_DOCUMENTATION=OFF \
+        -DBUILD_TESTS=ON \
         -DCMAKE_INSTALL_LIBDIR=lib%(libsuffix)
 build       : |
     %cmake_build
 install     : |
     %cmake_install
+check       : |
+    %cmake_test
 packages    :
     - "%(name)-utils":
         summary: Utilities for manipulating config files

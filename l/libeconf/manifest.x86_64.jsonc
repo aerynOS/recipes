@@ -3,15 +3,12 @@
 	"manifest-version": "0.2",
 	"packages": {
 		"libeconf": {
-			"build-depends": [
-				"binary(doxygen)"
-			],
 			"depends": [
 				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/lib/libeconf.so.0",
-				"/usr/lib/libeconf.so.0.8.7"
+				"/usr/lib/libeconf.so.0.8.8"
 			],
 			"name": "libeconf",
 			"provides": [
@@ -19,16 +16,13 @@
 			]
 		},
 		"libeconf-32bit": {
-			"build-depends": [
-				"binary(doxygen)"
-			],
 			"depends": [
 				"libeconf",
 				"soname(libc.so.6(386))"
 			],
 			"files": [
 				"/usr/lib32/libeconf.so.0",
-				"/usr/lib32/libeconf.so.0.8.7"
+				"/usr/lib32/libeconf.so.0.8.8"
 			],
 			"name": "libeconf-32bit",
 			"provides": [
@@ -36,9 +30,6 @@
 			]
 		},
 		"libeconf-32bit-devel": {
-			"build-depends": [
-				"binary(doxygen)"
-			],
 			"depends": [
 				"libeconf-32bit",
 				"libeconf-devel"
@@ -58,9 +49,6 @@
 			]
 		},
 		"libeconf-devel": {
-			"build-depends": [
-				"binary(doxygen)"
-			],
 			"depends": [
 				"libeconf"
 			],
@@ -134,9 +122,6 @@
 			]
 		},
 		"libeconf-utils": {
-			"build-depends": [
-				"binary(doxygen)"
-			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -154,6 +139,6 @@
 		}
 	},
 	"source-name": "libeconf",
-	"source-release": "11",
-	"source-version": "0.8.7"
+	"source-release": "12",
+	"source-version": "0.8.8"
 }
