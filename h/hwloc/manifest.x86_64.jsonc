@@ -41,7 +41,6 @@
 				"/usr/bin/lstopo",
 				"/usr/bin/lstopo-no-graphics",
 				"/usr/sbin/hwloc-dump-hwdata",
-				"/usr/share/applications/lstopo.desktop",
 				"/usr/share/bash-completion/completions/hwloc",
 				"/usr/share/doc/hwloc/dynamic_SVG_example.html",
 				"/usr/share/doc/hwloc/hwloc-a4.pdf",
@@ -643,7 +642,7 @@
 			],
 			"files": [
 				"/usr/lib/libhwloc.so.15",
-				"/usr/lib/libhwloc.so.15.10.4",
+				"/usr/lib/libhwloc.so.15.10.5",
 				"/usr/share/hwloc/hwloc-valgrind.supp",
 				"/usr/share/hwloc/hwloc.dtd",
 				"/usr/share/hwloc/hwloc2-diff.dtd",
@@ -694,6 +693,6 @@
 		}
 	},
 	"source-name": "hwloc",
-	"source-release": "9",
-	"source-version": "2.15.0"
+	"source-release": "10",
+	"source-version": "2.16.0"
 }

@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hwloc
-version     : "2.15.0"
-release     : 9
+version     : "2.16.0"
+release     : 10
 summary     : Portable Hardware Locality
 license     : BSD-3-Clause
 homepage    : https://www.open-mpi.org/projects/hwloc/
 description : |
     Portable Hardware Locality - portable abstraction of hierarchical architectures
 upstreams   :
-    - https://download.open-mpi.org/release/hwloc/v2.15/hwloc-2.15.0.tar.gz: f54bbdfc9f8015308c2e7bbab3e7789e47436a4a016689e5749a0c35d6877619
+    - https://download.open-mpi.org/release/hwloc/v2.16/hwloc-2.16.0.tar.gz: 8afabbec61f25ec0e36a4905803b94aa8e893337bf01195878bdc661729bc928
 builddeps   :
     - binary(doxygen)
     - binary(gs)
