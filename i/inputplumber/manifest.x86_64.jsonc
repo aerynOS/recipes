@@ -93,6 +93,7 @@
 				"/usr/share/inputplumber/devices/50-ayaneo_air_plus_mendo.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_flip.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_flip_1s.yaml",
+				"/usr/share/inputplumber/devices/50-ayaneo_flip_1s_kb.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_kun.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_next.yaml",
 				"/usr/share/inputplumber/devices/50-ayaneo_pocket_ds.yaml",
@@ -184,6 +185,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "72",
-	"source-version": "0.84.0"
+	"source-release": "73",
+	"source-version": "0.85.0"
 }
