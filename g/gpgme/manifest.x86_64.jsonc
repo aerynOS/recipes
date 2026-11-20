@@ -21,7 +21,7 @@
 				"/usr/bin/gnupg-key-manage",
 				"/usr/bin/gpgme-json",
 				"/usr/lib/libgpgme.so.45",
-				"/usr/lib/libgpgme.so.45.2.0",
+				"/usr/lib/libgpgme.so.45.3.1",
 				"/usr/share/man/man1/gpgme-json.1"
 			],
 			"name": "gpgme",
@@ -97,6 +97,6 @@
 		}
 	},
 	"source-name": "gpgme",
-	"source-release": "10",
-	"source-version": "2.2.0"
+	"source-release": "11",
+	"source-version": "2.3.1"
 }
