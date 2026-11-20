@@ -3,7 +3,7 @@
 
 name        : zfs
 version     : "2.4.4"
-release     : 4
+release     : 5
 upstreams   :
     - https://github.com/openzfs/zfs/releases/download/zfs-2.4.4/zfs-2.4.4.tar.gz : 2a3c70d55a37cc71618a95a60e81ad66530201eb118d37741dc92efcf848c8b1
 homepage    : https://openzfs.github.io/openzfs-docs/
@@ -46,7 +46,10 @@ setup       : |
 build       : |
     %make
 install     : |
-    %make_install
+    # There is a race condition in the installation code
+    # that manifests when using 8 jobs (but YMMV, race conditions
+    # are unpredictable). Use 1 job as a safety net.
+    %make_install -j1
 
     %tmpfiles "# Make sure that the /etc/zfs directory exists so that ZFS can write to it"
     %tmpfiles "d /etc/zfs 0755 root root"
