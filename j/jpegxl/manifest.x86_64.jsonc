@@ -6,7 +6,6 @@
 			"build-depends": [
 				"binary(asciidoc)",
 				"binary(doxygen)",
-				"binary(patchelf)",
 				"binary(sphinx-build)",
 				"docbook",
 				"giflib-devel",
@@ -29,7 +28,6 @@
 			"build-depends": [
 				"binary(asciidoc)",
 				"binary(doxygen)",
-				"binary(patchelf)",
 				"binary(sphinx-build)",
 				"docbook",
 				"giflib-devel",
@@ -52,27 +50,18 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libjxl.so.0.12",
-				"/usr/lib/libjxl.so.0.12.0",
 				"/usr/lib/libjxl.so.0.13",
 				"/usr/lib/libjxl.so.0.13.0",
-				"/usr/lib/libjxl_cms.so.0.12",
-				"/usr/lib/libjxl_cms.so.0.12.0",
 				"/usr/lib/libjxl_cms.so.0.13",
 				"/usr/lib/libjxl_cms.so.0.13.0",
-				"/usr/lib/libjxl_threads.so.0.12",
-				"/usr/lib/libjxl_threads.so.0.12.0",
 				"/usr/lib/libjxl_threads.so.0.13",
 				"/usr/lib/libjxl_threads.so.0.13.0",
 				"/usr/share/mime/packages/image-jxl.xml"
 			],
 			"name": "libjxl",
 			"provides": [
-				"soname(libjxl.so.0.12(x86_64))",
 				"soname(libjxl.so.0.13(x86_64))",
-				"soname(libjxl_cms.so.0.12(x86_64))",
 				"soname(libjxl_cms.so.0.13(x86_64))",
-				"soname(libjxl_threads.so.0.12(x86_64))",
 				"soname(libjxl_threads.so.0.13(x86_64))"
 			]
 		},
@@ -80,7 +69,6 @@
 			"build-depends": [
 				"binary(asciidoc)",
 				"binary(doxygen)",
-				"binary(patchelf)",
 				"binary(sphinx-build)",
 				"docbook",
 				"giflib-devel",
@@ -142,7 +130,6 @@
 			"build-depends": [
 				"binary(asciidoc)",
 				"binary(doxygen)",
-				"binary(patchelf)",
 				"binary(sphinx-build)",
 				"docbook",
 				"giflib-devel",
@@ -190,6 +177,6 @@
 		}
 	},
 	"source-name": "jpegxl",
-	"source-release": "13",
+	"source-release": "14",
 	"source-version": "0.13.0"
 }
