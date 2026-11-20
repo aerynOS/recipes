@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : amberol
+version     : "2026.1"
+release     : 1
+homepage    : https://apps.gnome.org/Amberol/
+upstreams   :
+    - https://gitlab.gnome.org/World/amberol/-/archive/2026.1/amberol-2026.1.tar.bz2 : b83b508faa0e16cb813ca013ad9463a89b9d1fdd065989dec659c733e056aa57
+summary     : Plays music, and nothing else
+description : |
+    Small and simple sound and music player that is well integrated with GNOME
+license     :
+    - CC-BY-SA-3.0
+    - CC0-1.0
+    - GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - binary(appstreamcli)
+    - binary(blueprint-compiler)
+    - binary(cargo)
+    - binary(m4)
+    - binary(msgfmt)
+    - binary(update-desktop-database)
+    - pkgconfig(dbus-1)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gstreamer-1.0)
+    - pkgconfig(gstreamer-audio-1.0)
+    - pkgconfig(gstreamer-bad-audio-1.0)
+    - pkgconfig(gstreamer-play-1.0)
+    - pkgconfig(gstreamer-plugins-bad-1.0)
+    - pkgconfig(gstreamer-plugins-base-1.0)
+    - pkgconfig(gtk4)
+    - pkgconfig(libadwaita-1)
+rundeps     :
+    # Needed to play audio. Not linked, so moss will not pull them in.
+    - gstreamer-plugin-libav
+    - gstreamer-plugins-bad
+    - gstreamer-plugins-good
+    - gstreamer-plugins-ugly
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
+check       : |
+    %meson_test
