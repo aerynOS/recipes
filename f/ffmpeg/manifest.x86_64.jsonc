@@ -444,7 +444,7 @@
 			],
 			"files": [
 				"/usr/lib/libavcodec.so.63",
-				"/usr/lib/libavcodec.so.63.1.102"
+				"/usr/lib/libavcodec.so.63.24.100"
 			],
 			"name": "libavcodec",
 			"provides": [
@@ -657,7 +657,7 @@
 			],
 			"files": [
 				"/usr/lib/libavdevice.so.63",
-				"/usr/lib/libavdevice.so.63.1.102"
+				"/usr/lib/libavdevice.so.63.5.100"
 			],
 			"name": "libavdevice",
 			"provides": [
@@ -856,7 +856,7 @@
 			],
 			"files": [
 				"/usr/lib/libavfilter.so.12",
-				"/usr/lib/libavfilter.so.12.1.102"
+				"/usr/lib/libavfilter.so.12.8.100"
 			],
 			"name": "libavfilter",
 			"provides": [
@@ -1046,7 +1046,7 @@
 			],
 			"files": [
 				"/usr/lib/libavformat.so.63",
-				"/usr/lib/libavformat.so.63.1.102"
+				"/usr/lib/libavformat.so.63.16.100"
 			],
 			"name": "libavformat",
 			"provides": [
@@ -1231,7 +1231,7 @@
 			],
 			"files": [
 				"/usr/lib/libavutil.so.61",
-				"/usr/lib/libavutil.so.61.1.102"
+				"/usr/lib/libavutil.so.61.19.100"
 			],
 			"name": "libavutil",
 			"provides": [
@@ -1351,6 +1351,7 @@
 				"/usr/include/libavutil/file.h",
 				"/usr/include/libavutil/film_grain_params.h",
 				"/usr/include/libavutil/frame.h",
+				"/usr/include/libavutil/gain_map.h",
 				"/usr/include/libavutil/hash.h",
 				"/usr/include/libavutil/hdr_dynamic_metadata.h",
 				"/usr/include/libavutil/hdr_dynamic_vivid_metadata.h",
@@ -1658,7 +1659,7 @@
 			],
 			"files": [
 				"/usr/lib/libswresample.so.7",
-				"/usr/lib/libswresample.so.7.1.102"
+				"/usr/lib/libswresample.so.7.6.100"
 			],
 			"name": "libswresample",
 			"provides": [
@@ -1832,7 +1833,7 @@
 			],
 			"files": [
 				"/usr/lib/libswscale.so.10",
-				"/usr/lib/libswscale.so.10.1.102"
+				"/usr/lib/libswscale.so.10.5.100"
 			],
 			"name": "libswscale",
 			"provides": [
@@ -1929,6 +1930,6 @@
 		}
 	},
 	"source-name": "ffmpeg",
-	"source-release": "46",
-	"source-version": "9.0.2"
+	"source-release": "47",
+	"source-version": "9.1"
 }

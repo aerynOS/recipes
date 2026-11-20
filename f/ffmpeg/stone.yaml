@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ffmpeg
-version     : "9.0.2"
-release     : 46
+version     : "9.1"
+release     : 47
 homepage    : https://ffmpeg.org/releases
 upstreams   :
-    - https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz:
-        hash: 8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e
+    - https://ffmpeg.org/releases/ffmpeg-9.1.tar.xz:
+        hash: 1a4d394ae63d190a526cd052eb4415c156b5c5e2df37efab41a7de0b8fde2433
         unpackdir: current
 
     # Don't delete this section, just comment it out if it's not needed. The build recipe accounts for it possibly not existing
@@ -66,7 +66,7 @@ builddeps   :
     - pkgconfig(libxml-2.0)
     - pkgconfig(lilv-0)
     - pkgconfig(lv2)
-    - pkgconfig(opengl)
+    - pkgconfig(opengl) # compat only
     - pkgconfig(openh264)
     - pkgconfig(opus)
     - pkgconfig(rav1e)
@@ -126,6 +126,9 @@ builddeps   :
 
 # Intentionally not enabled for now
 # - openal
+tuning      :
+    # - lto: full # Handled by configure flag
+    - optimize: speed
 setup       : |
     if [ -d ../compat ]; then
         pushd ../compat
@@ -269,7 +272,6 @@ setup       : |
         --enable-nvdec \
         --enable-nvenc \
         --enable-opencl \
-        --enable-opengl \
         --enable-openssl \
         --enable-vaapi \
         --enable-vapoursynth \
@@ -338,9 +340,6 @@ install     : |
         %install_dir %(installroot)%(docdir)/${i}
         echo "DEPRECATED" > %(installroot)%(docdir)/${i}/README
     done
-tuning      :
-    # - lto: full # Handled by configure flag
-    - optimize: speed
 packages    :
     - "libavcodec":
         summary: FFmpeg codec library
