@@ -80,6 +80,7 @@
 			],
 			"files": [
 				"/usr/bin/noctalia",
+				"/usr/lib/noctalia/noctalia-pam-helper",
 				"/usr/share/applications/dev.noctalia.Noctalia.Annotator.desktop",
 				"/usr/share/applications/dev.noctalia.Noctalia.desktop",
 				"/usr/share/bash-completion/completions/noctalia",
@@ -135,6 +136,8 @@
 				"/usr/share/noctalia/assets/templates/labwc/apply.sh",
 				"/usr/share/noctalia/assets/templates/labwc/labwc.conf",
 				"/usr/share/noctalia/assets/templates/labwc/undo.sh",
+				"/usr/share/noctalia/assets/templates/luciole/colors.toml",
+				"/usr/share/noctalia/assets/templates/luciole/undo.sh",
 				"/usr/share/noctalia/assets/templates/mango/apply.sh",
 				"/usr/share/noctalia/assets/templates/mango/mango.conf",
 				"/usr/share/noctalia/assets/templates/mango/undo.sh",
@@ -184,6 +187,7 @@
 				"/usr/share/noctalia/assets/translations/vi.json",
 				"/usr/share/noctalia/assets/translations/zh-Hans.json",
 				"/usr/share/noctalia/assets/translations/zh-Hant.json",
+				"/usr/share/noctalia/assets/unicode.json",
 				"/usr/share/zsh/site-functions/_noctalia"
 			],
 			"name": "noctalia",
@@ -193,6 +197,6 @@
 		}
 	},
 	"source-name": "noctalia",
-	"source-release": "14",
-	"source-version": "5.5.0"
+	"source-release": "15",
+	"source-version": "5.6.0"
 }

@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : noctalia
-version     : "5.5.0"
-release     : 14
+version     : "5.6.0"
+release     : 15
 homepage    : https://github.com/noctalia-dev/noctalia
 upstreams   :
-    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.5.0.tar.gz : f3fe8a1f1d4306280413e04f934400b787dba212d296d97dfd638bcb55c78262
+    - https://github.com/noctalia-dev/noctalia/archive/refs/tags/v5.6.0.tar.gz : c2f0fcc30bae289ecc39ab495ae68120c5882902371cde14f4f08b8bf14210a1
 summary     : A sleek and minimal desktop shell thoughtfully crafted for Wayland
 description : |
     Noctalia is a native Wayland desktop shell providing the shell layer around
@@ -51,6 +51,7 @@ setup       : |
     export CXXFLAGS+=" -I%(includedir)/stb"
 
     %meson \
+        --libexecdir=lib \
         -Djemalloc=enabled \
         -Dtests=disabled
 build       : |
