@@ -1,0 +1,56 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"nwg-look": {
+			"build-depends": [
+				"pkgconfig(gtk+-3.0)"
+			],
+			"depends": [
+				"binary(gsettings)",
+				"binary(xcur2png)",
+				"gsettings-desktop-schemas",
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"libcanberra-gtk3",
+				"soname(libc.so.6(x86_64))",
+				"soname(libcairo-gobject.so.2(x86_64))",
+				"soname(libcairo.so.2(x86_64))",
+				"soname(libfontconfig.so.1(x86_64))",
+				"soname(libgdk-3.so.0(x86_64))",
+				"soname(libgdk_pixbuf-2.0.so.0(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libpango-1.0.so.0(x86_64))",
+				"soname(libpangocairo-1.0.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/nwg-look",
+				"/usr/share/applications/nwg-look.desktop",
+				"/usr/share/doc/nwg-look/README.md",
+				"/usr/share/icons/hicolor/scalable/apps/nwg-look.svg",
+				"/usr/share/licenses/nwg-look/LICENSE",
+				"/usr/share/nwg-look/langs/cs_CZ.json",
+				"/usr/share/nwg-look/langs/en_US.json",
+				"/usr/share/nwg-look/langs/es_ES.json",
+				"/usr/share/nwg-look/langs/ja_JP.json",
+				"/usr/share/nwg-look/langs/ko_KR.json",
+				"/usr/share/nwg-look/langs/pl_PL.json",
+				"/usr/share/nwg-look/langs/pt_BR.json",
+				"/usr/share/nwg-look/langs/ru_RU.json",
+				"/usr/share/nwg-look/langs/tr_TR.json",
+				"/usr/share/nwg-look/langs/zh_CN.json",
+				"/usr/share/nwg-look/main.glade",
+				"/usr/share/pixmaps/nwg-look.svg"
+			],
+			"name": "nwg-look",
+			"provides": [
+				"binary(nwg-look)"
+			]
+		}
+	},
+	"source-name": "nwg-look",
+	"source-release": "1",
+	"source-version": "1.2.1"
+}
