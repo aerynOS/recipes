@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xcur2png
+version     : "0.7.1"
+release     : 1
+homepage    : https://github.com/eworm-de/xcur2png
+upstreams   :
+    - https://github.com/eworm-de/xcur2png/archive/refs/tags/0.7.1.tar.gz : 3874e8bd4f287dbd8b6d4a16ee1f450970965fd773288d85bb53143e2e631add
+summary     : Convert X cursor files to PNG images
+description : |
+    xcur2png extracts images from Xcursor files and writes them as PNG files.
+license     : GPL-3.0-or-later
+builddeps   :
+    - pkgconfig(libpng)
+    - pkgconfig(xcursor)
+setup       : |
+    # 0.7.1 declares `extern dry_run;`, which modern compilers reject as an
+    # implicit int. Upstream fix:
+    # https://github.com/eworm-de/xcur2png/pull/4
+    %patch %(pkgdir)/0001-xcur2png-fix-gcc-14-build.patch
+
+    # PNG encoding overflows for fully opaque pixels. Upstream fix:
+    # https://github.com/eworm-de/xcur2png/pull/5
+    %patch %(pkgdir)/0002-xcur2png-fix-png-encoding-int-overflow.patch
+    %configure
+build       : |
+    %make
+install     : |
+    %make_install
+    %install_file COPYING %(installroot)%(datadir)/licenses/xcur2png/COPYING

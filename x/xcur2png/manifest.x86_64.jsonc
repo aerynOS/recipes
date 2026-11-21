@@ -1,0 +1,30 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"xcur2png": {
+			"build-depends": [
+				"pkgconfig(libpng)",
+				"pkgconfig(xcursor)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libXcursor.so.1(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libpng16.so.16(x86_64))"
+			],
+			"files": [
+				"/usr/bin/xcur2png",
+				"/usr/share/licenses/xcur2png/COPYING",
+				"/usr/share/man/man1/xcur2png.1"
+			],
+			"name": "xcur2png",
+			"provides": [
+				"binary(xcur2png)"
+			]
+		}
+	},
+	"source-name": "xcur2png",
+	"source-release": "1",
+	"source-version": "0.7.1"
+}

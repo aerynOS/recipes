@@ -1,0 +1,28 @@
+From 6fb03957aba8aebc3dc98a479fff9cddf85b9e7b Mon Sep 17 00:00:00 2001
+From: Sergei Trofimovich <slyich@gmail.com>
+Date: Sun, 27 Oct 2024 09:20:42 +0000
+Subject: [PATCH] xcur2png.c: fix `gcc-14` build
+
+Without the change the build on `gcc-14` fails as:
+
+    xcur2png.c: In function 'saveConfAndPNGs':
+    xcur2png.c:690:10: error: type defaults to 'int' in declaration of 'dry_run' [-Wimplicit-int-Wimplicit-int]
+      690 |   extern dry_run;
+          |          ^~~~~~~
+---
+ xcur2png.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/xcur2png.c b/xcur2png.c
+index 8723a10..ea235ff 100644
+--- a/xcur2png.c
++++ b/xcur2png.c
+@@ -671,7 +671,7 @@ int saveConfAndPNGs (const XcursorImages* xcIs, const char* xcurFilePart, int su
+   int ret;
+   int count = 0;
+   char pngName[PATH_MAX] = {0};
+-  extern dry_run;
++  extern int dry_run;
+   
+   //Write comment on config-file.
+   fprintf (conffp,"#size\txhot\tyhot\tPath to PNG image\tdelay\n");
