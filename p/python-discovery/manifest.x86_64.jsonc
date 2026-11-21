@@ -6,19 +6,23 @@
 			"build-depends": [
 				"python(hatch-fancy-pypi-readme)",
 				"python(hatch-vcs)",
-				"python(hatchling)"
+				"python(hatchling)",
+				"python(python-sbom)"
 			],
 			"depends": [
 				"python(filelock)"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/python_discovery-1.9.5.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.6.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.6.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.6.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.6.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/python_discovery-1.9.6.dist-info/sboms/python-discovery.cdx.json",
 				"/usr/lib/python3.14/site-packages/python_discovery/__init__.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_about.cpython-314.opt-1.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_about.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_cache.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_cache.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_cached_py_info.cpython-314.opt-1.pyc",
@@ -35,6 +39,7 @@
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_py_spec.cpython-314.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_specifier.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/python_discovery/__pycache__/_specifier.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/python_discovery/_about.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_cache.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_cached_py_info.py",
 				"/usr/lib/python3.14/site-packages/python_discovery/_compat.py",
@@ -64,6 +69,6 @@
 		}
 	},
 	"source-name": "python-discovery",
-	"source-release": "13",
-	"source-version": "1.9.5"
+	"source-release": "14",
+	"source-version": "1.9.6"
 }
