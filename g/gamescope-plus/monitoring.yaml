@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
-  id: ~
-  rss: ~
+  id: 242438
+  rss: https://github.com/ValveSoftware/gamescope/tags.atom
 security:
   # No known CPE, last checked 2025-02-11
   cpe: ~
