@@ -1,6 +1,7 @@
 assignments {
 	recording {
 		amsynth
+		bitwig-studio
 		discord
 		easyeffects
 		jamesdsp
@@ -12,23 +13,30 @@ assignments {
 		vesktop
 		wireplumber
 		zoom
-		bitwig-studio
 		include name="Bitwig*"
 	}
 
 	games {
-		lutris
-		steam
+		faugus-launcher
 		heroic
 		itch
+		lichii
+		lutris
+		ppsspp
+		ryubing
+		steam
 		vrcompositor
 		vrdashboard
 		vrmonitor
 		vrserver
-		include descends="steam"
-		include descends="lutris"
+		include descends="faugus-launcher"
 		include descends="heroic"
 		include descends="itch"
+		include descends="lutris"
+		include descends="steam"
+		include name="PPSSPP*"
+		include name="eden*"
+		include name="mgba*"
 	}
 
 	desktop-environment {
@@ -46,18 +54,21 @@ assignments {
 		mango
 		mutter
 		niri
+		noctalia
 		plasmashell
 		qs
 		quickshell
 		riftbar
 		sway
 		tofi
+		umbriel
 		walker
 		waybar
 		weston
 		wmenu
 		Hyprland
 		Xorg
+		Xwayland
 	}
 
 	session-services {
@@ -118,6 +129,7 @@ assignments {
 		ldc2
 		ldmd2
 		lld
+		ludusavi
 		make
 		maven
 		meson
