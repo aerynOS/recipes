@@ -15,10 +15,10 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pydantic-2.14.3.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pydantic-2.14.3.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pydantic-2.14.3.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pydantic-2.14.3.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pydantic-2.14.4.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pydantic-2.14.4.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pydantic-2.14.4.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pydantic-2.14.4.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/pydantic/__init__.py",
 				"/usr/lib/python3.14/site-packages/pydantic/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pydantic/__pycache__/__init__.cpython-314.pyc",
@@ -347,6 +347,6 @@
 		}
 	},
 	"source-name": "python-pydantic",
-	"source-release": "1",
-	"source-version": "2.14.3"
+	"source-release": "2",
+	"source-version": "2.14.4"
 }
