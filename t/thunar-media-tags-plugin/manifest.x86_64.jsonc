@@ -1,0 +1,33 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"thunar-media-tags-plugin": {
+			"build-depends": [
+				"pkgconfig(libxfce4ui-2)",
+				"pkgconfig(taglib)",
+				"pkgconfig(thunarx-3)"
+			],
+			"depends": [
+				"soname(libatk-1.0.so.0(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgio-2.0.so.0(x86_64))",
+				"soname(libglib-2.0.so.0(x86_64))",
+				"soname(libgobject-2.0.so.0(x86_64))",
+				"soname(libgtk-3.so.0(x86_64))",
+				"soname(libtag_c.so.2(x86_64))",
+				"soname(libthunarx-3.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/lib/thunarx-3/thunar-media-tags-plugin.so"
+			],
+			"name": "thunar-media-tags-plugin",
+			"provides": [
+				"soname(thunarx-3/thunar-media-tags-plugin.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "thunar-media-tags-plugin",
+	"source-release": "1",
+	"source-version": "0.6.0"
+}

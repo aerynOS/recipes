@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thunar-vcs-plugin
+version     : "0.4.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/thunar/start
+upstreams   :
+    - https://archive.xfce.org/src/thunar-plugins/thunar-vcs-plugin/0.4/thunar-vcs-plugin-0.4.0.tar.xz : 0e4170e099c9ffedfcbb1290f1fc42c00560cf6108e25fe90685315f18c8d6cc
+summary     : SVN and GIT integration for Thunar
+description : |
+    SVN and GIT integration for Thunar
+license     : GPL-2.0-or-later
+builddeps   :
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(thunarx-3)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

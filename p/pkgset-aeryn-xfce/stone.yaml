@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : pkgset-aeryn-xfce
+version     : "2026.10" # I guess let's just match the OS version for now
+release     : 1
+homepage    : https://aerynos.com/
+# No upstreams!
+summary     : pkgset virtual packages - XFCE Desktop
+description : |
+    pkgset virtual packages - XFCE Desktop
+license     : MPL-2.0
+install     : |
+    for i in minimal recommended full; do
+        %install_dir %(installroot)%(docdir)/%(name)-${i}
+        echo "This file will disappear when virtual packages are introduced" > %(installroot)%(docdir)/%(name)-${i}/README
+    done
+packages    :
+    - "%(name)-minimal":
+        summary: Minimal packages for a XFCE Desktop session
+        description: |
+            Minimal packages for a XFCE Desktop session
+        rundeps:
+            - xfce4-session
+            - xfce4-panel
+            - thunar
+            - xfce4-settings
+            - xfdesktop
+            - xfce4-appfinder
+            - tumbler
+            - xfwl4
+            - xfce4-pulseaudio-plugin
+            - pkgset-aeryn-base-desktop
+        paths:
+            - /usr/share/doc/%(name)-minimal/README
+
+    - "%(name)-recommended":
+        summary: XFCE Desktop plus recommended applications
+        description: |
+            XFCE Desktop plus recommended applications
+        rundeps:
+            #XFCE core apps
+            - xfce4-whiskermenu-plugin
+            - thunar-volman
+            - thunar-archive-plugin
+            - xfce4-power-manager
+            - "%(name)-minimal"
+        paths:
+            - /usr/share/doc/%(name)-recommended/README
+
+    - "%(name)-full":
+        summary: XFCE Desktop plus all XFCE applications
+        description: |
+            XFCE Desktop plus all XFCE applications
+        rundeps:
+            - "%(name)-recommended"
+            - thunar-media-tags-plugin
+            - thunar-shares-plugin
+            - thunar-vcs-plugin
+        paths:
+            - /usr/share/doc/%(name)-full/README

@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfwm4-themes
+version     : "4.20.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfwm4/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfwm4/4.20/xfwm4-4.20.0.tar.bz2 : a58b63e49397aa0d8d1dcf0636be93c8bb5926779aef5165e0852890190dcf06
+summary     : Compositor themes for xfce4
+description : |
+    Compositor themes for xfce4
+license     : GPL-3.0-or-later
+install    : |
+    cd themes
+    mkdir -p %(installroot)%(datadir)/themes/{Moheli,Kokodi,Default-xhdpi,Default-hdpi,Default,Daloa}/xfwm4
+    cp -av moheli/* %(installroot)%(datadir)/themes/Moheli/xfwm4
+    cp -av kokodi/* %(installroot)%(datadir)/themes/Kokodi/xfwm4
+    cp -av default-xhdpi/* %(installroot)%(datadir)/themes/Default-xhdpi/xfwm4
+    cp -av default-hdpi/* %(installroot)%(datadir)/themes/Default-hdpi/xfwm4
+    cp -av default/* %(installroot)%(datadir)/themes/Default/xfwm4
+    cp -av daloa/* %(installroot)%(datadir)/themes/Daloa/xfwm4
+    rm -v %(installroot)%(datadir)/themes/*/xfwm4/Makefile*

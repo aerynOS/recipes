@@ -1,0 +1,52 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"pkgset-aeryn-xfce-full": {
+			"depends": [
+				"pkgset-aeryn-xfce-recommended",
+				"thunar-media-tags-plugin",
+				"thunar-shares-plugin",
+				"thunar-vcs-plugin"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-xfce-full/README"
+			],
+			"name": "pkgset-aeryn-xfce-full"
+		},
+		"pkgset-aeryn-xfce-minimal": {
+			"depends": [
+				"pkgset-aeryn-base-desktop",
+				"thunar",
+				"tumbler",
+				"xfce4-appfinder",
+				"xfce4-panel",
+				"xfce4-pulseaudio-plugin",
+				"xfce4-session",
+				"xfce4-settings",
+				"xfdesktop",
+				"xfwl4"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-xfce-minimal/README"
+			],
+			"name": "pkgset-aeryn-xfce-minimal"
+		},
+		"pkgset-aeryn-xfce-recommended": {
+			"depends": [
+				"pkgset-aeryn-xfce-minimal",
+				"thunar-archive-plugin",
+				"thunar-volman",
+				"xfce4-power-manager",
+				"xfce4-whiskermenu-plugin"
+			],
+			"files": [
+				"/usr/share/doc/pkgset-aeryn-xfce-recommended/README"
+			],
+			"name": "pkgset-aeryn-xfce-recommended"
+		}
+	},
+	"source-name": "pkgset-aeryn-xfce",
+	"source-release": "1",
+	"source-version": "2026.10"
+}
