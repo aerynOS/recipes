@@ -15,11 +15,11 @@
 			],
 			"files": [
 				"/usr/bin/typer",
-				"/usr/lib/python3.14/site-packages/typer-0.29.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/typer-0.29.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/typer-0.29.1.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/typer-0.29.1.dist-info/entry_points.txt",
-				"/usr/lib/python3.14/site-packages/typer-0.29.1.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/typer-0.29.2.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/typer-0.29.2.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/typer-0.29.2.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/typer-0.29.2.dist-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/typer-0.29.2.dist-info/licenses/LICENSE",
 				"/usr/lib/python3.14/site-packages/typer/.agents/skills/typer/SKILL.md",
 				"/usr/lib/python3.14/site-packages/typer/__init__.py",
 				"/usr/lib/python3.14/site-packages/typer/__main__.py",
@@ -135,6 +135,6 @@
 		}
 	},
 	"source-name": "python-typer",
-	"source-release": "9",
-	"source-version": "0.29.1"
+	"source-release": "10",
+	"source-version": "0.29.2"
 }

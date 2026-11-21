@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pydantic
-version     : "2.14.3"
-release     : 1
+version     : "2.14.4"
+release     : 2
 homepage    : https://github.com/pydantic/pydantic
 upstreams   :
-    - https://pypi.debian.net/pydantic/pydantic-2.14.3.tar.gz : 1054f237f4d4733e5a30e1e2333bd33a2004ab9ab1510bd053a9a31bb48e232d
+    - https://pypi.debian.net/pydantic/pydantic-2.14.4.tar.gz : 7c19f1d46f8accf55a4617a6116e1ade64840870f397b846a2c53fb9019414ba
 summary     : Data validation using Python type hints
 description : |
     Data validation using Python type hints

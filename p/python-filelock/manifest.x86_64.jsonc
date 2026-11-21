@@ -13,11 +13,11 @@
 				"python-libs"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/filelock-4.2.10.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/filelock-4.2.10.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/filelock-4.2.10.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/filelock-4.2.10.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/filelock-4.2.10.dist-info/sboms/filelock.cdx.json",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.12.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.12.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.12.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.12.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/filelock-4.2.12.dist-info/sboms/filelock.cdx.json",
 				"/usr/lib/python3.14/site-packages/filelock/__init__.py",
 				"/usr/lib/python3.14/site-packages/filelock/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/filelock/__pycache__/__init__.cpython-314.pyc",
@@ -96,6 +96,6 @@
 		}
 	},
 	"source-name": "python-filelock",
-	"source-release": "12",
-	"source-version": "4.2.10"
+	"source-release": "13",
+	"source-version": "4.2.12"
 }
