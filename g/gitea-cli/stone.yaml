@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gitea-cli
-version     : "1.2.0"
-release     : 3
+version     : "2.0.0"
+release     : 4
 homepage    : https://gitea.com/gitea/cli
 upstreams   :
-    - https://gitea.com/gitea/cli/archive/v1.2.0.tar.gz : 09854deee075d10d1930131c1acb9d3e1f035627bbdad729d4c994410e90b433
+    - https://gitea.com/gitea/cli/archive/v2.0.0.tar.gz : 93e204e19c1a0a1b03968cf79f49f7b046e87770150a8c942940b0f15bef3f53
 summary     : The official command line tool for Gitea
 description : |
     The official command line tool for Gitea, replaces tea. The binary is called gt
@@ -19,8 +19,15 @@ setup       : |
 build       : |
     export GOFLAGS+=" \"-ldflags=-linkmode=external -s -w -buildid= -X=gitea.dev/cli/internal/version.Version=%(version)\""
     go build -v -o gt ./cmd/gt
+    # man pages and tab completion, only use their makefile for these, not for gt itself
+    env -u GOFLAGS %make BUILD_VERSION=%(version) docs
 install     : |
     %install_bin gt
+    # man pages and tab completion for bash, zsh and fish, make docs makes them
+    %install_file docs/generated/man/*.1 -t %(installroot)%(mandir)/man1/
+    %install_file docs/generated/completion/gt.bash %(installroot)%(bashcompletionsdir)/gt
+    %install_file docs/generated/completion/_gt %(installroot)%(zshcompletionsdir)/_gt
+    %install_file docs/generated/completion/gt.fish %(installroot)%(fishcompletionsdir)/gt.fish
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
 check       : |
     # the terminal form tests want a real tty and one auth test wants a real network, neither is in the build root
