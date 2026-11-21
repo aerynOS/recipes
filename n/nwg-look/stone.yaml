@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : nwg-look
+version     : "1.2.1"
+release     : 1
+homepage    : https://nwg-piotr.github.io/nwg-shell/nwg-look
+upstreams   :
+    - https://github.com/nwg-piotr/nwg-look/archive/refs/tags/v1.2.1.tar.gz : 1c66053f559f1756b18b615987a450433117c6b6c08759debdef94b6fd906480
+summary     : GTK settings editor for wlroots-based Wayland environments
+description : |
+    nwg-look is a GTK3 settings editor designed to work natively on
+    wlroots-based Wayland compositors. It applies gsettings directly, without
+    requiring Xwayland or compositor-specific workarounds.
+license     : MIT
+builddeps   :
+    - pkgconfig(gtk+-3.0)
+rundeps     :
+    - binary(gsettings)
+    - binary(xcur2png)
+    - gsettings-desktop-schemas
+    - libcanberra-gtk3
+networking  : true
+setup       : |
+    %go_mod
+build       : |
+    %make build
+install     : |
+    %make_install
+
+    %install_file stuff/nwg-look.svg -t %(installroot)%(datadir)/icons/hicolor/scalable/apps/
