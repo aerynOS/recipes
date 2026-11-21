@@ -1,0 +1,63 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"proton-vpn-daemon": {
+			"build-depends": [
+				"pkgconfig(python3)",
+				"python(build)",
+				"python(installer)",
+				"python(setuptools)"
+			],
+			"depends": [
+				"python(dbus-fast)",
+				"python(packaging)",
+				"python(proton-vpn-api-core)",
+				"python(psutil)",
+				"python(systemd-python)"
+			],
+			"files": [
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/__main__.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/__pycache__/__main__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/__pycache__/exception_handler.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/exception_handler.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__init__.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__pycache__/client.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__pycache__/dbus_translator.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__pycache__/service.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/__pycache__/split_tunneling.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__init__.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/__init__.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/process_map.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/process_matcher.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/process_monitor.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/service.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/__pycache__/socket_monitor.cpython-314.pyc",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/process_map.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/process_matcher.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/process_monitor.bpf.c",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/process_monitor.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/service.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/apps/socket_monitor.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/client.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/dbus_translator.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/service.py",
+				"/usr/lib/python3.14/site-packages/proton/vpn/daemon/split_tunneling/split_tunneling.py",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/PKG-INFO",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/SOURCES.txt",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/dependency_links.txt",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/entry_points.txt",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/requires.txt",
+				"/usr/lib/python3.14/site-packages/proton_vpn_daemon-0.13.8-py3.14.egg-info/top_level.txt"
+			],
+			"name": "proton-vpn-daemon",
+			"provides": [
+				"python(proton-vpn-daemon)"
+			]
+		}
+	},
+	"source-name": "proton-vpn-daemon",
+	"source-release": "1",
+	"source-version": "0.13.8"
+}
