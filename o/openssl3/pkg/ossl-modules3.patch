@@ -1,0 +1,58 @@
+From 598a99c275b5cf06d901fbc86cedaba07b46fa0f Mon Sep 17 00:00:00 2001
+From: Dmitry Belyavskiy <beldmit@gmail.com>
+Date: Mon, 26 Jan 2026 15:28:24 +0100
+Subject: [PATCH] Add the sovesion as a part to the MODULESDIR
+
+As we are going to have several versions of openssl supporting
+providers, it makes sense to separate the folders for various versions.
+
+Despite providers have a well-defined ABIs, it's not clear whether it
+would be safe to use non-self-contatined providers built against a
+particular version of libcrypto against the different version of openssl
+(e.g. because of atexit()-handler etc). Separating the providers per
+version resolves this problem.
+---
+ Configurations/descrip.mms.tmpl      | 2 +-
+ Configurations/unix-Makefile.tmpl    | 2 +-
+ Configurations/windows-makefile.tmpl | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Configurations/descrip.mms.tmpl b/Configurations/descrip.mms.tmpl
+index adfd448f9f239..4a9d0ef3df60d 100644
+--- a/Configurations/descrip.mms.tmpl
++++ b/Configurations/descrip.mms.tmpl
+@@ -381,7 +381,7 @@ OPENSSLDIR={- catdir($config{openssldir}) or
+ # Where installed ENGINE modules reside, for C
+ ENGINESDIR_C={- platform->osslprefix() -}ENGINES{- $sover_dirname.$target{pointer_size} -}:
+ # Where modules reside, for C
+-MODULESDIR_C={- platform->osslprefix() -}MODULES{- $target{pointer_size} -}:
++MODULESDIR_C={- platform->osslprefix() -}MODULES{- $sover_dirname.$target{pointer_size} -}:
+ 
+ ##### User defined commands and flags ################################
+ 
+diff --git a/Configurations/unix-Makefile.tmpl b/Configurations/unix-Makefile.tmpl
+index 155aa46955abd..97c951343d8b6 100644
+--- a/Configurations/unix-Makefile.tmpl
++++ b/Configurations/unix-Makefile.tmpl
+@@ -324,7 +324,7 @@ LIBDIR={- our $libdir = $config{libdir};
+ libdir={- file_name_is_absolute($libdir)
+           ? $libdir : '$(INSTALLTOP)/$(LIBDIR)' -}
+ ENGINESDIR=$(libdir)/engines-{- $sover_dirname -}
+-MODULESDIR=$(libdir)/ossl-modules
++MODULESDIR=$(libdir)/ossl-modules-{- $sover_dirname -}
+ 
+ # Convenience variable for those who want to set the rpath in shared
+ # libraries and applications
+diff --git a/Configurations/windows-makefile.tmpl b/Configurations/windows-makefile.tmpl
+index e9f985f855164..a21f20b61447d 100644
+--- a/Configurations/windows-makefile.tmpl
++++ b/Configurations/windows-makefile.tmpl
+@@ -214,7 +214,7 @@ MODULESDIR_dev={- use File::Spec::Functions qw(:DEFAULT splitpath catpath);
+                       splitpath($modulesprefix, 1);
+                   our $modulesdir_dev = $modulesprefix_dev;
+                   our $modulesdir_dir =
+-                      catdir($modulesprefix_dir, "ossl-modules");
++                      catdir($modulesprefix_dir, "ossl-modules-$sover_dirname");
+                   our $modulesdir = catpath($modulesdir_dev, $modulesdir_dir);
+                   our $enginesdir_dev = $modulesprefix_dev;
+                   our $enginesdir_dir =

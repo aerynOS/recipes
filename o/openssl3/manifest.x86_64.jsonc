@@ -1,0 +1,43 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"openssl3-libs": {
+			"build-depends": [
+				"binary(perl)",
+				"pkgconfig(libbrotlidec)",
+				"pkgconfig(libzstd)",
+				"pkgconfig(zlib)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libz.so.1(x86_64))",
+				"soname(libzstd.so.1(x86_64))"
+			],
+			"files": [
+				"/usr/lib/engines-3/afalg.so",
+				"/usr/lib/engines-3/capi.so",
+				"/usr/lib/engines-3/loader_attic.so",
+				"/usr/lib/engines-3/padlock.so",
+				"/usr/lib/libcrypto.so.3",
+				"/usr/lib/libssl.so.3",
+				"/usr/lib/ossl-modules-3/legacy.so",
+				"/usr/share/defaults/ssl/openssl3.cnf",
+				"/usr/share/defaults/ssl/openssl3.cnf.dist"
+			],
+			"name": "openssl3-libs",
+			"provides": [
+				"soname(engines-3/afalg.so(x86_64))",
+				"soname(engines-3/capi.so(x86_64))",
+				"soname(engines-3/loader_attic.so(x86_64))",
+				"soname(engines-3/padlock.so(x86_64))",
+				"soname(libcrypto.so.3(x86_64))",
+				"soname(libssl.so.3(x86_64))",
+				"soname(ossl-modules-3/legacy.so(x86_64))"
+			]
+		}
+	},
+	"source-name": "openssl3",
+	"source-release": "1",
+	"source-version": "3.5.9"
+}

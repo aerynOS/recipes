@@ -1,0 +1,92 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Mon, 28 Sep 2026 12:28:48 -0500
+Subject: [PATCH] openssl3.cnf
+
+---
+ Configurations/unix-Makefile.tmpl | 16 ++++++++--------
+ apps/lib/apps.c                   |  2 +-
+ apps/srp.c                        |  2 +-
+ crypto/conf/conf_mod.c            |  2 +-
+ include/internal/common.h         |  2 +-
+ 5 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/Configurations/unix-Makefile.tmpl b/Configurations/unix-Makefile.tmpl
+index f31d246b9d..b300ffc934 100644
+--- a/Configurations/unix-Makefile.tmpl
++++ b/Configurations/unix-Makefile.tmpl
+@@ -740,14 +740,14 @@ install_ssldirs:
+ 			: {- output_on() if windowsdll(); "" -}; \
+ 		fi; \
+ 	done
+-	@$(ECHO) "install $(SRCDIR)/apps/openssl.cnf -> $(DESTDIR)$(OPENSSLDIR)/openssl.cnf.dist"
+-	@cp $(SRCDIR)/apps/openssl.cnf "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf.new"
+-	@chmod 644 "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf.new"
+-	@mv -f  "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf.new" "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf.dist"
+-	@if [ ! -f "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf" ]; then \
+-		$(ECHO) "install $(SRCDIR)/apps/openssl.cnf -> $(DESTDIR)$(OPENSSLDIR)/openssl.cnf"; \
+-		cp $(SRCDIR)/apps/openssl.cnf "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf"; \
+-		chmod 644 "$(DESTDIR)$(OPENSSLDIR)/openssl.cnf"; \
++	@$(ECHO) "install $(SRCDIR)/apps/openssl.cnf -> $(DESTDIR)$(OPENSSLDIR)/openssl3.cnf.dist"
++	@cp $(SRCDIR)/apps/openssl.cnf "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf.new"
++	@chmod 644 "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf.new"
++	@mv -f  "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf.new" "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf.dist"
++	@if [ ! -f "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf" ]; then \
++		$(ECHO) "install $(SRCDIR)/apps/openssl.cnf -> $(DESTDIR)$(OPENSSLDIR)/openssl3.cnf"; \
++		cp $(SRCDIR)/apps/openssl.cnf "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf"; \
++		chmod 644 "$(DESTDIR)$(OPENSSLDIR)/openssl3.cnf"; \
+ 	fi
+ 	@$(ECHO) "install $(SRCDIR)/apps/ct_log_list.cnf -> $(DESTDIR)$(OPENSSLDIR)/ct_log_list.cnf.dist"
+ 	@cp $(SRCDIR)/apps/ct_log_list.cnf "$(DESTDIR)$(OPENSSLDIR)/ct_log_list.cnf.new"
+diff --git a/apps/lib/apps.c b/apps/lib/apps.c
+index 240486341b..c06c9ebf84 100644
+--- a/apps/lib/apps.c
++++ b/apps/lib/apps.c
+@@ -433,7 +433,7 @@ int app_load_modules(const CONF *config)
+     if (config == NULL)
+         config = to_free = app_load_config_quiet(default_config_file);
+     if (config == NULL)
+-        config = to_free = app_load_config_quiet("/usr/share/defaults/ssl/openssl.cnf");
++        config = to_free = app_load_config_quiet("/usr/share/defaults/ssl/openssl3.cnf");
+     if (config == NULL)
+         return 1;
+ 
+diff --git a/apps/srp.c b/apps/srp.c
+index ac0e15f49c..878bc64c00 100644
+--- a/apps/srp.c
++++ b/apps/srp.c
+@@ -29,7 +29,7 @@
+ #include "progs.h"
+ 
+ #define BASE_SECTION "srp"
+-#define CONFIG_FILE "openssl.cnf"
++#define CONFIG_FILE "openssl3.cnf"
+ 
+ #define ENV_DATABASE "srpvfile"
+ #define ENV_DEFAULT_SRP "default_srp"
+diff --git a/crypto/conf/conf_mod.c b/crypto/conf/conf_mod.c
+index f7405dcc9c..848968fc97 100644
+--- a/crypto/conf/conf_mod.c
++++ b/crypto/conf/conf_mod.c
+@@ -717,7 +717,7 @@ char *CONF_get1_default_config_file(void)
+     if (access(file, R_OK) == 0)
+         return file;
+         OPENSSL_free(file);
+-        return OPENSSL_strdup("/usr/share/defaults/ssl/openssl.cnf");
++        return OPENSSL_strdup("/usr/share/defaults/ssl/openssl3.cnf");
+ }
+ 
+ /*
+diff --git a/include/internal/common.h b/include/internal/common.h
+index 2fc28f93c9..58e78719ac 100644
+--- a/include/internal/common.h
++++ b/include/internal/common.h
+@@ -77,7 +77,7 @@ __owur static ossl_inline int ossl_assert_int(int expr, const char *exprstr,
+     ossl_uintmax_t align_int; \
+     void *align_ptr
+ 
+-#define OPENSSL_CONF "openssl.cnf"
++#define OPENSSL_CONF "openssl3.cnf"
+ 
+ #ifndef OPENSSL_SYS_VMS
+ #define X509_CERT_AREA OPENSSLDIR

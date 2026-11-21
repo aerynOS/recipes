@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 377610
+  rss: ~
+security:
+  # Last checked: 2026-11-06
+  cpe:
+  - vendor: openssl
+    product: openssl
