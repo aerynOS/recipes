@@ -3,7 +3,7 @@
 
 name        : openssl
 version     : "4.1.0"
-release     : 43
+release     : 44
 summary     : OpenSSL cryptography library
 license     :
     - OpenSSL
@@ -16,9 +16,9 @@ upstreams   :
         hash: 50c17baf54cb008f6ce42d50deb4b28050a1aad711636cabd4b241c7e90cc2fd
         unpackdir: current
 
-    - https://www.openssl.org/source/openssl-3.5.9.tar.gz:
-        hash: 603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a
-        unpackdir: compat
+    # - https://www.openssl.org/source/openssl-3.5.9.tar.gz:
+    #     hash: 603f5602e2eef00d77fbd429d34dcd5822bb301757a1bc9cdb24c670f1eb859a
+    #     unpackdir: compat
 builddeps   :
     - binary(perl)
     - pkgconfig32(libbrotlidec)

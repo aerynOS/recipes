@@ -7903,39 +7903,23 @@
 				"soname(libzstd.so.1(x86_64))"
 			],
 			"files": [
-				"/usr/lib/engines-3/afalg.so",
-				"/usr/lib/engines-3/capi.so",
-				"/usr/lib/engines-3/loader_attic.so",
-				"/usr/lib/engines-3/padlock.so",
-				"/usr/lib/libcrypto.so.3",
 				"/usr/lib/libcrypto.so.4",
-				"/usr/lib/libssl.so.3",
 				"/usr/lib/libssl.so.4",
-				"/usr/lib/ossl-modules-3/legacy.so",
 				"/usr/lib/ossl-modules/legacy.so",
 				"/usr/share/defaults/ssl/ct_log_list.cnf",
 				"/usr/share/defaults/ssl/ct_log_list.cnf.dist",
 				"/usr/share/defaults/ssl/openssl.cnf",
-				"/usr/share/defaults/ssl/openssl.cnf.dist",
-				"/usr/share/defaults/ssl/openssl3.cnf",
-				"/usr/share/defaults/ssl/openssl3.cnf.dist"
+				"/usr/share/defaults/ssl/openssl.cnf.dist"
 			],
 			"name": "openssl-libs",
 			"provides": [
-				"soname(engines-3/afalg.so(x86_64))",
-				"soname(engines-3/capi.so(x86_64))",
-				"soname(engines-3/loader_attic.so(x86_64))",
-				"soname(engines-3/padlock.so(x86_64))",
-				"soname(libcrypto.so.3(x86_64))",
 				"soname(libcrypto.so.4(x86_64))",
-				"soname(libssl.so.3(x86_64))",
 				"soname(libssl.so.4(x86_64))",
-				"soname(ossl-modules-3/legacy.so(x86_64))",
 				"soname(ossl-modules/legacy.so(x86_64))"
 			]
 		}
 	},
 	"source-name": "openssl",
-	"source-release": "43",
+	"source-release": "44",
 	"source-version": "4.1.0"
 }
