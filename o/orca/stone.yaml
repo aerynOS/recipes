@@ -2,15 +2,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : orca
-version     : "51.1"
-release     : 4
-upstreams   :
-    - https://download.gnome.org/sources/orca/51/orca-51.1.tar.xz : 22829394474e9fde7fdd46b03a98c9a98eb595106b21fb71afdbe2f82436077b
+version     : "51.2"
+release     : 5
 homepage    : https://orca.gnome.org/
-license     : LGPL-2.1-or-later
+upstreams   :
+    - https://download.gnome.org/sources/orca/51/orca-51.2.tar.xz : 5051c84a2892d80ded876404dbb712b7dbf7b9276ee56fedffdf66df40f0e2d2
 summary     : Screen reader for individuals who are blind or visually impaired
 description : |
     Screen reader for individuals who are blind or visually impaired
+license     : LGPL-2.1-or-later
+networking  : true
 builddeps   :
     - binary(cargo)
     - binary(itstool)
@@ -31,16 +32,10 @@ rundeps     :
     - at-spi2-core # Python bindings
     - python-speechd
     - speech-dispatcher
-networking  : true
 setup       : |
-    %meson
+    %meson \
+        --sysconfdir=%(datadir)
 build       : |
     %meson_build
 install     : |
     %meson_install
-
-    %install_dir %(installroot)%(datadir)/xdg/autostart
-    mv %(installroot)%(sysconfdir)/xdg/autostart/orca-autostart.desktop %(installroot)%(datadir)/xdg/autostart/
-    rmdir %(installroot)%(sysconfdir)/xdg/autostart \
-          %(installroot)%(sysconfdir)/xdg/ \
-          %(installroot)%(sysconfdir)/
