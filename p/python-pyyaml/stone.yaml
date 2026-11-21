@@ -1,17 +1,16 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pyyaml
-version     : "6.0.3"
-release     : 7
+version     : "6.0.4"
+release     : 8
 homepage    : https://pyyaml.org/
 upstreams   :
-    - https://pypi.debian.net/PyYAML/pyyaml-6.0.3.tar.gz : d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
+    - https://pypi.debian.net/PyYAML/pyyaml-6.0.4.tar.gz : e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a
 summary     : Python YAML framework
 description : |
     PyYAML is a full-featured YAML framework for the Python programming language.
-license     :
-    - MIT
+license     : MIT
 builddeps   :
     - binary(cython)
     - pkgconfig(yaml-0.1)
