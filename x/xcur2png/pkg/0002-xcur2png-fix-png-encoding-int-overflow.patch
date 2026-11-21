@@ -1,0 +1,33 @@
+From 0080e9419337dfc673b1b9285b98d490b8644e9b Mon Sep 17 00:00:00 2001
+From: Curtis Barnhart <cbarnhart@westmont.edu>
+Date: Mon, 28 Jul 2025 09:05:14 -0700
+Subject: [PATCH] Fixed png encoding int overflow
+
+This is the PNG encoding hunk of upstream PR #5:
+https://github.com/eworm-de/xcur2png/pull/5
+
+The same PR also carries the gcc-14 implicit-int fix from PR #4, which is
+applied separately as 0001-xcur2png-fix-gcc-14-build.patch.
+
+---
+ xcur2png.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+--- a/xcur2png.c
++++ b/xcur2png.c
+@@ -586,9 +586,12 @@
+     unsigned int red = (pixels[i]>>16) & 0xff;
+     unsigned int green = (pixels[i]>>8) & 0xff;
+     unsigned int blue = pixels[i] & 0xff;
+-    red = (div (red * 256, alpha).quot) & 0xff;
+-    green = (div (green * 256,  alpha).quot) & 0xff;
+-    blue = (div (blue * 256, alpha).quot) & 0xff;
++    red = (div (red * 256, alpha).quot);
++    green = (div (green * 256,  alpha).quot);
++    blue = (div (blue * 256, alpha).quot);
++    red = (red > 0xff ? 0xff : red) & 0xff;
++    green = (green > 0xff ? 0xff : green) & 0xff;
++    blue = (blue > 0xff ? 0xff : blue) & 0xff;
+     pix[i] = (alpha << 24) + (red << 16) + (green << 8) + blue;
+   }
+ 
