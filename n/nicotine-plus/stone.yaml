@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : nicotine-plus
+version     : "3.3.11"
+release     : 1
+homepage    : https://nicotine-plus.org/
+upstreams   :
+    - https://github.com/nicotine-plus/nicotine-plus/archive/refs/tags/3.3.11.tar.gz : 0021c20f6ee8a151a4eda78c38a0735cddbcedebf5ef834f4d0769384e76556b
+summary     : Soulseek p2p Client
+description : |
+    Nicotine+ is a graphical client for the Soulseek peer-to-peer network.
+license     : 
+    - GPL-3.0-or-later
+builddeps   :
+    - pkgconfig(gtk4)
+    - pkgconfig(libadwaita-1)
+    - gettext
+    - python-pygobject
+    - python-setuptools
+rundeps     :
+    - gstreamer
+    - gtk-4
+    - libadwaita
+    - python-pygobject
+build       : |
+    %python_setup
+install     : |
+    %python_install
