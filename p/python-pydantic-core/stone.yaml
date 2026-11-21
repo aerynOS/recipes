@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : python-pydantic-core
-version     : "2.50.4"
-release     : 1
+version     : "2.50.5"
+release     : 2
 homepage    : https://github.com/pydantic/pydantic-core
 upstreams   :
-    - https://pypi.debian.net/pydantic-core/pydantic_core-2.50.4.tar.gz : aead3b74b68396bf0feab5d57e050b730ded7df55853c1e048a87e00aaf033c6
+    - https://pypi.debian.net/pydantic-core/pydantic_core-2.50.5.tar.gz : 1e740886083ff95530d694e6a3f09ed914bcf92a496d16acd307c6c3484fc36d
 summary     : Core functionality for Pydantic validation and serialization
 description : |
     Core functionality for Pydantic validation and serialization

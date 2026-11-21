@@ -16,11 +16,11 @@
 				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/WHEEL",
-				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/licenses/LICENSE",
-				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.4.dist-info/sboms/pydantic-core.cyclonedx.json",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.5.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.5.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.5.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.5.dist-info/licenses/LICENSE",
+				"/usr/lib/python3.14/site-packages/pydantic_core-2.50.5.dist-info/sboms/pydantic-core.cyclonedx.json",
 				"/usr/lib/python3.14/site-packages/pydantic_core/__init__.py",
 				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/pydantic_core/__pycache__/__init__.cpython-314.pyc",
@@ -40,6 +40,6 @@
 		}
 	},
 	"source-name": "python-pydantic-core",
-	"source-release": "1",
-	"source-version": "2.50.4"
+	"source-release": "2",
+	"source-version": "2.50.5"
 }
