@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : showtime
-version     : "50.0"
-release     : 5
+version     : "50.1"
+release     : 6
 homepage    : https://apps.gnome.org/Showtime/
 upstreams   :
-    - https://download.gnome.org/sources/showtime/50/showtime-50.0.tar.xz : 4399c9fa7f61e5984242e279acd1519beec246b98a676d44a4b2ab94e9eecb01
+    - https://download.gnome.org/sources/showtime/50/showtime-50.1.tar.xz : c04fcdc9f810a8b23db336b496707a99023d9cf37c9417b1723c160198752e52
 summary     : Watch without distraction
 description : |
     Play your favorite movies and video files without hassle. Showtime features simple playback controls that fade out of your way when you're watching, fullscreen, adjustable playback speed, multiple language and subtitle tracks, and screenshots — everything you need for a straightforward viewing experience.
@@ -17,11 +17,11 @@ builddeps   :
     - pkgconfig(blueprint-compiler)
     - pkgconfig(gtk4)
     - pkgconfig(libadwaita-1)
-rundeps:
-  - binary(python3)
-  - gstreamer-plugin-gtk4
-  - gtk-4
-  - libadwaita
+rundeps     :
+    - binary(python3)
+    - gstreamer-plugin-gtk4
+    - gtk-4
+    - libadwaita
 setup       : |
     %meson
 build       : |
