@@ -2,36 +2,41 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : mold
-version     : "2.42.1"
-release     : 16
-summary     : A Modern Linker
-license     : BSD-3-Clause
+version     : "3.0.0"
+release     : 17
 homepage    : https://github.com/rui314/mold
+upstreams   :
+    - https://github.com/rui314/mold/archive/refs/tags/v3.0.0.tar.gz: 1dee837e227b0c3f2661def602ef8ddc0b889ae5b1d28c1ddec5f29e08e5ceb5
+summary     : A Modern Linker
 description : |
     mold is a faster drop-in replacement for existing Unix linkers.
-upstreams   :
-    - https://github.com/rui314/mold/archive/refs/tags/v2.42.1.tar.gz: 0580221bfdad7148ceeafd0ad3c1c7b3ca9e66b45950405230cc3f81a205c816
+license     : BSD-3-Clause
+networking  : true
 builddeps   :
-    - pkgconfig(libblake3)
     - pkgconfig(libzstd)
-    - pkgconfig(mimalloc)
-    - pkgconfig(tbb)
     - pkgconfig(zlib)
-    - mimalloc-static
+environment : |
+    export ZSTD_SYS_USE_PKG_CONFIG=1
 setup       : |
     %patch %(pkgdir)/0001-Set-default-settings-for-compression-and-build.patch
 
-    # CMAKE_INSTALL_LIBEXECDIR is libdir because it already installs to a mold subdir
-    %cmake \
-        -DCMAKE_INSTALL_LIBEXECDIR="%(libdir)" \
-        -DMOLD_LTO=ON \
-        -DMOLD_MOSTLY_STATIC=OFF \
-        -DMOLD_USE_SYSTEM_MIMALLOC=ON \
-        -DMOLD_USE_SYSTEM_TBB=ON
+    %cargo_fetch
 build       : |
-    %cmake_build
+    %cargo_build -p mold-cli
 install     : |
-    %cmake_install
+    %cargo_install
+
+    %install_exe %(cargo_target_dir)/mold-wrapper.so -t %(installroot)%(libdir)/mold/
+    ln -srvf %(installroot)%(bindir)/mold %(installroot)%(bindir)/ld.mold
+    ln -srvf %(installroot)%(bindir)/mold %(installroot)%(libdir)/mold/ld
+
+    %install_file docs/mold.1 -t %(installroot)%(mandir)/man1/
+    ln -srvf %(installroot)%(mandir)/man1/mold.1 %(installroot)%(mandir)/man1/ld.mold.1
+
+    %install_file LICENSE %(installroot)%(docdir)/mold/LICENSE
+check       : |
+    # Only the unit tests, since we do change some defaults
+    %cargo_test --lib
 tuning      :
     - icf: all
     - lto: full
