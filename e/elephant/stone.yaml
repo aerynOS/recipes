@@ -1,65 +1,246 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : elephant
-version     : "2.22.0"
+version     : "2.22.1"
 release     : 5
 homepage    : https://github.com/abenz1267/elephant
 upstreams   :
-    - https://github.com/abenz1267/elephant/archive/refs/tags/v2.22.0.tar.gz : c6caa61727e4b5c3981099943b4b616c338a6e1b4e33b5e1d32078b8e4dbe120
+    - https://github.com/abenz1267/elephant/archive/refs/tags/v2.22.1.tar.gz : 3d1d0d4c55ae531fa3f06406b96504b5165a0d7b53523d1f8351d9d93e457f44
 summary     : Elephant - cuz it's phat - is a powerful data provider service and backend for building custom application launchers and desktop utilities.
 description : |
     Elephant acts as a unified backend service that aggregates data from various sources (desktop applications, files, clipboard history, etc.) and provides a consistent interface for frontend applications like custom launchers, productivity tools, or desktop widgets.
-license     :
-    - GPL-3.0-or-later
-builddeps   :
-    - binary(go)
+license     : GPL-3.0-or-later
 networking  : true
+rundeps     :
+    - ca-certificates
 setup       : |
     %go_mod
 build       : |
     go build -v -o elephant ./cmd/elephant
 
-    for dir in internal/providers/*; do
-        if [ -d $dir ]; then
-            pushd $dir
-            go build -buildmode=plugin -buildvcs=false
-            popd
-        else
-            continue
-        fi
+    for dir in internal/providers/*/; do
+        go build -C "$dir" -buildmode=plugin -buildvcs=false
     done
 install     : |
     %install_bin elephant
-    %install_file assets/elephant.service %(installroot)%(libdir)/systemd/system/elephant.service
+    %install_file assets/elephant.service %(installroot)%(libdir)/systemd/user/elephant.service
     %install_file LICENSE -t %(installroot)%(datadir)/licenses/%(name)/
 
-    # Not entirely sure if this is correct or if it installs every provider with the base package. Intended behavior is for each provider to only be installed with the specific package for it.
-    %install_dir %(installroot)%(libdir)/%(name)
-    for dir in internal/providers/*; do
-        if [ -d $dir ]; then
-            pushd $dir
-            %install_file *.so %(installroot)%(libdir)/%(name)/.
-            popd
-        else
-            continue
-        fi
-    done
+    # Intended behavior is for each provider to only be installed with the specific package for it.
+    %install_file internal/providers/*/*.so -t %(installroot)%(libdir)/%(name)/
+
+    # Install all the providers
+    %install_dir %(installroot)%(docdir)/%(name)-providers
+    echo "Metapackage that installs all %(name) provider plugins." > %(installroot)%(docdir)/%(name)-providers/README
+check       : |
+    go test ./...
 packages    :
-    - "%(name)":
-            summary: Elephant - cuz it's phat - is a powerful data provider service and backend for building custom application launchers and desktop utilities.
-            description: |
-                Elephant acts as a unified backend service that aggregates data from various sources (desktop applications, files, clipboard history, etc.) and provides a consistent interface for frontend applications like custom launchers, productivity tools, or desktop widgets.
-            rundeps:
-                - ca-certificates
-            paths:
-                - /usr/bin/elephant
-                - /usr/lib/systemd/system/elephant.service
-                - /usr/share/licenses/elephant/LICENSE
-    - "%(name)-desktopapplications":
-        summary: desktopapplications provider for elephant
-        description: desktopapplications provider for elephant
+    - "%(name)-1password":
+        summary: 1password provider for %(name)
+        description: 1password provider for %(name)
         rundeps:
-            - elephant
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/1password.so
+    - "%(name)-aptpackages":
+        summary: aptpackages provider for %(name)
+        description: aptpackages provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/aptpackages.so
+    - "%(name)-archlinuxpkgs":
+        summary: archlinuxpkgs provider for %(name)
+        description: archlinuxpkgs provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/archlinuxpkgs.so
+    - "%(name)-bitwarden":
+        summary: bitwarden provider for %(name)
+        description: bitwarden provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/bitwarden.so
+    - "%(name)-bluetooth":
+        summary: bluetooth provider for %(name)
+        description: bluetooth provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/bluetooth.so
+    - "%(name)-bookmarks":
+        summary: bookmarks provider for %(name)
+        description: bookmarks provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/bookmarks.so
+    - "%(name)-calc":
+        summary: calc provider for %(name)
+        description: calc provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/calc.so
+    - "%(name)-clipboard":
+        summary: clipboard provider for %(name)
+        description: clipboard provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/clipboard.so
+    - "%(name)-desktopapplications":
+        summary: desktopapplications provider for %(name)
+        description: desktopapplications provider for %(name)
+        rundeps:
+            - "%(name)"
         paths:
             - /usr/lib/elephant/desktopapplications.so
+    - "%(name)-dnfpackages":
+        summary: dnfpackages provider for %(name)
+        description: dnfpackages provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/dnfpackages.so
+    - "%(name)-files":
+        summary: files provider for %(name)
+        description: files provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/files.so
+    - "%(name)-menus":
+        summary: menus provider for %(name)
+        description: menus provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/menus.so
+    - "%(name)-niriactions":
+        summary: niriactions provider for %(name)
+        description: niriactions provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/niriactions.so
+    - "%(name)-nirisessions":
+        summary: nirisessions provider for %(name)
+        description: nirisessions provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/nirisessions.so
+    - "%(name)-playerctl":
+        summary: playerctl provider for %(name)
+        description: playerctl provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/playerctl.so
+    - "%(name)-protonpass":
+        summary: protonpass provider for %(name)
+        description: protonpass provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/protonpass.so
+    - "%(name)-providerlist":
+        summary: providerlist provider for %(name)
+        description: providerlist provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/providerlist.so
+    - "%(name)-runner":
+        summary: runner provider for %(name)
+        description: runner provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/runner.so
+    - "%(name)-snippets":
+        summary: snippets provider for %(name)
+        description: snippets provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/snippets.so
+    - "%(name)-symbols":
+        summary: symbols provider for %(name)
+        description: symbols provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/symbols.so
+    - "%(name)-todo":
+        summary: todo provider for %(name)
+        description: todo provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/todo.so
+    - "%(name)-unicode":
+        summary: unicode provider for %(name)
+        description: unicode provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/unicode.so
+    - "%(name)-websearch":
+        summary: websearch provider for %(name)
+        description: websearch provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/websearch.so
+    - "%(name)-windows":
+        summary: windows provider for %(name)
+        description: windows provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/windows.so
+    - "%(name)-wireplumber":
+        summary: wireplumber provider for %(name)
+        description: wireplumber provider for %(name)
+        rundeps:
+            - "%(name)"
+        paths:
+            - /usr/lib/elephant/wireplumber.so
+
+    - "%(name)-providers":
+        summary: All providers for %(name)
+        description: |
+            Metapackage that installs all %(name) provider plugins.
+        rundeps:
+            - "%(name)-1password"
+            - "%(name)-aptpackages"
+            - "%(name)-archlinuxpkgs"
+            - "%(name)-bitwarden"
+            - "%(name)-bluetooth"
+            - "%(name)-bookmarks"
+            - "%(name)-calc"
+            - "%(name)-clipboard"
+            - "%(name)-desktopapplications"
+            - "%(name)-dnfpackages"
+            - "%(name)-files"
+            - "%(name)-menus"
+            - "%(name)-niriactions"
+            - "%(name)-nirisessions"
+            - "%(name)-playerctl"
+            - "%(name)-protonpass"
+            - "%(name)-providerlist"
+            - "%(name)-runner"
+            - "%(name)-snippets"
+            - "%(name)-symbols"
+            - "%(name)-todo"
+            - "%(name)-unicode"
+            - "%(name)-websearch"
+            - "%(name)-windows"
+            - "%(name)-wireplumber"
+        paths:
+            - /usr/share/doc/%(name)-providers/README
