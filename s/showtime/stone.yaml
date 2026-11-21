@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : showtime
-version     : "50.1"
-release     : 6
+version     : "50.1.1"
+release     : 7
 homepage    : https://apps.gnome.org/Showtime/
 upstreams   :
-    - https://download.gnome.org/sources/showtime/50/showtime-50.1.tar.xz : c04fcdc9f810a8b23db336b496707a99023d9cf37c9417b1723c160198752e52
+    - https://download.gnome.org/sources/showtime/50/showtime-50.1.1.tar.xz : 6918222ef2e823ee06b8b63493e9c16317f01b8fb52148dfaaebde14443b4ebe
 summary     : Watch without distraction
 description : |
     Play your favorite movies and video files without hassle. Showtime features simple playback controls that fade out of your way when you're watching, fullscreen, adjustable playback speed, multiple language and subtitle tracks, and screenshots — everything you need for a straightforward viewing experience.
