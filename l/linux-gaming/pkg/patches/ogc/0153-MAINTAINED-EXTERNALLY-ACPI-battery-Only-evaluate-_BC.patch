@@ -1,0 +1,59 @@
+From 5a1c3e389be581786d4c4d398b7a6b904d3c679c Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Mon, 16 Nov 2026 13:58:37 -0800
+Subject: [PATCH 153/218] [MAINTAINED-EXTERNALLY] ACPI: battery: Only evaluate
+ _BCT when the method exists
+
+Avoid repeated ACPI errors on systems whose firmware does not implement the optional _BCT method.
+
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+Signed-off-by: Robert Beckett <bob.beckett@collabora.com>
+---
+ drivers/acpi/battery.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/acpi/battery.c b/drivers/acpi/battery.c
+index abc3d71db282..bfed71a6efbb 100644
+--- a/drivers/acpi/battery.c
++++ b/drivers/acpi/battery.c
+@@ -76,6 +76,7 @@ MODULE_DEVICE_TABLE(acpi, battery_device_ids);
+ enum {
+ 	ACPI_BATTERY_ALARM_PRESENT,
+ 	ACPI_BATTERY_XINFO_PRESENT,
++	ACPI_BATTERY_BCT_PRESENT,
+ 	ACPI_BATTERY_QUIRK_PERCENTAGE_CAPACITY,
+ 	/* On Lenovo Thinkpad models from 2010 and 2011, the power unit
+ 	 * switches between mWh and mAh depending on whether the system
+@@ -656,13 +657,13 @@ static int acpi_battery_get_state(struct acpi_battery *battery)
+ 	 * Read _BCT (Battery charge time) to determine if we are really
+ 	 * charging.
+ 	 */
+-	status = acpi_evaluate_integer(battery->device->handle, "_BCT",
+-				      &args, &battery->charge_time);
+-
+-	if (ACPI_FAILURE(status)) {
+-		acpi_handle_info(battery->device->handle,
+-				 "_BCT evaluation failed: %s",
+-				 acpi_format_exception(status));
++	if (test_bit(ACPI_BATTERY_BCT_PRESENT, &battery->flags)) {
++		status = acpi_evaluate_integer(battery->device->handle, "_BCT",
++					       &args, &battery->charge_time);
++		if (ACPI_FAILURE(status))
++			acpi_handle_info(battery->device->handle,
++					 "_BCT evaluation failed: %s",
++					 acpi_format_exception(status));
+ 	}
+ 	/* For buggy DSDTs that report negative 16-bit values for either
+ 	 * charging or discharging current and/or report 0 as 65536
+@@ -1115,6 +1116,8 @@ static int acpi_battery_update(struct acpi_battery *battery, bool resume)
+ 		if (result)
+ 			return result;
+ 		acpi_battery_quirks(battery);
++		if (acpi_has_method(battery->device->handle, "_BCT"))
++			set_bit(ACPI_BATTERY_BCT_PRESENT, &battery->flags);
+ 
+ 		wakeup = ((battery->state & ACPI_BATTERY_STATE_CRITICAL) ||
+ 			  (test_bit(ACPI_BATTERY_ALARM_PRESENT, &battery->flags) &&
+-- 
+2.56.0
+

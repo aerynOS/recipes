@@ -1,7 +1,7 @@
-From aceba2385e141b71adea01a4584a3aeb61f4ab35 Mon Sep 17 00:00:00 2001
+From 984a58c381ab06dd4032a11164865ce7edf91cc7 Mon Sep 17 00:00:00 2001
 From: Matthew Schwartz <matthew.schwartz@linux.dev>
 Date: Thu, 11 Jun 2026 10:24:42 -0700
-Subject: [PATCH 022/213] [MAINTAINED-EXTERNALLY] hid-asus-ally: add
+Subject: [PATCH 022/218] [MAINTAINED-EXTERNALLY] hid-asus-ally: add
  sleep_animation attr for ring LEDs
 
 The MCU keeps a persistent mask of power states in which it animates

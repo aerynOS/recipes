@@ -1,7 +1,7 @@
-From cd438400d215859592a4de799a0c3c755b3d3ede Mon Sep 17 00:00:00 2001
+From 084e532a76dec02e7eae3cd77b5c64a90b1a0645 Mon Sep 17 00:00:00 2001
 From: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
 Date: Sun, 11 Oct 2026 00:35:42 +0530
-Subject: [PATCH 002/213] [FROM-ML] platform/x86/amd/wmi: aod: Add debugfs
+Subject: [PATCH 002/218] [FROM-ML] platform/x86/amd/wmi: aod: Add debugfs
  interface for raw WMI access
 
 The AOD firmware supports many more commands than the ones exposed

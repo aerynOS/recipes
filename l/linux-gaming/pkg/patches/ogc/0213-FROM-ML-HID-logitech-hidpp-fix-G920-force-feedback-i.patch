@@ -1,0 +1,44 @@
+From 8011b737c41dc61687c88a46f4db0d903c3f9f5e Mon Sep 17 00:00:00 2001
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Date: Fri, 20 Nov 2026 00:40:49 -0800
+Subject: [PATCH 213/218] [FROM-ML] HID: logitech-hidpp: fix G920
+ force-feedback initialization timeout
+
+Commit 544315e40172 ("HID: logitech-hidpp: move FF initialization to
+.input_configured()") moved Logitech G920 force-feedback querying and
+initialization into hidpp_input_configured(), which runs during
+hid_connect(). Because hidpp_probe() calls hid_device_io_stop() across
+hid_connect(), incoming HID++ responses from the device are blocked
+and g920_get_config() times out with -ETIMEDOUT.
+
+Temporarily re-enable HID device I/O around g920_get_config() in
+hidpp_input_configured() so the hardware configuration queries receive
+their replies during input setup.
+
+Fixes: 544315e40172 ("HID: logitech-hidpp: move FF initialization to .input_configured()")
+Reported-by: Gideon Heinz <gideonheinz02@gmail.com>
+Closes: https://lore.kernel.org/r/CAPb1+K1-pirdLGZ1wTUw26G6pvhg7rGP3QZ172ys5DB7rNCf5w@mail.gmail.com
+Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+---
+ drivers/hid/hid-logitech-hidpp.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
+index 9646380febac..6b1f55483385 100644
+--- a/drivers/hid/hid-logitech-hidpp.c
++++ b/drivers/hid/hid-logitech-hidpp.c
+@@ -4098,7 +4098,9 @@ static int hidpp_input_configured(struct hid_device *hdev, struct hid_input *hid
+ 		if (!list_is_first(&hidinput->list, &hdev->inputs))
+ 			return 0;
+ 
++		hid_device_io_start(hdev);
+ 		ret = g920_get_config(hidpp, &data);
++		hid_device_io_stop(hdev);
+ 		if (!ret)
+ 			ret = hidpp_ff_init(hidpp, &data);
+ 
+-- 
+2.56.0
+
