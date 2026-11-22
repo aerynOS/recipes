@@ -2,15 +2,15 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : obs-studio
-version     : "33.0.2"
-release     : 8
+version     : "33.0.3"
+release     : 9
 homepage    : https://github.com/obsproject/obs-studio
 upstreams   :
-    - https://github.com/obsproject/obs-studio/releases/download/33.0.2/OBS-Studio-33.0.2-Sources.tar.gz:
-        hash: 7876b8fbc4db4622b3821d2b5d91038b602eaf7f59b124059f09229c6cafbc0f
+    - https://github.com/obsproject/obs-studio/releases/download/33.0.3/OBS-Studio-33.0.3-Sources.tar.gz:
+        hash: 784879e4ce0c5cc69a34bb6ae0ed7f0a7c5fad59950ba04c3b43614f1df41a0c
         unpackdir: obs
-    # Check for bundled version of CEF in 'build-aux/com.obsproject.Studio.json'
-    # Example for v33.0.2: https://github.com/obsproject/obs-studio/blob/33.0.2/build-aux/com.obsproject.Studio.json#L124
+    # Check for bundled version of CEF in build-aux/com.obsproject.Studio.json, Example for v33.0.3:
+    # https://github.com/obsproject/obs-studio/blob/33.0.3/build-aux/com.obsproject.Studio.json#L124
     - https://cdn-fastly.obsproject.com/downloads/cef_binary_7871_linux_x86_64_v2.tar.xz:
         hash: 3f5c74f8c4c4b24dbbe9ff4cff7ba764aa4d0a72127b96976342e4360e435db3
         unpackdir: cef
@@ -83,10 +83,11 @@ setup       : |
     # loading in. keep obs-browser last since it may or may not exist
     %patch %(pkgdir)/0002-load-obs-browser-last.patch
 
-    # from tytan's aur
+    # from tytan's aur, allow distro branding to appear in logs and windows
     %patch %(pkgdir)/0003-display-distro-branding.patch
 
-    # don't hardcode GNU objdump
+    # don't hardcode GNU objdump, TODO: remove when merged
+    # https://github.com/obsproject/obs-studio/pull/13763
     %patch %(pkgdir)/0004-use-cmake-objdump.patch
 
     %cmake \

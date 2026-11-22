@@ -1,19 +1,32 @@
+From 3a3e2c05e7e1059924f9ca77152c475afcc579b6 Mon Sep 17 00:00:00 2001
+From: K1ngfish3r <26593485+K1ngfish3r@users.noreply.github.com>
+Date: Sun, 22 Nov 2026 17:56:28 +0500
+Subject: [PATCH] obs-browser: load the plugin last
+
+---
+ plugins/CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 diff --git a/plugins/CMakeLists.txt b/plugins/CMakeLists.txt
-index 397b703cc..19c7a75d9 100644
+index c666a681c..e6cf59675 100644
 --- a/plugins/CMakeLists.txt
 +++ b/plugins/CMakeLists.txt
-@@ -84,7 +84,6 @@ add_core_module(mac-videotoolbox PLATFORMS MACOS)
+@@ -85,8 +85,6 @@ add_core_module(mac-videotoolbox PLATFORMS MACOS)
  add_core_module(mac-virtualcam PLATFORMS MACOS)
  add_core_module(nv-filters PLATFORMS WINDOWS)
  
 -check_obs_browser()
- 
+-
  add_core_module(obs-ffmpeg)
  add_core_module(obs-filters)
-@@ -117,4 +116,6 @@ add_core_module(win-capture PLATFORMS WINDOWS)
+ add_core_module(obs-libfdk)
+@@ -121,4 +119,6 @@ add_core_module(win-capture PLATFORMS WINDOWS)
  add_core_module(win-dshow PLATFORMS WINDOWS)
  add_core_module(win-wasapi PLATFORMS WINDOWS)
  
 +check_obs_browser()
 +
  set_obs_core_modules()
+-- 
+2.56.1
+
