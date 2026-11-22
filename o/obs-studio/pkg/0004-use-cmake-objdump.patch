@@ -1,5 +1,27 @@
+From 7e229763f708a58d9479c50e38a6516559548308 Mon Sep 17 00:00:00 2001
+From: Jimi Huotari <chiitoo@gentoo.org>
+Date: Thu, 6 Aug 2026 19:27:58 +0300
+Subject: [PATCH] cmake: Use 'CMAKE_OBJDUMP' instead of 'objdump' directly
+
+This makes the calls to 'objdump' more environment-friendly, and the
+finders more consistent-like, although before this, only
+'Findqrcodegencpp.cmake' used the variable form.
+
+Downstream-bug: https://bugs.gentoo.org/946059
+Signed-off-by: Jimi Huotari <chiitoo@gentoo.org>
+---
+ cmake/finders/FindFFmpeg.cmake      | 2 +-
+ cmake/finders/FindLibrist.cmake     | 2 +-
+ cmake/finders/FindLibrnnoise.cmake  | 2 +-
+ cmake/finders/FindLibspeexdsp.cmake | 2 +-
+ cmake/finders/FindLibsrt.cmake      | 2 +-
+ cmake/finders/FindLibx264.cmake     | 2 +-
+ cmake/finders/FindLuajit.cmake      | 2 +-
+ cmake/finders/Findjansson.cmake     | 2 +-
+ 8 files changed, 8 insertions(+), 8 deletions(-)
+
 diff --git a/cmake/finders/FindFFmpeg.cmake b/cmake/finders/FindFFmpeg.cmake
-index ecba82d..dc31bd3 100644
+index ecba82d397315d..dc31bd3d66f31a 100644
 --- a/cmake/finders/FindFFmpeg.cmake
 +++ b/cmake/finders/FindFFmpeg.cmake
 @@ -252,7 +252,7 @@ macro(FFmpeg_set_soname)
@@ -12,7 +34,7 @@ index ecba82d..dc31bd3 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLibrist.cmake b/cmake/finders/FindLibrist.cmake
-index aed3597..9d54b28 100644
+index aed35973ac0f28..9d54b28d9811c2 100644
 --- a/cmake/finders/FindLibrist.cmake
 +++ b/cmake/finders/FindLibrist.cmake
 @@ -57,7 +57,7 @@ macro(Librist_set_soname)
@@ -25,7 +47,7 @@ index aed3597..9d54b28 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLibrnnoise.cmake b/cmake/finders/FindLibrnnoise.cmake
-index fb3bc6e..922a669 100644
+index fb3bc6e2374ffa..922a66980c0701 100644
 --- a/cmake/finders/FindLibrnnoise.cmake
 +++ b/cmake/finders/FindLibrnnoise.cmake
 @@ -57,7 +57,7 @@ macro(librnnoise_set_soname)
@@ -38,7 +60,7 @@ index fb3bc6e..922a669 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLibspeexdsp.cmake b/cmake/finders/FindLibspeexdsp.cmake
-index c65a7c1..1f33d48 100644
+index c65a7c1ab7c5fb..1f33d487d09806 100644
 --- a/cmake/finders/FindLibspeexdsp.cmake
 +++ b/cmake/finders/FindLibspeexdsp.cmake
 @@ -57,7 +57,7 @@ macro(libspeexdsp_set_soname)
@@ -51,7 +73,7 @@ index c65a7c1..1f33d48 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLibsrt.cmake b/cmake/finders/FindLibsrt.cmake
-index 4597a80..45359de 100644
+index 4597a80a15731e..45359deb2410b6 100644
 --- a/cmake/finders/FindLibsrt.cmake
 +++ b/cmake/finders/FindLibsrt.cmake
 @@ -57,7 +57,7 @@ macro(libsrt_set_soname)
@@ -64,7 +86,7 @@ index 4597a80..45359de 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLibx264.cmake b/cmake/finders/FindLibx264.cmake
-index 1a9cc1c..8b8fea0 100644
+index 1a9cc1c229d8fe..8b8fea07e29444 100644
 --- a/cmake/finders/FindLibx264.cmake
 +++ b/cmake/finders/FindLibx264.cmake
 @@ -57,7 +57,7 @@ macro(Libx264_set_soname)
@@ -77,7 +99,7 @@ index 1a9cc1c..8b8fea0 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/FindLuajit.cmake b/cmake/finders/FindLuajit.cmake
-index 935ee62..591c09c 100644
+index 935ee6287e0827..591c09c45cf92c 100644
 --- a/cmake/finders/FindLuajit.cmake
 +++ b/cmake/finders/FindLuajit.cmake
 @@ -57,7 +57,7 @@ macro(Luajit_set_soname)
@@ -90,7 +112,7 @@ index 935ee62..591c09c 100644
        RESULT_VARIABLE _result
      )
 diff --git a/cmake/finders/Findjansson.cmake b/cmake/finders/Findjansson.cmake
-index 7624be3..f4e32d4 100644
+index 7624be318a3c9c..f4e32d4a0749f7 100644
 --- a/cmake/finders/Findjansson.cmake
 +++ b/cmake/finders/Findjansson.cmake
 @@ -57,7 +57,7 @@ macro(jansson_set_soname)
