@@ -8,7 +8,7 @@
 			],
 			"files": [
 				"/usr/lib/libyaml-0.so.2",
-				"/usr/lib/libyaml-0.so.2.0.9"
+				"/usr/lib/libyaml-0.so.2.1.0"
 			],
 			"name": "libyaml",
 			"provides": [
@@ -31,6 +31,6 @@
 		}
 	},
 	"source-name": "libyaml",
-	"source-release": "3",
-	"source-version": "0.2.5"
+	"source-release": "4",
+	"source-version": "0.2.6"
 }

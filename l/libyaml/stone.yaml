@@ -1,18 +1,21 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libyaml
-version     : "0.2.5"
-release     : 3
+version     : "0.2.6"
+release     : 4
 homepage    : https://pyyaml.org/wiki/LibYAML
 upstreams   :
-    - https://pyyaml.org/download/libyaml/yaml-0.2.5.tar.gz : c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4
+    - https://github.com/yaml/libyaml/releases/download/0.2.6/yaml-0.2.6.tar.gz : 43b393a117bd4fe39812fddc94e3d654359a3ae05653dcf0110a1122d1747e61
 summary     : YAML 1.1 library
 description : |
     YAML 1.1 library
 license     :
     - MIT
 setup       : |
+    # drop once upstream fixes the soname (0.2.7)
+    %patch %(pkgdir)/fix-libtool-versioning.patch
+
     %configure --disable-static
 build       : |
     %make
