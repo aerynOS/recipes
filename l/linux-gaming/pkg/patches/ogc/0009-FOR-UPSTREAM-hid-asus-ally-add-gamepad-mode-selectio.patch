@@ -1,7 +1,7 @@
-From 89674e1457cfa541266eb185f7c3899aa753d5ea Mon Sep 17 00:00:00 2001
+From 26d4d91065e557f30c82ec50740b66ec94c48726 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Fri, 25 Oct 2024 08:56:54 +0200
-Subject: [PATCH 009/213] [FOR-UPSTREAM] hid-asus-ally: add gamepad mode
+Subject: [PATCH 009/218] [FOR-UPSTREAM] hid-asus-ally: add gamepad mode
  selection
 
 ---

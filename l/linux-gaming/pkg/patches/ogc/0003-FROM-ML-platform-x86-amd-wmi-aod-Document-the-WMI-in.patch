@@ -1,7 +1,7 @@
-From d3db5bd7f6a6306b3b97832aec3ba1a98745124e Mon Sep 17 00:00:00 2001
+From ebe08d3b0bd9d3a28aa0432832bb86f96ec411f1 Mon Sep 17 00:00:00 2001
 From: Shyam Sundar S K <Shyam-sundar.S-k@amd.com>
 Date: Sun, 11 Oct 2026 00:35:43 +0530
-Subject: [PATCH 003/213] [FROM-ML] platform/x86/amd/wmi: aod: Document the WMI
+Subject: [PATCH 003/218] [FROM-ML] platform/x86/amd/wmi: aod: Document the WMI
  interface
 
 Describe the AMD Overclocking WMI interface, the commands used for the

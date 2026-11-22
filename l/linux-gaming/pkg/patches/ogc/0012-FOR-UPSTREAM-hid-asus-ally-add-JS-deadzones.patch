@@ -1,7 +1,7 @@
-From 8e8f49c91b1e8f2991cf8a26e10b37bed6e2f8f8 Mon Sep 17 00:00:00 2001
+From 3767250876c1261e459f63ab7b506435675ebf56 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 21:32:41 +1300
-Subject: [PATCH 012/213] [FOR-UPSTREAM] hid-asus-ally: add JS deadzones
+Subject: [PATCH 012/218] [FOR-UPSTREAM] hid-asus-ally: add JS deadzones
 
 Signed-off-by: Luke D. Jones <luke@ljones.dev>
 ---

@@ -1,7 +1,7 @@
-From 933406c55df1b8d1b09ef55fd22ca006b559d30d Mon Sep 17 00:00:00 2001
+From a27b1eea003334f7f7ca7caa1724069838612c13 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 21:37:27 +1300
-Subject: [PATCH 013/213] [FOR-UPSTREAM] hid-asus-ally: add trigger deadzones
+Subject: [PATCH 013/218] [FOR-UPSTREAM] hid-asus-ally: add trigger deadzones
 
 Signed-off-by: Luke D. Jones <luke@ljones.dev>
 ---

@@ -1,0 +1,89 @@
+From d3f0a947d8f867c2bbd48de8099b527c2371ff9a Mon Sep 17 00:00:00 2001
+From: Matthew Schwartz <matthew.schwartz@linux.dev>
+Date: Wed, 4 Nov 2026 11:35:21 -0800
+Subject: [PATCH 088/218] [FROM-ML] mmc: sdhci-pci-gli: GL9767: Wait for UHS-II
+ wakeup before LPM
+
+sdhci_gl9767_set_clock() re-enables low power negotiation right after
+releasing the UHS-II PHY reset. If the bus then goes idle before the
+UHS-II wakeup has finished, every SDHCI MMIO read returns all-ones for
+about 250 us. sdhci_uhs2_interface_detect() takes that as IF_DETECT and
+LANE_SYNC set, so a UHS-I only microSD card is treated as UHS-II. The
+attach then either fails with "SDHCI_UHS2_CAPS_PTR(65535) is wrong" or,
+if the registers come back before the CAPS_PTR read, runs DEVICE_INIT
+30 times with a 10 second timeout each and delays card detection by 5
+minutes.
+
+Bit 13 of the UHS-II Status register at config offset 0x8CC is
+UHS2_WAKEUP_ACTIVATE. It stays set for about 250-300 us after the PHY
+reset release. Poll it before re-enabling low power negotiation. With
+the wait in place 12 of 12 UHS-II probes of a UHS-I card correctly
+found no UHS-II interface.
+
+Fixes: 27dd3b82557a ("mmc: sdhci-pci-gli: enable UHS-II mode for GL9767")
+Tested-by: Ben Chuang <ben.chuang@genesyslogic.com.tw>
+Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Signed-off-by: Matthew Schwartz <matthew.schwartz@linux.dev>
+---
+ drivers/mmc/host/sdhci-pci-gli.c | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mmc/host/sdhci-pci-gli.c b/drivers/mmc/host/sdhci-pci-gli.c
+index b55618566d65..263bb091374b 100644
+--- a/drivers/mmc/host/sdhci-pci-gli.c
++++ b/drivers/mmc/host/sdhci-pci-gli.c
+@@ -205,6 +205,9 @@
+ #define   PCIE_GLI_9767_COMBO_MUX_CTL_RST_EN		  BIT(6)
+ #define   PCIE_GLI_9767_COMBO_MUX_CTL_WAIT_PERST_EN	  BIT(10)
+ 
++#define PCIE_GLI_9767_UHS2_STS				0x8CC
++#define   PCIE_GLI_9767_UHS2_STS_WAKEUP_ACTIVATE	  BIT(13)
++
+ #define PCIE_GLI_9767_PWR_MACRO_CTL					0x8D0
+ #define   PCIE_GLI_9767_PWR_MACRO_CTL_LOW_VOLTAGE			  GENMASK(3, 0)
+ #define   PCIE_GLI_9767_PWR_MACRO_CTL_LD0_LOW_OUTPUT_VOLTAGE		  GENMASK(15, 12)
+@@ -1190,6 +1193,27 @@ static void gl9767_set_low_power_negotiation(struct pci_dev *pdev, bool enable)
+ 	gl9767_vhs_read(pdev);
+ }
+ 
++static u32 gl9767_read_uhs2_sts(struct pci_dev *pdev)
++{
++	u32 value;
++
++	pci_read_config_dword(pdev, PCIE_GLI_9767_UHS2_STS, &value);
++
++	return value;
++}
++
++static void sdhci_gl9767_uhs2_wait_wakeup(struct sdhci_host *host)
++{
++	struct sdhci_pci_slot *slot = sdhci_priv(host);
++	struct pci_dev *pdev = slot->chip->pdev;
++	u32 value;
++
++	if (read_poll_timeout(gl9767_read_uhs2_sts, value,
++			      !(value & PCIE_GLI_9767_UHS2_STS_WAKEUP_ACTIVATE),
++			      20, 10000, false, pdev))
++		pr_warn("%s: UHS-II wakeup did not complete.\n", mmc_hostname(host->mmc));
++}
++
+ static void sdhci_gl9767_uhs2_phy_reset(struct sdhci_host *host, bool assert)
+ {
+ 	struct sdhci_pci_slot *slot = sdhci_priv(host);
+@@ -1276,9 +1300,12 @@ static void sdhci_gl9767_set_clock(struct sdhci_host *host, unsigned int clock)
+ 
+ 	sdhci_enable_clk(host, clk);
+ 
+-	if (mmc_card_uhs2(host->mmc))
++	if (mmc_card_uhs2(host->mmc)) {
+ 		/* De-assert reset */
+ 		sdhci_gl9767_uhs2_phy_reset(host, false);
++		/* Low power negotiation during UHS-II wakeup makes MMIO read all-ones */
++		sdhci_gl9767_uhs2_wait_wakeup(host);
++	}
+ 
+ 	gl9767_set_low_power_negotiation(pdev, true);
+ }
+-- 
+2.56.0
+
