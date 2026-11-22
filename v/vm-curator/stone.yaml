@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : vm-curator
+version     : "1.5.0"
+release     : 1
+homepage    : https://vm-curator.org/
+upstreams   :
+    - https://github.com/mroboff/vm-curator/archive/refs/tags/v1.5.0.tar.gz : 8049fc7bf1990734f9786de669353a05b3a4a3a25e98f1059a1e9da0225d8b91
+summary     : TUI to build and manage QEMU/KVM virtual machines
+description : |
+    A fast and friendly Rust TUI for managing desktop QEMU/KVM virtual machines.
+    Comes with out-of-the-box 3D acceleration, GPU and physical-disk passthrough, 
+    managed virtual networks, VM import, and 130+ pre-configured OS profiles!
+license     : MIT
+networking  : true
+builddeps:
+    - pkgconfig(libudev)
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    %cargo_install
+check       : |
+    %cargo_test
