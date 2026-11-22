@@ -13,7 +13,7 @@
 			],
 			"files": [
 				"/usr/lib/libseccomp.so.2",
-				"/usr/lib/libseccomp.so.2.6.1"
+				"/usr/lib/libseccomp.so.2.6.2"
 			],
 			"name": "libseccomp",
 			"provides": [
@@ -32,7 +32,7 @@
 			],
 			"files": [
 				"/usr/lib32/libseccomp.so.2",
-				"/usr/lib32/libseccomp.so.2.6.1"
+				"/usr/lib32/libseccomp.so.2.6.2"
 			],
 			"name": "libseccomp-32bit",
 			"provides": [
@@ -121,6 +121,6 @@
 		}
 	},
 	"source-name": "libseccomp",
-	"source-release": "7",
-	"source-version": "2.6.1"
+	"source-release": "8",
+	"source-version": "2.6.2"
 }
