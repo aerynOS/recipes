@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/lib/libQt6WebSockets.so.6",
-				"/usr/lib/libQt6WebSockets.so.6.12.0",
+				"/usr/lib/libQt6WebSockets.so.6.12.1",
 				"/usr/lib/qt6/qml/QtWebSockets/libqmlwebsocketsplugin.so",
 				"/usr/lib/qt6/qml/QtWebSockets/plugins.qmltypes",
 				"/usr/lib/qt6/qml/QtWebSockets/qmldir"
@@ -65,17 +65,17 @@
 				"qt6-websockets"
 			],
 			"files": [
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qdefaultmaskgenerator_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qtwebsockets-config_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketcorsauthenticator_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketdataprocessor_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketframe_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsockethandshakeoptions_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsockethandshakerequest_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsockethandshakeresponse_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketprotocol_p.h",
-				"/usr/include/qt6/QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketserver_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qdefaultmaskgenerator_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qtwebsockets-config_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocket_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocketcorsauthenticator_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocketdataprocessor_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocketframe_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsockethandshakeoptions_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsockethandshakerequest_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsockethandshakeresponse_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocketprotocol_p.h",
+				"/usr/include/qt6/QtWebSockets/6.12.1/QtWebSockets/private/qwebsocketserver_p.h",
 				"/usr/include/qt6/QtWebSockets/QMaskGenerator",
 				"/usr/include/qt6/QtWebSockets/QWebSocket",
 				"/usr/include/qt6/QtWebSockets/QWebSocketCorsAuthenticator",
@@ -129,7 +129,7 @@
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_websockets.pri",
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_websockets_private.pri",
 				"/usr/lib/qt6/modules/WebSockets.json",
-				"/usr/lib/qt6/sbom/qtwebsockets-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtwebsockets-6.12.1.spdx"
 			],
 			"name": "qt6-websockets-devel",
 			"provides": [
@@ -142,6 +142,6 @@
 		}
 	},
 	"source-name": "qt6-websockets",
-	"source-release": "10",
-	"source-version": "6.12.0"
+	"source-release": "11",
+	"source-version": "6.12.1"
 }
