@@ -5,5 +5,5 @@ releases:
   id: 227267
   rss: ~
 security:
-  # No known CPE. Last checked 2026-10-26
+  # No CPE found, last checked 2026-11-23
   cpe: ~
