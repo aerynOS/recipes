@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-multimedia
-version     : "6.12.0"
-release     : 16
+version     : "6.12.1"
+release     : 17
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz : 3143f53b64257ba2a0685c940f5dce476c75871ff86b516de45cfd54ea93a62d
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtmultimedia-everywhere-src-6.12.1.tar.xz : 5a125bc2bede8c6512296e0f3204a9922741fd144fcae7d4a66b3c007bb125e3
 summary     : Qt6 Multimedia Components
 description : |
     Qt Multimedia is an essential module that provides a rich set of QML types and C++ classes to handle multimedia content. It also provides necessary APIs to access the camera and radio functionality. The included Qt Audio Engine provides types for 3D positional audio playback and content management.
