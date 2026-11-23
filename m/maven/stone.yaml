@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : maven
-version     : "3.10.1"
-release     : 6
+version     : "3.10.2"
+release     : 7
 homepage    : https://maven.apache.org
 upstreams   :
-    - https://dlcdn.apache.org/maven/maven-3/3.10.1/source/apache-maven-3.10.1-src.tar.gz:
-        hash: 440846130652a1764c207e076209e71cd2d6bb8fcc45e0f8f224f669231b9951
+    - https://dlcdn.apache.org/maven/maven-3/3.10.2/source/apache-maven-3.10.2-src.tar.gz:
+        hash: 40351e9095938b69a391ff47018530491926be9cd4692cef394c27f26c28982b
         unpackdir: "maven"
 
     # Comment out this section if bootstrapping isn't necessary
