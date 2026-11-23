@@ -5,5 +5,5 @@ releases:
   id: 374520
   rss: https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/tags?format=atom
 security:
-  # No known CPE. Last checked 2026-10-15
+  # No CPE found, last checked 2026-11-23
   cpe: ~

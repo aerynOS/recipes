@@ -130,7 +130,7 @@
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-1-GflsUtils.html",
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-1-GflsValidatedStringBuilder.html",
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-1.devhelp2",
-				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-file-loading.html",
+				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-file-loading-and-saving.html",
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/libgedit-gfls-intro.html",
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/misc.html",
 				"/usr/share/gtk-doc/html/libgedit-gfls-1/object-tree.html",
@@ -144,6 +144,6 @@
 		}
 	},
 	"source-name": "libgedit-gfls",
-	"source-release": "4",
-	"source-version": "0.5.0"
+	"source-release": "5",
+	"source-version": "0.5.1"
 }
