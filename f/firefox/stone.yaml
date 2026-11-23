@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : firefox
-version     : "160.0.1"
-release     : 97
+version     : "161.0"
+release     : 98
 homepage    : https://www.mozilla.org/
 upstreams   :
-    - https://releases.mozilla.org/pub/firefox/releases/160.0.1/source/firefox-160.0.1.source.tar.xz:
-        hash: 7b9d95ddf24f7bbf5d0d05698bc02a66dac1eca438f80e093c5c76af7648b06d
+    - https://releases.mozilla.org/pub/firefox/releases/161.0/source/firefox-161.0.source.tar.xz:
+        hash: c649de11e4dc6266bc905ce4b33eb8672a1947c2e210ec53dce285cb86296a5a
         unpackdir: firefox
 
     # This should _usually_ be the latest version unless it's somehow incompatible with the used LLVM toolchain
@@ -77,6 +77,13 @@ setup       : |
     # Downstream patches
     %patch %(pkgdir)/patches/0001-Fix-Firefox-Thunderbird-envvar-conflicts.patch
     %patch %(pkgdir)/patches/wasm-sdk.patch
+
+    # Backports from 162/163, drop them on the 162.0 update
+    %patch %(pkgdir)/patches/0002-Wayland-Align-wl_shm-pool-size-and-stride.patch
+    %patch %(pkgdir)/patches/0003-Wayland-Skip-direct-composition-for-tiny-YUV-surfaces.patch
+    %patch %(pkgdir)/patches/0004-Wayland-Disable-YUV-direct-composition-on-NVIDIA.patch
+    %patch %(pkgdir)/patches/0005-GTK-Fix-GdkEventQueue-IndexOf.patch
+    %patch %(pkgdir)/patches/0006-Linux-Launch-local-handlers-through-GIO.patch
 
     cp %(pkgdir)/build/mozconfig mozconfig.save
     sed -e 's|@@JOBCOUNT@@|%(jobs)|' \
