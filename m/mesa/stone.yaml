@@ -8,7 +8,7 @@ name        : mesa
 version     : "26.3.1"
 ##@@END_VERSION
 # Note: keep mesa-clc in-sync with this package version-wise
-release     : 98
+release     : 99
 homepage    : https://mesa3d.org/
 upstreams   :
 ##@@BEGIN_SOURCE
@@ -233,13 +233,6 @@ setup       : |
     # Fix build with Sphinx 8.2
     %patch %(pkgdir)/0001-docs-Fix-build-with-Sphinx-8.2.patch
 
-    # panfrost: Fix types of panfrost_vdrm functions
-    # The size parameter has to be uint64_t, not size_t.
-    %patch %(pkgdir)/0001-panfrost-Fix-types-of-panfrost_vdrm-functions.patch
-
-    # https://gitlab.freedesktop.org/mesa/mesa/-/work_items/16934
-    %patch %(pkgdir)/0002-Revert-mesa-don-t-advertise-APIs-that-are-not-built.patch
-
     # Add OGC patches
     # https://github.com/OpenGamingCollective/mesa
     %patch %(pkgdir)/vram-overcommit.patch
@@ -266,7 +259,6 @@ setup       : |
         -Dgallium-rusticl=${_IS_64BIT_BOOL} \
         -Dgallium-va=enabled \
         -Dgbm=enabled \
-        -Dgles1=disabled \
         -Dglvnd=enabled \
         -Dllvm=enabled \
         -Dmesa-clc=system \
