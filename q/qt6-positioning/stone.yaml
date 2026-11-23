@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-positioning
-version     : "6.12.0"
-release     : 14
+version     : "6.12.1"
+release     : 15
 homepage    : https://doc.qt.io/qt-6/qtpositioning-index.html
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtpositioning-everywhere-src-6.12.0.tar.xz : b060d410fac7413b05a0e7938bbf3325f7ad08d7df14af3956270f0696e76763
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtpositioning-everywhere-src-6.12.1.tar.xz : 8d8a27660c52c45ad71ab552968c1b073912cd09a4eb864ef67b7d6133e74fef
 summary     : Qt6 position, satellite and area monitoring classes
 description : |
     Provides access to position, satellite and area monitoring classes
