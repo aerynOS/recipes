@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-quicktimeline
-version     : "6.12.0"
-release     : 14
+version     : "6.12.1"
+release     : 15
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquicktimeline-everywhere-src-6.12.0.tar.xz : 6919153c841478c113f0ad20526f40e606590968334762ec6ccbc96002f8da19
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtquicktimeline-everywhere-src-6.12.1.tar.xz : 2dea872fa020f7f0b12a340127c88108cff00439e54f6bfe61853507e8f01617
 summary     : Enables keyframe-based animations and parameterization for Qt6
 description : |
     Enables keyframe-based animations and parameterization for Qt6
