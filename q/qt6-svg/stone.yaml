@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-svg
-version     : "6.12.0"
-release     : 16
+version     : "6.12.1"
+release     : 17
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtsvg-everywhere-src-6.12.0.tar.xz : e4ab39534ec97987b1b9b60ef7f4d3253d5912a69f8c713a01753174a4029331
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtsvg-everywhere-src-6.12.1.tar.xz : 6a7157a9a0556a129ae6582c7fbe57a0d6c0b83083cfcbd38d5d4a93b30c46e1
 summary     : Qt6 SVG Module
 description : |
     Scalable Vector Graphics (SVG) is an XML-based language for describing two-dimensional vector graphics. Qt provides classes for rendering and displaying SVG drawings in widgets and on other paint devices.
@@ -17,10 +17,6 @@ license     :
 builddeps   :
     - cmake(Qt6CorePrivate)
 setup       : |
-    # Fixes a build error in qt6-declarative with the following patch applied
-    %patch %(pkgdir)/upstream-01.patch
-    %patch %(pkgdir)/QTBUG-150174.patch
-
     %cmake_qt6
 build       : |
     %cmake_build
