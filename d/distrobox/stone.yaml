@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : distrobox
-version     : "1.8.2.5"
-release     : 4
+version     : "1.8.2.6"
+release     : 5
 homepage    : https://github.com/89luca89/distrobox
 upstreams   :
-    - https://github.com/89luca89/distrobox/archive/refs/tags/1.8.2.5.tar.gz : 0c3bc4785ee3be3b89f93abb7cc0a9f60e56989e81319af140a4b60403b18f80
+    - https://github.com/89luca89/distrobox/archive/refs/tags/1.8.2.6.tar.gz : 693c85f44720f9c2be8691141eaa1dc2773ee37e63ae02fff8b838dcf54c413e
 summary     : Use any linux distribution inside your terminal.
 description : |
     Use any Linux distribution inside your terminal. Enable both backward and forward compatibility with software and freedom to use whatever distribution you’re more comfortable with. Distrobox uses podman, docker or lilipod to create containers using the Linux distribution of your choice.
