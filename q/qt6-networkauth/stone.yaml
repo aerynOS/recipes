@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-networkauth
-version     : "6.12.0"
-release     : 10
+version     : "6.12.1"
+release     : 11
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtnetworkauth-everywhere-src-6.12.0.tar.xz : 17d47be1a724d21775daa873ac7a52c30fd5c4935ba377af48d9b37b39765ed8
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtnetworkauth-everywhere-src-6.12.1.tar.xz : 796fce05afe25a7100e74192567f90ac08f677a02abedbfd436b52efdaed7487
 summary     : Qt6 NetworkAuth components
 description : |
     Qt Network Authorization provides a set of APIs that enable Qt applications to obtain limited access to online accounts and HTTP services without exposing users' passwords.
