@@ -4,7 +4,10 @@
 	"packages": {
 		"youki": {
 			"build-depends": [
-				"pkgconfig(libseccomp)"
+				"binary(make)",
+				"pkgconfig(libelf)",
+				"pkgconfig(libseccomp)",
+				"pkgconfig(zlib)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -27,6 +30,6 @@
 		}
 	},
 	"source-name": "youki",
-	"source-release": "2",
-	"source-version": "0.7.0"
+	"source-release": "3",
+	"source-version": "0.8.0"
 }

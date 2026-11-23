@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : youki
-version     : "0.7.0"
-release     : 2
+version     : "0.8.0"
+release     : 3
 upstreams   :
-    - https://github.com/youki-dev/youki/archive/refs/tags/v0.7.0.tar.gz : f5ea01da3bf0c31f39eedea6c0f6176fd4634631443bc6bfc676545ec10a4617
+    - https://github.com/youki-dev/youki/archive/refs/tags/v0.8.0.tar.gz : 4ee4affa6518c87ca657b30b3f71162886c3ea1729e052a5d0887b3920268080
 homepage    : https://youki-dev.github.io/youki/
 license     : Apache-2.0
 summary     : A container runtime written in Rust
@@ -13,7 +13,10 @@ description : |
     A container runtime written in Rust
 networking  : true
 builddeps   :
+    - binary(make)
+    - pkgconfig(libelf)
     - pkgconfig(libseccomp)
+    - pkgconfig(zlib)
 setup       : |
     %cargo_fetch
 build       : |
