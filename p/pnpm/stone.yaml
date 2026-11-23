@@ -2,14 +2,14 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : pnpm
-version     : "12.22.0"
-release     : 11
+version     : "12.23.0"
+release     : 12
 homepage    : https://pnpm.io
 upstreams   :
-    - https://github.com/pnpm/pnpm/archive/refs/tags/v12.22.0.tar.gz : 905ae02742beeb0b518ab0112be65bda8d76a86e949489b9d3946ad51bbc026f
+    - https://github.com/pnpm/pnpm/archive/refs/tags/v12.23.0.tar.gz : 3ba7d8b386d31406cc95bc35a0b8495188a0846e1943b0af3b48d7ce9a9f1a6e
     # Frozen node-gyp tree from the same release; the binary looks for dist/ beside itself
-    - https://github.com/pnpm/pnpm/releases/download/v12.22.0/pnpm-linux-x64.tar.gz:
-        hash: 07ee196f91af1e21edb0c794401f4152932c74b0dba5d415dc4dbd5783f3c7af
+    - https://github.com/pnpm/pnpm/releases/download/v12.23.0/pnpm-linux-x64.tar.gz:
+        hash: b515e29f2ac1adc0fbe63173414a6682827baff24f17e7ad3476821bdef236ac
         unpack: false
         rename: pnpm-linux-x64.tar.gz
 summary     : Fast, disk space efficient package manager
