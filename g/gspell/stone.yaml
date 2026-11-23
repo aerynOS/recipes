@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: © 2025- AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gspell
-version     : "1.14.5"
-release     : 4
+version     : "1.14.6"
+release     : 5
 homepage    : https://gitlab.gnome.org/GNOME/gspell
 upstreams   :
-    - https://download.gnome.org/sources/gspell/1.14/gspell-1.14.5.tar.xz : 788783b56fc3d03283b3aa29302d0b958aeca88835e10b1ec61f19e0efc7e8a4
+    - https://download.gnome.org/sources/gspell/1.14/gspell-1.14.6.tar.xz : d02a6f1ff3cf324798f184062a6777302ef4b325deab277d8469d3816c69282d
 summary     : Spell-checking library for GTK+ applications
 description : |
     Spell-checking library for GTK+ applications
