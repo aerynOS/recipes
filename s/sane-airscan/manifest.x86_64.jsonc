@@ -1,0 +1,46 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"sane-airscan": {
+			"build-depends": [
+				"pkgconfig(avahi-client)",
+				"pkgconfig(gnutls)",
+				"pkgconfig(libjpeg)",
+				"pkgconfig(libpng)",
+				"pkgconfig(libtiff-4)",
+				"pkgconfig(libxml-2.0)",
+				"pkgconfig(sane-backends)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libavahi-client.so.3(x86_64))",
+				"soname(libavahi-common.so.3(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgnutls.so.30(x86_64))",
+				"soname(libjpeg.so.8(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpng16.so.16(x86_64))",
+				"soname(libtiff.so.6(x86_64))",
+				"soname(libxml2.so.16(x86_64))"
+			],
+			"files": [
+				"/usr/bin/airscan-discover",
+				"/usr/lib/sane/libsane-airscan.so",
+				"/usr/lib/sane/libsane-airscan.so.1",
+				"/usr/share/defaults/sane/airscan.conf",
+				"/usr/share/defaults/sane/dll.d/airscan",
+				"/usr/share/man/man1/airscan-discover.1",
+				"/usr/share/man/man5/sane-airscan.5"
+			],
+			"name": "sane-airscan",
+			"provides": [
+				"binary(airscan-discover)",
+				"soname(sane/libsane-airscan.so.1(x86_64))"
+			]
+		}
+	},
+	"source-name": "sane-airscan",
+	"source-release": "1",
+	"source-version": "0.99.38"
+}
