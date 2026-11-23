@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-shadertools
-version     : "6.12.0"
-release     : 16
+version     : "6.12.1"
+release     : 17
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtshadertools-everywhere-src-6.12.0.tar.xz : c7d84f436e1aaef39fdcadebf2bd71bdf24dc69497e13f2e0198873cbbfea2ab
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtshadertools-everywhere-src-6.12.1.tar.xz : f8c5b9c91eca0927198918c537d1b4d515f96dc9a3b178a88a1ff1d2f85c7877
 summary     : Qt Shader Tools module
 description : |
     APIs and tools in this module provide the producer functionality for the shader pipeline that allows Qt Quick to operate on Vulkan in addition to OpenGL.
