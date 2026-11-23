@@ -13,7 +13,7 @@
 			],
 			"files": [
 				"/usr/lib/libjuice.so.1",
-				"/usr/lib/libjuice.so.1.7.4"
+				"/usr/lib/libjuice.so.1.7.5"
 			],
 			"name": "libjuice",
 			"provides": [
@@ -43,6 +43,6 @@
 		}
 	},
 	"source-name": "libjuice",
-	"source-release": "2",
-	"source-version": "1.7.4"
+	"source-release": "3",
+	"source-version": "1.7.5"
 }

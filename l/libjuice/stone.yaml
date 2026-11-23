@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libjuice
-version     : "1.7.4"
-release     : 2
+version     : "1.7.5"
+release     : 3
 homepage    : https://github.com/paullouisageneau/libjuice
 upstreams   :
-    - https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.4.tar.gz : 95c088862aa1b88b73d62aa99577135010eb768fcafb252d13aa85a8515ef798
+    - https://github.com/paullouisageneau/libjuice/archive/refs/tags/v1.7.5.tar.gz : a0cdc9069613d4dfdc54f829ad11ebd23fedf345bc43727fbcd2f5439f2425bd
 summary     : JUICE is a UDP Interactive Connectivity Establishment library
 description : |
     libjuice (JUICE is a UDP Interactive Connectivity Establishment library) allows to open bidirectionnal User Datagram Protocol (UDP) streams with Network Address Translator (NAT) traversal.

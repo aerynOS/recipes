@@ -1,8 +1,8 @@
 diff --git a/test/main.c b/test/main.c
-index c1ef1ee..5e8a586 100644
+index 47097e7..0150177 100644
 --- a/test/main.c
 +++ b/test/main.c
-@@ -54,12 +54,6 @@ int main(int argc, char **argv) {
+@@ -57,12 +57,6 @@ int main(int argc, char **argv) {
  		return -3;
  	}
  
@@ -12,6 +12,6 @@ index c1ef1ee..5e8a586 100644
 -		return -1;
 -	}
 -
- 	printf("\nRunning connectivity test...\n");
- 	if (test_connectivity()) {
- 		fprintf(stderr, "Connectivity test failed\n");
+ 	printf("\nRunning early STUN / late remote SDP test...\n");
+ 	if (test_remote_description_early_stun()) {
+ 		fprintf(stderr, "Early STUN / late remote SDP test failed\n");

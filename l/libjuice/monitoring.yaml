@@ -5,4 +5,5 @@ releases:
   id: 392675
   rss: https://github.com/paullouisageneau/libjuice/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-10-10)
+  # No CPE found, last checked 2026-11-22
+  cpe: ~
