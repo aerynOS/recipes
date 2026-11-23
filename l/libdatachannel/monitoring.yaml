@@ -5,4 +5,5 @@ releases:
   id: 369160
   rss: https://github.com/paullouisageneau/libdatachannel/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-10-11)
+  # No CPE found, last checked 2026-11-22
+  cpe: ~

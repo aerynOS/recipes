@@ -24,7 +24,7 @@
 			],
 			"files": [
 				"/usr/lib/libdatachannel.so.0.24",
-				"/usr/lib/libdatachannel.so.0.24.6"
+				"/usr/lib/libdatachannel.so.0.24.7"
 			],
 			"name": "libdatachannel",
 			"provides": [
@@ -95,6 +95,6 @@
 		}
 	},
 	"source-name": "libdatachannel",
-	"source-release": "1",
-	"source-version": "0.24.6"
+	"source-release": "2",
+	"source-version": "0.24.7"
 }
