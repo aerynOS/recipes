@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gtk-4
-version     : "4.24.1"
-release     : 40
+version     : "4.24.2"
+release     : 41
 homepage    : https://www.gtk.org/
 upstreams   :
-    - https://download.gnome.org/sources/gtk/4.24/gtk-4.24.1.tar.xz : e98abe720e16129c8c0f50761dee0a2e9ae2478055e31018f6cf977fcf6513e9
+    - https://download.gnome.org/sources/gtk/4.24/gtk-4.24.2.tar.xz : 05561abc25d1b1400136bf79ab68830cb4b053d1922ae97e551b3f19755bf3cb
 summary     : The GTK 4 libraries for developing user interfaces
 description : |
     The GTK 4 libraries are used for developing user interfaces
