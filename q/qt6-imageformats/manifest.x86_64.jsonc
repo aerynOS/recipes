@@ -95,7 +95,7 @@
 				"/usr/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets-release.cmake",
 				"/usr/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets.cmake",
 				"/usr/lib/cmake/Qt6Gui/Qt6QWebpPluginTargetsPrecheck.cmake",
-				"/usr/lib/qt6/sbom/qtimageformats-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtimageformats-6.12.1.spdx"
 			],
 			"name": "qt6-imageformats-devel",
 			"provides": [
@@ -109,6 +109,6 @@
 		}
 	},
 	"source-name": "qt6-imageformats",
-	"source-release": "11",
-	"source-version": "6.12.0"
+	"source-release": "12",
+	"source-version": "6.12.1"
 }
