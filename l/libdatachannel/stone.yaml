@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libdatachannel
-version     : "0.24.7"
-release     : 2
+version     : "0.24.8"
+release     : 3
 homepage    : https://github.com/paullouisageneau/libdatachannel
 upstreams   :
-    - https://github.com/paullouisageneau/libdatachannel/archive/refs/tags/v0.24.7.tar.gz : 750c1a0af050493b9dd814e11d23d93f477974eeff0a32be04e83b17c463b9b5
+    - https://github.com/paullouisageneau/libdatachannel/archive/refs/tags/v0.24.8.tar.gz : d2c982fec0c820dd7e640d7ddafc3b3b62e6cefd9d95915d9297aa36d0a1854b
 summary     : C/C++ WebRTC network library featuring Data Channels, Media Transport, and WebSockets
 description : |
     libdatachannel is a standalone implementation of WebRTC Data Channels, WebRTC Media Transport, and WebSockets in C++ with C bindings for multiple platforms, including GNU/Linux, Android, FreeBSD, Apple macOS, iOS, and Microsoft Windows. WebRTC is a W3C and IETF standard enabling real-time peer-to-peer data and media exchange between two devices.
