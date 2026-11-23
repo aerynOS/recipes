@@ -19,7 +19,7 @@
 			"files": [
 				"/usr/bin/qsb",
 				"/usr/lib/libQt6ShaderTools.so.6",
-				"/usr/lib/libQt6ShaderTools.so.6.12.0",
+				"/usr/lib/libQt6ShaderTools.so.6.12.1",
 				"/usr/lib/qt6/bin/qsb"
 			],
 			"name": "qt6-shadertools",
@@ -38,12 +38,12 @@
 				"qt6-shadertools"
 			],
 			"files": [
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/private/qshaderrewriter_p.h",
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/private/qspirvcompiler_p.h",
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/private/qspirvshader_p.h",
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/private/qspirvshaderremap_p.h",
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/private/qtshadertoolsglobal_p.h",
-				"/usr/include/qt6/QtShaderTools/6.12.0/QtShaderTools/rhi/qshaderbaker.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/private/qshaderrewriter_p.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/private/qspirvcompiler_p.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/private/qspirvshader_p.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/private/qspirvshaderremap_p.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/private/qtshadertoolsglobal_p.h",
+				"/usr/include/qt6/QtShaderTools/6.12.1/QtShaderTools/rhi/qshaderbaker.h",
 				"/usr/include/qt6/QtShaderTools/QtShaderTools",
 				"/usr/include/qt6/QtShaderTools/QtShaderToolsDepends",
 				"/usr/include/qt6/QtShaderTools/QtShaderToolsVersion",
@@ -87,7 +87,7 @@
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_shadertools.pri",
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_shadertools_private.pri",
 				"/usr/lib/qt6/modules/ShaderTools.json",
-				"/usr/lib/qt6/sbom/qtshadertools-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtshadertools-6.12.1.spdx"
 			],
 			"name": "qt6-shadertools-devel",
 			"provides": [
@@ -100,6 +100,6 @@
 		}
 	},
 	"source-name": "qt6-shadertools",
-	"source-release": "16",
-	"source-version": "6.12.0"
+	"source-release": "17",
+	"source-version": "6.12.1"
 }
