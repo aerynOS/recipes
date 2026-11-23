@@ -173,6 +173,7 @@
 				"/usr/share/locale/lt/LC_MESSAGES/at-spi2-core.mo",
 				"/usr/share/locale/lv/LC_MESSAGES/at-spi2-core.mo",
 				"/usr/share/locale/mai/LC_MESSAGES/at-spi2-core.mo",
+				"/usr/share/locale/mi/LC_MESSAGES/at-spi2-core.mo",
 				"/usr/share/locale/mk/LC_MESSAGES/at-spi2-core.mo",
 				"/usr/share/locale/ml/LC_MESSAGES/at-spi2-core.mo",
 				"/usr/share/locale/mn/LC_MESSAGES/at-spi2-core.mo",
@@ -251,7 +252,7 @@
 			"files": [
 				"/usr/lib/girepository-1.0/Atk-1.0.typelib",
 				"/usr/lib/libatk-1.0.so.0",
-				"/usr/lib/libatk-1.0.so.0.26210.1"
+				"/usr/lib/libatk-1.0.so.0.26211.1"
 			],
 			"name": "at-spi2-core-atk",
 			"provides": [
@@ -394,6 +395,6 @@
 		}
 	},
 	"source-name": "at-spi2-core",
-	"source-release": "30",
-	"source-version": "2.62.1"
+	"source-release": "31",
+	"source-version": "2.62.2"
 }

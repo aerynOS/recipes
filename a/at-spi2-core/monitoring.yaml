@@ -5,5 +5,5 @@ releases:
   id: 7841
   rss: https://gitlab.gnome.org/GNOME/at-spi2-core/-/tags?format=atom
 security:
-  # Last checked 20261011
+  # No CPE found, last checked 2026-11-22
   cpe: ~
