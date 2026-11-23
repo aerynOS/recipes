@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-speech
-version     : "6.12.0"
-release     : 13
+version     : "6.12.1"
+release     : 14
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtspeech-everywhere-src-6.12.0.tar.xz : 9a60ce5bee54a9343740feab2582bffb996812f43d6c5585aade26dbd04933db
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtspeech-everywhere-src-6.12.1.tar.xz : 9df7bab664597abf09d5f3a012a487545125e2a2f8b585681ccfd184d9eacdbd
 summary     : Qt6 Speech Components
 description : |
     The module enables a Qt application to support accessibility features such as text-to-speech, which is useful for end-users who are visually challenged or cannot access the application for whatever reason. The most common use case where text-to-speech comes in handy is when the end-user is driving and cannot attend the incoming messages on the phone. In such a scenario, the messaging application can read out the incoming message.

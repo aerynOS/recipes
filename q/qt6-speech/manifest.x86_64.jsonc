@@ -18,7 +18,7 @@
 			],
 			"files": [
 				"/usr/lib/libQt6TextToSpeech.so.6",
-				"/usr/lib/libQt6TextToSpeech.so.6.12.0",
+				"/usr/lib/libQt6TextToSpeech.so.6.12.1",
 				"/usr/lib/qt6/plugins/texttospeech/libqtexttospeech_mock.so",
 				"/usr/lib/qt6/qml/QtTextToSpeech/libtexttospeechqmlplugin.so",
 				"/usr/lib/qt6/qml/QtTextToSpeech/plugins.qmltypes",
@@ -68,9 +68,9 @@
 				"qt6-speech"
 			],
 			"files": [
-				"/usr/include/qt6/QtTextToSpeech/6.12.0/QtTextToSpeech/private/qtexttospeech_p.h",
-				"/usr/include/qt6/QtTextToSpeech/6.12.0/QtTextToSpeech/private/qttexttospeech-config_p.h",
-				"/usr/include/qt6/QtTextToSpeech/6.12.0/QtTextToSpeech/private/qvoice_p.h",
+				"/usr/include/qt6/QtTextToSpeech/6.12.1/QtTextToSpeech/private/qtexttospeech_p.h",
+				"/usr/include/qt6/QtTextToSpeech/6.12.1/QtTextToSpeech/private/qttexttospeech-config_p.h",
+				"/usr/include/qt6/QtTextToSpeech/6.12.1/QtTextToSpeech/private/qvoice_p.h",
 				"/usr/include/qt6/QtTextToSpeech/QTextToSpeech",
 				"/usr/include/qt6/QtTextToSpeech/QTextToSpeechEngine",
 				"/usr/include/qt6/QtTextToSpeech/QTextToSpeechPlugin",
@@ -129,7 +129,7 @@
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_texttospeech.pri",
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_texttospeech_private.pri",
 				"/usr/lib/qt6/modules/TextToSpeech.json",
-				"/usr/lib/qt6/sbom/qtspeech-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtspeech-6.12.1.spdx"
 			],
 			"name": "qt6-speech-devel",
 			"provides": [
@@ -143,6 +143,6 @@
 		}
 	},
 	"source-name": "qt6-speech",
-	"source-release": "13",
-	"source-version": "6.12.0"
+	"source-release": "14",
+	"source-version": "6.12.1"
 }
