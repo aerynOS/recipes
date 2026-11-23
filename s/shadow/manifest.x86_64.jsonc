@@ -22,8 +22,7 @@
 				"soname(libcrypt.so.2(x86_64))",
 				"soname(libeconf.so.0(x86_64))",
 				"soname(libpam.so.0(x86_64))",
-				"soname(libpam_misc.so.0(x86_64))",
-				"soname(libsystemd.so.0(x86_64))"
+				"soname(libpam_misc.so.0(x86_64))"
 			],
 			"files": [
 				"/usr/bin/chage",
@@ -200,6 +199,6 @@
 		}
 	},
 	"source-name": "shadow",
-	"source-release": "13",
-	"source-version": "4.20.3"
+	"source-release": "14",
+	"source-version": "4.20.4"
 }
