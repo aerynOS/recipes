@@ -13,9 +13,9 @@
 			],
 			"files": [
 				"/usr/lib/libQt6JsonRpc.so.6",
-				"/usr/lib/libQt6JsonRpc.so.6.12.0",
+				"/usr/lib/libQt6JsonRpc.so.6.12.1",
 				"/usr/lib/libQt6LanguageServer.so.6",
-				"/usr/lib/libQt6LanguageServer.so.6.12.0"
+				"/usr/lib/libQt6LanguageServer.so.6.12.1"
 			],
 			"name": "qt6-languageserver",
 			"provides": [
@@ -31,27 +31,27 @@
 				"qt6-languageserver"
 			],
 			"files": [
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qhttpmessagestreamparser_p.h",
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qjsonrpcprotocol_p.h",
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qjsonrpcprotocol_p_p.h",
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qjsonrpctransport_p.h",
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qjsontypedrpc_p.h",
-				"/usr/include/qt6/QtJsonRpc/6.12.0/QtJsonRpc/private/qtypedjson_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qhttpmessagestreamparser_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qjsonrpcprotocol_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qjsonrpcprotocol_p_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qjsonrpctransport_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qjsontypedrpc_p.h",
+				"/usr/include/qt6/QtJsonRpc/6.12.1/QtJsonRpc/private/qtypedjson_p.h",
 				"/usr/include/qt6/QtJsonRpc/QtJsonRpc",
 				"/usr/include/qt6/QtJsonRpc/QtJsonRpcDepends",
 				"/usr/include/qt6/QtJsonRpc/QtJsonRpcVersion",
 				"/usr/include/qt6/QtJsonRpc/qtjsonrpcglobal.h",
 				"/usr/include/qt6/QtJsonRpc/qtjsonrpcversion.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverbase_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverbase_p_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageservergen_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageservergen_p_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverjsonrpctransport_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverprespectypes_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverprotocol_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverspec_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlanguageserverspectypes_p.h",
-				"/usr/include/qt6/QtLanguageServer/6.12.0/QtLanguageServer/private/qlspnotifysignals_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverbase_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverbase_p_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageservergen_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageservergen_p_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverjsonrpctransport_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverprespectypes_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverprotocol_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverspec_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlanguageserverspectypes_p.h",
+				"/usr/include/qt6/QtLanguageServer/6.12.1/QtLanguageServer/private/qlspnotifysignals_p.h",
 				"/usr/include/qt6/QtLanguageServer/QtLanguageServer",
 				"/usr/include/qt6/QtLanguageServer/QtLanguageServerDepends",
 				"/usr/include/qt6/QtLanguageServer/QtLanguageServerVersion",
@@ -88,7 +88,7 @@
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_languageserver_private.pri",
 				"/usr/lib/qt6/modules/JsonRpcPrivate.json",
 				"/usr/lib/qt6/modules/LanguageServerPrivate.json",
-				"/usr/lib/qt6/sbom/qtlanguageserver-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtlanguageserver-6.12.1.spdx"
 			],
 			"name": "qt6-languageserver-devel",
 			"provides": [
@@ -99,6 +99,6 @@
 		}
 	},
 	"source-name": "qt6-languageserver",
-	"source-release": "14",
-	"source-version": "6.12.0"
+	"source-release": "15",
+	"source-version": "6.12.1"
 }

@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-languageserver
-version     : "6.12.0"
-release     : 14
+version     : "6.12.1"
+release     : 15
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtlanguageserver-everywhere-src-6.12.0.tar.xz : 552119e37360c06c5fb0b54e91bbfdf8da5a80d2cb1441ef93e966eb3b7a426d
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtlanguageserver-everywhere-src-6.12.1.tar.xz : 4e9315a05fb9ef7c8e33d1077b11ea40a364947a8a77768bb4dab58a189ea7e7
 summary     : An implementation of the Language Server Protocol
 description : |
     An implementation of the Language Server Protocol
