@@ -1,12 +1,13 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vte
-version     : "0.84.1"
-release     : 29
+version     : "0.84.2"
+release     : 30
 homepage    : https://gitlab.gnome.org/GNOME/vte
 upstreams   :
-    - https://download.gnome.org/sources/vte/0.84/vte-0.84.1.tar.xz : aca1caa8478aebcdbb1d67897fb3511eb7601debae6810e16a15b6fa25f31ac8
+    # 0.84.2 never reached download.gnome.org; go back to the official tarball at the next release
+    - https://gitlab.gnome.org/api/v4/projects/1893/packages/generic/vte/0.84.2/vte-0.84.2.tar.xz : ff79a833c0faba8d6888db788dbe850f6ffd1ff916c799e6ffdb30c782537abf
 summary     : GNOME Virtual Terminal Embedding library
 description : |
     GNOME Virtual Terminal Embedding library

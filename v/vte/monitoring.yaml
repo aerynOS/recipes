@@ -1,8 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 10895
   rss: ~
 security:
-  cpe: ~
+  # Last checked 2026-11-22
+  cpe:
+  - vendor: nalin_dahyabhai
+    product: vte
