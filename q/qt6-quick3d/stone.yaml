@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-quick3d
-version     : "6.12.0"
-release     : 16
+version     : "6.12.1"
+release     : 17
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquick3d-everywhere-src-6.12.0.tar.xz : 6ced6edbd25fb5a632fe770ae820b376bf50233e8d62002c79a69a505a2e429e
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtquick3d-everywhere-src-6.12.1.tar.xz : 32ba7a637f05ae2e198b215a814a3945b6b9ddd3b5fafff2406436994ccc0843
 summary     : Qt6 Quick 3D module
 description : |
     Qt Quick 3D provides a high-level API for creating 3D content and 3D user interfaces based on Qt Quick. Rather than using an external engine which creates syncing issues, and additional layers of abstraction, we provide extensions to the existing Qt Quick Scene Graph for spatial content, and a renderer for that extended scene graph. When using the spatial scene graph it is also possible to mix Qt Quick 2D content with 3D content.
