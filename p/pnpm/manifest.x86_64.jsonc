@@ -112,6 +112,7 @@
 				"/usr/lib/pnpm/dist/node_modules/get-pnpm/lib/shadowingPnpm.js",
 				"/usr/lib/pnpm/dist/node_modules/get-pnpm/lib/undoHint.js",
 				"/usr/lib/pnpm/dist/node_modules/get-pnpm/lib/verifySignature.js",
+				"/usr/lib/pnpm/dist/node_modules/get-pnpm/lib/yaml.js",
 				"/usr/lib/pnpm/dist/node_modules/get-pnpm/package.json",
 				"/usr/lib/pnpm/dist/node_modules/graceful-fs/clone.js",
 				"/usr/lib/pnpm/dist/node_modules/graceful-fs/graceful-fs.js",
@@ -526,6 +527,6 @@
 		}
 	},
 	"source-name": "pnpm",
-	"source-release": "11",
-	"source-version": "12.22.0"
+	"source-release": "12",
+	"source-version": "12.23.0"
 }
