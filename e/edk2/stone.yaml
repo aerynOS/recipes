@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : edk2
-version     : "202608"
-release     : 8
+version     : "202611"
+release     : 9
 upstreams   :
-    - git|https://github.com/tianocore/edk2 : 2970e5699ba6267f3384ffab20f96647578aebc8
+    - git|https://github.com/tianocore/edk2 : 556dcfb466e9f05affeaff881d738807f8156d3c
 homepage    : https://github.com/tianocore/tianocore.github.io/wiki/EDK-II
 license     :
     - BSD-2-Clause
