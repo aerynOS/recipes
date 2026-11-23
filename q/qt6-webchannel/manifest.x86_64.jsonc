@@ -16,9 +16,9 @@
 			],
 			"files": [
 				"/usr/lib/libQt6WebChannel.so.6",
-				"/usr/lib/libQt6WebChannel.so.6.12.0",
+				"/usr/lib/libQt6WebChannel.so.6.12.1",
 				"/usr/lib/libQt6WebChannelQuick.so.6",
-				"/usr/lib/libQt6WebChannelQuick.so.6.12.0",
+				"/usr/lib/libQt6WebChannelQuick.so.6.12.1",
 				"/usr/lib/qt6/qml/QtWebChannel/libwebchannelquickplugin.so",
 				"/usr/lib/qt6/qml/QtWebChannel/plugins.qmltypes",
 				"/usr/lib/qt6/qml/QtWebChannel/qmldir"
@@ -66,9 +66,9 @@
 				"qt6-webchannel"
 			],
 			"files": [
-				"/usr/include/qt6/QtWebChannel/6.12.0/QtWebChannel/private/qmetaobjectpublisher_p.h",
-				"/usr/include/qt6/QtWebChannel/6.12.0/QtWebChannel/private/qwebchannel_p.h",
-				"/usr/include/qt6/QtWebChannel/6.12.0/QtWebChannel/private/signalhandler_p.h",
+				"/usr/include/qt6/QtWebChannel/6.12.1/QtWebChannel/private/qmetaobjectpublisher_p.h",
+				"/usr/include/qt6/QtWebChannel/6.12.1/QtWebChannel/private/qwebchannel_p.h",
+				"/usr/include/qt6/QtWebChannel/6.12.1/QtWebChannel/private/signalhandler_p.h",
 				"/usr/include/qt6/QtWebChannel/QWebChannel",
 				"/usr/include/qt6/QtWebChannel/QWebChannelAbstractTransport",
 				"/usr/include/qt6/QtWebChannel/QtWebChannel",
@@ -79,7 +79,7 @@
 				"/usr/include/qt6/QtWebChannel/qwebchannel.h",
 				"/usr/include/qt6/QtWebChannel/qwebchannelabstracttransport.h",
 				"/usr/include/qt6/QtWebChannel/qwebchannelglobal.h",
-				"/usr/include/qt6/QtWebChannelQuick/6.12.0/QtWebChannelQuick/private/qqmlwebchannelattached_p.h",
+				"/usr/include/qt6/QtWebChannelQuick/6.12.1/QtWebChannelQuick/private/qqmlwebchannelattached_p.h",
 				"/usr/include/qt6/QtWebChannelQuick/QQmlWebChannel",
 				"/usr/include/qt6/QtWebChannelQuick/QtWebChannelQuick",
 				"/usr/include/qt6/QtWebChannelQuick/QtWebChannelQuickDepends",
@@ -149,7 +149,7 @@
 				"/usr/lib/qt6/mkspecs/modules/qt_lib_webchannelquick_private.pri",
 				"/usr/lib/qt6/modules/WebChannel.json",
 				"/usr/lib/qt6/modules/WebChannelQuick.json",
-				"/usr/lib/qt6/sbom/qtwebchannel-6.12.0.spdx"
+				"/usr/lib/qt6/sbom/qtwebchannel-6.12.1.spdx"
 			],
 			"name": "qt6-webchannel-devel",
 			"provides": [
@@ -165,6 +165,6 @@
 		}
 	},
 	"source-name": "qt6-webchannel",
-	"source-release": "10",
-	"source-version": "6.12.0"
+	"source-release": "11",
+	"source-version": "6.12.1"
 }
