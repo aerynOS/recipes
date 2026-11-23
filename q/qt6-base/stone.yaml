@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-base
-version     : "6.12.0"
-release     : 43
+version     : "6.12.1"
+release     : 44
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz : a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtbase-everywhere-src-6.12.1.tar.xz : cd837bb9fd631e20439a04eaa0c2f252f19ad92fdf5adf10229d0fbc2fab2d53
 summary     : Cross platform application and UI framework
 description : |
     Cross platform application and UI framework
@@ -79,53 +79,6 @@ setup       : |
 
     # The default Qt6 render loop runs at ~60fps which makes animations look choppy on higher fps monitors. Bump this up to ~120fps
     %patch %(pkgdir)/0001-Run-render-tick-at-120fps.patch
-
-    # Upstream backports
-    %patch %(pkgdir)/QTBUG-146211.patch
-    %patch %(pkgdir)/QTBUG-151163.patch
-    %patch %(pkgdir)/QTBUG-148575.patch
-    %patch %(pkgdir)/QTBUG-149231.patch
-    %patch %(pkgdir)/QTBUG-149921.patch
-    %patch %(pkgdir)/QTBUG-150279.patch
-    %patch %(pkgdir)/QTBUG-150280.patch
-    %patch %(pkgdir)/QTBUG-150353.patch
-    %patch %(pkgdir)/QTBUG-150982-prereq.patch
-    %patch %(pkgdir)/QTBUG-150982.patch
-    %patch %(pkgdir)/upstream-01.patch
-    %patch %(pkgdir)/upstream-02.patch
-    %patch %(pkgdir)/upstream-03.patch
-
-    # Wayland: keymap crash on a non-NUL-terminated compositor keymap, stale shm buffer DPR,
-    # focus reason on window activation
-    %patch %(pkgdir)/QTBUG-151282.patch
-    %patch %(pkgdir)/QTBUG-151525.patch
-    %patch %(pkgdir)/upstream-04.patch
-
-    # QHeaderView low-memory mode, QIcon scaled-decode aspect ratio, text layout memory regression
-    %patch %(pkgdir)/upstream-05.patch
-    %patch %(pkgdir)/upstream-06.patch
-    %patch %(pkgdir)/QTBUG-150286.patch
-
-    # shared-mime-info 2.5 magic parsing and tie-breaking
-    %patch %(pkgdir)/upstream-07.patch
-    %patch %(pkgdir)/upstream-08.patch
-
-    # Fractional scaling: zero-width cursor, QIcon cached entry DPR, QCommonStyle icon rect
-    %patch %(pkgdir)/QTBUG-109643.patch
-    %patch %(pkgdir)/QTBUG-148523.patch
-    %patch %(pkgdir)/QTBUG-148522.patch
-
-    # Desktop integration: X11 clipboard managers, portal file dialog reuse, canonical
-    # applicationFilePath(), mailto via the portal
-    %patch %(pkgdir)/QTBUG-108346.patch
-    %patch %(pkgdir)/QTBUG-150535.patch
-    %patch %(pkgdir)/upstream-09.patch
-    %patch %(pkgdir)/upstream-10.patch
-    %patch %(pkgdir)/upstream-11.patch
-    %patch %(pkgdir)/upstream-12.patch
-
-    # Don't leak passwords in URL error messages
-    %patch %(pkgdir)/QTBUG-151290.patch
 
     # Only the PGO workload stages need the test suite. The final stage must not
     # build it, or the test data gets installed into /usr/tests.
