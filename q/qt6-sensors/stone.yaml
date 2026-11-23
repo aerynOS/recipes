@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : qt6-sensors
-version     : "6.12.0"
-release     : 10
+version     : "6.12.1"
+release     : 11
 homepage    : https://www.qt.io
 upstreams   :
-    - https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtsensors-everywhere-src-6.12.0.tar.xz : 861df58be8808cef777a1b531d7bec804d25733ec34e8ebbdafbe27040319090
+    - https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtsensors-everywhere-src-6.12.1.tar.xz : 68965b9ad073c4f535cb6028858f0217cca320a7fca087005d85d7750caaf7fb
 summary     : Qt6 Sensors Module
 description : |
     The Qt Sensors API provides access to sensor hardware via QML and C++ interfaces. The Qt Sensors API also provides a motion gesture recognition API for devices.
