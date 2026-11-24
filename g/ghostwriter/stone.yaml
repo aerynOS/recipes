@@ -3,7 +3,7 @@
 
 name        : ghostwriter
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://ghostwriter.kde.org/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/ghostwriter-26.08.3.tar.xz : cbe3942aa77c3be2ba69de7d84702558d3776495673040f95b99c3cb3387240b

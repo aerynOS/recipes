@@ -3,7 +3,7 @@
 
 name        : kf6-kquickcharts
 version     : "6.32.0"
-release     : 28
+release     : 29
 homepage    : https://invent.kde.org/frameworks/kquickcharts
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kquickcharts-6.32.0.tar.xz : 9f676e504f73fa43e394833e514522baac3f3ca2b8c63908eef7f6bdf1053046

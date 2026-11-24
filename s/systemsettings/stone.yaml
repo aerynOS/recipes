@@ -3,7 +3,7 @@
 
 name        : systemsettings
 version     : "6.8.3"
-release     : 35
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/systemsettings-6.8.3.tar.xz : 0b4f536509aa030bac53230a625320ec56ea7bb418c27e4a093399cfbf8ce9e6

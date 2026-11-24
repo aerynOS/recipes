@@ -3,7 +3,7 @@
 
 name        : krdp
 version     : "6.8.3"
-release     : 35
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/krdp-6.8.3.tar.xz : 8a80e5a5e0f3e7b665752a60264ac36367431d6d8865cd5797370010a819a40b

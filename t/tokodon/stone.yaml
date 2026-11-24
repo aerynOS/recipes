@@ -3,7 +3,7 @@
 
 name        : tokodon
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://apps.kde.org/tokodon/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/tokodon-26.08.3.tar.xz : 7acb526269d92aec26526aa182c18d2080188ddc8444addb0fff2606ff43c52c

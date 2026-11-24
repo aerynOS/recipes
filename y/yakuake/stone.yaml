@@ -3,7 +3,7 @@
 
 name        : yakuake
 version     : "26.08.3"
-release     : 28
+release     : 29
 homepage    : https://apps.kde.org/yakuake/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/yakuake-26.08.3.tar.xz : 16e0ef03e8484b2841b6162509b3a0002c9bd2cdb86b9c4973e46b11c1aec44d

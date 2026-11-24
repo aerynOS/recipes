@@ -3,7 +3,7 @@
 
 name        : kcachegrind
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://apps.kde.org/kcachegrind/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/kcachegrind-26.08.3.tar.xz : e402e384dffbcf9fee583716ef6b9a788be4421988fee9cc8da1b178b9962a37

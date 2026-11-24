@@ -3,7 +3,7 @@
 
 name        : kf6-knewstuff
 version     : "6.32.0"
-release     : 34
+release     : 35
 homepage    : https://invent.kde.org/frameworks/knewstuff
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/knewstuff-6.32.0.tar.xz : 91ee15856bb831d1f4022fb45c8b29b15be6e9330bbc8447fadeee9d6f16ab27

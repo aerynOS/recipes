@@ -3,7 +3,7 @@
 
 name        : kf6-kcalendarcore
 version     : "6.32.0"
-release     : 27
+release     : 28
 homepage    : https://invent.kde.org/frameworks/kcalendarcore
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kcalendarcore-6.32.0.tar.xz : 65c7b0111140833a0a54cbbc303890e03d3d91469ace4e272e1b76aa2135dba7

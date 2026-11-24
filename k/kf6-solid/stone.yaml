@@ -3,7 +3,7 @@
 
 name        : kf6-solid
 version     : "6.32.0"
-release     : 36
+release     : 37
 homepage    : https://invent.kde.org/frameworks/solid
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/solid-6.32.0.tar.xz : 9620a6065403c5097fce0518abb7d4f038f4f11327e7ce94094ae9561bce0008

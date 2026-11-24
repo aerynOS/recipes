@@ -3,7 +3,7 @@
 
 name        : kf6-purpose
 version     : "6.32.0"
-release     : 29
+release     : 30
 homepage    : https://invent.kde.org/frameworks/purpose
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/purpose-6.32.0.tar.xz : 607b7cb63730a97d447454b17713b73ba7d237aa033b5580e247cc753dbf35e1

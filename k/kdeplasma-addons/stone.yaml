@@ -3,7 +3,7 @@
 
 name        : kdeplasma-addons
 version     : "6.8.3"
-release     : 37
+release     : 38
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/kdeplasma-addons-6.8.3.tar.xz : 16c03d8e9116b2419a2d183b828cb858a80b5b5a4415b41b7389cadadbd012fa

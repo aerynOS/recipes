@@ -3,7 +3,7 @@
 
 name        : plasma-bigscreen
 version     : "6.8.3"
-release     : 11
+release     : 12
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/plasma-bigscreen-6.8.3.tar.xz : 11d1c1c2e613013af049ccce9f5e4a2c238d91052e33bef3ec613708f4cfbec7

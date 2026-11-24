@@ -3,7 +3,7 @@
 
 name        : kf6-kjobwidgets
 version     : "6.32.0"
-release     : 32
+release     : 33
 homepage    : https://invent.kde.org/frameworks/kjobwidgets
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kjobwidgets-6.32.0.tar.xz : 98eaee2846181b82b357067db00ac65e3bcf02c11322bb636aa6021a6eb65dd2

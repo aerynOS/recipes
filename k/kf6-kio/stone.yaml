@@ -3,7 +3,7 @@
 
 name        : kf6-kio
 version     : "6.32.0"
-release     : 38
+release     : 39
 homepage    : https://invent.kde.org/frameworks/kio
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kio-6.32.0.tar.xz : d16d302a3db7a140703082f0a9a7c7127a5bff795c497f2ae7f8cbb53b100b59

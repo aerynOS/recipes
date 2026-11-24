@@ -3,7 +3,7 @@
 
 name        : okular
 version     : "26.08.3"
-release     : 31
+release     : 32
 homepage    : https://apps.kde.org/okular/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/okular-26.08.3.tar.xz : 8db527297b4e6aa17b3063739f8e1a4fe206691428ffc4ff544053e111187412

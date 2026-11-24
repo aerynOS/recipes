@@ -3,7 +3,7 @@
 
 name        : falkon
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://apps.kde.org/falkon/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/falkon-26.08.3.tar.xz : ab2deb9c7dcbfde2769ab67565378a260ffa081df5fbd5e5f7d39d500c251c11

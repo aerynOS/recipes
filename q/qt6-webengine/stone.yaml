@@ -3,7 +3,7 @@
 
 name        : qt6-webengine
 version     : "6.140.0"
-release     : 39
+release     : 40
 homepage    : https://www.qt.io
 upstreams   :
     - https://download.qt.io/official_releases/qtwebengine/6.140/6.140.0/src/qtwebengine-everywhere-src-6.140.0.tar.xz: 82352854a1d01dfe6abeefaf023554e4722c1d7df48ba3ce0078f6c0a9c7e1a3
@@ -13,7 +13,7 @@ upstreams   :
 # Don't edit anything between the BEGIN_UPSTREAMS and END_UPSTREAMS tags
 ##@@BEGIN_UPSTREAMS
     - git|https://invent.kde.org/qt/qt/qtwebengine-chromium.git:
-        ref: 871c3567419501e7b23b6a496bb1931f262c0ca2
+        ref: e8d4bb541d347440f2407b31cdf49e727c006edf
 ##@@END_UPSTREAMS
 summary     : Qt6 Webengine Module
 description : |

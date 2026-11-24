@@ -3,7 +3,7 @@
 
 name        : kf6-kconfigwidgets
 version     : "6.32.0"
-release     : 33
+release     : 34
 homepage    : https://invent.kde.org/frameworks/kconfigwidgets
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kconfigwidgets-6.32.0.tar.xz : 9d7f60aec2c8153e944d0916852942abb7a28459146b1383f3c540e49dd3da8d
