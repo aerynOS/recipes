@@ -1,0 +1,22 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"docker-dash": {
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/docker-dash"
+			],
+			"name": "docker-dash",
+			"provides": [
+				"binary(docker-dash)"
+			]
+		}
+	},
+	"source-name": "docker-dash",
+	"source-release": "1",
+	"source-version": "0.1.4"
+}

@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : docker-dash
+version     : "0.1.4"
+release     : 1
+homepage    : https://github.com/GustavoCaso/docker-dash
+upstreams   :
+    - https://github.com/GustavoCaso/docker-dash/archive/refs/tags/v0.1.4.zip : 92a3a4d165dae2ea9ed39f098e4f883f9c776384a60307929bea4273837a201b
+summary     : A comprehensive TUI management tool for Docker containers
+description : |
+    A keyboard-focused Docker dashboard for the terminal.
+    Manage Docker containers, images, volumes, networks, 
+    and compose projects without leaving the command line.
+license     : MIT
+networking  : true
+setup       : |
+    %go_mod
+build       : |
+    %make build
+install     : |
+    %install_bin %(name)
+check       : |
+    %make test
