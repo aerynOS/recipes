@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libtorrent-rasterbar
-version     : "2.1.2"
-release     : 12
+version     : "2.1.3"
+release     : 13
 homepage    : https://libtorrent.org/
 upstreams   :
-    - https://github.com/arvidn/libtorrent/releases/download/v2.1.2/libtorrent-rasterbar-2.1.2.tar.gz : 3362546d9cd71b9e49ee6cac7d3f1f914ce9cdb217c86b63d5b22cbed0334dbc
+    - https://github.com/arvidn/libtorrent/releases/download/v2.1.3/libtorrent-rasterbar-2.1.3.tar.gz : de05681acc564651211b4351af7d633a7a225587f0604611d657729dec299ae6
 summary     : libtorrent is a C++ implementation of the BitTorrent protocol
 description : |
     libtorrent is a C++ implementation of the BitTorrent protocol.
