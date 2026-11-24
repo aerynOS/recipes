@@ -3,7 +3,7 @@
 
 name        : omikuji-launcher
 version     : "0.20.9"
-release     : 3
+release     : 4
 homepage    : https://github.com/omikuji-launcher/omikuji
 upstreams   :
     - https://github.com/omikuji-launcher/omikuji/archive/refs/tags/v0.20.9.tar.gz : 2c81e9b35edbf5aa0cd0a6bc7ea5afa253729df7577fc7a2057a4411f2255cb4
