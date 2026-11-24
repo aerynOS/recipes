@@ -1,17 +1,16 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : yt-dlp
-version     : "2026.10.26"
-release     : 6
+version     : "2026.11.23"
+release     : 7
 homepage    : https://github.com/yt-dlp/yt-dlp
 upstreams   :
-    - https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2026.10.26.tar.gz : 7d5da51731c3f5f5db13d16249fae085e170cc58807c43d68dcb41b7ede99a0d
+    - https://github.com/yt-dlp/yt-dlp/archive/refs/tags/2026.11.23.tar.gz : 129f357ae3d81191a02bcd2c7af591d1c2c6b3346053e91ae041ab5a5c7877d8
 summary     : yt-dlp is a feature-rich command-line audio/video downloader with support for thousands of sites
 description : |
     yt-dlp is a feature-rich command-line audio/video downloader with support for thousands of sites. The project is a fork of youtube-dl based on the now inactive youtube-dlc.
-license     :
-    - Unlicense
+license     : Unlicense
 builddeps   :
     - python(hatchling)
 rundeps     :
