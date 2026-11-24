@@ -58,7 +58,7 @@
 			],
 			"files": [
 				"/usr/lib32/libzstd.so.1",
-				"/usr/lib32/libzstd.so.1.5.7"
+				"/usr/lib32/libzstd.so.1.6.0"
 			],
 			"name": "zstd-32bit",
 			"provides": [
@@ -78,8 +78,9 @@
 			"files": [
 				"/usr/lib32/cmake/zstd/zstdConfig.cmake",
 				"/usr/lib32/cmake/zstd/zstdConfigVersion.cmake",
-				"/usr/lib32/cmake/zstd/zstdTargets-release.cmake",
 				"/usr/lib32/cmake/zstd/zstdTargets.cmake",
+				"/usr/lib32/cmake/zstd/zstdTargets_shared-release.cmake",
+				"/usr/lib32/cmake/zstd/zstdTargets_shared.cmake",
 				"/usr/lib32/libzstd.so",
 				"/usr/lib32/pkgconfig/libzstd.pc"
 			],
@@ -104,8 +105,9 @@
 				"/usr/include/zstd_errors.h",
 				"/usr/lib/cmake/zstd/zstdConfig.cmake",
 				"/usr/lib/cmake/zstd/zstdConfigVersion.cmake",
-				"/usr/lib/cmake/zstd/zstdTargets-release.cmake",
 				"/usr/lib/cmake/zstd/zstdTargets.cmake",
+				"/usr/lib/cmake/zstd/zstdTargets_shared-release.cmake",
+				"/usr/lib/cmake/zstd/zstdTargets_shared.cmake",
 				"/usr/lib/libzstd.so",
 				"/usr/lib/pkgconfig/libzstd.pc"
 			],
@@ -126,7 +128,7 @@
 			],
 			"files": [
 				"/usr/lib/libzstd.so.1",
-				"/usr/lib/libzstd.so.1.5.7"
+				"/usr/lib/libzstd.so.1.6.0"
 			],
 			"name": "zstd-libs",
 			"provides": [
@@ -135,6 +137,6 @@
 		}
 	},
 	"source-name": "zstd",
-	"source-release": "13",
-	"source-version": "1.5.7"
+	"source-release": "14",
+	"source-version": "1.6.0"
 }
