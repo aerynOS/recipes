@@ -33,11 +33,11 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.5-54.gaming/extra/drivers/video/nvidia-drm.ko.zst",
-				"/usr/lib/modules/7.3.5-54.gaming/extra/drivers/video/nvidia-modeset.ko.zst",
-				"/usr/lib/modules/7.3.5-54.gaming/extra/drivers/video/nvidia-peermem.ko.zst",
-				"/usr/lib/modules/7.3.5-54.gaming/extra/drivers/video/nvidia-uvm.ko.zst",
-				"/usr/lib/modules/7.3.5-54.gaming/extra/drivers/video/nvidia.ko.zst"
+				"/usr/lib/modules/7.3.6-55.gaming/extra/drivers/video/nvidia-drm.ko.zst",
+				"/usr/lib/modules/7.3.6-55.gaming/extra/drivers/video/nvidia-modeset.ko.zst",
+				"/usr/lib/modules/7.3.6-55.gaming/extra/drivers/video/nvidia-peermem.ko.zst",
+				"/usr/lib/modules/7.3.6-55.gaming/extra/drivers/video/nvidia-uvm.ko.zst",
+				"/usr/lib/modules/7.3.6-55.gaming/extra/drivers/video/nvidia.ko.zst"
 			],
 			"name": "nvidia-open-gpu-kernel-modules-gaming"
 		},
@@ -56,11 +56,11 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/6.18.64-51.lts/extra/drivers/video/nvidia-drm.ko.zst",
-				"/usr/lib/modules/6.18.64-51.lts/extra/drivers/video/nvidia-modeset.ko.zst",
-				"/usr/lib/modules/6.18.64-51.lts/extra/drivers/video/nvidia-peermem.ko.zst",
-				"/usr/lib/modules/6.18.64-51.lts/extra/drivers/video/nvidia-uvm.ko.zst",
-				"/usr/lib/modules/6.18.64-51.lts/extra/drivers/video/nvidia.ko.zst"
+				"/usr/lib/modules/6.18.65-52.lts/extra/drivers/video/nvidia-drm.ko.zst",
+				"/usr/lib/modules/6.18.65-52.lts/extra/drivers/video/nvidia-modeset.ko.zst",
+				"/usr/lib/modules/6.18.65-52.lts/extra/drivers/video/nvidia-peermem.ko.zst",
+				"/usr/lib/modules/6.18.65-52.lts/extra/drivers/video/nvidia-uvm.ko.zst",
+				"/usr/lib/modules/6.18.65-52.lts/extra/drivers/video/nvidia.ko.zst"
 			],
 			"name": "nvidia-open-gpu-kernel-modules-lts"
 		},
@@ -93,16 +93,16 @@
 				"sysbinary(depmod)"
 			],
 			"files": [
-				"/usr/lib/modules/7.3.5-77.stable/extra/drivers/video/nvidia-drm.ko.zst",
-				"/usr/lib/modules/7.3.5-77.stable/extra/drivers/video/nvidia-modeset.ko.zst",
-				"/usr/lib/modules/7.3.5-77.stable/extra/drivers/video/nvidia-peermem.ko.zst",
-				"/usr/lib/modules/7.3.5-77.stable/extra/drivers/video/nvidia-uvm.ko.zst",
-				"/usr/lib/modules/7.3.5-77.stable/extra/drivers/video/nvidia.ko.zst"
+				"/usr/lib/modules/7.3.6-78.stable/extra/drivers/video/nvidia-drm.ko.zst",
+				"/usr/lib/modules/7.3.6-78.stable/extra/drivers/video/nvidia-modeset.ko.zst",
+				"/usr/lib/modules/7.3.6-78.stable/extra/drivers/video/nvidia-peermem.ko.zst",
+				"/usr/lib/modules/7.3.6-78.stable/extra/drivers/video/nvidia-uvm.ko.zst",
+				"/usr/lib/modules/7.3.6-78.stable/extra/drivers/video/nvidia.ko.zst"
 			],
 			"name": "nvidia-open-gpu-kernel-modules-stable"
 		}
 	},
 	"source-name": "nvidia-open-gpu-kernel-modules",
-	"source-release": "147",
+	"source-release": "148",
 	"source-version": "620.73.04"
 }
