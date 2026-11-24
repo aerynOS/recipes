@@ -3,7 +3,7 @@
 
 name        : merkuro
 version     : "26.08.3"
-release     : 36
+release     : 37
 homepage    : https://apps.kde.org/merkuro/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/merkuro-26.08.3.tar.xz : a32e7fff37d16e200ab05146a6256e5ac0bfef9a1dce4b9b40f377c7c30b73a0
