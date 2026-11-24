@@ -3,7 +3,7 @@
 
 name        : libksysguard
 version     : "6.8.3"
-release     : 37
+release     : 38
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/libksysguard-6.8.3.tar.xz : a44aa32511a1ce842e8c6adac972f268d662d736650cff6c86360112c4dd2681
