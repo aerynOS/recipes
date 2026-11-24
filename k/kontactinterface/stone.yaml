@@ -3,7 +3,7 @@
 
 name        : kontactinterface
 version     : "26.08.3"
-release     : 28
+release     : 29
 homepage    : https://invent.kde.org/pim/kontactinterface
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/kontactinterface-26.08.3.tar.xz : 035f6d8dec6b578d7b0f9ab7f6dbee05163fb39606b37bb1c410157f03eb2fe5
