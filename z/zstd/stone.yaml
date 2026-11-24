@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zstd
-version     : "1.5.7"
-release     : 13
+version     : "1.6.0"
+release     : 14
+homepage    : https://facebook.github.io/zstd
+upstreams   :
+    - https://github.com/facebook/zstd/releases/download/v1.6.0/zstd-1.6.0.tar.zst: 2ca30d45c7a61f255e17024373f7fe75b6403b2ade6b21220c1472964d8a466a
 summary     : Fast real-time compression algorithm
+description : |
+    Fast real-time compression algorithm
 license     :
     - BSD-3-Clause
     - GPL-2.0-only
-homepage    : https://facebook.github.io/zstd
-description : |
-    Fast real-time compression algorithm
-upstreams   :
-    - https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.zst: 5b331d961d6989dc21bb03397fc7a2a4d86bc65a14adc5ffbbce050354e30fd2
 builddeps   :
     - pkgconfig(liblz4)
     - pkgconfig(liblzma)
@@ -22,6 +22,12 @@ rundeps     :
 emul32      : true
 environment : |
     export CFLAGS="${CFLAGS} -mllvm -vp-counters-per-site=2"
+tuning      :
+    # - bolt
+    - icf: all
+    - lto: full
+    - nosemantic
+    - symbolic
 setup       : |
     # Need to build static lib for tests, but we can delete it after
     %cmake -S build/cmake \
@@ -39,7 +45,7 @@ install     : |
 profiles    :
     - emul32:
         environment: |
-            # ld.lld: error: lib/CMakeFiles/libzstd_shared.dir/mason/build/emul32/x86_64/zstd-1.5.7.tar.zst/lib/decompress/huf_decompress_amd64.S.o is incompatible with elf32-i386
+            # ld.lld: error: lib/CMakeFiles/libzstd_shared.dir/.../huf_decompress_amd64.S.o is incompatible with elf32-i386
             export ASMFLAGS="-m32"
         setup       : |
             # We only care about the shared library, and it's the tools that use other compression algs
@@ -76,9 +82,3 @@ packages    :
                 Library files for %(name), typically pulled in as a dependency of another package.
             paths:
                 - /usr/lib/libzstd.so.*
-tuning      :
-    # - bolt
-    - icf: all
-    - lto: full
-    - nosemantic
-    - symbolic
