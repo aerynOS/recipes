@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zellij
-version     : "0.46.0"
-release     : 11
+version     : "0.46.1"
+release     : 12
 homepage    : https://zellij.dev/
 upstreams   :
-    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.0.tar.gz : 2dfa237fea447f3cc98954e81b0097b9d25841010036720e11f67880fe7861f0
+    - https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.1.tar.gz : f512621f3f54970ba46fc736e0f6581a438db9da1e5c3a8b69b314296f938a80
 summary     : A terminal workspace with batteries included
 description : |
     Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen) but includes many built-in features that would allow users to extend it and create their own personalized environment.
@@ -20,7 +20,6 @@ environment : |
     export LIBSQLITE3_SYS_USE_PKG_CONFIG=1
     export OPENSSL_NO_VENDOR=1
 setup       : |
-    %patch %(pkgdir)/ftbfs-openssl-4.patch
     %cargo_fetch
 build       : |
     %cargo_build --no-default-features --features "plugins_from_target web_server_capability terminal"
