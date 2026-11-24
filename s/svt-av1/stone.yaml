@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : svt-av1
-version     : "4.3.0"
-release     : 9
-homepage    : https://gitlab.com/AOMediaCodec/SVT-AV1
+version     : "4.3.1"
+release     : 10
+homepage    : https://github.com/AOMediaCodec/SVT-AV1
 upstreams   :
-    - https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v4.3.0/SVT-AV1-v4.3.0.tar.bz2:
-        hash: 9223ce06e6172ad41357ed23b3b00f036e03794b86b0e20ea9ccb3f648b8955d
+    - https://github.com/AOMediaCodec/SVT-AV1/archive/refs/tags/v4.3.1.tar.gz:
+        hash: ad94f481cb74821af183f37f4533fc52324b76ffbd98ec7723e282bab0cf9fc4
         unpackdir: current
 
-    # - https://gitlab.com/AOMediaCodec/SVT-AV1/-/archive/v3.1.2/SVT-AV1-v3.1.2.tar.bz2:
+    # - https://github.com/AOMediaCodec/SVT-AV1/archive/refs/tags/v3.1.2.tar.gz:
     #     hash: 802e9bb2b14f66e8c638f54857ccb84d3536144b0ae18b9f568bbf2314d2de88
     #     unpackdir: compat
 summary     : Scalable Video Technology for AV1 (SVT-AV1 Encoder)
@@ -19,8 +19,6 @@ description : |
 license     :
     - AOMPL-1.0 # https://aomedia.org/license/patent-license/
     - BSD-2-Clause
-# TODO: Vendor/package cpuinfo
-networking  : true #For cpuinfo
 builddeps   :
     - binary(nasm)
 tuning      :
