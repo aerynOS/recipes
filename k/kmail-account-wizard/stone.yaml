@@ -3,7 +3,7 @@
 
 name        : kmail-account-wizard
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://invent.kde.org/pim/kmail-account-wizard
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/kmail-account-wizard-26.08.3.tar.xz : dd4427f5ae2a113dac138bcd2ff06a1d73e70ca57ea0f2e723de50e55641d05d
