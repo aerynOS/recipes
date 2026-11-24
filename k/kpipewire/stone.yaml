@@ -3,7 +3,7 @@
 
 name        : kpipewire
 version     : "6.8.3"
-release     : 37
+release     : 38
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/kpipewire-6.8.3.tar.xz : 6b3175c928322e2084f8c40e51c05c24e3823b05195ff6de7db27c130a19c12f
