@@ -3,7 +3,7 @@
 
 name        : pim-sieve-editor
 version     : "26.08.3"
-release     : 3
+release     : 4
 homepage    : https://invent.kde.org/pim/pim-sieve-editor
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/pim-sieve-editor-26.08.3.tar.xz : aa2c7b84da770799804e2dc80863af2017d92ff243cbccc0704c66bacd5810d8
