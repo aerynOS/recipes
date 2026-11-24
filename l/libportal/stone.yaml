@@ -3,7 +3,7 @@
 
 name        : libportal
 version     : "0.11.0"
-release     : 18
+release     : 19
 homepage    : https://libportal.org/
 upstreams   :
     - https://github.com/flatpak/libportal/releases/download/0.11.0/libportal-0.11.0.tar.xz : abb9e452a1c372133bd3eb8f0bb30d07b2d0a8fb02001c4155cf287555db4040
