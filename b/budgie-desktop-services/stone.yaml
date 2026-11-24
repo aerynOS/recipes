@@ -3,7 +3,7 @@
 
 name        : budgie-desktop-services
 version     : "1.0.3"
-release     : 1
+release     : 2
 homepage    : https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-services
 upstreams   :
     - https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-services/archive/1.0.3.tar.gz : d62e7815afb089ac7a3fb664516500dadce90d102c24fcf8e0ffaada2a13097e
