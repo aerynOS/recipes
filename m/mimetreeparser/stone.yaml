@@ -3,7 +3,7 @@
 
 name        : mimetreeparser
 version     : "26.08.3"
-release     : 33
+release     : 34
 homepage    : https://invent.kde.org/pim/mimetreeparser
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/mimetreeparser-26.08.3.tar.xz : dc98b618ee66ba38a519be421793a752bae1252acfce9e0389e7d0668a9fa13d
