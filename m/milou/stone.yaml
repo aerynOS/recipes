@@ -3,7 +3,7 @@
 
 name        : milou
 version     : "6.8.3"
-release     : 36
+release     : 37
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/milou-6.8.3.tar.xz : 87706400f9f82277cba4aeffbcc8d67e74b89f33038a7d49c0e7db6db3138f86
