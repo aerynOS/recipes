@@ -3,7 +3,7 @@
 
 name        : python-pyqt6
 version     : "6.12.1"
-release     : 5
+release     : 6
 homepage    : https://www.riverbankcomputing.com/software/pyqt/
 upstreams   :
     - https://pypi.debian.net/PyQt6/pyqt6-6.12.1.tar.gz : 17bb18b3ae953ab54b23026291ecea2579b028597b56c281a752c8ed66dd1a58
