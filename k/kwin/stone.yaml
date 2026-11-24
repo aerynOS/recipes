@@ -3,7 +3,7 @@
 
 name        : kwin
 version     : "6.8.3"
-release     : 49
+release     : 50
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/kwin-6.8.3.tar.xz : fd5cb783f220ea4526a9afee2f72b582c3e87ef7f91b19bc5c7a6662ffe7fbdc
