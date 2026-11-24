@@ -3,7 +3,7 @@
 
 name        : kclock
 version     : "26.08.3"
-release     : 31
+release     : 32
 homepage    : https://apps.kde.org/kclock/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/kclock-26.08.3.tar.xz : c3d16e7b105bc25f8d277c686dbff272c756b363a8da50d555e895f80d182c2b
