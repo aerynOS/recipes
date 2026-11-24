@@ -3,7 +3,7 @@
 
 name        : dragon
 version     : "26.08.3"
-release     : 36
+release     : 37
 homepage    : https://apps.kde.org/dragonplayer/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/dragon-26.08.3.tar.xz : b40f419c8ac5d16a36c39001b477b0a88d19ef1abd0c2671b47dc64d846a96e3
