@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : drm-awaiter
 version     : "0.0.0"
-release     : 1
+release     : 2
 homepage    : https://github.com/CachyOS/CachyOS-PKGBUILDS/tree/master/cachyos-drm-awaiter
 license     : GPL-3.0-or-later
 summary     : Configuration for proper systemd chain-loading of DRM modules
