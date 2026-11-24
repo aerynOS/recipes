@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cryptsetup
-version     : "2.8.8"
-release     : 16
+version     : "2.8.9"
+release     : 17
 homepage    : https://gitlab.com/cryptsetup/cryptsetup
 upstreams   :
-    - https://gitlab.com/cryptsetup/cryptsetup/-/archive/v2.8.8/cryptsetup-v2.8.8.tar.gz : 3aa3bb45472b5de8169b58260b2d59e55557c2c0e210f044fe9148da344db1e0
+    - https://gitlab.com/cryptsetup/cryptsetup/-/archive/v2.8.9/cryptsetup-v2.8.9.tar.gz : 98fa506dfa8a2ac7434bc6abd5403cc1e2fc29d06307211a57b8cae77ad37889
 summary     : cryptsetup + LUKS
 description : |
     cryptsetup + LUKS - open source disk encryption
@@ -28,8 +28,6 @@ builddeps   :
     - pkgconfig(systemd)
     - pkgconfig(uuid)
 setup       : |
-    %patch %(pkgdir)/0001-meson-Install-binaries.patch
-
     %meson \
         -Dargon-implementation=internal \
         -Dinternal-sse-argon2=true \

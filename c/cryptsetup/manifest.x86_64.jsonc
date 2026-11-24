@@ -128,7 +128,7 @@
 			],
 			"files": [
 				"/usr/lib/libcryptsetup.so.12",
-				"/usr/lib/libcryptsetup.so.12.11.0",
+				"/usr/lib/libcryptsetup.so.12.12.0",
 				"/usr/lib/tmpfiles.d/cryptsetup.conf",
 				"/usr/share/locale/cs/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/da/LC_MESSAGES/cryptsetup.mo",
@@ -141,6 +141,7 @@
 				"/usr/share/locale/ja/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/ka/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/ko/LC_MESSAGES/cryptsetup.mo",
+				"/usr/share/locale/lv/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/pl/LC_MESSAGES/cryptsetup.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/cryptsetup.mo",
@@ -256,6 +257,6 @@
 		}
 	},
 	"source-name": "cryptsetup",
-	"source-release": "16",
-	"source-version": "2.8.8"
+	"source-release": "17",
+	"source-version": "2.8.9"
 }
