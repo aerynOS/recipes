@@ -3,7 +3,7 @@
 
 name        : koko
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://apps.kde.org/koko/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/koko-26.08.3.tar.xz : 51a91aae40c7c606235c218eee32f59048a528394ba68994a7ce34d26bcf3e5e
