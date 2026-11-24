@@ -5,4 +5,5 @@ releases:
   id: 388475
   rss: https://codeberg.org/sorashii/riftbar/tags.rss
 security:
-  cpe: ~ # No CPE found, last checked (2026-02-21)
+  # No CPE found, last checked 2026-11-24
+  cpe: ~

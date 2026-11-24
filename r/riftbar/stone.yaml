@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : riftbar
-version     : "0.2.8"
-release     : 5
+version     : "0.3.2"
+release     : 6
 homepage    : https://codeberg.org/sorashii/riftbar
 upstreams   :
-    - https://codeberg.org/sorashii/riftbar/archive/v0.2.8.tar.gz : c91df19130815e1a44ec762b441eb54e39606f9c845205d452529aa1fbc88ff1
+    - https://codeberg.org/sorashii/riftbar/archive/v0.3.2.tar.gz : c8f90bf2fb7feefa721e4c329ed5ef75db22aec301f1f1256c2460bad26291e4
 summary     : Highly customizable GTK4 bar for Wayland written in Rust.
 description : |
     Riftbar is a Waybar-like status bar writen in Rust designed to be fast, safe and modern.
