@@ -3,7 +3,7 @@
 
 name        : krfb
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://apps.kde.org/krfb/
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/krfb-26.08.3.tar.xz : 33d557b274684c3af8193a7ccd9a2096f5853ceef899f5ee2620b2030f32807b
