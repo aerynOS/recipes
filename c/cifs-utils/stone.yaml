@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : cifs-utils
+version     : "7.9"
+release     : 1
+homepage    : https://www.samba.org/ftp/linux-cifs/cifs-utils
+upstreams   :
+    - https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-7.9.tar.bz2 : 9f3750f402520b15c2c8eb52fd485df6ea77e5e66fe5e39ce8ac4386c32c0296
+summary     : Tool for mounting SMB/CIFS shares
+description : |
+    The %(name) package provides a means for mounting SMB/CIFS shares on a Linux system. 
+license     : GPL-2.0-or-later
+builddeps:
+    - binary(rst2man)
+    # TODO: We're not ready to maintain Kerberos5 enterprise auth at this stage
+    # - pkgconfig(krb5)
+    # - pkgconfig(krb5-gssapi)
+    - pkgconfig(libcap-ng)
+    - pkgconfig(libkeyutils)
+    - pkgconfig(pam)
+    - pkgconfig(talloc)
+rundeps:
+    - binary(python3)
+setup       : |
+    # If this ever changes to a git recipe, use reconfigure instead
+    %configure
+build       : |
+    %make
+install     : |
+    %make_install ROOTSBINDIR=%(sbindir)
