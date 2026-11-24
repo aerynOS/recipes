@@ -3,7 +3,7 @@
 
 name        : kwayland
 version     : "6.8.3"
-release     : 35
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/kwayland-6.8.3.tar.xz : 00090254b86f1774e296b4dc7d69d073ee08efb75419c9b5d0955eeae0378a56
