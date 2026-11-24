@@ -3,7 +3,7 @@
 
 name        : libkdegames
 version     : "26.08.3"
-release     : 2
+release     : 3
 homepage    : https://invent.kde.org/games/libkdegames
 upstreams   :
     - https://download.kde.org/stable/release-service/26.08.3/src/libkdegames-26.08.3.tar.xz : a543fe657621366b4cd9da7cba56a1844f66f8c9cc9fb616f08f0c5513f33d1a
