@@ -3,7 +3,7 @@
 
 name        : plasma-integration
 version     : "6.8.3"
-release     : 35
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/plasma-integration-6.8.3.tar.xz : e32e074d79159f584c3098de550a2de46142049234602dffd50596c574816e5b
