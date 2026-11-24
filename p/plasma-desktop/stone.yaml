@@ -3,7 +3,7 @@
 
 name        : plasma-desktop
 version     : "6.8.3"
-release     : 43
+release     : 44
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/plasma-desktop-6.8.3.tar.xz : aa050cfb1005d6f806dc347bb11bc583d5360dd11d51b4501f6328aa7b26d370
