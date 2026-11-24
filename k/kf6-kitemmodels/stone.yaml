@@ -3,7 +3,7 @@
 
 name        : kf6-kitemmodels
 version     : "6.32.0"
-release     : 27
+release     : 28
 homepage    : https://invent.kde.org/frameworks/kitemmodels
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kitemmodels-6.32.0.tar.xz : 3a280dbdfc0733ffc9607897109b70b57af89c81dfca534ab92efb948eab3179
