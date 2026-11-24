@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : localsend
-version     : "1.18.2"
-release     : 1
+version     : "1.19.0"
+release     : 2
 homepage    : https://localsend.org/
 upstreams   :
-    - https://github.com/localsend/localsend/archive/refs/tags/v1.18.2.tar.gz:
-        hash: 4425dfcf2e016d6540ea44941deb4ba6568201cc47d7f08753606e6e4b2769cd
+    - https://github.com/localsend/localsend/archive/refs/tags/v1.19.0.tar.gz:
+        hash: 2906534b592685b98692d934805dbedd8158d62eec9931874250a010bfffa79b
         unpackdir: localsend
     # https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json
     # Check .fvmrc for exact version when updating
@@ -31,8 +31,6 @@ environment : |
     export PATH="$PATH:%(workdir)/flutter/bin"
     # Let cargokit reuse the %cargo_build
     export CARGOKIT_TARGET_DIR="%(workdir)/target"
-    # error: 'app_indicator_new' is deprecated
-    export CXXFLAGS="${CXXFLAGS} -Wno-deprecated-declarations"
 setup       : |
     %patch %(pkgdir)/cargokit-system-rust.patch
     %patch %(pkgdir)/set-flutter-paths.patch
@@ -42,12 +40,16 @@ setup       : |
 
     flutter --disable-analytics
     flutter pub get
-build       : |
-    %cargo_build -p rust_lib_localsend_app -p localsend-cli -p server
 
-    pushd app
-    flutter build linux --release --verbose
-    popd
+    # run the dep fetch without running the build
+    CARGOKIT_TOOL_TEMP_DIR="%(workdir)/target/tool" \
+        bash %(workdir)/packages/localsend_isolates/rust_builder/cargokit/run_build_tool.sh --help
+build       : |
+    # flutter would rebuild the rust_lib if not kept in separate cargo_build
+    %cargo_build -p localsend-cli -p server
+    %cargo_build -p rust_lib_localsend_app
+
+    (cd app; flutter build linux --release --verbose --no-pub)
 install     : |
     _build_folder=app/build/linux/x64/release/bundle
 
@@ -59,8 +61,11 @@ install     : |
     %install_exe %(cargo_target_dir)/server -t %(installroot)%(libdir)/%(name)/
     %install_exe ${_build_folder}/%(name)_app %(installroot)%(bindir)/%(name)
 
-    # Set RPATH so the binary finds its libs in /usr/lib/localsend
+    # keep an rpath pointing at the bundled libs
     patchelf --set-rpath "%(libdir)/%(name)" %(installroot)%(bindir)/%(name)
+    for lib in %(installroot)%(libdir)/%(name)/*.so; do
+        patchelf --set-rpath '$ORIGIN' "${lib}"
+    done
 
     %install_file %(pkgdir)/org.%(name).%(name)_app.desktop -t %(installroot)%(datadir)/applications/
     %install_file app/assets/img/logo-512.png %(installroot)%(datadir)/icons/hicolor/512x512/apps/%(name).png
