@@ -3,7 +3,7 @@
 
 name        : kf6-knotifications
 version     : "6.32.0"
-release     : 33
+release     : 34
 homepage    : https://invent.kde.org/frameworks/knotifications
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/knotifications-6.32.0.tar.xz : 5da86674bfbe532427f2ea52c86e6d5220cdfb8d0fadb8cbec2ba53d48ec5be9
