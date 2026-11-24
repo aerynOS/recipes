@@ -3,7 +3,7 @@
 
 name        : powerdevil
 version     : "6.8.3"
-release     : 38
+release     : 39
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/powerdevil-6.8.3.tar.xz : c197615be2f1b203ed715ea038e0bafd09d88f7faf3e7cdb5423a519fcfdfe6e
