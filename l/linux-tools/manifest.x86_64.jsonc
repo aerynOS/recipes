@@ -325,6 +325,7 @@
 				"/usr/lib/perf/tests/shell/attr/base-record",
 				"/usr/lib/perf/tests/shell/attr/base-record-spe",
 				"/usr/lib/perf/tests/shell/attr/base-stat",
+				"/usr/lib/perf/tests/shell/attr/base-stat-group",
 				"/usr/lib/perf/tests/shell/attr/system-wide-dummy",
 				"/usr/lib/perf/tests/shell/attr/test-record-C0",
 				"/usr/lib/perf/tests/shell/attr/test-record-basic",
@@ -440,6 +441,7 @@
 				"/usr/lib/perf/tests/shell/record_sideband.sh",
 				"/usr/lib/perf/tests/shell/record_weak_term.sh",
 				"/usr/lib/perf/tests/shell/sched.sh",
+				"/usr/lib/perf/tests/shell/schedstat_snapshots.sh",
 				"/usr/lib/perf/tests/shell/script.sh",
 				"/usr/lib/perf/tests/shell/script_dlfilter.sh",
 				"/usr/lib/perf/tests/shell/script_perl.sh",
@@ -615,6 +617,6 @@
 		}
 	},
 	"source-name": "linux-tools",
-	"source-release": "58",
-	"source-version": "7.3.5"
+	"source-release": "59",
+	"source-version": "7.3.6"
 }
