@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zxing-cpp
-version     : "3.1.1"
-release     : 8
+version     : "3.2.0"
+release     : 9
 upstreams   :
-    - https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.1.1/zxing-cpp-3.1.1.tar.gz : c3c02c29c0b519de7bd4e25b376e606e87f0761befd1282815642a2246613d14
+    - https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.2.0/zxing-cpp-3.2.0.tar.gz : eacc2495f452be751d9dd453f4d6cccd0e9a40131e002bcf54d2580ce5c19ad8
 homepage    : https://github.com/zxing-cpp/zxing-cpp
 license     : Apache-2.0
 summary     : ZXing-C++ ("zebra crossing") is an open-source, multi-format linear/matrix barcode image processing library implemented in C++
@@ -14,20 +14,13 @@ description : |
 builddeps   :
     - binary(make)
     - binary(patchelf)
-    - cmake(pybind11)
     - cmake(zint)
     - pkgconfig(python3)
     - python(nanobind)
     - python(scikit-build-core)
-    - stb
 setup       : |
-    # we don't need cmake as a python dependency
-    sed -r -i '/cmake/d' wrappers/python/pyproject.toml
-    sed -i 's/pybind11\[global\]/pybind11/' wrappers/python/pyproject.toml
-
     # ZXING_PYTHON_MODULE=ON builds the Python shared library but not the metadata, so we still need to build the wheel with pyproject
     %cmake \
-        -DSTB_IMAGE_INCLUDE_DIR=%(includedir)/stb \
         -DZXING_C_API=ON \
         -DZXING_EXAMPLES=OFF \
         -DZXING_PYTHON_INSTALL_LIBDIR=%(libdir) \

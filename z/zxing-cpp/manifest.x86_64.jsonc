@@ -6,12 +6,10 @@
 			"build-depends": [
 				"binary(make)",
 				"binary(patchelf)",
-				"cmake(pybind11)",
 				"cmake(zint)",
 				"pkgconfig(python3)",
 				"python(nanobind)",
-				"python(scikit-build-core)",
-				"stb"
+				"python(scikit-build-core)"
 			],
 			"depends": [
 				"soname(libZXing.so.4(x86_64))",
@@ -20,9 +18,9 @@
 				"soname(libstdc++.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/python3.14/site-packages/zxing_cpp-3.1.1.dist-info/METADATA",
-				"/usr/lib/python3.14/site-packages/zxing_cpp-3.1.1.dist-info/RECORD",
-				"/usr/lib/python3.14/site-packages/zxing_cpp-3.1.1.dist-info/WHEEL",
+				"/usr/lib/python3.14/site-packages/zxing_cpp-3.2.0.dist-info/METADATA",
+				"/usr/lib/python3.14/site-packages/zxing_cpp-3.2.0.dist-info/RECORD",
+				"/usr/lib/python3.14/site-packages/zxing_cpp-3.2.0.dist-info/WHEEL",
 				"/usr/lib/python3.14/site-packages/zxingcpp/__init__.py",
 				"/usr/lib/python3.14/site-packages/zxingcpp/__pycache__/__init__.cpython-314.opt-1.pyc",
 				"/usr/lib/python3.14/site-packages/zxingcpp/__pycache__/__init__.cpython-314.pyc",
@@ -40,12 +38,10 @@
 			"build-depends": [
 				"binary(make)",
 				"binary(patchelf)",
-				"cmake(pybind11)",
 				"cmake(zint)",
 				"pkgconfig(python3)",
 				"python(nanobind)",
-				"python(scikit-build-core)",
-				"stb"
+				"python(scikit-build-core)"
 			],
 			"depends": [
 				"soname(libc.so.6(x86_64))",
@@ -55,7 +51,7 @@
 				"soname(libzint.so.2.16(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libZXing.so.3.1.1",
+				"/usr/lib/libZXing.so.3.2.0",
 				"/usr/lib/libZXing.so.4"
 			],
 			"name": "zxing-cpp",
@@ -67,12 +63,10 @@
 			"build-depends": [
 				"binary(make)",
 				"binary(patchelf)",
-				"cmake(pybind11)",
 				"cmake(zint)",
 				"pkgconfig(python3)",
 				"python(nanobind)",
-				"python(scikit-build-core)",
-				"stb"
+				"python(scikit-build-core)"
 			],
 			"depends": [
 				"zxing-cpp"
@@ -115,6 +109,6 @@
 		}
 	},
 	"source-name": "zxing-cpp",
-	"source-release": "8",
-	"source-version": "3.1.1"
+	"source-release": "9",
+	"source-version": "3.2.0"
 }

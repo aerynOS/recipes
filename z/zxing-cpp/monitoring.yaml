@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 101246
   rss: https://github.com/zxing-cpp/zxing-cpp/releases.atom
 security:
-  # Last checked 2025-07-04
+  # Last checked 2026-11-24
   cpe: ~
