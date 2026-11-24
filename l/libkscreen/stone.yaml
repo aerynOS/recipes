@@ -3,7 +3,7 @@
 
 name        : libkscreen
 version     : "6.8.3"
-release     : 35
+release     : 36
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/libkscreen-6.8.3.tar.xz : 8f0e2157bb55aa36ac632c85bd4411bcbf2424c477cca3126b8b42ad33fa4fb8
