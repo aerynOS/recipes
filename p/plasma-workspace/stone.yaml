@@ -3,7 +3,7 @@
 
 name        : plasma-workspace
 version     : "6.8.3"
-release     : 52
+release     : 53
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/plasma-workspace-6.8.3.tar.xz : 3f984e2d960c252ee6353ef639807379c7d1bb2777fecedd047943209c52ffcb
