@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 17740
-  rss: ~
+  rss: https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/atom/
 security:
   cpe:
   - vendor: keyutils_project
