@@ -3,7 +3,7 @@
 
 name        : kf6-baloo
 version     : "6.32.0"
-release     : 34
+release     : 35
 homepage    : https://invent.kde.org/frameworks/baloo
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/baloo-6.32.0.tar.xz : 305c0e41dab070cac27d2e9530a81aab95157dd76c1c00ffe87d1ad08734dad7
