@@ -3,7 +3,7 @@
 
 name        : bluejay
 version     : "1.0.3"
-release     : 1
+release     : 2
 homepage    : https://codeberg.org/EbonJaeger/bluejay
 upstreams   :
     - https://codeberg.org/EbonJaeger/bluejay/archive/v1.0.3.tar.gz : 5133e4e205b75751c9bd48bcecf3581e39b53fb1bd90c7070002f2becb240bf2
