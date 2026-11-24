@@ -2,20 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libyaml
-version     : "0.2.6"
-release     : 4
+version     : "0.2.7"
+release     : 5
 homepage    : https://pyyaml.org/wiki/LibYAML
 upstreams   :
-    - https://github.com/yaml/libyaml/releases/download/0.2.6/yaml-0.2.6.tar.gz : 43b393a117bd4fe39812fddc94e3d654359a3ae05653dcf0110a1122d1747e61
+    - https://github.com/yaml/libyaml/releases/download/0.2.7/yaml-0.2.7.tar.gz : 0c39256b8be0fc689f5c7bfdea1bc9f3fb1fd648468fd3cc6fd375e09ffb6f13
 summary     : YAML 1.1 library
 description : |
     YAML 1.1 library
 license     :
     - MIT
 setup       : |
-    # drop once upstream fixes the soname (0.2.7)
-    %patch %(pkgdir)/fix-libtool-versioning.patch
-
     %configure --disable-static
 build       : |
     %make
