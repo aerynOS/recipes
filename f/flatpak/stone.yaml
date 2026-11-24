@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : flatpak
-version     : "1.18.4"
-release     : 26
+version     : "1.18.6"
+release     : 27
 homepage    : https://www.flatpak.org/
 upstreams   :
-    - https://github.com/flatpak/flatpak/releases/download/1.18.4/flatpak-1.18.4.tar.xz : b899a7a00c48d2c626cb8ec33fe556720b376c25805d7222430c0fdca4c6ac8d
+    - https://github.com/flatpak/flatpak/releases/download/1.18.6/flatpak-1.18.6.tar.xz : a822afacfc3a36196dbf7fa567f8d366114779564146903fceef0805b5147a14
     - https://dl.flathub.org/repo/flathub.flatpakrepo:
         hash: 3371dd250e61d9e1633630073fefda153cd4426f72f4afa0c3373ae2e8fea03a
         unpack: false
