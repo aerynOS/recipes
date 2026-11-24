@@ -3,7 +3,7 @@
 
 name        : kscreenlocker
 version     : "6.8.3"
-release     : 33
+release     : 34
 homepage    : https://kde.org/plasma-desktop/
 upstreams   :
     - https://download.kde.org/stable/plasma/6.8.3/kscreenlocker-6.8.3.tar.xz : 03c61481bb8934c6beaf8f8dd986d2679c0f59f8336e548d85f0872b767edf01
