@@ -3,7 +3,7 @@
 
 name        : kf6-kdeclarative
 version     : "6.32.0"
-release     : 34
+release     : 35
 homepage    : https://invent.kde.org/frameworks/kdeclarative
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.32/kdeclarative-6.32.0.tar.xz : 9e187056b3e1d49ecde29b30e4a4f5f2633639b622dd596369eac86c45c7f167
