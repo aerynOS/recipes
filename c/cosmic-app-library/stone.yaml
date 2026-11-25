@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-app-library
-version     : "1.11.0"
-release     : 2
+version     : "1.12.0"
+release     : 3
 homepage    : https://github.com/pop-os/cosmic-app-library
 upstreams   :
-    - https://github.com/pop-os/cosmic-app-library/archive/refs/tags/epoch-1.11.0.tar.gz : 9ce3f012af1f885b0a99c589e77803c8d7fb76cba7a7202030cae19f1ac2dd55
+    - https://github.com/pop-os/cosmic-app-library/archive/refs/tags/epoch-1.12.0.tar.gz : effa9de263dd882ca02b5748a9ec852f53cf2ea34ae4bc97755b2a1fe85d57fc
 summary     : Cosmic Desktop App Launcher
 description : |
     Cosmic Desktop App Launcher
