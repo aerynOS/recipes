@@ -8,7 +8,7 @@ name        : mesa
 version     : "26.3.1"
 ##@@END_VERSION
 # Note: keep mesa-clc in-sync with this package version-wise
-release     : 98
+release     : 99
 homepage    : https://mesa3d.org/
 upstreams   :
 ##@@BEGIN_SOURCE
@@ -225,6 +225,10 @@ profiles    :
 environment : |
     _IS_64BIT_BOOL="true"
     _IS_64BIT_FEAT="enabled"
+
+    # Temporary for testing PGO server
+    export CFLAGS+=" -fdebug-info-for-profiling"
+    export CXXFLAGS+=" -fdebug-info-for-profiling"
 
     EXTRA_VK_DRIVERS=",gfxstream,nouveau"
 setup       : |
