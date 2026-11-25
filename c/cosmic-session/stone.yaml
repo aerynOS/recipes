@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-session
-version     : "1.11.0"
-release     : 65
+version     : "1.12.0"
+release     : 66
 homepage    : https://github.com/pop-os/cosmic-session
 upstreams   :
-    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.11.0.tar.gz : 0c3d3e1f0ef534a063621932cdcc15c8af258df5c12ce6023615dc33222ebca5
+    - https://github.com/pop-os/cosmic-session/archive/refs/tags/epoch-1.12.0.tar.gz : b193591595716052a77c8b3620c31bc447725394ce4a78ebcd43ca630a51006e
 summary     : Cosmic Session Management
 description : |
     Cosmic Session Management
