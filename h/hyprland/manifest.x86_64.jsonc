@@ -60,7 +60,7 @@
 				"soname(libglslang.so.16(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libhyprcursor.so.0(x86_64))",
-				"soname(libhyprgraphics.so.5(x86_64))",
+				"soname(libhyprgraphics.so.6(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libhyprwire.so.3(x86_64))",
 				"soname(libinput.so.10(x86_64))",
@@ -814,6 +814,6 @@
 		}
 	},
 	"source-name": "hyprland",
-	"source-release": "19",
+	"source-release": "20",
 	"source-version": "0.57.2"
 }
