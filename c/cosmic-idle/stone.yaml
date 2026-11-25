@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-idle
-version     : "1.11.0"
-release     : 47
+version     : "1.12.0"
+release     : 48
 homepage    : https://github.com/pop-os/cosmic-idle
 upstreams   :
-    - https://github.com/pop-os/cosmic-idle/archive/refs/tags/epoch-1.11.0.tar.gz : 683290f2a67a63fd553f654a34756cbfdcc41b2d2141b79850c58c16643dc63a
+    - https://github.com/pop-os/cosmic-idle/archive/refs/tags/epoch-1.12.0.tar.gz : 894a3934d37f0041d33756af8fae73f0abad40b9174d40b2af13ead7ab916b64
 summary     : Cosmic Desktop Idle Daemon
 description : |
     Cosmic Desktop Idle Daemon
