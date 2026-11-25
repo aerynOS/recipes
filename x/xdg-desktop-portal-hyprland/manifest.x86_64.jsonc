@@ -24,7 +24,7 @@
 				"soname(libgbm.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libhyprlang.so.2(x86_64))",
-				"soname(libhyprtoolkit.so.6(x86_64))",
+				"soname(libhyprtoolkit.so.7(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libpipewire-0.3.so.0(x86_64))",
@@ -46,6 +46,6 @@
 		}
 	},
 	"source-name": "xdg-desktop-portal-hyprland",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "1.5.0"
 }

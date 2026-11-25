@@ -3,7 +3,7 @@
 
 name        : xdg-desktop-portal-hyprland
 version     : "1.5.0"
-release     : 7
+release     : 8
 upstreams   :
     - https://github.com/hyprwm/xdg-desktop-portal-hyprland/archive/refs/tags/v1.5.0.tar.gz : 8f9eddad706b0bbca2dc24f9894e07969ec5aed163249d6eac3932cfaf38e6a9
 homepage    : https://github.com/hyprwm/xdg-desktop-portal-hyprland
