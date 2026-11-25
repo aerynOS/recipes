@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-viewer
-version     : "1.11.0"
-release     : 4
+version     : "1.12.0"
+release     : 5
 homepage    : https://github.com/pop-os/cosmic-viewer
 upstreams   :
-    - https://github.com/pop-os/cosmic-viewer/archive/refs/tags/epoch-1.11.0.tar.gz : 9143d8fa1f5e88144b9ab44ebb2f9fee73498fece4a68dda7492866a2cecd691
+    - https://github.com/pop-os/cosmic-viewer/archive/refs/tags/epoch-1.12.0.tar.gz : e6c3f6f5682d96d20289f008fee2874ef6c348cc0f9add531eb44ea3fec92038
 summary     : Cosmic Desktop Image Viewer
 description : |
     Cosmic Desktop Image Viewer
