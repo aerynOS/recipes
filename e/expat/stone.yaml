@@ -2,16 +2,20 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : expat
-version     : "2.10.0"
-release     : 21
+version     : "2.11.0"
+release     : 22
 summary     : An XML parser library
 license     : MIT
 homepage    : https://libexpat.github.io
 description : |
     An XML parser library
 upstreams   :
-    - https://github.com/libexpat/libexpat/releases/download/R_2_10_0/expat-2.10.0.tar.xz: c624ba2998fc65df1163a49641ff3f9ab73138b11641d92c86bee0fb01b1bc7f
+    - https://github.com/libexpat/libexpat/releases/download/R_2_11_0/expat-2.11.0.tar.xz: 61e7614b602201c28a189dafee78f5bceaee192bbde46a930752ff09cf5542fa
 emul32      : true
+environment : |
+    # The PGO use-stage re-runs configure, where the flag probes fail under
+    # -fprofile-use and drop expat's own -fno-strict-aliasing (security relevant)
+    export CFLAGS="${CFLAGS} -fno-strict-aliasing"
 # TODO: docbook2man for man pages
 setup       : |
     %configure \
