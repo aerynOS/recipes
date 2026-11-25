@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-notifications
-version     : "1.11.0"
-release     : 53
+version     : "1.12.0"
+release     : 54
 homepage    : https://github.com/pop-os/cosmic-notifications
 upstreams   :
-    - https://github.com/pop-os/cosmic-notifications/archive/refs/tags/epoch-1.11.0.tar.gz : 1874d0b5d67a0c6f1c1415f36a094faaac9c82f3ddf4eeb5061c516d778598c8
+    - https://github.com/pop-os/cosmic-notifications/archive/refs/tags/epoch-1.12.0.tar.gz : 67d8d569a147bdc6e5e62056fdb075e63f27a1c091e16157bf05a63691ce84be
 summary     : Cosmic Desktop Notifications
 description : |
     Cosmic Desktop Notifications
