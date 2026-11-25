@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-applets
-version     : "1.11.0"
-release     : 59
+version     : "1.12.0"
+release     : 60
 homepage    : https://github.com/pop-os/cosmic-applets
-summary     : Cosmic Panel Applets
 upstreams   :
-    - https://github.com/pop-os/cosmic-applets/archive/refs/tags/epoch-1.11.0.tar.gz : d2ad09b72a2dcba2a17f12e557f0e21dc60171eefa54390e4b67bb058f9180e2
+    - https://github.com/pop-os/cosmic-applets/archive/refs/tags/epoch-1.12.0.tar.gz : 4aeceb0da95c1a08fc4e84d5433e4d7899d07082e95faa7f2e8b32f46b025012
+summary     : Cosmic Panel Applets
 description : |
     Cosmic Panel Applets
 license     : GPL-3.0
