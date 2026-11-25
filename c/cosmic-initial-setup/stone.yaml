@@ -1,16 +1,17 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-initial-setup
-version     : "1.11.0"
-release     : 38
+version     : "1.12.0"
+release     : 39
 homepage    : https://github.com/pop-os/cosmic-initial-setup
 upstreams   :
-    - https://github.com/pop-os/cosmic-initial-setup/archive/refs/tags/epoch-1.11.0.tar.gz : 4075b2199e634794bea201a12a8732f3dc9355e585191a7fd0be666fe63fe2e5
+    - https://github.com/pop-os/cosmic-initial-setup/archive/refs/tags/epoch-1.12.0.tar.gz : 1002f38c8c1f1e552e7fe14b02bac65709b66545c887b33aa8bb998e8c72860d
 summary     : Cosmic Initial Setup
 description : |
     Cosmic Desktop Intial Setup Application
 license     : GPL-3.0
+networking  : true
 builddeps   :
     - binary(git-lfs)
     - binary(just)
@@ -19,7 +20,6 @@ builddeps   :
     - pkgconfig(libudev)
     - pkgconfig(openssl)
     - pkgconfig(xkbcommon)
-networking  : true
 setup       : |
     %patch %(pkgdir)/0001-Allow-xdg-directory-to-be-overridden.patch
 
