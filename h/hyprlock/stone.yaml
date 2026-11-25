@@ -3,7 +3,7 @@
 
 name        : hyprlock
 version     : "0.9.7"
-release     : 6
+release     : 7
 upstreams   :
     - https://github.com/hyprwm/hyprlock/archive/refs/tags/v0.9.7.tar.gz : 01145790570ffabd31e9b528c517bdccae76f36e72d733f00c2696d9c3bf2c88
 homepage    : https://github.com/hyprwm/hyprlock
