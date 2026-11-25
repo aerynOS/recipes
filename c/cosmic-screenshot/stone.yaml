@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-screenshot
-version     : "1.11.0"
-release     : 53
+version     : "1.12.0"
+release     : 54
 homepage    : https://github.com/pop-os/cosmic-screenshot
 upstreams   :
-    - https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-1.11.0.tar.gz : 0bf658bda69ce67113d58d1ad5d32126218095194cc51f69c27b8d6399962af7
+    - https://github.com/pop-os/cosmic-screenshot/archive/refs/tags/epoch-1.12.0.tar.gz : 096f72fd4c361e778d5e22118485883c84e1fe42af435ced4bfdc25f5ea2b7eb
 summary     : Cosmic Screenshot Tool
 description : |
     Cosmic Screenshot Tool
