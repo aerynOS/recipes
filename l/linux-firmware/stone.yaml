@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : linux-firmware
-version     : "20261019"
-release     : 49
+version     : "20261124"
+release     : 50
 homepage    : https://kernel.org
 upstreams   :
-    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : a2dcb924f0897368b0b4f305cbf9808cdda90ce0
+    - git|https://gitlab.com/kernel-firmware/linux-firmware.git : fb38917ad9afbb1df16de8c2d1caa3afbbea312d
 summary     : Firmware to allow devices to function correctly
 description : |
     Firmware to allow devices to function correctly
@@ -21,16 +21,8 @@ builddeps   :
     - binary(unzstd)
     - binary(which)
 setup       : |
-    _backports=(
-        5a3f625f2e9d9f70134af2340d82af3f19ae6891
-        585d96e825a5eb8a3e406c054059e3bfeb0e963f
-    )
     _reverts=(
     )
-    for c in "${_backports[@]}"; do
-        echo Backporting $(git log --oneline -1 "${c}")
-        git cherry-pick -n "${c}"
-    done
     for c in "${_reverts[@]}"; do
         echo Reverting $(git log --oneline -1 "${c}")
         git revert -n "${c}"
@@ -105,6 +97,12 @@ packages    :
             - /usr/lib/firmware/amdnpu
             - /usr/lib/firmware/r128
             - /usr/lib/firmware/radeon
+
+    - "%(name)-amd-sound":
+        summary: Support for AMD audio DSPs
+        paths:
+            - /usr/lib/firmware/amd/sof/
+            - /usr/lib/firmware/amd/sof-tplg/
 
     - "%(name)-atheros":
         summary: Support for Qualcomm Atheros wireless chips
@@ -373,7 +371,7 @@ packages    :
             - /usr/lib/firmware/adaptec/
             - /usr/lib/firmware/advansys/
             - /usr/lib/firmware/aeonsemi/
-            - /usr/lib/firmware/aic/aic8800d80/
+            - /usr/lib/firmware/aic/
             - /usr/lib/firmware/airoha/
             - /usr/lib/firmware/amlogic/
             - /usr/lib/firmware/amphion/vpu/
@@ -381,6 +379,7 @@ packages    :
             - /usr/lib/firmware/atmel/
             - /usr/lib/firmware/atusb/
             - /usr/lib/firmware/av7110
+            - /usr/lib/firmware/awinic/
             - /usr/lib/firmware/cadence/
             - /usr/lib/firmware/cis/
             - /usr/lib/firmware/cnm/
@@ -442,6 +441,7 @@ packages    :
         rundeps:
             - "%(name)-amd64-microcode"
             - "%(name)-amd-graphics"
+            - "%(name)-amd-sound"
             - "%(name)-atheros"
             - "%(name)-bnx2"
             - "%(name)-bnx2x"
@@ -474,6 +474,7 @@ packages    :
         rundeps:
             - "%(name)-amd64-microcode"
             - "%(name)-amd-graphics"
+            - "%(name)-amd-sound"
         paths:
             - /usr/share/doc/linux-firmware-amd/README
 
