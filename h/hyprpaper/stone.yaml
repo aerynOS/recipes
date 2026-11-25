@@ -3,7 +3,7 @@
 
 name        : hyprpaper
 version     : "0.8.5"
-release     : 5
+release     : 6
 upstreams   :
     - https://github.com/hyprwm/hyprpaper/archive/refs/tags/v0.8.5.tar.gz : d5868931dc485fd2e798717ce885bc62abd1e00796ff921f31e1903147bff3bf
 homepage    : https://github.com/hyprwm/hyprpaper
