@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dracut
-version     : "112"
-release     : 16
+version     : "113"
+release     : 17
 homepage    : https://github.com/dracut-ng/dracut-ng
 upstreams   :
-    - https://github.com/dracut-ng/dracut-ng/archive/refs/tags/112.tar.gz : 839d21eb4bd27bb0ee40d74c9da46df088c2e1425fcd8c3ea62b7e3a3dd28a91
+    - https://github.com/dracut-ng/dracut-ng/archive/refs/tags/113.tar.gz : a476ed20c8675ab6fd760a8210b2393afca0321d411747f3976f54fbb4b436b3
 summary     : dracut is an event driven initramfs infrastructure.
 description : |
     dracut (the tool) is used to create an initramfs image by copying tools and files from an installed system and combining it with the dracut framework, usually found in /usr/lib/dracut/modules.d.
@@ -33,9 +33,6 @@ setup       : |
     %patch %(pkgdir)/0004-Create-ldconfig-folder-in-initramfs.patch
 
     %patch %(pkgdir)/0005-solus-Allow-for-skipping-firmware-installation.patch
-    
-    # https://github.com/dracut-ng/dracut/pull/2781
-    %patch %(pkgdir)/2781.patch
 
     # Uses bash syntax: ./configure: 26: [[: not found
     %configure_with_bash

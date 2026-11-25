@@ -2,7 +2,7 @@ diff --git a/dracut.sh b/dracut.sh
 index 9819b793..a30ebb5c 100755
 --- a/dracut.sh
 +++ b/dracut.sh
-@@ -1604,6 +1604,8 @@ mark_hostonly() {
+@@ -1626,6 +1626,8 @@ build_ld_cache() {
  build_ld_cache() {
      local dstdir="${dstdir:-"$initdir"}"
  

@@ -20,11 +20,12 @@
 			"files": [
 				"/usr/bin/dracut",
 				"/usr/bin/dracut-catimages",
+				"/usr/bin/dracut-extractinitrd",
+				"/usr/bin/dracut-install",
 				"/usr/bin/lsinitrd",
 				"/usr/lib/dracut/dracut-functions",
 				"/usr/lib/dracut/dracut-functions.sh",
 				"/usr/lib/dracut/dracut-initramfs-restore",
-				"/usr/lib/dracut/dracut-install",
 				"/usr/lib/dracut/dracut-logger.sh",
 				"/usr/lib/dracut/dracut-util",
 				"/usr/lib/dracut/dracut.conf.d/00-aeryn-os.conf",
@@ -35,6 +36,7 @@
 				"/usr/lib/dracut/dracut.conf.d/no-network/10-no-network.conf",
 				"/usr/lib/dracut/dracut.conf.d/rescue/10-rescue.conf",
 				"/usr/lib/dracut/modules.d/10bash/module-setup.sh",
+				"/usr/lib/dracut/modules.d/10busybox/module-setup.sh",
 				"/usr/lib/dracut/modules.d/10dash/module-setup.sh",
 				"/usr/lib/dracut/modules.d/10systemd-network-management/module-setup.sh",
 				"/usr/lib/dracut/modules.d/10systemd/module-setup.sh",
@@ -150,9 +152,6 @@
 				"/usr/lib/dracut/modules.d/68lvmthinpool-monitor/start-thinpool-monitor.service",
 				"/usr/lib/dracut/modules.d/68lvmthinpool-monitor/start-thinpool-monitor.sh",
 				"/usr/lib/dracut/modules.d/70bluetooth/module-setup.sh",
-				"/usr/lib/dracut/modules.d/70btrfs/80-btrfs.rules",
-				"/usr/lib/dracut/modules.d/70btrfs/btrfs_device_ready.sh",
-				"/usr/lib/dracut/modules.d/70btrfs/btrfs_finished.sh",
 				"/usr/lib/dracut/modules.d/70btrfs/btrfs_timeout.sh",
 				"/usr/lib/dracut/modules.d/70btrfs/module-setup.sh",
 				"/usr/lib/dracut/modules.d/70crypt-lib/crypt-lib.sh",
@@ -332,6 +331,7 @@
 				"/usr/lib/dracut/modules.d/76biosdevname/module-setup.sh",
 				"/usr/lib/dracut/modules.d/76biosdevname/parse-biosdevname.sh",
 				"/usr/lib/dracut/modules.d/76masterkey/README",
+				"/usr/lib/dracut/modules.d/76masterkey/masterkey-lib.sh",
 				"/usr/lib/dracut/modules.d/76masterkey/masterkey.sh",
 				"/usr/lib/dracut/modules.d/76masterkey/module-setup.sh",
 				"/usr/lib/dracut/modules.d/76systemd-emergency/module-setup.sh",
@@ -384,6 +384,7 @@
 				"/usr/lib/dracut/modules.d/77integrity/README",
 				"/usr/lib/dracut/modules.d/77integrity/evm-enable.sh",
 				"/usr/lib/dracut/modules.d/77integrity/ima-keys-load.sh",
+				"/usr/lib/dracut/modules.d/77integrity/ima-lib.sh",
 				"/usr/lib/dracut/modules.d/77integrity/ima-policy-load.sh",
 				"/usr/lib/dracut/modules.d/77integrity/module-setup.sh",
 				"/usr/lib/dracut/modules.d/77pollcdrom/module-setup.sh",
@@ -409,7 +410,6 @@
 				"/usr/lib/dracut/modules.d/80base/parse-kernel.sh",
 				"/usr/lib/dracut/modules.d/80base/parse-root-opts.sh",
 				"/usr/lib/dracut/modules.d/80base/rdsosreport.sh",
-				"/usr/lib/dracut/modules.d/81busybox/module-setup.sh",
 				"/usr/lib/dracut/modules.d/84memstrack/memstrack-report.sh",
 				"/usr/lib/dracut/modules.d/84memstrack/memstrack-start.sh",
 				"/usr/lib/dracut/modules.d/84memstrack/memstrack.service",
@@ -422,7 +422,6 @@
 				"/usr/lib/dracut/modules.d/88squash-lib/module-setup.sh",
 				"/usr/lib/dracut/modules.d/99zz-init-extension/initrd-invalidate-depmod.service",
 				"/usr/lib/dracut/modules.d/99zz-init-extension/module-setup.sh",
-				"/usr/lib/dracut/skipcpio",
 				"/usr/lib/kernel/install.d/50-dracut.install",
 				"/usr/lib/kernel/install.d/51-dracut-rescue.install",
 				"/usr/lib/systemd/system/dracut-cmdline.service",
@@ -452,7 +451,9 @@
 				"/usr/share/man/man7/dracut.modules.7",
 				"/usr/share/man/man8/dracut-catimages.8",
 				"/usr/share/man/man8/dracut-cmdline.service.8",
+				"/usr/share/man/man8/dracut-extractinitrd.8",
 				"/usr/share/man/man8/dracut-initqueue.service.8",
+				"/usr/share/man/man8/dracut-install.8",
 				"/usr/share/man/man8/dracut-mount.service.8",
 				"/usr/share/man/man8/dracut-pre-mount.service.8",
 				"/usr/share/man/man8/dracut-pre-pivot.service.8",
@@ -465,6 +466,8 @@
 			"provides": [
 				"binary(dracut)",
 				"binary(dracut-catimages)",
+				"binary(dracut-extractinitrd)",
+				"binary(dracut-install)",
 				"binary(lsinitrd)"
 			]
 		},
@@ -487,6 +490,6 @@
 		}
 	},
 	"source-name": "dracut",
-	"source-release": "16",
-	"source-version": "112"
+	"source-release": "17",
+	"source-version": "113"
 }
