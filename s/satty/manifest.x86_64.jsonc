@@ -9,7 +9,8 @@
 				"pkgconfig(gdk-pixbuf-2.0)",
 				"pkgconfig(glib-2.0)",
 				"pkgconfig(gtk4-layer-shell-0)",
-				"pkgconfig(libadwaita-1)"
+				"pkgconfig(libadwaita-1)",
+				"pkgconfig(xkbcommon)"
 			],
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
@@ -45,6 +46,6 @@
 		}
 	},
 	"source-name": "satty",
-	"source-release": "2",
-	"source-version": "0.22.0"
+	"source-release": "3",
+	"source-version": "0.23.0"
 }

@@ -5,4 +5,5 @@ releases:
   id: 372795
   rss: https://github.com/Satty-org/Satty/releases.atom
 security:
-  cpe: ~ # No CPE found, last checked (2026-08-27)
+  # No CPE found, last checked 2026-11-25
+  cpe: ~

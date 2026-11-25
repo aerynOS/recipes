@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : satty
-version     : "0.22.0"
-release     : 2
+version     : "0.23.0"
+release     : 3
 homepage    : https://github.com/Satty-org/Satty
 upstreams   :
-    - https://github.com/Satty-org/Satty/archive/refs/tags/v0.22.0.tar.gz : eee18b5f9eabf164da69c7e6e916c98afb78dd296d83e28bb96d9f9636a5fe36
+    - https://github.com/Satty-org/Satty/archive/refs/tags/v0.23.0.tar.gz : 33ab13767010663762165f0130df9f11edf133e28e49f13bd7bc45cb02516a79
 summary     : Satty is a screenshot annotation tool inspired by Swappy and Flameshot.
 description : Satty is a screenshot annotation tool inspired by Swappy and Flameshot.
 license     : MPL-2.0
@@ -18,6 +18,7 @@ builddeps   :
     - pkgconfig(glib-2.0)
     - pkgconfig(gtk4-layer-shell-0)
     - pkgconfig(libadwaita-1)
+    - pkgconfig(xkbcommon)
 setup       : |
     %cargo_fetch 
 build       : |
