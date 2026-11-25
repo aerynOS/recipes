@@ -16,7 +16,7 @@
 			],
 			"files": [
 				"/usr/bin/screen",
-				"/usr/bin/screen-5.0.2",
+				"/usr/bin/screen-5.0.3",
 				"/usr/share/defaults/pam.d/screen",
 				"/usr/share/info",
 				"/usr/share/man/man1/screen.1",
@@ -42,11 +42,11 @@
 			"name": "screen",
 			"provides": [
 				"binary(screen)",
-				"binary(screen-5.0.2)"
+				"binary(screen-5.0.3)"
 			]
 		}
 	},
 	"source-name": "screen",
-	"source-release": "7",
-	"source-version": "5.0.2"
+	"source-release": "8",
+	"source-version": "5.0.3"
 }
