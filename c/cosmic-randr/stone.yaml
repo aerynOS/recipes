@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-randr
-version     : "1.11.0"
-release     : 50
+version     : "1.12.0"
+release     : 51
 homepage    : https://github.com/pop-os/cosmic-randr
 upstreams   :
-    - https://github.com/pop-os/cosmic-randr/archive/refs/tags/epoch-1.11.0.tar.gz : cd04841b780ad13d407a0a3740f827b3fc214dfc198b114d6a83524c2a0ca96e
+    - https://github.com/pop-os/cosmic-randr/archive/refs/tags/epoch-1.12.0.tar.gz : ad235437a6e8813a581d4163a8461655208b2c47ff808a01241aa957f051f016
 summary     : Cosmic Desktop display configuration
 description : |
     Cosmic Desktop display configuration
