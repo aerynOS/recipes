@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-workspaces
-version     : "1.11.0"
-release     : 52
+version     : "1.12.0"
+release     : 53
 homepage    : https://github.com/pop-os/cosmic-workspaces-epoch
 upstreams   :
-    - https://github.com/pop-os/cosmic-workspaces-epoch/archive/refs/tags/epoch-1.11.0.tar.gz : 4dad3cd1fffe5b377c84948598c666493e5a053e6e1105a958f20a73bea92eab
+    - https://github.com/pop-os/cosmic-workspaces-epoch/archive/refs/tags/epoch-1.12.0.tar.gz : 853db058e4285ea85ca39d82a72a31d90fcc72de663ac1154db851b9cb2ccb19
 summary     : Cosmic Desktop Workspaces
 description : |
     Cosmic Desktop Workspaces
