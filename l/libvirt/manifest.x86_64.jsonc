@@ -1049,6 +1049,6 @@
 		}
 	},
 	"source-name": "libvirt",
-	"source-release": "23",
+	"source-release": "24",
 	"source-version": "12.9.0"
 }

@@ -3,7 +3,7 @@
 
 name        : libvirt
 version     : "12.9.0"
-release     : 23
+release     : 24
 homepage    : https://gitlab.com/libvirt/libvirt
 upstreams   :
     - https://libvirt.org/sources/libvirt-12.9.0.tar.xz : dcf579d8a949f4cbf56820529d48f200382a48ea12855ffded7c16a189353cd7
@@ -58,6 +58,8 @@ rundeps     :
     - sysbinary(iptables)
     - osinfo-db
 setup       : |
+    %patch %(pkgdir)/CVE-2026-119151.patch
+
     %meson \
         -Ddriver_interface=enabled \
         -Ddriver_libvirtd=enabled \
