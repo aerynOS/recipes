@@ -9,11 +9,10 @@
 				"cmake(GTest)",
 				"cmake(Marisa)",
 				"cmake(OpenCC)",
-				"cmake(OpenSSL)",
 				"cmake(leveldb)",
-				"cmake(ng-log)",
+				"cmake(spdlog)",
 				"cmake(yaml-cpp)",
-				"cmake(zlib)",
+				"pkgconfig(icu-uc)",
 				"pkgconfig(lua)"
 			],
 			"depends": [
@@ -25,14 +24,14 @@
 				"soname(liblua.so.5.5(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libmarisa.so.0(x86_64))",
-				"soname(libng-log.so.0(x86_64))",
 				"soname(libopencc.so.1.4(x86_64))",
+				"soname(libspdlog.so.1.17(x86_64))",
 				"soname(libstdc++.so.6(x86_64))",
 				"soname(libyaml-cpp.so.0.9(x86_64))"
 			],
 			"files": [
 				"/usr/lib/librime.so.1",
-				"/usr/lib/librime.so.1.17.0",
+				"/usr/lib/librime.so.1.18.0",
 				"/usr/lib/rime-plugins/librime-charcode.so",
 				"/usr/lib/rime-plugins/librime-lua.so",
 				"/usr/lib/rime-plugins/librime-octagram.so",
@@ -56,11 +55,10 @@
 				"cmake(GTest)",
 				"cmake(Marisa)",
 				"cmake(OpenCC)",
-				"cmake(OpenSSL)",
 				"cmake(leveldb)",
-				"cmake(ng-log)",
+				"cmake(spdlog)",
 				"cmake(yaml-cpp)",
-				"cmake(zlib)",
+				"pkgconfig(icu-uc)",
 				"pkgconfig(lua)"
 			],
 			"depends": [
@@ -88,11 +86,10 @@
 				"cmake(GTest)",
 				"cmake(Marisa)",
 				"cmake(OpenCC)",
-				"cmake(OpenSSL)",
 				"cmake(leveldb)",
-				"cmake(ng-log)",
+				"cmake(spdlog)",
 				"cmake(yaml-cpp)",
-				"cmake(zlib)",
+				"pkgconfig(icu-uc)",
 				"pkgconfig(lua)"
 			],
 			"depends": [
@@ -101,7 +98,6 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libng-log.so.0(x86_64))",
 				"soname(librime.so.1(x86_64))",
 				"soname(libstdc++.so.6(x86_64))"
 			],
@@ -121,6 +117,6 @@
 		}
 	},
 	"source-name": "librime",
-	"source-release": "1",
-	"source-version": "1.17.0"
+	"source-release": "2",
+	"source-version": "1.18.0"
 }

@@ -2,12 +2,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : librime
-version     : "1.17.0"
-release     : 1
+version     : "1.18.0"
+release     : 2
 homepage    : https://rime.im/
 upstreams   :
-    - https://github.com/rime/librime/archive/refs/tags/1.17.0.tar.gz:
-        hash: a60274da5d8b8a7187e6c7e9ba5023334ed7bdd182535e93c4e96de8cf188377
+    - https://github.com/rime/librime/archive/refs/tags/1.18.0.tar.gz:
+        hash: 5768b3ac14b9b033891771d48d78fdb399860672cb864a937c5a1050068ab72c
         unpackdir: rime
     - git|https://github.com/lotem/librime-octagram.git:
         ref: bfb168ca33d8b372596fdf2007933f3da1cf360e
@@ -34,15 +34,15 @@ builddeps   :
     - cmake(GTest)
     - cmake(Marisa)
     - cmake(OpenCC)
-    - cmake(OpenSSL)
     - cmake(leveldb)
-    - cmake(ng-log)
+    - cmake(spdlog)
     - cmake(yaml-cpp)
-    - cmake(zlib)
+    - pkgconfig(icu-uc)
     - pkgconfig(lua)
 setup       : |
     %patch %(pkgdir)/1184.patch
-    %patch %(pkgdir)/use-nglog.patch
+    %patch %(pkgdir)/0002-Use-the-system-spdlog.patch
+
     %cmake \
         -DBUILD_MERGED_PLUGINS=OFF \
         -DENABLE_EXTERNAL_PLUGINS=ON

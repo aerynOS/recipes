@@ -1,0 +1,58 @@
+From 3299a15adb5a89d928178a641ac459a06022da67 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Wed, 25 Nov 2026 12:48:59 -0600
+Subject: [PATCH] Use the system spdlog instead of the bundled copy
+
+The bundled copy is a git submodule pinned to spdlog 1.17.0. Build
+against the packaged spdlog instead so the distribution ships (and
+patches) one copy of the library.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-25
+
+---
+ CMakeLists.txt | 30 +++---------------------------
+ 1 file changed, 3 insertions(+), 27 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0fbe09c..ce1a012 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -83,33 +83,9 @@ endif()
+ find_package(Threads)
+ 
+ if(ENABLE_LOGGING)
+-  # Always use the bundled, pinned spdlog so that the library is linked
+-  # statically and no new runtime dependency is introduced.
+-  if(NOT TARGET spdlog::spdlog)
+-    if(NOT EXISTS "${PROJECT_SOURCE_DIR}/deps/spdlog/CMakeLists.txt")
+-      message(FATAL_ERROR
+-        "Bundled spdlog is required for static linking. "
+-        "Initialize it with: git submodule update --init deps/spdlog")
+-    endif()
+-
+-    set(SPDLOG_BUILD_SHARED OFF CACHE BOOL "" FORCE)
+-    set(SPDLOG_BUILD_PIC ON CACHE BOOL "" FORCE)
+-    set(SPDLOG_BUILD_EXAMPLE OFF CACHE BOOL "" FORCE)
+-    set(SPDLOG_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+-    set(SPDLOG_INSTALL OFF CACHE BOOL "" FORCE)
+-    set(SPDLOG_FMT_EXTERNAL OFF CACHE BOOL "" FORCE)
+-
+-    # SPDLOG_BUILD_SHARED is not enough when the parent project builds
+-    # shared libraries: spdlog also looks at BUILD_SHARED_LIBS.
+-    set(_rime_build_shared_libs ${BUILD_SHARED_LIBS})
+-    set(BUILD_SHARED_LIBS OFF)
+-    add_subdirectory(deps/spdlog EXCLUDE_FROM_ALL)
+-    set(BUILD_SHARED_LIBS ${_rime_build_shared_libs})
+-  endif()
+-
+-  if(NOT TARGET spdlog::spdlog)
+-    message(FATAL_ERROR "spdlog target not found")
+-  endif()
++  # Use the system spdlog instead of the bundled copy so that it receives
++  # distribution security updates instead of being vendored.
++  find_package(spdlog 1.17.0 CONFIG REQUIRED)
+ endif()
+ 
+ if(NOT ENABLE_THREADING)
