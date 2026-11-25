@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : dust
-version     : "1.2.7"
-release     : 4
+version     : "1.2.8"
+release     : 5
 homepage    : https://github.com/bootandy/dust
 upstreams   :
-    - https://github.com/bootandy/dust/archive/refs/tags/v1.2.7.tar.gz : 923a2eed637d2ea5f4ad5f820b6f87cc6e0081cfa4bc5ed1fe09278dd74db963
+    - https://github.com/bootandy/dust/archive/refs/tags/v1.2.8.tar.gz : 2df7ea0258025b2061e1a1819ee7fc48b69fbf8c084c5f0e51a457f37695453e
 summary     : A more intuitive version of du in rust
 description : |
     du + rust = dust. Like du but more intuitive.
