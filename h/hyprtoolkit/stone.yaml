@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : hyprtoolkit
-version     : "0.6.0"
-release     : 10
+version     : "0.7.0"
+release     : 11
 upstreams   :
-    - https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v0.6.0.tar.gz : 53c41be72af97d9ede274a63c9c1034c58726d862905763ed6e5a564ae42ba6b
+    - https://github.com/hyprwm/hyprtoolkit/archive/refs/tags/v0.7.0.tar.gz : 7dc82a531537fd068f51110fa49c4cab01f3419d9e2cb8c2c2f2e8c49e26bcde
 homepage    : https://github.com/hyprwm/hyprtoolkit
 license     : BSD-3-Clause
 summary     : A modern C++ Wayland-native GUI toolkit
