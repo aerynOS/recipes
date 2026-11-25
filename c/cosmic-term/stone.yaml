@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-term
-version     : "1.11.0"
-release     : 57
+version     : "1.12.0"
+release     : 58
 homepage    : https://github.com/pop-os/cosmic-term
 upstreams   :
-    - https://github.com/pop-os/cosmic-term/archive/refs/tags/epoch-1.11.0.tar.gz : 455cdc42e8f4a5a00a033a38f65341bf1b1af621cc7d01a78da0ee2f9177a09c
+    - https://github.com/pop-os/cosmic-term/archive/refs/tags/epoch-1.12.0.tar.gz : 7c06ccf7231056c3445d16fa6d3b5c4f9de59c1a06225dc2989b1065527ccae4
 summary     : Cosmic Desktop Terminal Application
 description : |
     Cosmic desktop Terminal Application
