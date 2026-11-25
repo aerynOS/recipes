@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-panel
-version     : "1.11.0"
-release     : 54
+version     : "1.12.0"
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-panel
 upstreams   :
-    - https://github.com/pop-os/cosmic-panel/archive/refs/tags/epoch-1.11.0.tar.gz : ef0de256580e1f1600c5a662179862976ba0b8475b45e99e9eb2713bed8e1007
+    - https://github.com/pop-os/cosmic-panel/archive/refs/tags/epoch-1.12.0.tar.gz : 31af1d7001e7b412cb5df70305da499547ebcd7f0d2d52906f9d9b790a72afc7
 summary     : Cosmic Desktop Panel
 description : |
     Cosmic Desktop panel

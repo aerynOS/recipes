@@ -24,7 +24,7 @@
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/autohide_behavior",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/autohover_delay_ms",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/background",
-				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/border_radius",
+				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/border_radius_override",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/exclusive_zone",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/expand_to_edges",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/keyboard_interactivity",
@@ -33,7 +33,7 @@
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/name",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/opacity",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/output",
-				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/padding",
+				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/padding_override",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/plugins_center",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/plugins_wings",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Dock/v1/size",
@@ -46,7 +46,7 @@
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/autohide_behavior",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/autohover_delay_ms",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/background",
-				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/border_radius",
+				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/border_radius_override",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/exclusive_zone",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/expand_to_edges",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/keyboard_interactivity",
@@ -55,7 +55,7 @@
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/name",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/opacity",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/output",
-				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/padding",
+				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/padding_override",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/plugins_center",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/plugins_wings",
 				"/usr/share/cosmic/com.system76.CosmicPanel.Panel/v1/size",
@@ -71,6 +71,6 @@
 		}
 	},
 	"source-name": "cosmic-panel",
-	"source-release": "54",
-	"source-version": "1.11.0"
+	"source-release": "55",
+	"source-version": "1.12.0"
 }
