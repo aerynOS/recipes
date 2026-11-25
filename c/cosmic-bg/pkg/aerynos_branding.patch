@@ -1,25 +1,49 @@
 diff --git a/config/src/lib.rs b/config/src/lib.rs
-index 36c297d..08f25f2 100644
+index 5f6df25..9d42bcd 100644
 --- a/config/src/lib.rs
 +++ b/config/src/lib.rs
-@@ -141,7 +141,7 @@ impl Entry {
+@@ -268,7 +268,7 @@ impl Entry {
          Self {
              output: String::from("all"),
              source: Source::Path(PathBuf::from(
--                "/usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg",
+-                "/usr/share/backgrounds/cosmic/system76-cosmic-dark.png",
 +                "/usr/share/backgrounds/aerynos/DreamyBrno.jpg",
              )),
              filter_by_theme: true,
              rotation_frequency: 3600,
+diff --git a/data/dark/v1/all b/data/dark/v1/all
+index 7b41d4c..0677f00 100644
+--- a/data/dark/v1/all
++++ b/data/dark/v1/all
+@@ -1,6 +1,6 @@
+ (
+     output: "all",
+-    source: Path("/usr/share/backgrounds/cosmic/system76-cosmic-dark.png"),
++    source: Path("/usr/share/backgrounds/aerynos/DreamyBrno.jpg"),
+     filter_by_theme: false,
+     rotation_frequency: 3600,
+     transition_duration: 500,
+diff --git a/data/light/v1/all b/data/light/v1/all
+index 6f7c26f..0677f00 100644
+--- a/data/light/v1/all
++++ b/data/light/v1/all
+@@ -1,6 +1,6 @@
+ (
+     output: "all",
+-    source: Path("/usr/share/backgrounds/cosmic/system76-cosmic-light.png"),
++    source: Path("/usr/share/backgrounds/aerynos/DreamyBrno.jpg"),
+     filter_by_theme: false,
+     rotation_frequency: 3600,
+     transition_duration: 500,
 diff --git a/data/v1/all b/data/v1/all
-index 7a5376a..a7e6b0f 100644
+index cdff105..cdb14b2 100644
 --- a/data/v1/all
 +++ b/data/v1/all
 @@ -1,6 +1,6 @@
  (
      output: "all",
--    source: Path("/usr/share/backgrounds/cosmic/orion_nebula_nasa_heic0601a.jpg"),
+-    source: Path("/usr/share/backgrounds/cosmic/system76-cosmic-dark.png"),
 +    source: Path("/usr/share/backgrounds/aerynos/DreamyBrno.jpg"),
      filter_by_theme: #true,
      rotation_frequency: 3600,
-     filter_method: Lanczos,
+     transition_duration: 500,
