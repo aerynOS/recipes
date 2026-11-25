@@ -18,6 +18,7 @@
 			"files": [
 				"/usr/bin/discord",
 				"/usr/lib/discord/discord",
+				"/usr/lib/discord/launcher.conf",
 				"/usr/lib/discord/updater_bootstrap",
 				"/usr/share/applications/discord.desktop",
 				"/usr/share/icons/hicolor/256x256/apps/discord.png"
@@ -29,6 +30,6 @@
 		}
 	},
 	"source-name": "discord",
-	"source-release": "76",
-	"source-version": "1.0.170"
+	"source-release": "77",
+	"source-version": "1.0.171"
 }

@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : discord
-version     : "1.0.170"
-release     : 76
+version     : "1.0.171"
+release     : 77
 homepage    : https://discord.com/
 upstreams   :
-    - https://dl.discordapp.net/apps/linux/1.0.170/discord-1.0.170.tar.gz : 129f38c16e7071b25c14c86f6cec43826370ed114d6bc77f9f406e1d70660c8c
+    - https://dl.discordapp.net/apps/linux/1.0.171/discord-1.0.171.tar.gz : efc517cf1551d93bdcb6f5c03fec52c2f05eb82805bd0ab2beed671bce56fdc8
 summary     : Group chat, video, and voice calling app
 description : |
     Discord is a proprietary freeware VoIP application and digital distribution platform designed for video gaming communities, that specializes in text, image, video and audio communication between users in a chat channel.
@@ -15,14 +15,14 @@ builddeps   :
     - binary(ln)
 rundeps     :
     - binary(xdg-open)
-setup       : |
-    %patch %(pkgdir)/0001-Use-libdir.patch
 install     : |
     _discord_root=%(libdir)/discord
     _discord_install=%(installroot)/$_discord_root
 
     %install_exe discord -t $_discord_install
     %install_exe updater_bootstrap -t $_discord_install
+    # The launcher reads launcher.conf next to its resolved executable path
+    %install_file launcher.conf -t $_discord_install
 
     %install_dir %(installroot)%(bindir)
     ln -srv $_discord_install/discord %(installroot)/%(bindir)/discord
