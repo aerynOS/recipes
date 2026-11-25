@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-greeter
-version     : "1.11.0"
-release     : 65
+version     : "1.12.0"
+release     : 66
 homepage    : https://github.com/pop-os/cosmic-greeter
 upstreams   :
-    - https://github.com/pop-os/cosmic-greeter/archive/refs/tags/epoch-1.11.0.tar.gz : f31c5bac8e50ed5df75cb7d07fb8167e7835dc22b3438a48c8c1f27e7de36e48
+    - https://github.com/pop-os/cosmic-greeter/archive/refs/tags/epoch-1.12.0.tar.gz : 516c69bac82cbd5747cf8676624313d83358e205d8099085216f7add7ab2d785
 summary     : Cosmic Desktop Greeter
 description : |
     Cosmic Desktop Greeter
