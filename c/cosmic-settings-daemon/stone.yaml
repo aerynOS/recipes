@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-settings-daemon
-version     : "1.11.0"
-release     : 55
+version     : "1.12.0"
+release     : 56
 homepage    : https://github.com/pop-os/cosmic-settings-daemon
 upstreams   :
-    - https://github.com/pop-os/cosmic-settings-daemon/archive/refs/tags/epoch-1.11.0.tar.gz : 1cc494c028a59a0356547c834421495da326622f837221726c15fceb14f3f9f0
+    - https://github.com/pop-os/cosmic-settings-daemon/archive/refs/tags/epoch-1.12.0.tar.gz : 78307226db5e1c99e638cc2be104380ecfc6c27cf1fdaf325f92f3ea8e65dce7
 summary     : Cosmic Settings Daemon
 description : |
     Cosmic Settings Daemon
