@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-files
-version     : "1.11.0"
-release     : 61
+version     : "1.12.0"
+release     : 62
 homepage    : https://github.com/pop-os/cosmic-files
 upstreams   :
-    - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.11.0.tar.gz : ceeea09a6e249192a8e439d416f20391e923cb75c09922297ff9e6b9926e8eb7
+    - https://github.com/pop-os/cosmic-files/archive/refs/tags/epoch-1.12.0.tar.gz : 14c8d674d4f2b4f15eb3f02b92cd45144feb02bd370ea168f9259fb4e3a137a7
 summary     : Cosmic Desktop File Browser
 description : |
     Cosmic desktop File Browser
