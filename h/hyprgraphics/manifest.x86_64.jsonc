@@ -11,6 +11,7 @@
 				"pkgconfig(libjpeg)",
 				"pkgconfig(libjxl)",
 				"pkgconfig(libmagic)",
+				"pkgconfig(libpng)",
 				"pkgconfig(librsvg-2.0)",
 				"pkgconfig(libwebp)",
 				"pkgconfig(opengl)",
@@ -38,12 +39,12 @@
 				"soname(libwebp.so.7(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libhyprgraphics.so.0.6.0",
-				"/usr/lib/libhyprgraphics.so.5"
+				"/usr/lib/libhyprgraphics.so.0.7.0",
+				"/usr/lib/libhyprgraphics.so.6"
 			],
 			"name": "hyprgraphics",
 			"provides": [
-				"soname(libhyprgraphics.so.5(x86_64))"
+				"soname(libhyprgraphics.so.6(x86_64))"
 			]
 		},
 		"hyprgraphics-devel": {
@@ -55,6 +56,7 @@
 				"pkgconfig(libjpeg)",
 				"pkgconfig(libjxl)",
 				"pkgconfig(libmagic)",
+				"pkgconfig(libpng)",
 				"pkgconfig(librsvg-2.0)",
 				"pkgconfig(libwebp)",
 				"pkgconfig(opengl)",
@@ -99,6 +101,6 @@
 		}
 	},
 	"source-name": "hyprgraphics",
-	"source-release": "7",
-	"source-version": "0.6.0"
+	"source-release": "8",
+	"source-version": "0.7.0"
 }
