@@ -32,7 +32,9 @@
 				"/usr/bin/scx_p2dq",
 				"/usr/bin/scx_pandemonium",
 				"/usr/bin/scx_rusty",
-				"/usr/bin/scxtop"
+				"/usr/bin/scxcli",
+				"/usr/bin/scxtop",
+				"/usr/bin/scxtui"
 			],
 			"name": "scx-scheds",
 			"provides": [
@@ -46,7 +48,9 @@
 				"binary(scx_p2dq)",
 				"binary(scx_pandemonium)",
 				"binary(scx_rusty)",
-				"binary(scxtop)"
+				"binary(scxcli)",
+				"binary(scxtop)",
+				"binary(scxtui)"
 			]
 		},
 		"scx-scheds-extra": {
@@ -66,7 +70,6 @@
 				"soname(libelf.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
-				"soname(libseccomp.so.2(x86_64))",
 				"soname(libz.so.1(x86_64))"
 			],
 			"files": [
@@ -78,8 +81,11 @@
 				"/usr/bin/scx_mitosis",
 				"/usr/bin/scx_mlfq",
 				"/usr/bin/scx_nitosis",
-				"/usr/bin/scx_rlfifo",
-				"/usr/bin/scx_rustland",
+				"/usr/bin/scx_panda",
+				"/usr/bin/scx_rburst",
+				"/usr/bin/scx_reevdf",
+				"/usr/bin/scx_rlocal",
+				"/usr/bin/scx_rvtime",
 				"/usr/bin/scx_tickless"
 			],
 			"name": "scx-scheds-extra",
@@ -92,13 +98,16 @@
 				"binary(scx_mitosis)",
 				"binary(scx_mlfq)",
 				"binary(scx_nitosis)",
-				"binary(scx_rlfifo)",
-				"binary(scx_rustland)",
+				"binary(scx_panda)",
+				"binary(scx_rburst)",
+				"binary(scx_reevdf)",
+				"binary(scx_rlocal)",
+				"binary(scx_rvtime)",
 				"binary(scx_tickless)"
 			]
 		}
 	},
 	"source-name": "scx-scheds",
-	"source-release": "14",
-	"source-version": "1.1.4"
+	"source-release": "15",
+	"source-version": "1.1.5"
 }

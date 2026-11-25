@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : scx-scheds
-version     : "1.1.4"
-release     : 14
+version     : "1.1.5"
+release     : 15
 homepage    : https://github.com/sched-ext/scx
 upstreams   :
-    - https://github.com/sched-ext/scx/archive/refs/tags/v1.1.4.tar.gz : efce300f7816c2ef14028acee58150c792dadf4ebe4950aff263b54771adb2f4
+    - https://github.com/sched-ext/scx/archive/refs/tags/v1.1.5.tar.gz : 9672727d186629cb5b291a1c48a5f2f16fae9ae127031cc0e7d7658a2b56434a
 summary     : sched_ext schedulers
 description : |
     sched_ext schedulers
@@ -46,6 +46,9 @@ packages    :
             - /usr/bin/scx_mlfq
             - /usr/bin/scx_mitosis
             - /usr/bin/scx_nitosis
-            - /usr/bin/scx_rlfifo
-            - /usr/bin/scx_rustland
+            - /usr/bin/scx_panda
+            - /usr/bin/scx_rburst
+            - /usr/bin/scx_reevdf
+            - /usr/bin/scx_rlocal
+            - /usr/bin/scx_rvtime
             - /usr/bin/scx_tickless
