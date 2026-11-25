@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zed
-version     : "1.29.3"
-release     : 75
+version     : "1.30.2"
+release     : 76
 homepage    : https://zed.dev/
 upstreams   :
-    - https://github.com/zed-industries/zed/archive/refs/tags/v1.29.3.tar.gz : dd3556ea8d5edaf6336b924c42997a0313070b428561cf32c776a3d5d744506a
+    - https://github.com/zed-industries/zed/archive/refs/tags/v1.30.2.tar.gz : 4278dd5692451d7a6227439cb353edf261803f3a45716f794eec0bf36f3928c4
 summary     : High performance, graphical code editor
 description : |
     Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.
@@ -20,7 +20,6 @@ builddeps   :
     - binary(envsubst)
     - binary(jq)
     - binary(make)
-    - binary(mold)
     - pkgconfig(alsa)
     - pkgconfig(fontconfig)
     - pkgconfig(gl)
@@ -39,8 +38,8 @@ builddeps   :
     - libstdc++-devel
 rundeps     :
     - binary(unzip)
+mold        : true
 environment : |
-    export RUSTFLAGS="$RUSTFLAGS -Clink-arg=-fuse-ld=mold"
     # enable LTO here instead
     export CARGO_PROFILE_RELEASE_LTO=thin
     export ZED_UPDATE_EXPLANATION="Package updates are provided via moss"
