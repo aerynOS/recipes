@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-launcher
-version     : "1.11.0"
-release     : 54
+version     : "1.12.0"
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-launcher
 upstreams   :
-    - https://github.com/pop-os/cosmic-launcher/archive/refs/tags/epoch-1.11.0.tar.gz : 82a510d7d472c68cdd1137363704c1f6a91b37de4f48e5a1f844242de79f941d
+    - https://github.com/pop-os/cosmic-launcher/archive/refs/tags/epoch-1.12.0.tar.gz : 11f437c5c30181efa6289e9acbfad344fbd844d3803a6ec8bc13a42f7e32e74f
 summary     : Cosmic Desktop Launcher
 description : |
     Cosmic Desktop Launcher
