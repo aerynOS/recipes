@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-comp
-version     : "1.11.0"
-release     : 60
+version     : "1.12.0"
+release     : 61
 homepage    : https://github.com/pop-os/cosmic-comp
 upstreams   :
-    - https://github.com/pop-os/cosmic-comp/archive/refs/tags/epoch-1.11.0.tar.gz : c07778440f25e909358a37f293ddf403a28a153b02eedb30b61b846a7142ba60
+    - https://github.com/pop-os/cosmic-comp/archive/refs/tags/epoch-1.12.0.tar.gz : 09a9521fdb3622e68063031ae9738a93db5193f52b238fdf7274090682b5d695
 summary     : Cosmic Desktop Compositor
 description : |
     Cosmic Desktop Compositor
