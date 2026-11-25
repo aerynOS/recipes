@@ -105,6 +105,7 @@
 				"/usr/share/gnome-remote-desktop/grd.conf",
 				"/usr/share/gnome-remote-desktop/shaders/grd-avc-dual-view_opt.spv",
 				"/usr/share/locale/ab/LC_MESSAGES/gnome-remote-desktop.mo",
+				"/usr/share/locale/az/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/be/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/bg/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/ca/LC_MESSAGES/gnome-remote-desktop.mo",
@@ -138,6 +139,7 @@
 				"/usr/share/locale/kw/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/lt/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/lv/LC_MESSAGES/gnome-remote-desktop.mo",
+				"/usr/share/locale/mi/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/nb/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/ne/LC_MESSAGES/gnome-remote-desktop.mo",
 				"/usr/share/locale/nl/LC_MESSAGES/gnome-remote-desktop.mo",
@@ -176,6 +178,6 @@
 		}
 	},
 	"source-name": "gnome-remote-desktop",
-	"source-release": "24",
-	"source-version": "51.0"
+	"source-release": "25",
+	"source-version": "51.1"
 }

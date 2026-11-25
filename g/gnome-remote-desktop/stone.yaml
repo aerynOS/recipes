@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : gnome-remote-desktop
-version     : "51.0"
-release     : 24
+version     : "51.1"
+release     : 25
 homepage    : https://gitlab.gnome.org/GNOME/gnome-remote-desktop
 upstreams   :
-    - https://download.gnome.org/sources/gnome-remote-desktop/51/gnome-remote-desktop-51.0.tar.xz : c7954b34da5766288ea19b56026421c9c1fe2c23ef379e57ec209dc0cf13df2b
+    - https://download.gnome.org/sources/gnome-remote-desktop/51/gnome-remote-desktop-51.1.tar.xz : 3f1444948184590e9777e5e32da8597fed7a08501f63015587b4dba1e523fbd5
 summary     : Remote desktop daemon for GNOME using pipewire
 description : |
     Remote desktop server which allows you to connect to your machine remotely
