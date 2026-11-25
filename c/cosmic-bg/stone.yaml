@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-bg
-version     : "1.11.0"
-release     : 54
+version     : "1.12.0"
+release     : 55
 homepage    : https://github.com/pop-os/cosmic-bg
-summary     : Cosmic Desktop Background Service
 upstreams   :
-    - https://github.com/pop-os/cosmic-bg/archive/refs/tags/epoch-1.11.0.tar.gz :  00e0874b82877378be9cb305139e626f3cd5ef01ad7a1a517de826086adc2652
+    - https://github.com/pop-os/cosmic-bg/archive/refs/tags/epoch-1.12.0.tar.gz :  bd4e423c95671e2c8aaa26ad41d74146272dc6e5d73b6b520e1d98c6e1ff36f6
+summary     : Cosmic Desktop Background Service
 description : |
     Cosmic Desktop Background Service
 license     : GPL-3.0
