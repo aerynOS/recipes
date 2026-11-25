@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-settings
-version     : "1.11.0"
-release     : 62
+version     : "1.12.0"
+release     : 63
 homepage    : https://github.com/pop-os/cosmic-settings
 upstreams   :
-    - https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-1.11.0.tar.gz : 213459e770dc899da7f9d47557b7d3e4e27e1debb8d7af590995bd0f63da0a5e
+    - https://github.com/pop-os/cosmic-settings/archive/refs/tags/epoch-1.12.0.tar.gz : 801712c5394369d91a3386a3ff9473c5c96f5ac5a6a9eefaa79ac39fa11a9d65
 summary     : Cosmic Desktop Settings
 description : |
     Cosmic Desktop Settings
