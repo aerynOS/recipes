@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-edit
-version     : "1.11.0"
-release     : 58
+version     : "1.12.0"
+release     : 59
 homepage    : https://github.com/pop-os/cosmic-edit
 upstreams   :
-    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.11.0.tar.gz : aff1a305a4e7182ae1c360ceac43eff60ba32dc388f872f3ec04624677a6a290
+    - https://github.com/pop-os/cosmic-edit/archive/refs/tags/epoch-1.12.0.tar.gz : 73a2dc3b63440a1ff326632b970236dadab59eefa79522a5d332d659e1d4900d
 summary     : Cosmic Desktop Text Editor
 description : |
     Cosmic desktop Text Editor
