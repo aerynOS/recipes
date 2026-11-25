@@ -21,7 +21,7 @@
 				"soname(libfontconfig.so.1(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
 				"soname(libhyprlang.so.2(x86_64))",
-				"soname(libhyprtoolkit.so.6(x86_64))",
+				"soname(libhyprtoolkit.so.7(x86_64))",
 				"soname(libhyprutils.so.13(x86_64))",
 				"soname(libhyprwire.so.3(x86_64))",
 				"soname(libicuuc.so.79(x86_64))",
@@ -39,6 +39,6 @@
 		}
 	},
 	"source-name": "hyprlauncher",
-	"source-release": "7",
+	"source-release": "8",
 	"source-version": "0.1.7"
 }
