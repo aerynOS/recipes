@@ -39,7 +39,6 @@
 				"soname(ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcc_s.so.1(x86_64))",
-				"soname(libm.so.6(x86_64))",
 				"wireplumber",
 				"xdg-desktop-portal-cosmic"
 			],
@@ -59,6 +58,6 @@
 		}
 	},
 	"source-name": "cosmic-session",
-	"source-release": "65",
-	"source-version": "1.11.0"
+	"source-release": "66",
+	"source-version": "1.12.0"
 }
