@@ -1,28 +1,34 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : protontricks
-version     : "1.15.0"
-release     : 7
-upstreams   :
-    - https://pypi.debian.net/protontricks/protontricks-1.15.0.tar.gz : f40422d4a6c98db7b451d487039070b3c4eaa14767ba7b7b193bfa5a0feed20a
+version     : "1.15.1"
+release     : 8
 homepage    : https://github.com/Matoking/protontricks
-license     : GPL-3.0-or-later
+upstreams   :
+    - https://pypi.debian.net/protontricks/protontricks-1.15.1.tar.gz : d49220e74a9aa0d86d2ad56bf685695b9885cf23a23fec8b699254f5e9e8f571
 summary     : A simple wrapper that does winetricks things for Proton enabled games
 description : |
     A simple wrapper that does winetricks things for Proton enabled games
+license     : GPL-3.0-or-later
 builddeps   :
     - python(setuptools)
     - python(setuptools-scm)
+checkdeps   :
+    - python(pillow)
+    - python(pytest)
+    - python(vdf)
 rundeps     :
     - binary(winetricks)
     - binary(zenity)
     # TODO: Use YAD instead of zenity
 setup       : |
     # Remove vendored vdf
-    %patch %(pkgdir)/drop-vendored-vdf.patch -R
+    %patch %(pkgdir)/drop-vendored-vdf.patch
     rm -rf ./src/protontricks/_vdf
 build       : |
     %pyproject_build
 install     : |
     %pyproject_install
+check       : |
+    PYTHONPATH=%(workdir)/src pytest -vv tests
