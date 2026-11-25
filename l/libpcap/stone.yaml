@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libpcap
-version     : "1.11.0"
-release     : 11
+version     : "1.11.1"
+release     : 12
 homepage    : https://www.tcpdump.org/
 upstreams   :
-    - https://www.tcpdump.org/release/libpcap-1.11.0.tar.gz : 596389bc8560ea027dff9db8aaf6c173d992366d9aef4baf5d7c6d180b4d49ad
+    - https://www.tcpdump.org/release/libpcap-1.11.1.tar.gz : 7985b1d20ff82c1e384115038046e0b15034648c6f45c92e08601d4ee1b369ed
 summary     : Platform-independent network traffic capture library
 description : |
     Platform-independent network traffic capture library
