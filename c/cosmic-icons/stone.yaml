@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-icons
-version     : "1.11.0"
-release     : 52
+version     : "1.12.0"
+release     : 53
 homepage    : https://github.com/pop-os/cosmic-icons
 upstreams   :
-    - https://github.com/pop-os/cosmic-icons/archive/refs/tags/epoch-1.11.0.tar.gz : 1cbe6ca6ad3743a26b84ab17d3f7b8e5a885fcbcbb2d071ff0b74bccb5b44a53
+    - https://github.com/pop-os/cosmic-icons/archive/refs/tags/epoch-1.12.0.tar.gz : 0017b6eecac789496e59f9a4786f2d332ee1f040ba4a71a9116e4be0879f23c4
 summary     : Cosmic Icons by System76
 description : |
     Cosmic Icons by System76
