@@ -39,7 +39,9 @@
 				"cmake(zlib)"
 			],
 			"depends": [
-				"capnproto"
+				"capnproto",
+				"cmake(OpenSSL)",
+				"cmake(zlib)"
 			],
 			"files": [
 				"/usr/include/capnp/any.h",
@@ -222,6 +224,6 @@
 		}
 	},
 	"source-name": "capnproto",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "1.5.0"
 }

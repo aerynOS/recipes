@@ -3,7 +3,7 @@
 
 name        : capnproto
 version     : "1.5.0"
-release     : 4
+release     : 5
 homepage    : https://capnproto.org/
 upstreams   :
     - https://github.com/capnproto/capnproto/archive/refs/tags/v1.5.0.tar.gz : d5ebdf858e9885c33d4b3f765006d68bd66e9b002bf4d607ff4317ef9c1aac6a
@@ -40,3 +40,9 @@ packages    :
             - /usr/lib/libcapnp*.so.*
             - /usr/lib/libcapnpc.so.*
             - /usr/lib/libkj*.so.*
+
+    # CapnProtoConfig.cmake find_dependency()s these, so consumers need them present
+    - "%(name)-devel":
+        rundeps:
+            - cmake(OpenSSL)
+            - cmake(zlib)
