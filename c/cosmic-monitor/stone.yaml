@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-monitor
-version     : "1.11.0"
-release     : 11
+version     : "1.12.0"
+release     : 12
 homepage    : https://github.com/pop-os/cosmic-monitor
 upstreams   :
-    - https://github.com/pop-os/cosmic-monitor/archive/refs/tags/epoch-1.11.0.tar.gz : c63aef9814982fd6dd1a0527c83bbe29c015154dee32a1ac9ce8f84290afd52b
+    - https://github.com/pop-os/cosmic-monitor/archive/refs/tags/epoch-1.12.0.tar.gz : 48341c2b17216b7dbd084cb3b09ad0665f60b65856548a9aff7755834500cd4d
 summary     : Cosmic System Monitor
 description : |
     Cosmic System Monitor
