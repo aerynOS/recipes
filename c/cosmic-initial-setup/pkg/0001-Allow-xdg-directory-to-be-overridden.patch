@@ -8,11 +8,11 @@ Subject: [PATCH] Allow xdg directory to be overridden
  1 file changed, 18 insertions(+), 5 deletions(-)
 
 diff --git a/justfile b/justfile
-index 8fc71d1..4b438e6 100644
+index 64f07c8..3c381b5 100644
 --- a/justfile
 +++ b/justfile
-@@ -15,14 +15,27 @@ export DISABLE_IF_EXISTS := disable-if-exists || env('DISABLE_IF_EXISTS', '')
- # Installation paths
+@@ -14,14 +14,27 @@ export DISABLE_IF_EXISTS := env('DISABLE_IF_EXISTS', disable-if-exists)
+ 
  base-dir := absolute_path(clean(rootdir / prefix))
  cargo-target-dir := env('CARGO_TARGET_DIR', 'target')
 -desktop-entry := appid + '.desktop'
@@ -41,6 +41,6 @@ index 8fc71d1..4b438e6 100644
 +layouts-src := 'res' / 'layouts'
  layouts-dst := base-dir / 'share' / 'cosmic-layouts'
 -polkit-rules-dst := base-dir / 'share' / 'polkit-1' / 'rules.d' / '20-cosmic-initial-setup.rules'
- themes-dst := base-dir / 'share' / 'cosmic-themes'
  
  # Default recipe which runs `just cargo build-release`
+ default *args: (cargo::build-release args)
