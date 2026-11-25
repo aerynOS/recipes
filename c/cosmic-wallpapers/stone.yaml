@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : cosmic-wallpapers
-version     : "1.11.0"
-release     : 46
+version     : "1.12.0"
+release     : 47
 homepage    : https://github.com/pop-os/cosmic-wallpapers
 upstreams   :
-    - https://github.com/pop-os/cosmic-wallpapers/archive/refs/tags/epoch-1.11.0.tar.gz : 3bc7580caabef7e42c161180bc1a27095962c377acbde7ec0ee4d8da130e7857
+    - https://github.com/pop-os/cosmic-wallpapers/archive/refs/tags/epoch-1.12.0.tar.gz : 3d871f1561ed9e1f2239c770a3aefb1c5399eaf2afcb6a7faf756c2f8cf3ea69
 summary     : Cosmic Desktop Wallpapers
 description : |
     Cosmic Desktop Wallpapers
