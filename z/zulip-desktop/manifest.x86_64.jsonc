@@ -143,6 +143,6 @@
 		}
 	},
 	"source-name": "zulip-desktop",
-	"source-release": "9",
-	"source-version": "5.14.2"
+	"source-release": "10",
+	"source-version": "5.14.3"
 }

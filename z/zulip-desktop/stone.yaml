@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : zulip-desktop
-version     : "5.14.2"
-release     : 9
+version     : "5.14.3"
+release     : 10
 homepage    : https://zulip.com
 upstreams   :
-    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.14.2.tar.gz : 9be427a5e7e2218c9ebcbefc9decad9c3ed2b3815598ab78db233d3d6ca1dd52
+    - https://github.com/zulip/zulip-desktop/archive/refs/tags/v5.14.3.tar.gz : 20c45b5e39b76dc4dba6766a5e390d96526f67c47d9b72cf60ad106390715bc7
 summary     : Desktop client for Zulip
 description : |
     Zulip is an organized team chat app for distributed teams of all sizes,
