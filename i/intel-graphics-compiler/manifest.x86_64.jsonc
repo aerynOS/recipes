@@ -8,7 +8,6 @@
 				"binary(clang-format)",
 				"binary(flex)",
 				"binary(mold)",
-				"binary(objdump)",
 				"binary(patch)",
 				"binary(python)",
 				"cmake(SPIRV-Headers)",
@@ -37,11 +36,11 @@
 				"/usr/bin/iga64",
 				"/usr/lib/igc2/NOTICES.txt",
 				"/usr/lib/libiga64.so.2",
-				"/usr/lib/libiga64.so.2.42.0+0",
+				"/usr/lib/libiga64.so.2.43.0+0",
 				"/usr/lib/libigc.so.2",
-				"/usr/lib/libigc.so.2.42.0+0",
+				"/usr/lib/libigc.so.2.43.0+0",
 				"/usr/lib/libigdfcl.so.2",
-				"/usr/lib/libigdfcl.so.2.42.0+0",
+				"/usr/lib/libigdfcl.so.2.43.0+0",
 				"/usr/lib/libopencl-clang.so.22.1"
 			],
 			"name": "intel-graphics-compiler",
@@ -59,7 +58,6 @@
 				"binary(clang-format)",
 				"binary(flex)",
 				"binary(mold)",
-				"binary(objdump)",
 				"binary(patch)",
 				"binary(python)",
 				"cmake(SPIRV-Headers)",
@@ -200,6 +198,6 @@
 		}
 	},
 	"source-name": "intel-graphics-compiler",
-	"source-release": "10",
-	"source-version": "2.42.6"
+	"source-release": "11",
+	"source-version": "2.43.9"
 }
