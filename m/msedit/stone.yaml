@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : msedit
+version     : "2.0.0"
+release     : 1
+homepage    : https://github.com/microsoft/edit
+upstreams   :
+    - https://github.com/microsoft/edit/archive/refs/tags/v2.0.0.tar.gz : f35da309c5f3d92b10e5c4b2267e4d5e29d809b2aa460e80326b11f7feba72a5
+summary     : A simple editor for simple needs
+description : |
+    Microsoft Edit is a lightweight terminal text editor that pays homage to the
+    classic MS-DOS Editor, with a modern modeless TUI and VS Code-like controls.
+license     : MIT
+networking  : true
+builddeps   :
+    - pkgconfig(icu-i18n)
+    - pkgconfig(icu-uc)
+rundeps     :
+    - soname(libicui18n.so.79(x86_64))
+    - soname(libicuuc.so.79(x86_64))
+environment : |
+    # Match aerynOS ICU SONAME / symbol renaming for Search & Replace (dlopen).
+    ICU_MAJOR="$(pkg-config --modversion icu-uc | cut -d. -f1)"
+    export EDIT_CFG_ICUUC_SONAME=libicuuc.so.${ICU_MAJOR}
+    export EDIT_CFG_ICUI18N_SONAME=libicui18n.so.${ICU_MAJOR}
+    export EDIT_CFG_ICU_RENAMING_VERSION=${ICU_MAJOR}
+setup       : |
+    %cargo_fetch
+build       : |
+    %cargo_build
+install     : |
+    # Upstream binary is "edit"; install as msedit to avoid command collisions.
+    %install_exe %(cargo_target_dir)/edit %(installroot)%(bindir)/%(name)
+
+    sed -e 's/=edit/=%(name)/g' assets/com.microsoft.edit.desktop \
+        | %install_file /dev/stdin %(installroot)%(datadir)/applications/com.microsoft.edit.desktop
+    %install_file assets/edit.svg %(installroot)%(datadir)/icons/hicolor/scalable/apps/%(name).svg
+
+    sed -e '1s/^\.TH EDIT/.TH MSEDIT/' -e 's/^edit /%(name) /' -e 's/\\fBedit\\fP/\\fB%(name)\\fP/g' assets/manpage/edit.1 \
+        | %install_file /dev/stdin %(installroot)%(mandir)/man1/%(name).1
+check       : |
+    # stdext doctest expects debug-only panic behaviour that does not fire under --release
+    %cargo_test --exclude stdext

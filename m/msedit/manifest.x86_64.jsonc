@@ -1,0 +1,34 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"msedit": {
+			"build-depends": [
+				"pkgconfig(icu-i18n)",
+				"pkgconfig(icu-uc)"
+			],
+			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libgcc_s.so.1(x86_64))",
+				"soname(libicui18n.so.79(x86_64))",
+				"soname(libicuuc.so.79(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/bin/msedit",
+				"/usr/share/applications/com.microsoft.edit.desktop",
+				"/usr/share/icons/hicolor/scalable/apps/msedit.svg",
+				"/usr/share/man/man1/msedit.1"
+			],
+			"name": "msedit",
+			"provides": [
+				"binary(msedit)"
+			]
+		}
+	},
+	"source-name": "msedit",
+	"source-release": "1",
+	"source-version": "2.0.0"
+}
