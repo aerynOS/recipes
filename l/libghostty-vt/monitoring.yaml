@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: ~ # No Anitya entry yet, last checked 2026-11-26
+  rss: https://github.com/ghostty-org/ghostty/releases.atom
+security:
+  # No known CPE, last checked 2026-11-26
+  cpe: ~

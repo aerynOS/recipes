@@ -1,0 +1,81 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"libghostty-vt": {
+			"build-depends": [
+				"binary(zig-0.17)"
+			],
+			"depends": [
+				"soname(libc.so.6(x86_64))",
+				"soname(libm.so.6(x86_64))"
+			],
+			"files": [
+				"/usr/lib/libghostty-vt.so.1",
+				"/usr/lib/libghostty-vt.so.1.0.2"
+			],
+			"name": "libghostty-vt",
+			"provides": [
+				"soname(libghostty-vt.so.1(x86_64))"
+			]
+		},
+		"libghostty-vt-devel": {
+			"build-depends": [
+				"binary(zig-0.17)"
+			],
+			"depends": [
+				"libghostty-vt"
+			],
+			"files": [
+				"/usr/include/ghostty/vt.h",
+				"/usr/include/ghostty/vt/allocator.h",
+				"/usr/include/ghostty/vt/build_info.h",
+				"/usr/include/ghostty/vt/color.h",
+				"/usr/include/ghostty/vt/color_scheme.h",
+				"/usr/include/ghostty/vt/device.h",
+				"/usr/include/ghostty/vt/focus.h",
+				"/usr/include/ghostty/vt/formatter.h",
+				"/usr/include/ghostty/vt/grid_ref.h",
+				"/usr/include/ghostty/vt/grid_ref_tracked.h",
+				"/usr/include/ghostty/vt/io.h",
+				"/usr/include/ghostty/vt/key.h",
+				"/usr/include/ghostty/vt/key/encoder.h",
+				"/usr/include/ghostty/vt/key/event.h",
+				"/usr/include/ghostty/vt/kitty_graphics.h",
+				"/usr/include/ghostty/vt/modes.h",
+				"/usr/include/ghostty/vt/mouse.h",
+				"/usr/include/ghostty/vt/mouse/encoder.h",
+				"/usr/include/ghostty/vt/mouse/event.h",
+				"/usr/include/ghostty/vt/osc.h",
+				"/usr/include/ghostty/vt/paste.h",
+				"/usr/include/ghostty/vt/point.h",
+				"/usr/include/ghostty/vt/render.h",
+				"/usr/include/ghostty/vt/screen.h",
+				"/usr/include/ghostty/vt/search.h",
+				"/usr/include/ghostty/vt/selection.h",
+				"/usr/include/ghostty/vt/sgr.h",
+				"/usr/include/ghostty/vt/size_report.h",
+				"/usr/include/ghostty/vt/snapshot.h",
+				"/usr/include/ghostty/vt/style.h",
+				"/usr/include/ghostty/vt/sys.h",
+				"/usr/include/ghostty/vt/terminal.h",
+				"/usr/include/ghostty/vt/types.h",
+				"/usr/include/ghostty/vt/unicode.h",
+				"/usr/include/ghostty/vt/version.h",
+				"/usr/include/ghostty/vt/wasm.h",
+				"/usr/lib/cmake/ghostty-vt/ghostty-vt-config-version.cmake",
+				"/usr/lib/cmake/ghostty-vt/ghostty-vt-config.cmake",
+				"/usr/lib/libghostty-vt.so",
+				"/usr/lib/pkgconfig/libghostty-vt.pc"
+			],
+			"name": "libghostty-vt-devel",
+			"provides": [
+				"cmake(ghostty-vt)",
+				"pkgconfig(libghostty-vt)"
+			]
+		}
+	},
+	"source-name": "libghostty-vt",
+	"source-release": "1",
+	"source-version": "1.0.2"
+}
