@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : kwi
+version     : "0.1.0"
+release     : 1
+homepage    : https://apps.kde.org/kwi/
+upstreams   :
+    - https://download.kde.org/stable/kwi/0.1.0/kwi-0.1.0.tar.xz : 64296e3eff3b51b1c0fdcd0d25b2441b205372a17330f3ade7a7e613b49806a7
+summary     : Modern and fast terminal for KDE Plasma and other desktops
+description : |
+    Kwi is a modern and fast terminal that integrates well with KDE Plasma and
+    other free desktops. It is built on libghostty-vt and KDE Frameworks such as
+    KPty and Kirigami, with a GPU-accelerated Qt Quick renderer.
+license     :
+    - BSD-2-Clause
+    - CC0-1.0
+    - GPL-2.0-only
+    - GPL-3.0-only
+    - LGPL-2.1-only
+    - LGPL-3.0-only
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6ColorScheme)
+    - cmake(KF6Config)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6DBusAddons)
+    - cmake(KF6GuiAddons)
+    - cmake(KF6I18n)
+    - cmake(KF6IconThemes)
+    - cmake(KF6ItemModels)
+    - cmake(KF6KIO)
+    - cmake(KF6Kirigami)
+    - cmake(KF6KirigamiAddons)
+    - cmake(KF6KirigamiAppComponents)
+    - cmake(KF6Notifications)
+    - cmake(KF6Parts)
+    - cmake(KF6Pty)
+    - cmake(KF6WidgetsAddons)
+    - cmake(KF6WindowSystem)
+    - cmake(KF6XmlGui)
+    - cmake(Qt6Concurrent)
+    - cmake(Qt6GuiPrivate)
+    - cmake(Qt6QuickControls2)
+    - cmake(Qt6QuickWidgets)
+    - cmake(Qt6ShaderTools)
+    - cmake(Qt6Svg)
+    - cmake(ghostty-vt)
+    - kf6-qqc2-desktop-style
+rundeps     :
+    - kf6-kirigami-addons
+    - kf6-kirigami-app-components
+    - kf6-qqc2-desktop-style
+    - qt6-wayland
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
