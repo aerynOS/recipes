@@ -2,18 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : intel-compute-runtime
-version     : "26.40.40196.15"
-release     : 10
+version     : "26.44.40734.10"
+release     : 11
 homepage    : https://github.com/intel/compute-runtime
 upstreams   :
-    - https://github.com/intel/compute-runtime/archive/refs/tags/26.40.40196.15.tar.gz : 138ad074eb617372ddc778cf2b63f382f210a4cbf5a1cd38d207567ffa74a7e3
-    - git|https://github.com/intel/aubstream.git : 941711fa1499871e7c81038ded0e6e386c254dcd
+    - https://github.com/intel/compute-runtime/archive/refs/tags/26.44.40734.10.tar.gz : 3697a3436ff850f4b505bf57cc848a6fca50406b7c8b67e4f849b6e8f362ae83
+    - git|https://github.com/intel/aubstream.git : 121891b3f24218a32f1bd896661d807eaaf36efc
 summary     :  Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver
 description : |
     The Intel(R) Graphics Compute Runtime for oneAPI Level Zero and OpenCL(TM) Driver is an open source project providing compute API support (Level Zero, OpenCL) for Intel graphics hardware architectures (HD Graphics, Xe).
 license     : MIT
 builddeps   :
-    - binary(mold)
     - cmake(igsc)
     - pkgconfig(igc-opencl)
     - pkgconfig(igdgmm)
@@ -30,18 +29,14 @@ builddeps   :
 rundeps     :
     - intel-graphics-compiler
     - level-zero
+mold        : true
 tuning      :
     # let CMake set LTO
    - lto: false
-environment : |
-    export LDFLAGS="$LDFLAGS -fuse-ld=mold"
 setup       : |
     # cmake strips -O and fortify flags from tests but fails
     # since the regex is quite brittle. patch to match our flags
     %patch %(pkgdir)/fortify-source-3.patch
-
-    # TODO: remove this patch in next update
-    %patch %(pkgdir)/ftbfs-llvm-23-unused-but-set-global.patch
 
     %cmake \
         -DAUB_STREAM_DIR=%(buildroot)/aubstream.git \
