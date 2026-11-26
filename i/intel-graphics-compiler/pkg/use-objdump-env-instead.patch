@@ -1,0 +1,62 @@
+From 1bd62e2ae24c54519defa26f369f8043d76933d8 Mon Sep 17 00:00:00 2001
+From: K1ngfish3r <26593485+K1ngfish3r@users.noreply.github.com>
+Date: Thu, 26 Nov 2026 18:00:54 +0500
+Subject: [PATCH] use objdump from env instead
+
+---
+ IGC/Scripts/igc_create_linker_script.sh | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/IGC/Scripts/igc_create_linker_script.sh b/IGC/Scripts/igc_create_linker_script.sh
+index 8d6effaaa..f8d21a4cb 100644
+--- a/IGC/Scripts/igc_create_linker_script.sh
++++ b/IGC/Scripts/igc_create_linker_script.sh
+@@ -5,6 +5,7 @@
+ 
+ readonly SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+ readonly NEWLINE=$'\n'
++readonly OBJDUMP=${OBJDUMP:-objdump}
+ 
+ readonly LINKER_SCRIPT=$1
+ readonly BIF_LIBRARY=$2
+@@ -29,30 +30,30 @@ formatAndWriteSymbols() {
+ echo -e "{\n\t global:" > ${SCRIPT_DIR}/${LINKER_SCRIPT}
+ 
+ if [[ "$BIF_LIBRARY" != "null" ]]; then
+-    symbolsBIF=$(objdump -t $BIF_LIBRARY | grep " O " | grep " g " | grep -v hidden)
++    symbolsBIF=$("${OBJDUMP}" -t $BIF_LIBRARY | grep " O " | grep " g " | grep -v hidden)
+     formatAndWriteSymbols "$symbolsBIF"
+ fi
+ 
+ if [[ "$VULKAN_FE_LIBRARY" != "null" ]]; then
+-    symbolsVFE=$(objdump -t $VULKAN_FE_LIBRARY | grep " F " | grep " g " | grep -v hidden)
++    symbolsVFE=$("${OBJDUMP}" -t $VULKAN_FE_LIBRARY | grep " F " | grep " g " | grep -v hidden)
+     formatAndWriteSymbols "$symbolsVFE"
+ 
+-    symbolsVFE=$(objdump -t $VULKAN_FE_LIBRARY | grep " w " | grep -v hidden)
++    symbolsVFE=$("${OBJDUMP}" -t $VULKAN_FE_LIBRARY | grep " w " | grep -v hidden)
+     formatAndWriteSymbols "$symbolsVFE"
+ 
+-    symbolsVFE=$(objdump -t $VULKAN_FE_LIBRARY | grep " W " | grep -v hidden)
++    symbolsVFE=$("${OBJDUMP}" -t $VULKAN_FE_LIBRARY | grep " W " | grep -v hidden)
+     formatAndWriteSymbols "$symbolsVFE"
+ fi
+ 
+ for obj_file in "$@"; do
+     if [[ $obj_file == *.o ]]; then
+-        symbols=$(objdump -t $obj_file | grep " F " | grep " g " | grep -v hidden)
++        symbols=$("${OBJDUMP}" -t $obj_file | grep " F " | grep " g " | grep -v hidden)
+         formatAndWriteSymbols "$symbols"
+ 
+-        symbols=$(objdump -t $obj_file | grep " w " | grep -v hidden)
++        symbols=$("${OBJDUMP}" -t $obj_file | grep " w " | grep -v hidden)
+         formatAndWriteSymbols "$symbols"
+ 
+-        symbols=$(objdump -t $obj_file | grep " W " | grep -v hidden)
++        symbols=$("${OBJDUMP}" -t $obj_file | grep " W " | grep -v hidden)
+         formatAndWriteSymbols "$symbols"
+     fi
+ done
+-- 
+2.56.1
+
