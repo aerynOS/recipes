@@ -120,9 +120,9 @@
 			"files": [
 				"/usr/bin/pw-jack",
 				"/usr/lib/libjack.so.0",
-				"/usr/lib/libjack.so.0.3.1611",
+				"/usr/lib/libjack.so.0.3.1612",
 				"/usr/lib/libjacknet.so.0",
-				"/usr/lib/libjacknet.so.0.3.1611",
+				"/usr/lib/libjacknet.so.0.3.1612",
 				"/usr/share/man/man1/pw-jack.1",
 				"/usr/share/man/man5/pipewire-jack.conf.5"
 			],
@@ -337,7 +337,7 @@
 				"/usr/lib/alsa-lib/libasound_module_ctl_pipewire.so",
 				"/usr/lib/alsa-lib/libasound_module_pcm_pipewire.so",
 				"/usr/lib/libjackserver.so.0",
-				"/usr/lib/libjackserver.so.0.3.1611",
+				"/usr/lib/libjackserver.so.0.3.1612",
 				"/usr/lib/pipewire-0.3/libpipewire-module-access.so",
 				"/usr/lib/pipewire-0.3/libpipewire-module-adapter.so",
 				"/usr/lib/pipewire-0.3/libpipewire-module-avb.so",
@@ -1164,7 +1164,7 @@
 			],
 			"files": [
 				"/usr/lib/libpipewire-0.3.so.0",
-				"/usr/lib/libpipewire-0.3.so.0.1611.0",
+				"/usr/lib/libpipewire-0.3.so.0.1612.0",
 				"/usr/lib/spa-0.2/libspa.so"
 			],
 			"name": "pipewire-libs",
@@ -1175,6 +1175,6 @@
 		}
 	},
 	"source-name": "pipewire",
-	"source-release": "44",
-	"source-version": "1.6.11"
+	"source-release": "45",
+	"source-version": "1.6.12"
 }
