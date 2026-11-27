@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : tevent
-version     : "0.17.2"
-release     : 5
+version     : "0.17.4"
+release     : 6
 homepage    : https://tevent.samba.org/
 upstreams   :
-    - https://www.samba.org/ftp/tevent/tevent-0.17.2.tar.gz : e53b1ac288d017d66dde0471cd429a806168ecf07179d7f019572d7a7e05f0d6
+    - https://www.samba.org/ftp/tevent/tevent-0.17.4.tar.gz : ffe5eff04c26fba4f710942635a4e520f9000c96cf1ad0c7cab16a516d93c852
 summary     : Tevent is an event system based on the talloc memory management library. It is the core event system used in Samba.
 description : |
     Tevent is an event system based on the talloc memory management library. It is the core event system used in Samba. The low level tevent has support for many event types, including timers, signals, and the classic file descriptor events. Tevent also provide helpers to deal with asynchronous code providing the tevent_req (tevent request) functions.
