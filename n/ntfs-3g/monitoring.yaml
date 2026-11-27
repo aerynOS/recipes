@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 2504
-  rss: ~
+  rss: https://github.com/tuxera/ntfs-3g/releases.atom
 security:
+  # Last checked 2026-11-27
   cpe:
   - vendor: tuxera
     product: ntfs-3g

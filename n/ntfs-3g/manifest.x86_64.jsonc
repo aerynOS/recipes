@@ -15,7 +15,7 @@
 			"depends": [
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
-				"soname(libntfs-3g.so.91(x86_64))"
+				"soname(libntfs-3g.so.92(x86_64))"
 			],
 			"files": [
 				"/usr/bin/lowntfs-3g",
@@ -118,12 +118,12 @@
 				"soname(libc.so.6(x86_64))"
 			],
 			"files": [
-				"/usr/lib/libntfs-3g.so.91",
-				"/usr/lib/libntfs-3g.so.91.0.0"
+				"/usr/lib/libntfs-3g.so.92",
+				"/usr/lib/libntfs-3g.so.92.0.0"
 			],
 			"name": "ntfs-3g-libs",
 			"provides": [
-				"soname(libntfs-3g.so.91(x86_64))"
+				"soname(libntfs-3g.so.92(x86_64))"
 			]
 		},
 		"ntfsprogs": {
@@ -141,7 +141,7 @@
 				"soname(libc.so.6(x86_64))",
 				"soname(libgcrypt.so.20(x86_64))",
 				"soname(libgnutls.so.30(x86_64))",
-				"soname(libntfs-3g.so.91(x86_64))",
+				"soname(libntfs-3g.so.92(x86_64))",
 				"soname(libuuid.so.1(x86_64))"
 			],
 			"files": [
@@ -211,6 +211,6 @@
 		}
 	},
 	"source-name": "ntfs-3g",
-	"source-release": "6",
-	"source-version": "2026.9.28"
+	"source-release": "7",
+	"source-version": "2026.11.23"
 }

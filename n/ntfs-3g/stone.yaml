@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : ntfs-3g
-version     : "2026.9.28"
-release     : 6
+version     : "2026.11.23"
+release     : 7
 homepage    : https://github.com/tuxera/ntfs-3g
 upstreams   :
-    - https://download.tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.9.28.tgz : 350d9415c59f7c3fa74e23985ad2d56423c6a168337368f672e2e362d8f295c8
+    - https://download.tuxera.com/opensource/ntfs-3g_ntfsprogs-2026.11.23.tgz : 827f909955c4c2ae549f431617ded00e753adcda7e2feb5a33d70904e5a197c9
 summary     : NTFS filesystem support
 description : |
     NTFS-3G is an open source cross-platform implementation of the Microsoft Windows NTFS file system with read-write support.
@@ -16,11 +16,13 @@ builddeps   :
     - binary(flex)
     - binary(intltool-update)
     - pkgconfig(gnutls)
-    - pkgconfig(libgcrypt)
     - pkgconfig(gpg-error)
+    - pkgconfig(libgcrypt)
     - pkgconfig(uuid)
     # hd.h (whatever that is)
 setup       : |
+    %patch %(pkgdir)/0001-Fix-FILEREADER-callback-return-type.patch
+
     %configure \
         --disable-ldconfig \
         --disable-static \
