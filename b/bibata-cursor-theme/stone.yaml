@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : bibata-cursor-theme
+version     : "2.0.7"
+release     : 1
+homepage    : https://github.com/ful1e5/Bibata_Cursor
+upstreams   :
+    - https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata.tar.xz : 172e33c4ae415278384dcecc7d1a9b7a024266bc944bc751fd86532be1cc6251
+summary     : Open source, compact, and material designed cursor set.
+description : |
+    Bibata is an open source, compact, and material-designed cursor set aimed at improving the desktop cursor experience. It features sharp, modern styling with rounded edges and includes multiple variants (Modern and Original in Classic, Amber, and Ice color schemes) optimized for high contrast on both light and dark backgrounds. 
+license     : GPL-3.0-or-later
+install     : |
+    %install_dir %(installroot)%(datadir)/icons
+    cp -a Bibata-* %(installroot)%(datadir)/icons/
