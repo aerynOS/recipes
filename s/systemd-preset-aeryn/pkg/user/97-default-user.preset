@@ -15,6 +15,7 @@ enable mpris-proxy.service
 enable xdg-user-dirs.service
 
 # Gaming related
+enable dmemcg-booster-user.service
 enable steamos-manager.service
 
 # Enable the mullvad-daemon for users when it is installed

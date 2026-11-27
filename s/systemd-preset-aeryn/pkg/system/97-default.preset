@@ -136,6 +136,7 @@ enable power-profiles-daemon.service
 enable switcheroo-control.service
 
 # Gaming related
+enable dmemcg-booster-system.service
 enable powerstation.service
 enable steamos-manager.service
 

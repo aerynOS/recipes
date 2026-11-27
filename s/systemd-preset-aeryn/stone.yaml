@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : systemd-preset-aeryn
-version     : "2026.07" # I guess let's just match the OS version for now
-release     : 20
+version     : "2026.11" # I guess let's just match the OS version for now
+release     : 21
 homepage    : https://aerynos.com/
 # No upstreams!
 summary     : AerynOS systemd presets
