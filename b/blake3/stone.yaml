@@ -1,14 +1,14 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : blake3
-version     : "1.8.7"
-release     : 10
+version     : "1.8.8"
+release     : 11
 summary     : BLAKE3 hash algorithm
 license     : Apache-2.0
 homepage    : https://github.com/BLAKE3-team/BLAKE3
 upstreams   :
-    - https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.7.tar.gz : c6782a28842b1c0478524ac06a4f2ede784038ee298d6e2162c0b089c4306a3c
+    - https://github.com/BLAKE3-team/BLAKE3/archive/refs/tags/1.8.8.tar.gz : a5b927e875e16ebe76bacc1961107d2135637aab39ef227006fea27634e94cfe
 description : |
     BLAKE3 hash algorithm
 builddeps   :
