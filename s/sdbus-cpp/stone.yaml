@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : sdbus-cpp
-version     : "2.3.1"
-release     : 4
+version     : "2.4.0"
+release     : 5
 upstreams   :
-    - https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v2.3.1.tar.gz : 3a289eded586c26d06c1387de72c7bf7c809527a70d51ba6401fe61059b19626
+    - https://github.com/Kistler-Group/sdbus-cpp/archive/refs/tags/v2.4.0.tar.gz : 83aa631f6a51646ef3e7b12bb0d2705ae2059ae96c593d493621f27da46338ec
 homepage    : https://github.com/Kistler-Group/sdbus-cpp
 license     : LGPL-2.1-only
 summary     : C++ D-Bus library

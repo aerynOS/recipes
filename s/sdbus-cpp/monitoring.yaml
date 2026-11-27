@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 70626
   rss: https://github.com/Kistler-Group/sdbus-cpp/releases.atom
 security:
-  # No known CPE, checked 2024-09-15
+  # No CPE found, last checked 2026-11-27
   cpe: ~

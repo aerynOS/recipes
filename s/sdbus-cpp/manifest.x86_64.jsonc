@@ -15,7 +15,7 @@
 			],
 			"files": [
 				"/usr/lib/libsdbus-c++.so.2",
-				"/usr/lib/libsdbus-c++.so.2.3.1",
+				"/usr/lib/libsdbus-c++.so.2.4.0",
 				"/usr/share/doc/sdbus-c++/AUTHORS",
 				"/usr/share/doc/sdbus-c++/COPYING",
 				"/usr/share/doc/sdbus-c++/ChangeLog",
@@ -55,6 +55,7 @@
 				"/usr/include/sdbus-c++/MethodResult.h",
 				"/usr/include/sdbus-c++/ProxyInterfaces.h",
 				"/usr/include/sdbus-c++/StandardInterfaces.h",
+				"/usr/include/sdbus-c++/Track.h",
 				"/usr/include/sdbus-c++/TypeTraits.h",
 				"/usr/include/sdbus-c++/Types.h",
 				"/usr/include/sdbus-c++/VTableItems.h",
@@ -75,6 +76,6 @@
 		}
 	},
 	"source-name": "sdbus-cpp",
-	"source-release": "4",
-	"source-version": "2.3.1"
+	"source-release": "5",
+	"source-version": "2.4.0"
 }
