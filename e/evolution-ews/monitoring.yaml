@@ -1,10 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 18167
   rss: https://gitlab.gnome.org/GNOME/evolution-ews/-/releases.atom
 security:
+  # Last checked 2026-11-27
   cpe:
   - vendor: gnome
     product: evolution-ews

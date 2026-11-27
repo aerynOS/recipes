@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : evolution-ews
-version     : "3.62.1"
-release     : 3
+version     : "3.62.2"
+release     : 4
 upstreams   :
-    - https://download.gnome.org/sources/evolution-ews/3.62/evolution-ews-3.62.1.tar.xz : 4b525480387b094c30122e33d3bed83c0d849d3b94dc7a8655945a79f703853d
+    - https://download.gnome.org/sources/evolution-ews/3.62/evolution-ews-3.62.2.tar.xz : 34ec9a82518ff91ea352193241e81827b384c75767fcad52a15a1c328e4c21ee
 homepage    : https://www.hadrons.org/software/libmd
 license     : LGPL-2.1-or-later
 summary     : MS Exchange integration through Exchange Web Services
