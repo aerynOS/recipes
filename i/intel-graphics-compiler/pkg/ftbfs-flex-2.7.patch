@@ -1,0 +1,36 @@
+From c4d9eb34cbb7f608a9eff7a1b5c4777f369cfac2 Mon Sep 17 00:00:00 2001
+From: Reilly Brogan <reilly@reillybrogan.com>
+Date: Fri, 27 Nov 2026 13:55:00 -0600
+Subject: [PATCH] visa: Fix link against flex 2.7
+
+flex 2.7.8 gives the buffer struct of a C scanner that is compiled as C++
+its own tag, yy_c_buffer_state, so that it no longer clashes with the struct
+of a scanner generated with %option c++ (#831). The rename changes the
+mangled name of the prefixed yy_delete_buffer(), and this file declares that
+function itself, against its own YY_BUFFER_STATE typedef, so the declaration
+stopped matching the definition and GenX_IR failed to link:
+
+    ld.lld: error: undefined symbol: CISA_delete_buffer(yy_buffer_state*)
+
+Name the struct tag flex uses for a C scanner compiled as C++.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-27
+---
+ visa/BuildCISAIRImpl.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/visa/BuildCISAIRImpl.cpp b/visa/BuildCISAIRImpl.cpp
+index 56cfe12..20be95e 100644
+--- a/visa/BuildCISAIRImpl.cpp
++++ b/visa/BuildCISAIRImpl.cpp
+@@ -1550,7 +1550,7 @@ static void Stitch_Compiled_Units(G4_Kernel *mainFunc,
+ }
+ 
+ 
+-typedef struct yy_buffer_state *YY_BUFFER_STATE;
++typedef struct yy_c_buffer_state *YY_BUFFER_STATE;
+ extern int CISAparse(CISA_IR_Builder *builder);
+ extern YY_BUFFER_STATE CISA_scan_string(const char *yy_str);
+ extern void CISA_delete_buffer(YY_BUFFER_STATE buf);

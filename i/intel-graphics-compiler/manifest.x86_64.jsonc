@@ -198,6 +198,6 @@
 		}
 	},
 	"source-name": "intel-graphics-compiler",
-	"source-release": "11",
+	"source-release": "12",
 	"source-version": "2.43.9"
 }

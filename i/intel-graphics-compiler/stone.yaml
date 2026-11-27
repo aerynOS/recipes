@@ -3,7 +3,7 @@
 
 name        : intel-graphics-compiler
 version     : "2.43.9"
-release     : 11
+release     : 12
 homepage    : https://github.com/intel/intel-graphics-compiler
 upstreams   :
     - https://github.com/intel/intel-graphics-compiler/archive/refs/tags/v2.43.9.tar.gz:
@@ -64,6 +64,8 @@ setup       : |
     # TODO: remove in next update
     # TODO2: check building with thin-LTO next upd
     %patch %(pkgdir)/use-objdump-env-instead.patch
+
+    %patch %(pkgdir)/ftbfs-flex-2.7.patch
 
     # Fake-out opencl-clang into thinking its a git repo
     # so that it can apply patches to itself (From Nix)
