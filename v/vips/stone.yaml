@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : vips
-version     : "8.18.7"
-release     : 4
+version     : "8.18.8"
+release     : 5
 upstreams   :
-    - https://github.com/libvips/libvips/releases/download/v8.18.7/vips-8.18.7.tar.xz : 5baaead3b0bb20ffdb9e9ff09aa9fda08620923df77b63b436654cb5e0b3bf94
+    - https://github.com/libvips/libvips/releases/download/v8.18.8/vips-8.18.8.tar.xz : 7871fc98498d90879d866b7de46cb52209dc859de7662dd6f596e7b0ff95014b
 homepage    : https://www.libvips.org/
 license     : LGPL-2.1-or-later
 summary     : C/C++ library for processing large images
