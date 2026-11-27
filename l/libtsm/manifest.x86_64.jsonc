@@ -12,7 +12,7 @@
 			],
 			"files": [
 				"/usr/lib/libtsm.so.4",
-				"/usr/lib/libtsm.so.4.8.0"
+				"/usr/lib/libtsm.so.4.8.1"
 			],
 			"name": "libtsm",
 			"provides": [
@@ -39,6 +39,6 @@
 		}
 	},
 	"source-name": "libtsm",
-	"source-release": "8",
-	"source-version": "4.8.0"
+	"source-release": "9",
+	"source-version": "4.8.1"
 }

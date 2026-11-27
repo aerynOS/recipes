@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libtsm
-version     : "4.8.0"
-release     : 8
+version     : "4.8.1"
+release     : 9
 upstreams   :
-    - https://github.com/kmscon/libtsm/archive/refs/tags/v4.8.0.tar.gz : 50811e9e94fc798eb5dcbaff20f81067c942ec47f329f91bbe4caeb35a61ff05
+    - https://github.com/kmscon/libtsm/archive/refs/tags/v4.8.1.tar.gz : 575e5da39c7fb90f6f40f4978cd4405e973401edac98160524fcb810ee82719c
 homepage    : https://github.com/kmscon/libtsm
 license     : LGPL-2.1-or-later
 summary     : Terminal-emulator State Machine
