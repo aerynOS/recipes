@@ -5,6 +5,7 @@ releases:
   id: 7491
   rss: https://github.com/adrienverge/openfortivpn/releases.atom
 security:
+  # Last checked 2026-11-27
   cpe:
   - vendor: openfortivpn_project
     product: openfortivpn

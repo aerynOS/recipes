@@ -3,6 +3,12 @@ From: Reilly Brogan <reilly@reillybrogan.com>
 Date: Wed, 10 Jul 2024 22:11:05 -0500
 Subject: [PATCH] solus: Stateless
 
+Fall back to the stateless default configuration in
+/usr/share/defaults/openfortivpn/config when the user did not pass -c.
+
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2026-11-27
 ---
  src/config.c | 14 +++++++++++---
  src/config.h |  3 ++-
@@ -10,7 +16,7 @@ Subject: [PATCH] solus: Stateless
  3 files changed, 19 insertions(+), 5 deletions(-)
 
 diff --git a/src/config.c b/src/config.c
-index 9c6d3c5..d2c2f43 100644
+index d423e9d..2ce9134 100644
 --- a/src/config.c
 +++ b/src/config.c
 @@ -35,6 +35,7 @@
@@ -21,7 +27,7 @@ index 9c6d3c5..d2c2f43 100644
  #include <stdlib.h>
  #include <string.h>
  
-@@ -182,7 +183,7 @@ int parse_min_tls(const char *str)
+@@ -184,7 +185,7 @@ int parse_min_tls(const char *str)
   * @param[in]  filename  the file to read values from
   * @return               0 if successful, or < 0 in case of error
   */
@@ -30,26 +36,26 @@ index 9c6d3c5..d2c2f43 100644
  {
  	int ret = 0;
  	FILE *file;
-@@ -192,8 +193,15 @@ int load_config(struct vpn_config *cfg, const char *filename)
+@@ -194,8 +195,15 @@ int load_config(struct vpn_config *cfg, const char *filename)
  
  	file = fopen(filename, "r");
  	if (file == NULL) {
--		ret = ERR_CFG_SEE_ERRNO;
+-		ret = -errno;
 -		goto err_return;
 +		if (!config_set) {
 +			if ((file = fopen("/usr/share/defaults/openfortivpn/config", "r")) == NULL) {
-+				ret = ERR_CFG_SEE_ERRNO;
++				ret = -errno;
 +				goto err_return;
 +			}
 +		} else {
-+			ret = ERR_CFG_SEE_ERRNO;
++			ret = -errno;
 +			goto err_return;
 +		}
  	}
  
  	// Read line by line
 diff --git a/src/config.h b/src/config.h
-index eaf7f82..06cc687 100644
+index fdf1122..3f2384c 100644
 --- a/src/config.h
 +++ b/src/config.h
 @@ -22,6 +22,7 @@
@@ -60,7 +66,7 @@ index eaf7f82..06cc687 100644
  #include <stdint.h>
  #include <string.h>
  
-@@ -141,7 +142,7 @@ int add_trusted_cert(struct vpn_config *cfg, const char *digest);
+@@ -126,7 +127,7 @@ int add_trusted_cert(struct vpn_config *cfg, const char *digest);
  int strtob(const char *str);
  int parse_min_tls(const char *str);
  
@@ -70,10 +76,10 @@ index eaf7f82..06cc687 100644
  
  /*
 diff --git a/src/main.c b/src/main.c
-index c1fba33..e30eb02 100644
+index c374c52..ad5bf8d 100644
 --- a/src/main.c
 +++ b/src/main.c
-@@ -27,6 +27,7 @@
+@@ -28,6 +28,7 @@
  
  #include <limits.h>
  #include <stdio.h>
@@ -81,7 +87,7 @@ index c1fba33..e30eb02 100644
  #include <stdlib.h>
  #include <string.h>
  
-@@ -218,6 +219,9 @@ int main(int argc, char *argv[])
+@@ -220,6 +221,9 @@ int main(int argc, char *argv[])
  	const char *host;
  	char *port_str;
  
@@ -91,7 +97,7 @@ index c1fba33..e30eb02 100644
  	struct vpn_config cfg = {
  		.gateway_host = {'\0'},
  		.gateway_port = 443,
-@@ -619,6 +623,7 @@ int main(int argc, char *argv[])
+@@ -628,6 +632,7 @@ int main(int argc, char *argv[])
  			break;
  		case 'c':
  			config_file = optarg;
@@ -99,7 +105,7 @@ index c1fba33..e30eb02 100644
  			break;
  		case 'u':
  			strncpy(cli_cfg.username, optarg, USERNAME_SIZE);
-@@ -654,7 +659,7 @@ int main(int argc, char *argv[])
+@@ -663,7 +668,7 @@ int main(int argc, char *argv[])
  
  	// Load configuration file
  	if (config_file[0] != '\0') {
