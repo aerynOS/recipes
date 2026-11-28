@@ -8,7 +8,7 @@ name        : mesa
 version     : "26.3.1"
 ##@@END_VERSION
 # Note: keep mesa-clc in-sync with this package version-wise
-release     : 100
+release     : 101
 homepage    : https://mesa3d.org/
 upstreams   :
 ##@@BEGIN_SOURCE
@@ -227,8 +227,8 @@ environment : |
     _IS_64BIT_FEAT="enabled"
 
     # Temporary for testing PGO server
-    export CFLAGS+=" -fdebug-info-for-profiling"
-    export CXXFLAGS+=" -fdebug-info-for-profiling"
+    export CFLAGS+=" -fdebug-info-for-profiling -funique-internal-linkage-names"
+    export CXXFLAGS+=" -fdebug-info-for-profiling -funique-internal-linkage-names"
 
     # BB address map + block hashes for Propeller profile collection
     export CFLAGS+=" -fbasic-block-address-map -mllvm -emit-bb-hash"
