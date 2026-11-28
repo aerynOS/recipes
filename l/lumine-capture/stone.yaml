@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : lumine-capture
-version     : "0.4.0"
-release     : 4
+version     : "0.5.0"
+release     : 5
 homepage    : https://github.com/Netflate/LumineCapture
 upstreams   :
-    - https://github.com/Netflate/LumineCapture/archive/refs/tags/v0.4.0.tar.gz : 3542e6ba09c30ec02d34d0dca7c454b452871f8a7a7b7d2441877fe964277ced
+    - https://github.com/Netflate/LumineCapture/archive/refs/tags/v0.5.0.tar.gz : 2adb47f46ab5f63dd120de8a4eb87bb2a3d2b63c3d1ceb1ee74e0b96b3628dd6
 summary     : Fast, lightweight Wayland screenshot tool
 description : |
     Screenshot and annotation tool for Wayland with built-in OCR (OCR models are downloaded at runtime)
@@ -17,20 +17,15 @@ license     :
     - OFL-1.1
 networking  : true
 builddeps   :
+    - binary(nasm)
     - pkgconfig(libpipewire-0.3)
     - pkgconfig(libspa-0.2)
     - pkgconfig(openssl)
     - pkgconfig(xkbcommon)
-environment : |
-    # ort-sys rc.13 breaks with cargo layout v2
-    # https://github.com/pykeio/ort/issues/619
-    # TODO: check https://github.com/GreatV/oar-ocr/pull/266
-    # remove temporary workaround below once it is available
-    export __CARGO_TEMPORARY_BUILD_DIR_NEW_LAYOUT_OPT_OUT=1
 setup       : |
     %cargo_fetch
 build       : |
-    %cargo_build --features ocr-gpu
+    %cargo_build --features asm,ocr-gpu
 install     : |
     %cargo_install
 
@@ -44,8 +39,19 @@ install     : |
         %install_file "$icon" %(installroot)%(datadir)/icons/${icon#assets/}
     done
 
+    # gnome-shell-extension
+    %install_file gnome-extension/lumine-capture@netflate.github.io/* \
+        -t %(installroot)%(datadir)/gnome-shell/extensions/lumine-capture@netflate.github.io/
+
     %install_file LICENSE-MIT LICENSE-APACHE -t %(installroot)%(datadir)/licenses/%(name)/
     %install_file assets/fonts/LICENSE-OFL.txt %(installroot)%(datadir)/licenses/%(name)/LICENSE-OFL-Inter.txt
     %install_file README.md docs/lumine-capture-shortcuts-kde.kksrc -t %(installroot)%(docdir)/%(name)/
 check       : |
-    %cargo_test --features ocr-gpu
+    %cargo_test --features asm,ocr-gpu
+packages    :
+    - "gnome-shell-extension-%(name)":
+        rundeps:
+            - "%(name)"
+            - gnome-shell
+        paths:
+            - /usr/share/gnome-shell/

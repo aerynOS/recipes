@@ -2,8 +2,27 @@
 {
 	"manifest-version": "0.2",
 	"packages": {
+		"gnome-shell-extension-lumine-capture": {
+			"build-depends": [
+				"binary(nasm)",
+				"pkgconfig(libpipewire-0.3)",
+				"pkgconfig(libspa-0.2)",
+				"pkgconfig(openssl)",
+				"pkgconfig(xkbcommon)"
+			],
+			"depends": [
+				"gnome-shell",
+				"lumine-capture"
+			],
+			"files": [
+				"/usr/share/gnome-shell/extensions/lumine-capture@netflate.github.io/extension.js",
+				"/usr/share/gnome-shell/extensions/lumine-capture@netflate.github.io/metadata.json"
+			],
+			"name": "gnome-shell-extension-lumine-capture"
+		},
 		"lumine-capture": {
 			"build-depends": [
+				"binary(nasm)",
 				"pkgconfig(libpipewire-0.3)",
 				"pkgconfig(libspa-0.2)",
 				"pkgconfig(openssl)",
@@ -59,6 +78,6 @@
 		}
 	},
 	"source-name": "lumine-capture",
-	"source-release": "4",
-	"source-version": "0.4.0"
+	"source-release": "5",
+	"source-version": "0.5.0"
 }
