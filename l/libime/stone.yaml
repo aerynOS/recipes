@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : libime
-version     : "1.1.17"
-release     : 2
+version     : "1.1.18"
+release     : 3
 homepage    : https://github.com/fcitx/libime
 upstreams   :
-    - https://github.com/fcitx/libime/archive/refs/tags/1.1.17.tar.gz:
-        hash: 6af056717edf99be8d4b83717de01b6404398d2fc47a301b609ca7d31331cafb
+    - https://github.com/fcitx/libime/archive/refs/tags/1.1.18.tar.gz:
+        hash: f0db96dd00d1e9159b3bed6d7f9f801f0a60b7123b081c2cd3c37cdb175a6b22
         unpackdir: ime
     - git|https://github.com/kpu/kenlm.git:
         ref: 4cb443e60b7bf2c0ddf3c745378f76cb59e254e5
