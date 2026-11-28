@@ -3,8 +3,8 @@
 
 name        : librime-data
 ##@@BEGIN_VERSION
-version     : "0.0.0.20260826"
-release     : 1
+version     : "0.0.0.20261121"
+release     : 2
 ##@@END_VERSION
 homepage    : https://rime.im/
 upstreams   :
@@ -13,25 +13,25 @@ upstreams   :
         ref: 6085c9a38a4a728047862b33d67eee18aa86f3b9
         clonedir: rime-data/bopomofo
     - git|https://github.com/rime/rime-cangjie.git:
-        ref: 52d90a1b1312e74042b38c1cbc8142defbc53171
+        ref: fcb3d7dd94ac1304663d575727d24d8107f6b082
         clonedir: rime-data/cangjie
     - git|https://github.com/rime/rime-essay.git:
-        ref: e9b1a374a6ea015fca5bdd04318924b4483ac35a
+        ref: d95eeae056df429ecf993038c325a216f0b28c5b
         clonedir: rime-data/essay
     - git|https://github.com/rime/rime-luna-pinyin.git:
-        ref: 56b934b099dfbeab842320f13aa8b461a6ab3e42
+        ref: 84685a7e7793e43278ca29368977b79d74d37a03
         clonedir: rime-data/luna-pinyin
     - git|https://github.com/rime/rime-prelude.git:
         ref: 082425ea0684bca36474415d4a0e8db9b016487e
         clonedir: rime-data/prelude
     - git|https://github.com/rime/rime-quick.git:
-        ref: 5dcdb9e353d314239e9c8cddc0f42d52da4837bb
+        ref: 207d1efcc0dc9574510b61be861544edcf993736
         clonedir: rime-data/quick
     - git|https://github.com/rime/rime-stroke.git:
         ref: 1e8fff9b9494ddec23b0cbc526bcfd8171a6fd48
         clonedir: rime-data/stroke
     - git|https://github.com/rime/rime-terra-pinyin.git:
-        ref: 8a2c895ad7ee8e2b137d91be77f18f86b04d7fc9
+        ref: 723e51bc266cf9464530c1ddedb856aa18e3da34
         clonedir: rime-data/terra-pinyin
 ##@@END_GIT_UPSTREAMS
 summary     : Rime input schema
