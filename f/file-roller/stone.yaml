@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : file-roller
-version     : "44.7"
-release     : 9
+version     : "44.8"
+release     : 10
 homepage    : https://gitlab.gnome.org/GNOME/file-roller
 upstreams   :
-    - https://download.gnome.org/sources/file-roller/44/file-roller-44.7.tar.xz : 67cada96a2409c859f378e82fbe868b0e9c00a69e6b7b885d542c64ea2a1297d
+    - https://download.gnome.org/sources/file-roller/44/file-roller-44.8.tar.xz : 40a560efe9fff957376fd92358580839acc79e2065addbf8491f7a14438c5755
 summary     : An archive manager utility for the GNOME Environment.
 description : |
   File Roller is an archive manager for the GNOME environment.  This means that you can create and modify archives; view the content of an archive; view and modify a file contained in the archive; extract files from the archive.
