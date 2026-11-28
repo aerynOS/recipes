@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2024 AerynOS Developers
+# SPDX-FileCopyrightText: 2024 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 releases:
   id: 279670
-  rss: ~
+  rss: https://github.com/fastfetch-cli/fastfetch/releases.atom
 security:
   cpe: ~
