@@ -2,18 +2,17 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : m17n-db
-version     : "1.8.15"
-release     : 2
+version     : "1.8.19"
+release     : 3
 homepage    : https://www.nongnu.org/m17n/
 upstreams   :
-    - https://download.savannah.nongnu.org/releases/m17n/m17n-db-1.8.15.tar.gz : e16b22aea4384cc4c16a084352afdd7cf6a3ec9aef298520e8ddd0eaf2e4edf1
+    - https://download.savannah.nongnu.org/releases/m17n/m17n-db-1.8.19.tar.gz : d17213d3a8178857b4b5e06cd549178bf9bcc1f77af61d730e696d846556c231
 summary     : Multilingual text processing library (database)
 description : |
     Multilingual text processing library (database)
 license     : LGPL-2.1-only
 builddeps   :
     - binary(bison)
-    - binary(objdump)
     - binary(zstdcat)
     - gettext-devel
 setup       : |

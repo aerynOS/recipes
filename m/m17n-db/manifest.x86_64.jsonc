@@ -5,7 +5,6 @@
 		"m17n-db": {
 			"build-depends": [
 				"binary(bison)",
-				"binary(objdump)",
 				"binary(zstdcat)",
 				"gettext-devel"
 			],
@@ -216,7 +215,9 @@
 				"/usr/share/m17n/bn-inscript.mim",
 				"/usr/share/m17n/bn-inscript2.mim",
 				"/usr/share/m17n/bn-itrans.mim",
-				"/usr/share/m17n/bn-khipro.mim",
+				"/usr/share/m17n/bn-jatiya.mim",
+				"/usr/share/m17n/bn-khipro-classic.mim",
+				"/usr/share/m17n/bn-khipro-dark.mim",
 				"/usr/share/m17n/bn-national-jatiya.mim",
 				"/usr/share/m17n/bn-probhat.mim",
 				"/usr/share/m17n/bn-unijoy.mim",
@@ -308,7 +309,9 @@
 				"/usr/share/m17n/icons/bn-inscript.png",
 				"/usr/share/m17n/icons/bn-inscript2.png",
 				"/usr/share/m17n/icons/bn-itrans.png",
-				"/usr/share/m17n/icons/bn-khipro.png",
+				"/usr/share/m17n/icons/bn-jatiya.png",
+				"/usr/share/m17n/icons/bn-khipro-classic.png",
+				"/usr/share/m17n/icons/bn-khipro-dark.png",
 				"/usr/share/m17n/icons/bn-national-jatiya.png",
 				"/usr/share/m17n/icons/bn-probhat.png",
 				"/usr/share/m17n/icons/bn-unijoy.png",
@@ -739,7 +742,6 @@
 		"m17n-db-devel": {
 			"build-depends": [
 				"binary(bison)",
-				"binary(objdump)",
 				"binary(zstdcat)",
 				"gettext-devel"
 			],
@@ -756,6 +758,6 @@
 		}
 	},
 	"source-name": "m17n-db",
-	"source-release": "2",
-	"source-version": "1.8.15"
+	"source-release": "3",
+	"source-version": "1.8.19"
 }
