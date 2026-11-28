@@ -41,7 +41,7 @@
 				"/usr/lib/gtk-3.0/3.0.0/immodules/im-fcitx5.so",
 				"/usr/lib/gtk-4.0/4.0.0/immodules/libim-fcitx5.so",
 				"/usr/lib/libFcitx5GClient.so.2",
-				"/usr/lib/libFcitx5GClient.so.5.1.7"
+				"/usr/lib/libFcitx5GClient.so.5.1.8"
 			],
 			"name": "fcitx5-gtk",
 			"provides": [
@@ -89,6 +89,6 @@
 		}
 	},
 	"source-name": "fcitx5-gtk",
-	"source-release": "2",
-	"source-version": "5.1.7"
+	"source-release": "3",
+	"source-version": "5.1.8"
 }

@@ -1,17 +1,16 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-gtk
-version     : "5.1.7"
-release     : 2
+version     : "5.1.8"
+release     : 3
 homepage    : https://github.com/fcitx/fcitx5-gtk
 upstreams   :
-    - https://github.com/fcitx/fcitx5-gtk/archive/refs/tags/5.1.7.tar.gz : 92d7a5e3ed9eac8c8173983723013816f4706dddc3f019b4bb5c76c48cf4dd92
+    - https://github.com/fcitx/fcitx5-gtk/archive/refs/tags/5.1.8.tar.gz : 377f91d3c681184fbb3f7164fd44706c33f531d12e8c7fd87a5cc6cd3dc40080
 summary     : gtk im module and glib based dbus client library
 description : |
     gtk im module and glib based dbus client library
-license     :
-    - LGPL-2.1-or-later
+license     : LGPL-2.1-or-later
 builddeps   :
     - cmake(ECM)
     - pkgconfig(gio-2.0)
@@ -24,7 +23,8 @@ builddeps   :
     - pkgconfig(xkbcommon)
     - pkgconfig(xkbcommon-x11)
 setup       : |
-    %cmake -DENABLE_GTK2_IM_MODULE=OFF
+    %cmake \
+        -DENABLE_GTK2_IM_MODULE=OFF
 build       : |
     %cmake_build
 install     : |
