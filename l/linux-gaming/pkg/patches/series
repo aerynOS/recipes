@@ -226,6 +226,7 @@ ogc/0215-FROM-ML-iommu-amd-Fix-NULL-pointer-dereference-for-G.patch
 ogc/0216-FROM-ML-iommu-amd-Enable-PerfOpt-automatically-for-i.patch
 ogc/0217-FROM-ML-drm-amd-display-add-RGBA8888-surface-pixel-f.patch
 ogc/0218-FROM-ML-drm-amd-display-fix-DCE-crossbar-for-RGBA888.patch
+ogc/0219-Revert-FROM-ML-iommu-amd-Force-identity-mode-for-sel.patch
 
 # Gaming patches from CachyOS and Manjaro
 gaming/0000-usb-vhci-hcd-Unconditionally-allow-system-suspend.patch
