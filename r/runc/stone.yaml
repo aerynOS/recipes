@@ -2,26 +2,31 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : runc
-version     : "1.5.3"
-release     : 20
+version     : "1.6.0"
+release     : 21
 homepage    : https://runc.io/
 upstreams   :
-    - https://github.com/opencontainers/runc/archive/refs/tags/v1.5.3.tar.gz : 22e3e29e93c71b9d56caa95fed66b6448dd2db282129067ead987b2003837d1a
+    - https://github.com/opencontainers/runc/archive/refs/tags/v1.6.0.tar.gz : e3ee6cd56e1a7ce9c21620d9a3dd04c18211ba369a8bc958c4c546d41f580ed5
 summary     : CLI tool for managing OCI compliant containers
 description : |
     CLI tool for managing OCI compliant containers
-license     :
-    - Apache-2.0
+license     : Apache-2.0
 networking  : true
 builddeps   :
     - binary(go)
     - binary(go-md2man)
     - pkgconfig(libseccomp)
     - pkgconfig(pathrs)
+# libpathrs CGO overflows int64 when built with Clang.
+# /mason/gomodcache/cyphar.com/go-pathrs@v0.2.5/internal/libpathrs/libpathrs_linux.go:256:32: cannot use (_Ciconst_PATHRS_PROC_ROOT) (untyped int constant 18446744067006164835) as int64 value in variable declaration (overflows)
+toolchain   : gnu
+tuning      :
+    - lto: full
+    - optimize: speed
 setup       : |
     mkdir -p src/github.com/opencontainers/runc/
     find ./* -prune ! -name src -exec mv {} src/github.com/opencontainers/runc/ \;
-build      : |
+build       : |
     export GOPATH="${PWD}"
     export BUILDTAGS='seccomp'
     export GOFLAGS="-trimpath -mod=readonly -modcacherw"
@@ -40,10 +45,10 @@ install     : |
 
     %install_dir %(installroot)%(mandir)/man8
     %install_file man/man8/*.8 -t %(installroot)%(mandir)/man8
-tune        :
-    - lto: full
-    - optimize: speed
-# There's some compatibility issue with Clang and how CGO attempts to use variables provided by libpathrs
-# /mason/gomodcache/cyphar.com/go-pathrs@v0.2.5/internal/libpathrs/libpathrs_linux.go:256:32: cannot use (_Ciconst_PATHRS_PROC_ROOT) (untyped int constant 18446744067006164835) as int64 value in variable declaration (overflows)
-# There should be some way to fix that
-toolchain: gnu
+# Needs /var, bats, and true root.
+# check       : |
+#     export GOPATH="${PWD}"
+#     export GOFLAGS="-trimpath -mod=readonly -modcacherw"
+#     export CGO_CFLAGS="${CFLAGS}"
+#     cd src/github.com/opencontainers/runc/
+#     make localunittest
