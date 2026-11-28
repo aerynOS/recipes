@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-m17n
-version     : "5.1.8"
-release     : 3
+version     : "5.1.9"
+release     : 4
 homepage    : https://github.com/fcitx/fcitx5-m17n
 upstreams   :
-    - https://github.com/fcitx/fcitx5-m17n/archive/refs/tags/5.1.8.tar.gz : 596d3f64f1e6f63d1232ff2b04b9ab1d88de53a788b70339e869185624242abf
+    - https://github.com/fcitx/fcitx5-m17n/archive/refs/tags/5.1.9.tar.gz : db1bc808fee827fd8cd994ba2c7cc6de57343e1470cdb1e3fa0549da06acf618
 summary     : Wrapper for m17n input method engine
 description : |
     Wrap the m17n input method engine into a fcitx input method.
