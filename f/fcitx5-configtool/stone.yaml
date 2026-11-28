@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-configtool
-version     : "5.1.16"
-release     : 5
+version     : "5.1.17"
+release     : 6
 homepage    : https://github.com/fcitx/fcitx5-configtool
 upstreams   :
-    - https://github.com/fcitx/fcitx5-configtool/archive/refs/tags/5.1.16.tar.gz : bb72455836d2612a306771406bb848d645d51e8b67be86431ba21185dceb567c
+    - https://github.com/fcitx/fcitx5-configtool/archive/refs/tags/5.1.17.tar.gz : c4549e1065026274e7edb5d3cb0df9bc783bf7b0aa0de307ae58949f7282f0e3
 summary     : fcitx5-configtool is a Qt-based GUI tool that provides a user-friendly configuration interface for Fcitx 5
 description : |
     fcitx5-configtool is a Qt-based GUI tool that provides a user-friendly configuration interface for Fcitx 5. It has two different implementations: one based on QWidget, which can be accessed via fcitx5-config-qt, and the other based on KCM/Kirigami2, which can be found in Plasma systemsettings.
@@ -33,6 +33,7 @@ builddeps   :
     - cmake(KF6WindowSystem)
     - cmake(Plasma)
     - cmake(Qt6Svg)
+    # - cmake(Qt6QmlCompilerPlusPrivateTools)
     - pkgconfig(iso-codes)
     - pkgconfig(xkbcommon)
     - pkgconfig(xkbcommon-x11)

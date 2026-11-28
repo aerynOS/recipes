@@ -69,7 +69,7 @@
 				"/usr/bin/fcitx5-plasma-theme-generator",
 				"/usr/bin/kbd-layout-viewer5",
 				"/usr/lib/libFcitx5Migrator.so.1",
-				"/usr/lib/libFcitx5Migrator.so.5.1.16",
+				"/usr/lib/libFcitx5Migrator.so.5.1.17",
 				"/usr/lib/qt6/plugins/plasma/kcms/systemsettings/kcm_fcitx5.so",
 				"/usr/share/applications/kbd-layout-viewer5.desktop",
 				"/usr/share/applications/kcm_fcitx5.desktop",
@@ -156,6 +156,6 @@
 		}
 	},
 	"source-name": "fcitx5-configtool",
-	"source-release": "5",
-	"source-version": "5.1.16"
+	"source-release": "6",
+	"source-version": "5.1.17"
 }
