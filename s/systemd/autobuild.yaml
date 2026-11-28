@@ -1,0 +1,4 @@
+solver:
+  ignore:
+    - llvm.* #: { auxdep: "A rebuild of llvm should not _force_ a rebuild of systemd" }
+    - accountsservice #: { auxdep: "It doesn't make sense for accountsservice to induce a rebuild of this"}

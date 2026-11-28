@@ -1,0 +1,4 @@
+solver:
+  ignore:
+  - fontconfig #: { auxdep: "It doesn't make sense for fontconfig to induce a rebuild of cairo" }
+  - freetype #: { auxdep: "It doesn't make sense for freetype to induce a rebuild of cairo"}
