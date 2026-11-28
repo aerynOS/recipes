@@ -3,7 +3,7 @@
 
 releases:
   id: 7462
-  rss: ~
+  rss: https://github.com/opencontainers/runc/releases.atom
 security:
   # Last checked 2026-11-12
   cpe:
