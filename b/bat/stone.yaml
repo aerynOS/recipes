@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2025 AerynOS Developers
+# SPDX-FileCopyrightText: 2025 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : bat
-version     : "0.26.1"
-release     : 4
+version     : "0.27.0"
+release     : 5
 homepage    : https://github.com/sharkdp/bat
 upstreams   :
-    - https://github.com/sharkdp/bat/archive/refs/tags/v0.26.1.tar.gz : 4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9
+    - https://github.com/sharkdp/bat/archive/refs/tags/v0.27.0.tar.gz : e7da57c30a7bf3c731bbc95d0be29ef14bab9e26ef8f0871df8ccaee241678dc
 summary     : A cat(1) clone with wings
 description : |
     A cat(1) clone with syntax highlighting and Git integration.
@@ -17,8 +17,14 @@ networking  : true
 setup       : |
     %cargo_fetch
 build       : |
+    # build.rs renders the manpage and shell completions into this directory
+    export BAT_ASSETS_GEN_DIR="%(workdir)/generated"
     %cargo_build
 install     : |
     %cargo_install
+    %install_file generated/assets/completions/bat.bash %(installroot)%(bashcompletionsdir)/%(name)
+    %install_file generated/assets/completions/bat.fish %(installroot)%(fishcompletionsdir)/%(name).fish
+    %install_file generated/assets/completions/bat.zsh %(installroot)%(zshcompletionsdir)/_%(name)
+    %install_file generated/assets/manual/bat.1 %(installroot)%(mandir)/man1/%(name).1
 check       : |
     %cargo_test
