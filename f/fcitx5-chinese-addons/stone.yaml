@@ -1,13 +1,13 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-chinese-addons
-version     : "5.1.15"
-release     : 3
+version     : "5.1.16"
+release     : 4
 homepage    : https://github.com/fcitx/fcitx5-chinese-addons
 upstreams   :
-    - https://github.com/fcitx/fcitx5-chinese-addons/archive/refs/tags/5.1.15.tar.gz:
-        hash: 26bb518bc269cc9d661c33bd572924e0f966b5bd8b197c24b14c5038ffea87ef
+    - https://github.com/fcitx/fcitx5-chinese-addons/archive/refs/tags/5.1.16.tar.gz:
+        hash: 4ac555eae3e2a684ebe6131214664858d8c3b407084b8fca35827df69bdbdf55
         unpackdir: fcitx5
     - https://download.fcitx-im.org/data/py_stroke-20250329.tar.gz:
         hash: c1a7ca7225d3614ab83353fc827503006a980447762018f53760425d7b5303a6
