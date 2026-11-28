@@ -5,7 +5,6 @@
 		"m17n-lib": {
 			"build-depends": [
 				"binary(bison)",
-				"binary(objdump)",
 				"gettext-devel",
 				"pkgconfig(fontconfig)",
 				"pkgconfig(freetype2)",
@@ -82,7 +81,6 @@
 		"m17n-lib-devel": {
 			"build-depends": [
 				"binary(bison)",
-				"binary(objdump)",
 				"gettext-devel",
 				"pkgconfig(fontconfig)",
 				"pkgconfig(freetype2)",
@@ -126,6 +124,6 @@
 		}
 	},
 	"source-name": "m17n-lib",
-	"source-release": "2",
-	"source-version": "1.8.6"
+	"source-release": "3",
+	"source-version": "1.8.7"
 }
