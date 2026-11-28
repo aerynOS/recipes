@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+releases:
+  id: 5413
+  rss: https://github.com/nginx/nginx/releases.atom
+security:
+  cpe:
+  - vendor: f5
+    product: nginx
+  - vendor: f5
+    product: nginx_open_source
