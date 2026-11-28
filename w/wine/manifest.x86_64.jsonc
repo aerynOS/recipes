@@ -2642,6 +2642,8 @@
 				"/usr/include/wine/windows/dxgiformat.idl",
 				"/usr/include/wine/windows/dxgitype.h",
 				"/usr/include/wine/windows/dxgitype.idl",
+				"/usr/include/wine/windows/dxprogrammablecapture.h",
+				"/usr/include/wine/windows/dxprogrammablecapture.idl",
 				"/usr/include/wine/windows/dxva.h",
 				"/usr/include/wine/windows/dxva2api.h",
 				"/usr/include/wine/windows/dxva2api.idl",
@@ -4145,6 +4147,6 @@
 		}
 	},
 	"source-name": "wine",
-	"source-release": "43",
-	"source-version": "11.22"
+	"source-release": "44",
+	"source-version": "11.23"
 }
