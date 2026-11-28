@@ -2,11 +2,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-unikey
-version     : "5.1.12"
-release     : 1
+version     : "5.1.13"
+release     : 2
 homepage    : https://github.com/fcitx/fcitx5-unikey
 upstreams   :
-    - https://download.fcitx-im.org/fcitx5/fcitx5-unikey/fcitx5-unikey-5.1.12.tar.zst : eeeae2990657a1b51a3499454173dce7c8dad94789ab0d8e9db710ad7a522a36
+    - https://download.fcitx-im.org/fcitx5/fcitx5-unikey/fcitx5-unikey-5.1.13.tar.zst : 81bebd497544f703a7c81773e5328245859f34a692c7fbce375a9db6974f1ece
 summary     : Unikey (Vietnamese Input Method) engine support for Fcitx
 description : |
     Unikey is a Vietnamese input method engine for Fcitx 5.
