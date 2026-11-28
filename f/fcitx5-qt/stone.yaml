@@ -1,12 +1,12 @@
-# SPDX-FileCopyrightText: 2026 AerynOS Developers
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
 # SPDX-License-Identifier: MPL-2.0
 
 name        : fcitx5-qt
-version     : "5.1.16"
-release     : 6
+version     : "5.1.17"
+release     : 7
 homepage    : https://github.com/fcitx/fcitx5-qt
 upstreams   :
-    - https://github.com/fcitx/fcitx5-qt/archive/refs/tags/5.1.16.tar.gz : 94883b1f5501b9e8e994ce1790932750457d284dae992603cb40675c00eedea5
+    - https://github.com/fcitx/fcitx5-qt/archive/refs/tags/5.1.17.tar.gz : 6c919e9e5a4c5525aaf11727bfb37cb92b3107a8a880f3e331443816806c54f9
 summary     : Qt library and IM module for fcitx5
 description : |
     Qt library and IM module for fcitx5
