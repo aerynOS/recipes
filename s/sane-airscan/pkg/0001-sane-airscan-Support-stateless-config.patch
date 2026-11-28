@@ -1,0 +1,29 @@
+From e800f77fcf217cdee6d3ea8e0bfc501e226b9746 Mon Sep 17 00:00:00 2001
+From: David Wales <daviewales@disroot.org>
+Date: Thu, 26 Nov 2026 08:18:02 +1100
+Subject: [PATCH] sane-airscan: Support stateless config
+
+Use the same stateless directory as sane, as sane-airscan is a sane
+backend.
+---
+ airscan-conf.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/airscan-conf.c b/airscan-conf.c
+index 71ed3ab..4399b8c 100644
+--- a/airscan-conf.c
++++ b/airscan-conf.c
+@@ -479,6 +479,10 @@ conf_load (void)
+         dir_list = str_assign(dir_list, s);
+     }
+ 
++    /* Append stateless default directory */
++    dir_list = str_terminate(dir_list, ':');
++    dir_list = str_append(dir_list, "/usr/share/defaults/sane");
++
+     /* Append default directories */
+     dir_list = str_terminate(dir_list, ':');
+     dir_list = str_append(dir_list, CONFIG_SANE_CONFIG_DIR);
+-- 
+2.56.1
+
