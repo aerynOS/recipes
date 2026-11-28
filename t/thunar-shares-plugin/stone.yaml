@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : thunar-shares-plugin
+version     : "0.5.0"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/thunar/start
+upstreams   :
+    - https://archive.xfce.org/src/thunar-plugins/thunar-shares-plugin/0.5/thunar-shares-plugin-0.5.0.tar.xz : 34d4d69d413e63837c5083506b4dbf65f1fd2efe17667b1d7ad0699e1e2eb07d
+summary     : Thunar plugin to quickly share a folder using Samba without requiring root access.
+description : |
+    Thunar plugin to quickly share a folder using Samba without requiring root access.
+license     : GPL-2.0-or-later
+builddeps   :
+    - pkgconfig(libxfce4ui-2)
+    - pkgconfig(thunarx-3)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfwl4
+version     : "4.21.1~git.16d2626"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfwl4/start
+upstreams   :
+    #- https://archive.xfce.org/src/xfce/xfwl4/4.21/xfwl4-4.21.1.tar.xz : fee9a4777009bdbee160fd9e247d99060a26ef933e942303f7689d19cf6441ff
+    - https://gitlab.xfce.org/xfce/xfwl4/-/archive/16d26268597c7b9eab594c69130adc0a57f3cc6d/xfwl4-16d26268597c7b9eab594c69130adc0a57f3cc6d.tar.gz : 235fc4105238e690f84693dfab9bfd4086cfedfb8dae3a74b63ce49409fff199
+    - https://gitlab.xfce.org/xfce/xfce-wayland-protocols/-/archive/cd309d60870853197a0057a3dec16102a3959311/xfce-wayland-protocols-cd309d60870853197a0057a3dec16102a3959311.tar.gz : 3d72717961083320e1956a38dcd018dcd6e7d8125b6fb954d73fcd9eeec068a1
+summary     : Wayland compositor for xfce4
+description : |
+    Wayland compositor for xfce4
+license     : GPL-3.0-or-later
+networking  : true
+builddeps   :
+    - binary(rustc)
+    - binary(msgfmt)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gtk+-3.0)
+    - pkgconfig(libxfce4kbd-private-3)
+    - pkgconfig(libdisplay-info)
+    - pkgconfig(libdrm)
+    - pkgconfig(gbm)
+    - pkgconfig(libinput)
+    - pkgconfig(libseat)
+rundeps     :
+    - xfwm4-themes
+setup       : |
+    cp ../xfce-wayland-protocols-cd309d60870853197a0057a3dec16102a3959311.tar.gz/* resources/xfce-wayland-protocols/ -v
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install

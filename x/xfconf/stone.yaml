@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 aerynOS Developers
+# SPDX-License-Identifier: MPL-2.0
+
+name        : xfconf
+version     : "4.21.2"
+release     : 1
+homepage    : https://docs.xfce.org/xfce/xfconf/start
+upstreams   :
+    - https://archive.xfce.org/src/xfce/xfconf/4.21/xfconf-4.21.2.tar.xz : 99aa4366e909ba7b9f746aba48b610b9e9d2933aeb283c7fa5f37a7c3dc7a3a6
+summary     : D-Bus-based configuration storage system
+description : |
+    D-Bus-based configuration storage system
+license     : GPL-2.0-or-later
+builddeps   :
+    - pkgconfig(gobject-introspection-1.0)
+    - pkgconfig(libxfce4util-1.0)
+setup       : |
+    %meson
+build       : |
+    %meson_build
+install     : |
+    %meson_install
